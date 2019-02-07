@@ -1,6 +1,6 @@
 # Installation
 
-::: warning COMPATIBILITY NOTE
+::: tip COMPATIBILITY NOTE
 Jesse requires Node.js >= 8 and NPM >= 5. But it is highly recommended to always use the latest LTS version. 
 :::
 
@@ -30,4 +30,4 @@ Then move into where you want to create your project folder and run:
 ```bash
 jesse init name-of-the-folder
 ```
-`name-of-the-folder` being of course whatever you desire. This will create a folder named as `name-of-the-folder`, install all the dependencies and make it ready to jump into development. 
+`name-of-the-folder` being of course whatever you desire. This creates a folder named as `name-of-the-folder`, install all the dependencies and make it ready to jump into development. 
