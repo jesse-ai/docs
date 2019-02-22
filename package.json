@@ -4,8 +4,8 @@
     "version": "0.0.1",
     "description": "Documentation site for Jesse framework.",
     "scripts": {
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs"
+        "docs:dev": "vuepress dev",
+        "docs:build": "vuepress build"
     },
     "author": "Sully Fischer <fischersully@gmail.com>",
     "license": "AGPL-3.0-or-later",
