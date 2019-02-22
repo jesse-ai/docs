@@ -17,7 +17,9 @@ module.exports = {
             '/',
             ['/docs/', 'Introduction'],
             ['/docs/installation', 'Installation'],
-            // ['/docs/installation', 'Installation']
+            ['/docs/directory-structure', 'Directory Structure'],
+            ['/docs/indicators', 'Indicators'], 
+            ['/docs/helpers', 'Helpers']
         ]
     }
 };
