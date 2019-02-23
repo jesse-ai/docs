@@ -25,7 +25,7 @@ module.exports = {
             },
             {
                 text: 'Roadmap',
-                link: 'https://github.com/jesse-ai/jesse/projects/1'
+                link: '/docs/roadmap'
             },
             {
                 text: 'Github',
@@ -38,7 +38,8 @@ module.exports = {
             ['/docs/installation', 'Installation'],
             ['/docs/directory-structure', 'Directory Structure'],
             ['/docs/indicators', 'Indicators'],
-            ['/docs/helpers', 'Helpers']
+            ['/docs/helpers', 'Helpers'], 
+            ['/docs/roadmap', 'Roadmap']
         ]
     }
 };
