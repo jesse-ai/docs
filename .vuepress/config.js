@@ -13,7 +13,6 @@ module.exports = {
         docsRepo: 'jesse-ai/docs',
         docsBranch: 'master',
         editLinks: true,
-        editLinkText: 'Help us improve this page!',
 
         nav: [{
                 text: 'Home',
@@ -22,10 +21,6 @@ module.exports = {
             {
                 text: 'Documentation',
                 link: '/docs/'
-            },
-            {
-                text: 'Roadmap',
-                link: '/docs/roadmap'
             },
             {
                 text: 'Github',
