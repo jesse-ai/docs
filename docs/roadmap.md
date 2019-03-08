@@ -1,14 +1,18 @@
 # Roadmap 
-Here you can find both the features that has been added to Jesse along the way, and those I'm working on to implement. 
+Here you can find both the features that has been added to Jesse along the way, and those I'm planning to implement in coming months. 
 
 ## March 
-- Write more documentation. 
-- Write a Medium article introducing Jesse's features and API for defining strategies.
+- Significantly boost the performance of "back-test" +  "Indicators calculations". 
+- Implement a new strategy using EMA and RSI indicators. 
+- Implement a helper to manage risk when setting the position-size per trade. 
+- TODO: Add support for database as storage. 
+- TODO: Implement "candle fetcher" mode
 
-## February: 
+## February
+- Make Jesse's source code public at [github.com/jesse-ai/jesse](https://github.com/jesse-ai/jesse).
 - Define a clear API for strategy implementation. 
-- Get documentation site up and running at https://jesse-ai.com. 
-
-## Added Features: 
-- Support multiple exchange. 
-- Initial implementation of a dashboard for both backTest and liveTrade modes. 
+- Get documentation site up and running at [jesse-ai.com](https://jesse-ai.com). 
+- Define an API for defining strategies. 
+- Implement "Strategy Router". 
+- Boost the performance of back-test simulations. 
+- Implement the "Indicators" service with a super simple usage API. 
