@@ -2,11 +2,13 @@
 Here you can find both the features that has been added to Jesse along the way, and those I'm planning to implement in coming months. 
 
 ## March 
-- Significantly boost the performance of "back-test" +  "Indicators calculations". 
+- Significantly boost the performance of "back-test" + "Indicators calculations". 
 - Implement a new strategy using EMA and RSI indicators. 
 - Implement a helper to manage risk when setting the position-size per trade. 
-- TODO: Add support for database as storage. 
-- TODO: Implement "candle fetcher" mode
+- Add support for database as storage. 
+- Implement "import" mode for fetching historical candles from exchanges. 
+- Add strategy expectancy calculations into statistics.
+- TODO: Write more documentation. 
 
 ## February
 - Make Jesse's source code public at [github.com/jesse-ai/jesse](https://github.com/jesse-ai/jesse).

@@ -31,7 +31,9 @@ module.exports = {
             '/',
             ['/docs/', 'Introduction'],
             ['/docs/installation', 'Installation'],
-            ['/docs/directory-structure', 'Directory Structure'],
+            ['/docs/import', 'Importing Candles'],
+            ['/docs/backtest', 'Back Testing'],
+            ['/docs/livetrade', 'Live Trading'],
             ['/docs/indicators', 'Indicators'],
             ['/docs/helpers', 'Helpers'], 
             ['/docs/roadmap', 'Roadmap']

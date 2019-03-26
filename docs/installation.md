@@ -28,4 +28,4 @@ Then move into where you want to create your project folder and run:
 ```bash
 jesse init my-project
 ```
-`my-project` being of course whatever you desire. This creates a folder named as `my-project`, install all the dependencies and make it ready to jump into development. 
+`my-project` being of course whatever you desire. This creates a folder named as `my-project`, installs all the dependencies, generates all the goodies you need to jump into developing your own algo-trading system. 
