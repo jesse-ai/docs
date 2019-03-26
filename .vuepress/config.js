@@ -36,7 +36,8 @@ module.exports = {
             ['/docs/livetrade', 'Live Trading'],
             ['/docs/indicators', 'Indicators'],
             ['/docs/helpers', 'Helpers'], 
-            ['/docs/roadmap', 'Roadmap']
+            ['/docs/roadmap', 'Roadmap'], 
+            ['/docs/license', 'License']
         ]
     }
 };
