@@ -7,9 +7,9 @@ Assuming you have already set your desired exchange in `.env` file, run:
 npm run import
 ```
 
-Just answer the following questions: 
+Now, answer the following questions: 
 
-1. Just pick your target symbol(s) using space and when you're done, press Enter:
+1. Pick your target symbol(s) using space and when you're done, press Enter:
 
 ![symbols](../docs/imgs/import-0.png)
 
