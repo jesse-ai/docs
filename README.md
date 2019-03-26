@@ -5,15 +5,17 @@ tagline: An advanced algo-trading framework
 actionText: Get Started →
 actionLink: /docs/
 features:
-    - title: Easy and Simple
-      details: Time is money. Especially in trading! Which is why every feature in Jesse has been designed to be super easy to get started with. You'll be able to get started in matter of minutes.
-    - title: HFT Supported
+    - title: Simplicity
+      details: Time is money. Especially in trading! Which is why every feature in Jesse has been designed to be super easy to get started with. In fact, you'll be able to get started in only a few minutes.
+    - title: HFT
       details: Thanks to Jesse's ability to connect to markets via a real-time connection, it allows you to trade both candlesticks and the current price (high-frequency trading). 
-    - title: Multiple Time Frames 
-      details: If you've every manually traded on markets, you know the value of trading with multiple timeframes. It is crucial to be able to say "when BTC is bullish in 3h time-frame, look for long trades in 15m time-frame."
-    - title: Multiple positions
-      details: One of the first basics in risk-management is to trade more than one asset at the same time. This "easy-to-say" feature is something algo-trading bots and platforms have been missing for long. It gets even necessary if your trading strategy requires to "when ETH is bullish, look to long XRP".
-    - title: All Types Of Orders
+    - title: Statistics 
+      details: A fully functional and automated statistics system to get useful info about your strategy. PNL, R, expectancy, etc. Also, you'll get logs for trades and orders per backtest. 
+    - title: Time Frame(s)
+      details: Professional traders know it is essential to use more than one time frame at the same time. You need to be able to say "Look for long trades only when the bigger time frame is bullish."
+    - title: Orders
       details: Jesse supports all types of standard market orders for both "live trade" and "back test" modes. That includes "MARKET", "LIMIT", "STOP", and even "TRAILING-STOP". 
+    - title: Symbol(s) 
+      details: It is a basic risk-management rule to trade more than one asset at the same time. This "easy-to-say" feature is something algo-trading bots and platforms have been missing for long. 
 footer: AGPL Licensed | Copyright © 2019 jesse-ai.com 
 ---
