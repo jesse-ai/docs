@@ -3,11 +3,13 @@ Here you can find both the features that has been added to Jesse along the way, 
 
 ## March 
 - Significantly boost the performance of "back-test" + "Indicators calculations". 
-- Implement a new strategy using EMA and RSI indicators. 
+- Implement a new strategy. 
 - Implement a helper to manage risk when setting the position-size per trade. 
 - Add support for database as storage. 
 - Implement "import" mode for fetching historical candles from exchanges. 
 - Add strategy expectancy calculations into statistics.
+- TODO: Implement RSI. 
+- TODO: Implement Stochastic RSI. 
 - TODO: Write more documentation. 
 
 ## February

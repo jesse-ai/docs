@@ -19,3 +19,10 @@ features:
       details: It is a basic risk-management rule to trade more than one asset at the same time. This "easy-to-say" feature is something algo-trading bots and platforms have been missing for long. 
 footer: AGPL Licensed | Copyright © 2019 jesse-ai.com 
 ---
+
+## Community 
+We're trying to create a community of ours, to be a part of it: 
+
+- Join Jesse's [Slack channel](https://join.slack.com/t/jesse-plo4416/shared_invite/enQtNTExOTc3NTU2NDM0LWUzMjMwMjM1MDNjMzY1MGEyMGFlYjM4ZTYzN2U2OTJkNGVmZTYzOWIzNWU3MzZkZDI1YzRhODNjZDkzMjcyYjk). 
+- To report issues, or send PRs, check out the [Github page](https://github.com/jesse-ai/jesse).
+- If none of above works for you for some reason, contact me directly via my gmail at `fischersully`.
