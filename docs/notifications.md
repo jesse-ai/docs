@@ -7,7 +7,7 @@ Jesse provides support for sending notifications to delivery channels. At the mo
 To receive Telegram notifications you need:
 
 -   A Telegram bot
--   The ID of your Telegram account that wishes to receive the notifications
+-   The ID of the Telegram account that wishes to receive the notifications
 
 ### Creating a bot
 
