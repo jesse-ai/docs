@@ -7,9 +7,9 @@ Here you can find both the features that has been added to Jesse along the way, 
 -   Implement Stochastic RSI indicator.
 -   Implement a swing-trading strategy.
 -   Implement output for TradingView's Pine Editor to make it easier to analyse trades manually.
--   Improte Statistics service.
+-   Improve Statistics service.
 -   Implement SMA indicator.
--   TODO: implement support for mutiple symbols and time frames.
+-   TODO: implement support for multiple symbols and time frames.
 
 ## March
 
