@@ -5,7 +5,7 @@ module.exports = {
         [
             '@vuepress/google-analytics',
             {
-                'ga': 'UA-135004813-1'
+                ga: 'UA-135004813-1'
             }
         ]
     ],
@@ -14,7 +14,8 @@ module.exports = {
         docsBranch: 'master',
         editLinks: true,
 
-        nav: [{
+        nav: [
+            {
                 text: 'Home',
                 link: '/'
             },
@@ -35,10 +36,11 @@ module.exports = {
             ['/docs/backtest', 'Back Testing'],
             ['/docs/livetrade', 'Live Trading'],
             ['/docs/indicators', 'Indicators'],
-            ['/docs/helpers', 'Helpers'], 
-            ['/docs/notifications', 'Notifications'], 
-            ['/docs/roadmap', 'Roadmap'], 
+            ['/docs/helpers', 'Helpers'],
+            ['/docs/notifications', 'Notifications'],
+            ['/docs/logs', 'Logging'],
+            ['/docs/roadmap', 'Roadmap'],
             ['/docs/license', 'License']
         ]
     }
-};
+}
