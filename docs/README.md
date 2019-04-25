@@ -14,7 +14,7 @@ TODO...
 
 A few features of Jesse worth mentioning are:
 
--   Easy to get started with in minutes.
+-   Easy to get started within minutes.
 -   Provides access to indicators for varies time frames and symbols, with the easiest syntax possible.
 -   Support for high-frequency trading strategies.
 -   Support for all types of standard market orders.
