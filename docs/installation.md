@@ -1,7 +1,7 @@
 # Installation
 
 ::: tip COMPATIBILITY NOTE
-Jesse requires Node.js >= 8 and NPM >= 5. But it is highly recommended to always use the latest LTS version.
+Jesse requires Node.js >= 10 and NPM >= 6. Jesse is being heavily tested on LTS versions after each release. Thus, I advise you not you use it on earlier node versions even if does work.
 :::
 
 First install jesse globally from npm by running:
