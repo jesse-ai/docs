@@ -35,6 +35,7 @@ module.exports = {
             ['/docs/import', 'Importing Candles'],
             ['/docs/backtest', 'Back Testing'],
             ['/docs/livetrade', 'Live Trading'],
+            ['/docs/strategies', 'Strategies'],
             ['/docs/indicators', 'Indicators'],
             ['/docs/helpers', 'Helpers'],
             ['/docs/notifications', 'Notifications'],
