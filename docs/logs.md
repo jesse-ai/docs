@@ -16,9 +16,17 @@ const Sentry = require('@sentry/node');
 Sentry.init({ dsn: 'https://sad2kjfn23asjkd4fkjsadfjkasdjfk@sentry.io/1234567' });
 ```
 
-Copy the value for `dsn` in this example being `https://sad2kjfn23asjkd4fkjsadfjkasdjfk@sentry.io/1234567` and set it in your project's `.env` file for `SENTRY_DSN`.
+Copy the value for `dsn` and set it in your project's `.env` file for `SENTRY_DSN`:
 
-7. Finally, you can now enable Sentry by setting `ENABLE_SENTRY` equal to `1` in your `.env` file.
+```
+SENTRY_DSN=https://sad2kjfn23asjkd4fkjsadfjkasdjfk@sentry.io/1234567
+```
+
+7. Finally, you can now enable Sentry by setting `ENABLE_SENTRY` equal to `1` in your `.env` file:
+
+```
+ENABLE_SENTRY=1
+```
 
 ## Trades
 
