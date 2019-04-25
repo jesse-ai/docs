@@ -1,17 +1,23 @@
 # Live Trade
 
-Before running the Jesse on the live trade mode, make sure you have set the proper settings in your project's `.env` file. 
+Before running the Jesse on the live trade mode, make sure you have set the proper settings in your project's `.env` file.
 
+## Start Live Trade Session
 
-## Start Live Trade Session 
-To start Jesse in live trade mode, run: 
+To start Jesse in live trade mode, run:
 
 ```
 npm run livetrade
 ```
 
-## Customizing Dashboard 
+This will start the trading sessions. You will stay updated on Jesse's latest actions via notifications (Telegram), and of course the live trade dashboard which looks like:
+
+![symbols](../docs/imgs/livetrade-dashboard.png)
+
+## Customizing Dashboard
+
 While live trading, you'll see Jesse's beautiful dashboard that reports latest warnings, errors, orders, traders, open positions, candles, etc. You can also customize your dashboard. The guide is below, and expands by pressing `h`:
+
 ```
 Usage: Press h to hide help
   > press ctrl + c to terminate
