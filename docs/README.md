@@ -24,7 +24,6 @@ A few features of Jesse worth mentioning are:
 -   A fully functional and automated statistics system to get useful info about your strategy.
 -   Trade multiple symbols at one session.
 -   A driver based notifications system.
--   Support for varies number of databases as storage such as MySQL, SQLite, PostgreSQL, CockroachDB, MongoDB, Oracle, Microsoft SQL Server, [etc](https://typeorm.io/).
 
 ## Is it open-source? Is it free?
 
