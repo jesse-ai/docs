@@ -2,6 +2,12 @@
 
 Here you can find both the features that has been added to Jesse along the way, and those I'm planning to implement in coming months.
 
+## May
+
+-   Switch database to PostgreSQL.
+-   Implement "WatchList" for logging custom values in both backtest logs and livetrade dashboard for a better monitoring experience.
+-   TODO: Implement backtest support for multiple time frames.
+
 ## April
 
 -   Implement Stochastic RSI indicator.
@@ -10,7 +16,7 @@ Here you can find both the features that has been added to Jesse along the way, 
 -   Improve Statistics service.
 -   Implement SMA indicator.
 -   Implement "upgrade" feature for CLI.
--   TODO: implement support for multiple symbols and time frames.
+-   Implement backtest support for multiple symbols.
 
 ## March
 
