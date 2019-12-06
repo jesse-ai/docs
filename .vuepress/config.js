@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Jesse AI',
-    description: 'An advanced trading framework for cryptocurrency markets.',
+    description: 'A Python trading framework for cryptocurrency markets.',
     plugins: [
         [
             '@vuepress/google-analytics',
@@ -29,18 +29,23 @@ module.exports = {
             }
         ],
         sidebar: [
-            '/',
             ['/docs/', 'Introduction'],
             ['/docs/installation', 'Installation'],
+            ['/docs/routes', 'Routing'],
+            {
+                title: 'Strategies', // required
+                path: '/docs/strategies/', // optional, which should be a absolute path.
+                collapsable: true, // optional, defaults to true
+                sidebarDepth: 1, // optional, defaults to 1
+                children: [['/docs/strategies/', 'Custom Strategies']]
+            },
             ['/docs/import', 'Importing Candles'],
             ['/docs/backtest', 'Back Testing'],
             ['/docs/livetrade', 'Live Trading'],
-            ['/docs/strategies', 'Strategies'],
             ['/docs/indicators', 'Indicators'],
             ['/docs/helpers', 'Helpers'],
             ['/docs/notifications', 'Notifications'],
             ['/docs/logs', 'Logging'],
-            ['/docs/roadmap', 'Roadmap'],
             ['/docs/license', 'License']
         ]
     }
