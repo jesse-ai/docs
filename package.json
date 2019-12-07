@@ -2,7 +2,7 @@
     "name": "jesse-docs",
     "private": true,
     "version": "0.0.1",
-    "description": "Documentation site for Jesse framework.",
+    "description": "Codebase for https://docs.jesse-ai.com",
     "scripts": {
         "docs:dev": "vuepress dev",
         "docs:build": "vuepress build"
@@ -11,6 +11,7 @@
     "license": "AGPL-3.0-or-later",
     "devDependencies": {
         "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
-        "vuepress": "^1.0.0-alpha.39"
+        "@vuepress/plugin-medium-zoom": "^1.2.0",
+        "vuepress": "^1.2.0"
     }
 }
