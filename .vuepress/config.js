@@ -39,7 +39,10 @@ module.exports = {
                 collapsable: true, // optional, defaults to true
                 sidebarDepth: 1, // optional, defaults to 1
                 children: [
-                    ['/docs/strategies/', 'Custom Strategies'],
+                    ['/docs/strategies/', 'Introduction'],
+                    ['/docs/strategies/entry-rules', 'Entry Rules'],
+                    ['/docs/strategies/generating-new-strategy', 'Generating new strategy'],
+                    ['/docs/strategies/events', 'Events'],
                     ['/docs/strategies/api', 'API reference']
                 ]
             },
