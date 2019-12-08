@@ -1,12 +1,10 @@
 # API reference
 
-There are many built-in methods you can use inside your custom strategy class. Here is a reference of them all.
+There are many built-in variables you can use inside your custom strategy class. Here is a reference of them all.
 
 ## price
 
 The current/closing price of the trading symbol at the trading time frame.
-
-**Type**: property method
 
 **Return Type**: float
 
@@ -28,8 +26,6 @@ Alias for [price](#price)
 
 The current candle's opening price.
 
-**Type**: property method
-
 **Return Type**: float
 
 **Example**:
@@ -47,8 +43,6 @@ def should_long(self):
 
 The current candle's high price.
 
-**Type**: property method
-
 **Return Type**: float
 
 **Example**:
@@ -64,8 +58,6 @@ def long(self):
 ## low
 
 The current candle's low price.
-
-**Type**: property method
 
 **Return Type**: float
 
@@ -85,8 +77,6 @@ def long(self):
 ## candle
 
 Returns current candle in the form of a numpy array.
-
-**Type**: property method
 
 **Return Type**: np.ndarray
 
