@@ -66,6 +66,17 @@ def long(self):
     self.take_profit = qty, self.high + 10
 ```
 
+::: tip Smart ordering system
+Notice that we did not have to define which order type to use. Jesse is smart enough to decide the type of the orders by itself.
+
+For example if it is for a long position, here's how Jesse decides:
+
+-   MARKET order: if `entry_price == current_price`
+-   LIMIT order: if `entry_price < current_price`
+-   STOP order: if `entry_price > current_price`
+
+:::
+
 ## short()
 
 Same as [long()](#long) but uses `self.sell` for entry instead of `self.buy`:
@@ -83,6 +94,7 @@ A working Example would be:
 def short(self):
     qty = 1
 
+    # opens position with a MARKET order
     self.sell = qty, self.price
     self.stop_loss = qty, self.high + 10
     self.take_profit = qty, self.low - 10
@@ -102,11 +114,48 @@ def short(self):
 
 ## should_cancel()
 
-TODO...
+**Return Type**: bool
+
+What this method is asking you is: Assuming that open position order has already been submitted but _not executed yet_, should it cancel it?
+
+::: tip
+After submitting orders for opening new positions either you'll enter a position immediately with a market order, or have to wait until your limit/stop order gets filled. This method is used for the second scenario.
+:::
+
+A good example would be for a trade we're trying to open a position when the price continues the uptrend:
+
+```py
+def should_long(self):
+    return True
+
+def long(self):
+    qty = 1
+    entry = self.high + 2
+
+    self.buy = qty, entry
+    self.stop_loss = qty, entry - 10
+    self.take_profit = qty, entry + 10
+```
+
+Since the entry price is above current price, Jesse will submit a stop order for entering this trade. If the price indeed rises we'll be fine, but what if a new candle is passed, and the price goes down? Then we would want the previous order to be cancelled and a new order submitted based on the high price of the new candle.
+
+To do this, we'll have to specify the `should_cancel()`:
+
+```py
+def should_cancel(self):
+    return True
+```
+
+In your strategy your may need to do some checking before deciding whether or not the previous open-position order is still valid or has to be canceled.
+
+::: tip
+`should_cancel()` only decides whether or not cancel the entry order. It does not affect your exit (take-profit and stop-loss) orders.
+:::
 
 ## Advanced methods
 
 TODO...
 
 before_execute(self)
+
 update_position(self)
