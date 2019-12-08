@@ -37,7 +37,7 @@ class AwesomeStrategy(Strategy):
         return False
 ```
 
-## Entering long trades
+## Entry rules
 
 The API has been designed for you to think like a trader, rather than a programmer. You need to think about strict entry rules however. For example, let's say we want to enter a long position if the current candle is a bullish candle:
 
@@ -83,3 +83,7 @@ def short(self):
 ```
 
 Notice that this time instead of `self.buy` we used `self.sell` to set entry quantity and price.
+
+## Events
+
+TODO...
