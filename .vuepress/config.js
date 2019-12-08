@@ -40,8 +40,8 @@ module.exports = {
                 sidebarDepth: 1, // optional, defaults to 1
                 children: [
                     ['/docs/strategies/', 'Introduction'],
-                    ['/docs/strategies/entry-rules', 'Entry Rules'],
                     ['/docs/strategies/generating-new-strategy', 'Generating new strategy'],
+                    ['/docs/strategies/entry-rules', 'Entry Rules'],
                     ['/docs/strategies/events', 'Events'],
                     ['/docs/strategies/api', 'API reference']
                 ]
