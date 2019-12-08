@@ -38,11 +38,16 @@ module.exports = {
                 path: '/docs/strategies/', // optional, which should be a absolute path.
                 collapsable: true, // optional, defaults to true
                 sidebarDepth: 1, // optional, defaults to 1
-                children: [['/docs/strategies/', 'Custom Strategies']]
+                children: [
+                    ['/docs/strategies/', 'Custom Strategies'],
+                    ['/docs/strategies/api', 'API reference']
+                ]
             },
             ['/docs/import', 'Importing Candles'],
             ['/docs/backtest', 'Back Testing'],
             ['/docs/livetrade', 'Live Trading'],
+            ['/docs/papertrade', 'Paper Trading'],
+            ['/docs/optimizing', 'Optimizing'],
             ['/docs/indicators', 'Indicators'],
             ['/docs/helpers', 'Helpers'],
             ['/docs/notifications', 'Notifications'],
