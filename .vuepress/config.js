@@ -32,6 +32,7 @@ module.exports = {
         sidebar: [
             ['/docs/', 'Introduction'],
             ['/docs/installation', 'Installation'],
+            ['/docs/configuration', 'Configuration'],
             ['/docs/routes', 'Routing'],
             {
                 title: 'Strategies', // required
@@ -46,13 +47,22 @@ module.exports = {
                     ['/docs/strategies/api', 'API reference']
                 ]
             },
+            {
+                title: 'Indicators', // required
+                path: '/docs/indicators/', // optional, which should be a absolute path.
+                collapsable: true,
+                sidebarDepth: 1,
+                children: [
+                    ['/docs/indicators/', 'Introduction'],
+                    ['/docs/indicators/reference', 'Indicators Reference']
+                ]
+            },
+            ['/docs/helpers', 'Helpers'],
             ['/docs/import', 'Importing Candles'],
             ['/docs/backtest', 'Back Testing'],
             ['/docs/livetrade', 'Live Trading'],
             ['/docs/papertrade', 'Paper Trading'],
             ['/docs/optimizing', 'Optimizing'],
-            ['/docs/indicators', 'Indicators'],
-            ['/docs/helpers', 'Helpers'],
             ['/docs/notifications', 'Notifications'],
             ['/docs/logs', 'Logging'],
             ['/docs/license', 'License']
