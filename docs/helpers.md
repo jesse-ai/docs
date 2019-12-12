@@ -14,6 +14,10 @@ Calculates the quantity based on the percent of the capital you're willing to ri
 
 This is probably the most important helper function that you're going to need in your strategies. You can play around with the formula at [positionsizingcalculator](https://positionsizingcalculator.com).
 
+```py
+risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price)
+```
+
 **Properties**:
 
 -   capital: float
