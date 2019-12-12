@@ -7,7 +7,7 @@ The default settings has been set to produce the same result as you would get on
 To get started make sure that the "indicators" package is imported:
 
 ```py
-import jesse.services.indicators as ta
+import jesse.indicators as ta
 ```
 
 And then use them in your strategies either as:
