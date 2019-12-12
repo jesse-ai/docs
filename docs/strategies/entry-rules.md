@@ -152,10 +152,45 @@ In your strategy your may need to do some checking before deciding whether or no
 `should_cancel()` only decides whether or not cancel the entry order. It does not affect your exit (take-profit and stop-loss) orders.
 :::
 
-## Advanced methods
+## Entering and/or exiting at multiple points
 
-TODO...
+So far we defined enter-once and exit-once strategy examples using only `long()` and `short()` methods. This may not be enough for your strategies. 
 
-before_execute(self)
+For entering/exiting at one point we defined **single tuples**. To enter/exit at multiple points all you need to do is to use **list of tuples** instead.
 
-update_position(self)
+Example of taking profit at two points:
+
+```py
+def long():
+    qty = 1
+
+    self.buy = qty, 100
+    self.stop_loss = qty, 80
+
+    # take-profit at two points
+    self.take_profit = [
+        (qty/2, 120),
+        (qty/2, 140)
+    ]
+```
+
+We could do the same for `self.stop_loss` if it makes sense in your strategy.
+
+Example of entering the trade at two points:
+
+```py
+def long():
+    qty = 1
+
+    # open position at $120 and increase it at $140
+    self.buy = [
+        (qty/2, 120),
+        (qty/2, 140)
+    ]
+    self.stop_loss = qty, 100
+    self.take_profit = qty, 160
+```
+
+What if we're not aware of our exact exit point at the time of entering the trade? For instance, it is a common case in trend-following strategies to exit when the trend has stopped. 
+
+Next section introduces the concept of events to fulfill this need.
