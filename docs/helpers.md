@@ -35,3 +35,5 @@ def long(self):
     self.stop_loss = qty, 80
     self.take_profit = qty, 150
 ```
+
+TODO...

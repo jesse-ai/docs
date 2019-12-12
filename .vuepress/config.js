@@ -44,6 +44,7 @@ module.exports = {
                     ['/docs/strategies/generating-new-strategy', 'Generating new strategy'],
                     ['/docs/strategies/entry-rules', 'Entry Rules'],
                     ['/docs/strategies/events', 'Events'],
+                    ['/docs/strategies/filters', 'Filters'],
                     ['/docs/strategies/api', 'API reference']
                 ]
             },

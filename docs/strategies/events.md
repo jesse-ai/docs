@@ -2,6 +2,10 @@
 
 TODO...
 
+before_execute(self)
+
+update_position(self) 
+
 on_cancel(self)
 
 on_open_position(self)

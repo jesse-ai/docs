@@ -116,3 +116,21 @@ volume = self.candle[5]
 ```
 
 **Also check**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
+
+<!-- TODO: -->
+<!-- ## is_reduced
+
+Has the size of position been reduced since it was opened. Useful for trades that exit in more that one points.
+
+**Return Type**: `bool` if position is open, `None` if position is closed.
+
+**Example**:
+
+```py
+def update_postion(self):
+    if self.is_long and
+``` -->
+
+<!-- TODO: is_increased -->
+
+TODO...
