@@ -42,7 +42,7 @@ module.exports = {
                 children: [
                     ['/docs/strategies/', 'Introduction'],
                     ['/docs/strategies/generating-new-strategy', 'Generating new strategy'],
-                    ['/docs/strategies/entry-rules', 'Entry Rules'],
+                    ['/docs/strategies/entering-and-exiting', 'Entering and exiting trades'],
                     ['/docs/strategies/events', 'Events'],
                     ['/docs/strategies/filters', 'Filters'],
                     ['/docs/strategies/api', 'API reference']

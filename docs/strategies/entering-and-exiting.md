@@ -1,4 +1,4 @@
-# Entry rules
+# Entering and exiting trades
 
 Deciding to enter a trade is nothing but a True of False decision.
 
@@ -193,4 +193,28 @@ def long():
 
 What if we're not aware of our exact exit point at the time of entering the trade? For instance, it is a common case in trend-following strategies to exit when the trend has stopped. 
 
-Next section introduces the concept of events to fulfill this need.
+Next section introduces the concept of [events](./events) to fulfill this need.
+
+## prepare()
+As explained in the [flowchart](./), this is the first function that gets called when a new candle is received. It is used for updating `self.vars` (custom variables) or any other action you might have in mind that needs to be done before your strategy gets executed. 
+
+**See also**: [vars](strategies/api.html#vars)
+
+
+## update_position() 
+Assuming that there's an open position, this method is used to update exit points, or to add to the size of the position if needed.
+
+Example of exiting the trade by implementing a trailing stop for take-profit: 
+```py 
+def update_position(self):
+    qty = self.position.qty 
+
+    # set stop-loss price $10 away from the high/low of the current candle
+    if is_long:
+        self.take_profit = qty, self.high - 10
+    else:
+        self.take_profit = qty, self.low + 10
+```
+
+<!-- TODO: add example for increasing the size of the position -->
+<!-- TODO: add example for updating the stop-loss -->
