@@ -32,5 +32,3 @@ class AwesomeStrategy(Strategy):
     def should_cancel(self):
         return False
 ```
-
-TODO...
