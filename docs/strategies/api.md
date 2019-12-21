@@ -149,7 +149,7 @@ Note that `average_entry_price` is only available after `long()` or `short()` is
 In other words, you cannot use it inside `should_long()` and `should_short()`.
 :::
 
-**Also check**: [self.average_take_profit](#average-take-profit), [average_stop_loss](#average-stop-loss)
+**Also check**: [average_take_profit](#average-take-profit), [average_stop_loss](#average-stop-loss)
 
 ## average\_stop\_loss
 
@@ -157,7 +157,7 @@ Same as [average_entry_price](#average-entry-price) but for stop-loss. The word 
 
 **Return Type**: float
 
-**Also check**: [average_entry_price](#average-entry-price), [self.average_take_profit](#average-take-profit)
+**Also check**: [average_entry_price](#average-entry-price), [average_take_profit](#average-take-profit)
 
 ## average\_take\_profit
 
@@ -165,7 +165,7 @@ Same as [average_entry_price](#average-entry-price) but for take-profit. The wor
 
 **Return Type**: float
 
-**Also check**: [average_entry_price](#average-entry-price), [self.average_stop_loss](#average-stop-loss)
+**Also check**: [average_entry_price](#average-entry-price), [average_stop_loss](#average-stop-loss)
 
 <!-- TODO: -->
 <!-- ## is_reduced
