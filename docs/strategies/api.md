@@ -117,6 +117,56 @@ volume = self.candle[5]
 
 **Also check**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
 
+## average\_entry\_price
+
+The average entry price; buy price for long and sell price for short positions. The word average indicates that in case you use more than one point to enter a position, this property returns the average value. 
+
+**Return Type**: float
+
+
+**Example**:
+```py
+def long(self):
+    qty = 2
+
+    # self.average_entry_price is equal to (100 + 120) / 2 == 110
+    self.buy = [
+        (1, 100), 
+        (1, 120)
+    ]
+    self.stop_loss = qty, 80
+    self.take_profit = qty, 140
+
+def filter_min_pnl(self):
+    min_pnl = 1
+    reward_per_qty = abs(self.average_take_profit - self.average_entry_price)
+    return (reward_per_qty / self.average_entry_price) * 100 > min_pnl
+```
+
+::: warning
+Note that `average_entry_price` is only available after `long()` or `short()` is executed. Hence, it is only supposed to be used in either filter functions or when the position is open. 
+
+In other words, you cannot use it inside `should_long()` and `should_short()`.
+:::
+
+**Also check**: [self.average_take_profit](#average-take-profit), [average_stop_loss](#average-stop-loss)
+
+## average\_stop\_loss
+
+Same as [average_entry_price](#average-entry-price) but for stop-loss. The word average indicates that in case you use more than one point for stop-loss, this property returns the average value. 
+
+**Return Type**: float
+
+**Also check**: [average_entry_price](#average-entry-price), [self.average_take_profit](#average-take-profit)
+
+## average\_take\_profit
+
+Same as [average_entry_price](#average-entry-price) but for take-profit. The word average indicates that in case you use more than one point for take-profit, this property returns the average value. 
+
+**Return Type**: float
+
+**Also check**: [average_entry_price](#average-entry-price), [self.average_stop_loss](#average-stop-loss)
+
 <!-- TODO: -->
 <!-- ## is_reduced
 
@@ -132,5 +182,8 @@ def update_postion(self):
 ``` -->
 
 <!-- TODO: is_increased -->
+<!-- TODO: vars -->
+<!-- TODO: is_long -->
+<!-- TODO: is_short -->
 
 TODO...
