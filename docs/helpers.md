@@ -8,7 +8,7 @@ Here's how to import helpers:
 import jesse.helpers as jh
 ```
 
-## risk_to_qty
+## risk\_to\_qty
 
 Calculates the quantity based on the percent of the capital you're willing to risk per trade.
 
