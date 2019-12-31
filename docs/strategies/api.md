@@ -13,7 +13,7 @@ The current/closing price of the trading symbol at the trading time frame.
 **Example**:
 
 ```py
-def long(self):
+def go_long(self):
     # buy 1 share at the current price (MARKET order)
     self.buy = 1, self.price
 ```
@@ -48,7 +48,7 @@ The current candle's high price.
 **Example**:
 
 ```py
-def long(self):
+def go_long(self):
     qty = 1
 
     # open position at 2 dollars above current candle's high
@@ -64,7 +64,7 @@ The current candle's low price.
 **Example**:
 
 ```py
-def long(self):
+def go_long(self):
     qty = 1
 
     # open position at 2 dollars above current candle's low
@@ -126,7 +126,7 @@ The average entry price; buy price for long and sell price for short positions. 
 
 **Example**:
 ```py
-def long(self):
+def go_long(self):
     qty = 2
 
     # self.average_entry_price is equal to (100 + 120) / 2 == 110
@@ -144,7 +144,7 @@ def filter_min_pnl(self):
 ```
 
 ::: warning
-Note that `average_entry_price` is only available after `long()` or `short()` is executed. Hence, it is only supposed to be used in either filter functions or when the position is open. 
+Note that `average_entry_price` is only available after `go_long()` or `go_short()` is executed. Hence, it is only supposed to be used in either filter functions or when the position is open. 
 
 In other words, you cannot use it inside `should_long()` and `should_short()`.
 :::
@@ -166,6 +166,14 @@ Same as [average_entry_price](#average-entry-price) but for take-profit. The wor
 **Return Type**: float
 
 **Also check**: [average_entry_price](#average-entry-price), [average_stop_loss](#average-stop-loss)
+
+## position
+
+The position object of the strategy. The 
+
+**Return Type**: Position
+
+**Also check**: [is_long](#is-long), [is_short](#is-short)
 
 <!-- TODO: -->
 <!-- ## is_reduced

@@ -30,7 +30,7 @@ The position has been reduced (but not closed) with the execution of either a st
 An example usage of this would be to move the stop-loss to break even after part of the position has been exited: 
 
 ```py 
-def long(self):
+def go_long(self):
     self.buy = 2, 100
     # take-profit in two points
     self.take_profit = [
@@ -48,7 +48,7 @@ The size of the position has been increased with the execution of order.
 
 This event is only fired if your strategy is entering positions in more than one point. For Example: 
 ```py
-def long(self):
+def go_long(self):
     self.buy = 2, 100
     self.take_profit = [
         # after this order is executed, on_increased_position() gets called

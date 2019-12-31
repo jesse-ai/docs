@@ -30,7 +30,7 @@ risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price)
 **Example**:
 
 ```py
-def long(self):
+def go_long(self):
     # risk 1% of the capital($10000) for a trade entering at $100 with the stop-loss at $80
     qty = jh.risk_to_qty(10000, 1, 100, 80)
     # qty == 5

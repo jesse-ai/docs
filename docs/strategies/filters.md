@@ -46,7 +46,7 @@ Having so many conditional statements in `should_long()`/`should_short()` is not
 You should keep your entry rules as simple as possible. You can then add filters per each special condition that you would like to avoid.
 
 ### 2. Filters have access to entry and exit points
-Entry rules are defined in `should_long()` and `should_short()` functions; however entry and exit points are defined in `long()` and `short()` functions. That means if you need to evaluate a condition based on entry and exit points, you have to do it in a filter instead. 
+Entry rules are defined in `should_long()` and `should_short()` functions; however entry and exit points are defined in `go_long()` and `go_short()` functions. That means if you need to evaluate a condition based on entry and exit points, you have to do it in a filter instead. 
 
 They say a picture worths a thousand words:
 

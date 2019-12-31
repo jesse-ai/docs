@@ -4,7 +4,7 @@ Deciding to enter a trade is nothing but a True of False decision.
 
 Jesse uses `should_long()` and `should_short()` methods which must return a boolean at all times.
 
-After making your mind about entering a trade, you need to come up with exact entry prices, and exit prices. Jesse uses `long()` and `short()` methods for that.
+After making your mind about entering a trade, you need to come up with exact entry prices, and exit prices. Jesse uses `go_long()` and `go_short()` methods for that.
 
 ## should_long()
 
@@ -42,12 +42,12 @@ def should_short(self):
 Obviously you cannot enter both a short and long position at the same time. Hence, `should_long()` and `should_short()` cannot return True at the same.
 :::
 
-## long()
+## go_long()
 
-Inside `long()` method you set your buy price (entry point), quantity (how much to buy), the stop-loss and take-profit (exit points) quantity and prices. The basic syntax is:
+Inside `go_long()` method you set your buy price (entry point), quantity (how much to buy), the stop-loss and take-profit (exit points) quantity and prices. The basic syntax is:
 
 ```py
-def long(self):
+def go_long(self):
     self.buy = qty, entry_price
     self.stop_loss = qty, stop_loss_price
     self.take_profit = qty, take_profit_price
@@ -58,7 +58,7 @@ def long(self):
 A working Example would be:
 
 ```py
-def long(self):
+def go_long(self):
     qty = 1
 
     self.buy = qty, self.price
@@ -77,12 +77,12 @@ For example if it is for a long position, here's how Jesse decides:
 
 :::
 
-## short()
+## go_short()
 
-Same as [long()](#long) but uses `self.sell` for entry instead of `self.buy`:
+Same as [go_long()](#go-long) but uses `self.sell` for entry instead of `self.buy`:
 
 ```py
-def short(self):
+def go_short(self):
     self.sell = qty, entry_price
     self.stop_loss = qty, stop_loss_price
     self.take_profit = qty, take_profit_price
@@ -91,7 +91,7 @@ def short(self):
 A working Example would be:
 
 ```py
-def short(self):
+def go_short(self):
     qty = 1
 
     # opens position with a MARKET order
@@ -102,13 +102,13 @@ def short(self):
 
 <!-- ## Margin trading
 
-`should_short()` and `short()` are used for shorting, which only possible if the market you're trading supports margin trading. In case it doesn't, you can turn off shorting by:
+`should_short()` and `go_short()` are used for shorting, which only possible if the market you're trading supports margin trading. In case it doesn't, you can turn off shorting by:
 
 ```py
 def should_short(self):
     return False
 
-def short(self):
+def go_short(self):
     pass
 ``` -->
 
@@ -128,7 +128,7 @@ A good example would be for a trade we're trying to open a position when the pri
 def should_long(self):
     return True
 
-def long(self):
+def go_long(self):
     qty = 1
     entry = self.high + 2
 
@@ -154,14 +154,14 @@ In your strategy your may need to do some checking before deciding whether or no
 
 ## Entering and/or exiting at multiple points
 
-So far we defined enter-once and exit-once strategy examples using only `long()` and `short()` methods. This may not be enough for your strategies. 
+So far we defined enter-once and exit-once strategy examples using only `go_long()` and `go_short()` methods. This may not be enough for your strategies. 
 
 For entering/exiting at one point we defined **single tuples**. To enter/exit at multiple points all you need to do is to use **list of tuples** instead.
 
 Example of taking profit at two points:
 
 ```py
-def long():
+def go_long():
     qty = 1
 
     self.buy = qty, 100
@@ -179,7 +179,7 @@ We could do the same for `self.stop_loss` if it makes sense in your strategy.
 Example of entering the trade at two points:
 
 ```py
-def long():
+def go_long():
     qty = 1
 
     # open position at $120 and increase it at $140
