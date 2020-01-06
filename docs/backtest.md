@@ -71,7 +71,7 @@ And here's the image (click to zoom or open image in a new tab to see the full s
 
 
 ## Detailed trade data
-Every time a backtest command is launched a json file is produced with all the trade data. File are stored in the `storage/trades/` folder. This is an example of the content of the files:
+Every time a backtest command is launched a json file is produced with all the trade data. File are stored in the `storage/logs/trades/` folder. This is an example of the content of the files:
 
 ```
 {
