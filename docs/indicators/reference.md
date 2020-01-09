@@ -34,6 +34,23 @@ ema(exchange, symbol, timeframe, period)
 
 **Return Type**: float
 
+## bollinger_bands
+
+Bollinger Bands (BBANDS)
+
+```py
+bollinger_bands(exchange, symbol, timeframe, period)
+```
+
+**Properties**:
+
+-   exchange: str
+-   symbol: str
+-   timeframe: str
+-   period: int - default: 20
+
+**Return Type**: tuple(upperband: float, middleband: float, lowerband: float)
+
 ## atr
 
 Average true range (ATR)
