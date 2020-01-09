@@ -5,7 +5,7 @@
 Simple moving average (SMA)
 
 ```py
-sma(exchange, symbol, timeframe, period)
+sma(exchange, symbol, timeframe, period=5)
 ```
 
 **Properties**:
@@ -22,7 +22,7 @@ sma(exchange, symbol, timeframe, period)
 Exponential moving average (EMA)
 
 ```py
-ema(exchange, symbol, timeframe, period)
+ema(exchange, symbol, timeframe, period=5)
 ```
 
 **Properties**:
@@ -39,7 +39,7 @@ ema(exchange, symbol, timeframe, period)
 Bollinger Bands (BBANDS)
 
 ```py
-bollinger_bands(exchange, symbol, timeframe, period)
+bollinger_bands(exchange, symbol, timeframe, period=20)
 ```
 
 **Properties**:
@@ -56,7 +56,7 @@ bollinger_bands(exchange, symbol, timeframe, period)
 Average true range (ATR)
 
 ```py
-atr(exchange, symbol, timeframe, period)
+atr(exchange, symbol, timeframe, period=14)
 ```
 
 **Properties**:
@@ -73,7 +73,7 @@ atr(exchange, symbol, timeframe, period)
 Average Directional Movement Index (ADX)
 
 ```py
-adx(exchange, symbol, timeframe, period)
+adx(exchange, symbol, timeframe, period=14)
 ```
 
 **Properties**:
@@ -90,7 +90,7 @@ adx(exchange, symbol, timeframe, period)
 The Stochastic Oscillator
 
 ```py
-stoch(exchange, symbol, timeframe, period)
+stoch(exchange, symbol, timeframe, period=14)
 ```
 
 **Properties**:
@@ -109,7 +109,7 @@ stoch(exchange, symbol, timeframe, period)
 Stochastic relative strength index (SRSI)
 
 ```py
-srsi(exchange, symbol, timeframe, period)
+srsi(exchange, symbol, timeframe, period=14)
 ```
 
 **Properties**:
