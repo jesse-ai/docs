@@ -51,6 +51,23 @@ atr(exchange, symbol, timeframe, period)
 
 **Return Type**: float
 
+## adx
+
+Average Directional Movement Index (ADX)
+
+```py
+adx(exchange, symbol, timeframe, period)
+```
+
+**Properties**:
+
+-   exchange: str
+-   symbol: str
+-   timeframe: str
+-   period: int - default: 14
+
+**Return Type**: float
+
 ## stoch
 
 The Stochastic Oscillator
