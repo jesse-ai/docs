@@ -102,6 +102,23 @@ adx(exchange, symbol, timeframe, period=14)
 
 **Return Type**: float
 
+## rsi
+
+Relative Strength Index (RSI)
+
+```py
+rsi(exchange, symbol, timeframe, period=14)
+```
+
+**Properties**:
+
+-   exchange: str
+-   symbol: str
+-   timeframe: str
+-   period: int - default: 14
+
+**Return Type**: float
+
 ## stoch
 
 The Stochastic Oscillator
