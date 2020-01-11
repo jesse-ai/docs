@@ -51,6 +51,23 @@ bollinger_bands(exchange, symbol, timeframe, period=20)
 
 **Return Type**: tuple(upperband: float, middleband: float, lowerband: float)
 
+## bollinger_bands_width
+
+Bollinger Bands Width (BBW)
+
+```py
+bollinger_bands_width(exchange, symbol, timeframe, period=20)
+```
+
+**Properties**:
+
+-   exchange: str
+-   symbol: str
+-   timeframe: str
+-   period: int - default: 20
+
+**Return Type**: float
+
 ## atr
 
 Average true range (ATR)
