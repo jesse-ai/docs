@@ -34,6 +34,7 @@ module.exports = {
             ['/docs/installation', 'Installation'],
             ['/docs/configuration', 'Configuration'],
             ['/docs/routes', 'Routing'],
+            ['/docs/import-candles', 'Importing Candles'],
             {
                 title: 'Strategies', // required
                 path: '/docs/strategies/', // optional, which should be a absolute path.
@@ -59,7 +60,6 @@ module.exports = {
                 ]
             },
             ['/docs/helpers', 'Helpers'],
-            ['/docs/import-candles', 'Importing Candles'],
             ['/docs/backtest', 'Back Testing'],
             // ['/docs/livetrade', 'Live Trading'],
             // ['/docs/papertrade', 'Paper Trading'],
