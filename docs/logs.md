@@ -1,6 +1,6 @@
 # Logging
 
-Usually the statistics that are shown after each backtest, and the charts that are generated using the `--chart` flag are enough for developing strategies. However, if you need further details you may use log files.
+Usually the statistics that are shown after each backtest, the debugging output using the `--debug` flag, and the charts that are generated using the `--chart` flag are enough for developing strategies. However, if you need further details you may use log files.
 
 After each execution a log file is created with full details of the trades. 
 
