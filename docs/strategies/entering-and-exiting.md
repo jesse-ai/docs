@@ -215,6 +215,3 @@ def update_position(self):
     else:
         self.take_profit = qty, self.low + 10
 ```
-
-<!-- TODO: add example for increasing the size of the position -->
-<!-- TODO: add example for updating the stop-loss -->
