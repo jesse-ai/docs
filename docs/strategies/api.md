@@ -287,10 +287,13 @@ def update_position(self):
 ```
 
 
+## vars
+
+`vars` is the name a dictionary object that you may want to use as a placeholder for your variables. 
+
+Of course you could define your own variables inside `__init__` instead, but that would bring a concern about naming your variables to prevent conflict with built-in variables and properties.
+
+Using `vars` would also make it easier for debugging.
 
 
-<!-- TODO: vars -->
-
-<br><br><br>
-<hr>
-TODO...
+**Return Type**: dict
