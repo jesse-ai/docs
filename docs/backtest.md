@@ -53,17 +53,17 @@ Executed backTest simulation in:  11.121385097503662
 
 ## Charts
 
-Performing backtest with the `chart` flag would print out charts for the balance change in the backtest period and displaying buy/sell points.
+Performing backtest with the `chart` flag would print out charts for the balance change in the backtest period and buy/sell points on the asset price chart.
 
 ```
 jesse backtest 2019-01-01 2019-10-30 --chart
 ```
 
-Now this time at the end of the statistics Jesse prints the path to the chart image:
+When the backtest is finished, Jesse prints the path to the chart image:
 
 ```
 Chart output saved to:
-/Users/sully/Codes/jesse/jesse/storage/logs/charts/BT-2019-12-07T16:13:14.png
+storage/logs/charts/BT-2019-12-07T16:13:14.png
 ```
 
 And here's the image (click to zoom or open image in a new tab to see the full size):
@@ -78,6 +78,6 @@ Add the `--tradingview` flag to the backtesting command:
 jesse backtest 2019-01-01 2019-10-30 --tradingview
 ```
 
-At the end of the process it will print out the path to a .txt file with a pine script as content. Then you can copy and paste that script in the [TradingView's](https://www.tradingview.com) Pine Editor as a new study script, adding it in the chart you will see entries and exits of the strategy.
+At the end of the process it will print out the path to a .txt file with a pine script as content. Then open the file, copy its content and paste it inside [TradingView's](https://www.tradingview.com) Pine Editor and click on "Add to chart" and you will see entries and exits of the strategy.
 
-Make sure to see the chart in the same timeframe as backtest simulation was executed on.
+Make sure to see the chart in the same timeframe as backtest simulation was executed on. Also, only last ~30 trades are displayed because of a limit on TradingView's side.
