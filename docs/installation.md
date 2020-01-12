@@ -19,3 +19,32 @@ Check out `README.md` file in project's root and follow the instructions for ins
 ## Docker image
 
 TODO...
+
+## Create a new project
+
+Assuming that you have installed the `jesse` package, now it's time to create a project of your own that Jesse can read from:
+
+```sh
+jesse make-project name-of-project
+```
+
+This will create a new project containing only the files and folders that you actually need:
+
+```sh
+├── config.py # file where you enter your database credentials, etc
+├── routes.py # file where routes are defined in 
+├── storage # folder containing logs, chart images, etc
+│   ├── charts
+│   ├── genetics
+│   ├── logs
+│   │   └── trades
+│   ├── temp
+│   │   ├── backtest
+│   │   └── optimize
+│   └── trading-view-pine-editor
+└── strategies # folder where you define your strategies
+    ├── Strategy01
+    │   └─ __init__.py
+    └── Strategy02
+        └─ __init__.py
+```
