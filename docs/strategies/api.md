@@ -169,29 +169,128 @@ Same as [average_entry_price](#average-entry-price) but for take-profit. The wor
 
 ## position
 
-The position object of the strategy. The 
+The position object of the trading route. 
+
+::: tip
+Please note that each route instance has only one position witch is accessible inside the strategy. It doesn't mean that you cannot trade two positions using one strategy; to do that simply create two routes using the same strategy but with different symbols. 
+:::
 
 **Return Type**: Position
 
+```py
+# only useful properties are mentioned 
+class Position:
+    # the (average) entry price of the position | None if position is close
+    entry_price: float
+    # the quantity of the current position | 0 if position is close
+    qty: float
+    # the timestamp of when the position opened | None if position is close
+    opened_at: float
+    # The value of open position
+    value: float
+    # The type of open position, which can be either short, long, or close
+    type: str
+    # The PNL of the position
+    pnl: float
+    # The PNL% of the position
+    pnl_percentage: float
+    # Is the current position open? (alias for self.is_open)
+    is_open: bool
+    # Is the current position close? (alias for self.is_close)
+    is_close: bool
+```
+
+**Example:**
+```py
+# if position is in profit by 10%, update stop-loss to break even
+def update_position(self):
+    if self.position.pnl_percentage >= 10:
+        self.stop_loss = self.position.qty, self.position.entry_price
+```
+
 **Also check**: [is_long](#is-long), [is_short](#is-short)
 
-<!-- TODO: -->
-<!-- ## is_reduced
 
-Has the size of position been reduced since it was opened. Useful for trades that exit in more that one points.
+## is_long
 
-**Return Type**: `bool` if position is open, `None` if position is closed.
+Is the type of the open position (current trade) `long`?
+
+**Return Type**: bool
+
+
+## is_short
+
+Is the type of the open position (current trade) `short`?
+
+**Return Type**: bool
+
+
+## is_reduced
+
+Has the size of the open position been reduced since it was opened? 
+
+This is useful for strategies that for example exit in two points, and you'd like to update something only if the first half has been exited.
+
+**Return Type**: bool
 
 **Example**:
 
 ```py
-def update_postion(self):
-    if self.is_long and
-``` -->
+def go_long(self):
+    self.buy = 1, self.price
+    self.stop_loss = 1, self.price - 10
+    self.take_profit = [
+        (0.5, self.price + 10), 
+        (0.5, self.price + 20) 
+    ]
 
-<!-- TODO: is_increased -->
+def update_position(self):
+    # even though we have especified the exit price 
+    # for the second half, we now updated to exit with SMA20
+    if self.is_reduced:
+        self.take_profit = 0.5, self.SMA20
+
+@property
+def SMA20(self):
+    return ta.sma(self.exchange, self.symbol, self.timeframe, 20)
+```
+
+
+## is_increased
+
+Has the size of the open position been increased since it was opened? 
+
+**Return Type**: bool
+
+This property is useful if: 
+1. You have been trying to open position in more than one point:
+```py
+def go_long(self):
+    self.buy = [
+        (0.5, self.price + 10),
+        # after this point self.is_increased will be True
+        (0.5, self.price + 20), 
+        (0.5, self.price + 30), 
+    ]
+```
+
+2. You decide to increase the size of the open position because of some factor of yours:
+
+```py
+def update_position(self):
+    # momentum_rank being a method you've defined somewhere that
+    # examines the momentum of the current trend or something
+    if self.momentum_rank > 100:
+        if self.is_long:
+            # buy qty of 1 for the current price (MARKET order)
+            self.buy = 1, self.price
+```
+
+
+
+
 <!-- TODO: vars -->
-<!-- TODO: is_long -->
-<!-- TODO: is_short -->
 
+<br><br><br>
+<hr>
 TODO...
