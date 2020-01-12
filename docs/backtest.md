@@ -1,6 +1,6 @@
 # Backtest simulation
 
-Assuming your already have [imported](./import.md) historical candles, and have set correct [routes](./routes.md) for your strategy, run:
+Assuming your already have [imported](./import-candles.md) historical candles, and have set correct [routes](./routes.md) for your strategy, run:
 
 ```
 jesse backtest start_date finish_date

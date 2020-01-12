@@ -59,14 +59,14 @@ module.exports = {
                 ]
             },
             ['/docs/helpers', 'Helpers'],
-            ['/docs/import', 'Importing Candles'],
+            ['/docs/import-candles', 'Importing Candles'],
             ['/docs/backtest', 'Back Testing'],
-            ['/docs/livetrade', 'Live Trading'],
-            ['/docs/papertrade', 'Paper Trading'],
-            ['/docs/optimizing', 'Optimizing'],
+            // ['/docs/livetrade', 'Live Trading'],
+            // ['/docs/papertrade', 'Paper Trading'],
+            // ['/docs/optimizing', 'Optimizing'],
             ['/docs/notifications', 'Notifications'],
             ['/docs/logs', 'Logging'],
-            ['/docs/license', 'License']
+            // ['/docs/license', 'License']
         ]
     }
 }
