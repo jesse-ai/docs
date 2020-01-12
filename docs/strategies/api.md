@@ -125,7 +125,7 @@ The average entry price; buy price for long and sell price for short positions. 
 
 
 **Example**:
-```py
+```py{14}
 def go_long(self):
     qty = 2
 
@@ -235,7 +235,7 @@ This is useful for strategies that for example exit in two points, and you'd lik
 
 **Example**:
 
-```py
+```py{12}
 def go_long(self):
     self.buy = 1, self.price
     self.stop_loss = 1, self.price - 10
