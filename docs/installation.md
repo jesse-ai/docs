@@ -1,9 +1,5 @@
 # Installation
 
-::: tip COMPATIBILITY NOTE
-Jesse requires Python >= `3.7`
-:::
-
 Here are the required stack:
 
 -   Python >= `3.6` (`3.8` is recommended)
@@ -12,13 +8,29 @@ Here are the required stack:
 -   ta-lib >= `0.4`
 -   pip >= `19.3.0`
 
-## Manual installation
+In case you already have the required stack installed on your environment, just skip this page and continue with the `README` of the repository. 
 
-Check out `README.md` file in project's root and follow the instructions for installation on Ubuntu 18.04.
+## Installer script
+
+I have created a bash script [hosted on Github](https://github.com/jesse-ai/stack-installer) that installs all the required stack that was mentioned above on a fresh instance of Ubuntu 18.04:
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-18.04.sh)"
+```
 
 ## Docker image
+In case prefer to use [Docker](https://docker.com/) for any reason, I have prepared a Docker image that has all the required stack installed on it:
 
-TODO...
+```sh
+# pull image
+docker pull sullyfischer/jesse-ai:python38
+
+# run it for the first time
+docker run -it --name jesse sullyfischer/jesse-ai:python38 /bin/bash
+# to reattach to created container
+docker restart jesse && docker exec -it jesse bash
+```
+
 
 ## Create a new project
 
