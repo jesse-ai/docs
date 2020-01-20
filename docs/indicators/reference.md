@@ -172,3 +172,23 @@ macd(exchange, symbol, timeframe)
 -   timeframe: str
 
 **Return Type**: tuple(macd: float, macd_signal: float, macd_hist: float)
+
+## ichimoku_cloud
+
+Ichimoku Cloud
+
+```py
+ichimoku_cloud(exchange, symbol, timeframe, conversion_line_period=9, base_line_period=26, lagging_line_period=52, displacement=26)
+```
+
+**Properties**:
+
+- exchange: str
+- symbol: str
+- timeframe: str
+- conversion_line_period: int - default=9
+- base_line_period: int - default=26
+- lagging_line_period: int - default=52
+- displacement: - default=26
+
+**Return Type**: tuple(conversion_line: float, base_line: float, span_a: float, span_b: float)
