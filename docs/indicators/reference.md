@@ -49,9 +49,9 @@ bollinger_bands(exchange, symbol, timeframe, period=20)
 -   timeframe: str
 -   period: int - default: 20
 
-**Return Type**: tuple(upperband: float, middleband: float, lowerband: float)
+**Return Type**: BollingerBands(upperband: float, middleband: float, lowerband: float)
 
-## bollinger_bands_width
+## bollinger\_bands\_width
 
 Bollinger Bands Width (BBW)
 
@@ -134,9 +134,9 @@ stoch(exchange, symbol, timeframe, period=14)
 -   timeframe: str
 -   period: int - default: 14
 
-**Return Type**: tuple(K: float, D: float)
+**Return Type**: Stochastic(k: float, d: float)
 
-`K` and `D` are the variable names in TradingView. `K` is the fast moving average of the RSI, and `D` is the slow moving average.
+`k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
 
 ## srsi
 
@@ -153,9 +153,9 @@ srsi(exchange, symbol, timeframe, period=14)
 -   timeframe: str
 -   period: int - default: 14
 
-**Return Type**: tuple(K: float, D: float)
+**Return Type**: StochasticRSI(k: float, d: float)
 
-`K` and `D` are the variable names in TradingView. `K` is the fast moving average of the RSI, and `D` is the slow moving average.
+`k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
 
 ## macd
 
@@ -171,7 +171,7 @@ macd(exchange, symbol, timeframe)
 -   symbol: str
 -   timeframe: str
 
-**Return Type**: tuple(macd: float, macd_signal: float, macd_hist: float)
+**Return Type**: MACD(macd: float, signal: float, hist: float)
 
 ## ichimoku_cloud
 
@@ -191,4 +191,4 @@ ichimoku_cloud(exchange, symbol, timeframe, conversion_line_period=9, base_line_
 - lagging_line_period: int - default=52
 - displacement: - default=26
 
-**Return Type**: tuple(conversion_line: float, base_line: float, span_a: float, span_b: float)
+**Return Type**: IchimokuCloud(conversion_line: float, base_line: float, span_a: float, span_b: float)
