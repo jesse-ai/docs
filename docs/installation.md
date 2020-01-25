@@ -29,6 +29,8 @@ docker pull sullyfischer/jesse-ai:python38
 docker run -it --name jesse sullyfischer/jesse-ai:python38 /bin/bash
 # to reattach to created container
 docker restart jesse && docker exec -it jesse bash
+# start Redis and PostgreSQL
+sudo service postgresql start && sudo service redis-server start
 ```
 
 
