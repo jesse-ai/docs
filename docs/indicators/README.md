@@ -1,6 +1,6 @@
 # Indicators
 
-Jesse offers many indicators using other libraries such as the [ta-lib](http://ta-lib.org). The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in Jupyter Notebooks.
+Jesse offers many indicators using other libraries such as the [ta-lib](http://ta-lib.org). The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in [Jupyter Notebooks](/docs/jupyter-notebooks).
 
 The default settings has been set to produce the same result as you would get on [TradingView](http://tradingview.com).
 

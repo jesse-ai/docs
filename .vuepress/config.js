@@ -65,6 +65,7 @@ module.exports = {
             // ['/docs/papertrade', 'Paper Trading'],
             // ['/docs/optimizing', 'Optimizing'],
             ['/docs/notifications', 'Notifications'],
+            ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/logs', 'Logging'],
             // ['/docs/license', 'License']
         ]
