@@ -1,39 +1,27 @@
 # Indicators
 
-Jesse offers many indicators using the [ta-lib](http://ta-lib.org) library under the hood. It makes it easier by handling candles by itself, and returning values that you actually need in your strategies.
+Jesse offers many indicators using other libraries such as the [ta-lib](http://ta-lib.org). The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in Jupyter Notebooks.
 
 The default settings has been set to produce the same result as you would get on [TradingView](http://tradingview.com).
 
-To get started make sure that the "indicators" package is imported:
+To get started make sure that the `indicators` module is imported:
 
 ```py
 import jesse.indicators as ta
 ```
 
-And then use them in your strategies either as:
+First parameter of all indicators is `candles` with the type of a numpy array. 
+
+When developing strategies, usually all you care about is the indicator's value for current candle. To get just that, simply pass `self.candles`:
 
 ```py
-ta.sma('Binance', 'BTCUSDT', '4h', 8)
+ta.sma(self.candles, 8)
 ```
 
-Or define a property methods that are easier to use:
+To get indicator values for candles other than your trading route (in case you have defined more than one route in your `routes.py` file), use `self.get_candles()` method:
 
 ```py
-@property
-def sma8(self):
-    return ta.sma('Binance', 'BTCUSDT', '4h', 8)
-
-# and then use it as self.sma8
-```
-
-## Flexible parameters
-
-It is recommended that when possible, write strategies that would work on all symbols, timeframes, and exchanges. To do that, we could rewrite above example using [self.exchange](strategies/api.html#exchange), [self.symbol](strategies/api.html#symbol), [self.timeframe](strategies/api.html#timeframe):
-
-```py
-@property
-def sma8(self):
-    return ta.sma(self.exchange, self.symbol, self.timeframe, 8)
+ta.sma(self.get_candles('Binance', 'BTCUSDT', '4h'), 8)
 ```
 
 ## Named Tuples

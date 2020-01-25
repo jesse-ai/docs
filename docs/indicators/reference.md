@@ -1,19 +1,22 @@
 # Indicators Reference
 
+Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research Jupyter Notebooks. 
+
+When developing strategies however, you probably want to keep it as `False` to return only the indicator value for current trading candle.
+
 ## sma
 
 Simple moving average (SMA)
 
 ```py
-sma(exchange, symbol, timeframe, period=5)
+sma(candles, period=5, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
--   period: int - default: 5
+-   candles: np.ndarray
+-   period: int - default=5
+-   sequential: bool - default=False
 
 **Return Type**: float
 
@@ -22,15 +25,14 @@ sma(exchange, symbol, timeframe, period=5)
 Exponential moving average (EMA)
 
 ```py
-ema(exchange, symbol, timeframe, period=5)
+ema(candles, period=5, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
 -   period: int - default: 5
+-   sequential: bool - default=False
 
 **Return Type**: float
 
@@ -39,32 +41,30 @@ ema(exchange, symbol, timeframe, period=5)
 Bollinger Bands (BBANDS)
 
 ```py
-bollinger_bands(exchange, symbol, timeframe, period=20)
+bollinger_bands(candles, period=20, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
 -   period: int - default: 20
+-   sequential: bool - default=False
 
-**Return Type**: BollingerBands(upperband: float, middleband: float, lowerband: float)
+**Return Type**: BollingerBands(upperband, middleband, lowerband)
 
-## bollinger\_bands\_width
+## bollinger_bands_width
 
 Bollinger Bands Width (BBW)
 
 ```py
-bollinger_bands_width(exchange, symbol, timeframe, period=20)
+bollinger_bands_width(candles, period=20, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
 -   period: int - default: 20
+-   sequential: bool - default=False
 
 **Return Type**: float
 
@@ -73,15 +73,14 @@ bollinger_bands_width(exchange, symbol, timeframe, period=20)
 Average true range (ATR)
 
 ```py
-atr(exchange, symbol, timeframe, period=14)
+atr(candles, period=14, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
 -   period: int - default: 14
+-   sequential: bool - default=False
 
 **Return Type**: float
 
@@ -90,15 +89,14 @@ atr(exchange, symbol, timeframe, period=14)
 Average Directional Movement Index (ADX)
 
 ```py
-adx(exchange, symbol, timeframe, period=14)
+adx(candles, period=14, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
 -   period: int - default: 14
+-   sequential: bool - default=False
 
 **Return Type**: float
 
@@ -107,15 +105,14 @@ adx(exchange, symbol, timeframe, period=14)
 Relative Strength Index (RSI)
 
 ```py
-rsi(exchange, symbol, timeframe, period=14)
+rsi(candles, period=14, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
 -   period: int - default: 14
+-   sequential: bool - default=False
 
 **Return Type**: float
 
@@ -124,17 +121,16 @@ rsi(exchange, symbol, timeframe, period=14)
 The Stochastic Oscillator
 
 ```py
-stoch(exchange, symbol, timeframe, period=14)
+stoch(candles, period=14, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
 -   period: int - default: 14
+-   sequential: bool - default=False
 
-**Return Type**: Stochastic(k: float, d: float)
+**Return Type**: Stochastic(k, d)
 
 `k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
 
@@ -143,17 +139,16 @@ stoch(exchange, symbol, timeframe, period=14)
 Stochastic relative strength index (SRSI)
 
 ```py
-srsi(exchange, symbol, timeframe, period=14)
+srsi(candles, period=14, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
 -   period: int - default: 14
+-   sequential: bool - default=False
 
-**Return Type**: StochasticRSI(k: float, d: float)
+**Return Type**: StochasticRSI(k, d)
 
 `k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
 
@@ -162,33 +157,30 @@ srsi(exchange, symbol, timeframe, period=14)
 Moving average convergence divergence (MACD)
 
 ```py
-macd(exchange, symbol, timeframe)
+macd(candles, sequential=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str
+-   candles: np.ndarray
+-   sequential: bool - default=False
 
-**Return Type**: MACD(macd: float, signal: float, hist: float)
+**Return Type**: MACD(macd, signal, hist)
 
 ## ichimoku_cloud
 
 Ichimoku Cloud
 
 ```py
-ichimoku_cloud(exchange, symbol, timeframe, conversion_line_period=9, base_line_period=26, lagging_line_period=52, displacement=26)
+ichimoku_cloud(candles, conversion_line_period=9, base_line_period=26, lagging_line_period=52, displacement=26)
 ```
 
 **Properties**:
 
-- exchange: str
-- symbol: str
-- timeframe: str
-- conversion_line_period: int - default=9
-- base_line_period: int - default=26
-- lagging_line_period: int - default=52
-- displacement: - default=26
+-   candles: np.ndarray
+-   conversion_line_period: int - default=9
+-   base_line_period: int - default=26
+-   lagging_line_period: int - default=52
+-   displacement: - default=26
 
-**Return Type**: IchimokuCloud(conversion_line: float, base_line: float, span_a: float, span_b: float)
+**Return Type**: IchimokuCloud(conversion_line, base_line, span_a, span_b)
