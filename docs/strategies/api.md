@@ -74,7 +74,7 @@ def go_long(self):
     self.buy = qty, self.low - 2
 ```
 
-## candle
+## current_candle
 
 Returns current candle in the form of a numpy array.
 
@@ -96,23 +96,23 @@ Returns current candle in the form of a numpy array.
 ```py
 from pprint import pprint
 
-pprint(self.candle)
+pprint(self.current_candle)
 # array([1.54638714e+12, 3.79409000e+03, 3.79714000e+03, 3.79800000e+03,
 #        3.79400000e+03, 1.30908000e+02])
 
-pprint(self.candle.dtype)
+pprint(self.current_candle.dtype)
 # dtype('float64')
 ```
 
 You could get timestamp, open, close, high, low, and volume from candle array:
 
 ```py
-timestamp = self.candle[0]
-open_price = self.candle[1]
-close_price = self.candle[2]
-high_price = self.candle[3]
-low_price = self.candle[4]
-volume = self.candle[5]
+timestamp = self.current_candle[0]
+open_price = self.current_candle[1]
+close_price = self.current_candle[2]
+high_price = self.current_candle[3]
+low_price = self.current_candle[4]
+volume = self.current_candle[5]
 ```
 
 **Also check**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
