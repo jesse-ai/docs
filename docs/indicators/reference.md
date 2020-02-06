@@ -36,6 +36,54 @@ ema(candles, period=5, sequential=False)
 
 **Return Type**: float
 
+## tema
+
+Triple Exponential Moving Average (TEMA)
+
+```py
+tema(candles, period=9, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 9
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## trix
+
+Triple exponential moving average indicator (TRIX)
+
+```py
+trix(candles, period=18, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 18
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## vwma
+
+Volume Weighted Moving Average (VWMA)
+
+```py
+vwma(candles, period=20, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   sequential: bool - default=False
+
+**Return Type**: float
+
 ## bollinger_bands
 
 Bollinger Bands (BBANDS)
