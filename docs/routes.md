@@ -46,7 +46,7 @@ The `exchange` and `symbol` pairs must be unique.
 
 That means you CAN trade `BTCUSDT` at the same time in both `Binance` and `Bitfinex`; but you CANNOT trade `BTCUSDT` in `Binance` on both `1h` and `4h` timeframes at the same time.
 
-Why? Because exchanges support only one position per symbol and we don't want to keep it simple.
+Why? Because exchanges support only one position per symbol and we want to keep it simple.
 :::
 
 ## Using multiple time frames
