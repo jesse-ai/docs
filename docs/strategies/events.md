@@ -37,26 +37,31 @@ def go_long(self):
         (1, 120), 
         (1, 140)
     ]
-    self.stop_loss = 2, 80
 
 def on_reduced_position(self):
     self.stop_loss = 1, 100
 ```
 
 ## on\_increased\_position
-The size of the position has been increased with the execution of order. 
+The size of the position has been increased with the execution of an order. 
 
 This event is only fired if your strategy is entering positions in more than one point. For Example: 
 ```py
 def go_long(self):
-    self.buy = 2, 100
-    self.take_profit = [
-        # after this order is executed, on_increased_position() gets called
-        (1, 120), 
-        # after this order is executed, on_take_profit() gets called
-        (1, 140)
+    self.buy = [
+        (1, 100), 
+        (1, 90), 
     ]
-    self.stop_loss = 2, 80
 ```
 
 Or if you're updating the `self.buy`/`self.sell` inside the `update_position` function to increase the size of the position after it is already open.
+
+```py
+def update_position(self):
+    # increase position size if the long
+    # position is in more than 2% profit
+    if self.is_long and self.position.pnl_percentage > 2:
+        self.buy = self.position.qty, self.price
+```
+
+<!-- ## on\_route\_open\_position -->
