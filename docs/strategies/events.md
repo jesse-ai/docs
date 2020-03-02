@@ -45,7 +45,8 @@ def on_reduced_position(self):
 ## on\_increased\_position
 The size of the position has been increased with the execution of an order. 
 
-This event is only fired if your strategy is entering positions in more than one point. For Example: 
+This event is fired if your strategy is entering positions in more than one point. For Example: 
+
 ```py
 def go_long(self):
     self.buy = [
@@ -54,7 +55,7 @@ def go_long(self):
     ]
 ```
 
-Or if you're updating the `self.buy`/`self.sell` inside the `update_position` function to increase the size of the position after it is already open.
+Or if you're updating the `self.buy`/`self.sell` inside the `update_position` method to increase the size of the position after it is already open.
 
 ```py
 def update_position(self):
