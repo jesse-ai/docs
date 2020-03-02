@@ -1,12 +1,12 @@
-# Helpers
+# Utilities
 
-Jesse includes a variety of helper functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
-
-Here's how to import helpers:
+These utility functions are helpful when writing strategies. The `utils` module is imported for you when you generate a new strategy but here's the code anyways:
 
 ```py
-import jesse.helpers as jh
+from jesse import utils
 ```
+
+Here's a reference for all the methods:
 
 ## risk\_to\_qty
 
@@ -32,9 +32,14 @@ risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price)
 ```py
 def go_long(self):
     # risk 1% of the capital($10000) for a trade entering at $100 with the stop-loss at $80
-    qty = jh.risk_to_qty(10000, 1, 100, 80)
-    # qty == 5
-
+    risk_perc = 1
+    entry = 100
+    stop = 80
+    capital = 10000
+    # or we could access capital dynamically:
+    capital = self.capital 
+    qty = utils.risk_to_qty(capital, risk_perc, entry, stop)
+    
     self.buy = qty, 100
     self.stop_loss = qty, 80
     self.take_profit = qty, 150

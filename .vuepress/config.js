@@ -59,7 +59,7 @@ module.exports = {
                     ['/docs/indicators/reference', 'Indicators Reference']
                 ]
             },
-            ['/docs/helpers', 'Helpers'],
+            ['/docs/utils', 'Utilities'],
             ['/docs/backtest', 'Back Testing'],
             // ['/docs/livetrade', 'Live Trading'],
             // ['/docs/papertrade', 'Paper Trading'],
