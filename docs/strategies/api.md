@@ -289,7 +289,7 @@ def update_position(self):
 
 ## vars
 
-`vars` is the name a dictionary object that you may want to use as a placeholder for your variables. 
+`vars` is the name of a dictionary object present in your strategy that you can use as a placeholder for your variables. 
 
 Of course you could define your own variables inside `__init__` instead, but that would bring a concern about naming your variables to prevent conflict with built-in variables and properties.
 
@@ -297,3 +297,16 @@ Using `vars` would also make it easier for debugging.
 
 
 **Return Type**: dict
+
+
+## shared_vars
+
+`shared_vars` is a dictionary object just like `vars` except that it is shared among all your [routes](/docs/routes). 
+
+You would need `shared_vars` for writing strategies that require more than one route, and when those routes need to communicate with each other. 
+
+`shared_vars` could act as a bridge. One example could be in a pairs trading strategy which requires two routes to communicate with each other (one goes long when the other goes short)
+
+**Return Type**: dict
+
+**Also check**: [vars](#vars)
