@@ -355,4 +355,30 @@ You would need `shared_vars` for writing strategies that require more than one r
 
 **Also check**: [vars](#vars)
 
+## liquidate
+
+This method is used to quickly liquidate the open position using a market order. It is a shortcut to use instead of writing:
+```py
+if self.position.pnl > 0:
+    self.take_profit = self.position.qty, self.price
+else:
+    self.stop_loss = self.position.qty, self.price
+```
+
+It is often used within the `update_position` method of strategies that close positions in specific conditions.
+
+**Example**:
+
+Let's open a long position in first index, and close it in 10th:
+```py
+def update_position(self):
+    if self.index == 10:
+        self.liquidate()
+
+def should_long(self):
+    return self.index == 0
+
+def go_long(self):
+    self.buy = 1, self.price
+```
 
