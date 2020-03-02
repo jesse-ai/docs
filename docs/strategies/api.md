@@ -117,6 +117,50 @@ volume = self.current_candle[5]
 
 **Also check**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
 
+## candles
+
+This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
+
+**Return Type:** np.ndarray
+
+**Example**:
+```py
+# get SMA with period of 8 for current trading route
+sma8 = ta.sma(self.candles, 8)
+```
+
+## get_candles
+
+This method returns candles for the exchange, symbol, and timeframe that you specify unlike `self.candles` which returns candles for current route. 
+
+```py
+get_candles(exchange: str, symbol: str, timeframe: str)
+```
+
+For simple strategies that trade only one route and use only one timeframe, `self.candles` is probably the way to go. Otherwise use `self.get_candles()`.
+
+**Return Type:** np.ndarray
+
+**Example**:
+```py
+@property
+def big_trend(self):
+    """
+    Uses SRSI indicator to determine the bigger trend of the market. 
+    Trading timeframe is "4h" so we use "1D" timeframe as the anchor timeframe.
+    """
+    k, d = ta.srsi(self.get_candles(self.exchange, self.symbol, '1D'))
+
+    if k > d:
+        return 1
+    elif k < d:
+        return -1
+    else:
+        return 0
+```
+
+**Also check**: [candles](#candles)
+
 ## average\_entry\_price
 
 The average entry price; buy price for long and sell price for short positions. The word average indicates that in case you use more than one point to enter a position, this property returns the average value. 
@@ -310,3 +354,5 @@ You would need `shared_vars` for writing strategies that require more than one r
 **Return Type**: dict
 
 **Also check**: [vars](#vars)
+
+
