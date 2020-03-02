@@ -161,6 +161,27 @@ def big_trend(self):
 
 **Also check**: [candles](#candles)
 
+## index
+
+The `index` property is a counter that can be used to detect how many times the strategy has been executed. Imagine we're doing a loop in backtest mode, and this index is the index of that loop. Below examples can explain it better.
+
+**Return Type**: int
+
+**Example:**
+
+```py
+# example #1: go long when the first candle is received
+def should_long(self):
+    return self.index == 0
+
+# example #2: let's say there are some expensive operations in a  
+# method I've defined called do_slow_updates() (like machine learning stuff)
+# that I'd like to do once a day while trading "1m" candles
+def prepare(self):
+    if self.index % 1440 == 0:
+        do_slow_updates()
+```
+
 ## average\_entry\_price
 
 The average entry price; buy price for long and sell price for short positions. The word average indicates that in case you use more than one point to enter a position, this property returns the average value. 
@@ -369,7 +390,8 @@ It is often used within the `update_position` method of strategies that close po
 
 **Example**:
 
-Let's open a long position in first index, and close it in 10th:
+Let's open a long position at first [index](#index), and close it at 10th:
+
 ```py
 def update_position(self):
     if self.index == 10:
