@@ -1,6 +1,6 @@
 # Indicators Reference
 
-Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks). 
+Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
 
 When developing strategies however, you probably want to keep it as `False` to return only the indicator value for current trading candle.
 
@@ -205,12 +205,16 @@ srsi(candles, period=14, sequential=False)
 Moving average convergence divergence (MACD)
 
 ```py
-macd(candles, sequential=False)
+macd(candles, fast_period=12, slow_period=26, signal_period=9, signal_type='EMA', sequential=False)
 ```
 
 **Properties**:
 
 -   candles: np.ndarray
+-   fast_period: int - default=12
+-   slow_period: int - default=26
+-   signal_period: int - default=9
+-   signal_type: str - default='EMA'
 -   sequential: bool - default=False
 
 **Return Type**: MACD(macd, signal, hist)
