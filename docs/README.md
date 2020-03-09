@@ -1,9 +1,9 @@
 # What is Jesse?
 
-Jeses is an advanced algo-trading framework which helps you to write trading strategies in Python, tune them using AI, backtest, and trade them on live markets.
+Jeses is an advanced algo-trading framework which helps you to write trading strategies in Python, tune them using AI, backtest, and trade them on live markets. It focuses on simplicity.
 
 ::: warning
-The official guide assumes basic level knowledge of Python. If you're beginner, please first check out [w3schools](https://www.w3schools.com/python/default.asp) to get started with Python syntax.
+This guide assumes you have basic knowledge of Python. In case you don't, please first check out [w3schools](https://www.w3schools.com/python/default.asp) to get started with Python syntax.
 :::
 
 ## Why do I need it?
@@ -18,13 +18,13 @@ TODO...
 
 A few features of Jesse worth mentioning are:
 
--   Easiest possible syntax for defining your strategies. Supports both entering at once, and in multiple points.
--   Provides access to candles, indicators, tickers, trades, order-book, etc.
--   Support for high-frequency trading strategies.
--   Smart ordering system (no need to manually select order type).
--   Support for using multiple time frames even in backtest simulation without slippage!
--   Risk management helper functions.
--   A fully functional and automated statistics system to get useful info about your strategy.
+-   Simplest possible syntax for defining your strategies. Supports both simple and advanced strategies.
+-   Provides easy access to candles, indicators, tickers, trades, order-book, etc.
+-   No need to think which order type to use. It'll take care of it for you.
+-   Support for using multiple timeframes even in backtest simulation without the look-ahead bias!
+-   Risk-management helper functions.
+-   A fully functional and automated metrics system to get useful info about your strategy.
+-   Simple charts to get a better understanding of your portfolio.
 -   Trade multiple exchanges, symbols, and timeframes at once.
 -   A driver based notifications system with Telegram as the default driver.
 -   Optimizing strategies using the genetics algorithm.
