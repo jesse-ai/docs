@@ -4,7 +4,7 @@ Filter functions are used to filter out bad trades.
 
 ## Basic syntax
 
-First add the `filters()` method to your strategy class which must return a list:
+First, add the `filters()` method to your strategy class which must return a list:
 ```py
 def filters(self):
     return []
@@ -26,7 +26,7 @@ def filters(self):
 ```
 
 ::: danger
-Notice that you must only add method's object to the list. Do not call the method! (no parentheses at the end of the method name)
+Notice that you must only add the method's object to the list. Do not call the method! (no parentheses at the end of the method name)
 
 Wrong example:
 ```py
