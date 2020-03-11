@@ -32,9 +32,10 @@ Work in progress..
 ### What is the refund policy?-->
 ## Working with Jesse
 ### The bot does not start. What's wrong?
-Check if you followed the instructions on [Installation](/docs/installation) right and did the  [Configuration](/docs/configuration) part. For live/paper trading and backtesting to work you also need to set [Routes](/docs/routes).
+Check if you followed the instructions on [Installation](/docs/installation) right and did the [Configuration](/docs/configuration) part. For backtesting to work you also need to set [Routes](/docs/routes).
 ###  How do I configure Jesse?
 Check the [Configuration](/docs/configuration) page.
+
 <!---### I have waited 10 minutes, why hasn't the bot made any trades yet?!
 Thats entirly depending on your strategy and chosen timeframe. One reason could be, that the conditions on which your strategy would place a buy or sell order aren't met. Another reason could be that the current candle in your chosen timeframe didn't close yet. Jesse only trades after the candle has closed.
 ### I have made 20 trades already, why is my total profit negative?!
@@ -43,6 +44,7 @@ There could be multiple reasons:
  - You did a backtest, but it's still not making profits. Your strategy could be only working in certain market conditions (for example trending - not trending). Be sure to make extensive backtests, especially in different periods of time with different market conditions (bullish, bearish, flat, big market crashes). 
  - You did extensive backtests and it is still not profitable in current market conditions? That can happen too. Backtesting only checks historical data. The market could change in such a way, that "old rules" won't work anymore. Time to be creative.
  - Good backtest results on one coin pair don't mean the results will be good on other pairs too. Time for more backtesting!-->
+
 ### My strategy isn't working/trading like it should. What can I do?
 Are you certain that you set the right [Routes](/docs/routes) and have the right version of your strategy uploaded? It's important to be structured here: Be sure to use clear naming and versioning of your strategies. Speaking of experience. It's annoying but saves you time. If you are sure Jesse is really running the strategy (version) you intended, let's check more things you can do.
  - Use the `--debug` command in backtesting to have Jesse print the trades that are happening or aren't. 
