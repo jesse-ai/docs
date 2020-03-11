@@ -3,7 +3,7 @@
 Jesse raises certain events that you can hook into if it makes sense in your strategy. Notice that they all start with `on_`.
 
 ## on_cancel
-This function is called after all active orders have been cancelled. An example usage would be if you are using a custom value that needs to be cleared after each completed trade. 
+This function is called after all active orders have been canceled. An example usage would be if you are using a custom value that needs to be cleared after each completed trade. 
 
 ## on\_open\_position
 This function is called right after an open-position order is executed. You may use `self.position` to access the current position's object. 
@@ -14,14 +14,14 @@ This function is called right after an open-position order is executed. You may 
 The position has been closed with the execution of the take-profit order. 
 
 ::: tip 
-You do not need to worry about cancelling other active orders in `on_take_profit`. Jesse takes care of it. 
+You do not need to worry about canceling other active orders in `on_take_profit`. Jesse takes care of it. 
 :::
 
 ## on\_stop\_loss
 The position has been closed with the execution of the stop-loss order. 
 
 ::: tip 
-You do not need to worry about cancelling other active orders in `on_stop_loss`. Jesse takes care of it. 
+You do not need to worry about canceling other active orders in `on_stop_loss`. Jesse takes care of it. 
 :::
 
 ## on\_reduced\_position
