@@ -22,10 +22,10 @@ routes = [
 ]
 ```
 
-In this example we're telling Jesse to trade `BTCUSDT` using `TrendFollowingStrategy` strategy at `Binance` exchange in `4h` time interval.
+In this example, we're telling Jesse to trade `BTCUSDT` using `TrendFollowingStrategy` strategy at `Binance` exchange in `4h` time interval.
 
 ::: tip
-Notice that I used enums. Instead of writing `'4h'`, I wrote`timeframes.HOUR_4`. This is optional but helps to prevent misspelling string.
+Notice that I used enums. Instead of writing `'4h'`, I wrote `timeframes.HOUR_4`. This is optional but helps to prevent misspelling string.
 :::
 
 ## Trading multiple routes
@@ -56,7 +56,7 @@ You can use multiple time frames when writing strategies.
 A typical example might be to use the daily time frame to detect the bigger trend of the market, and the hourly time frame to detect the smaller trend.
 
 ::: tip
-This is a common feature that professional traders use in their manual trading. However, in algorithmic trading it gets tricky because of the [Look-Ahead Bias](https://www.investopedia.com/terms/l/lookaheadbias.asp). This issue _is completely taken care of_ in Jesse.
+This is a common feature that professional traders use in their manual trading. However, in algorithmic trading, it gets tricky because of the [Look-Ahead Bias](https://www.investopedia.com/terms/l/lookaheadbias.asp). This issue _is completely taken care of_ in Jesse.
 :::
 
 All you need to do is to define extra candles. The syntax for `extra_candles` is the same as `routes` except no need to define the _strategy_ name at the end.
