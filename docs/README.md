@@ -1,6 +1,6 @@
 # What is Jesse?
 
-Jeses is an advanced algo-trading framework which helps you to write trading strategies in Python, tune them using AI, backtest, and trade them on live markets. It focuses on simplicity.
+Jesse is an advanced algo-trading framework that helps you to write trading strategies in Python, tune them using AI, backtest, and trade them on live markets. It focuses on simplicity.
 
 ::: warning
 This guide assumes you have basic knowledge of Python. In case you don't, please first check out [w3schools](https://www.w3schools.com/python/default.asp) to get started with Python syntax.
@@ -19,12 +19,12 @@ TODO...
 A few features of Jesse worth mentioning are:
 
 -   Simplest possible syntax for defining your strategies. Supports both simple and advanced strategies.
--   Provides easy access to candles, indicators, tickers, trades, order-book, etc.
--   No need to think which order type to use. It'll take care of it for you.
+-   It provides easy access to candles, indicators, tickers, trades, order-book, etc.
+-   No need to think about which order type to use. It'll take care of it for you.
 -   Support for using multiple timeframes even in backtest simulation without the look-ahead bias!
 -   Risk-management helper functions.
 -   A fully functional and automated metrics system to get useful info about your strategy.
 -   Simple charts to get a better understanding of your portfolio.
 -   Trade multiple exchanges, symbols, and timeframes at once.
--   A driver based notifications system with Telegram as the default driver.
+-   A driver-based notifications system with Telegram as the default driver.
 -   Optimizing strategies using the genetics algorithm.
