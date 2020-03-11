@@ -1,6 +1,6 @@
 # Utilities
 
-These utility functions are helpful when writing strategies. The `utils` module is imported for you when you generate a new strategy but here's the code anyways:
+These utility functions are helpful when writing strategies. The `utils` module is imported for you when you generate a new strategy but here's the code anyway:
 
 ```py
 from jesse import utils
