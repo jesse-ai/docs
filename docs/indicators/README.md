@@ -2,7 +2,7 @@
 
 Jesse offers many indicators using other libraries such as the [ta-lib](http://ta-lib.org). The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in [Jupyter Notebooks](/docs/jupyter-notebooks).
 
-The default settings has been set to produce the same result as you would get on [TradingView](http://tradingview.com).
+The default settings have been set to produce the same result as you would get on [TradingView](http://tradingview.com).
 
 To get started make sure that the `indicators` module is imported:
 
@@ -10,9 +10,9 @@ To get started make sure that the `indicators` module is imported:
 import jesse.indicators as ta
 ```
 
-First parameter of all indicators is `candles` with the type of a numpy array. 
+The first parameter of all indicators is `candles` with the type of a numpy array. 
 
-When developing strategies, usually all you care about is the indicator's value for current candle. To get just that, simply pass `self.candles`:
+When developing strategies, usually all you care about is the indicator's value for the current candle. To get just that, simply pass `self.candles`:
 
 ```py
 ta.sma(self.candles, 8)
@@ -28,7 +28,7 @@ ta.sma(self.get_candles('Binance', 'BTCUSDT', '4h'), 8)
 
 The return type of all indicators returning multiple values is a `namedtuple` Python object. In case you're not familiar with `namedtuple` it's just like a regular tuple but you can also use it as a class object. 
 
-For example here is two ways you could use Bollinger Bands indicator, which as you know, returns three values: `upperband`, `middleband`, `lowerband`
+For example here are two ways you could use Bollinger Bands indicator, which as you know, returns three values: `upperband`, `middleband`, `lowerband`
 
 1. Use it as a normal tuple:
 ```py
