@@ -53,9 +53,9 @@ def go_long(self):
     self.take_profit = qty, take_profit_price
 ```
 
-`qty`, `entry_price`, `stop_loss_price`, and `take_profit_price` are placeholders, can be anything you want; but `self.buy`, `self.stop_loss`, and `self.take_profit` are special variables that Jesse uses; must be the same.
+`qty`, `entry_price`, `stop_loss_price`, and `take_profit_price` are placeholders, can be anything you want; but `self.buy`, `self.stop_loss`, and `self.take_profit` are special variables that Jesse uses; they must be the same.
 
-A working Example would be:
+A working example would be:
 
 ```py
 def go_long(self):
@@ -137,7 +137,7 @@ def go_long(self):
     self.take_profit = qty, entry + 10
 ```
 
-Since the entry price is above current price, Jesse will submit a stop order for entering this trade. If the price indeed rises we'll be fine, but what if a new candle is passed, and the price goes down? Then we would want the previous order to be cancelled and a new order submitted based on the high price of the new candle.
+Since the entry price is above the current price, Jesse will submit a stop order for entering this trade. If the price indeed rises we'll be fine, but what if a new candle is passed, and the price goes down? Then we would want the previous order to be canceled and a new order submitted based on the high price of the new candle.
 
 To do this, we'll have to specify the `should_cancel()`:
 
@@ -146,17 +146,17 @@ def should_cancel(self):
     return True
 ```
 
-In your strategy your may need to do some checking before deciding whether or not the previous open-position order is still valid or has to be canceled.
+In your strategy, you may need to do some checking before deciding whether or not the previous open-position order is still valid or has to be canceled.
 
 ::: tip
-`should_cancel()` only decides whether or not cancel the entry order. It does not affect your exit (take-profit and stop-loss) orders.
+`should_cancel()` only decides whether or not to cancel the entry order. It does not affect your exit (take-profit and stop-loss) orders.
 :::
 
 ## Entering and/or exiting at multiple points
 
 So far we defined enter-once and exit-once strategy examples using only `go_long()` and `go_short()` methods. This may not be enough for your strategies. 
 
-For entering/exiting at one point we defined **single tuples**. To enter/exit at multiple points all you need to do is to use **list of tuples** instead.
+For entering/exiting at one point we defined **single tuples**. To enter/exit at multiple points all you need to do is to use a **list of tuples** instead.
 
 Example of taking profit at two points:
 
@@ -193,7 +193,7 @@ def go_long():
 
 What if we're not aware of our exact exit point at the time of entering the trade? For instance, it is a common case in trend-following strategies to exit when the trend has stopped. 
 
-Next section introduces the concept of [events](./events) to fulfill this need.
+The next section introduces the concept of [events](./events) to fulfill this need.
 
 ## prepare()
 As explained in the [flowchart](./), this is the first function that gets called when a new candle is received. It is used for updating `self.vars` (custom variables) or any other action you might have in mind that needs to be done before your strategy gets executed. 
@@ -202,7 +202,7 @@ As explained in the [flowchart](./), this is the first function that gets called
 
 
 ## update_position() 
-Assuming that there's an open position, this method is used to update exit points, or to add to the size of the position if needed.
+Assuming that there's an open position, this method is used to update exit points or to add to the size of the position if needed.
 
 Example of exiting the trade by implementing a trailing stop for take-profit: 
 ```py 
