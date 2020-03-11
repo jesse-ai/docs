@@ -125,13 +125,13 @@ This property returns candles for current trading exchange, symbol, and timefram
 
 **Example**:
 ```py
-# get SMA with period of 8 for current trading route
+# get SMA with a period of 8 for current trading route
 sma8 = ta.sma(self.candles, 8)
 ```
 
 ## get_candles
 
-This method returns candles for the exchange, symbol, and timeframe that you specify unlike `self.candles` which returns candles for current route. 
+This method returns candles for the exchange, symbol, and timeframe that you specify, unlike `self.candles` which returns candles for the current route. 
 
 ```py
 get_candles(exchange: str, symbol: str, timeframe: str)
@@ -146,8 +146,8 @@ For simple strategies that trade only one route and use only one timeframe, `sel
 @property
 def big_trend(self):
     """
-    Uses SRSI indicator to determine the bigger trend of the market. 
-    Trading timeframe is "4h" so we use "1D" timeframe as the anchor timeframe.
+    Uses the SRSI indicator to determine the bigger trend of the market. 
+    The trading timeframe is "4h" so we use "1D" timeframe as the anchor timeframe.
     """
     k, d = ta.srsi(self.get_candles(self.exchange, self.symbol, '1D'))
 
@@ -163,7 +163,7 @@ def big_trend(self):
 
 ## index
 
-The `index` property is a counter that can be used to detect how many times the strategy has been executed. Imagine we're doing a loop in backtest mode, and this index is the index of that loop. Below examples can explain it better.
+The `index` property is a counter that can be used to detect how many times the strategy has been executed. Imagine we're doing a loop in backtest mode, and this index is the index of that loop. The below examples can explain it better.
 
 **Return Type**: int
 
@@ -237,7 +237,7 @@ Same as [average_entry_price](#average-entry-price) but for take-profit. The wor
 The position object of the trading route. 
 
 ::: tip
-Please note that each route instance has only one position witch is accessible inside the strategy. It doesn't mean that you cannot trade two positions using one strategy; to do that simply create two routes using the same strategy but with different symbols. 
+Please note that each route instance has only one position which is accessible inside the strategy. It doesn't mean that you cannot trade two positions using one strategy; to do that simply create two routes using the same strategy but with different symbols. 
 :::
 
 **Return Type**: Position
@@ -356,7 +356,7 @@ def update_position(self):
 
 `vars` is the name of a dictionary object present in your strategy that you can use as a placeholder for your variables. 
 
-Of course you could define your own variables inside `__init__` instead, but that would bring a concern about naming your variables to prevent conflict with built-in variables and properties.
+Of course, you could define your own variables inside `__init__` instead, but that would bring a concern about naming your variables to prevent conflict with built-in variables and properties.
 
 Using `vars` would also make it easier for debugging.
 
