@@ -1,3 +1,4 @@
+
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
@@ -17,21 +18,25 @@ In some indicators you can set an moving average type:
 -   7: MAMA (Mesa adaptive)
 -   8: T3 (triple exponential T3)
 
-## sma
 
-Simple moving average (SMA)
+# Overlap Studies
+
+
+## dema
+Double Exponential Moving Average (DEMA)
 
 ```py
-sma(candles, period=5, sequential=False)
+dema(candles, period=30, sequential=False)
 ```
 
 **Properties**:
 
 -   candles: np.ndarray
--   period: int - default=5
+-   period: int - default=30
 -   sequential: bool - default=False
 
 **Return Type**: float
+
 
 ## ema
 
@@ -48,6 +53,86 @@ ema(candles, period=5, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: float
+
+## ht_trendline
+Hilbert Transform - Instantaneous Trendline
+
+```py
+ht_trendline(candles, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+
+## kama
+Kaufman Adaptive Moving Average (KAMA)
+
+```py
+kama(candles, period=30, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default=30
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## mama
+MESA Adaptive Moving Average (MAMA)
+
+```py
+mama(candles, fastlimit=0.5, slowlimit=0.05, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   fastlimit: float - default: 0.5
+-   slowlimit: float - default: 0.05
+-   sequential: bool - default=False
+
+**Return Type**: MAMA(mama, fama)
+
+## sar
+Parabolic SAR
+
+```py
+sar(candles, acceleration=0.02, maximum=0.2, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   acceleration: float - default: 0.02
+-   maximum: float - default: 0.2
+-   sequential: bool - default=False
+
+**Return Type**:  float 
+
+
+
+## sma
+Simple moving average (SMA)
+
+```py
+sma(candles, period=5, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default=5
+-   sequential: bool - default=False
+
+**Return Type**: float
+
 
 ## tema
 
