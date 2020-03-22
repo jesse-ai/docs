@@ -326,7 +326,100 @@ apo(candles, fastperiod=12, slowperiod=26, matype=0, sequential=False)
 
 **Return Type**: float
 
+## aroon
 
+Aroon
+
+```py
+aroon(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- period: int - default=14
+-   sequential: bool - default=False
+
+**Return Type**: AROON(aroondown, aroonup)
+
+## aroonosc
+
+Aroon Oscillator 
+
+```py
+aroonosc(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- period: int - default=14
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## bop
+
+Balance Of Power (BOP)
+
+```py
+bop(candles, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## cci
+
+Commodity Channel Index (CCI)
+
+```py
+cci(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- period: int - default=14
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## cmo
+
+Chande Momentum Oscillator (CMO)
+
+```py
+cmo(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- period: int - default=14
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## dmi
+
+Directional Movement Index (DMI)
+
+```py
+dmi(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default=14
+-   sequential: bool - default=False
+
+**Return Type**: DMI(plus, minus)
 
 ## macd
 
@@ -347,6 +440,72 @@ macd(candles, fast_period=12, slow_period=26, signal_period=9, signal_type='EMA'
 
 **Return Type**: MACD(macd, signal, hist)
 
+## mfi
+
+Money Flow Index (MFI)
+
+```py
+mfi(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- period: int - default=14
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+
+## mom
+
+Momentum (MOM)
+
+```py
+mom(candles, period=10, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- period: int - default=10
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## ppo
+
+Percentage Price Oscillator (PPO)
+
+```py
+ppo(candles, fastperiod=12, slowperiod=26, matype=0, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- fastperiod: int - default: 12
+-   slowperiod: int - default: 26
+- matype: int - default: 0 (see [matype](#matype))
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## roc
+
+Rate of change (ROC): `((price/prevPrice)-1)*100`
+
+```py
+roc(candles, period=10, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- period: int - default=10
+-   sequential: bool - default=False
+
+**Return Type**: float
 
 ## rsi
 
@@ -417,6 +576,39 @@ trix(candles, period=18, sequential=False)
 
 **Return Type**: float
 
+## ultosc
+
+Ultimate Oscillator (ULTOSC)
+
+```py
+ultosc(candles, timeperiod1=7, timeperiod2=14, timeperiod3=28, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- timeperiod1: int - default=7
+- timeperiod2: int - default=14
+- timeperiod3: int - default=28
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## willr
+
+Williams' %R (WILLR)
+
+```py
+willr(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 14
+-   sequential: bool - default=False
+
+**Return Type**: float
 
 # Volume Indicators
 
