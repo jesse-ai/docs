@@ -30,7 +30,7 @@ Notice that I used enums. Instead of writing `'4h'`, I wrote `timeframes.HOUR_4`
 
 ## Trading multiple routes
 
-You can trade more than one route at the same time. The `routes` variable is a list, so we can multiple routes in it:
+You can trade more than one route at the same time. The `routes` variable is a list, so we can put multiple routes in it:
 
 ```py
 from jesse.enums import exchanges, timeframes
