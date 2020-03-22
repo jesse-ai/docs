@@ -21,6 +21,38 @@ In some indicators you can set an moving average type:
 
 # Overlap Studies
 
+## bollinger_bands
+
+Bollinger Bands (BBANDS)
+
+```py
+bollinger_bands(candles, period=20, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   sequential: bool - default=False
+
+**Return Type**: BollingerBands(upperband, middleband, lowerband)
+
+## bollinger_bands_width
+
+Bollinger Bands Width (BBW)
+
+```py
+bollinger_bands_width(candles, period=20, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   sequential: bool - default=False
+
+**Return Type**: float
+
 
 ## dema
 Double Exponential Moving Average (DEMA)
@@ -117,6 +149,29 @@ sar(candles, acceleration=0.02, maximum=0.2, sequential=False)
 **Return Type**:  float 
 
 
+## sarext
+Parabolic SAR - extended
+
+```py
+sarext(candles, startvalue=0, offsetonreverse=0, accelerationinitlong=0, accelerationlong=0, accelerationmaxlong=0, accelerationinitshort=0, accelerationshort=0, accelerationmaxshort=0, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-    startvalue: float - default: 0
+- offsetonreverse: float - default: 0
+- accelerationinitlong: float - default: 0
+- accelerationlong: float - default: 0
+- accelerationmaxlong: float - default: 0
+- accelerationinitshort: float - default: 0
+- accelerationshort: float - default: 0
+- accelerationmaxshort: float - default: 0
+-   sequential: bool - default=False
+
+**Return Type**:  float 
+
+
 
 ## sma
 Simple moving average (SMA)
@@ -134,6 +189,23 @@ sma(candles, period=5, sequential=False)
 **Return Type**: float
 
 
+## t3
+
+Triple Exponential Moving Average (T3)
+
+```py
+t3(candles, period=5, vfactor=0, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 5
+- vfactor: float - default: 0
+-   sequential: bool - default=False
+
+**Return Type**: float
+
 ## tema
 
 Triple Exponential Moving Average (TEMA)
@@ -146,22 +218,6 @@ tema(candles, period=9, sequential=False)
 
 -   candles: np.ndarray
 -   period: int - default: 9
--   sequential: bool - default=False
-
-**Return Type**: float
-
-## trix
-
-Triple exponential moving average indicator (TRIX)
-
-```py
-trix(candles, period=18, sequential=False)
-```
-
-**Properties**:
-
--   candles: np.ndarray
--   period: int - default: 18
 -   sequential: bool - default=False
 
 **Return Type**: float
@@ -182,53 +238,8 @@ vwma(candles, period=20, sequential=False)
 
 **Return Type**: float
 
-## bollinger_bands
 
-Bollinger Bands (BBANDS)
-
-```py
-bollinger_bands(candles, period=20, sequential=False)
-```
-
-**Properties**:
-
--   candles: np.ndarray
--   period: int - default: 20
--   sequential: bool - default=False
-
-**Return Type**: BollingerBands(upperband, middleband, lowerband)
-
-## bollinger_bands_width
-
-Bollinger Bands Width (BBW)
-
-```py
-bollinger_bands_width(candles, period=20, sequential=False)
-```
-
-**Properties**:
-
--   candles: np.ndarray
--   period: int - default: 20
--   sequential: bool - default=False
-
-**Return Type**: float
-
-## atr
-
-Average true range (ATR)
-
-```py
-atr(candles, period=14, sequential=False)
-```
-
-**Properties**:
-
--   candles: np.ndarray
--   period: int - default: 14
--   sequential: bool - default=False
-
-**Return Type**: float
+# Momentum Indicators
 
 ## adx
 
@@ -245,6 +256,26 @@ adx(candles, period=14, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: float
+
+## macd
+
+Moving average convergence divergence (MACD)
+
+```py
+macd(candles, fast_period=12, slow_period=26, signal_period=9, signal_type='EMA', sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   fast_period: int - default=12
+-   slow_period: int - default=26
+-   signal_period: int - default=9
+-   signal_type: str - default='EMA'
+-   sequential: bool - default=False
+
+**Return Type**: MACD(macd, signal, hist)
+
 
 ## rsi
 
@@ -298,24 +329,53 @@ srsi(candles, period=14, sequential=False)
 
 `k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
 
-## macd
 
-Moving average convergence divergence (MACD)
+## trix
+
+Triple exponential moving average indicator (TRIX)
 
 ```py
-macd(candles, fast_period=12, slow_period=26, signal_period=9, signal_type='EMA', sequential=False)
+trix(candles, period=18, sequential=False)
 ```
 
 **Properties**:
 
 -   candles: np.ndarray
--   fast_period: int - default=12
--   slow_period: int - default=26
--   signal_period: int - default=9
--   signal_type: str - default='EMA'
+-   period: int - default: 18
 -   sequential: bool - default=False
 
-**Return Type**: MACD(macd, signal, hist)
+**Return Type**: float
+
+
+# Volume Indicators
+
+# Volatility Indicators
+
+## atr
+
+Average true range (ATR)
+
+```py
+atr(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 14
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+# Price Transform
+
+# Cycle Indicators
+
+# Pattern Recognition
+
+# Statistic Functions
+
+# Versatile Indicators
 
 ## ichimoku_cloud
 
