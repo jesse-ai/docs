@@ -384,6 +384,39 @@ trix(candles, period=18, sequential=False)
 
 # Volume Indicators
 
+## adosc
+
+Chaikin A/D Oscillator (ADOSC)
+
+```py
+adosc(candles, fastperiod=3, slowperiod=10, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- fastperiod: int - default: 3
+-   slowperiod: int - default: 10
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+
+## obv
+
+On Balance Volume (OBV)
+
+```py
+obv(candles, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   sequential: bool - default=False
+
+**Return Type**: float
+
 # Volatility Indicators
 
 ## atr
@@ -401,6 +434,39 @@ atr(candles, period=14, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: float
+
+## natr
+
+Normalized Average True Range (NATR)
+
+```py
+natr(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 14
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## trange
+
+True Range (TRANGE)
+
+```py
+trange(candles, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+
 
 # Price Transform
 
