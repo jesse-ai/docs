@@ -292,6 +292,42 @@ adx(candles, period=14, sequential=False)
 
 **Return Type**: float
 
+## adxr
+
+Average Directional Movement Index Rating (ADXR)
+
+```py
+adxr(candles, period=14, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 14
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## apo
+
+Absolute Price Oscillator (APO)
+
+```py
+apo(candles, fastperiod=12, slowperiod=26, matype=0, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+- fastperiod: int - default: 12
+-   slowperiod: int - default: 26
+- matype: int - default: 0 (see [matype](#matype))
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+
+
 ## macd
 
 Moving average convergence divergence (MACD)
