@@ -222,6 +222,41 @@ tema(candles, period=9, sequential=False)
 
 **Return Type**: float
 
+## trima
+
+Triangular Moving Average (TRIMA)
+
+```py
+trima(candles, period=30, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 30
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+
+## wma
+
+Weighted Moving Average (WMA)
+
+```py
+wma(candles, period=30, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 30
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+
+
 ## vwma
 
 Volume Weighted Moving Average (VWMA)
