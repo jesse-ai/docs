@@ -37,7 +37,7 @@ bollinger_bands(candles, period=20, sequential=False)
 
 **Return Type**: BollingerBands(upperband, middleband, lowerband)
 
-## bollinger_bands_width
+## bollinger\_bands\_width
 
 Bollinger Bands Width (BBW)
 
