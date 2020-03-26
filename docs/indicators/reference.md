@@ -528,18 +528,40 @@ rsi(candles, period=14, sequential=False)
 The Stochastic Oscillator
 
 ```py
-stoch(candles, period=14, sequential=False)
+stoch(candles, fastk_period=14, slowk_period=3, slowk_matype=0, slowd_period=3, slowd_matype=0, sequential=False)
 ```
 
 **Properties**:
 
 -   candles: np.ndarray
--   period: int - default: 14
+-   fastk_period: int - default: 14
+-   slowk_period: int - default: 3
+-   slowk_matype: int - default: 0 (see [matype](#matype))
+-   slowd_period: int - default: 3
+-   slowd_matype: int - default: 0 (see [matype](#matype))
 -   sequential: bool - default=False
 
 **Return Type**: Stochastic(k, d)
 
 `k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
+
+## stochf
+
+The Stochastic Oscillator Fast
+
+```py
+stochf(candles, fastk_period=5, fastd_period=3, fastd_matype=0, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   fastk_period: int - default: 5
+-   fastd_period: int - default: 3
+-   fastd_matype: int - default: 0 (see [matype](#matype))
+-   sequential: bool - default=False
+
+**Return Type**: StochasticFast(k, d)
 
 ## srsi
 
