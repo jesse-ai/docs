@@ -1,4 +1,5 @@
 
+
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
@@ -426,7 +427,7 @@ dmi(candles, period=14, sequential=False)
 Moving average convergence divergence (MACD)
 
 ```py
-macd(candles, fast_period=12, slow_period=26, signal_period=9, signal_type='EMA', sequential=False)
+macd(candles, fastperiod=12, slowperiod=26, signalperiod=9, sequential=False)
 ```
 
 **Properties**:
@@ -435,10 +436,30 @@ macd(candles, fast_period=12, slow_period=26, signal_period=9, signal_type='EMA'
 -   fast_period: int - default=12
 -   slow_period: int - default=26
 -   signal_period: int - default=9
--   signal_type: str - default='EMA'
 -   sequential: bool - default=False
 
 **Return Type**: MACD(macd, signal, hist)
+
+## macdext
+
+MACD with controllable MA type(MACDEXT)
+
+```py
+macdext(candles, fastperiod=fastperiod, fastmatype=fastmatype, slowperiod=slowperiod, slowmatype=slowmatype, signalperiod=signalperiod, signalmatype=signalmatype, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   fast_period: int - default=12
+-  fastmatype: int - default=0 (see [matype](#matype))
+-   slow_period: int - default=26
+-   slowmatype: int - default=0 (see [matype](#matype))
+-   signal_period: int - default=9
+-   signalmatype: int - default=0 (see [matype](#matype))
+-   sequential: bool - default=False
+
+**Return Type**: MACDEXT(macd, signal, hist)
 
 ## mfi
 
