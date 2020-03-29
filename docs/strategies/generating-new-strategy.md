@@ -6,7 +6,7 @@ To get started, run:
 jesse make-strategy AwesomeStrategy
 ```
 
-This will generate `AwesomeStrategy` class located at `jesse/strategies/AwesomeStrategy/__init__.py` with all the methods that required in order to run the strategy:
+This will generate `AwesomeStrategy` class located at `jesse/strategies/AwesomeStrategy/__init__.py` including all the methods that are required to run the strategy:
 
 ```py
 from jesse.strategies.Strategy import Strategy
