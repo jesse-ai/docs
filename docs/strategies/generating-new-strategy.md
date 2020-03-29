@@ -9,8 +9,9 @@ jesse make-strategy AwesomeStrategy
 This will generate `AwesomeStrategy` class located at `jesse/strategies/AwesomeStrategy/__init__.py` including all the methods that are required to run the strategy:
 
 ```py
-from jesse.strategies.Strategy import Strategy
-import jesse.services.indicators as ta
+from jesse.strategies import Strategy
+from jesse import utils
+import jesse.indicators as ta
 
 
 class AwesomeStrategy(Strategy):
