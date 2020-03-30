@@ -33,6 +33,19 @@ docker restart jesse && docker exec -it jesse bash
 sudo service postgresql start && sudo service redis-server start
 ```
 
+## Windows
+- Python >= `3.6` (`3.8` is recommended)
+	- https://www.python.org/downloads/windows/
+- pip >= `19.3.0`
+-   PostgreSQL >= `11.2`
+	- https://www.postgresql.org/download/windows/
+-   Redis >= `5`
+	- https://redislabs.com/blog/redis-on-windows-10/
+-   ta-lib >= `0.4`
+	- https://medium.com/@keng16302/how-to-install-ta-lib-in-python-on-window-9303eb003fbb
+- git >= 2.26.0 
+	- https://git-scm.com/download/win
+
 
 ## Create a new project
 
