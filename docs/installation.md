@@ -35,8 +35,6 @@ sudo service postgresql start && sudo service redis-server start
 
 ## Windows
 
-Before we start the instructions for Windows. Its highly recommended to use docker or linux on a virtual machine. Why? On Windows everything is far more complicated and many more clicks.
-
 
 Before we start the instructions for Windows. Its highly recommended to use docker or linux on a virtual machine. Why? On Windows everything is far more complicated and many more clicks.
 
@@ -66,17 +64,17 @@ Now add PostgreSQL to you PATH.
 To edit your PATH variable use the windows search and search for "enviroment" you should see "Edit enviroment variables for you account". Click that. Search for the "PATH" variable in the user section. Select it and click "Edit". Click "Browse" and find your PostgreSQL installation folder. Select the "bin" - folder and save everything. 
 The added path shoud look something like that: "C:\Program Files\PostgreSQL\12\bin"
 
-Now check if it worked by opening a Command Prompt (CMD). Fastest way is using the windows search, searching for "cmd". Then type `psql`. You should be asked for the password you set during the installation.
+Now open a Command Prompt (CMD). Fastest way is using the windows search, searching for "cmd". 
 
-Create the database for jesse execute following comands in the cmd:
+Create the database for jesse by executing the following comands in the cmd:
 
-    psql
+    psql -U postgres
+    # you will be asked for the password
     CREATE DATABASE jesse_db;
     # create new user with privilage to access jesse_db (useful for remote access)
     CREATE USER jesse_user WITH PASSWORD '{password}';
     GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
     \q
-    exit
 
 ### Step 3: Install Redis
 The bad news are there is now version of Redis for windows. The good news: We can install Redis with the help of a virtual machine (VM) or windows subsystem.
@@ -93,15 +91,19 @@ Restart your computer when prompted.
 
 Now download and install [Ubuntu 18.04](https://www.microsoft.com/en-us/p/ubuntu-1804/9n9tngvndl3q) (installs Redis v4.09) from the [Microsoft Store](http://microsoft.com/store).
 
-Launch ubuntu and install Redis:
+Launch ubuntu you will be promted to select a username and password for ubuntu.
+
+After that install Redis (you will be asked for the password you just set):
 
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get install redis-server
     redis-cli -v
-  
+
+ You should end up with something like that: redis-cli 4.0.9
+ 
 ### Step 4: Install Talib
-Talib can't be installed directly with pip on Windows. The easiest way is to use a prebuilt binary.
+Talib can't be easily installed directly with pip on Windows. The easiest way is to use a prebuilt binary.
 Go to [https://www.lfd.uci.edu/~gohlke/pythonlibs/](https://www.lfd.uci.edu/~gohlke/pythonlibs/).  Search : TA-Lib and download a version >= 0.4 matching your system and python version.
 
 Example:
@@ -117,7 +119,12 @@ Now install the file `pip install TA_Lib‑0.4.17‑cp38‑cp38‑win_amd64.whl`
 
 Now check if it worked: `pip list` you should now find ta-lib in that list.
 
-### Step 5: Install Git and get Jesse
+### Step 5: Install Cython
+Open a cmd (Fastest way is using the windows search, searching for "cmd") and run:
+
+    pip install cython
+
+### Step 6: Install Git and get Jesse
 Download "Git for Windows Setup" for your system type (32bit / 64bit compare Step 1 if you aren't about that): [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 You can leave all the settings during installation as they are. 
@@ -127,23 +134,35 @@ Now open Git Bash and get jesse by running:
 
     git clone ssh://git@gitlab.com/sullyfischer/jesse.git jesse_package
     cd jesse_package && pip install -r requirements.txt
-
+    
 This will install jesse in you Windows User folder (like C:\Users\XXX). If you want to change set. `cd` into another directory before executing above commands.
 
+    # if everything is OK, you should get green on tests (ignore yellow warnings)
+    pytest
+    # install jesse a global package
+    pip install --editable .
+    # now go back and create a new project
+    cd ..
+    jesse make-project jesse
+    cd jesse
+    # edit config to set values for database and redis and other stuff. If you are unfamiliar with nano you can use any editor on config.py
+    nano config.py
+    # test that everything works fine by running routes mode:
+    jesse routes
 
 ### Short version:
 - Python >= `3.6` (`3.8` is recommended)
-	- (https://www.python.org/downloads/windows/)
+	- https://www.python.org/downloads/windows/
 - pip >= `19.3.0`
 -   PostgreSQL >= `10.12`
-	- (https://www.postgresql.org/download/windows/)
+	- https://www.postgresql.org/download/windows/
 -   Redis >= `5`
-	- (https://redislabs.com/blog/redis-on-windows-10/)
+	- https://redislabs.com/blog/redis-on-windows-10/
 -   ta-lib >= `0.4`
-	- (https://medium.com/@keng16302/how-to-install-ta-lib-in-python-on-window-9303eb003fbb)
+	- https://medium.com/@keng16302/how-to-install-ta-lib-in-python-on-window-9303eb003fbb
 
 - git >= 2.26.0 
-	- (https://git-scm.com/download/win)
+	- https://git-scm.com/download/win
 
 
 ## Create a new project
