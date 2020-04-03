@@ -102,6 +102,13 @@ After that install Redis (you will be asked for the password you just set):
 
  You should end up with something like that: redis-cli 4.0.9
  
+ This will start the server. You can close the windows after that:
+    
+    redis-server
+ 
+ 
+ But you need to start Redis server after each system reboot by running the redis-server command in the ubuntu terminal.
+ 
 ### Step 4: Install Talib
 Talib can't be easily installed directly with pip on Windows. The easiest way is to use a prebuilt binary.
 Go to [https://www.lfd.uci.edu/~gohlke/pythonlibs/](https://www.lfd.uci.edu/~gohlke/pythonlibs/).  Search : TA-Lib and download a version >= 0.4 matching your system and python version.
