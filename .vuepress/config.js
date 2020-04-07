@@ -18,11 +18,11 @@ module.exports = {
         nav: [
             {
                 text: 'Home',
-                link: '/'
+                link: 'https://jesse-ai.com'
             },
             {
-                text: 'Documentation',
-                link: '/docs/'
+                text: 'Blog',
+                link: 'https://jesse-ai.com/blog'
             },
             {
                 text: 'Github',
@@ -31,14 +31,29 @@ module.exports = {
         ],
         sidebar: [
             ['/docs/', 'Introduction'],
-            ['/docs/installation', 'Installation'],
+            {
+                title: 'Getting Started',
+                path: '/docs/getting-started/',
+                collapsable: false,
+                sidebarDepth: 1,
+                children: [
+                    ['/docs/getting-started/', 'Installation'],
+                    ['/docs/getting-started/docker', 'Docker'],
+                    ['/docs/getting-started/environment-setup', 'Environment Setup'],
+                    // ['/docs/getting-started/generating-new-strategy', 'Generating new strategy'],
+                    // ['/docs/getting-started/entering-and-exiting', 'Entering and exiting trades'],
+                    // ['/docs/getting-started/events', 'Events'],
+                    // ['/docs/getting-started/filters', 'Filters'],
+                    // ['/docs/getting-started/api', 'API reference']
+                ]
+            },
             ['/docs/configuration', 'Configuration'],
             ['/docs/routes', 'Routing'],
             ['/docs/import-candles', 'Importing Candles'],
             {
                 title: 'Strategies', // required
                 path: '/docs/strategies/', // optional, which should be a absolute path.
-                collapsable: true, // optional, defaults to true
+                collapsable: false, // optional, defaults to true
                 sidebarDepth: 1, // optional, defaults to 1
                 children: [
                     ['/docs/strategies/', 'Introduction'],
@@ -52,7 +67,7 @@ module.exports = {
             {
                 title: 'Indicators', // required
                 path: '/docs/indicators/', // optional, which should be a absolute path.
-                collapsable: true,
+                collapsable: false,
                 sidebarDepth: 1,
                 children: [
                     ['/docs/indicators/', 'Introduction'],
