@@ -1,4 +1,5 @@
 
+
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
@@ -426,7 +427,7 @@ dmi(candles, period=14, sequential=False)
 Moving average convergence divergence (MACD)
 
 ```py
-macd(candles, fast_period=12, slow_period=26, signal_period=9, signal_type='EMA', sequential=False)
+macd(candles, fastperiod=12, slowperiod=26, signalperiod=9, sequential=False)
 ```
 
 **Properties**:
@@ -435,10 +436,30 @@ macd(candles, fast_period=12, slow_period=26, signal_period=9, signal_type='EMA'
 -   fast_period: int - default=12
 -   slow_period: int - default=26
 -   signal_period: int - default=9
--   signal_type: str - default='EMA'
 -   sequential: bool - default=False
 
 **Return Type**: MACD(macd, signal, hist)
+
+## macdext
+
+MACD with controllable MA type(MACDEXT)
+
+```py
+macdext(candles, fastperiod=fastperiod, fastmatype=fastmatype, slowperiod=slowperiod, slowmatype=slowmatype, signalperiod=signalperiod, signalmatype=signalmatype, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   fast_period: int - default=12
+-  fastmatype: int - default=0 (see [matype](#matype))
+-   slow_period: int - default=26
+-   slowmatype: int - default=0 (see [matype](#matype))
+-   signal_period: int - default=9
+-   signalmatype: int - default=0 (see [matype](#matype))
+-   sequential: bool - default=False
+
+**Return Type**: MACDEXT(macd, signal, hist)
 
 ## mfi
 
@@ -528,18 +549,40 @@ rsi(candles, period=14, sequential=False)
 The Stochastic Oscillator
 
 ```py
-stoch(candles, period=14, sequential=False)
+stoch(candles, fastk_period=14, slowk_period=3, slowk_matype=0, slowd_period=3, slowd_matype=0, sequential=False)
 ```
 
 **Properties**:
 
 -   candles: np.ndarray
--   period: int - default: 14
+-   fastk_period: int - default: 14
+-   slowk_period: int - default: 3
+-   slowk_matype: int - default: 0 (see [matype](#matype))
+-   slowd_period: int - default: 3
+-   slowd_matype: int - default: 0 (see [matype](#matype))
 -   sequential: bool - default=False
 
 **Return Type**: Stochastic(k, d)
 
 `k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
+
+## stochf
+
+The Stochastic Oscillator Fast
+
+```py
+stochf(candles, fastk_period=5, fastd_period=3, fastd_matype=0, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   fastk_period: int - default: 5
+-   fastd_period: int - default: 3
+-   fastd_matype: int - default: 0 (see [matype](#matype))
+-   sequential: bool - default=False
+
+**Return Type**: StochasticFast(k, d)
 
 ## srsi
 
