@@ -317,7 +317,7 @@ def update_position(self):
 
 @property
 def SMA20(self):
-    return ta.sma(self.exchange, self.symbol, self.timeframe, 20)
+    return ta.sma(self.candles, 20)
 ```
 
 
