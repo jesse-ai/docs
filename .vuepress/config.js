@@ -75,11 +75,11 @@ module.exports = {
                 ]
             },
             ['/docs/utils', 'Utilities'],
-            ['/docs/backtest', 'Back Testing'],
+            ['/docs/backtest', 'Backtest'],
             // ['/docs/livetrade', 'Live Trading'],
             // ['/docs/papertrade', 'Paper Trading'],
             // ['/docs/optimizing', 'Optimizing'],
-            ['/docs/notifications', 'Notifications'],
+            // ['/docs/notifications', 'Notifications'],
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/logs', 'Logging'],
             ['/docs/faq', 'Frequently Asked Questions'],
