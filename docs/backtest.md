@@ -1,73 +1,70 @@
-# Backtest simulation
+# Backtest
 
-Assuming you already have [imported](./import-candles.md) historical candles, and have set correct [routes](./routes.md) for your strategy, run:
+Assuming you already have [created](./strategies/generating-new-strategy.md) your first strategy, [imported](./import-candles.md) historical candles, and have set correct [routes](./routes.md) for your strategy, it is time to actually backtest it:
 
 ```
 jesse backtest start_date finish_date
 ```
 
-Of course, `start_date` and `finish_date` must be valid date strings. A working example would be:
+`start_date` and `finish_date` must be valid date strings in `YY-MM-DD` format. A working example would be:
 
 ```
-jesse backtest 2019-01-01 2019-11-01
+jesse backtest 2016-01-01 2020-04-06
 ```
 
 And here is the output:
 
 ```
- CANDLES                |
-------------------------+-------------------------
- total                  |             434880 * 1m
- trading symbols        |                 BTCUSDT
- considering symbols    |                 BTCUSDT
- trading timeframes     |                      4h
- considering timeframes |              1m, 1D, 4h
- period                 | 302 days (10.07 months)
+ CANDLES              |
+----------------------+--------------------------
+ period               |   1557 days (4.27 years)
+ starting-ending date | 2016-01-01 => 2020-04-06
 
-
- exchange   | symbol   | timeframe   | strategy         | DNA
-------------+----------+-------------+------------------+-------
- Binance    | BTCUSDT  | 4h          | TrendFollowing04 |
-
+exchange    | symbol   | timeframe   | strategy
+------------+----------+-------------+--------------------+-------
+ Bitfinex   | BTCUSD   | 6h          | TrendFollowingStrategy
 
 Executing simulation...  [####################################]  100%
-Executed backTest simulation in:  11.121385097503662
+Executed backtest simulation in:  107.89 seconds
 
-
- TRADES                                |
----------------------------------------+------------------------------------
- total                                 |                                 15
- starting-finishing balance            |                  10000 => 14924.81
- fee                                   |                              59.18
- PNL (%)                               |                   4924.48 (49.24%)
- PNL% every 100 trades                 |                             328.0%
- expectancy (%)                        |                      328.3 (3.28%)
- average win/loss                      |                      779.67/187.56
- win rate                              |                                53%
- min-average-max R                     |                1.8 - 12.69 - 76.24
- longs/shorts                          |                            67%/33%
- average holding period                |  4.0 days, 3.0 hours, 18.0 minutes
- winning trades average holding period | 5.0 days, 18.0 hours, 58.0 minutes
- losing trades average holding period  |  2.0 days, 5.0 hours, 57.0 minutes
+METRICS                          |
+---------------------------------+------------------------------------
+ Total Closed Trades             |                                192
+ Total Net Profit                |                 64735.12 (647.35%)
+ Starting => Finishing Balance   |                   10000 => 74659.0
+ Total Open Trades               |                                  0
+ Open PL                         |                                  0
+ Total Paid Fees                 |                           10620.84
+ Max Drawdown                    |                            -24.83%
+ Sharpe Ratio                    |                                1.2
+ Annual Return                   |                             38.43%
+ Expectancy                      |                     337.16 (3.37%)
+ Avg Win | Avg Loss              |                   1261.49 | 351.89
+ Ratio Avg Win / Avg Loss        |                               3.58
+ Percent Profitable              |                                43%
+ Longs | Shorts                  |                          58% | 42%
+ Avg Holding Time                | 3.0 days, 20.0 hours, 15.0 minutes
+ Winning Trades Avg Holding Time | 6.0 days, 11.0 hours, 19.0 minutes
+ Losing Trades Avg Holding Time  |  1.0 day, 21.0 hours, 14.0 minutes
 ```
 
 ## Charts
 
-Performing backtest with the `chart` flag would print out charts for the balance change in the backtest period and buy/sell points on the asset price chart.
+Performing backtest with the `chart` flag would print out charts for the balance change of your portfolio in the backtest period, and buy/sell points on the asset price change%.
 
 ```
-jesse backtest 2019-01-01 2019-10-30 --chart
+jesse backtest 2016-01-01 2020-04-06 --chart
 ```
 
-When the backtest is finished, Jesse prints the path to the chart image:
+When the backtest is finished, Jesse prints the path to the output chart image file:
 
 ```
-Chart output saved to:
-storage/logs/charts/BT-2019-12-07T16:13:14.png
+Chart output saved at:
+storage/charts/BT-2020-04-13T15:44:42.png
 ```
 
 And here's the image (click to zoom or open image in a new tab to see the full size):
-![symbols](../docs/imgs/backtest-chart.png)
+![chart](https://raw.githubusercontent.com/jesse-ai/jesse/master/assets/chart-example.png)
 
 ## TradingView
 
@@ -80,4 +77,6 @@ jesse backtest 2019-01-01 2019-10-30 --tradingview
 
 At the end of the process, it will print out the path to a .txt file with a pine script as content. Then open the file, copy its content and paste it inside [TradingView's](https://www.tradingview.com) Pine Editor and click on "Add to chart" and you will see entries and exits of the strategy.
 
+::: warning
 Make sure to see the chart in the same timeframe as the backtest simulation was executed on. Also, only the last ~30 trades are displayed because of a limit on TradingView's side.
+:::
