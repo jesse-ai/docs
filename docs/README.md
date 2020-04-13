@@ -8,23 +8,25 @@ This guide assumes you have basic knowledge of Python. In case you don't, please
 
 ## Why do I need it?
 
-If you have ever tried developing an algo-trading system by yourself, or have heard others' experience, then you already know that it takes 6-24 months just to get started. Hedge funds spend up to millions for a robust systems. With Jesse, you can skip all of that, and focus on your trading strategies.
+The short answer is: Jesse is more accurate, and way more simple than other solutions out there. In fact, if I have to summarize Jesse in one word, that word would be _simplicity_.
 
+<!--
 ## How it works
 
-TODO...
+TODO... -->
 
 ## Features
 
-A few features of Jesse worth mentioning are:
+These are features Jesse supports so far:
 
 -   Simplest possible syntax for defining your strategies. Supports both simple and advanced strategies.
--   It provides easy access to candles, indicators, tickers, trades, order-book, etc.
--   No need to think about which order type to use. It'll take care of it for you.
--   Support for using multiple timeframes even in backtest simulation without the look-ahead bias!
+-   Simplest possible syntax for using technical indicators.
+-   Support three major order types (market, limit, and stop) while no need to think about which order type to use. It'll take care of it for you.
+-   Support for using multiple timeframes without the look-ahead bias!
 -   Risk-management helper functions.
 -   A fully functional and automated metrics system to get useful info about your strategy.
 -   Simple charts to get a better understanding of your portfolio.
--   Trade multiple exchanges, symbols, and timeframes at once.
--   A driver-based notifications system with Telegram as the default driver.
--   Optimizing strategies using the genetics algorithm.
+-   Support for trading multiple symbols in a single strategy.
+-   Support for trading multiple timeframes in a single strategy.
+-   Trade multiple pairs at the same time!
+-   Easy importing of candles, and cleaning data behind the scene.
