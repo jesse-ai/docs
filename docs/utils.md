@@ -1,4 +1,3 @@
-
 # Utilities
 
 These utility functions are helpful when writing strategies. The `utils` module is imported for you when you generate a new strategy but here's the code anyway:
@@ -9,34 +8,15 @@ from jesse import utils
 
 Here's a reference for all the methods:
 
-## risk\_to\_size
+## risk_to_qty
 
-Calculates the size of the position based on the ammount of risk percantage you're willing to take.
+Calculates the quantity, based on the percentage of the capital you're willing to risk per trade.
 
-```py
-risk_to_size(capital_size, risk_percentage, risk_per_qty, entry_price)
-```
+::: tip
+This is probably the most important helper function that you're going to need in your strategies. Those of you whom are familiar with compounding risk would love this function.
 
-**Properties**:
-
--   capital_size: float
--   risk_percentage: float
--   risk_per_qty: float
--   entry_price: float
-
-**Return Type**: float
-
-**Example**:
-
-```py
-
-```
-
-## risk\_to\_qty
-
-Calculates the quantity based on the percent of the capital you're willing to risk per trade.
-
-This is probably the most important helper function that you're going to need in your strategies. You can play around with the formula at [positionsizingcalculator](https://positionsizingcalculator.com).
+We made a website for you just to play with this simple but important formula: [positionsizingcalculator.com](https://positionsizingcalculator.com).
+:::
 
 ```py
 risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price)
@@ -61,18 +41,35 @@ def go_long(self):
     stop = 80
     capital = 10000
     # or we could access capital dynamically:
-    capital = self.capital 
+    capital = self.capital
     qty = utils.risk_to_qty(capital, risk_perc, entry, stop)
-    
+
     self.buy = qty, 100
     self.stop_loss = qty, 80
     self.take_profit = qty, 150
 ```
 
-## size\_to\_qty
+## risk_to_size
 
-Converts a position-size to the corresponding  quantity.
-Example: Requesting $100 at the price of %50 would return 2.
+Calculates the size of the position based on the amount of risk percentage you're willing to take.
+
+```py
+risk_to_size(capital_size, risk_percentage, risk_per_qty, entry_price)
+```
+
+**Properties**:
+
+-   capital_size: float
+-   risk_percentage: float
+-   risk_per_qty: float
+-   entry_price: float
+
+**Return Type**: float
+
+## size_to_qty
+
+Converts a position-size to the corresponding quantity.
+Example: Requesting \$100 at the price of %50 would return 2.
 
 ```py
 size_to_qty(position_size, price, precision)
@@ -86,16 +83,10 @@ size_to_qty(position_size, price, precision)
 
 **Return Type**: float
 
-**Example**:
-
-```py
-
-```
-
-## qty\_to\_size
+## qty_to_size
 
 Converts a quantity to its corresponding position-size.
-Example: Requesting 2 shares at the price of %50 would return $100.
+Example: Requesting 2 shares at the price of %50 would return \$100.
 
 ```py
 qty_to_size(qty, price)
@@ -108,13 +99,7 @@ qty_to_size(qty, price)
 
 **Return Type**: float
 
-**Example**:
-
-```py
-
-```
-
-## anchor\_timeframe
+## anchor_timeframe
 
 Returns the anchor timeframe. Useful for writing dynamic strategies using multiple timeframes.
 
@@ -130,13 +115,24 @@ anchor_timeframe(timeframe)
 
 **Example**:
 
-```py
+One useful example for this could be in your routes file when you need to define the anchor timeframe. Let's say for example we're trading `4h` timeframe but don't know the anchor timeframe for it.
 
+```py{9}
+from jesse.utils import anchor_timeframe
+
+# trading routes
+routes = [
+    ('Binance', 'BTCUSDT', '4h', 'ExampleStrategy'),
+]
+
+extra_candles = [
+    ('Binance', 'BTCUSDT', anchor_timeframe('4h')),
+]
 ```
 
-## limit\_stop\_loss
+## limit_stop_loss
 
- Limits the stop-loss price according to the max allowed risk percentage. (How many percent you're OK with the price going against your position)
+Limits the stop-loss price according to the max allowed risk percentage. (How many percent you're OK with the price going against your position)
 
 ```py
 limit_stop_loss(entry_price, stop_price, trade_type, max_allowed_risk_percentage)
@@ -144,15 +140,9 @@ limit_stop_loss(entry_price, stop_price, trade_type, max_allowed_risk_percentage
 
 **Properties**:
 
--  entry_price: float
-- stop_price: float
-- trade_type: str
-- max_allowed_risk_percentage: float
+-   entry_price: float
+-   stop_price: float
+-   trade_type: str
+-   max_allowed_risk_percentage: float
 
 **Return Type**: float
-
-**Example**:
-
-```py
-
-```
