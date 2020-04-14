@@ -4,7 +4,7 @@ Getting started with Jesse is easy. We've also done our best to make it even eas
 
 <!-- In case you already have the required stack installed on your environment, you can move on to the [package installation](./package-installation) page.   -->
 
-## PIP Installation
+## Required Stack
 
 Here are the required stack:
 
@@ -14,7 +14,16 @@ Here are the required stack:
 -   ta-lib >= `0.4`
 -   pip >= `19.3.0`
 
-In case you have them all installed, install the required dependency packages:
+Most of you all if not most of them installed on your machine. We provide guides on how to install them for 3 major operating systems. We also provide a docker image which might be the fastest way to get started. 
+
+- [Docker guide](/docs/getting-started/docker.md)
+- [Ubuntu 18.04](/docs/getting-started/environment-setup.html#ubuntu)
+- [macOS](/docs/getting-started/environment-setup.html#macos)
+- [Windows](/docs/getting-started/environment-setup.html#windows)
+
+## PIP Installation
+
+First install the required dependency packages:
 ```
 pip install -r https://raw.githubusercontent.com/jesse-ai/jesse/master/requirements.txt
 ```

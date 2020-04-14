@@ -1,13 +1,19 @@
 
-## Installer script for Ubuntu 18.04
+## Ubuntu
 
-Jesse provides a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages including Jesse itself.
+We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages including Jesse itself on a fresh Ubuntu 18.04 machine. 
 
-Run below command in a fresh Ubuntu 18.04 VPS:
+Run below command:
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-18.04.sh)"
 ```
+
+In case a fresh install isn't possible for you, look at the [repository](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
+
+## macOS
+
+TODO...
 
 ## Windows
 
