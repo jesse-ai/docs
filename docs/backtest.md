@@ -20,12 +20,15 @@ And here is the output:
  period               |   1557 days (4.27 years)
  starting-ending date | 2016-01-01 => 2020-04-06
 
+
 exchange    | symbol   | timeframe   | strategy
 ------------+----------+-------------+--------------------+-------
  Bitfinex   | BTCUSD   | 6h          | TrendFollowingStrategy
 
+
 Executing simulation...  [####################################]  100%
 Executed backtest simulation in:  107.89 seconds
+
 
 METRICS                          |
 ---------------------------------+------------------------------------
@@ -53,14 +56,14 @@ METRICS                          |
 Performing backtest with the `chart` flag would print out charts for the balance change of your portfolio in the backtest period, and buy/sell points on the asset price change%.
 
 ```
-jesse backtest 2016-01-01 2020-04-06 --chart
+jesse backtest 2016-01-01 2020-04-06 --chart 
 ```
 
 When the backtest is finished, Jesse prints the path to the output chart image file:
 
 ```
 Chart output saved at:
-storage/charts/BT-2020-04-13T15:44:42.png
+storage/charts/BT-2020-04-13T15-44-42.png
 ```
 
 And here's the image (click to zoom or open image in a new tab to see the full size):
