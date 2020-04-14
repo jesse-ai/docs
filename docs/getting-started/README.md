@@ -1,6 +1,6 @@
 # Getting Started
 
-Getting started with Jesse is easy. We've also done our best to make it even easier for all operating systems. 
+Getting started with Jesse is already easy. We've also done our best to make it even easier for all operating systems. 
 
 <!-- In case you already have the required stack installed on your environment, you can move on to the [package installation](./package-installation) page.   -->
 

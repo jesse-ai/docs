@@ -17,32 +17,43 @@ TODO...
 
 ## Windows
 
-Before we start the instructions for Windows. Its highly recommended to use docker or linux on a virtual machine. Why? On Windows everything is far more complicated and many more clicks.
+<!-- It is highly recommended to use docker or linux on a virtual machine. Why? On Windows everything is far more complicated and many more clicks. -->
 
-### Step 1: Get Python and pip
-Got to [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/) and download the installer for Python. The version 3.8 is recommended, but Python >= `3.6` will work too. It doesn't matter whether you choose the executable installer or web-base installer. What matters is to choose the right version for your system type. If you are on 32bit Windows download "Windows x86 ... installer". If you are on 64bit Windows get the "Windows x86-64 ... installer".
-Not sure which system type you are on? Open a file explorer window. Right click on "This PC" and then "Properties". Under "System" there is "System type". 
+### Step 1: Python and pip
+[Download](https://www.python.org/downloads/windows) the official Python installer. It doesn't matter whether you choose the executable installer or web-base installer. What matters is to choose the right version for your system type. If you are on `32bit` Windows download `Windows x86 ... installer`. If you are on 64bit Windows get the `Windows x86-64 ... installer`.
 
-**Make sure to check "Add Python 3.X to PATH" during installation.**
-**In the end the installation may ask you to disable the lenght limit for PATH. Make sure to do that, by clicking that.**
-You can leave the other settings as they are.
+:::tip
+Not sure which system type you are on? Open a file explorer window. Right click on `This PC` and then `Properties`. Under `System` there is `System type`. 
+:::
 
-Now check if it worked by opening a Command Prompt (CMD). Fastest way is using the windows search, searching for "cmd". Then type `python --version`. You should get "Python 3.X.X" according to the version you installed.
+::: warning
+Make sure to check `Add Python 3.X to PATH` during installation. In the end, the installation may ask you to disable the length limit for PATH. Make sure to do that, by clicking that. You can leave the other settings as they are.
+:::
 
-What about pip? pip is shipped and installed with Python. Type `pip --version`. You should get "pip 19.X.X from ...".
+Now check if the installation was successful by opening a Command Prompt (CMD). Fastest way is using the windows search, and searching for `cmd`. 
 
-You get: "python *(or pip)* is not recognized as an internal or external command,
-operable program or batch file." Then you probably didn't check "Add Python 3.X to PATH".
-Start again or add it to your path manually. To edit your PATH variable use the windows search and search for "enviroment" you should see "Edit enviroment variables for you account". Click that. Search for the "PATH" variable in the user section. Select it and click "Edit". Click "Browse" and find your python installation folder.
+Type `python --version`. You should get `Python 3.X.X` according to the version you just installed. Type `pip --version`. You should get `pip 19.X.X from ...`.
 
-### Step 2: Install PostgreSQL 
-Go to [https://www.postgresql.org/download/windows/](https://www.postgresql.org/download/windows/) and download a version greater than 11.2 matching your system type (Windows x86-64 or Windows x86-32 - compare Step 1 if you aren't about that).
+::: tip
+In case you get: 
+```
+python/pip is not recognized as an internal or external command,
+operable program or batch file.
+```
+Then you probably didn't check `Add Python 3.X to PATH`.
+Start again or add it to your path manually. To edit your PATH variable use the windows search and search for `enviroment` you should see `Edit enviroment variables for you account`. Click that. Search for the `PATH` variable in the user section. Select it and click `Edit`. Click `Browse` and find your python installation folder.
+:::
 
+### Step 2: PostgreSQL 
+[Download](https://www.postgresql.org/download/windows) and install a version greater than 11.2 matching your system type (Windows x86-64 or Windows x86-32).
+
+::: warning
 Make sure to save the password you set for the superuser. 
-You can unselect the components pgAdmin and Stack Builder. You can leave the other settings as they are.
+You can unselect the components `pgAdmin` and `Stack Builder`. You can leave the other settings as they are.
+:::
 
-Now add PostgreSQL to you PATH.
-To edit your PATH variable use the windows search and search for "enviroment" you should see "Edit enviroment variables for you account". Click that. Search for the "PATH" variable in the user section. Select it and click "Edit". Click "Browse" and find your PostgreSQL installation folder. Select the "bin" - folder and save everything. 
+Now add PostgreSQL to your `PATH`.
+To edit your `PATH` variable use the windows search and search for `enviroment` you should see "Edit enviroment variables for you account". Click that. Search for the `PATH` variable in the user section. Select it and click "Edit". Click "Browse" and find your PostgreSQL installation folder. Select the "bin" - folder and save everything. 
 The added path shoud look something like that: "C:\Program Files\PostgreSQL\12\bin"
 
 Now open a Command Prompt (CMD). Fastest way is using the windows search, searching for "cmd". 
