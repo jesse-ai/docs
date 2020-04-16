@@ -39,9 +39,8 @@ pip install -U jesse
 ```
 
 ## Create the database
-
-## Connect and create database
 ```
+# Connect and create database
 sudo su - postgres
 psql
 CREATE DATABASE jesse_db;
