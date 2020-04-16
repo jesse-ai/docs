@@ -8,7 +8,7 @@ from jesse import utils
 
 Here's a reference for all the methods:
 
-## risk_to_qty
+## risk\_to\_qty
 
 Calculates the quantity, based on the percentage of the capital you're willing to risk per trade.
 
@@ -49,7 +49,7 @@ def go_long(self):
     self.take_profit = qty, 150
 ```
 
-## risk_to_size
+## risk\_to\_size
 
 Calculates the size of the position based on the amount of risk percentage you're willing to take.
 
@@ -66,7 +66,7 @@ risk_to_size(capital_size, risk_percentage, risk_per_qty, entry_price)
 
 **Return Type**: float
 
-## size_to_qty
+## size\_to\_qty
 
 Converts a position-size to the corresponding quantity.
 Example: Requesting \$100 at the price of %50 would return 2.
@@ -83,7 +83,7 @@ size_to_qty(position_size, price, precision)
 
 **Return Type**: float
 
-## qty_to_size
+## qty\_to\_size
 
 Converts a quantity to its corresponding position-size.
 Example: Requesting 2 shares at the price of %50 would return \$100.
@@ -130,7 +130,7 @@ extra_candles = [
 ]
 ```
 
-## limit_stop_loss
+## limit\_stop\_loss
 
 Limits the stop-loss price according to the max allowed risk percentage. (How many percent you're OK with the price going against your position)
 

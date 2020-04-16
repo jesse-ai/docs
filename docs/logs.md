@@ -6,7 +6,7 @@ After each execution, a log file is created with full details of the trades.
 
 ## Trades
 
-Every time a backtest command is launched a json file is produced with all the trade data. File are stored in the `storage/logs/trades/` folder. This is an example of the content of the files:
+Every time a backtest simulation is executed, a json file is generated with all the trade data. The generated file is stored at the `storage/logs/trades/` folder. This is an example of the content of the files:
 
 ```json
 {

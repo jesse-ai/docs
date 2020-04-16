@@ -13,12 +13,14 @@ In case a fresh install isn't possible for you, look at the [repository](https:/
 
 ## macOS
 
-TODO...
+**Under construction... come back tomorrow**
 
 ## Windows
 
-<!-- It is highly recommended to use docker or linux on a virtual machine. Why? On Windows everything is far more complicated and many more clicks. -->
+**Under construction... come back tomorrow**
 
+<!-- It is highly recommended to use docker or linux on a virtual machine. Why? On Windows everything is far more complicated and many more clicks. -->
+<!-- 
 ### Step 1: Python and pip
 [Download](https://www.python.org/downloads/windows) the official Python installer. It doesn't matter whether you choose the executable installer or web-base installer. What matters is to choose the right version for your system type. If you are on `32bit` Windows download `Windows x86 ... installer`. If you are on 64bit Windows get the `Windows x86-64 ... installer`.
 
@@ -161,4 +163,4 @@ This will install jesse in you Windows User folder (like C:\Users\XXX). If you w
 	- https://medium.com/@keng16302/how-to-install-ta-lib-in-python-on-window-9303eb003fbb
 
 - git >= 2.26.0 
-	- https://git-scm.com/download/win
+	- https://git-scm.com/download/win -->
