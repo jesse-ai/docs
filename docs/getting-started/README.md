@@ -45,7 +45,7 @@ sudo su - postgres
 psql
 CREATE DATABASE jesse_db;
 # create new user with privilage to access jesse_db (useful for remote access)
-CREATE USER jesse_user WITH PASSWORD '{password}';
+CREATE USER jesse_user WITH PASSWORD 'password';
 GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
 \q
 exit
