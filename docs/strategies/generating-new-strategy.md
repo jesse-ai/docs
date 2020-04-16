@@ -15,13 +15,13 @@ import jesse.indicators as ta
 
 
 class AwesomeStrategy(Strategy):
-    def __init__(self, exchange, symbol, timeframe, hyper_parameters=None):
-        super().__init__('AwesomeStrategy', '0.0.1', exchange, symbol, timeframe)
-
     def should_long(self):
         return False
 
     def should_short(self):
+        return False
+
+    def should_cancel(self):
         return False
 
     def go_long(self):
@@ -29,7 +29,4 @@ class AwesomeStrategy(Strategy):
 
     def go_short(self):
         pass
-
-    def should_cancel(self):
-        return False
 ```
