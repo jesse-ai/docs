@@ -33,6 +33,11 @@ Now install Jesse:
 pip install jesse
 ```
 
+We are constantly pushing new patches. To update to the latest version run:
+```
+pip install -U jesse
+```
+
 
 ## Create a new project
 
