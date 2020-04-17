@@ -11,6 +11,18 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/m
 
 In case a fresh install isn't possible for you, look at the [repository](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
 
+Now you need to create a PostgreSQL so Jesse can use for storing data:
+
+```
+sudo su - postgres
+psql
+CREATE DATABASE jesse_db;
+CREATE USER jesse_user WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
+\q
+exit
+```
+
 ## macOS
 
 **Under construction... come back tomorrow**

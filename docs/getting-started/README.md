@@ -38,18 +38,6 @@ We are constantly pushing new patches. To update to the latest version run:
 pip install -U jesse
 ```
 
-## Create the database
-```
-# Connect and create database
-sudo su - postgres
-psql
-CREATE DATABASE jesse_db;
-# create new user with privilage to access jesse_db (useful for remote access)
-CREATE USER jesse_user WITH PASSWORD 'password';
-GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
-\q
-exit
-```
 ## Create a new project
 
 You'll need to create your own Jesse project in order to define your very own strategies. 
