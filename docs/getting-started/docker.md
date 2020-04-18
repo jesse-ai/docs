@@ -1,26 +1,60 @@
 # Docker
 
-In case you don't have the required stack installed on your machine, [Docker](https://docker.com/) is the fastest way to get you started. If 
+There's not just one correct way to use Docker; there's plenty. In this page however we'll describe one way step by step.
 
-Of course there's not just one correct way to use Docker, there's plenty. In this page however we'll describe one way step by step.
-
-<!-- ## Image
-
-First, pull the jesse image:
-```
-docker pull sullyfischer/jesse-ai:python38
+First, pull the image from DockerHub:
+```sh
+docker pull salehmir/jesse:python38
 ```
 
-Now let's 
+Now assuming that you are running Docker on your local machine (and not a VPS), you probably want to edit your project with a code editor. 
+
+For that reason, I'm going to create a directory named `home` on my local machine and later map it into the container's `/home` directory. This way, I can edit my project on either my machine (with code editor) or from within the container and changes will affect on both. 
+```sh
+# to get the exact path to my local machine's home directory:
+pwd
+# /Users/saleh/Codes/tests/docker/home
 ```
-# run it for the first time
-docker run -it --name jesse salehmir/jesse:python38 /bin/bash
+
+Now I create a container from Jesse's docker image, name it `jesse` for easier access, and map `/home` directories together:
+
+```sh
+docker run -v /Users/saleh/Codes/tests/docker/home:/home -it --name jesse salehmir/jesse:python38 /bin/bash
+# root@7caf4a8a8a59:/#
+```
+
+Now you should be inside an ubuntu image that has all the required stack and even pip packages installed on it. 
+
+Because PostgreSQL and Redis are stopped after starting a container, start them with below command:
+```
+sudo service postgresql start && sudo service redis-server start
+```
+
+To make sure you have the latest version of Jesse, you need to install it manually:
+```
+pip install jesse
+``` 
+
+Now let's create a new project at `/home` so we can open it with a code editor:
+```sh
+cd /home
+jesse make-project mybot
+```
+
+Now you'll find a `mybot` directory in your local machine. In this example it is located at `/Users/saleh/Codes/tests/docker/home/mybot`. Open it with your code editor and write your own strategies. 
+
+To run jesse commands, open the container, `cd` into the project, and run them inside it. For example run `routes` command to see the present routes:
+
+```
+jesse routes
+```
+
+When you're done with the container, you can exit using `exit` command. 
+
+Next time you want to access the container, of course you don't need to repeat above steps. Just restart the container and then start the database:
+```sh
 # to reattach to created container 
 docker restart jesse && docker exec -it jesse bash
 # start Redis and PostgreSQL
 sudo service postgresql start && sudo service redis-server start
-``` -->
-
-
-
-**Under construction... come back tomorrow**
+```
