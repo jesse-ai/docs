@@ -20,7 +20,7 @@ In some indicators you can set an moving average type:
 -   8: T3 (triple exponential T3)
 
 
-# Overlap Studies
+<!-- # Overlap Studies -->
 
 ## bollinger_bands
 
@@ -739,7 +739,7 @@ trange(candles, sequential=False)
 
 
 
-# Price Transform
+<!-- # Price Transform
 
 # Cycle Indicators
 
@@ -747,7 +747,7 @@ trange(candles, sequential=False)
 
 # Statistic Functions
 
-# Versatile Indicators
+# Versatile Indicators -->
 
 ## ichimoku_cloud
 
