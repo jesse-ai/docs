@@ -11,39 +11,30 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/m
 
 In case a fresh install isn't possible for you, look at the [repository](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
 
-Now you need to create a PostgreSQL so Jesse can use for storing data:
-
 ### PostgreSQL Setup
 
 By default, the PostgreSQL database and username in the `config.py` file are `jesse_db` & `jesse_user`, respectively; and `password` as the default password.
 
 If you'd like these to be different than the default, please change them in your `config.py` prior to setting up PostgreSQL and replace the database and username that you choose in the following steps, otherwise the following is for the defaults.
 
- ** *Note: if using docker to set up Jesse, it is not necessary to manually set up PostgreSQL, as this will all be done through the docker image*
 
-#### 1: Give PostgreSQL necessary privileges
+```sh
+# switch to postgres user
+sudo su - postgres
+# open PostgreSQL CLI
+psql
+# create database
+CREATE DATABASE jesse_db;
+# create new user
+CREATE USER jesse_user WITH PASSWORD 'password';
+# set privileges of the created user
+GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
+# exit PostgreSQL CLI
+\q
+# exit postgres user (back to root)
+exit
+```
 
-```
-sudo -u postgres psql
-```
-
-#### 2: Create your PostgreSQL user
-```
-sudo -u postgres createuser jesse_user
-```
-#### 3: Create your PostgreSQL database
-```
-sudo -u postgres createdb jesse_db
-```
-#### 4: Add the password for the user to your PostgreSQL database
-```
-sudo -u postgres psql
-psql=# alter user jesse_user with encrypted password 'password';
-```
-#### 5: Give your PostgreSQL user the necessary privileges to properly use the database created for Jesse-AI
-```
-psql=# grant all privileges on database jesse_db to jesse_user;
-```
 Your PostgreSQL database and user are now ready. You can now quit psql with `\q`
 
 ## macOS
