@@ -8,7 +8,7 @@ This function is called after all active orders have been canceled. An example u
 ## on\_open\_position
 This function is called right after an open-position order is executed. You may use `self.position` to access the current position's object. 
 
-**see also**: [position](strategies/api.html#position)
+**see also**: [position](api.html#position)
 
 ## on\_take\_profit
 The position has been closed with the execution of the take-profit order. 
