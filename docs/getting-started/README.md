@@ -9,10 +9,9 @@ Getting started with Jesse is already easy. We've also done our best to make it 
 Here are the required stack:
 
 -   Python >= `3.6`
--   PostgreSQL >= `10`
--   Redis >= `4`
--   ta-lib >= `0.4`
 -   pip >= `19.3.0`
+-   PostgreSQL >= `10`
+-   ta-lib >= `0.4`
 
 Most of you all if not most of them installed on your machine. We provide guides on how to install them for 3 major operating systems. We also provide a docker image which might be the fastest way to get started. 
 

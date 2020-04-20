@@ -25,9 +25,9 @@ docker run -v /Users/saleh/Codes/tests/docker/home:/home -it --name jesse salehm
 
 Now you should be inside an ubuntu image that has all the required stack and even pip packages installed on it. 
 
-Because PostgreSQL and Redis are stopped after starting a container, start them with below command:
+Because PostgreSQL are stopped after starting a container, start them with below command:
 ```
-sudo service postgresql start && sudo service redis-server start
+sudo service postgresql start
 ```
 
 To make sure you have the latest version of Jesse, you need to install it manually:
@@ -55,6 +55,6 @@ Next time you want to access the container, of course you don't need to repeat a
 ```sh
 # to reattach to created container 
 docker restart jesse && docker exec -it jesse bash
-# start Redis and PostgreSQL
-sudo service postgresql start && sudo service redis-server start
+# start PostgreSQL
+sudo service postgresql start
 ```
