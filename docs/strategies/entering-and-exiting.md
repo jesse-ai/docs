@@ -193,7 +193,7 @@ def go_long():
 
 What if we're not aware of our exact exit point at the time of entering the trade? For instance, it is a common case in trend-following strategies to exit when the trend has stopped. 
 
-The next section introduces the concept of [events](./events) to fulfill this need.
+The next section introduces the concept of [events](./events.html) to fulfill this need.
 
 ## prepare()
 As explained in the [flowchart](./), this is the first function that gets called when a new candle is received. It is used for updating `self.vars` (custom variables) or any other action you might have in mind that needs to be done before your strategy gets executed. 
