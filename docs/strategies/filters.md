@@ -61,5 +61,5 @@ def minimum_pnl_filter(self):
     return pnl_percentage > 1
 ```
 
-Notice that we are using `self.average_entry_price` and `self.average_take_profit` which were not available inside `should_long()` functions.
+Notice that we are using `self.average_entry_price` and `self.average_take_profit` properties which were not available inside `should_long()` methods.
 
