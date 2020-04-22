@@ -6,4 +6,4 @@ Jesse waits until it receives a new candle. When it does, it goes through a seri
 
 ![symbols](../../docs/imgs/strategy-diagram.png)
 
-There's also the concept of [events](./events) which are functions you use to determine what should happen after certain events happen to your position.  
+There's also the concept of [events](./events.html) which are functions you use to determine what should happen after certain events happen to your position.  
