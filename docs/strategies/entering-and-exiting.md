@@ -42,6 +42,12 @@ def should_short(self):
 Obviously you cannot enter both a short and long position at the same time. Hence, `should_long()` and `should_short()` cannot return True at the same.
 :::
 
+::: warning
+`should_long()` and `should_short()` are for entering trades only. This means that they would get called on every new candle only if no position is open, and no order is active. 
+
+If you're looking to close trades dynamically, [update_position()](/docs/strategies/entering-and-exiting.html#update-position) is what you're looking fore. 
+:::
+
 ## go_long()
 
 Inside `go_long()` method you set your buy price (entry point), quantity (how much to buy), the stop-loss and take-profit (exit points) quantity and prices. The basic syntax is:
