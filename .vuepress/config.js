@@ -25,6 +25,10 @@ module.exports = {
                 link: 'https://jesse-ai.com/blog'
             },
             {
+                text: 'Forum',
+                link: 'https://forum.jesse-ai.com'
+            },
+            {
                 text: 'Github',
                 link: 'http://github.com/jesse-ai/jesse'
             }
