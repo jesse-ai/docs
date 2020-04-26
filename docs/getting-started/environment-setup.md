@@ -22,8 +22,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/m
 
 In case a fresh install isn't possible for you, look at the [repository](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
 
-### PostgreSQL Setup
-
 By default, the PostgreSQL database and username in the `config.py` file are `jesse_db` & `jesse_user`, respectively; and `password` as the default password.
 
 If you'd like these to be different than the default, please change them in your `config.py` prior to setting up PostgreSQL and replace the database and username that you choose in the following steps, otherwise the following is for the defaults.
@@ -50,12 +48,37 @@ Your PostgreSQL database and user are now ready. You can now quit psql with `\q`
 
 ## macOS
 
-**Under construction... come back in a few days**
+Installation on macOS is easy thanks to Homebrew. If you don't have [Homebrew](https://brew.sh/) installed, install it by running:
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+Now install Python, ta-lib, and PostgreSQL by running below commands one by one:
+
+```sh
+brew install python@3.8
+brew install ta-lib
+brew install postgresql
+```
+
+Last step is to create a PosgreSQL database and user:
+
+```sh
+# open PostgreSQL CLI
+psql
+# create database
+CREATE DATABASE jesse_db;
+# create new user
+CREATE USER jesse_user WITH PASSWORD 'password';
+# set privileges of the created user
+GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
+# exit PostgreSQL CLI
+\q
+```
+
+That's it. You should now be able to [install Jesse](/docs/getting-started/#pip-installation).
 
 ## Windows
-
-<!-- **Under construction... come back tomorrow** -->
-
 
 ### Python and pip
 [Download](https://www.python.org/downloads/windows) the official Python installer. It doesn't matter whether you choose the executable installer or web-base installer. What matters is to choose the right version for your system type. If you are on `32bit` Windows download `Windows x86 ... installer`. If you are on 64bit Windows get the `Windows x86-64 ... installer`.
