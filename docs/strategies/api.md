@@ -273,7 +273,7 @@ def update_position(self):
         self.stop_loss = self.position.qty, self.position.entry_price
 ```
 
-**Also check**: [is_long](#is-long), [is_short](#is-short)
+**Also check**: [is_long](#is-long), [is_short](#is-short), [is_open](#is-open), [is_close](#is-close)
 
 
 ## is_long
@@ -286,6 +286,18 @@ Is the type of the open position (current trade) `long`?
 ## is_short
 
 Is the type of the open position (current trade) `short`?
+
+**Return Type**: bool
+
+## is_open
+
+Is the current position open?
+
+**Return Type**: bool
+
+## is_close
+
+Is the current position close?
 
 **Return Type**: bool
 
