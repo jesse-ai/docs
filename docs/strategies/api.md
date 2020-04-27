@@ -259,9 +259,9 @@ class Position:
     pnl: float
     # The PNL% of the position
     pnl_percentage: float
-    # Is the current position open? (alias for self.is_open)
+    # Is the current position open?
     is_open: bool
-    # Is the current position close? (alias for self.is_close)
+    # Is the current position close?
     is_close: bool
 ```
 
@@ -295,11 +295,17 @@ Is the current position open?
 
 **Return Type**: bool
 
+Alias for `self.position.is_open`
+
+
 ## is_close
 
 Is the current position close?
 
 **Return Type**: bool
+
+Alias for `self.position.is_close`
+
 
 
 ## is_reduced
