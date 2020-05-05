@@ -6,6 +6,7 @@ Most indicators have a `sequential=False` parameter. When set to `True`, it retu
 
 When developing strategies however, you probably want to keep it as `False` to return only the indicator value for current trading candle.
 
+::: tip
 ## matype
 In some indicators you can set an moving average type:
 
@@ -18,6 +19,7 @@ In some indicators you can set an moving average type:
 -   6: KAMA (Kaufman adaptive)
 -   7: MAMA (Mesa adaptive)
 -   8: T3 (triple exponential T3)
+:::
 
 
 <!-- # Overlap Studies -->
@@ -258,7 +260,7 @@ wma(candles, period=30, sequential=False)
 
 
 
-## vwma
+<!-- ## vwma
 
 Volume Weighted Moving Average (VWMA)
 
@@ -272,10 +274,8 @@ vwma(candles, period=20, sequential=False)
 -   period: int - default: 20
 -   sequential: bool - default=False
 
-**Return Type**: float
+**Return Type**: float -->
 
-
-# Momentum Indicators
 
 ## adx
 
@@ -653,8 +653,6 @@ willr(candles, period=14, sequential=False)
 
 **Return Type**: float
 
-# Volume Indicators
-
 ## adosc
 
 Chaikin A/D Oscillator (ADOSC)
@@ -687,8 +685,6 @@ obv(candles, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: float
-
-# Volatility Indicators
 
 ## atr
 
