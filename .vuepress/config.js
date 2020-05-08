@@ -6,9 +6,15 @@ module.exports = {
         [
             '@vuepress/google-analytics',
             {
-                ga: 'UA-135004813-1'
-            }
-        ]
+                ga: 'UA-135004813-1',
+            },
+        ],
+        [
+            'sitemap',
+            {
+                hostname: 'https://docs.jesse-ai.com',
+            },
+        ],
     ],
     themeConfig: {
         docsRepo: 'jesse-ai/docs',
@@ -18,20 +24,20 @@ module.exports = {
         nav: [
             {
                 text: 'Home',
-                link: 'https://jesse-ai.com'
+                link: 'https://jesse-ai.com',
             },
             {
                 text: 'Blog',
-                link: 'https://jesse-ai.com/blog'
+                link: 'https://jesse-ai.com/blog',
             },
             {
                 text: 'Forum',
-                link: 'https://forum.jesse-ai.com'
+                link: 'https://forum.jesse-ai.com',
             },
             {
                 text: 'Github',
-                link: 'http://github.com/jesse-ai/jesse'
-            }
+                link: 'http://github.com/jesse-ai/jesse',
+            },
         ],
         sidebar: [
             ['/docs/', 'Introduction'],
@@ -49,7 +55,7 @@ module.exports = {
                     // ['/docs/getting-started/events', 'Events'],
                     // ['/docs/getting-started/filters', 'Filters'],
                     // ['/docs/getting-started/api', 'API reference']
-                ]
+                ],
             },
             ['/docs/configuration', 'Configuration'],
             ['/docs/routes', 'Routing'],
@@ -65,8 +71,8 @@ module.exports = {
                     ['/docs/strategies/entering-and-exiting', 'Entering and exiting trades'],
                     ['/docs/strategies/events', 'Events'],
                     ['/docs/strategies/filters', 'Filters'],
-                    ['/docs/strategies/api', 'API reference']
-                ]
+                    ['/docs/strategies/api', 'API reference'],
+                ],
             },
             {
                 title: 'Indicators', // required
@@ -75,8 +81,8 @@ module.exports = {
                 sidebarDepth: 1,
                 children: [
                     ['/docs/indicators/', 'Introduction'],
-                    ['/docs/indicators/reference', 'Indicators Reference']
-                ]
+                    ['/docs/indicators/reference', 'Indicators Reference'],
+                ],
             },
             ['/docs/utils', 'Utilities'],
             ['/docs/backtest', 'Backtest'],
@@ -88,6 +94,6 @@ module.exports = {
             ['/docs/logs', 'Logging'],
             // ['/docs/faq', 'Frequently Asked Questions'],
             // ['/docs/license', 'License']
-        ]
-    }
+        ],
+    },
 }
