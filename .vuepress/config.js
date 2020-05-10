@@ -92,6 +92,7 @@ module.exports = {
             // ['/docs/notifications', 'Notifications'],
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/logs', 'Logging'],
+            ['/docs/changelog', 'Changelog'],
             // ['/docs/faq', 'Frequently Asked Questions'],
             // ['/docs/license', 'License']
         ],
