@@ -15,7 +15,7 @@ Calculates the quantity, based on the percentage of the capital you're willing t
 ::: tip
 This is probably the most important helper function that you're going to need in your strategies. Those of you whom are familiar with compounding risk would love this function.
 
-We made a website for you just to play with this simple but important formula: [positionsizingcalculator.com](https://positionsizingcalculator.com).
+We made a [website](https://positionsizingcalculator.netlify.app) for you just to play with this simple but important formula.
 :::
 
 ```py
