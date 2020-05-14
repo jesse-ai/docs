@@ -770,3 +770,22 @@ donchian(candles: np.ndarray, period=20, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: DonchianChannel(upperband, middleband, lowerband)
+
+## emd
+
+Empirical Mode Decomposition by John F. Ehlers and Ric Way
+
+```py
+emd(candles: np.ndarray, period=20, delta=0.5, fraction=0.1, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   period: float - default: 0.5
+-   period: float - default: 0.1
+-   sequential: bool - default=False
+
+**Return Type**: EMD(mean, up, low)
+
