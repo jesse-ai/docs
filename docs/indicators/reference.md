@@ -851,7 +851,7 @@ hma(candles: np.ndarray, period=5, sequential=False)
 **Properties**:
 
 -   candles: np.ndarray
--   period: int - default: 20
+-   period: int - default: 5
 -   sequential: bool - default=False
 
 **Return Type**: float
