@@ -873,3 +873,25 @@ supertrend(candles, period=10, factor=3, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: SuperTrend(trend, changed)
+
+
+## FRAMA
+
+Fractal Adaptive Moving Average (FRAMA)
+!!! FRAMA is not the same as FAMA
+
+
+```py
+frama(candles, window=10, FC=1,  SC=300, sequential=False)
+```
+> :warning: **Custom indicator**: Contains loops and may be slowing down the backtest!
+
+**Properties**:
+
+-   candles: np.ndarray
+-   window: int - default: 10
+-   FC: float - default: 1
+-   SC: float - default: 300
+-   sequential: bool - default=False
+
+**Return Type**: float
