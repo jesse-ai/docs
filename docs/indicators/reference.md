@@ -839,3 +839,19 @@ zlema(candles, period=20, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: float
+
+## hma
+
+Hull Moving Average
+
+```py
+hma(candles: np.ndarray, period=5, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   sequential: bool - default=False
+
+**Return Type**: float
