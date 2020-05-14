@@ -855,3 +855,21 @@ hma(candles: np.ndarray, period=5, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: float
+
+## supertrend
+
+SuperTrend indicator
+
+```py
+supertrend(candles, period=10, factor=3, sequential=False)
+```
+> :warning: **Custom indicator**: Contains loops and may be slowing down the backtest!
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 10
+-   factor: float - default: 3
+-   sequential: bool - default=False
+
+**Return Type**: SuperTrend(trend, changed)
