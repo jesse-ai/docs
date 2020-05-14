@@ -711,7 +711,7 @@ ichimoku_cloud(candles, conversion_line_period=9, base_line_period=26, lagging_l
 The Fisher Transform helps identify price reversals.
 
 ```py
-fisher(candles: np.ndarray, period=9, sequential=False)
+fisher(candles, period=9, sequential=False)
 ```
 
 **Properties**:
@@ -760,7 +760,7 @@ srsi(candles, period=14, sequential=False)
 Donchian Channels
 
 ```py
-donchian(candles: np.ndarray, period=20, sequential=False)
+donchian(candles, period=20, sequential=False)
 ```
 
 **Properties**:
@@ -776,7 +776,7 @@ donchian(candles: np.ndarray, period=20, sequential=False)
 Empirical Mode Decomposition by John F. Ehlers and Ric Way
 
 ```py
-emd(candles: np.ndarray, period=20, delta=0.5, fraction=0.1, sequential=False)
+emd(candles, period=20, delta=0.5, fraction=0.1, sequential=False)
 ```
 > :warning: **Custom indicator**: Contains loops and may be slowing down the backtest!
 
@@ -795,7 +795,7 @@ emd(candles: np.ndarray, period=20, delta=0.5, fraction=0.1, sequential=False)
 RSI Laguerre Filter was originally developed and described by John Ehlers in his paper `Time Warp – Without Space Travel`.
 
 ```py
-lrsi(candles: np.ndarray, alpha=0.2, sequential=False)
+lrsi(candles, alpha=0.2, sequential=False)
 ```
 > :warning: **Custom indicator**: Contains loops and may be slowing down the backtest!
 
@@ -807,3 +807,19 @@ lrsi(candles: np.ndarray, alpha=0.2, sequential=False)
 
 **Return Type**: float
 
+## tsi
+
+True strength index (TSI)
+
+```py
+tsi(candles, long_period=25, short_period=13, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   long_period: int - default: 25
+-   short_period: int - default: 13
+-   sequential: bool - default=False
+
+**Return Type**: float
