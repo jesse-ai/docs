@@ -823,3 +823,19 @@ tsi(candles, long_period=25, short_period=13, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: float
+
+## zlema
+
+Zero-Lag Exponential Moving Average
+
+```py
+zlema(candles, period=20, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   sequential: bool - default=False
+
+**Return Type**: float
