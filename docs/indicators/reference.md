@@ -754,3 +754,19 @@ srsi(candles, period=14, sequential=False)
 **Return Type**: StochasticRSI(k, d)
 
 `k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
+
+## donchian
+
+Donchian Channels
+
+```py
+donchian(candles: np.ndarray, period=20, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   sequential: bool - default=False
+
+**Return Type**: DonchianChannel(upperband, middleband, lowerband)
