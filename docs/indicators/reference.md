@@ -875,7 +875,7 @@ supertrend(candles, period=10, factor=3, sequential=False)
 **Return Type**: SuperTrend(trend, changed)
 
 
-## FRAMA
+## frama
 
 Fractal Adaptive Moving Average (FRAMA)
 !!! FRAMA is not the same as FAMA
@@ -892,6 +892,21 @@ frama(candles, window=10, FC=1,  SC=300, sequential=False)
 -   window: int - default: 10
 -   FC: float - default: 1
 -   SC: float - default: 300
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## ao
+
+Awesome Oscillator
+
+```py
+ao(candles, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
 -   sequential: bool - default=False
 
 **Return Type**: float
