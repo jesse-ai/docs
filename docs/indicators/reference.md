@@ -909,4 +909,6 @@ ao(candles, sequential=False)
 -   candles: np.ndarray
 -   sequential: bool - default=False
 
-**Return Type**: float
+**Return Type**: AO(osc, change)
+
+change is the difference to the last oscillator value.
