@@ -912,3 +912,34 @@ ao(candles, sequential=False)
 **Return Type**: AO(osc, change)
 
 change is the difference to the last oscillator value.
+
+## alligator
+
+Alligator
+
+```py
+alligator(candles, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   sequential: bool - default=False
+
+**Return Type**: AG(jaw, teeth, lips)
+
+## smma
+
+SMMA - Smoothed Moving Average
+
+```py
+smma(candles, period=5, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 5
+-   sequential: bool - default=False
+
+**Return Type**: float
