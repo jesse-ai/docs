@@ -16,10 +16,10 @@ pwd
 # /Users/saleh/Codes/tests/docker/home
 ```
 
-Now I create a container from Jesse's docker image, name it `jesse` for easier access, and map `/home` directories together:
+Now I create a container from Jesse's docker image, name it `jesse` for easier access, map `/home` directories together, and publish container port `8888` to the host (in case you want to access Jupyter Notebooks from the host browser):
 
 ```sh
-docker run -v /Users/saleh/Codes/tests/docker/home:/home -it --name jesse salehmir/jesse:python38 /bin/bash
+docker run -v /Users/saleh/Codes/tests/docker/home:/home -p 8888:8888 -it --name jesse salehmir/jesse:python38 /bin/bash
 # root@7caf4a8a8a59:/#
 ```
 
