@@ -711,7 +711,7 @@ ichimoku_cloud(candles, conversion_line_period=9, base_line_period=26, lagging_l
 The Fisher Transform helps identify price reversals.
 
 ```py
-fisher(candles: np.ndarray, period=9, sequential=False)
+fisher(candles, period=9, sequential=False)
 ```
 
 **Properties**:
@@ -754,3 +754,192 @@ srsi(candles, period=14, sequential=False)
 **Return Type**: StochasticRSI(k, d)
 
 `k` and `d` are the variable names in TradingView. `k` is the fast moving average of the RSI, and `d` is the slow moving average.
+
+## donchian
+
+Donchian Channels
+
+```py
+donchian(candles, period=20, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   sequential: bool - default=False
+
+**Return Type**: DonchianChannel(upperband, middleband, lowerband)
+
+## emd
+
+Empirical Mode Decomposition by John F. Ehlers and Ric Way
+
+```py
+emd(candles, period=20, delta=0.5, fraction=0.1, sequential=False)
+```
+> :warning: **Custom indicator**: Contains loops and may be slowing down the backtest!
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   delta: float - default: 0.5
+-   fraction: float - default: 0.1
+-   sequential: bool - default=False
+
+**Return Type**: EMD(mean, up, low)
+
+## lrsi
+
+RSI Laguerre Filter was originally developed and described by John Ehlers in his paper `Time Warp – Without Space Travel`.
+
+```py
+lrsi(candles, alpha=0.2, sequential=False)
+```
+> :warning: **Custom indicator**: Contains loops and may be slowing down the backtest!
+
+**Properties**:
+
+-   candles: np.ndarray
+-   alpha: float - default: 0.2
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## tsi
+
+True strength index (TSI)
+
+```py
+tsi(candles, long_period=25, short_period=13, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   long_period: int - default: 25
+-   short_period: int - default: 13
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## zlema
+
+Zero-Lag Exponential Moving Average
+
+```py
+zlema(candles, period=20, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 20
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## hma
+
+Hull Moving Average
+
+```py
+hma(candles: np.ndarray, period=5, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 5
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## supertrend
+
+SuperTrend indicator
+
+```py
+supertrend(candles, period=10, factor=3, sequential=False)
+```
+> :warning: **Custom indicator**: Contains loops and may be slowing down the backtest!
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 10
+-   factor: float - default: 3
+-   sequential: bool - default=False
+
+**Return Type**: SuperTrend(trend, changed)
+
+
+## frama
+
+Fractal Adaptive Moving Average (FRAMA)
+!!! FRAMA is not the same as FAMA
+
+
+```py
+frama(candles, window=10, FC=1,  SC=300, sequential=False)
+```
+> :warning: **Custom indicator**: Contains loops and may be slowing down the backtest!
+
+**Properties**:
+
+-   candles: np.ndarray
+-   window: int - default: 10
+-   FC: float - default: 1
+-   SC: float - default: 300
+-   sequential: bool - default=False
+
+**Return Type**: float
+
+## ao
+
+Awesome Oscillator
+
+```py
+ao(candles, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   sequential: bool - default=False
+
+**Return Type**: AO(osc, change)
+
+change is the difference to the last oscillator value.
+
+## alligator
+
+Alligator
+
+```py
+alligator(candles, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   sequential: bool - default=False
+
+**Return Type**: AG(jaw, teeth, lips)
+
+## smma
+
+SMMA - Smoothed Moving Average
+
+```py
+smma(candles, period=5, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 5
+-   sequential: bool - default=False
+
+**Return Type**: float
