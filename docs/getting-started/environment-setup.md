@@ -149,6 +149,24 @@ pip install {downloaded_binary_file}
 
 Now check if it worked by running: `pip list` you should now find ta-lib in that list.
 
+### Tulipy
+
+To install Tulipy on Windows you need to use a prebuilt binary.
+Go [here](https://pypi.org/project/tulipy/#files) and download a version matching your system and python version.
+
+Example:
+-   **tulipy-0.4.0-cp37-cp37m-win32.whl**: this would be the version for python *3.7 (cp37)* and windows *32bit (win_32)*
+-   **tulipy-0.4.0-cp37-cp37m-win_amd64.whl**: this would be the version for python *3.7 (cp37)* and windows *64bit (win_amd64)*
+
+Now open CMD and go the directory that you downloaded binary file and run:
+```sh
+pip install {downloaded_binary_file}
+# for example: 
+# pip install tulipy-0.4.0-cp37-cp37m-win_amd64.whl
+```
+
+Now check if it worked by running: `pip list` you should now find tulipy in that list.
+
 ### Cython
 Run:
 
