@@ -16,7 +16,7 @@ In few indicators you can set an moving average type:
 -   `6`: KAMA (Kaufman adaptive)
 -   `7`: MAMA (Mesa adaptive)
 -   `8`: T3 (triple exponential T3)
-    :::
+:::
 
 <!-- # Overlap Studies -->
 
