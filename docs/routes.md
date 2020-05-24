@@ -18,14 +18,14 @@ Working example:
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    (exchanges.BINANCE, 'BTCUSDT', timeframes.HOUR_4, 'TrendFollowingStrategy'),
+    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
 ]
 ```
 
 In this example, we're telling Jesse to trade `BTCUSDT` using `TrendFollowingStrategy` strategy at `Binance` exchange in `4h` time interval.
 
 ::: tip
-Notice that I used enums. Instead of writing `'4h'`, I wrote `timeframes.HOUR_4`. This is optional but helps to prevent misspelling string.
+Instead of writing `'4h'`, you could write `timeframes.HOUR_4`. This is optional but helps to prevent misspelling string.
 :::
 
 ## Trading multiple routes
@@ -36,8 +36,8 @@ You can trade more than one route at the same time. The `routes` variable is a l
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    (exchanges.BINANCE, 'BTCUSDT', timeframes.HOUR_4, 'TrendFollowingStrategy'),
-    (exchanges.BINANCE, 'ETHUSDT', timeframes.MINUTE_15, 'MeanReverseStrategy'),
+    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
+    ('Binance', 'ETHUSDT', '15m', 'MeanReverseStrategy'),
 ]
 ```
 
@@ -67,11 +67,11 @@ For example, if you're trading `4h` time frame, and using `1D` time frame in you
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    (exchanges.BINANCE, 'BTCUSDT', timeframes.HOUR_4, 'TrendFollowingStrategy'),
+    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
 ]
 
 extra_candles = [
-    (exchanges.BINANCE, 'BTCUSDT', timeframes.DAY_1),
+    ('Binance', 'BTCUSDT', '1D'),
 ]
 ```
 
