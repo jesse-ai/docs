@@ -943,3 +943,31 @@ smma(candles, period=5, sequential=False)
 -   sequential: bool - default=False
 
 **Return Type**: float
+
+## pivot
+
+Pivot Points
+
+```py
+pivot(candles, mode=0, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   mode: int - default = 0
+-   sequential: bool - default=False
+
+> mode 0 = Standard Pivot Points | not calculated: s3, s4, r3, r4
+
+> mode 1 = Fibonacci Pivot Points | not calculated: s4, r4
+
+> mode 2 = Demark Pivot Points | not calculated: s2, s3, s4, r2, r3, r4
+
+> mode 3 = Camarilla Pivot Points
+
+> mode 4 = Woodie's Pivot Points
+
+The not calculated points will return "nan".
+
+**Return Type**: PIVOT(r4, r3, r2, r1, pp, s1, s2, s3, s4)
