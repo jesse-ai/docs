@@ -25,13 +25,16 @@ In few indicators you can set an moving average type:
 Bollinger Bands (BBANDS)
 
 ```py
-bollinger_bands(candles, period=20, sequential=False)
+bollinger_bands(candles, period=20, devup=2, devdn=2, matype=0, sequential=False)
 ```
 
 **Properties**:
 
 -   candles: np.ndarray
 -   period: int - default: 20
+-   devup: float  - default: 20
+-   devdn: float  - default: 20
+-   matype: int - default: 20
 -   sequential: bool - default=False
 
 **Return Type**: BollingerBands(upperband, middleband, lowerband)
@@ -41,13 +44,16 @@ bollinger_bands(candles, period=20, sequential=False)
 Bollinger Bands Width (BBW)
 
 ```py
-bollinger_bands_width(candles, period=20, sequential=False)
+bollinger_bands_width(candles, period=20, devup=2, devdn=2, matype=0, sequential=False)
 ```
 
 **Properties**:
 
 -   candles: np.ndarray
 -   period: int - default: 20
+-   devup: float  - default: 20
+-   devdn: float  - default: 20
+-   matype: int - default: 20
 -   sequential: bool - default=False
 
 **Return Type**: float
