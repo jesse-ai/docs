@@ -971,3 +971,22 @@ pivot(candles, mode=0, sequential=False)
 The not calculated points will return "nan".
 
 **Return Type**: PIVOT(r4, r3, r2, r1, pp, s1, s2, s3, s4)
+
+
+## zscore
+
+zScore
+
+```py
+zscore(candles, period=14, matype=0, nbdev=1, sequential=False)
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   period: int - default: 14
+-   matype: int - default: 0
+-   nbdev: float - default: 1
+-   sequential: bool - default=False
+
+**Return Type**: float
