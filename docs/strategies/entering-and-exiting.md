@@ -232,3 +232,12 @@ def update_position(self):
     if self.is_long and ta.rsi(self.candles) == 100:
         self.liquidate()
 ```
+
+**Example #3:** Double the size of my long position if the RSI shows oversold and I'm sitting at more than 5% profit:
+```py 
+def update_position(self):
+    if self.is_long:
+        if self.position.pnl_percentage > 5 and ta.rsi(self.candles) < 30:
+            # double the size of the already open position at current price (with a MARKET order)
+            self.buy = self.position.qty, self.price
+```
