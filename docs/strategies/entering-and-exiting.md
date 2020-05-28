@@ -210,7 +210,11 @@ As explained in the [flowchart](./), this is the first function that gets called
 ## update_position() 
 Assuming that there's an open position, this method is used to update exit points or to add to the size of the position if needed.
 
-Example of exiting the trade by implementing a trailing stop for take-profit: 
+:::tip 
+If your strategy exits dynamically (for example when at the time of entering the trade you don't know the take-profit price) the you definitely need to use `update_position`.
+:::
+
+**Example #1:** Exiting the trade by implementing a trailing stop for take-profit: 
 ```py 
 def update_position(self):
     qty = self.position.qty 
@@ -220,4 +224,11 @@ def update_position(self):
         self.take_profit = qty, self.high - 10
     else:
         self.take_profit = qty, self.low + 10
+```
+
+**Example #2:** Liquidating the open position at a certain condition. In this case, we [liquidate](/docs/strategies/api.html#liquidate) if we're in a long trade and the RSI reaches 100: 
+```py 
+def update_position(self):
+    if self.is_long and ta.rsi(self.candles) == 100:
+        self.liquidate()
 ```
