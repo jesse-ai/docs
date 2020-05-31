@@ -1074,6 +1074,7 @@ pattern_recognition(candles, pattern_type, penetration=0, sequential=False)
 -   CDLMORNINGDOJISTAR - Morning Doji Star
 -   CDLMORNINGSTAR - Morning Star
 -   CDLONNECK - On-Neck Pattern
+-   CDLPIERCING - Piercing Pattern
 -   CDLRICKSHAWMAN - Rickshaw Man
 -   CDLSEPARATINGLINES - Separating Lines
 -   CDLSHORTLINE - Short Line Candle
