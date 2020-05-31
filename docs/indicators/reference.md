@@ -1012,10 +1012,10 @@ zscore(candles, period=14, matype=0, nbdev=1, sequential=False)
 
 ## pattern_recognition
 
-zScore
+Candle Pattern Recognition
 
 ```py
-zscore(candles, period=14, matype=0, nbdev=1, sequential=False)
+pattern_recognition(candles, pattern_type, penetration=0, sequential=False)
 ```
 
 **Properties**:
