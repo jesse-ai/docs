@@ -18,6 +18,18 @@ In few indicators you can set an moving average type:
 -   `8`: T3 (triple exponential T3)
 :::
 
+::: tip source_type
+In some indicators you can set the source type:
+
+-   `"close"`
+-   `"high"`
+-   `"low"`
+-   `"open"`
+-   `"volume"`
+-   `"hl2"`
+-   `"hlc3"`
+-   `"ohlc4"`
+:::
 <!-- # Overlap Studies -->
 
 ## bollinger_bands
@@ -25,7 +37,7 @@ In few indicators you can set an moving average type:
 Bollinger Bands (BBANDS)
 
 ```py
-bollinger_bands(candles, period=20, devup=2, devdn=2, matype=0, sequential=False)
+bollinger_bands(candles, period=20, devup=2, devdn=2, matype=0, source_type="close", sequential=False)
 ```
 
 **Properties**:
@@ -35,6 +47,7 @@ bollinger_bands(candles, period=20, devup=2, devdn=2, matype=0, sequential=False
 -   devup: float  - default: 20
 -   devdn: float  - default: 20
 -   matype: int - default: 20
+-   source_type: str - default: "close"
 -   sequential: bool - default=False
 
 **Return Type**: BollingerBands(upperband, middleband, lowerband)
