@@ -1029,7 +1029,6 @@ pattern_recognition(candles, pattern_type, penetration=0, sequential=False)
 `0` means no pattern, while a positive value marks a bullish pattern and a negative value a bearish pattern. But be carefull and as always do tests: There are inconsistencies on TALIBs site. 
 
 ::: Available pattern_type
-
 -   CDL2CROWS - Two Crows
 -   CDL3BLACKCROWS - Three Black Crows
 -   CDL3INSIDE - Three Inside Up/Down
@@ -1083,5 +1082,4 @@ pattern_recognition(candles, pattern_type, penetration=0, sequential=False)
 -   CDLTHRUSTING - Thrusting Pattern
 -   CDLUNIQUE3RIVER - Unique 3 River
 -   CDLXSIDEGAP3METHODS - Upside/Downside Gap Three Methods
-
 :::
