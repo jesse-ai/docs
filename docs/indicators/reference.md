@@ -1077,6 +1077,7 @@ pattern_recognition(candles, pattern_type, penetration=0, sequential=False)
 -   CDLPIERCING - Piercing Pattern
 -   CDLRICKSHAWMAN - Rickshaw Man
 -   CDLSEPARATINGLINES - Separating Lines
+-   CDLSHOOTINGSTAR - Shooting Star
 -   CDLSHORTLINE - Short Line Candle
 -   CDLSTALLEDPATTERN - Stalled Pattern
 -   CDLTAKURI - Takuri (Dragonfly Doji with very long lower shadow)
