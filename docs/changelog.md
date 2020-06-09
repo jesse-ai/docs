@@ -2,6 +2,22 @@
 
 Here you can see that changes were made at each release. 
 
+## 0.6.3
+- Fix issue [#34](https://github.com/jesse-ai/jesse/issues/34)
+- Made filter misusage exception more readable
+- Added new ratios in metrics: Calmar, Sortino, Omega
+- Improve TradingView output by [Gabri](https://github.com/Gabri)
+- Added supersmoother indicator
+- Added gauss indicator
+- Added itrend indicator
+- Added faulty indicator
+- Added beta indicator
+- Added LINEARREG_ANGLE - Linear Regression Angle indicator
+- Added LINEARREG - Linear Regression indicator
+- Added AVGPRICE - Average Price indicator
+- Added VWMACD - Volume Weighted Moving Average Convergence/Divergence indicator
+- Added AD - Chaikin A/D Line indicator
+- Added keltner indicator by [jeremytregunna](https://github.com/jeremytregunna)
 
 ## 0.5.0
 - Fixed an [issue](https://forum.jesse-ai.com/d/37-strange-behavior-on-filters) with filters. 
