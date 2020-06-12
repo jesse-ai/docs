@@ -4,7 +4,7 @@ In Jesse, a custom indicator can be added to trading strategy, it facilitates st
 
 ## Custom Indicator Tutorial
 
-In this tutorial, we will convert [Elliott Wave Oscillator by Centrokom](https://id.tradingview.com/script/Q29rCz5S-Elliott-Wave-Oscillator/) that is originally written in Pine Script. The following is the original implementation:
+In this tutorial, we will convert [Elliott Wave Oscillator by Centrokom](https://id.tradingview.com/script/Q29rCz5S-Elliott-Wave-Oscillator/) that is originally written in Pine Script to Jesse custom indicator. The following is the original implementation:
 ```js
 //@version=3
 study("Elliott Wave Oscillator")
@@ -34,15 +34,15 @@ from .ewo import ewo
 5. Now let's write the indicator implementation in `ewo.py`. In principle, the indicator should take some input and return a sequential or a single value. 
 ```python
 import numpy as np
-from jesse.indicators import sma
+from jesse.indicators import ema
 from typing import Union
 
-def ewo(candles: np.ndarray, shortma: int = 5, longma: int = 35, source_type="close", sequential = False) -> Union[float, np.ndarray]:
+def ewo(candles: np.ndarray, shortma: int = 5, longma: int = 34, source_type="close", sequential = False) -> Union[float, np.ndarray]:
     """
     Elliott Wave Oscillator
     :param candles: np.ndarray
     :param shortma: int - default: 5
-    :param longma: int - default: 35
+    :param longma: int - default: 34
     :param source_type: str - default: close
     :param sequential: bool - default: False
     :return: Union[float, np.ndarray]
@@ -50,7 +50,7 @@ def ewo(candles: np.ndarray, shortma: int = 5, longma: int = 35, source_type="cl
     if not sequential and len(candles) > 240:
         candles = candles[-240:]
     
-    ewo = np.subtract(sma(candles, shortma, source_type, True), sma(candles, longma, source_type, True))
+    ewo = np.subtract(ema(candles, shortma, source_type, True), ema(candles, longma, source_type, True))
 
     if sequential:
         return ewo
