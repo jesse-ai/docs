@@ -23,7 +23,7 @@ Now, let's write our first custom indicator:
     │   ├── __init__.py
     │   ├── custom_indicators
     │   │   ├── __init__.py
-    |   |   └── ewo.py
+    │   │   └── ewo.py
     └── Strategy02
         └── __init__.py
 ```
