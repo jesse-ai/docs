@@ -171,3 +171,5 @@ def shift(arr, num, fill_value=np.nan):
 ```python
 array_with_matching_lenght = np.concatenate((np.full((candles.shape[0] - array_with_shorter_lenght.shape[0]), np.nan), array_with_shorter_lenght)
 ```
+#### Use Numpy's Vectorized Operations
+Whenever possible you want to use [VectorizedOperations](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html), as they are faster.
