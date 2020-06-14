@@ -178,7 +178,7 @@ crossed(series1, series2, direction=None, sequential=False)
 
 **Return Type**: bool | np.ndarray
 
-## crossed
+## numpy_candles_to_dataframe
 
 Helper for the detection of crosses
 
