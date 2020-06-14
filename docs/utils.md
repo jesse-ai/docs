@@ -178,7 +178,7 @@ crossed(series1, series2, direction=None, sequential=False)
 
 **Return Type**: bool | np.ndarray
 
-## numpy_candles_to_dataframe
+## numpy\_candles\_to\_dataframe
 
 Helper to convert numpy to financial dataframe
 
