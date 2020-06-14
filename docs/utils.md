@@ -180,7 +180,7 @@ crossed(series1, series2, direction=None, sequential=False)
 
 ## numpy_candles_to_dataframe
 
-Helper for the detection of crosses
+Helper to convert numpy to financial dataframe
 
 ```py
 numpy_candles_to_dataframe(candles: np.ndarray, name_date="date", name_open="open", name_high="high",
