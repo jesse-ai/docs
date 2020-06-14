@@ -146,3 +146,55 @@ limit_stop_loss(entry_price, stop_price, trade_type, max_allowed_risk_percentage
 -   max_allowed_risk_percentage: float
 
 **Return Type**: float
+
+## estimate\_risk
+
+Estimates the risk per share
+
+```py
+estimate_risk(entry_price, stop_price)
+```
+
+**Properties**:
+
+-   entry_price: float
+-   stop_price: float
+
+**Return Type**: float
+
+## crossed
+
+Helper for the detection of crosses
+
+```py
+crossed(series1, series2, direction=None, sequential=False)
+```
+
+**Properties**:
+
+-   series1: np.ndarray
+-   series2: float, int, np.ndarray
+-   direction: str - default: None - above or below
+
+**Return Type**: bool | np.ndarray
+
+## crossed
+
+Helper for the detection of crosses
+
+```py
+numpy_candles_to_dataframe(candles: np.ndarray, name_date="date", name_open="open", name_high="high",
+                               name_low="low", name_close="close", name_volume="volume")
+```
+
+**Properties**:
+
+-   candles: np.ndarray
+-   name_date: str
+-   name_open: str
+-   name_high: str
+-   name_low: str
+-   name_close: str
+-   name_volume: str
+
+**Return Type**: pd.DataFrame
