@@ -1,7 +1,7 @@
 
 # Advanced - Adding a custom indicator
 
-Your strategy idea needs indicators, that aren't available yet? Let's see how to create and use custom indicator in Jesse. 
+Your strategy idea needs indicators, that aren't available yet? Let's see how to create and use custom indicators in Jesse. 
 
 ## Tutorial for a custom indicator
 
@@ -16,7 +16,7 @@ plot(s2, color=c_color, style=histogram, linewidth=2)
 
 Now, let's start the creation of our first custom indicator:
 1. Create a new folder called `custom_indicators` and it's `__init__.py` file in project's `ROOT` folder.
-2. Then create a new file for the custom indicator, in this case we name it: `ewo.py` for our Elliott Wave Oscillator.
+2. Then create a new file for the actual indicator, in this case we name it: `ewo.py` for our Elliott Wave Oscillator.
 3. The folder structure should look like this:
 ```sh
 ├── config.py # file where you enter your database credentials, etc
@@ -96,6 +96,7 @@ candles_ohlc4 = (candles[:, 1] + candles[:, 3] + candles[:, 4] + candles[:, 2]) 
 ```
 ### The thing with NaN and zero
 You should set indicator values, that can't be calculate to `np.nan`!
+
 About NaN values:
 
 -   NaN is short for “Not a Number”.
@@ -103,10 +104,10 @@ About NaN values:
 -   Mathematical operations involving a NaN will either return a NaN or raise an exception.
 -   Comparisons involving a NaN will return False.
 
-Whats the reasons for that? Depending on your calculation you might need N candles from the past. Because of that, you won't be able to calculate a value for the indicator at the beginning of your candle data for exactly these N candles. To avoid future problems in your strategy or calculations these should be set to  `np.nan` and not zero. Imagine a strategy where you enter on this condition `self.indicator_value < self.price`. If you would have used zero insted of NaN and the current indicator value couldn't be calculate because of not enough past candle or another problem in your calculation, the condition would be true, even if the real indicator value would be greater or the same as price. If you used NaN it would return False as explained above.
+What's the reasons for that? Depending on your calculation you might need N candles from the past. Because of that, you won't be able to calculate a value for the indicator at the beginning of your candle data for exactly these N candles. To avoid future problems in your strategy or calculations these should be set to  `np.nan` and not zero. Imagine a strategy where you enter on this condition `self.indicator_value < self.price`. If you would have used zero insted of NaN and the current indicator value couldn't be calculate because of missing candles from the past or another problem in your calculation, the condition would be True, even if the real indicator value would be greater or the same as price. If you used NaN it would return False as explained above.
 
 ### External libraries for technical indicators and things to be aware of
-There are to kinds of python libraries for technical indicators: Some are Pandas based and some are Numpy based. For performance reasons Jesse uses Numpy. 
+There are mainly two kinds of python libraries for technical indicators: Some are Pandas based and some are Numpy based. For performance reasons Jesse uses Numpy. 
 #### Talib
 Talib is a perfect match for Jesse as it uses Numpy.
 ```python
@@ -114,27 +115,27 @@ import talib
 ema = talib.EMA(candles[:, 2], timeperiod=period)
 ```
 #### Tulipy 
-Tulipy returns Numpy, but has to things you need to be aware of.
+Tulipy returns Numpy, but has two things you need to be aware of.
 ```python
 import tulipy
 zlema = tulipy.zlema(np.ascontiguousarray(candles[:, 2]), period=period)
 zlema_with_nan = np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema)
 ```
   - Tulipy accepts only contiguousarray. The conversion can be done with: `np.ascontiguousarray(candles[:, 2])`
-  - The returned length of the array varies. Thats connected to the problem explained in "The thing with NaN and zero". Tulipy just strips the values it couldn't calculate. To stay consistent with the length of our arrays we need to add those NaN ourself: `np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema), axis=0)`. This compares the lengths and adds the difference as NaN to the beginning of the indicator array.
+  - The returned length of the array varies. That's connected to the problem explained in [The thing with NaN and zero](#the-thing-with-nan-and-zero). Tulipy just strips the values it couldn't calculate. To stay consistent with the length of our arrays we need to add those NaN ourself: `np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema), axis=0)`. This compares the lengths and adds the difference as NaN to the beginning of the indicator array.
 
 #### Libraries using Pandas
-There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse-ai.com/docs/utils.html#numpy-candles-to-dataframe) for the conversion. The result of the indicator needs to be then converted back to numpy: Probably that will do it: [pandas.Series.to_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy). All that converting will cost you performance and Pandas itself is less performant than Numpy.
+There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse-ai.com/docs/utils.html#numpy-candles-to-dataframe) for the conversion. The result of the indicator needs to be then converted back to numpy. Probably that will do it: [pandas.Series.to_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy). All that converting will cost you performance and Pandas itself is less performant than Numpy.
 
 ### Loops
-Try to avoid loops whenever possible. Numpy and Scipy has a lot functions that can replace the stuff that you might wanted to do in a loop. Loops will make the backtest very slow. The worst would be a loop within a loop. Do some research. Stackoverflow might be a good place.
+Try to avoid loops whenever possible. Numpy and Scipy have a lot functions that can replace the stuff that you might wanted to do in a loop. Loops will make the backtest very slow. The worst would be a loop within a loop. Do some research on ways to avoid them. The Jesse froum or Stackoverflow might be a good place.
 
 #### How to do a loop if you couldn't avoid it:
-For this example we calculate the difference of the closing price to the closing price 10 candles ago.  First we create an empty array with NaNs. (For the reason check out: "The thing with NaN and zero".) Then we do the loop starting with 10, as we need 10 past candles for this calculation to work until we reach the maximal available candle length.
+For this example we calculate the difference of the closing price to the closing price 10 candles ago.  First we create an empty array with NaNs. (For the reason check out: [The thing with NaN and zero](#the-thing-with-nan-and-zero)) Then we do the loop starting with i = 10, as we need 10 past candles for this calculation to work until we reach the maximal available candle length.
 ```python
     close = candles[:, 2]
     my_indicator_from_loop = np.full_like(close, np.nan)
-    for i in range(10, len(candles)):
+    for i in range(10, len(close)):
         my_indicator_from_loop[i] = close[i] - close[i-10]
 ```
 ### Usefull Numpy stuff
@@ -156,7 +157,7 @@ def shift(arr, num, fill_value=np.nan):
 ```
 [Source](https://stackoverflow.com/a/42642326/6437437)
 
-#### Make it the same lenght again
+#### Make arrays the same lenght
 ```python
 array_with_matching_lenght = np.concatenate((np.full((candles.shape[0] - array_with_shorter_lenght.shape[0]), np.nan), array_with_shorter_lenght)
 ```
