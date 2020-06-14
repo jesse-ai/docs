@@ -106,6 +106,16 @@ About NaN values:
 
 What's the reasons for that? Depending on your calculation you might need N candles from the past. Because of that, you won't be able to calculate a value for the indicator at the beginning of your candle data for exactly these N candles. To avoid future problems in your strategy or calculations these should be set to  `np.nan` and not zero. Imagine a strategy where you enter on this condition `self.indicator_value < self.price`. If you would have used zero insted of NaN and the current indicator value couldn't be calculate because of missing candles from the past or another problem in your calculation, the condition would be True, even if the real indicator value would be greater or the same as price. If you used NaN it would return False as explained above.
 
+
+### The thing with length
+Numpy makes calculations with arrays easy. For example you can easily create hl2 prices like that:
+```python
+candles_hl2 = (candles[:, 3] + candles[:, 4]) / 2
+```
+That works because `candles[:, 3]` and `candles[:, 4]`have the same shape / length.
+That's the reason why its important to always keep the lenght consistent. [Use this to match lengths](https://docs.jesse-ai.com/docs/indicators/custom_indicator.html#make-it-the-same-lenght-again) and read this to understand why its important to use NaN for missing values: [The thing with NaN and zero](#the-thing-with-nan-and-zero).
+
+
 ### External libraries for technical indicators and things to be aware of
 There are mainly two kinds of python libraries for technical indicators: Some are Pandas based and some are Numpy based. For performance reasons Jesse uses Numpy. 
 #### Talib
