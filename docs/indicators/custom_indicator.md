@@ -70,7 +70,7 @@ class Strategy01(Strategy):
     def ewo(self):
         return cta.ewo(self.candles, short_period=5, long_period=34, source_type="close", sequential=True)
 ```
-## Tipps
+## Hints
 ### Accessing open, close, high, low and volume
 In the tutorial above we used the helper function. `src = get_candle_source(candles, source_type)`. 
 Which accepts as parameter:
