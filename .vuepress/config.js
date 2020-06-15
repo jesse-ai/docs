@@ -82,7 +82,7 @@ module.exports = {
                 children: [
                     ['/docs/indicators/', 'Introduction'],
                     ['/docs/indicators/reference', 'Indicators Reference'],
-                    ['/docs/indicators/custom_indicator', 'Custom Indicators']
+                    ['/docs/indicators/custom-indicators', 'Custom Indicators']
                 ],
             },
             ['/docs/utils', 'Utilities'],
