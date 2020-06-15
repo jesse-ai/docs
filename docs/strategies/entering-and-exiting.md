@@ -202,7 +202,7 @@ What if we're not aware of our exact exit point at the time of entering the trad
 The next section introduces the concept of [events](./events.html) to fulfill this need.
 
 ## prepare()
-As explained in the [flowchart](./), this is the first function that gets called when a new candle is received. It is used for updating `self.vars` (custom variables) or any other action you might have in mind that needs to be done before your strategy gets executed. 
+As explained in the [flowchart](./), this is the first method that gets called when a new candle is received. It is used for updating `self.vars` (custom variables) or any other action you might have in mind that needs to be done before your strategy gets executed. 
 
 **See also**: [vars](./api.html#vars)
 
@@ -211,7 +211,7 @@ As explained in the [flowchart](./), this is the first function that gets called
 Assuming that there's an open position, this method is used to update exit points or to add to the size of the position if needed.
 
 :::tip 
-If your strategy exits dynamically (for example when at the time of entering the trade you don't know the take-profit price) the you definitely need to use `update_position`.
+If your strategy exits dynamically (for example if at the time of entering the trade you don't know the take-profit price) then you definitely need to use `update_position`.
 :::
 
 **Example #1:** Exiting the trade by implementing a trailing stop for take-profit: 
@@ -240,4 +240,31 @@ def update_position(self):
         if self.position.pnl_percentage > 5 and ta.rsi(self.candles) < 30:
             # double the size of the already open position at current price (with a MARKET order)
             self.buy = self.position.qty, self.price
+```
+
+## \_\_init\_\_()
+The `__init__` is not a new concept. It's the constructor of a Python class. Jesse strategies are Python classes, hence you may use the `__init__` method for actions that need to be performed in the beginning of a strategy and only for once. 
+
+You could say `__init__` is the opposite of the [terminate()](./entering-and-exiting.html#terminate) method in a Jesse strategy. 
+
+::: warning
+Remember to begin `__init__` method's content with a `super().__init__()` call, otherwise you will get an error.
+:::
+
+```py
+def __init__(self):
+    super().__init__()
+
+    print('initiated the strategy class')
+```
+
+
+## terminate() 
+There are cases where you need to tell Jesse to perform a task right before terminating (like finishing the backtest simulation). Examples of a such task would be to log a value, or save a machine learning model. 
+
+You could say `terminate` is the opposite of the [\_\_init\_\_](./entering-and-exiting.html#init) method in a Jesse strategy.
+
+```py
+def terminate(self):
+    print('backtest is done')
 ```

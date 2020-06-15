@@ -2,6 +2,14 @@
 
 Here you can see that changes were made at each release. 
 
+## 0.7.0
+
+- Added the [\_\_init\_\_](./entering-and-exiting.html#init) method to the strategy API
+- Added the [terminate()](./entering-and-exiting.html#terminate) method to the strategy API
+- Added validation for `qty==0`
+- Added additional parameters to srsi indicator by [Gabri](https://github.com/Gabri)
+
+
 ## 0.6.3
 - Fix issue [#34](https://github.com/jesse-ai/jesse/issues/34)
 - Made filter misusage exception more readable
