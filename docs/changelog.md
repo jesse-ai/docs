@@ -2,7 +2,7 @@
 
 Here you can see that changes were made at each release. 
 
-## 0.7.0
+## 0.7.1
 
 - Added the [\_\_init\_\_](./entering-and-exiting.html#init) method to the strategy API
 - Added the [terminate()](./entering-and-exiting.html#terminate) method to the strategy API
