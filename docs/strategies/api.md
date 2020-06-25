@@ -422,3 +422,20 @@ def go_long(self):
     self.buy = 1, self.price
 ```
 
+
+## fee_rate
+
+The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty). 
+
+**Example:**
+```py
+qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
+```
+
+**Return Type**: float
+
+**See Also**: [risk_to_qty](/docs/utils.html#risk-to-qty)
+
+::: tip
+The `fee_rate` property returns exchange fee as a float. For example at Binance fee is `0.1%`, hence `self.fee_rate` would return `0.001`.
+:::
