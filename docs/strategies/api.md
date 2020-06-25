@@ -115,7 +115,7 @@ low_price = self.current_candle[4]
 volume = self.current_candle[5]
 ```
 
-**Also check**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
+**See Also**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
 
 ## candles
 
@@ -159,7 +159,7 @@ def big_trend(self):
         return 0
 ```
 
-**Also check**: [candles](#candles)
+**See Also**: [candles](#candles)
 
 ## index
 
@@ -214,7 +214,7 @@ Note that `average_entry_price` is only available after `go_long()` or `go_short
 In other words, you cannot use it inside `should_long()` and `should_short()`.
 :::
 
-**Also check**: [average_take_profit](#average-take-profit), [average_stop_loss](#average-stop-loss)
+**See Also**: [average_take_profit](#average-take-profit), [average_stop_loss](#average-stop-loss)
 
 ## average\_stop\_loss
 
@@ -222,7 +222,7 @@ Same as [average_entry_price](#average-entry-price) but for stop-loss. The word 
 
 **Return Type**: float
 
-**Also check**: [average_entry_price](#average-entry-price), [average_take_profit](#average-take-profit)
+**See Also**: [average_entry_price](#average-entry-price), [average_take_profit](#average-take-profit)
 
 ## average\_take\_profit
 
@@ -230,7 +230,7 @@ Same as [average_entry_price](#average-entry-price) but for take-profit. The wor
 
 **Return Type**: float
 
-**Also check**: [average_entry_price](#average-entry-price), [average_stop_loss](#average-stop-loss)
+**See Also**: [average_entry_price](#average-entry-price), [average_stop_loss](#average-stop-loss)
 
 ## position
 
@@ -273,7 +273,7 @@ def update_position(self):
         self.stop_loss = self.position.qty, self.position.entry_price
 ```
 
-**Also check**: [is_long](#is-long), [is_short](#is-short), [is_open](#is-open), [is_close](#is-close)
+**See Also**: [is_long](#is-long), [is_short](#is-short), [is_open](#is-open), [is_close](#is-close)
 
 
 ## is_long
@@ -392,7 +392,7 @@ You would need `shared_vars` for writing strategies that require more than one r
 
 **Return Type**: dict
 
-**Also check**: [vars](#vars)
+**See Also**: [vars](#vars)
 
 ## liquidate
 
