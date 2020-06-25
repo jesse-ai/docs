@@ -19,7 +19,7 @@ We made a [website](https://positionsizingcalculator.netlify.app) for you just t
 :::
 
 ```py
-risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price)
+risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price, fee_rate=0)
 ```
 
 **Properties**:
@@ -28,6 +28,7 @@ risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price)
 -   risk_per_capital: float
 -   entry_price: float
 -   stop_loss_price: float
+-   fee_rate: float - default: 0
 
 **Return Type**: float
 
@@ -39,15 +40,27 @@ def go_long(self):
     risk_perc = 1
     entry = 100
     stop = 80
+    profit = 150
     capital = 10000
     # or we could access capital dynamically:
     capital = self.capital
     qty = utils.risk_to_qty(capital, risk_perc, entry, stop)
 
-    self.buy = qty, 100
-    self.stop_loss = qty, 80
-    self.take_profit = qty, 150
+    self.buy = qty, entry
+    self.stop_loss = qty, stop
+    self.take_profit = qty, profit
 ```
+
+In real trading, you usually need to include the exchange fee in qty calculation to make sure you don't spend more than the existing capital (in which case Jesse would raise an error):
+```py
+# so instead of 
+qty = utils.risk_to_qty(capital, risk_perc, entry, stop)
+
+# it's better to do
+qty = utils.risk_to_qty(capital, risk_perc, entry, stop, self.fee_rate)
+```
+
+**See Also**: [fee_rate](/docs/strategies/api.html#fee-rate)
 
 ## risk\_to\_size
 
@@ -72,14 +85,15 @@ Converts a position-size to the corresponding quantity.
 Example: Requesting \$100 at the price of %50 would return 2.
 
 ```py
-size_to_qty(position_size, price, precision)
+size_to_qty(position_size, price, precision=3, , fee_rate=0)
 ```
 
 **Properties**:
 
 -   position_size: float
 -   price: float
--   precision: float
+-   precision: float - default: 3
+-   fee_rate: float - default: 0
 
 **Return Type**: float
 
