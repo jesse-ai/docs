@@ -2,6 +2,15 @@
 
 Here you can see that changes were made at each release. 
 
+## 0.8.2
+
+- Added exception for when trying to spend more than available exchange balance by [fengkiej](https://github.com/fengkiej)
+- Added [fee_rate](/docs/strategies/api.html#fee-rate) property to Strategy API
+- Added `fee_rate` as optional parameter for [risk_to_qty](/docs/utils.html#risk-to-qty) and [size_to_qty](/docs/utils.html#size-to-qty) utilities
+- Added readable error for when strategy structure is incorrect
+- [numpy_candles_to_dataframe](https://docs.jesse-ai.com/docs/utils.html#numpy-candles-to-dataframe) now uses Pandas datetime format for candle timestamps by [lightyear15](https://github.com/lightyear15)
+- Improved exception text for unsupported exchanges
+
 ## 0.7.1
 
 - Added the [\_\_init\_\_](./entering-and-exiting.html#init) method to the strategy API
