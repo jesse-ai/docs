@@ -85,7 +85,7 @@ Converts a position-size to the corresponding quantity.
 Example: Requesting \$100 at the price of %50 would return 2.
 
 ```py
-size_to_qty(position_size, price, precision=3, , fee_rate=0)
+size_to_qty(position_size, price, precision=3, fee_rate=0)
 ```
 
 **Properties**:
