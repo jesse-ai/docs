@@ -12,3 +12,19 @@ When backtests are executed with the `--debug` flag, you won't see the progressb
 ::: warning
 Executing backtests in the debug mode will take longer than usual to execute. Hence, only use it when you actually need to debug your strategy. 
 :::
+
+You can modify what should be printed while in the debugging mode and what shouldn't. To do so, open your `config.py` and modify:
+```py
+'logging': {
+    'order_submission': True,
+    'order_cancellation': True,
+    'order_execution': True,
+    'position_opened': True,
+    'position_increased': True,
+    'position_reduced': True,
+    'position_closed': True,
+    'shorter_period_candles': False,
+    'trading_candles': True,
+    'balance_update': True,
+},
+```
