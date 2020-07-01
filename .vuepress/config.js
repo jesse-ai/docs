@@ -92,7 +92,7 @@ module.exports = {
             // ['/docs/optimizing', 'Optimizing'],
             // ['/docs/notifications', 'Notifications'],
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
-            ['/docs/logs', 'Logging'],
+            ['/docs/debugging', 'Debugging'],
             ['/docs/changelog', 'Changelog'],
             // ['/docs/faq', 'Frequently Asked Questions'],
             // ['/docs/license', 'License']
