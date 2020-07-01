@@ -51,6 +51,22 @@ METRICS                          |
  Losing Trades Avg Holding Time  |  1.0 day, 21.0 hours, 14.0 minutes
 ```
 
+There are further metrics that are disabled by default. To enable them open your project's `config.py` file and set the values to True:
+```py
+'metrics': {
+    'sharpe_ratio': True,
+    'calmar_ratio': False,
+    'sortino_ratio': False,
+    'omega_ratio': False,
+    'winning_streak': False,
+    'losing_streak': False,
+    'largest_losing_trade': False,
+    'largest_winning_trade': False,
+    'total_winning_trades': False,
+    'total_losing_trades': False,
+}
+```
+
 ## Charts
 
 Performing backtest with the `chart` flag would print out charts for the balance change of your portfolio in the backtest period, and buy/sell points on the asset price change%.
@@ -72,7 +88,7 @@ And here's the image (click to zoom or open image in a new tab to see the full s
 ## TradingView
 
 This feature is useful for those who use [TradingView](https://www.tradingview.com) for their chart needs.
-Add the `--tradingview` flag to the backtesting command:
+Add the `--tradingview` flag to the backtest command:
 
 ```
 jesse backtest 2019-01-01 2019-10-30 --tradingview
@@ -83,3 +99,26 @@ At the end of the process, it will print out the path to a .txt file with a pine
 ::: warning
 Make sure to see the chart in the same timeframe as the backtest simulation was executed on. Also, only the last ~30 trades are displayed because of a limit on TradingView's side.
 :::
+
+## CSV
+
+Jesse can output completed trades into a CSV file. You may open this CSV file with Excel, Google sheets, or whatever tool you like to analyse completed trades, draw further charts, etc.
+
+**Usage:** Add the `--csv` flag to the backtest command:
+```
+jesse backtest 2019-01-01 2019-10-30 --csv
+```
+
+Once the backtest is completed, Jesse will print the path to the CSV file.
+
+## JSON
+
+Jesse can output completed trades into a file with JSON format. JSON format is a popular javascript format that is usually used to create APIs on the web. 
+
+**Usage:** Add the `--json` flag to the backtest command:
+```
+jesse backtest 2019-01-01 2019-10-30 --json
+```
+
+Once the backtest is completed, Jesse will print the path to the JSON file.
+
