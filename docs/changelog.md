@@ -2,6 +2,12 @@
 
 Here you can see that changes were made at each release. 
 
+## 0.9.0
+
+- Refactored directories that generated output files are stored at (csv, json, tradingview, charts). 
+- `json` logs files are disabled by default. You now HAVE TO use the `json` flag to enable it. 
+- Added CSV output for completed trades by [h0ke](https://github.com/h0ke).
+
 ## 0.8.2
 
 - Added exception for when trying to spend more than available exchange balance by [fengkiej](https://github.com/fengkiej)
