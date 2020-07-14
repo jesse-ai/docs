@@ -93,6 +93,17 @@ module.exports = {
             // ['/docs/notifications', 'Notifications'],
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/debugging', 'Debugging'],
+            {
+                title: 'FAQ',
+                path: '/docs/faq/',
+                collapsable: true,
+                sidebarDepth: 1,
+                children: [
+                    ['/docs/faq/', 'Introduction'],
+                    ['/docs/faq/livetrade', 'How to live-trade your strategy'],
+                    // ['/docs/faq/environment-setup', 'Environment Setup'],
+                ],
+            },
             ['/docs/changelog', 'Changelog'],
             // ['/docs/faq', 'Frequently Asked Questions'],
             // ['/docs/license', 'License']
