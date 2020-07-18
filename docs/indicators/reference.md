@@ -1,3 +1,4 @@
+
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
@@ -327,6 +328,27 @@ BOP - Balance Of Power
   
 float | np.ndarray  
   
+## cc 
+  
+```python  
+cc(candles: np.ndarray, wma_period=10, roc_short_period=11, roc_long_period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
+```  
+  
+Coppock Curve
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `wma_period`: int - default=10
+- `roc_short_period`: int - default=11
+- `roc_long_period`: int - default=14  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## cci  
   
 ```python  
@@ -344,7 +366,27 @@ CCI - Commodity Channel Index
 **Returns**:  
   
 float | np.ndarray  
+
+## chande
   
+```python  
+chande(candles: np.ndarray, period=22, mult=3.0, direction="long", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+Chandelier Exits
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=22
+- `mult`: float - default=3.0
+- `direction`: str - default="long" | "short"
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## cmo  
   
 ```python  
@@ -546,7 +588,26 @@ DX - Directional Movement Index
 **Returns**:  
   
 float | np.ndarray  
+
+## efi
   
+```python  
+efi(candles: np.ndarray, period=13, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+EFI - Elders Force Index
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 13  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## ema  
   
 ```python  
@@ -903,7 +964,34 @@ Keltner Channels
 **Returns**:  
   
 KeltnerChannel(upperband, middleband, lowerband)  
+
+## kst  
   
+```python  
+kst(candles: np.ndarray, sma_period1=10, sma_period2=10, sma_period3=10, sma_period4=15, roc_period1=10, roc_period2=15, roc_period3=20, roc_period4=30, signal_period=9, source_type="close", sequential=False) -> KST: 
+```  
+  
+Know Sure Thing (KST)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `sma_period1`: int - default: 10
+- `sma_period2`: int - default: 10  
+- `sma_period3`: int - default: 10  
+- `sma_period4`: int - default: 15  
+- `roc_period1`: int - default: 10  
+- `roc_period2`: int - default: 15  
+- `roc_period3`: int - default: 20  
+- `roc_period4`: int - default: 30  
+- `signal_period`: int - default: 9  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+KST(line, signal)
+
 ## kvo  
   
 ```python  
@@ -1917,6 +2005,24 @@ VAR - Variance
   
 float | np.ndarray  
   
+## vi
+  
+```python  
+vi(candles: np.ndarray, period=14, sequential=False) -> VI  
+```  
+  
+Vortex Indicator (VI) 
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=14  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+VI(plus, minus)  
+
 ## vidya  
   
 ```python  
