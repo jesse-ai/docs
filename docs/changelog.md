@@ -2,6 +2,17 @@
 
 Here you can see that changes were made at each release. 
 
+## 0.10.0
+- Suppression of the "FutureWarning: pandas.util.testing is deprecated" caused by empyrical
+- Added KST indicator
+- Added Coppock curve indicator
+- Added vortex indicator
+- Added EFI indicator
+- Added Chandelier Exit indicator
+- Update of scipy and matplotlib
+- Fixed issue related to NegativeBalance
+- Some fixes and additions related to pytest
+
 ## 0.9.0
 
 - Refactored directories that generated output files are stored at (csv, json, tradingview, charts). 
