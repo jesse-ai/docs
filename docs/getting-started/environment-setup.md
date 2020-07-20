@@ -22,6 +22,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/m
 
 In case a fresh install isn't possible for you, look at the [repository](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
 
+You should have at least 2GB RAM or the build of ta-lib might fail: [https://github.com/mrjbq7/ta-lib/issues/290](https://github.com/mrjbq7/ta-lib/issues/290) A workaround is using a prebuilt whl of ta-lib.
+
 By default, the PostgreSQL database and username in the `config.py` file are `jesse_db` & `jesse_user`, respectively; and `password` as the default password.
 
 If you'd like these to be different than the default, please change them in your `config.py` prior to setting up PostgreSQL and replace the database and username that you choose in the following steps, otherwise the following is for the defaults.
@@ -101,6 +103,7 @@ operable program or batch file.
 ```
 Then you probably didn't check `Add Python 3.X to PATH`.
 Start again or add it to your path manually. To edit your PATH variable use the windows search and search for `enviroment` you should see `Edit enviroment variables for you account`. Click that. Search for the `PATH` variable in the user section. Select it and click `Edit`. Click `Browse` and find your python installation folder.
+You are sure Python is in the PATH? Restart your CLI and/or your machine might help.
 :::
 
 ### PostgreSQL
