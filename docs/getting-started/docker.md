@@ -7,9 +7,9 @@ First, pull the image from DockerHub:
 docker pull salehmir/jesse:python38
 ```
 
-Now assuming that you are running Docker on your local machine (and not a VPS), you probably want to edit your project with a code editor. 
+Now assuming you are running Docker on your local machine (and not a VPS), you probably want to edit your project with a code editor. 
 
-For that reason, I'm going to create a directory named `home` on my local machine and later map it into the container's `/home` directory. This way, I can edit my project on either my machine (with code editor) or from within the container and changes will affect on both. 
+For that reason, I'm going to create a directory named `home` on my local machine and later map it into the container's `/home` directory. This way, I can edit my project on either my machine (with code editor) or from within the container and changes will affect both. 
 ```sh
 # to get the exact path to my local machine's home directory:
 pwd
@@ -25,7 +25,7 @@ docker run -v /Users/saleh/Codes/tests/docker/home:/home -p 8888:8888 -it --name
 
 Now you should be inside an ubuntu image that has all the required stack and even pip packages installed on it. 
 
-Because PostgreSQL are stopped after starting a container, start them with below command:
+Because PostgreSQL is not initally running after starting the container, start it with below command:
 ```
 sudo service postgresql start
 ```

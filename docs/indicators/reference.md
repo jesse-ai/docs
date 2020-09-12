@@ -6,7 +6,7 @@ Most indicators have a `sequential=False` parameter. When set to `True`, it retu
 When developing strategies however, you probably want to keep it as `False` to return only the indicator value for current trading candle.
 
 ::: tip matype
-In few indicators you can set an moving average type:
+In few indicators you can set a moving average type:
 
 -   `0`: SMA (simple)
 -   `1`: EMA (exponential)

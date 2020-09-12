@@ -94,7 +94,7 @@ Add the `--tradingview` flag to the backtest command:
 jesse backtest 2019-01-01 2019-10-30 --tradingview
 ```
 
-At the end of the process, it will print out the path to a .txt file with a pine script as content. Then open the file, copy its content and paste it inside [TradingView's](https://www.tradingview.com) Pine Editor and click on "Add to chart" and you will see entries and exits of the strategy.
+At the end of the process, it will print out the path to a .txt file with a pine script as content. Then open the file, copy its content and paste it inside [TradingView's](https://www.tradingview.com) Pine Editor. Now click on "Add to chart" and you will see entries and exits of the strategy.
 
 ::: warning
 Make sure to see the chart in the same timeframe as the backtest simulation was executed on. Also, only the last ~30 trades are displayed because of a limit on TradingView's side.

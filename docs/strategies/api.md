@@ -76,7 +76,7 @@ def go_long(self):
 
 ## current_candle
 
-Returns current candle in the form of a numpy array.
+Returns the current candle in the form of a numpy array.
 
 **Return Type**: np.ndarray
 
@@ -137,7 +137,7 @@ This method returns candles for the exchange, symbol, and timeframe that you spe
 get_candles(exchange: str, symbol: str, timeframe: str)
 ```
 
-For simple strategies that trade only one route and use only one timeframe, `self.candles` is probably the way to go. Otherwise use `self.get_candles()`.
+For simple strategies that trade only one route and use only one timeframe, `self.candles` is probably the way to go. Otherwise, use `self.get_candles()`.
 
 **Return Type:** np.ndarray
 
@@ -163,7 +163,7 @@ def big_trend(self):
 
 ## index
 
-The `index` property is a counter that can be used to detect how many times the strategy has been executed. Imagine we're doing a loop in backtest mode, and this index is the index of that loop. The below examples can explain it better.
+The `index` property is a counter which can be used to detect how many times the strategy has been executed. Imagine we're doing a loop in backtest mode, and this index is the index of that loop. The below examples can explain it better.
 
 **Return Type**: int
 

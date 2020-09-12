@@ -122,7 +122,7 @@ def go_short(self):
 
 **Return Type**: bool
 
-What this method is asking you is: Assuming that open position order has already been submitted but _not executed yet_, should it cancel it?
+What this method is asking you is: Assuming a open position order has already been submitted but _not executed yet_, should it be cancled?
 
 ::: tip
 After submitting orders for opening new positions either you'll enter a position immediately with a market order, or have to wait until your limit/stop order gets filled. This method is used for the second scenario.
@@ -208,7 +208,7 @@ As explained in the [flowchart](./), this is the first method that gets called w
 
 
 ## update_position() 
-Assuming that there's an open position, this method is used to update exit points or to add to the size of the position if needed.
+Assuming there's an open position, this method is used to update exit points or to add to the size of the position if needed.
 
 :::tip 
 If your strategy exits dynamically (for example if at the time of entering the trade you don't know the take-profit price) then you definitely need to use `update_position`.
@@ -260,7 +260,7 @@ def __init__(self):
 
 
 ## terminate() 
-There are cases where you need to tell Jesse to perform a task right before terminating (like finishing the backtest simulation). Examples of a such task would be to log a value, or save a machine learning model. 
+There are cases where you need to tell Jesse to perform a task right before terminating (like finishing the backtest simulation). Examples of a such a task would be to log a value, or save a machine learning model. 
 
 You could say `terminate` is the opposite of the [\_\_init\_\_](./entering-and-exiting.html#init) method in a Jesse strategy.
 
