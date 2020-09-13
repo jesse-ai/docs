@@ -2062,6 +2062,24 @@ VOSC - Volume Oscillator
 **Returns**:  
   
 float | np.ndarray  
+
+## vpt  
+  
+```python  
+vpt(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
+```  
+  
+VPT - Volume Price Trend
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
   
 ## vwma  
   
