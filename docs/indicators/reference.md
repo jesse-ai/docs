@@ -1538,7 +1538,26 @@ Qstick
 **Returns**:  
   
 float | np.ndarray  
+
+## roc  
   
+```python  
+roc(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]  
+```  
+  
+ROC - Rate of change : ((price/prevPrice)-1)*100  
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=10  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## rocp  
   
 ```python  
