@@ -22,8 +22,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/m
 
 In case a fresh install isn't possible for you, look at the [repository](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
 
-You should have at least 2GB RAM or the build of ta-lib might fail: [https://github.com/mrjbq7/ta-lib/issues/290](https://github.com/mrjbq7/ta-lib/issues/290).
+::: warning
+You should have at least 2GB RAM or the build of ta-lib [might fail](https://github.com/mrjbq7/ta-lib/issues/290).
 A workaround is using a prebuilt wheel (.whl) of ta-lib.
+:::
 
 By default, the PostgreSQL database and username in the `config.py` file are `jesse_db` & `jesse_user`, respectively; and `password` as the default password.
 
