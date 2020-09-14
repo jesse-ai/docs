@@ -10,7 +10,7 @@ The default settings have been set to produce the same result as you would get o
 
 ## Import
 
-To get started make sure that the `indicators` module is imported:
+To get started make sure the `indicators` module is imported:
 
 ```py
 import jesse.indicators as ta
@@ -18,7 +18,7 @@ import jesse.indicators as ta
 
 ## Example 1
 
-The first parameter of all indicators is `candles` with the type of a numpy array. 
+The first parameter of all indicators is `candles` with the type of a Numpy array. 
 
 When developing strategies, usually all you care about is the indicator's value for the current candle. To get just that, simply pass `self.candles`:
 

@@ -62,7 +62,7 @@ module.exports = {
             ['/docs/import-candles', 'Importing Candles'],
             {
                 title: 'Strategies', // required
-                path: '/docs/strategies/', // optional, which should be a absolute path.
+                path: '/docs/strategies/', // optional, which should be an absolute path.
                 collapsable: false, // optional, defaults to true
                 sidebarDepth: 1, // optional, defaults to 1
                 children: [
@@ -76,7 +76,7 @@ module.exports = {
             },
             {
                 title: 'Indicators', // required
-                path: '/docs/indicators/', // optional, which should be a absolute path.
+                path: '/docs/indicators/', // optional, which should be an absolute path.
                 collapsable: false,
                 sidebarDepth: 1,
                 children: [

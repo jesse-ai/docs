@@ -29,7 +29,7 @@ A workaround is using a prebuilt wheel (.whl) of ta-lib.
 
 By default, the PostgreSQL database and username in the `config.py` file are `jesse_db` & `jesse_user`, respectively; and `password` as the default password.
 
-If you'd like these to be different than the default, please change them in your `config.py` prior to setting up PostgreSQL and replace the database and username that you choose in the following steps, otherwise the following is for the defaults.
+If you'd like these to be different from the default, please change them in your `config.py` prior to setting up PostgreSQL and replace the database and username that you choose in the following steps, otherwise the following is for the defaults.
 
 
 ```sh
@@ -49,7 +49,7 @@ GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
 exit
 ```
 
-Your PostgreSQL database and user are now ready. You can now quit psql with `\q`
+Your PostgreSQL database and user are now ready. You can now quit psql with `\q`.
 
 ## macOS
 
@@ -93,7 +93,7 @@ Not sure which system type you are on? Open a file explorer window. Right click 
 :::
 
 ::: warning
-Make sure to check `Add Python 3.X to PATH` during installation. In the end, the installation may ask you to disable the length limit for PATH. Make sure to do that, by clicking that. You can leave the other settings as they are.
+Make sure to check `Add Python 3.X to PATH` during installation. In the end, the installation may ask you to disable the length limit for the PATH. Make sure to do that, by clicking that. You can leave the other settings as they are.
 :::
 
 Now check if the installation was successful by opening a CMD and typing `python --version`. You should get `Python 3.X.X` according to the version you just installed. Type `pip --version`. You should get `pip 19.X.X from ...`.
@@ -143,10 +143,10 @@ To install Talib on Windows the easiest way is to use a prebuilt binary.
 Go [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/) and search `TA-Lib` and download a version `>= 0.4` matching your system and python version.
 
 Example:
--   **TA_Lib‑0.4.17‑cp38‑cp38‑win_amd64.whl**: this would be the version for python *3.8 (cp38)* and windows *64bit (win_amd64)*
--   **TA_Lib‑0.4.17‑cp38‑cp38‑win32.whl**: this would be the version for python *3.8 (cp38)* and windows *32bit (win32)*
+-   **TA_Lib‑0.4.17‑cp38‑cp38‑win_amd64.whl**: this would be the version for Python *3.8 (cp38)* and Windows *64bit (win_amd64)*
+-   **TA_Lib‑0.4.17‑cp38‑cp38‑win32.whl**: this would be the version for Python *3.8 (cp38)* and Windows *32bit (win32)*
 
-Now open CMD and go the directory that you downloaded binary file and run:
+Now open CMD and go the directory where you downloaded the binary file and run:
 ```sh
 pip install {downloaded_binary_file}
 # for example: 
@@ -155,7 +155,7 @@ pip install {downloaded_binary_file}
 
 Now check if it worked by running: `pip list` you should now find ta-lib in that list.
 
-> :information_source: You don't have to use the prebuilt wheel. You can build it yourself, but you have more work that way. There is an tutorial: [HERE](https://github.com/mrjbq7/ta-lib#windows)
+> :information_source: You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. There is a tutorial: [HERE](https://github.com/mrjbq7/ta-lib#windows)
 
 ### Tulipy
 
@@ -165,10 +165,10 @@ Go [here](https://pypi.org/project/tulipy/#files) and download a version matchin
 As you will find there only whl files for python version 3.7 currently, we decided to offer the versions for 3.6 and 3.8 [here](https://github.com/jesse-ai/windows) to make it easier to get started with jesse. As for now we only have a prebuilt version for 3.8 64bit. It would be great if users, that have a corresponding enviroment would create the missing whl files and send it to us, so we can upload it there. You can do that with that command: `pip wheel tulipy` after installing [Microsoft Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). 
 
 Example:
--   **tulipy-0.4.0-cp37-cp37m-win32.whl**: this would be the version for python *3.7 (cp37)* and windows *32bit (win_32)*
--   **tulipy-0.4.0-cp37-cp37m-win_amd64.whl**: this would be the version for python *3.7 (cp37)* and windows *64bit (win_amd64)*
+-   **tulipy-0.4.0-cp37-cp37m-win32.whl**: this would be the version for Python *3.7 (cp37)* and Windows *32bit (win_32)*
+-   **tulipy-0.4.0-cp37-cp37m-win_amd64.whl**: this would be the version for Python *3.7 (cp37)* and Windows *64bit (win_amd64)*
 
-Now open CMD and go the directory that you downloaded binary file and run:
+Now open CMD and go the directory where you downloaded the binary file and run:
 ```sh
 pip install {downloaded_binary_file}
 # for example: 
@@ -178,7 +178,7 @@ pip install {downloaded_binary_file}
 Now check if it worked by running: `pip list` you should now find tulipy in that list.
 
 
-> :information_source: You don't have to use the prebuilt wheel. You can build it yourself, but you have more work that way. You need to have [Microsoft Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) installed to build it.
+> :information_source: You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. You need to have [Microsoft Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) installed to build it.
 
 ### Cython
 Run:

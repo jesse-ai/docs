@@ -19,8 +19,8 @@ TODO... -->
 
 These are features Jesse supports so far:
 
--   Simplest possible syntax for defining your strategies. Supports both simple and advanced strategies.
--   Simplest possible syntax for using technical indicators.
+-   The Simplest possible syntax for defining your strategies. Supports both simple and advanced strategies.
+-   The Simplest possible syntax for using technical indicators.
 -   Support three major order types (market, limit, and stop) while no need to think about which order type to use. It'll take care of it for you.
 -   Support for using multiple timeframes without the look-ahead bias!
 -   Risk-management helper functions.

@@ -73,7 +73,7 @@ class Strategy01(Strategy):
 ## Hints
 ### Accessing open, close, high, low and volume
 In the tutorial above we used the helper function. `src = get_candle_source(candles, source_type)`. 
-Which accepts as parameter:
+This function accepts as parameters:
 -   `"close"`
 -   `"high"`
 -   `"low"`
@@ -104,7 +104,7 @@ About NaN values:
 -   Mathematical operations involving a NaN will either return a NaN or raise an exception.
 -   Comparisons involving a NaN will return False.
 
-What's the reasons for that? Depending on your calculation you might need N candles from the past. Because of that, you won't be able to calculate a value for the indicator at the beginning of your candle data for exactly these N candles. To avoid future problems in your strategy or calculations these should be set to  `np.nan` and not zero. Imagine a strategy where you enter on this condition `self.indicator_value < self.price`. If you would have used zero insted of NaN and the current indicator value couldn't be calculate because of missing candles from the past or another problem in your calculation, the condition would be True, even if the real indicator value would be greater or the same as price. If you used NaN it would return False as explained above.
+What's the reasons for that? Depending on your calculation you might need N candles from the past. Because of that, you won't be able to calculate a value for the indicator at the beginning of your candle data for exactly these N candles. To avoid future problems in your strategy or calculations these should be set to  `np.nan` and not zero. Imagine a strategy where you enter on this condition `self.indicator_value < self.price`. If you had used zero instead of NaN and the current indicator value couldn't be calculate because of missing candles from the past or another problem in your calculation, the condition would be True, even if the real indicator value would be greater or the same as price. If you had used NaN it would return False as explained above and you are safe.
 
 
 ### The thing with length
@@ -113,7 +113,7 @@ Numpy makes calculations with arrays easy. For example you can easily create hl2
 candles_hl2 = (candles[:, 3] + candles[:, 4]) / 2
 ```
 That works because `candles[:, 3]` and `candles[:, 4]`have the same shape / length.
-That's the reason why its important to always keep the lenght consistent. [Use this to match lengths](https://docs.jesse-ai.com/docs/indicators/custom_indicator.html#make-it-the-same-lenght-again) and read this to understand why its important to use NaN for missing values: [The thing with NaN and zero](#the-thing-with-nan-and-zero).
+That's the reason why it's important to always keep the lenght consistent. [Use this to match lengths](https://docs.jesse-ai.com/docs/indicators/custom_indicator.html#make-it-the-same-lenght-again) and read this to understand why it's important to use NaN for missing values: [The thing with NaN and zero](#the-thing-with-nan-and-zero).
 
 
 ### External libraries for technical indicators and things to be aware of
@@ -138,7 +138,7 @@ zlema_with_nan = np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np
 There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse-ai.com/docs/utils.html#numpy-candles-to-dataframe) for the conversion. The result of the indicator needs to be then converted back to numpy. Probably that will do it: [pandas.Series.to_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy). All that converting will cost you performance and Pandas itself is less performant than Numpy.
 
 ### Loops
-Try to avoid loops whenever possible. Numpy and Scipy have a lot functions that can replace the stuff that you might wanted to do in a loop. Loops will make the backtest very slow. The worst would be a loop within a loop. Do some research on ways to avoid them. The Jesse froum or Stackoverflow might be a good place.
+Try to avoid loops whenever possible. Numpy and Scipy have a lot of functions that can replace the stuff that you might want to do in a loop. Loops will make the backtest very slow. The worst would be a loop within a loop. Do some research on ways to avoid them. The Jesse froum or Stackoverflow might be a good place.
 
 #### How to do a loop if you couldn't avoid it:
 For this example we calculate the difference of the closing price to the closing price 10 candles ago.  First we create an empty array with NaNs. (For the reason check out: [The thing with NaN and zero](#the-thing-with-nan-and-zero)) Then we do the loop starting with i = 10, as we need 10 past candles for this calculation to work until we reach the maximal available candle length.

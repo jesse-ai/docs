@@ -2,7 +2,7 @@
 
 
 # FAQ - Frequently asked questions 
-Work in progress..
+Work in progress.
 
 ## About the Jesse Bot
 
@@ -42,13 +42,13 @@ Thats entirly depending on your strategy and chosen timeframe. One reason could 
 There could be multiple reasons:
  - Your strategy isn't profitable. Be sure to always backtest your strategy.
  - You did a backtest, but it's still not making profits. Your strategy could be only working in certain market conditions (for example trending - not trending). Be sure to make extensive backtests, especially in different periods of time with different market conditions (bullish, bearish, flat, big market crashes). 
- - You did extensive backtests and it is still not profitable in current market conditions? That can happen too. Backtesting only checks historical data. The market could change in such a way, that "old rules" won't work anymore. Time to be creative.
+ - You did extensive backtests and it's still not profitable in the current market conditions? That can happen too. Backtesting only checks historical data. The market could change in such a way, that "old rules" won't work anymore. Time to be creative.
  - Good backtest results on one coin pair don't mean the results will be good on other pairs too. Time for more backtesting!-->
 
 ### My strategy isn't working/trading like it should. What can I do?
-Are you certain that you set the right [Routes](/docs/routes) and have the right version of your strategy uploaded? It's important to be structured here: Be sure to use clear naming and versioning of your strategies. Speaking of experience. It's annoying but saves you time. If you are sure Jesse is really running the strategy (version) you intended, let's check more things you can do.
+Are you certain you set the right [Routes](/docs/routes) and have the right version of your strategy uploaded? It's important to be structured here: Be sure to use clear naming and versioning of your strategies. Speaking of experience. It's annoying but saves you time. If you are sure Jesse is really running the strategy (version) you intended, let's check more things you can do.
  - Use the `--debug` command in backtesting to have Jesse print the trades that are happening or aren't. 
- - Check the conditions for validity. To do that a good way is adding pythons `print()` command in your strategies functions. For example  `print("Buy condition checked")`. That way you can validate if all the functions are called like intended and aren't mixed up. If you found the mistake like that: Good job! 
+ - Check the conditions for validity. To do that a good way is adding pythons `print()` command in your strategies functions. For example `print("Buy condition checked")`. That way you can validate if all the functions are called like intended and aren't mixed up. If you found the mistake like that: Good job! 
 ```python
 from datetime import datetime
 time = datetime.fromtimestamp(self.current_candle[0] / 1000)
@@ -58,7 +58,7 @@ print('Time: {} | My Buy conditions: {} {}'.format(time, self.condition1, self.c
 
 ### Your backtest results differ from backtesting with the XXX tool. What's the reason?
 Ask yourself: Is the strategy I tested on XXX really the same strategy in Jesse? Consider stoplosses and commission fees. 
-Additionally many backtest tools have the so-called lookahead/repainting issue. Check out this article: [https://backtest-rookies.com/2017/06/23/tradingview-understanding-lookahead-historical-realtime-data/](https://backtest-rookies.com/2017/06/23/tradingview-understanding-lookahead-historical-realtime-data/)
+Additionally, many backtest tools have the so-called lookahead/repainting issue. Check out this article: [https://backtest-rookies.com/2017/06/23/tradingview-understanding-lookahead-historical-realtime-data/](https://backtest-rookies.com/2017/06/23/tradingview-understanding-lookahead-historical-realtime-data/)
 <!---### I’d like to change the trading amount. Can I just stop the bot and then change the config and run it again?
 Not quite. If you stop the bot, you also need to close all currently open orders. Don't forget the stoploss orders.-->
 ### How many iterations do I need to get a good Hyperopt result?

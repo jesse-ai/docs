@@ -6,7 +6,7 @@ Most indicators have a `sequential=False` parameter. When set to `True`, it retu
 When developing strategies however, you probably want to keep it as `False` to return only the indicator value for current trading candle.
 
 ::: tip matype
-In few indicators you can set an moving average type:
+In few indicators you can set a moving average type:
 
 -   `0`: SMA (simple)
 -   `1`: EMA (exponential)
@@ -1538,7 +1538,26 @@ Qstick
 **Returns**:  
   
 float | np.ndarray  
+
+## roc  
   
+```python  
+roc(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]  
+```  
+  
+ROC - Rate of change : ((price/prevPrice)-1)*100  
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=10  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## rocp  
   
 ```python  
@@ -2057,6 +2076,24 @@ VOSC - Volume Oscillator
 - `candles`: np.ndarray  
 - `short_period`: int - default: 2  
 - `long_period`: int - default: 5  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## vpt  
+  
+```python  
+vpt(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
+```  
+  
+VPT - Volume Price Trend
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
 **Returns**:  
