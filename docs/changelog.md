@@ -2,6 +2,9 @@
 
 Here you can see that changes were made at each release. 
 
+## 0.11.0
+- Implemented the optimize mode which uses the Genetic Algorithm to find the best parameters for your strategy. 
+
 ## 0.10.0
 - Suppression of the "FutureWarning: pandas.util.testing is deprecated" caused by empyrical
 - Added KST indicator
