@@ -89,7 +89,7 @@ module.exports = {
             ['/docs/backtest', 'Backtest'],
             // ['/docs/livetrade', 'Live Trading'],
             // ['/docs/papertrade', 'Paper Trading'],
-            // ['/docs/optimizing', 'Optimizing'],
+            ['/docs/optimize', 'Strategy Optimization'],
             // ['/docs/notifications', 'Notifications'],
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/debugging', 'Debugging'],
