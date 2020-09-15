@@ -12,7 +12,8 @@
     "devDependencies": {
         "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
         "@vuepress/plugin-medium-zoom": "^1.2.0",
-        "vuepress": "^1.2.0"
+        "vuepress": "^1.2.0",
+        "vuepress-plugin-smooth-scroll": "0.0.10"
     },
     "dependencies": {
         "vuepress-plugin-sitemap": "^2.3.1"

@@ -3,6 +3,7 @@ module.exports = {
     description: 'A Python trading framework for cryptocurrency markets.',
     plugins: [
         '@vuepress/medium-zoom',
+        'vuepress-plugin-smooth-scroll',
         [
             '@vuepress/google-analytics',
             {
