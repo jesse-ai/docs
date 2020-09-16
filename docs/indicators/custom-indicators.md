@@ -138,7 +138,7 @@ zlema_with_nan = np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np
 There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse-ai.com/docs/utils.html#numpy-candles-to-dataframe) for the conversion. The result of the indicator needs to be then converted back to numpy. Probably that will do it: [pandas.Series.to_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy). All that converting will cost you performance and Pandas itself is less performant than Numpy.
 
 ### Loops
-Try to avoid loops whenever possible. Numpy and Scipy have a lot of functions that can replace the stuff that you might want to do in a loop. Loops will make the backtest very slow. The worst would be a loop within a loop. Do some research on ways to avoid them. The Jesse froum or Stackoverflow might be a good place.
+Try to avoid loops whenever possible. Numpy and Scipy have a lot of functions that can replace the stuff that you might want to do in a loop. Loops will make the backtest very slow. The worst would be a loop within a loop. Do some research on ways to avoid them. The Jesse forum or Stackoverflow might be a good place.
 
 #### How to do a loop if you couldn't avoid it:
 For this example we calculate the difference of the closing price to the closing price 10 candles ago.  First we create an empty array with NaNs. (For the reason check out: [The thing with NaN and zero](#the-thing-with-nan-and-zero)) Then we do the loop starting with i = 10, as we need 10 past candles for this calculation to work until we reach the maximal available candle length.
