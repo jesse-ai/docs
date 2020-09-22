@@ -2,8 +2,18 @@
 
 Here you can see that changes were made at each release. 
 
+## 0.12.1
+- Renamed `hyper_parameters()` method to `hyperparameters()`
+- Fixed `--dna` flag in "jesse routes" command
+- Improved error detection in the optimize mode
+- Fixed when few of DNA trials caused optimize session to fail entirely
+- Optimize mode's traceback is now printed to a log file
+- Improved optimize mode's monitoring dashboard
+- Fixed an issue with newly created projects missing the log directory
+- Added `.csv` and `.json` files to gitignore of newly created projects
+
 ## 0.11.0
-- Implemented the optimize mode which uses the Genetic Algorithm to find the best parameters for your strategy. 
+- Implemented the initial version of the optimize mode which uses the Genetic Algorithm to find the best parameters for your strategy. 
 
 ## 0.10.0
 - Suppression of the "FutureWarning: pandas.util.testing is deprecated" caused by empyrical
@@ -17,13 +27,11 @@ Here you can see that changes were made at each release.
 - Some fixes and additions related to pytest
 
 ## 0.9.0
-
 - Refactored directories that generated output files are stored at (csv, json, tradingview, charts). 
 - `json` logs files are disabled by default. You now HAVE TO use the `json` flag to enable it. 
 - Added CSV output for completed trades by [h0ke](https://github.com/h0ke).
 
 ## 0.8.2
-
 - Added exception for when trying to spend more than available exchange balance by [fengkiej](https://github.com/fengkiej)
 - Added [fee_rate](/docs/strategies/api.html#fee-rate) property to Strategy API
 - Added `fee_rate` as optional parameter for [risk_to_qty](/docs/utils.html#risk-to-qty) and [size_to_qty](/docs/utils.html#size-to-qty) utilities
@@ -32,7 +40,6 @@ Here you can see that changes were made at each release.
 - Improved exception text for unsupported exchanges
 
 ## 0.7.1
-
 - Added the [\_\_init\_\_](./entering-and-exiting.html#init) method to the strategy API
 - Added the [terminate()](./entering-and-exiting.html#terminate) method to the strategy API
 - Added validation for `qty==0`
