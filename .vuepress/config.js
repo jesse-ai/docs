@@ -91,7 +91,18 @@ module.exports = {
             ['/docs/backtest', 'Backtest'],
             // ['/docs/livetrade', 'Live Trading'],
             // ['/docs/papertrade', 'Paper Trading'],
-            ['/docs/optimize', 'Strategy Optimization'],
+            {
+                title: 'Strategy Optimization', // required
+                path: '/docs/optimize/', // optional, which should be an absolute path.
+                collapsable: false, // optional, defaults to true
+                sidebarDepth: 1, // optional, defaults to 1
+                children: [
+                    ['/docs/optimize/', 'Introduction'],
+                    ['/docs/optimize/hyperparameters', 'Hyperparameters'],
+                    ['/docs/optimize/executing-the-optimize-mode', 'Executing the optimize mode'],
+                    ['/docs/optimize/dna-usage', 'DNA usage'],
+                ],
+            },
             // ['/docs/notifications', 'Notifications'],
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/debugging', 'Debugging'],
