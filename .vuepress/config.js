@@ -2,6 +2,7 @@ module.exports = {
     title: 'Jesse AI',
     description: 'A Python trading framework for cryptocurrency markets.',
     plugins: [
+        '@vuepress/last-updated',
         '@vuepress/medium-zoom',
         'vuepress-plugin-smooth-scroll',
         [
