@@ -101,6 +101,7 @@ module.exports = {
                     ['/docs/optimize/hyperparameters', 'Hyperparameters'],
                     ['/docs/optimize/executing-the-optimize-mode', 'Executing the optimize mode'],
                     ['/docs/optimize/dna-usage', 'DNA usage'],
+                    ['/docs/optimize/overfitting', 'Overfitting'],
                 ],
             },
             // ['/docs/notifications', 'Notifications'],
