@@ -2,6 +2,10 @@
 
 Here you can see that changes were made at each release. 
 
+## 0.12.2
+- Added the `--cpu` option for the optimize mode to specify the number of cpu cores to use when running the optimize mode. 
+- Improved monitoring dashboard of the optimization mode. 
+
 ## 0.12.1
 - Renamed `hyper_parameters()` method to `hyperparameters()`
 - Fixed `--dna` flag in "jesse routes" command
