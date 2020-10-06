@@ -15,12 +15,12 @@ Work in progress.
 ### How can I get new Jesse versions?
 ### I have zero trading knowledge. Can I use Jesse?
 ### Can you write me a strategy?
-### Does jesse-ai.com give financial advice?
+### Does jesse.trade give financial advice?
 ### My question is not answered here. How can I contact you?
 <!---### When does Jesse buy and sell?
 ### What is the maximum number of pairs is Jesse able to handle at the same time?
 ### How customizable is Jesse?
-### What payment methods does jesse-ai.com accept?
+### What payment methods does jesse.trade accept?
 ### How do I activate my Jesse license?
 ### How long does it take to activate my license?
 ### What is the difference between Jesse Starter and Jesse Standard?

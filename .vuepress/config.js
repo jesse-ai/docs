@@ -14,7 +14,7 @@ module.exports = {
         [
             'sitemap',
             {
-                hostname: 'https://docs.jesse-ai.com',
+                hostname: 'https://docs.jesse.trade',
             },
         ],
     ],
@@ -26,15 +26,15 @@ module.exports = {
         nav: [
             {
                 text: 'Home',
-                link: 'https://jesse-ai.com',
+                link: 'https://jesse.trade',
             },
             {
                 text: 'Blog',
-                link: 'https://jesse-ai.com/blog',
+                link: 'https://jesse.trade/blog',
             },
             {
                 text: 'Forum',
-                link: 'https://forum.jesse-ai.com',
+                link: 'https://forum.jesse.trade',
             },
             {
                 text: 'Github',

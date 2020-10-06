@@ -113,7 +113,7 @@ Numpy makes calculations with arrays easy. For example you can easily create hl2
 candles_hl2 = (candles[:, 3] + candles[:, 4]) / 2
 ```
 That works because `candles[:, 3]` and `candles[:, 4]`have the same shape / length.
-That's the reason why it's important to always keep the lenght consistent. [Use this to match lengths](https://docs.jesse-ai.com/docs/indicators/custom_indicator.html#make-it-the-same-lenght-again) and read this to understand why it's important to use NaN for missing values: [The thing with NaN and zero](#the-thing-with-nan-and-zero).
+That's the reason why it's important to always keep the lenght consistent. [Use this to match lengths](https://docs.jesse.trade/docs/indicators/custom_indicator.html#make-it-the-same-lenght-again) and read this to understand why it's important to use NaN for missing values: [The thing with NaN and zero](#the-thing-with-nan-and-zero).
 
 
 ### External libraries for technical indicators and things to be aware of
@@ -135,7 +135,7 @@ zlema_with_nan = np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np
   - The returned length of the array varies. That's connected to the problem explained in [The thing with NaN and zero](#the-thing-with-nan-and-zero). Tulipy just strips the values it couldn't calculate. To stay consistent with the length of our arrays we need to add those NaN ourself: `np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema), axis=0)`. This compares the lengths and adds the difference as NaN to the beginning of the indicator array.
 
 #### Libraries using Pandas
-There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse-ai.com/docs/utils.html#numpy-candles-to-dataframe) for the conversion. The result of the indicator needs to be then converted back to numpy. Probably that will do it: [pandas.Series.to_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy). All that converting will cost you performance and Pandas itself is less performant than Numpy.
+There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse.trade/docs/utils.html#numpy-candles-to-dataframe) for the conversion. The result of the indicator needs to be then converted back to numpy. Probably that will do it: [pandas.Series.to_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy). All that converting will cost you performance and Pandas itself is less performant than Numpy.
 
 ### Loops
 Try to avoid loops whenever possible. Numpy and Scipy have a lot of functions that can replace the stuff that you might want to do in a loop. Loops will make the backtest very slow. The worst would be a loop within a loop. Do some research on ways to avoid them. The Jesse forum or Stackoverflow might be a good place.

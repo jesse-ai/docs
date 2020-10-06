@@ -2,7 +2,7 @@
     "name": "jesse-docs",
     "private": true,
     "version": "0.0.1",
-    "description": "Codebase for https://docs.jesse-ai.com",
+    "description": "Codebase for https://docs.jesse.trade",
     "scripts": {
         "docs:dev": "vuepress dev",
         "docs:build": "vuepress build"
