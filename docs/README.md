@@ -32,6 +32,7 @@ These are features Jesse supports so far:
 -   Easy importing of candles, and cleaning data behind the scene.
 -   Optimize mode allows you to optimize any part of your strategies using the genetic algorithm. 
 -   A detailed debug mode allowing you debug every step of your strategy.
+- Support for leveraged trading. 
 
 ## Disclaimer
 This software is for educational purposes only. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS. Do not risk money which you are afraid to lose. There might be bugs in the code - this software DOES NOT come with ANY warranty.
