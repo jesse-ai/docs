@@ -9,6 +9,8 @@ The "live-trade" plugin is under active development and is being tested.
 ## When will it be released?
 It will be released a few weeks (or months) after the release of the "optimize" mode. 
 
+**[Update:]** The optimize mode is out now. Next step is the livetrade module.  
+
 ## Any samples of how it might be?
 Here is a sample of a running session of live trade plugin that the development team has running:
 
@@ -48,4 +50,4 @@ The released version plugin will probably have a different user interface.
 ## Should I wait until then and do nothing?!
 Rest assured, you won't have to change your backtest strategies to work with the live-trade mode. It will work as is. 
 
-Hence, in the meantime, instead of waiting, work on developing profitable strategies using the current backtest mode. Because that's really what you need to be concerned about. 
+Hence, in the meantime, work on developing profitable strategies using the current backtest mode. Because that's really what you need to be concerned about. 
