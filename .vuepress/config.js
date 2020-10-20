@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Jesse AI',
+    title: 'Jesse',
     description: 'A Python trading framework for cryptocurrency markets.',
     plugins: [
         '@vuepress/last-updated',
