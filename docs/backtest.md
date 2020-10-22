@@ -122,3 +122,9 @@ jesse backtest 2019-01-01 2019-10-30 --json
 
 Once the backtest is completed, Jesse will print the path to the JSON file.
 
+
+## Visual analyze of completed trades
+
+There is a very cool tool made by one of the community members called "Jesse trades info" that helps to parse JSON backtest files and displays them in a convenient way in tables and charts.
+
+You can find screenshots and a video on its Github repository page. 
