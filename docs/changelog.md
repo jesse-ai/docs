@@ -1,6 +1,11 @@
 # Changelog
 
-Here you can see that changes were made at each release. 
+Here you can see that changes were made at each release.
+
+## 0.12.7
+- Made number of warmup candles configurable
+- Fixed an issue with log folder being absent in newly created projects by [jparklev](https://github.com/jparklev)
+- Improved performance of the chande indicator
 
 ## 0.12.2
 - Added the `--cpu` option for the optimize mode to specify the number of cpu cores to use when running the optimize mode. 
