@@ -10,7 +10,7 @@ Here are the required stack:
 
 -   Python >= `3.6` and `< 3.9`
 ::: warning
-Python 3.9 isn't supported yet, as some packages aren't compatible yet.
+Python 3.9 isn't supported yet, as some packages aren't compatible.
 :::
 
 -   pip >= `19.3.0`
