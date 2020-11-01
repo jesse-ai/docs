@@ -8,7 +8,7 @@ Getting started with Jesse is already easy. We've also done our best to make it 
 
 Here are the required stack:
 
--   Python >= `3.6` and `<= 3.9`
+-   Python >= `3.6` and `< 3.9`
 ::: warning
 Python 3.9 isn't supported yet, as some packages aren't compatible yet.
 :::
