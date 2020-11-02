@@ -2,6 +2,12 @@
 
 Here you can see that changes were made at each release.
 
+## 0.13.1
+- Added support for balance handling for trading on spot markets 
+- Improved calculation and logging of fees (when `--debug` flag is enabled)
+- Improved calculation of daily balance change. It is now more accurate.
+- Improved format in displaying of currencies. Instead of `10000`, it now displays `10,000`.
+
 ## 0.12.7
 - Made number of warmup candles configurable
 - Fixed an issue with log folder being absent in newly created projects by [jparklev](https://github.com/jparklev)
