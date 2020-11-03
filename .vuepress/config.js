@@ -37,6 +37,10 @@ module.exports = {
                 link: 'https://forum.jesse.trade',
             },
             {
+                text: 'Discord',
+                link: 'https://discord.gg/rPupAQJg',
+            },
+            {
                 text: 'Github',
                 link: 'http://github.com/jesse-ai/jesse',
             },
