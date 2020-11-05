@@ -38,7 +38,7 @@ module.exports = {
             },
             {
                 text: 'Discord',
-                link: 'https://discord.gg/rPupAQJg',
+                link: 'https://discord.gg/nztUFbMnF5',
             },
             {
                 text: 'Github',
