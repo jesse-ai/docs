@@ -2,6 +2,21 @@
 
 Here you can see that changes were made at each release.
 
+## 0.14.1
+- Changed the color of printed logs in `--debug` mode to white for more readability
+- Fixed a bug where `should_cancel()` was being executed in strategies with multiple entry orders
+- Made caching configurable. You can now change the settings for your cache driver or completely disable it 
+- Added `sum_floats()` and `subtract_floats()` utility functions 
+- Fixed a bug where position stayed open with a close-to-zero size caused by rounding issues in Python 
+- Fixed for a bug in detecting executed orders with candles with gap
+- Added support for reduce-only orders (take-profit and stop-loss orders)
+- Added VossFilter indicator 
+- Added TrendFlex indicator 
+- Added ReFlex indicator 
+- Added High Pass Filter indicator 
+- Added Roofing indicator 
+- Added DV indicator 
+
 ## 0.13.1
 - Added support for balance handling for trading on spot markets 
 - Improved calculation and logging of fees (when `--debug` flag is enabled)
