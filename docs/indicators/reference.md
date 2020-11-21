@@ -1539,6 +1539,25 @@ Qstick
   
 float | np.ndarray  
 
+## reflex  
+  
+```python  
+reflex(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+Reflex indicator by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## roc  
   
 ```python  
