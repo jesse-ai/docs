@@ -1653,6 +1653,26 @@ ROCR100 - Rate of change ratio 100 scale: (price/prevPrice)*100
   
 float | np.ndarray  
   
+## roofing  
+  
+```python  
+roofing(candles: np.ndarray, hp_period=48, lp_period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+Roofing Filter indicator by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `hp_period`: int - default: 48  
+- `lp_period`: int - default: 10  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## rsi  
   
 ```python  
