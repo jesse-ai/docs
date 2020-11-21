@@ -759,6 +759,25 @@ Gaussian Filter
   
 float | np.ndarray  
   
+## high_pass  
+  
+```python  
+high_pass(candles: np.ndarray, period=48, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+High Pass Filter indicator by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 48  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray 
+
 ## hma  
   
 ```python  
