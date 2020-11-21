@@ -2082,6 +2082,28 @@ VOSC - Volume Oscillator
   
 float | np.ndarray  
 
+## voss  
+  
+```python  
+voss(candles: np.ndarray, period=20, predict=3, bandwith=0.25, source_type="close", sequential=False) -> VossFilter
+```  
+  
+Voss - Voss Filter indicator by John Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `predict`: int - default: 3  
+- `bandwith`: float - default: 0.25  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+VossFilter(voss, filt) 
+
+
 ## vpt  
   
 ```python  
