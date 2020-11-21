@@ -442,6 +442,29 @@ CVI - Chaikins Volatility
   
 float | np.ndarray  
   
+## damiani_volatmeter  
+  
+```python  
+damiani_volatmeter(candles: np.ndarray, vis_atr=13, vis_std=20, sed_atr=40, sed_std=100, threshold=1.4, source_type="close", sequential=False) -> DamianiVolatmeter
+```  
+  
+Damiani Volatmeter
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `vis_atr`: int - default: 13  
+- `vis_std`: int - default: 20 
+- `sed_atr`: int - default: 40  
+- `sed_std`: int - default: 100  
+- `threshold`: float - default: 1.4  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+DamianiVolatmeter(vol, anti)
+
 ## decycler  
   
 ```python  
