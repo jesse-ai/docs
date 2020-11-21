@@ -1888,6 +1888,25 @@ TRANGE - True Range
   
 float | np.ndarray  
   
+## trendflex  
+  
+```python  
+trendflex(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+Trendflex indicator by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## trima  
   
 ```python  
