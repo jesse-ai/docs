@@ -2,6 +2,12 @@
 
 Here you can see that changes were made at each release.
 
+## 0.15.1
+- Added support for Python 3.9
+- Fixed calculations of formulas depending on Quantopian's empyrical package (like annual return, Sharpe Ratio, etc) using [our own fork](https://github.com/jesse-ai/crypto-empyrical) of it. 
+- Changed default value of `type` for all exchanges in `config.py` to `margin`
+- Added damiani_volatmeter indicator
+
 ## 0.14.1
 - Changed the color of printed logs in `--debug` mode to white for more readability
 - Fixed a bug where `should_cancel()` was being executed in strategies with multiple entry orders
