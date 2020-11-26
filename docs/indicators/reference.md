@@ -442,6 +442,29 @@ CVI - Chaikins Volatility
   
 float | np.ndarray  
   
+## damiani_volatmeter  
+  
+```python  
+damiani_volatmeter(candles: np.ndarray, vis_atr=13, vis_std=20, sed_atr=40, sed_std=100, threshold=1.4, source_type="close", sequential=False) -> DamianiVolatmeter
+```  
+  
+Damiani Volatmeter
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `vis_atr`: int - default: 13  
+- `vis_std`: int - default: 20 
+- `sed_atr`: int - default: 40  
+- `sed_std`: int - default: 100  
+- `threshold`: float - default: 1.4  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+DamianiVolatmeter(vol, anti)
+
 ## decycler  
   
 ```python  
@@ -759,6 +782,25 @@ Gaussian Filter
   
 float | np.ndarray  
   
+## high_pass  
+  
+```python  
+high_pass(candles: np.ndarray, period=48, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+High Pass Filter indicator by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 48  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray 
+
 ## hma  
   
 ```python  
@@ -1539,6 +1581,25 @@ Qstick
   
 float | np.ndarray  
 
+## reflex  
+  
+```python  
+reflex(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+Reflex indicator by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## roc  
   
 ```python  
@@ -1615,6 +1676,26 @@ ROCR100 - Rate of change ratio 100 scale: (price/prevPrice)*100
   
 float | np.ndarray  
   
+## roofing  
+  
+```python  
+roofing(candles: np.ndarray, hp_period=48, lp_period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+Roofing Filter indicator by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `hp_period`: int - default: 48  
+- `lp_period`: int - default: 10  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## rsi  
   
 ```python  
@@ -1888,6 +1969,25 @@ TRANGE - True Range
   
 float | np.ndarray  
   
+## trendflex  
+  
+```python  
+trendflex(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+Trendflex indicator by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## trima  
   
 ```python  
@@ -2081,6 +2181,28 @@ VOSC - Volume Oscillator
 **Returns**:  
   
 float | np.ndarray  
+
+## voss  
+  
+```python  
+voss(candles: np.ndarray, period=20, predict=3, bandwith=0.25, source_type="close", sequential=False) -> VossFilter
+```  
+  
+Voss - Voss Filter indicator by John Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `predict`: int - default: 3  
+- `bandwith`: float - default: 0.25  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+VossFilter(voss, filt) 
+
 
 ## vpt  
   
