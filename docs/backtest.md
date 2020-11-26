@@ -3,13 +3,13 @@
 Assuming you already have [created](./strategies/generating-new-strategy.md) your first strategy, [imported](./import-candles.md) historical candles, and have set correct [routes](./routes.md) for your strategy, it is time to actually backtest it:
 
 ```
-jesse backtest start_date finish_date
+jesse backtest 'start_date' 'finish_date'
 ```
 
 `start_date` and `finish_date` must be valid date strings in `YY-MM-DD` format. A working example would be:
 
 ```
-jesse backtest 2016-01-01 2020-04-06
+jesse backtest '2016-01-01' '2020-04-06'
 ```
 
 And here is the output:
@@ -72,7 +72,7 @@ There are further metrics that are disabled by default. To enable them open your
 Performing backtest with the `chart` flag would print out charts for the balance change of your portfolio in the backtest period, and buy/sell points on the asset price change%.
 
 ```
-jesse backtest 2016-01-01 2020-04-06 --chart 
+jesse backtest '2016-01-01' '2020-04-06' --chart 
 ```
 
 When the backtest is finished, Jesse prints the path to the output chart image file:
@@ -91,7 +91,7 @@ This feature is useful for those who use [TradingView](https://www.tradingview.c
 Add the `--tradingview` flag to the backtest command:
 
 ```
-jesse backtest 2019-01-01 2019-10-30 --tradingview
+jesse backtest '2019-01-01' '2019-10-30' --tradingview
 ```
 
 At the end of the process, it will print out the path to a .txt file with a pine script as content. Then open the file, copy its content and paste it inside [TradingView's](https://www.tradingview.com) Pine Editor. Now click on "Add to chart" and you will see entries and exits of the strategy.
@@ -106,7 +106,7 @@ Jesse can output completed trades into a CSV file. You may open this CSV file wi
 
 **Usage:** Add the `--csv` flag to the backtest command:
 ```
-jesse backtest 2019-01-01 2019-10-30 --csv
+jesse backtest '2019-01-01' '2019-10-30' --csv
 ```
 
 Once the backtest is completed, Jesse will print the path to the CSV file.
@@ -117,7 +117,7 @@ Jesse can output completed trades into a file with JSON format. JSON format is a
 
 **Usage:** Add the `--json` flag to the backtest command:
 ```
-jesse backtest 2019-01-01 2019-10-30 --json
+jesse backtest '2019-01-01' '2019-10-30' --json
 ```
 
 Once the backtest is completed, Jesse will print the path to the JSON file.
