@@ -177,7 +177,7 @@ def should_long(self):
 # example #2: let's say there are some expensive operations in a  
 # method I've defined called do_slow_updates() (like machine learning stuff)
 # that I'd like to do once a day while trading "1m" candles
-def prepare(self):
+def before(self):
     if self.index % 1440 == 0:
         do_slow_updates()
 ```
@@ -308,13 +308,13 @@ Alias for `self.position.is_close`
 
 
 
-## is_reduced
+## reduced_count
 
-Has the size of the open position been reduced since it was opened? 
+How many times has the position size been reduced since this trade was opened? 
 
-This is useful for strategies that for example exit in two points, and you'd like to update something only if the first half has been exited.
+This is useful for strategies that for example exit in multiple points, and you'd like to update something related to it.
 
-**Return Type**: bool
+**Return Type**: int
 
 **Example**:
 
@@ -330,7 +330,7 @@ def go_long(self):
 def update_position(self):
     # even though we have especified the exit price 
     # for the second half, we now updated to exit with SMA20
-    if self.is_reduced:
+    if self.reduced_count > 0:
         self.take_profit = 0.5, self.SMA20
 
 @property
@@ -339,11 +339,13 @@ def SMA20(self):
 ```
 
 
-## is_increased
+## increased_count
 
-Has the size of the open position been increased since it was opened? 
+How many times has the position size been increased since this trade was opened? 
 
-**Return Type**: bool
+This is useful for strategies that for example enter/exit in multiple points, and you'd like to update something related to it.
+
+**Return Type**: int
 
 This property is useful if: 
 1. You have been trying to open position in more than one point:
@@ -351,9 +353,11 @@ This property is useful if:
 def go_long(self):
     self.buy = [
         (0.5, self.price + 10),
-        # after this point self.is_increased will be True
+        # after this point self.increased_count will be 1
         (0.5, self.price + 20), 
+        # after this point self.increased_count will be 2
         (0.5, self.price + 30), 
+        # after this point self.increased_count will be 3
     ]
 ```
 
