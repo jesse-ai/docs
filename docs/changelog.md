@@ -2,6 +2,23 @@
 
 Here you can see that changes were made at each release.
 
+## 0.17.0
+- [BREAKING CHANGE] Pass the `order` object as a parameter for event methods such as `on_open_position`, `on_take_profit`, `on_stop_loss`, `on_reduced_position`, and `on_increased_position` methods. 
+- Fixed a bug for adding to open positions using `self.buy` and `self.sell`. 
+- Added `increased_count` and `reduced_count` properties to the Strategy API. 
+- [BREAKING CHANGE] Removed `is_reduced` and `is_increased` properties. 
+- Added the `after()` method the to Strategy API
+- [BREAKING CHANGE] Renamed `prepare()` method to `before()`
+
+## 0.16.0
+- Added a route validation
+- Improved performance of loading candles for cases with multiple routes
+- Added `routes` property to the Strategy API
+- Improvements in exception messages
+- Added `has_active_entry_orders` property to the Strategy API
+- Improved plotting of orders on the generated charts for backtest by (macd2)[https://github.com/macd2]
+- Fixed handling open trade at the end of backtest
+
 ## 0.15.1
 - Added support for Python 3.9
 - Fixed calculations of formulas depending on Quantopian's empyrical package (like annual return, Sharpe Ratio, etc) using [our own fork](https://github.com/jesse-ai/crypto-empyrical) of it. 
