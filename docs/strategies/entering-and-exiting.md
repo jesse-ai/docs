@@ -201,10 +201,15 @@ What if we're not aware of our exact exit point at the time of entering the trad
 
 The next section introduces the concept of [events](./events.html) to fulfill this need.
 
-## prepare()
+## before()
 As explained in the [flowchart](./), this is the first method that gets called when a new candle is received. It is used for updating `self.vars` (custom variables) or any other action you might have in mind that needs to be done before your strategy gets executed. 
 
-**See also**: [vars](./api.html#vars)
+**See also**: [vars](./api.html#vars), [after](./api.html#after)
+
+## after()
+As explained in the [flowchart](./), this is the last method that gets called when a new candle is received and the strategy is getting executed. It is used for updating `self.vars` (custom variables) or any other action you might have in mind that needs to be done after your strategy gets executed. 
+
+**See also**: [vars](./api.html#vars), [before](./api.html#before)
 
 
 ## update_position() 
