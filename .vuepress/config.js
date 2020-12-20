@@ -41,6 +41,29 @@ module.exports = {
 
                 selectText: 'Languages',
                 label: 'English',
+
+                nav: [
+                    {
+                        text: 'Home',
+                        link: 'https://jesse.trade',
+                    },
+                    {
+                        text: 'Blog',
+                        link: 'https://jesse.trade/blog',
+                    },
+                    {
+                        text: 'Forum',
+                        link: 'https://forum.jesse.trade',
+                    },
+                    {
+                        text: 'Discord',
+                        link: 'https://discord.gg/nztUFbMnF5',
+                    },
+                    {
+                        text: 'Github',
+                        link: 'http://github.com/jesse-ai/jesse',
+                    },
+                ],
         
                 sidebar: [
                     ['/docs/', 'Introduction'],
