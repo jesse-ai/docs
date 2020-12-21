@@ -12,14 +12,14 @@ Now assuming you are running Docker on your local machine (and not a VPS), you p
 For that reason, I'm going to create a directory named `home` on my local machine and later map it into the container's `/home` directory. This way, I can edit my project on either my machine (with code editor) or from within the container and changes will affect both. 
 ```sh
 # to get the exact path to my local machine's home directory:
-pwd
+or simply using $pwd
 # /Users/saleh/Codes/tests/docker/home
 ```
 
 Now I create a container from Jesse's docker image, name it `jesse` for easier access, map `/home` directories together, and publish container port `8888` to the host (in case you want to access Jupyter Notebooks from the host browser):
 
 ```sh
-docker run -v /Users/saleh/Codes/tests/docker/home:/home -p 8888:8888 -it --name jesse salehmir/jesse:python38 /bin/bash
+docker run -v $pwd:/home -p 8888:8888 -it --name jesse salehmir/jesse:python38 /bin/bash
 # root@7caf4a8a8a59:/#
 ```
 
