@@ -82,7 +82,7 @@ risk_to_size(capital_size, risk_percentage, risk_per_qty, entry_price)
 ## size\_to\_qty
 
 Converts a position-size to the corresponding quantity.
-Example: Requesting \$100 at the price of %50 would return 2.
+Example: Requesting \$100 at the price of $50 would return 2.
 
 ```py
 size_to_qty(position_size, price, precision=3, fee_rate=0)
@@ -100,7 +100,7 @@ size_to_qty(position_size, price, precision=3, fee_rate=0)
 ## qty\_to\_size
 
 Converts a quantity to its corresponding position-size.
-Example: Requesting 2 shares at the price of %50 would return \$100.
+Example: Requesting 2 shares at the price of $50 would return \$100.
 
 ```py
 qty_to_size(qty, price)
