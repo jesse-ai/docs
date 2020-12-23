@@ -1,12 +1,12 @@
 # Генерация нового файла стратегии
 
-To get started, run:
+Для начала запустите:
 
 ```
 jesse make-strategy AwesomeStrategy
 ```
 
-This will generate `AwesomeStrategy` class located at `jesse/strategies/AwesomeStrategy/__init__.py` including all the methods that are required to run the strategy:
+Это сгенерирует класс `AwesomeStrategy` расположенный в  `jesse/strategies/AwesomeStrategy/__init__.py` включая методы, необходимые для запуска стратегии:
 
 ```py
 from jesse.strategies import Strategy
