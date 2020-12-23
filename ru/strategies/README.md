@@ -1,9 +1,9 @@
 # Стратегии
 
-Jesse ships with a number of pre-built strategies. Whether they are profitable or not for your purposes, it doesn't really matter. Jesse's API for defining your custom strategies is where it shines indeed.
+Джесси поставляется с рядом готовых стратегий. Пригодятся или нет, на самом деле не изменит значения. Api Джесси создано для создания новых стратегий и с этим Джесси справляется блестяще!
 
-Jesse waits until it receives a new candle. When it does, it goes through a series of functions to make decisions. Here's a flowchart presenting the steps:
+Джесси ждет, пока не получит новую свечу. Когда это происходит, выполняется ряд функций для принятия решений. Вот блок-схема, представляющая шаги:
 
 ![symbols](../../docs/imgs/strategy-diagram.png)
 
-There's also the concept of [events](./events.html) which are functions you use to determine what should happen after certain events happen to your position.  
+Также присутсвует концепция [событий](./events.html), в которой представлены функции, используемые для определения того, что будет происходит после заданных событий, происходящих с позициями.

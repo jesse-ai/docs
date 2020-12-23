@@ -6,10 +6,8 @@ tagline: An advanced algo-trading framework
 
 # Документация
 
-Версия документации на русском языке. 
+Это перевод официальной документация для Джесси. Она сделана максимально простой и доступной для понимания.
 
-This is the official documentation for Jesse. It has been designed to be as short as possible. 
+Сверху есть окошко для поиска. Это очень быстрый поиск. Пользуясь им вы освободите себе больше времени. Убедитесь что пользуетесь поиском.
 
-You'll find the search icon at the header. It is a pretty fast search. It'll save you so much time. Make sure to use it.
-
-Please don't hesitate to send PRs for this documentation as it is merely a work in progress. You'll find the `Edit this page` link at the end of all pages.
+Пожалуйста не стесняйтесь вносить изменения в документацию, это просто незавершенная работа. В конце всех страниц вы найдёте ссылку `Исправить источник`.

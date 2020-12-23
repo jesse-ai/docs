@@ -42,6 +42,8 @@ module.exports = {
                 selectText: 'Languages',
                 label: 'English',
 
+                editLinks: 'Edit page',
+
                 nav: [
                     {
                         text: 'Home',
@@ -154,7 +156,9 @@ module.exports = {
 
                 selectText: 'Языки',
                 label: 'Русский',
-                                
+
+                editLinks: 'Исправить источник',
+                               
                 nav: [
                     {
                         text: 'Главная',
