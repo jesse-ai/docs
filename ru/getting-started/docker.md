@@ -60,3 +60,10 @@ docker restart jesse && docker exec -it jesse bash
 # start PostgreSQL
 sudo service postgresql start
 ```
+
+::: tip Внимание
+На последних версия докер вынесли в отдельный репозиторий [jesse-stack-docker](https://github.com/jesse-ai/jesse-stack-docker)
+Для того чтобы заработало нужно выполнить всё что там написано и выполнить установку для [Ubuntu]()
+Этим:
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-18.04.sh`
+:::
