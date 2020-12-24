@@ -7,7 +7,7 @@
         "docs:dev": "vuepress dev",
         "docs:build": "vuepress build"
     },
-    "author": "Sully Fischer <fischersully@gmail.com>, Aleksey Savin<saleksey67@gmail.com>",
+    "author": "Sully Fischer <fischersully@gmail.com>, Aleksey Savin <saleksey67@gmail.com>",
     "license": "AGPL-3.0-or-later",
     "devDependencies": {
         "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",

@@ -1,16 +1,17 @@
 # Фильтры
 
-Filter functions are used to filter out bad trades. 
+Функции фильтра используются для исключения плохих сделок.
 
-## Basic syntax
+## Базовый синтаксис
 
-First, add the `filters()` method to your strategy class which must return a list:
+Вопервых, добавьте `filters()` метод к вашему классе стратегии который возвращает список (list):
 ```py
 def filters(self):
     return []
 ```
 
-Then define filter methods as many as you need. They can have any name, but it is recommended to include the word `filter` in it:
+Дальше определите фильтровочные методы, столько, сколько требуется. Они могут называться как угодно, но рекомендуется включать `filter` в название:
+
 
 ```py
 def filter_1(self):
