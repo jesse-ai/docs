@@ -1,18 +1,18 @@
 # Вход и выход из сделок
 
-Deciding to enter a trade is nothing but a True of False decision.
+Решение войти в сделку это нечно иное как `True` или `False`.
 
-Jesse uses `should_long()` and `should_short()` methods which must return a boolean at all times.
+Джесси использует `should_long()` и `should_short()` методы которые всегда возвращают булево.
 
-After making your mind about entering a trade, you need to come up with exact entry prices, and exit prices. Jesse uses `go_long()` and `go_short()` methods for that.
+Приняв решение о входе в сделку, вам нужно придумать точные цены входа и цены выхода. Джесси использует для этого методы `go_long()` и `go_short()`.
 
 ## should_long()
 
 **Return Type**: bool
 
-Assuming the position is currently close, should it open a long position.
+Предполагая, что позиция в настоящее время закрыта, открывает длинную позицию.
 
-Example:
+Пример:
 
 ```py
 def should_long(self):
@@ -27,7 +27,7 @@ def should_long(self):
 
 **Return Type**: bool
 
-Assuming the position is currently close, should it open a short position.
+Предполагая, что позиция в настоящее время закрыта, открывает короткую позицию.
 
 ```py
 def should_short(self):
@@ -39,18 +39,18 @@ def should_short(self):
 ```
 
 ::: warning
-Obviously you cannot enter both a short and long position at the same time. Hence, `should_long()` and `should_short()` cannot return True at the same.
+Очевидно, что вы не можете одновременно открывать и короткую, и длинную позицию. Следовательно, `should_long()` и `should_short()` не могут одновременно возвращать True.
 :::
 
 ::: warning
-`should_long()` and `should_short()` are for entering trades only. This means that they would get called on every new candle only if no position is open, and no order is active. 
+`should_long()` and `should_short()` только для входа в сделку. Это означает, что они будут запрашиваться на каждой новой свече, только если ни одна позиция не открыта, и ни один ордер не активен.
 
-If you're looking to close trades dynamically, [update_position()](/docs/strategies/entering-and-exiting.html#update-position) is what you're looking fore. 
+Если вы хотите динамически закрывать сделки то, [update_position()](/docs/strategies/entering-and-exiting.html#update-position) что вы ищите. 
 :::
 
 ## go_long()
 
-Inside `go_long()` method you set your buy price (entry point), quantity (how much to buy), the stop-loss and take-profit (exit points) quantity and prices. The basic syntax is:
+Внутри `go_long()` метода вы ставите entry_price (цену покупки, точку входа), quantity (количество, сколько вы покупаете), the stop-loss и take-profit (стоп-лос и тейк-профит, точки выхода) объемом и ценой. Базовый синтаксис:
 
 ```py
 def go_long(self):
@@ -59,9 +59,9 @@ def go_long(self):
     self.take_profit = qty, take_profit_price
 ```
 
-`qty`, `entry_price`, `stop_loss_price`, and `take_profit_price` are placeholders, can be anything you want; but `self.buy`, `self.stop_loss`, and `self.take_profit` are special variables that Jesse uses; they must be the same.
+`qty`, `entry_price`, `stop_loss_price`, и `take_profit_price` это заполнители, могут быть какими вы пожелаете; но `self.buy`, `self.stop_loss`, и `self.take_profit` специальные переменные которые использует Джесси; они должены быть одинаковы.
 
-A working example would be:
+Рабочий пример будет такой:
 
 ```py
 def go_long(self):
@@ -72,10 +72,10 @@ def go_long(self):
     self.take_profit = qty, self.high + 10
 ```
 
-::: tip Smart ordering system
-Notice that we did not have to define which order type to use. Jesse is smart enough to decide the type of the orders by itself.
+::: tip Умная система выставления ордеров
+Обратите внимание, что нам не нужно было определять, какой тип заказа использовать. Джесси достаточно умен, чтобы самостоятельно определять тип ордера.
 
-For example if it is for a long position, here's how Jesse decides:
+Например, если это длинная позиция, вот как рассуждает Джесси:
 
 -   MARKET order: if `entry_price == current_price`
 -   LIMIT order: if `entry_price < current_price`
@@ -85,7 +85,7 @@ For example if it is for a long position, here's how Jesse decides:
 
 ## go_short()
 
-Same as [go_long()](#go-long) but uses `self.sell` for entry instead of `self.buy`:
+Так же [go_long()](#go-long) и использует `self.sell` для входа в рынок в место `self.buy`:
 
 ```py
 def go_short(self):
@@ -94,7 +94,7 @@ def go_short(self):
     self.take_profit = qty, take_profit_price
 ```
 
-A working Example would be:
+Рабочий пример будет такой:
 
 ```py
 def go_short(self):
@@ -122,10 +122,12 @@ def go_short(self):
 
 **Return Type**: bool
 
-What this method is asking you is: Assuming a open position order has already been submitted but _not executed yet_, should it be cancled?
+Этот метод спрашивает вас: если ордер на открытую позицию уже отправлен, но _еще не выполнен_, следует ли его отменить?
 
 ::: tip
-After submitting orders for opening new positions either you'll enter a position immediately with a market order, or have to wait until your limit/stop order gets filled. This method is used for the second scenario.
+
+После подачи ордеров на открытие новых позиций вы либо сразу войдете в позицию с помощью рыночного ордера, либо вам придется подождать, пока ваш лимитный / стоп-ордер будет исполнен. Этот метод используется для второго сценария.
+
 :::
 
 A good example would be for a trade we're trying to open a position when the price continues the uptrend:
