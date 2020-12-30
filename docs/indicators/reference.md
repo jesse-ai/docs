@@ -41,10 +41,6 @@ acosc(candles: np.ndarray, sequential=False) -> AC
   
 Acceleration / Deceleration Oscillator (AC)  
 
-::: details
-Calculation: Custom
-:::
-
 **Arguments**:  
   
 - `candles`: np.ndarray  
