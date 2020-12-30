@@ -1,4 +1,5 @@
 
+
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
@@ -39,7 +40,11 @@ acosc(candles: np.ndarray, sequential=False) -> AC
 ```  
   
 Acceleration / Deceleration Oscillator (AC)  
-  
+
+::: details
+Calculation: Custom
+:::
+
 **Arguments**:  
   
 - `candles`: np.ndarray  
