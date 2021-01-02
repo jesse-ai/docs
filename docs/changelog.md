@@ -5,7 +5,7 @@ Here you can see that changes were made at each release.
 ## 0.18.0
 - [BREAKING CHANGE] Dropped support for Python `3.6`
 - [BREAKING CHANGE] Changed the syntax for symbols to use a `-` in the middle to separate the base and quote assets. Instead of `BTCUSD` you now need to enter `BTC-USD`. 
-- 
+- Added elitism to genetic/evolution algorithm by [fjelic](https://github.com/fjelic)
 
 ## 0.17.0
 - [BREAKING CHANGE] Pass the `order` object as a parameter for event methods such as `on_open_position`, `on_take_profit`, `on_stop_loss`, `on_reduced_position`, and `on_increased_position` methods. 
