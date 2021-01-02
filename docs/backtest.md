@@ -23,7 +23,7 @@ And here is the output:
 
 exchange    | symbol   | timeframe   | strategy
 ------------+----------+-------------+--------------------+-------
- Bitfinex   | BTCUSD   | 6h          | TrendFollowingStrategy
+ Bitfinex   | BTC-USD   | 6h          | TrendFollowingStrategy
 
 
 Executing simulation...  [####################################]  100%

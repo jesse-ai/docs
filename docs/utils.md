@@ -136,11 +136,11 @@ from jesse.utils import anchor_timeframe
 
 # trading routes
 routes = [
-    ('Binance', 'BTCUSDT', '4h', 'ExampleStrategy'),
+    ('Binance', 'BTC-USDT', '4h', 'ExampleStrategy'),
 ]
 
 extra_candles = [
-    ('Binance', 'BTCUSDT', anchor_timeframe('4h')),
+    ('Binance', 'BTC-USDT', anchor_timeframe('4h')),
 ]
 ```
 

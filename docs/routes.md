@@ -18,11 +18,11 @@ Working example:
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
+    ('Binance', 'BTC-USDT', '4h', 'TrendFollowingStrategy'),
 ]
 ```
 
-In this example, we're telling Jesse to trade `BTCUSDT` using `TrendFollowingStrategy` strategy at `Binance` exchange in `4h` time interval.
+In this example, we're telling Jesse to trade `BTC-USDT` using `TrendFollowingStrategy` strategy at `Binance` exchange in `4h` time interval.
 
 ::: tip
 Instead of writing `'4h'`, you could write `timeframes.HOUR_4`. This is optional but helps to prevent misspelling string.
@@ -36,15 +36,15 @@ You can trade more than one route at the same time. The `routes` variable is a l
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
-    ('Binance', 'ETHUSDT', '15m', 'MeanReverseStrategy'),
+    ('Binance', 'BTC-USDT', '4h', 'TrendFollowingStrategy'),
+    ('Binance', 'ETH-USDT', '15m', 'MeanReverseStrategy'),
 ]
 ```
 
 ::: warning
 The `exchange` and `symbol` pairs must be unique.
 
-That means you CAN trade `BTCUSDT` at the same time in both `Binance` and `Bitfinex`; but you CANNOT trade `BTCUSDT` in `Binance` on both `1h` and `4h` timeframes at the same time.
+That means you CAN trade `BTC-USDT` at the same time in both `Binance` and `Bitfinex`; but you CANNOT trade `BTC-USDT` in `Binance` on both `1h` and `4h` timeframes at the same time.
 
 Why? Because exchanges support only one position per symbol and we want to keep it simple.
 :::
@@ -67,11 +67,11 @@ For example, if you're trading `4h` time frame, and using `1D` time frame in you
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
+    ('Binance', 'BTC-USDT', '4h', 'TrendFollowingStrategy'),
 ]
 
 extra_candles = [
-    ('Binance', 'BTCUSDT', '1D'),
+    ('Binance', 'BTC-USDT', '1D'),
 ]
 ```
 

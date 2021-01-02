@@ -28,7 +28,7 @@ Returns a numpy array of candles.
 **Example:**
 
 ```py
-eth_candles = research.get_candles('Binance', 'ETHUSDT', '4h', '2019-07-28', '2019-09-28')
+eth_candles = research.get_candles('Binance', 'ETH-USDT', '4h', '2019-07-28', '2019-09-28')
 
 print(eth_candles[0])
 # array([
@@ -45,7 +45,7 @@ print(eth_candles[0])
 You can use [indicators](/docs/indicators) modules in your notebooks just as you did in your strategies. However, because indicators return single values by default, in case you intend to draw charts (I'm assuming that's why you're using Jupyter Notebooks in the first place) it is easier to set the `sequence=True` to get array of indicator values.
 
 ## Example
-Let's import candles for `ETHUSDT` and calculate SMA with period of 50 and display them on a chart:
+Let's import candles for `ETH-USDT` and calculate SMA with period of 50 and display them on a chart:
 
 ```py
 from datetime import datetime
@@ -59,7 +59,7 @@ research.init()
 import jesse.indicators as ta
 
 
-eth_candles = research.get_candles('Binance', 'ETHUSDT', '4h', '2019-07-28', '2019-09-28')
+eth_candles = research.get_candles('Binance', 'ETH-USDT', '4h', '2019-07-28', '2019-09-28')
 eth_sma_50 = ta.sma(eth_candles, 50, sequential=True)
 eth_close = eth_candles[:, 2]
 

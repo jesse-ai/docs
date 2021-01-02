@@ -27,20 +27,20 @@ Here is a sample of a running session of live trade plugin that the development 
 
  exchange-symbol-timeframe   | timestamp                 |    open |   close |   high |     low
 -----------------------------+---------------------------+---------+---------+--------+---------
- Binance Futures-BTCUSDT-6h  | 2020-04-26T18:00:00+00:00 | 7580.01 | 7612.01 |   7617 | 7566.96
+ Binance Futures-BTC-USDT-6h  | 2020-04-26T18:00:00+00:00 | 7580.01 | 7612.01 |   7617 | 7566.96
 
 
  type   | strategy           | symbol   |                             opened at |   qty |   entry |   current price | PNL (%)
 --------+--------------------+----------+---------------------------------------+-------+---------+-----------------+-----------
- long   | Trend02            | BTCUSDT  | 1.0 day, 14.0 hours, 52.0 minutes ago |  0.94 |    7521 |         7612 | 85.55 (1.21%)
+ long   | Trend02            | BTC-USDT  | 1.0 day, 14.0 hours, 52.0 minutes ago |  0.94 |    7521 |         7612 | 85.55 (1.21%)
 
 
  symbol   | side   | type   |   qty |   price | flag       | status   | created_at
 ----------+--------+--------+-------+---------+------------+----------+---------------------
- BTCUSDT  | sell   | STOP   | -0.94 |    7269 | ReduceOnly | ACTIVE   | 2020-04-25T06:00:00
- BTCUSDT  | sell   | STOP   | -0.94 |    7192 | ReduceOnly | ACTIVE   | 2020-04-25T03:31:44
- BTCUSDT  | sell   | LIMIT  | -0.94 |    9165 | ReduceOnly | CANCELED | 2020-04-25T03:31:43
- BTCUSDT  | buy    | STOP   |  0.94 |    7521 |            | EXECUTED | 2020-04-25T00:00:02
+ BTC-USDT  | sell   | STOP   | -0.94 |    7269 | ReduceOnly | ACTIVE   | 2020-04-25T06:00:00
+ BTC-USDT  | sell   | STOP   | -0.94 |    7192 | ReduceOnly | ACTIVE   | 2020-04-25T03:31:44
+ BTC-USDT  | sell   | LIMIT  | -0.94 |    9165 | ReduceOnly | CANCELED | 2020-04-25T03:31:43
+ BTC-USDT  | buy    | STOP   |  0.94 |    7521 |            | EXECUTED | 2020-04-25T00:00:02
  ```
 
 The released version plugin will probably have a different user interface. 

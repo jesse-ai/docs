@@ -3,7 +3,7 @@
 Let's say you found a good DNA and now you want to use it in your strategy. Go ahead and copy the DNA string that is displayed in the "evolving" dashboard. It should be a weird-looking string such as `=;0`. Then, paste it as the 5th parameter of your trading route in your `routes.py` file:
 ```py
 routes = [
-    ('Bitfinex', 'BTCUSD', '15m', 'SMACrossover', '=;0'),
+    ('Bitfinex', 'BTC-USD', '15m', 'SMACrossover', '=;0'),
 ]
 ```
 

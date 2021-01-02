@@ -32,7 +32,7 @@ ta.sma(self.candles, 8)
 To get indicator values for candles other than your trading [route](/docs/routes) (in case you have defined more than one route in your `routes.py` file), use `self.get_candles()` method:
 
 ```py
-ta.sma(self.get_candles('Binance', 'BTCUSDT', '4h'), 8)
+ta.sma(self.get_candles('Binance', 'BTC-USDT', '4h'), 8)
 ```
 
 ## Named Tuples

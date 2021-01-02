@@ -24,7 +24,7 @@ Evolving...  [###################-----------------]   53%  18:17:41
  Started At                       |                           21 hours ago
  Index/Total                      |                              2124/4000
  Population Size, Solution Length |                                 200, 2
- Route                            | Bitfinex, BTCUSD, 6h, TrendFollowing05
+ Route                            | Bitfinex, BTC-USD, 6h, TrendFollowing05
 
 
 Best DNA candidates:
