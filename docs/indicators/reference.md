@@ -1,5 +1,6 @@
 
 
+
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
@@ -406,7 +407,27 @@ CMO - Chande Momentum Oscillator
 **Returns**:  
   
 float | np.ndarray  
+
+## correlation_cycle
   
+```python  
+correlation_cycle(candles: np.ndarray, period=20, threshold=9, source_type="close", sequential=False) -> CC
+```  
+  
+Correlation Cycle, Correlation Angle, Market State - John Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20
+- `threshold`: int - default: 9
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+CC(real, imag, angle, state)
+
 ## correl  
   
 ```python  
@@ -589,6 +610,26 @@ DPO - Detrended Price Oscillator
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## dti
+  
+```python  
+dti(candles: np.ndarray, r=14, s=10, u=5, sequential=False) -> Union[float, np.ndarray]
+```  
+  
+DTI by William Blau
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `r`: int - default: 14  
+- `s`: int - default: 10  
+- `u`: int - default: 5  
 - `sequential`: bool - default=False  
   
 **Returns**:  
@@ -948,6 +989,26 @@ Ichimoku Cloud
 **Returns**:  
   
 IchimokuCloud(conversion_line, base_line, span_a, span_b)  
+
+## ichimoku_cloud_seq  
+  
+```python  
+ichimoku_cloud_seq(candles: np.ndarray, conversion_line_period=9, base_line_period=26, lagging_line_period=52,displacement=26, sequential=False) -> IchimokuCloud
+```  
+  
+Ichimoku Cloud Sequential
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `conversion_line_period`: int - default=9  
+- `base_line_period`: int - default=26  
+- `lagging_line_period`: int - default=52  
+- `displacement`: - default=26  
+  
+**Returns**:  
+  
+IchimokuCloud(conversion_line, base_line, span_a, span_b, lagging_line, future_span_a, future_span_b)
   
 ## itrend  
   
@@ -1248,6 +1309,25 @@ MASS - Mass Index
   
 float | np.ndarray  
   
+## mcginley_dynamic
+  
+```python  
+mcginley_dynamic(candles: np.ndarray, period=10, k=0.6, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+McGinley Dynamic
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 10  
+- `k`: float - default: 0.6
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## medprice  
   
 ```python  
@@ -2163,7 +2243,26 @@ VIDYA - Variable Index Dynamic Average
 **Returns**:  
   
 float | np.ndarray  
+ 
+## vpci
   
+```python  
+vpci(candles: np.ndarray, short_range=5, long_range=25, sequential=False) -> VPCI
+```  
+  
+VPCI - Volume Price Confirmation Indicator
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `short_range`: int - default: 5
+- `long_range`: int - default: 25
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+VPCI(vpci, vpcis)
+
 ## vosc  
   
 ```python  
