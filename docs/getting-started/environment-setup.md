@@ -10,6 +10,10 @@ In this page we'll go through how to prepare your environment before installing 
 If for any reason this installation is not possible for you, you can always use our [Docker image](/docs/getting-started/docker.md).
 :::
 
+::: tip
+A good practice for providing an environment for running Python applications is setting up Python virtual environments. Especially when you have different projects with their own dependencies, you can create an isolated environment regardless of what dependencies every other project has. [Here](https://docs.python.org/3/tutorial/venv.html) you can find more information on creating virtual environments.
+:::
+
 ## Ubuntu
 
 We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages including Jesse itself on a fresh Ubuntu 18.04 machine.
