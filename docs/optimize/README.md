@@ -7,7 +7,7 @@ Like all other features of Jesse, the optimize mode is designed to give you full
 However, to be able to get full advantage of it, you need to have a basic understanding of how it works; so make sure to read all of this page, carefully. 
 
 ::: warning
-This features doesn't work on Windows. There is a issue related to multiprocessing on Windows.
+This feature doesn't work on Windows. There is a issue related to multiprocessing on Windows.
 :::
 
 ## How does it work?
