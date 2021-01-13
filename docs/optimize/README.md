@@ -6,6 +6,10 @@ Like all other features of Jesse, the optimize mode is designed to give you full
 
 However, to be able to get full advantage of it, you need to have a basic understanding of how it works; so make sure to read all of this page, carefully. 
 
+::: warning
+This features doesn't work on Windows. There is a issue related to multiprocessing on Windows.
+:::
+
 ## How does it work?
 It works using the genetic algorithm; also known as the evolutionary algorithm. You do not have to be an expert on the subject to use the optimize mode, but is recommended to get familiar with the basics of it. Here's a nice 5 minutes video that explains it:
 
