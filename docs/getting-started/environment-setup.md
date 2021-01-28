@@ -157,29 +157,6 @@ Now check if it worked by running: `pip list` you should now find ta-lib in that
 
 > :information_source: You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. There is a tutorial: [HERE](https://github.com/mrjbq7/ta-lib#windows)
 
-### Tulipy
-
-To install Tulipy on Windows the easiest way is to use a prebuilt binary.
-Go [here](https://pypi.org/project/tulipy/#files) and download a version matching your system and python version.
-
-As you will find there only whl files for python version 3.7 currently, we decided to offer the versions for 3.6 and 3.8 [here](https://github.com/jesse-ai/windows) to make it easier to get started with jesse. As for now we only have a prebuilt version for 3.8 64bit. It would be great if users, that have a corresponding enviroment would create the missing whl files and send it to us, so we can upload it there. You can do that with that command: `pip wheel tulipy` after installing [Microsoft Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). 
-
-Example:
--   **tulipy-0.4.0-cp37-cp37m-win32.whl**: this would be the version for Python *3.7 (cp37)* and Windows *32bit (win_32)*
--   **tulipy-0.4.0-cp37-cp37m-win_amd64.whl**: this would be the version for Python *3.7 (cp37)* and Windows *64bit (win_amd64)*
-
-Now open CMD and go the directory where you downloaded the binary file and run:
-```sh
-pip install {downloaded_binary_file}
-# for example: 
-# pip install tulipy-0.4.0-cp37-cp37m-win_amd64.whl
-```
-
-Now check if it worked by running: `pip list` you should now find tulipy in that list.
-
-
-> :information_source: You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. You need to have [Microsoft Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) installed to build it.
-
 ### Cython
 Run:
 
