@@ -1797,7 +1797,7 @@ RSI - Relative Strength Index
   
 float | np.ndarray  
   
- ## rsi  
+ ## rsx 
   
 ```python  
 rsx(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
