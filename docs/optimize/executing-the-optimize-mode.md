@@ -15,6 +15,28 @@ For example, imagine that I have a trend-following strategy that I trade on the 
 
 Thus, by setting my `optimal_total` to a number like `60` I will successfully filter out such bad DNAs. 
 
+## CSV
+
+Jesse can output the optimization results (DNA, hyperparamters, fitness...) into a CSV file. You may open this CSV file with Excel, Google sheets, or whatever tool you like to analyse the optimization.
+
+**Usage:** Add the `--csv` flag to the optimize command:
+```
+jesse optimize '2018-01-01' '2020-01-01' 200 --csv
+```
+
+Once the backtest is completed, Jesse will print the path to the CSV file.
+
+## JSON
+
+Jesse can output the optimization results (DNA, hyperparamters, fitness...) into a file with JSON format. JSON format is a popular javascript format that is usually used to create APIs on the web. 
+
+**Usage:** Add the `--json` flag to the optimize command:
+```
+jesse optimize '2018-01-01' '2020-01-01' 200 --json
+```
+
+Once the backtest is completed, Jesse will print the path to the JSON file.
+
 ## When is the optimization over?
 After starting the optimize mode, first, the initial population is generated. There is a progress bar telling you how long you have to wait until it's done. During this period, no optimization is being done. It's just a random generation of the DNAs. 
 
