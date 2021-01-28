@@ -24,7 +24,7 @@ Jesse can output the optimization results (DNA, hyperparamters, fitness...) into
 jesse optimize '2018-01-01' '2020-01-01' 200 --csv
 ```
 
-Once the backtest is completed, Jesse will print the path to the CSV file.
+Once a certain amount of iterations is completed, Jesse will add results to the CSV file.
 
 ## JSON
 
@@ -35,7 +35,7 @@ Jesse can output the optimization results (DNA, hyperparamters, fitness...) into
 jesse optimize '2018-01-01' '2020-01-01' 200 --json
 ```
 
-Once the backtest is completed, Jesse will print the path to the JSON file.
+Once a certain amount of iterations is completed, Jesse will add results to the JSON file.
 
 ## When is the optimization over?
 After starting the optimize mode, first, the initial population is generated. There is a progress bar telling you how long you have to wait until it's done. During this period, no optimization is being done. It's just a random generation of the DNAs. 
