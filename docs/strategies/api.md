@@ -443,3 +443,46 @@ qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
 ::: tip
 The `fee_rate` property returns exchange fee as a float. For example at Binance fee is `0.1%`, hence `self.fee_rate` would return `0.001`.
 :::
+
+
+## balance
+
+Returns the current wallet in your exchange wallet. In the futures market, it behaves exactly as "wallet balance in USDT" does on [Binance Futures](http://jesse.trade/binance).
+
+**Return Type**: float
+
+**Aliases**: `capital`
+
+**See Also**: [capital](#capital), [available_margin](#available-margin)
+
+
+## capital
+
+Alias for [balance](#balance)
+
+
+## available_margin
+
+Returns the available/remaining margin in your exchange wallet. It equals to your initial wallet balance multiplied by the leverage you're using, added by the unrealized profits on your open positions, subtracted by spent margin for open orders. 
+
+For the sake of not getting liquidated, it is safer to just use the [capital](#capital) property in your strategies instead. 
+
+It is meant to be used in the futures markets only although in the spot market it equals to the `self.balance` property. 
+
+**Return Type**: float
+
+**See Also**: [balance](#balance), [capital](#capital)
+
+
+## leverage
+
+The `leverage` property returns the leverage number that you have set in your config file for the exchange you're running inside the strategy. For spot markets, it always returns `1`. 
+
+**Return Type**: int
+
+
+## metrics
+
+The `metrics` property returns the metrics that you usually would see at the end of backtests. It is useful for coding formulas such as [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp). 
+
+**Return Type**: dict
