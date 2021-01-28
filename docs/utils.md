@@ -289,7 +289,7 @@ streaks(series: np.array, use_diff=True) -> np.array
 
 **Return Type**: np.array[bool]
 
-## strictly\_decreasing
+## signal\_line
 
 Returns the moving average of the series. Useful to create so called signal lines of indicators.
 
