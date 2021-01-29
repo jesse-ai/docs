@@ -2,7 +2,7 @@
 
 There's not just one correct way to use Docker; there's plenty. In this page however we'll describe a minimal setup ready to go using [docker  compose](https://docs.docker.com/compose).
 
-If you're looking for a ready to work repository, see [jesse-stack-docker](https://github.com/jesse-ai/stack-installer). Click on `Use as template` and pull your forked repo locally.
+If you're looking for a ready to work repository, see [jesse-stack-docker](https://github.com/jesse-ai/jesse-stack-docker). Click on `Use as template` and pull your forked repo locally.
 This repository use docker-compose file that includes different services: main jesse, postgres database, [jesse trade info](https://github.com/nicolay-zlobin/jesse-trades-info) web chart ui to explore backtest result. It mounts locally files to persist on you machine the database data contains trade history use for backtest, and your jesse strategy files:
 ```sh
 # docker-compose.yml
