@@ -1,60 +1,74 @@
 # Docker
 
-There's not just one correct way to use Docker; there's plenty. In this page however we'll describe one way step by step.
+There's not just one correct way to use Docker; there's plenty. In this page however we'll describe a minimal setup ready to go using [docker  compose](https://docs.docker.com/compose).
 
-First, pull the image from DockerHub:
+If you're looking for a ready to work repository, see [jesse-stack-docker](https://github.com/jesse-ai/stack-installer). Click on `Use as template` and pull your forked repo locally.
+This repository use docker-compose file that includes different services: main jesse, postgres database, [jesse trade info](https://github.com/nicolay-zlobin/jesse-trades-info) web chart ui to explore backtest result. It mounts locally files to persist on you machine the database data contains trade history use for backtest, and your jesse strategy files:
 ```sh
-docker pull salehmir/jesse:python38
+# docker-compose.yml
+version: '3.8'
+
+services:
+
+  jesse:
+    image: salehmir/jesse:0.18.2
+    volumes:
+      - ./jesseData:/home
+    depends_on:
+      - db
+      - jesse-trades-info
+    environment:
+      ENV_DATABASES_POSTGRES_HOST: "db"
+    ports:
+      - 8888:8888
+
+  jesse-trades-info:
+    image: jessetradesinfo/jesse-trades-info:v0.1.0
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: jesse_db
+      DB_USER: jesse_user
+      DB_PASSWORD: password
+      DB_PORT: 5432
+    ports:
+      - 3000:3000
+
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: jesse_user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: jesse_db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./dbData:/var/lib/postgresql/data
+
 ```
 
-Now assuming you are running Docker on your local machine (and not a VPS), you probably want to edit your project with a code editor. 
-
-For that reason, I'm going to create a directory named `home` on my local machine and later map it into the container's `/home` directory. This way, I can edit my project on either my machine (with code editor) or from within the container and changes will affect both. 
+Start Jesse container and it's dependencies:
 ```sh
-# to get the exact path to my local machine's home directory:
-or simply using $pwd
-# /Users/saleh/Codes/tests/docker/home
+docker-compose run jesse bash
 ```
 
-Now I create a container from Jesse's docker image, name it `jesse` for easier access, map `/home` directories together, and publish container port `8888` to the host (in case you want to access Jupyter Notebooks from the host browser):
-
-```sh
-docker run -v $pwd:/home -p 8888:8888 -it --name jesse salehmir/jesse:python38 /bin/bash
-# root@7caf4a8a8a59:/#
-```
-
-Now you should be inside an ubuntu image that has all the required stack and even pip packages installed on it. 
-
-Because PostgreSQL is not initally running after starting the container, start it with below command:
-```
-sudo service postgresql start
-```
-
-To make sure you have the latest version of Jesse, you need to install it manually:
-```
-pip install jesse
-``` 
-
-Now let's create a new project at `/home` so we can open it with a code editor:
+Now you're logged into a terminal inside the jesse container, let's create a new project at `/home`, the docker mounted volume from your local machine, so we can open it with a code editor:
 ```sh
 cd /home
 jesse make-project mybot
 ```
 
-Now you'll find a `mybot` directory in your local machine. In this example it is located at `/Users/saleh/Codes/tests/docker/home/mybot`. Open it with your code editor and write your own strategies. 
-
-To run jesse commands, open the container, `cd` into the project, and run them inside it. For example run `routes` command to see the present routes:
-
-```
-jesse routes
-```
+Now you'll find a `mybot` directory in your local machine. Open it with your code editor and write your own strategies. 
 
 When you're done with the container, you can exit using `exit` command. 
 
+To stop all container and dependencies
+```sh
+docker-compose stop
+```
+
 Next time you want to access the container, of course you don't need to repeat above steps. Just restart the container and then start the database:
 ```sh
-# to reattach to created container 
-docker restart jesse && docker exec -it jesse bash
-# start PostgreSQL
-sudo service postgresql start
+docker-compose run jesse bash
 ```
