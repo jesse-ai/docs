@@ -2,6 +2,23 @@
 
 Here you can see that changes were made at each release.
 
+## 0.19.2
+- Added `metrics` property to the Strategy API. 
+- Added `available_margin` property to the Strategy API. 
+- Added `leverage` property to the Strategy API. 
+- Updated the behavior of `capital`. It now returns wallet balance. 
+- Added support for leverage (except for a liquidation mechanism)
+- [BREAKING CHANGE] Change config values to work with the leverage support. Now instead of `margin` you need to enter `futures`. 
+- Added `total_cost` to Position model. 
+- Added `roi` (return on investment) property to the Position model. It is calculated while considering the leverage, the same way it is done on Binance Futures. 
+- ADded `RSX` indicator.
+- Added Market Change metric.
+- Added `signal_line()`, `streaks()`, `kelly_criterion()`, `strictly_increasing()`, `strictly_decreasing()`, and `dd()` utility functions. 
+- Added `trades` property to the Strategy API for getting previous executed trades by [nicolay-zlobin](https://github.com/nicolay-zlobin). 
+- Updated the docker image. Updated the docs to work with docker-compose. By [julesGoullee](https://github.com/julesGoullee).
+- Exported trades as json now include `considering_timeframes` by [julesGoullee](https://github.com/julesGoullee).
+- Added `--skip_confirmation` flag to `import-canldes` command to avoid confirmation on candle duplicates by [Gabri](https://github.com/Gabri).
+
 ## 0.18.0
 - [BREAKING CHANGE] Dropped support for Python `3.6`
 - [BREAKING CHANGE] Changed the syntax for symbols to use a `-` in the middle to separate the base and quote assets. Instead of `BTCUSD` you now need to enter `BTC-USD`. 
