@@ -212,3 +212,18 @@ numpy_candles_to_dataframe(candles: np.ndarray, name_date="date", name_open="ope
 -   name_volume: str
 
 **Return Type**: pd.DataFrame
+
+
+## dd
+
+The `dd` (dump and die) function dumps the given variables and ends execution of the script. It is used for debugging. 
+
+```py
+dd('some kind of variable that you need to debug')
+```
+
+**Properties**:
+
+-   msg
+
+**Return Type**: None
