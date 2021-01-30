@@ -1,6 +1,7 @@
 
 
 
+
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
@@ -1796,6 +1797,25 @@ RSI - Relative Strength Index
   
 float | np.ndarray  
   
+ ## rsx 
+  
+```python  
+rsx(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+RSX - Relative Strength Xtra
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 14  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## sar  
   
 ```python  

@@ -1,3 +1,4 @@
+
 # API reference
 
 There are many built-in variables you can use inside your custom strategy class. Here is a reference of them all.
@@ -483,6 +484,48 @@ The `leverage` property returns the leverage number that you have set in your co
 
 ## metrics
 
-The `metrics` property returns the metrics that you usually would see at the end of backtests. It is useful for coding formulas such as [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp). 
+The `metrics` property returns the metrics that you usually would see at the end of backtests. It is useful for coding formulas such as [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp). Be aware that without trades it will return None.
+
+**Available metrics:**
+- total
+- total_winning_trades
+- total_losing_trades
+- starting_balance
+- finishing_balance 
+- win_rate 
+- max_R 
+- min_R 
+- mean_R 
+- ratio_avg_win_loss 
+- longs_count 
+- longs_percentage 
+- short_percentage 
+- shorts_count 
+- fee 
+- net_profit 
+- net_profit_percentage 
+- average_win 
+- average_loss 
+- expectancy 
+- expectancy_percentage
+- expected_net_profit_every_100_trades
+- average_holding_period 
+- average_winning_holding_period 
+- average_losing_holding_period 
+- gross_profit 
+- gross_loss 
+- max_drawdown 
+- annual_return 
+- sharpe_ratio 
+- calmar_ratio 
+- sortino_ratio 
+- omega_ratio 
+- total_open_trades 
+- open_pl
+- winning_streak 
+- losing_streak 
+- largest_losing_trade 
+- largest_winning_trade 
+- current_streak
 
 **Return Type**: dict

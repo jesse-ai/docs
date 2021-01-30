@@ -1,3 +1,4 @@
+
 # Utilities
 
 These utility functions are helpful when writing strategies. The `utils` module is imported for you when you generate a new strategy but here's the code anyway:
@@ -214,16 +215,126 @@ numpy_candles_to_dataframe(candles: np.ndarray, name_date="date", name_open="ope
 **Return Type**: pd.DataFrame
 
 
+## subtract\_floats
+
+Subtracts two floats without the rounding issue in Python
+
+```py
+subtract_floats(float1: float, float2: float) -> float
+```
+
+**Properties**:
+
+-   float1: float
+-   float2: float
+
+**Return Type**: float
+
+## sum\_floats
+
+Sums two floats without the rounding issue in Python
+
+```py
+sum_floats(float1: float, float2: float) -> float
+```
+
+**Properties**:
+
+-   float1: float
+-   float2: float
+
+**Return Type**: float
+
+## strictly\_increasing
+
+Returns whether a series in strictly increasing or not. 
+
+```py
+strictly_increasing(series, lookback)
+```
+
+**Properties**:
+
+-   series: np.array
+-   lookback: int
+
+**Return Type**: bool
+
+## strictly\_decreasing
+
+Returns whether a series in strictly decreasing or not. 
+
+```py
+strictly_increasing(series, lookback)
+```
+
+**Properties**:
+
+-   series: np.array
+-   lookback: int
+
+**Return Type**: bool
+
+## streaks
+
+Returns the streaks of the series. A positive number stands for a positive streak and a negativ number for a negative streak. By default it uses the first discrete difference.
+
+```py
+streaks(series: np.array, use_diff=True) -> np.array
+```
+
+**Properties**:
+
+-   series: np.array
+-   use_diff: bool
+
+**Return Type**: np.array[bool]
+
+## signal\_line
+
+Returns the moving average of the series. Useful to create so called signal lines of indicators.
+
+```py
+signal_line(series, period=10, matype=0)
+```
+
+**Properties**:
+
+-   series: np.array
+-   period: int - default = 10
+-   matype: int - default = 0
+
+**See [here](https://docs.jesse.trade/docs/indicators/reference.html#indicators-reference) for available matypes**
+
+**Return Type**:  np.array
+
+
+## kelly\_criterion
+
+Returns the [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp).
+
+```py
+kelly_criterion(win_rate, ratio_avg_win_loss)
+```
+
+**Properties**:
+
+-   win_rate: float
+-   ratio_avg_win_loss: float
+
+**Return Type**: float
+
+
+
 ## dd
 
-The `dd` (dump and die) function dumps the given variables and ends execution of the script. It is used for debugging. 
+The `dd` (dump and die) function dumps the given variables and ends execution of the script. It is used for debugging purposes. 
 
 ```py
 dd('some kind of variable that you need to debug')
 ```
 
 **Properties**:
-
 -   msg
 
 **Return Type**: None
