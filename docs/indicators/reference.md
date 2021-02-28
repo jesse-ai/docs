@@ -1604,6 +1604,14 @@ Pivot Points
 **Returns**:  
   
 PIVOT(r4, r3, r2, r1, pp, s1, s2, s3, s4)  
+
+::: tip Available mode and levels
+-   0: Standard Pivot Points / Floor Pivot Points - r2, r1, pp, s1, s2
+-   1: Fibonacci Pivot Points - r3, r2, r1, pp, s1, s2, s3
+-   2: Demark Pivot Points - r1, pp, s1
+-   3: Camarilla Pivot Points - r4, r3, r2, r1, pp, s1, s2, s3, s4
+-   4: Woodie's Pivot Points - r4, r3, r2, r1, pp, s1, s2, s3, s4
+:::
   
 ## ppo  
   
