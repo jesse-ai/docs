@@ -19,6 +19,10 @@ This is probably the most important helper function that you're going to need in
 We made a [website](https://positionsizingcalculator.netlify.app) for you just to play with this simple but important formula.
 :::
 
+::: warning
+There might be situations where this helper returns a qty exceeding the available capital leading to an exception. The reason for this is a very close stop loss (often due to the usage of the ATR). You can check this with the calculator above. That's not a error, but expected behaviour of the formula. You might want to add a logic limiting the qty to a maximum percentage of the capital.
+:::
+
 ```py
 risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price, fee_rate=0)
 ```
