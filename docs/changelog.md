@@ -2,6 +2,16 @@
 
 Here you can see that changes were made at each release.
 
+# 0.19.3
+- New indicators: Fibonacci's Weighted Moving Average (FWMA), Add Sine Weighted Moving Average (SINWMA), Chande Forcast Oscillator (CFO), Kaufman Efficency indicator, High Pass Filter 2-Pole, Supersmoother 3-Pole, Kaufmanstop, Safezonestop, Devstop, RSMK, STC, RVI, VWAP, 
+- New timeframes: 45m, 12h, 3D, 1W 
+- New candle import driver: Binance Inverse Futures
+- The indicators now use the configured warmup_candles
+- [FIX] Spot should work no again thanks to a fix by https://github.com/discohead
+- [FIX] Sometimes users faced a InsufficentMargin error - this was caused by a small bug in the handling leverage of market orders.
+- [Improvement] Durations now are displayed without decimals. https://github.com/maebert
+- [Improvement] The crossed utility should be a little faster now, as we only use numpy there now.
+
 ## 0.19.2
 - Added `metrics` property to the Strategy API. 
 - Added `available_margin` property to the Strategy API. 
