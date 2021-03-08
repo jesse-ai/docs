@@ -2,6 +2,7 @@
 
 
 
+
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
@@ -370,6 +371,25 @@ CCI - Commodity Channel Index
   
 float | np.ndarray  
 
+## cfo
+  
+```python  
+cfo(candles: np.ndarray, period: int = 14, scalar: float = 100, source_type: str = "close", squential: bool = False) -> Union[float, np.ndarray]:
+```  
+  
+CFO - Chande Forcast Oscillator
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=14  
+- `scalar`: float- default=100  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## chande
   
 ```python  
@@ -729,7 +749,25 @@ EMV - Ease of Movement
 **Returns**:  
   
 float | np.ndarray  
+ 
+## er
   
+```python  
+er(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]:
+```  
+  
+ER - The Kaufman Efficiency indicator
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- - `period`: int - default: 5  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## fisher  
   
 ```python  
@@ -786,7 +824,26 @@ Fractal Adaptive Moving Average (FRAMA)
 **Returns**:  
   
 float | np.ndarray  
+ 
+## fwma
   
+```python  
+fwma(candles: np.ndarray, period: int = 5, source_type: str = "close",sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Fibonacci's Weighted Moving Average (FWMA)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 5
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## gatorosc  
   
 ```python  
@@ -831,7 +888,26 @@ float | np.ndarray
 high_pass(candles: np.ndarray, period=48, source_type="close", sequential=False) -> Union[float, np.ndarray]
 ```  
   
-High Pass Filter indicator by John F. Ehlers
+1-pole High Pass Filter by John F. Ehlers
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 48  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray 
+
+## high_pass_2_pole
+  
+```python  
+high_pass_2_pole(candles: np.ndarray, period=48, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```  
+  
+2-pole High Pass Filter by John F. Ehlers
   
 **Arguments**:  
   
@@ -1048,6 +1124,26 @@ KAMA - Kaufman Adaptive Moving Average
 **Returns**:  
   
 float | np.ndarray  
+
+## kaufmanstop
+  
+```python  
+kaufmanstop(candles: np.ndarray, period: int = 22, mult: float = 2, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]:  
+```  
+  
+Perry Kaufman's Stops
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 22
+- `mult`: float - default: 2  
+- `direction`: str - default: "long"  ("short)
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
   
 ## keltner  
   
@@ -1061,7 +1157,7 @@ Keltner Channels
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
-- `multiplier`: int - default: 2  
+- `multiplier`: float - default: 2  
 - `matype`: int - default: 1  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
@@ -1824,6 +1920,27 @@ RSX - Relative Strength Xtra
   
 float | np.ndarray  
 
+## safezonestop
+  
+```python  
+safezonestop(candles: np.ndarray, period: int = 22, mult: float = 2.5, max_lookback: int = 3, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]:
+```  
+  
+Safezone Stops
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 22
+- `mult`: float - default: 2.5
+- `max_lookback`: int - default: 3
+- `direction`: str - default: "long"  ("short")
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## sar  
   
 ```python  
@@ -1867,7 +1984,26 @@ SAREXT - Parabolic SAR - Extended
 **Returns**:  
   
 float | np.ndarray  
+
+## sinwma
   
+```python  
+sinwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray] 
+```  
+  
+Sine Weighted Moving Average (SINWMA) 
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 14 
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## sma  
   
 ```python  
@@ -1986,7 +2122,7 @@ StochasticFast(k, d)
 ## supersmoother  
   
 ```python  
-supersmoother(candles: np.ndarray, cutoff=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
+supersmoother(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
 ```  
   
 Super Smoother Filter 2pole Butterworth  
@@ -1995,7 +2131,27 @@ This indicator was described by John F. Ehlers
 **Arguments**:  
   
 - `candles`: np.ndarray  
-- `cutoff`: int - default=14  
+- `period`: int - default=14  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## supersmoother_3_pole
+  
+```python  
+supersmoother_3_pole(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
+```  
+  
+Super Smoother Filter 3pole Butterworth  
+This indicator was described by John F. Ehlers  
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
