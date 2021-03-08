@@ -2,7 +2,7 @@
 
 Here you can see that changes were made at each release.
 
-# 0.19.3
+# 0.20.0
 - New indicators: Fibonacci's Weighted Moving Average (FWMA), Add Sine Weighted Moving Average (SINWMA), Chande Forcast Oscillator (CFO), Kaufman Efficency indicator, High Pass Filter 2-Pole, Supersmoother 3-Pole, Kaufmanstop, Safezonestop, Devstop, RSMK, STC, RVI, VWAP, 
 - New timeframes: 45m, 12h, 3D, 1W 
 - New candle import driver: Binance Inverse Futures
