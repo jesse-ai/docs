@@ -27,6 +27,5 @@ Supported exchanges (so far) are:
 -   `Binance`
 -   `Testnet Binance Futures`
 -   `Binance Futures`
--   `Binance Inverse Futures`
 -   `Bitfinex`
 -   `Coinbase`
