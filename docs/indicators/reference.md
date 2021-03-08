@@ -2607,7 +2607,7 @@ VWAP - Volume weighted average price
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
-- `anchor`:  str - "D"
+- `anchor`:  str - ‘D‘ - (‘Y’), months (‘M’), weeks (‘W’),  days (‘D’),  hours (‘h’), minutes (‘m’)
 - `sequential`: bool - default=False  
   
 **Returns**:  
