@@ -563,6 +563,27 @@ DEMA - Double Exponential Moving Average
 **Returns**:  
   
 float | np.ndarray  
+
+## devstop
+  
+```python  
+devstop(candles: np.ndarray, period:int=20, mult: float = 0, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Kase Dev Stops
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `mult`: float - default: 0  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
   
 ## di  
   
@@ -1901,7 +1922,30 @@ RSI - Relative Strength Index
   
 float | np.ndarray  
   
- ## rsx 
+## rsmk
+  
+```python  
+rsmk(candles: np.ndarray, candles_compare: np.ndarray, lookback: int = 90, period: int = 3, signal_period: int = 20, matype: int = 1, signal_matype: int = 1, source_type: str = "close", sequential: bool = False) -> RSMK  
+```  
+  
+RSMK - Relative Strength
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `lookback`: int - default: 90
+- `period`: int - default: 3
+- `signal_period`: int - default: 20
+- `matype`: int - default: 1
+- `signal_matype`: int - default: 1
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+RSMK(indicator, signal)
+
+## rsx 
   
 ```python  
 rsx(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
@@ -1915,6 +1959,27 @@ RSX - Relative Strength Xtra
 - `period`: int - default: 14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## rvi 
+  
+```python  
+rvi(candles: np.ndarray, period: int = 10, ma_len: int = 14, matype: int = 1, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+RVI - Relative Volatility Index
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 10  
+- `ma_len`: int - default: 14  
+- `matype`: int - default: 1  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False
   
 **Returns**:  
   
@@ -2060,7 +2125,31 @@ Stochastic RSI
 **Returns**:  
   
 StochasticRSI(k, d)  
+
+## stc
   
+```python  
+stc(candles: np.ndarray, fast_period: int = 23, fast_matype: int = 1, slow_period: int = 50, slow_matype: int = 1, k_period: int = 10, d_period: int = 3, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+STC - Schaff Trend Cycle (Oscillator)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `fast_period`: int - default: 23  
+- `fastmatype`: int - default: 1  
+- `slow_period`: int - default: 50  
+- `slowmatype`: int - default: 1  
+- `k_period`: int - default: 10  
+- `d_period`: int - default: 3  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## stddev  
   
 ```python  
@@ -2505,7 +2594,26 @@ VPT - Volume Price Trend
 **Returns**:  
   
 float | np.ndarray  
+ 
+## vwap
   
+```python  
+vwap(candles: np.ndarray, source_type: str = "hlc3", anchor: str = "D", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+VWAP - Volume weighted average price
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `source_type`: str - default: "close"  
+- `anchor`:  str - "D"
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## vwma  
   
 ```python  
