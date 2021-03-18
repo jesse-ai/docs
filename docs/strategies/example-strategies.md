@@ -91,3 +91,22 @@ def position_size(self, entry, stop):
     qty = min(risk_qty, max_qty) 
     return qty
 ```
+Using the kelly criterion:
+```py
+def kelly_qty(self, entry, stop):  
+    if not self.metrics or self.metrics['total'] < 20:  
+        win_rate = 0.46  
+        ratio_avg_win_loss = 1.6  
+    else:  
+        win_rate = self.metrics['win_rate']  
+        ratio_avg_win_loss = self.metrics['ratio_avg_win_loss']  
+    kc = utils.kelly_criterion(win_rate, ratio_avg_win_loss) * 100  
+    if not kc or kc <= 0:  
+        raise ValueError("Bad Kelly criterion.")  
+    risk_qty = utils.risk_to_qty(self.available_margin, kc, entry, stop, self.fee_rate)  
+    # never risk more than 25%  
+    max_qty = utils.size_to_qty(0.25 * self.available_margin, entry, precision=6, fee_rate=self.fee_rate)  
+    qty = min(risk_qty, max_qty)  
+    return qty
+```
+We need to check for a minimum of trades so we have a good win_rate and ratio_avg_win_loss to work with. In this case we use 20 trades. For those first trades we use hardcoded values, we got from backtests. win_rate is the same as *Percent Profitable* / 100. ratio_avg_win_loss is called *Ratio Avg Win / Avg Loss*.
