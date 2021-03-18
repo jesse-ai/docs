@@ -36,7 +36,7 @@ Simple ATR:
 def go_long(self):  
     take_profit = self.price + self.atr * 3  
     stop = self.price - self.atr * 2  
-    qty = utils.risk_to_qty(self.capital, 10, self.price, stop, self.fee_rate)
+    qty = 10
     self.buy = qty, self.price  
     self.stop_loss = qty, stop  
     self.take_profit = qty, take_profit  
