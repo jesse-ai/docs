@@ -48,6 +48,17 @@ def atr(self):
     return ta.atr(self.candles, period=22)
 ```
 
+A trailing stop:
+```py
+def update_position(self):  
+    # update trailing_stop_loss only if in profit  
+    if self.position.pnl > 0:  
+        if self.is_long:  
+            self.stop_loss = self.position.qty, self.price - self.atr * 2  
+        else:  
+            self.stop_loss = self.position.qty, self.price + self.atr * 2
+```
+
 You also can use Moving Averages to exit once they are hit.
 ```py
 def update_position(self):  
