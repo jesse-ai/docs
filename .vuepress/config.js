@@ -78,6 +78,7 @@ module.exports = {
                     ['/docs/strategies/events', 'Events'],
                     ['/docs/strategies/filters', 'Filters'],
                     ['/docs/strategies/api', 'API reference'],
+                    // ['/docs/strategies/example-strategies.md', 'Examples'],
                 ],
             },
             {
