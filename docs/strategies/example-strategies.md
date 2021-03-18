@@ -4,8 +4,9 @@
 To get you started we prepared some examples how to approach certain things often used in trading.
 
 For working startegies check out these repositories:
-[https://github.com/jesse-ai/example-strategies](https://github.com/jesse-ai/example-strategies)
-[https://github.com/nicolay-zlobin/jesse-indicators](https://github.com/nicolay-zlobin/jesse-indicators)
+
+ - [https://github.com/jesse-ai/example-strategies](https://github.com/jesse-ai/example-strategies)
+ - [https://github.com/nicolay-zlobin/jesse-indicators](https://github.com/nicolay-zlobin/jesse-indicators)
 
 ## Crossovers
 Let's try to catch the moment the price moves above the bollinger middleband.
