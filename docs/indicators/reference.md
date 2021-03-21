@@ -11,6 +11,7 @@ When developing strategies however, you probably want to keep it as `False` to r
 
 ::: tip Performance and sequential
 With `sequential=False` the indicators will slice the candle array behind the scene to the warmup_candles_num you defined. That doesn't happen if you use `sequential=True`, as Jesse doesn't now how much lookback you need from your sequential indicator. To keep things fast you should slice the candles yourself like this: `self.candles[-60:]` - change the number accordingly.
+:::
 
 ::: tip matype
 In few indicators you can set a moving average type:
