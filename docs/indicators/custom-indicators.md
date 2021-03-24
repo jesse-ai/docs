@@ -253,6 +253,9 @@ def np_ffill(arr: np.ndarray, axis: int = 0) -> np.ndarray:
     return arr[tuple(slc)]
 ```
 
+#### Numpy's Sliding Window
+[sliding_window_view](https://numpy.org/devdocs/reference/generated/numpy.lib.stride_tricks.sliding_window_view.html)
+
 #### Make arrays the same lenght
 ```python
 array_with_matching_lenght = np.concatenate((np.full((candles.shape[0] - array_with_shorter_lenght.shape[0]), np.nan), array_with_shorter_lenght)
