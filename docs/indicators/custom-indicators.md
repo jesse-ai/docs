@@ -216,6 +216,8 @@ For this example we calculate the difference of the closing price to the closing
     for i in range(10, len(close)):
         my_indicator_from_loop[i] = close[i] - close[i-10]
 ```
+Consider using [Numba](#numba) to speed it up.
+
 ### Usefull Numpy stuff
 Here we collect functions and links, that are often usefull in indicator code.
 
