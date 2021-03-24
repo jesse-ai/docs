@@ -136,7 +136,7 @@ That's the reason why it's important to always keep the lenght consistent. [Use 
 
 ### Numba
 Jesse uses [Numba](https://numba.pydata.org/) to speed up indicator calculations. Numba works good on loops and a lot numpy functions. Check the Numba docs.
-[Here](https://github.com/jesse-ai/jesse/blob/21b4438a817f4c2ffcab6b95a8518832e49abb89/jesse/indicators/high_pass.py) a example from Jesses indicators.
+[Here](https://github.com/jesse-ai/jesse/blob/21b4438a817f4c2ffcab6b95a8518832e49abb89/jesse/indicators/high_pass.py) you will find a usage example from Jesse's indicators.
 
 
 
@@ -211,7 +211,7 @@ def np_ffill(arr: np.ndarray, axis: int = 0) -> np.ndarray:
 
 #### Numpy's Sliding Window
 [sliding_window_view](https://numpy.org/devdocs/reference/generated/numpy.lib.stride_tricks.sliding_window_view.html)
-[Here](https://github.com/jesse-ai/jesse/blob/21b4438a817f4c2ffcab6b95a8518832e49abb89/jesse/indicators/fwma.py) a usage example from Jesse's indicators.
+[Here](https://github.com/jesse-ai/jesse/blob/21b4438a817f4c2ffcab6b95a8518832e49abb89/jesse/indicators/fwma.py) you will find a usage example from Jesse's indicators.
 
 #### Make arrays the same lenght
 ```python
