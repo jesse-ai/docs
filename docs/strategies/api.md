@@ -484,10 +484,10 @@ The `leverage` property returns the leverage number that you have set in your co
 
 ## metrics
 
-The `metrics` property returns the metrics that you usually would see at the end of backtests. It is useful for coding formulas such as [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp). Be aware that without trades it will return None.
+The `metrics` property returns the metrics that you usually would see at the end of backtests. It is useful for coding formulas such as [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp).
 
 ::: warning
-Using this property will decrease the backtest performance a lot, because curently on every new candle all those metrics are calcualted.
+Be aware that without trades it will return `None`. Using this property might also decrease the backtest performance a lot, because depending where you use it in the worst case all those metrics are calcualted on every new candle. To avoid that you should call it only once in the strategy and only after the metrics actually changed, meaning after a trade happened. You can use the [events](https://docs.jesse.trade/docs/strategies/events.html#on-cancel) to achieve that and save the needed values to a [self.vars](https://docs.jesse.trade/docs/strategies/api.html#vars). 
 :::
 
 **Available metrics:**
