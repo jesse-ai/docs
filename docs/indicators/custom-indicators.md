@@ -37,7 +37,7 @@ import numpy as np
 import talib
 from typing import Union
 
-from jesse.helpers import get_candle_source
+from jesse.helpers import get_candle_source, slice_candles
 
 def ewo(candles: np.ndarray, short_period: int = 5, long_period: int = 34, source_type="close", sequential = False) -> Union[float, np.ndarray]:
     """
@@ -49,8 +49,7 @@ def ewo(candles: np.ndarray, short_period: int = 5, long_period: int = 34, sourc
     :param sequential: bool - default: False
     :return: Union[float, np.ndarray]
     """
-    if not sequential and len(candles) > 240:
-        candles = candles[-240:]
+    candles = slice_candles(candles, sequential)
     
     src = get_candle_source(candles, source_type)
     ewo = np.subtract(talib.EMA(src, timeperiod=short_period), talib.EMA(src, timeperiod=long_period))
@@ -153,23 +152,44 @@ Here we collect functions and links, that are often usefull in indicator code.
 
 #### Numpy's Shift
 ```python
-def shift(arr, num, fill_value=np.nan):  
-    result = np.empty_like(arr)  
-    if num > 0:  
-        result[:num] = fill_value  
-        result[num:] = arr[:-num]  
-    elif num < 0:  
-        result[num:] = fill_value  
-        result[:num] = arr[-num:]  
-    else:  
-        result[:] = arr  
+def np_shift(arr: np.ndarray, num: int, fill_value=np.nan) -> np.ndarray:
+    result = np.empty_like(arr)
+
+    if num > 0:
+        result[:num] = fill_value
+        result[num:] = arr[:-num]
+    elif num < 0:
+        result[num:] = fill_value
+        result[:num] = arr[-num:]
+    else:
+        result[:] = arr
+
     return result
 ```
 [Source](https://stackoverflow.com/a/42642326/6437437)
 
+#### Numpy's Forward Fill
+
+```python
+def np_ffill(arr: np.ndarray, axis: int = 0) -> np.ndarray:
+    idx_shape = tuple([slice(None)] + [np.newaxis] * (len(arr.shape) - axis - 1))
+    idx = np.where(~np.isnan(arr), np.arange(arr.shape[axis])[idx_shape], 0)
+    np.maximum.accumulate(idx, axis=axis, out=idx)
+    slc = [np.arange(k)[tuple([slice(None) if dim == i else np.newaxis
+                               for dim in range(len(arr.shape))])]
+           for i, k in enumerate(arr.shape)]
+    slc[axis] = idx
+    return arr[tuple(slc)]
+```
+
 #### Make arrays the same lenght
 ```python
 array_with_matching_lenght = np.concatenate((np.full((candles.shape[0] - array_with_shorter_lenght.shape[0]), np.nan), array_with_shorter_lenght)
+```
+or 
+```python
+from jesse.helpers import same_length
+array_with_matching_lenght = same_length(candles, array_with_shorter_lenght)
 ```
 #### Use Numpy's Vectorized Operations
 Whenever possible you want to use [VectorizedOperations](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html), as they are faster.
