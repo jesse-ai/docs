@@ -70,6 +70,26 @@ class Strategy01(Strategy):
         return cta.ewo(self.candles, short_period=5, long_period=34, source_type="close", sequential=True)
 ```
 ## Hints
+
+### Slicing the candles
+For performance gains, it's good to slice the candles to a certain size to avoid unnecessary calculations.
+Thats the reason we use slice_candles(). We use the configured warmup_candles_num.
+
+We don't do it by default if sequential=True, as Jesse doesn't now how much lookback you need from your sequential indicator. But as you know it, you can remove this condition.
+
+::: tip Too few past data change indicator values
+Some indicators are influenced by the whole range of the past data. These functions are called functions with memory. Check [here](https://ta-lib.org/d_api/ta_setunstableperiod.html) for a good explaination. That's the reason for warm_up_candles_num changing indicator values under some conditions or variations to other implementations (like TradingView). 
+:::
+
+
+```python
+def slice_candles(candles: np.ndarray, sequential: bool) -> np.ndarray:
+    warmup_candles_num = get_config('env.data.warmup_candles_num', 240)
+    if not sequential and len(candles) > warmup_candles_num:
+        candles = candles[-warmup_candles_num:]
+    return candles
+```
+
 ### Accessing open, close, high, low and volume
 In the tutorial above we used the helper function. `src = get_candle_source(candles, source_type)`. 
 This function accepts as parameters:
