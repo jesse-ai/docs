@@ -486,6 +486,10 @@ The `leverage` property returns the leverage number that you have set in your co
 
 The `metrics` property returns the metrics that you usually would see at the end of backtests. It is useful for coding formulas such as [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp). Be aware that without trades it will return None.
 
+::: warning
+Using this property will decrease the backtest performance a lot, because curently on every new candle all those metrics are calcualted.
+:::
+
 **Available metrics:**
 - total
 - total_winning_trades
