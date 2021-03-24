@@ -1,187 +1,17 @@
 
 # API reference
+## available_margin
 
-There are many built-in variables you can use inside your custom strategy class. Here is a reference of them all.
+Returns the available/remaining margin in your exchange wallet. It equals to your initial wallet balance multiplied by the leverage you're using, added by the unrealized profits on your open positions, subtracted by spent margin for open orders. 
 
-## price
+For the sake of not getting liquidated, it is safer to just use the [capital](#capital) property in your strategies instead. 
 
-The current/closing price of the trading symbol at the trading time frame.
-
-**Return Type**: float
-
-**Aliases**: `close`
-
-**Example**:
-
-```py
-def go_long(self):
-    # buy 1 share at the current price (MARKET order)
-    self.buy = 1, self.price
-```
-
-## close
-
-Alias for [price](#price)
-
-## open
-
-The current candle's opening price.
+It is meant to be used in the futures markets only although in the spot market it equals to the `self.balance` property. 
 
 **Return Type**: float
 
-**Example**:
+**See Also**: [balance](#balance), [capital](#capital)
 
-```py
-def should_long(self):
-    # go long if current candle is bullish
-    if self.close > self.open:
-        return True
-
-    return False
-```
-
-## high
-
-The current candle's high price.
-
-**Return Type**: float
-
-**Example**:
-
-```py
-def go_long(self):
-    qty = 1
-
-    # open position at 2 dollars above current candle's high
-    self.buy = qty, self.high + 2
-```
-
-## low
-
-The current candle's low price.
-
-**Return Type**: float
-
-**Example**:
-
-```py
-def go_long(self):
-    qty = 1
-
-    # open position at 2 dollars above current candle's low
-    self.buy = qty, self.high + 2
-
-    # stop-loss at 2 dollars below current candle's low
-    self.buy = qty, self.low - 2
-```
-
-## current_candle
-
-Returns the current candle in the form of a numpy array.
-
-**Return Type**: np.ndarray
-
-```
-[
-    timestamp,
-    open,
-    close,
-    high,
-    low,
-    volume
-]
-```
-
-**Example**:
-
-```py
-from pprint import pprint
-
-pprint(self.current_candle)
-# array([1.54638714e+12, 3.79409000e+03, 3.79714000e+03, 3.79800000e+03,
-#        3.79400000e+03, 1.30908000e+02])
-
-pprint(self.current_candle.dtype)
-# dtype('float64')
-```
-
-You could get timestamp, open, close, high, low, and volume from candle array:
-
-```py
-timestamp = self.current_candle[0]
-open_price = self.current_candle[1]
-close_price = self.current_candle[2]
-high_price = self.current_candle[3]
-low_price = self.current_candle[4]
-volume = self.current_candle[5]
-```
-
-**See Also**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
-
-## candles
-
-This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
-
-**Return Type:** np.ndarray
-
-**Example**:
-```py
-# get SMA with a period of 8 for current trading route
-sma8 = ta.sma(self.candles, 8)
-```
-
-## get_candles
-
-This method returns candles for the exchange, symbol, and timeframe that you specify, unlike `self.candles` which returns candles for the current route. 
-
-```py
-get_candles(exchange: str, symbol: str, timeframe: str)
-```
-
-For simple strategies that trade only one route and use only one timeframe, `self.candles` is probably the way to go. Otherwise, use `self.get_candles()`.
-
-**Return Type:** np.ndarray
-
-**Example**:
-```py
-@property
-def big_trend(self):
-    """
-    Uses the SRSI indicator to determine the bigger trend of the market. 
-    The trading timeframe is "4h" so we use "1D" timeframe as the anchor timeframe.
-    """
-    k, d = ta.srsi(self.get_candles(self.exchange, self.symbol, '1D'))
-
-    if k > d:
-        return 1
-    elif k < d:
-        return -1
-    else:
-        return 0
-```
-
-**See Also**: [candles](#candles)
-
-## index
-
-The `index` property is a counter which can be used to detect how many times the strategy has been executed. Imagine we're doing a loop in backtest mode, and this index is the index of that loop. The below examples can explain it better.
-
-**Return Type**: int
-
-**Example:**
-
-```py
-# example #1: go long when the first candle is received
-def should_long(self):
-    return self.index == 0
-
-# example #2: let's say there are some expensive operations in a  
-# method I've defined called do_slow_updates() (like machine learning stuff)
-# that I'd like to do once a day while trading "1m" candles
-def before(self):
-    if self.index % 1440 == 0:
-        do_slow_updates()
-```
 
 ## average\_entry\_price
 
@@ -233,112 +63,146 @@ Same as [average_entry_price](#average-entry-price) but for take-profit. The wor
 
 **See Also**: [average_entry_price](#average-entry-price), [average_stop_loss](#average-stop-loss)
 
-## position
+## balance
 
-The position object of the trading route. 
+Returns the current wallet in your exchange wallet. In the futures market, it behaves exactly as "wallet balance in USDT" does on [Binance Futures](http://jesse.trade/binance).
 
-::: tip
-Please note that each route instance has only one position which is accessible inside the strategy. It doesn't mean that you cannot trade two positions using one strategy; to do that simply create two routes using the same strategy but with different symbols. 
-:::
+**Return Type**: float
 
-**Return Type**: Position
+**Aliases**: `capital`
 
+**See Also**: [capital](#capital), [available_margin](#available-margin)
+
+
+## candles
+
+This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
+
+**Return Type:** np.ndarray
+
+**Example**:
 ```py
-# only useful properties are mentioned 
-class Position:
-    # the (average) entry price of the position | None if position is close
-    entry_price: float
-    # the quantity of the current position | 0 if position is close
-    qty: float
-    # the timestamp of when the position opened | None if position is close
-    opened_at: float
-    # The value of open position
-    value: float
-    # The type of open position, which can be either short, long, or close
-    type: str
-    # The PNL of the position
-    pnl: float
-    # The PNL% of the position
-    pnl_percentage: float
-    # Is the current position open?
-    is_open: bool
-    # Is the current position close?
-    is_close: bool
+# get SMA with a period of 8 for current trading route
+sma8 = ta.sma(self.candles, 8)
 ```
 
-**Example:**
-```py
-# if position is in profit by 10%, update stop-loss to break even
-def update_position(self):
-    if self.position.pnl_percentage >= 10:
-        self.stop_loss = self.position.qty, self.position.entry_price
+## capital
+
+Alias for [balance](#balance)
+
+
+## close
+
+Alias for [price](#price)
+
+## current_candle
+
+Returns the current candle in the form of a numpy array.
+
+**Return Type**: np.ndarray
+
 ```
-
-**See Also**: [is_long](#is-long), [is_short](#is-short), [is_open](#is-open), [is_close](#is-close)
-
-
-## is_long
-
-Is the type of the open position (current trade) `long`?
-
-**Return Type**: bool
-
-
-## is_short
-
-Is the type of the open position (current trade) `short`?
-
-**Return Type**: bool
-
-## is_open
-
-Is the current position open?
-
-**Return Type**: bool
-
-Alias for `self.position.is_open`
-
-
-## is_close
-
-Is the current position close?
-
-**Return Type**: bool
-
-Alias for `self.position.is_close`
-
-
-
-## reduced_count
-
-How many times has the position size been reduced since this trade was opened? 
-
-This is useful for strategies that for example exit in multiple points, and you'd like to update something related to it.
-
-**Return Type**: int
+[
+    timestamp,
+    open,
+    close,
+    high,
+    low,
+    volume
+]
+```
 
 **Example**:
 
-```py{12}
-def go_long(self):
-    self.buy = 1, self.price
-    self.stop_loss = 1, self.price - 10
-    self.take_profit = [
-        (0.5, self.price + 10), 
-        (0.5, self.price + 20) 
-    ]
+```py
+from pprint import pprint
 
-def update_position(self):
-    # even though we have especified the exit price 
-    # for the second half, we now updated to exit with SMA20
-    if self.reduced_count > 0:
-        self.take_profit = 0.5, self.SMA20
+pprint(self.current_candle)
+# array([1.54638714e+12, 3.79409000e+03, 3.79714000e+03, 3.79800000e+03,
+#        3.79400000e+03, 1.30908000e+02])
 
-@property
-def SMA20(self):
-    return ta.sma(self.candles, 20)
+pprint(self.current_candle.dtype)
+# dtype('float64')
 ```
 
+You could get timestamp, open, close, high, low, and volume from candle array:
+
+```py
+timestamp = self.current_candle[0]
+open_price = self.current_candle[1]
+close_price = self.current_candle[2]
+high_price = self.current_candle[3]
+low_price = self.current_candle[4]
+volume = self.current_candle[5]
+```
+
+**See Also**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
+
+## fee_rate
+
+The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty). 
+
+**Example:**
+```py
+qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
+```
+
+**Return Type**: float
+
+**See Also**: [risk_to_qty](/docs/utils.html#risk-to-qty)
+
+::: tip
+The `fee_rate` property returns exchange fee as a float. For example at Binance fee is `0.1%`, hence `self.fee_rate` would return `0.001`.
+:::
+
+
+## get_candles
+
+This method returns candles for the exchange, symbol, and timeframe that you specify, unlike `self.candles` which returns candles for the current route. 
+
+```py
+get_candles(exchange: str, symbol: str, timeframe: str)
+```
+
+For simple strategies that trade only one route and use only one timeframe, `self.candles` is probably the way to go. Otherwise, use `self.get_candles()`.
+
+**Return Type:** np.ndarray
+
+**Example**:
+```py
+@property
+def big_trend(self):
+    """
+    Uses the SRSI indicator to determine the bigger trend of the market. 
+    The trading timeframe is "4h" so we use "1D" timeframe as the anchor timeframe.
+    """
+    k, d = ta.srsi(self.get_candles(self.exchange, self.symbol, '1D'))
+
+    if k > d:
+        return 1
+    elif k < d:
+        return -1
+    else:
+        return 0
+```
+
+**See Also**: [candles](#candles)
+
+## high
+
+The current candle's high price.
+
+**Return Type**: float
+
+**Example**:
+
+```py
+def go_long(self):
+    qty = 1
+
+    # open position at 2 dollars above current candle's high
+    self.buy = qty, self.high + 2
+```
 
 ## increased_count
 
@@ -375,29 +239,65 @@ def update_position(self):
 ```
 
 
-## vars
+## index
 
-`vars` is the name of a dictionary object present in your strategy that you can use as a placeholder for your variables. 
+The `index` property is a counter which can be used to detect how many times the strategy has been executed. Imagine we're doing a loop in backtest mode, and this index is the index of that loop. The below examples can explain it better.
 
-Of course, you could define your own variables inside `__init__` instead, but that would bring a concern about naming your variables to prevent conflict with built-in variables and properties.
+**Return Type**: int
 
-Using `vars` would also make it easier for debugging.
+**Example:**
+
+```py
+# example #1: go long when the first candle is received
+def should_long(self):
+    return self.index == 0
+
+# example #2: let's say there are some expensive operations in a  
+# method I've defined called do_slow_updates() (like machine learning stuff)
+# that I'd like to do once a day while trading "1m" candles
+def before(self):
+    if self.index % 1440 == 0:
+        do_slow_updates()
+```
+
+## is_close
+
+Is the current position close?
+
+**Return Type**: bool
+
+Alias for `self.position.is_close`
 
 
-**Return Type**: dict
+
+## is_long
+
+Is the type of the open position (current trade) `long`?
+
+**Return Type**: bool
 
 
-## shared_vars
+## is_open
 
-`shared_vars` is a dictionary object just like `vars` except that it is shared among all your [routes](/docs/routes). 
+Is the current position open?
 
-You would need `shared_vars` for writing strategies that require more than one route, and when those routes need to communicate with each other. 
+**Return Type**: bool
 
-`shared_vars` could act as a bridge. One example could be in a pairs trading strategy which requires two routes to communicate with each other (one goes long when the other goes short)
+Alias for `self.position.is_open`
 
-**Return Type**: dict
 
-**See Also**: [vars](#vars)
+## is_short
+
+Is the type of the open position (current trade) `short`?
+
+**Return Type**: bool
+
+## leverage
+
+The `leverage` property returns the leverage number that you have set in your config file for the exchange you're running inside the strategy. For spot markets, it always returns `1`. 
+
+**Return Type**: int
+
 
 ## liquidate
 
@@ -428,59 +328,24 @@ def go_long(self):
 ```
 
 
-## fee_rate
+## low
 
-The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty). 
+The current candle's low price.
 
-**Example:**
+**Return Type**: float
+
+**Example**:
+
 ```py
-qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
+def go_long(self):
+    qty = 1
+
+    # open position at 2 dollars above current candle's low
+    self.buy = qty, self.high + 2
+
+    # stop-loss at 2 dollars below current candle's low
+    self.buy = qty, self.low - 2
 ```
-
-**Return Type**: float
-
-**See Also**: [risk_to_qty](/docs/utils.html#risk-to-qty)
-
-::: tip
-The `fee_rate` property returns exchange fee as a float. For example at Binance fee is `0.1%`, hence `self.fee_rate` would return `0.001`.
-:::
-
-
-## balance
-
-Returns the current wallet in your exchange wallet. In the futures market, it behaves exactly as "wallet balance in USDT" does on [Binance Futures](http://jesse.trade/binance).
-
-**Return Type**: float
-
-**Aliases**: `capital`
-
-**See Also**: [capital](#capital), [available_margin](#available-margin)
-
-
-## capital
-
-Alias for [balance](#balance)
-
-
-## available_margin
-
-Returns the available/remaining margin in your exchange wallet. It equals to your initial wallet balance multiplied by the leverage you're using, added by the unrealized profits on your open positions, subtracted by spent margin for open orders. 
-
-For the sake of not getting liquidated, it is safer to just use the [capital](#capital) property in your strategies instead. 
-
-It is meant to be used in the futures markets only although in the spot market it equals to the `self.balance` property. 
-
-**Return Type**: float
-
-**See Also**: [balance](#balance), [capital](#capital)
-
-
-## leverage
-
-The `leverage` property returns the leverage number that you have set in your config file for the exchange you're running inside the strategy. For spot markets, it always returns `1`. 
-
-**Return Type**: int
-
 
 ## metrics
 
@@ -533,3 +398,135 @@ Be aware that without trades it will return `None`. Using this property might al
 - current_streak
 
 **Return Type**: dict
+
+## open
+
+The current candle's opening price.
+
+**Return Type**: float
+
+**Example**:
+
+```py
+def should_long(self):
+    # go long if current candle is bullish
+    if self.close > self.open:
+        return True
+
+    return False
+```
+
+## position
+
+The position object of the trading route. 
+
+::: tip
+Please note that each route instance has only one position which is accessible inside the strategy. It doesn't mean that you cannot trade two positions using one strategy; to do that simply create two routes using the same strategy but with different symbols. 
+:::
+
+**Return Type**: Position
+
+```py
+# only useful properties are mentioned 
+class Position:
+    # the (average) entry price of the position | None if position is close
+    entry_price: float
+    # the quantity of the current position | 0 if position is close
+    qty: float
+    # the timestamp of when the position opened | None if position is close
+    opened_at: float
+    # The value of open position
+    value: float
+    # The type of open position, which can be either short, long, or close
+    type: str
+    # The PNL of the position
+    pnl: float
+    # The PNL% of the position
+    pnl_percentage: float
+    # Is the current position open?
+    is_open: bool
+    # Is the current position close?
+    is_close: bool
+```
+
+**Example:**
+```py
+# if position is in profit by 10%, update stop-loss to break even
+def update_position(self):
+    if self.position.pnl_percentage >= 10:
+        self.stop_loss = self.position.qty, self.position.entry_price
+```
+
+**See Also**: [is_long](#is-long), [is_short](#is-short), [is_open](#is-open), [is_close](#is-close)
+
+
+## price
+
+The current/closing price of the trading symbol at the trading time frame.
+
+**Return Type**: float
+
+**Aliases**: `close`
+
+**Example**:
+
+```py
+def go_long(self):
+    # buy 1 share at the current price (MARKET order)
+    self.buy = 1, self.price
+```
+
+## reduced_count
+
+How many times has the position size been reduced since this trade was opened? 
+
+This is useful for strategies that for example exit in multiple points, and you'd like to update something related to it.
+
+**Return Type**: int
+
+**Example**:
+
+```py{12}
+def go_long(self):
+    self.buy = 1, self.price
+    self.stop_loss = 1, self.price - 10
+    self.take_profit = [
+        (0.5, self.price + 10), 
+        (0.5, self.price + 20) 
+    ]
+
+def update_position(self):
+    # even though we have especified the exit price 
+    # for the second half, we now updated to exit with SMA20
+    if self.reduced_count > 0:
+        self.take_profit = 0.5, self.SMA20
+
+@property
+def SMA20(self):
+    return ta.sma(self.candles, 20)
+```
+
+
+## shared_vars
+
+`shared_vars` is a dictionary object just like `vars` except that it is shared among all your [routes](/docs/routes). 
+
+You would need `shared_vars` for writing strategies that require more than one route, and when those routes need to communicate with each other. 
+
+`shared_vars` could act as a bridge. One example could be in a pairs trading strategy which requires two routes to communicate with each other (one goes long when the other goes short)
+
+**Return Type**: dict
+
+**See Also**: [vars](#vars)
+
+## vars
+
+`vars` is the name of a dictionary object present in your strategy that you can use as a placeholder for your variables. 
+
+Of course, you could define your own variables inside `__init__` instead, but that would bring a concern about naming your variables to prevent conflict with built-in variables and properties.
+
+Using `vars` would also make it easier for debugging.
+
+
+**Return Type**: dict
+
