@@ -11,7 +11,7 @@ version: '3.8'
 services:
 
   jesse:
-    image: salehmir/jesse:0.18.2
+    image: salehmir/jesse:0.20.7
     volumes:
       - ./jesseData:/home
     depends_on:
@@ -23,7 +23,7 @@ services:
       - 8888:8888
 
   jesse-trades-info:
-    image: jessetradesinfo/jesse-trades-info:v0.1.0
+    image: jessetradesinfo/jesse-trades-info:v0.2.1
     depends_on:
       - db
     environment:
