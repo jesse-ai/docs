@@ -416,6 +416,12 @@ def should_long(self):
     return False
 ```
 
+## orders
+
+Returns all the orders submitted by this strategy.
+
+**Return Type**: List[Order]
+
 ## position
 
 The position object of the trading route. 
@@ -526,6 +532,11 @@ The current UTC timestamp.
 
 **Return Type**: int
 
+## trades
+
+Returns all the completed trades for this strategy.
+
+**Return Type**: List[CompletedTrade]
 
 ## vars
 
