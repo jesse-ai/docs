@@ -519,6 +519,14 @@ You would need `shared_vars` for writing strategies that require more than one r
 
 **See Also**: [vars](#vars)
 
+
+## time
+
+The current UTC timestamp.
+
+**Return Type**: int
+
+
 ## vars
 
 `vars` is the name of a dictionary object present in your strategy that you can use as a placeholder for your variables. 
