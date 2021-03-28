@@ -4,10 +4,6 @@ Jesse offers many its own indicators which is basically an extended wrapper arou
 
 The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in [Jupyter Notebooks](/docs/jupyter-notebooks).
 
-::: tip
-The default settings have been set to produce the same result as you would get on [TradingView](http://tradingview.com).
-:::
-
 ## Import
 
 To get started make sure the `indicators` module is imported:
