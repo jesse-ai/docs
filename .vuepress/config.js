@@ -112,19 +112,8 @@ module.exports = {
             // ['/docs/notifications', 'Notifications'],
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/debugging', 'Debugging'],
-            {
-                title: 'FAQ',
-                path: '/docs/faq/',
-                collapsable: true,
-                sidebarDepth: 1,
-                children: [
-                    ['/docs/faq/', 'Introduction'],
-                    // ['/docs/faq/can-i-trade-multiple-pairs-at-once.md', 'Can I trade multiple pairs at once?'],
-                    // ['/docs/faq/environment-setup', 'Environment Setup'],
-                ],
-            },
+            ['/docs/faq/', 'Frequently Asked Questions'],
             ['/docs/changelog', 'Changelog'],
-            // ['/docs/faq', 'Frequently Asked Questions'],
             // ['/docs/license', 'License']
         ],
     },
