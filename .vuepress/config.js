@@ -119,7 +119,7 @@ module.exports = {
                 sidebarDepth: 1,
                 children: [
                     ['/docs/faq/', 'Introduction'],
-                    ['/docs/faq/can-i-trade-multiple-pairs-at-once.md', 'Can I trade multiple pairs at once?'],
+                    // ['/docs/faq/can-i-trade-multiple-pairs-at-once.md', 'Can I trade multiple pairs at once?'],
                     // ['/docs/faq/environment-setup', 'Environment Setup'],
                 ],
             },
