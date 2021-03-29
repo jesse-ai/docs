@@ -24,7 +24,7 @@ No. Currently Jesse doesn't support rebalancing strategies.
 For backtesting / importing candles Jesse currently supports the exchanges listed [here](https://docs.jesse.trade/docs/import-candles.html#supported-exchanges). As the candle data are available without authentication you can use them, even if you don't have a account for them. 
 
 ### live mode
-The live mode will try to support as much exchanges as possible in long term, but will priorizite by popularity.
+The live mode will try to support as much exchanges as possible in long term but will prioritize by popularity.
 
 ## Can I access tick / trade data?
 No. Currently the finest data Jesse offers are 1m candles. 
