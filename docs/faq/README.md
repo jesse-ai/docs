@@ -25,3 +25,6 @@ For backtesting / importing candles Jesse currently supports the exchanges liste
 
 ### live mode
 The live mode will try to support as much exchanges as possible in long term, but will priorizite by popularity.
+
+## Can I access tick / trade data?
+No. Currently the finest data Jesse offers are 1m candles. 
