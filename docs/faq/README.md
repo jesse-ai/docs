@@ -16,7 +16,7 @@ Yes and no. Currently Jesse doesn't support scanning the whole market to filter 
 
 ## Can I create / backtest a rebalancing strategy?
 
-No. Currently Jesse doesn't support rebalancing strategy.
+No. Currently Jesse doesn't support rebalancing strategies.
 
 ## Is my exchange supported?
 
