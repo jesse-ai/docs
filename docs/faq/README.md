@@ -28,3 +28,10 @@ The live mode will try to support as much exchanges as possible in long term but
 
 ## Can I access tick / trade data?
 No. Currently the finest data Jesse offers are 1m candles. 
+
+## Jesse's indicator doesn't match TradingViews values.
+There are multiple explainations for this. 
+- Different exchanges might have different ohlcv values. Especially volume differs. Are you comparing the same exchange? Consider Spot != Futures. 
+- You compare different timeframes?
+- (Custom) Implementations of indicators on TradingView might use different source types or formulas. Compare the formula and parameters used. ([Jesse's indicator Source Code](https://github.com/jesse-ai/jesse/tree/master/jesse/indicators), [Talib's Source Code](https://sourceforge.net/projects/ta-lib/), [Tulipindicators Source Code](https://github.com/TulipCharts/tulipindicators/tree/master/indicators) 
+- It's a indicator with memory. In this case consider adjusting the `warmup_candles_num` in config.py. Also see the explaination about slicing the candles [here](https://docs.jesse.trade/docs/indicators/custom-indicators.html#slicing-the-candles).
