@@ -8,7 +8,7 @@ Yes it can! The "live-trade" plugin is under active development and is being tes
 It will be released a few weeks (or months) after the release of the "optimize" mode. 
 
 **[Update 1:]** The optimize mode is out now. Next step is the livetrade module.  
-**[Update 2:]** It depends. If we all be good boys, Santa might bring it to us this Christmas. If not, then probably early 2021. 
+**[Update 2:]** It'll be available for the early-access by the end of the first week of April. 
 
 ## Any samples of how it might be?
 Here is a sample of a running session of live trade plugin that the development team has running:
