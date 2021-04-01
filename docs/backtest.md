@@ -122,6 +122,14 @@ jesse backtest '2019-01-01' '2019-10-30' --json
 
 Once the backtest is completed, Jesse will print the path to the JSON file.
 
+## Full Report
+
+Generates [QuantStats'](https://github.com/ranaroussi/quantstats) HTML output.
+
+**Usage:** Add the `--full-reports` flag to the backtest command:
+```
+jesse backtest '2019-01-01' '2019-10-30' --full-reports
+```
 
 ## Visual analyze of completed trades
 
