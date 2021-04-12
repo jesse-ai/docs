@@ -1,52 +1,55 @@
-# How to live-trade your strategy
+# Live Trade
 
-Can Jesse execute live trades or is it a backtest-only framework?
+The "live-trade" plugin is available for early access. You can read the announcement article or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the installation page. 
 
-Yes it can! The "live-trade" plugin is under active development and is being tested. 
 
-## When will it be released?
+<!-- ## When will it be released?
 It will be released a few weeks (or months) after the release of the "optimize" mode. 
 
 **[Update 1:]** The optimize mode is out now. Next step is the livetrade module.  
-**[Update 2:]** It'll be available for the early-access by the end of the first week of April. 
+**[Update 2:]** It'll be available for the early-access by the end of the first week of April.  -->
 
-## Any samples of how it might be?
-Here is a sample of a running session of live trade plugin that the development team has running:
+## Screenshots?
+Here is a sample of the early access version which has a CLI dashboard:
 
 ```
  LIVE TRADE              |
 -------------------------+---------------------
- started/current balance |       15500/8428.85
- started at              |          6 days ago
- current time            | 2020-04-26T18:23:50
- errors/info             |                2/34
- active orders           |                   2
+ started at              |         3 hours ago
+ current time            | 2021-04-12T13:58:39
+ errors/info             |               1/205
+ active orders           |                   1
  open positions          |                   1
+ started/current balance |       968.91/968.67
  debug mode              |                True
 
 
- exchange-symbol-timeframe   | timestamp                 |    open |   close |   high |     low
------------------------------+---------------------------+---------+---------+--------+---------
- Binance Futures-BTC-USDT-6h  | 2020-04-26T18:00:00+00:00 | 7580.01 | 7612.01 |   7617 | 7566.96
+ exchange-symbol-timeframe   | timestamp                 |    open |   close |   high |   low
+-----------------------------+---------------------------+---------+---------+--------+-------
+ Binance Futures-BTC-USDT-6h | 2021-04-12T12:00:00+00:00 | 60335.1 |   60450 |  60670 | 60234
 
 
- type   | strategy           | symbol   |                             opened at |   qty |   entry |   current price | PNL (%)
---------+--------------------+----------+---------------------------------------+-------+---------+-----------------+-----------
- long   | Trend02            | BTC-USDT  | 1.0 day, 14.0 hours, 52.0 minutes ago |  0.94 |    7521 |         7612 | 85.55 (1.21%)
+ type   | strategy              | symbol   |   leverage |                         opened at |   qty |   entry |   current price | PNL (%)
+--------+-----------------------+----------+------------+-----------------------------------+-------+---------+-----------------+------------------
+ long   | TrendFollowing03 | BTC-USDT |          3 | 1 hour, 56 minutes, 9 seconds ago |  0.01 | 60458.5 |           60450 | -0.09 (-0.0424%)
 
 
  symbol   | side   | type   |   qty |   price | flag       | status   | created_at
 ----------+--------+--------+-------+---------+------------+----------+---------------------
- BTC-USDT  | sell   | STOP   | -0.94 |    7269 | ReduceOnly | ACTIVE   | 2020-04-25T06:00:00
- BTC-USDT  | sell   | STOP   | -0.94 |    7192 | ReduceOnly | ACTIVE   | 2020-04-25T03:31:44
- BTC-USDT  | sell   | LIMIT  | -0.94 |    9165 | ReduceOnly | CANCELED | 2020-04-25T03:31:43
- BTC-USDT  | buy    | STOP   |  0.94 |    7521 |            | EXECUTED | 2020-04-25T00:00:02
+ BTC-USDT | sell   | STOP   | -0.01 | 58223   | ReduceOnly | ACTIVE   | 2021-04-12T12:02:31
+ BTC-USDT | sell   | LIMIT  | -0.01 | 72873   | ReduceOnly | QUEUED   | 2021-04-12T12:02:30
+ BTC-USDT | buy    | STOP   |  0.01 | 60458.5 |            | EXECUTED | 2021-04-12T12:00:00
  ```
 
-The released version plugin will probably have a different user interface. 
+The released version plugin will have a GUI thorough a web URL. 
 
 
-## Should I wait until then and do nothing?!
-Rest assured, you won't have to change your backtest strategies to work with the live-trade mode. It will work as is. 
+## Installation
+The package is pre-built. You need to download the proper version for your OS and Python version from the [releases](https://jesse.trade/releases) page. 
 
-Hence, in the meantime, work on developing profitable strategies using the current backtest mode. Because that's really what you need to be concerned about. 
+After downloading it, open your terminal, go to the directory that the downloaded package is located at, and install it using `pip`:
+
+```
+# replace the {name of the downloaded file} with your downloaded package
+pip install {name of the downloaded file}
+```
