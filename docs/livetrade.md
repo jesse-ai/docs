@@ -53,3 +53,18 @@ After downloading it, open your terminal, go to the directory that the downloade
 # replace the {name of the downloaded file} with your downloaded package
 pip install {name of the downloaded file}
 ```
+
+Now you should be able to run live trade commands from within your Jesse project. But first, you need to login. This of course assumes you already have a valid license on the website. Run:
+```
+
+jesse login
+```
+
+This command asks you for your email and password that you used for registering at https://jesse.trade. Once you pass that, it'll create the `live-config.py` file which is specifically for your live trades and is located just within your Jesse project. Open it, and enter your values for notifications, exchange keys, etc. 
+
+Now you can successfully run live sessions by running `jesse live`. You can also run trades with paper money by running `jesse paper`. 
+
+If you need more detailed logs, run them with the `--debug` flag:
+```
+jesse live --debug
+```
