@@ -9,6 +9,7 @@ It will be released a few weeks (or months) after the release of the "optimize" 
 
 **[Update 1:]** The optimize mode is out now. Next step is the livetrade module.  
 **[Update 2:]** It'll be available for the early-access by the end of the first week of April. 
+**[Update 3:]** It's being tested by a few members of the community and the docs and announcements are under work. It'll be released in the coming days!
 
 ## Any samples of how it might be?
 Here is a sample of a running session of live trade plugin that the development team has running:
