@@ -2,6 +2,19 @@
 
 Here you can see that changes were made at each release.
 
+## 0.21.3
+- [NEW FEATURE] Added HTML reports with a more complete set of metrics and charts enabled by the `--full-reports` flag in your backtests. By [nicolay-zlobin](https://github.com/nicolay-zlobin). 
+- [NEW FEATURE] New indicators: Elder Ray Index (ERI), ttm_trend, kurtosis, mean_ad, median_ad, skewness
+- [Improvement] Added a check for the right symbol format (with dash) for the import candle mode - preventing possible confusion and resulting errors.
+- [Improvement] A @cached property has been added to improve performance and avoid unnecessary repeated calculations. It's applied where sensible in the Strategy class and available via import to be used on indicators inside a users Strategy as well. Some strategies might see a huge boost because of this. 
+- [Improvement] All indicators now use the helper functions same_length and slice_candles. 
+- [Improvement] `self.metrics` is now only calculated if a trade happened leading to a performance boost. 
+- [Improvement] The old way of working with strings in python (format) has been replaced with much faster f-strings leading to a performance boost. 
+- [FIX] Incorrect InsufficientMargin exceptions that were caused by reduce_only orders. 
+- [FIX] An error with the json export of the backtest that occurred is now fixed.
+- [FIX] Using futures mode you had to add all the used assets to the config.py file - although that should have only been needed for spot mode. This is not necessary anymore. Additionally the spot mode now gives clearer error if assets are missing in the config.
+- Multiple preparations for the live trade plugin. Other modes are unaffected by them. 
+
 ## 0.20.0
 - New indicators: Fibonacci's Weighted Moving Average (FWMA), Sine Weighted Moving Average (SINWMA), Chande Forcast Oscillator (CFO), Kaufman Efficency indicator, High Pass Filter 2-Pole, Supersmoother 3-Pole, Kaufmanstop, Safezonestop, Devstop, RSMK, STC, RVI, VWAP, 
 - New timeframes: `45m`, `12h`, `3D`, `1W` 
@@ -20,7 +33,7 @@ Here you can see that changes were made at each release.
 - [BREAKING CHANGE] Change config values to work with the leverage support. Now instead of `margin` you need to enter `futures`. 
 - Added `total_cost` to Position model. 
 - Added `roi` (return on investment) property to the Position model. It is calculated while considering the leverage, the same way it is done on Binance Futures. 
-- ADded `RSX` indicator.
+- Added `RSX` indicator.
 - Added Market Change metric.
 - Added `signal_line()`, `streaks()`, `kelly_criterion()`, `strictly_increasing()`, `strictly_decreasing()`, and `dd()` utility functions. 
 - Added `trades` property to the Strategy API for getting previous executed trades by [nicolay-zlobin](https://github.com/nicolay-zlobin). 
