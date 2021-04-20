@@ -6,7 +6,7 @@ The "live-trade" plugin is available for early access. You can read the announce
 <!-- ## When will it be released?
 It will be released a few weeks (or months) after the release of the "optimize" mode. 
 
-**[Update 1:]** The optimize mode is out now. Next step is the livetrade module.  
+**[Update 1:]** The optimize mode is out now. The next step is the live trade module.  
 **[Update 2:]** It'll be available for the early-access by the end of the first week of April.  -->
 
 ## Screenshots?
@@ -41,7 +41,7 @@ Here is a sample of the early access version which has a CLI dashboard:
  BTC-USDT | buy    | STOP   |  0.01 | 60458.5 |            | EXECUTED | 2021-04-12T12:00:00
  ```
 
-The released version plugin will have a GUI thorough a web URL. 
+The released version plugin will have a GUI through a web URL. 
 
 
 ## Installation
@@ -54,9 +54,8 @@ After downloading it, open your terminal, go to the directory that the downloade
 pip install {name of the downloaded file}
 ```
 
-Now you should be able to run live trade commands from within your Jesse project. But first, you need to login. This of course assumes you already have a valid license on the website. Run:
+Now you should be able to run live trade commands from within your Jesse project. But first, you need to log in. This of course assumes you already have a valid license on the website. Run:
 ```
-
 jesse login
 ```
 
@@ -64,7 +63,18 @@ This command asks you for your email and password that you used for registering 
 
 Now you can successfully run live sessions by running `jesse live`. You can also run trades with paper money by running `jesse paper`. 
 
+## Terminating the session
+
+To terminate the session, if you are on Linux or macOS, press `CTRL` + `c` and it'll terminate it in a few seconds. On Windows, unfortunately, that doesn't work. With some keyboards, you can press the `break` key and it'll do the same. If you don't, just close the CMD app. It's not clean, but it'll do. Remember that you're not supposed to run production sessions from your local. It is highly recommended to use a VPS to run your sessions. 
+
+## Debug mode
+
 If you need more detailed logs, run them with the `--debug` flag:
 ```
 jesse live --debug
 ```
+
+## The terminal app
+The app that you use to run the live session from matters. For example, PyCharm's built-in terminal is not interactive and live trade doesn't work in it.
+
+If you're on macOS or Linux, the built-in terminal apps are fine. On Windows, we tested the built-in CMD and it works fine. 
