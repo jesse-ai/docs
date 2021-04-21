@@ -117,6 +117,7 @@ module.exports = {
             ['/docs/debugging', 'Debugging'],
             ['/docs/faq/', 'Frequently Asked Questions'],
             ['/docs/changelog', 'Changelog'],
+            ['/docs/roadmap', 'Roadmap'],
             // ['/docs/license', 'License']
         ],
     },
