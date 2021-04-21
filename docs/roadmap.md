@@ -7,7 +7,7 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 - [Tutorials](https://trello.com/b/4FvJe60e/tutorials-article-and-video): You'll find the next topics that we like to cover in tutorials in either articles or screencast videos
 
 
-## Q2 2020
+## Q2 2021
 
 - Initial release of live trade plugin (early access)
 - Release our most profitable strategy so far 
