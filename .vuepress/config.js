@@ -17,15 +17,22 @@ module.exports = {
                 hostname: 'https://docs.jesse.trade',
             },
         ],
+        [
+            '@vuepress/plugin-docsearch', 
+            {
+            apiKey: '5b718939748786f0bb2d064c6851bd68',
+            indexName: 'jesse'
+            },
+        ],
     ],
     themeConfig: {
         docsRepo: 'jesse-ai/docs',
         docsBranch: 'master',
         editLinks: true,
-        algolia: {
-            apiKey: '5b718939748786f0bb2d064c6851bd68',
-            indexName: 'jesse'
-        },
+        //algolia: {
+            //apiKey: '5b718939748786f0bb2d064c6851bd68',
+            //indexName: 'jesse'
+        //},
         nav: [
             {
                 text: 'Home',
