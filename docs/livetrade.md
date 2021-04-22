@@ -2,12 +2,6 @@
 
 The "live-trade" plugin is available for early access. You can read the announcement article or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the installation page. 
 
-
-<!-- ## When will it be released?
-It will be released a few weeks (or months) after the release of the "optimize" mode. 
-
-
-
 ## Screenshots?
 Here is a sample of the early access version which has a CLI dashboard:
 
@@ -40,7 +34,7 @@ Here is a sample of the early access version which has a CLI dashboard:
  BTC-USDT | buy    | STOP   |  0.01 | 60458.5 |            | EXECUTED | 2021-04-12T12:00:00
  ```
 
-The released version plugin will have a GUI through a web URL. 
+Version 1 of the plugin (coming in a month or so) will have a GUI through a web URL. 
 
 
 ## Installation
