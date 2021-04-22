@@ -98,6 +98,7 @@ module.exports = {
             ['/docs/utils', 'Utilities'],
             ['/docs/backtest', 'Backtest'],
             ['/docs/livetrade', 'Live Trading'],
+            ['/docs/notifications', 'Notifications'],
             // ['/docs/papertrade', 'Paper Trading'],
             {
                 title: 'Strategy Optimization', // required
@@ -112,7 +113,6 @@ module.exports = {
                     ['/docs/optimize/overfitting', 'Overfitting'],
                 ],
             },
-            // ['/docs/notifications', 'Notifications'],
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/debugging', 'Debugging'],
             ['/docs/faq/', 'Frequently Asked Questions'],

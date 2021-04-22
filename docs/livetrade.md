@@ -1,53 +1,79 @@
-# How to live-trade your strategy
+# Live Trade
 
-Can Jesse execute live trades or is it a backtest-only framework?
+The "live-trade" plugin is available for early access. You can read the announcement article or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the installation page. 
 
-Yes it can! The "live-trade" plugin is under active development and is being tested. 
 
-## When will it be released?
+<!-- ## When will it be released?
 It will be released a few weeks (or months) after the release of the "optimize" mode. 
 
-**[Update 1:]** The optimize mode is out now. Next step is the livetrade module.  
-**[Update 2:]** It'll be available for the early-access by the end of the first week of April. 
-**[Update 3:]** It's being tested by a few members of the community and the docs and announcements are under work. It'll be released in the coming days!
 
-## Any samples of how it might be?
-Here is a sample of a running session of live trade plugin that the development team has running:
+
+## Screenshots?
+Here is a sample of the early access version which has a CLI dashboard:
 
 ```
  LIVE TRADE              |
 -------------------------+---------------------
- started/current balance |       15500/8428.85
- started at              |          6 days ago
- current time            | 2020-04-26T18:23:50
- errors/info             |                2/34
- active orders           |                   2
+ started at              |         3 hours ago
+ current time            | 2021-04-12T13:58:39
+ errors/info             |               1/205
+ active orders           |                   1
  open positions          |                   1
+ started/current balance |       968.91/968.67
  debug mode              |                True
 
 
- exchange-symbol-timeframe   | timestamp                 |    open |   close |   high |     low
------------------------------+---------------------------+---------+---------+--------+---------
- Binance Futures-BTC-USDT-6h  | 2020-04-26T18:00:00+00:00 | 7580.01 | 7612.01 |   7617 | 7566.96
+ exchange-symbol-timeframe   | timestamp                 |    open |   close |   high |   low
+-----------------------------+---------------------------+---------+---------+--------+-------
+ Binance Futures-BTC-USDT-6h | 2021-04-12T12:00:00+00:00 | 60335.1 |   60450 |  60670 | 60234
 
 
- type   | strategy           | symbol   |                             opened at |   qty |   entry |   current price | PNL (%)
---------+--------------------+----------+---------------------------------------+-------+---------+-----------------+-----------
- long   | Trend02            | BTC-USDT  | 1.0 day, 14.0 hours, 52.0 minutes ago |  0.94 |    7521 |         7612 | 85.55 (1.21%)
+ type   | strategy              | symbol   |   leverage |                         opened at |   qty |   entry |   current price | PNL (%)
+--------+-----------------------+----------+------------+-----------------------------------+-------+---------+-----------------+------------------
+ long   | TrendFollowing03 | BTC-USDT |          3 | 1 hour, 56 minutes, 9 seconds ago |  0.01 | 60458.5 |           60450 | -0.09 (-0.0424%)
 
 
  symbol   | side   | type   |   qty |   price | flag       | status   | created_at
 ----------+--------+--------+-------+---------+------------+----------+---------------------
- BTC-USDT  | sell   | STOP   | -0.94 |    7269 | ReduceOnly | ACTIVE   | 2020-04-25T06:00:00
- BTC-USDT  | sell   | STOP   | -0.94 |    7192 | ReduceOnly | ACTIVE   | 2020-04-25T03:31:44
- BTC-USDT  | sell   | LIMIT  | -0.94 |    9165 | ReduceOnly | CANCELED | 2020-04-25T03:31:43
- BTC-USDT  | buy    | STOP   |  0.94 |    7521 |            | EXECUTED | 2020-04-25T00:00:02
+ BTC-USDT | sell   | STOP   | -0.01 | 58223   | ReduceOnly | ACTIVE   | 2021-04-12T12:02:31
+ BTC-USDT | sell   | LIMIT  | -0.01 | 72873   | ReduceOnly | QUEUED   | 2021-04-12T12:02:30
+ BTC-USDT | buy    | STOP   |  0.01 | 60458.5 |            | EXECUTED | 2021-04-12T12:00:00
  ```
 
-The released version plugin will probably have a different user interface. 
+The released version plugin will have a GUI through a web URL. 
 
 
-## Should I wait until then and do nothing?!
-Rest assured, you won't have to change your backtest strategies to work with the live-trade mode. It will work as is. 
+## Installation
+The package is pre-built. You need to download the proper version for your OS and Python version from the [releases](https://jesse.trade/releases) page. 
 
-Hence, in the meantime, work on developing profitable strategies using the current backtest mode. Because that's really what you need to be concerned about. 
+After downloading it, open your terminal, go to the directory that the downloaded package is located at, and install it using `pip`:
+
+```
+# replace the {name of the downloaded file} with your downloaded package
+pip install {name of the downloaded file}
+```
+
+Now you should be able to run live trade commands from within your Jesse project. But first, you need to log in. This of course assumes you already have a valid license on the website. Run:
+```
+jesse login
+```
+
+This command asks you for your email and password that you used for registering at https://jesse.trade. Once you pass that, it'll create the `live-config.py` file which is specifically for your live trades and is located just within your Jesse project. Open it, and enter your values for notifications, exchange keys, etc. 
+
+Now you can successfully run live sessions by running `jesse live`. You can also run trades with paper money by running `jesse paper`. 
+
+## Terminating the session
+
+To terminate the session, if you are on Linux or macOS, press `CTRL` + `c` and it'll terminate it in a few seconds. On Windows, unfortunately, that doesn't work. With some keyboards, you can press the `break` key and it'll do the same. If you don't, just close the CMD app. It's not clean, but it'll do. Remember that you're not supposed to run production sessions from your local. It is highly recommended to use a VPS to run your sessions. 
+
+## Debug mode
+
+If you need more detailed logs, run them with the `--debug` flag:
+```
+jesse live --debug
+```
+
+## The terminal app
+The app that you use to run the live session from matters. For example, PyCharm's built-in terminal is not interactive and live trade doesn't work in it.
+
+If you're on macOS or Linux, the built-in terminal apps are fine. On Windows, we tested the built-in CMD and it works fine. 
