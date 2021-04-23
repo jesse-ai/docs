@@ -1746,8 +1746,8 @@ PPO - Percentage Price Oscillator
 **Arguments**:  
   
 - `candles`: np.ndarray  
-- `fastperiod`: int - default: 12  
-- `slowperiod`: int - default: 26  
+- `fast_period`: int - default: 12  
+- `slow_period`: int - default: 26  
 - `matype`: int - default: 0  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
