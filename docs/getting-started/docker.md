@@ -12,8 +12,6 @@ services:
 
   jesse:
     image: salehmir/jesse:0.21.3
-    volumes:
-      - ./jesseData:/home
     depends_on:
       - db
       - jesse-trades-info
@@ -21,6 +19,8 @@ services:
       ENV_DATABASES_POSTGRES_HOST: "db"
     ports:
       - 8888:8888
+    volumes:
+      - ./jesseData:/home
 
   jesse-trades-info:
     image: jessetradesinfo/jesse-trades-info:v0.2.1
@@ -41,6 +41,7 @@ services:
       POSTGRES_USER: jesse_user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: jesse_db
+      POSTGRES_HOST_AUTH_METHOD: password
     ports:
       - 5432:5432
     volumes:
