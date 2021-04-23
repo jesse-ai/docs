@@ -11,7 +11,7 @@ version: '3.8'
 services:
 
   jesse:
-    image: salehmir/jesse:0.20.7
+    image: salehmir/jesse:0.21.3
     volumes:
       - ./jesseData:/home
     depends_on:
