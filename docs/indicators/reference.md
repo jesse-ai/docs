@@ -1239,6 +1239,26 @@ Know Sure Thing (KST)
   
 KST(line, signal)
 
+## kurtosis  
+  
+```python  
+kurtosis(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Kurtosis  
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 5 
+- `source_type`: str - default: "hl2"
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+
 ## kvo  
   
 ```python  
@@ -1470,6 +1490,45 @@ McGinley Dynamic
 **Returns**:  
   
 float | np.ndarray  
+
+## mean_ad  
+  
+```python  
+mean_ad(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Mean Absolute Deviation
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 5
+- `source_type`: str - default: "hl2"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## median_ad  
+  
+```python  
+median_ad(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Median Absolute Deviation
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 5
+- `source_type`: str - default: "hl2"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 
 ## medprice  
   
@@ -2088,6 +2147,25 @@ Sine Weighted Moving Average (SINWMA)
 - `candles`: np.ndarray  
 - `period`: int - default: 14 
 - `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## skew
+  
+```python  
+skew(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Skewness
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 5 
+- `source_type`: str - default: "hl2"  
 - `sequential`: bool - default=False  
   
 **Returns**:  
