@@ -786,12 +786,33 @@ ER - The Kaufman Efficiency indicator
 **Arguments**:  
   
 - `candles`: np.ndarray  
-- - `period`: int - default: 5  
+- `period`: int - default: 5  
 - `sequential`: bool - default=False  
   
 **Returns**:  
   
 float | np.ndarray  
+
+## eri  
+  
+```python  
+eri(candles: np.ndarray, period: int = 13, matype: int = 1, source_type: str = "close", sequential: bool = False) -> ERI
+```  
+  
+Elder Ray Index (ERI)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 13
+- `matype`: int - default: 1
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+ERI(bull, bear)  
+
 
 ## fisher  
   
@@ -2406,8 +2427,7 @@ float | np.ndarray
 ## tsi  
   
 ```python  
-tsi(candles: np.ndarray, long_period=25, short_period=13, source_type="close", sequential=False) -> Union[  
-  float, np.ndarray]  
+tsi(candles: np.ndarray, long_period=25, short_period=13, source_type="close", sequential=False) -> Union[float, np.ndarray]  
 ```  
   
 True strength index (TSI)  
@@ -2423,7 +2443,26 @@ True strength index (TSI)
 **Returns**:  
   
 float | np.ndarray  
+
+## ttm_trend  
   
+```python  
+ttm_trend(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+TTM Trend
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 5
+- `source_type`: str - default: "hl2"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## typprice  
   
 ```python  
