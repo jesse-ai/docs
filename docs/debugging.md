@@ -3,7 +3,7 @@
 To debug your strategies, you have two options:
 
 ## 1. Generated log files 
-Jesse can generate log files in json, csv, charts, and tradinview's pine-edit which are helpful to see what trades were actually executed. 
+Jesse can generate log files in json, csv, charts, and tradingview's pine-edit which are helpful to see what trades were actually executed. 
 
 ## 2. Debug mode 
 

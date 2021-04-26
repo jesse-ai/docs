@@ -13,7 +13,7 @@ Here are the required stack:
 -   PostgreSQL >= `10`
 -   ta-lib >= `0.4`
 
-Most of you all if not most of them installed on your machine. We provide guides on how to install them for 3 major operating systems. We also provide a docker image which might be the fastest way to get started. 
+Most of them, if not all, are installed on your machine. We provide guides on how to install them for 3 major operating systems. We also provide a docker image which might be the fastest way to get started. 
 
 - [Docker guide](/docs/getting-started/docker.md)
 - [Ubuntu 18.04](/docs/getting-started/environment-setup.html#ubuntu)

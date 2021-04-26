@@ -74,3 +74,26 @@ plt.plot(times, eth_sma_50, color='black', label='SMA 50')
 plt.legend();
 ```
 ![notebook-example](../docs/imgs/notebooks-example.png)
+
+## Running CLI commands
+
+During your research you might want to dynamically import more candles or run backetests. 
+
+One quick way to do is by running the CLI commands directly from within the notebook:
+
+```py
+pairs = ['ETH-USDT', 'BTC-USDT']
+for pair in pairs:
+  !jesse import-candles Binance {pair} 2021-04-01 --skip-confirmation
+```
+
+Note that the command's output (e.g. progress indicator) won't be piped to the notebook. Jupyter hijacks the stdout/stderr/stdin streams which makes it incompatible with [Click](https://click.palletsprojects.com/en/7.x/), the library used to implement Jesse's CLI functionality. However, we can hack around this:
+
+```py
+import click;
+click._compat._force_correct_text_writer = lambda stream, encoding, error: stream
+
+pairs = ['ETH-USDT', 'BTC-USDT']
+for pair in pairs:
+  !jesse import-candles Binance {pair} 2021-04-01 --skip-confirmation
+```

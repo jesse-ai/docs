@@ -45,7 +45,7 @@ Obviously you cannot enter both a short and long position at the same time. Henc
 ::: warning
 `should_long()` and `should_short()` are for entering trades only. This means that they would get called on every new candle only if no position is open, and no order is active. 
 
-If you're looking to close trades dynamically, [update_position()](/docs/strategies/entering-and-exiting.html#update-position) is what you're looking fore. 
+If you're looking to close trades dynamically, [update_position()](/docs/strategies/entering-and-exiting.html#update-position) is what you're looking for. 
 :::
 
 ## go_long()

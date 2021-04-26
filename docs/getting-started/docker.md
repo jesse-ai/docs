@@ -11,9 +11,7 @@ version: '3.8'
 services:
 
   jesse:
-    image: salehmir/jesse:0.18.2
-    volumes:
-      - ./jesseData:/home
+    image: salehmir/jesse:0.21.3
     depends_on:
       - db
       - jesse-trades-info
@@ -21,9 +19,11 @@ services:
       ENV_DATABASES_POSTGRES_HOST: "db"
     ports:
       - 8888:8888
+    volumes:
+      - ./jesseData:/home
 
   jesse-trades-info:
-    image: jessetradesinfo/jesse-trades-info:v0.1.0
+    image: jessetradesinfo/jesse-trades-info:v0.2.1
     depends_on:
       - db
     environment:
@@ -41,6 +41,7 @@ services:
       POSTGRES_USER: jesse_user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: jesse_db
+      POSTGRES_HOST_AUTH_METHOD: password
     ports:
       - 5432:5432
     volumes:
@@ -68,7 +69,7 @@ To stop all container and dependencies
 docker-compose stop
 ```
 
-Next time you want to access the container, of course, you don't need to repeat thg above steps. Just restart the container and then start the database:
+Next time you want to access the container, of course, you don't need to repeat the above steps. Just restart the container and then start the database:
 ```sh
 docker-compose run jesse bash
 ```

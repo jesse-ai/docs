@@ -1,5 +1,23 @@
 
 # API reference
+
+## @cached
+
+This decorator can improve performance a lot. It will cache your functions / properties to avoid unnecessary computational intensive repetitions. Especially indicator calculations that are called often are perfect candidates for this. The cache is cleared every new candle behind the scene.
+
+**Example**:
+```py
+    from jesse.strategies import Strategy, cached
+
+    @property
+    @cached
+    def donchian(self):
+        return ta.donchian(self.candles)
+```
+::: warning
+If you use it with `@property` make sure the order is right like above. Otherwise you will get an error.
+:::
+
 ## available_margin
 
 Returns the available/remaining margin in your exchange wallet. It equals to your initial wallet balance multiplied by the leverage you're using, added by the unrealized profits on your open positions, subtracted by spent margin for open orders. 
