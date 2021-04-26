@@ -38,3 +38,11 @@ There are multiple explanations for this.
 - You compare different timeframes?
 - (Custom) Implementations of indicators on TradingView might use different source types or formulas. Compare the formula and parameters used. ([Jesse's indicator Source Code](https://github.com/jesse-ai/jesse/tree/master/jesse/indicators), [Talib's Source Code](https://sourceforge.net/projects/ta-lib/), [Tulipindicators Source Code](https://github.com/TulipCharts/tulipindicators/tree/master/indicators) 
 - It's an indicator with memory. In this case, consider adjusting the `warmup_candles_num` in config.py. Also, see the explanation about slicing the candles [here](https://docs.jesse.trade/docs/indicators/custom-indicators.html#slicing-the-candles).
+
+
+## What would happen to the open positions if a live session is terminated?
+At the moment Jesse only understands orders that it submitted by itself, and positions that it caused them to open. Hence, it tries to clean the state on both session start and termination time. So all your open positions get closed, and open orders get canceled. 
+
+## If I terminate and start again a live session, would the restarted live session know the previous open positions?
+
+No, it'll close them and start again. However, session consistency is a feature under development as it was added to our [Trello page](https://trello.com/b/F9Eb0wW5/live-trade-plugin). 
