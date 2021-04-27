@@ -2,7 +2,7 @@
 
 In this page we'll go through how to prepare your environment before installing Jesse. We'll cover three major operating systems:
 
-- [Ubuntu 18.04](/docs/getting-started/environment-setup.html#ubuntu)
+- [Ubuntu](/docs/getting-started/environment-setup.html#ubuntu)
 - [macOS](/docs/getting-started/environment-setup.html#macos)
 - [Windows](/docs/getting-started/environment-setup.html#windows)
 
@@ -16,23 +16,22 @@ A good practice for providing an environment for running Python applications is 
 
 ## Ubuntu
 
-We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages including Jesse itself on a fresh Ubuntu  machine.
+We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install all the required stack and pip packages including Jesse itself on a machine running a fresh Ubuntu LTS installation.
 
-Run below commands:
+Run below commands based on your installed Ubuntu version:
 
-### 18.04
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-18.04.sh)"
-```
+```sh
+# For Ubuntu 18.04 LTS
+source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-18.04.sh)
 
-In case a fresh install isn't possible for you, look at the [18.04 commands](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
-
-### 20.04
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-20.04.sh)"
+# For Ubuntu 20.04 LTS
+source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-20.04.sh)
 ```
 
-In case a fresh install isn't possible for you, look at the [20.04 commands](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-20.04.sh) and use commands that suit your environment.
+In case a fresh install isn't possible for you, look at the commands used by our scripts and execute the commands that suit your environment:
+
+- [18.04 script](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh)
+- [20.04 script](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-20.04.sh)
 
 ::: warning
 You should have at least 2GB RAM or the build of ta-lib [might fail](https://github.com/mrjbq7/ta-lib/issues/290).
@@ -161,7 +160,7 @@ Example:
 Now open CMD and go the directory where you downloaded the binary file and run:
 ```sh
 pip install {downloaded_binary_file}
-# for example: 
+# for example:
 # pip install TA_Lib‑0.4.17‑cp38‑cp38‑win_amd64.whl
 ```
 
