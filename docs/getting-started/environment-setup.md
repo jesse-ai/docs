@@ -16,15 +16,23 @@ A good practice for providing an environment for running Python applications is 
 
 ## Ubuntu
 
-We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages including Jesse itself on a fresh Ubuntu 18.04 machine.
+We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages including Jesse itself on a fresh Ubuntu  machine.
 
-Run below command:
+Run below commands:
 
+### 18.04
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-18.04.sh)"
 ```
 
-In case a fresh install isn't possible for you, look at the [repository](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
+In case a fresh install isn't possible for you, look at the [18.04 commands](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh) and use commands that suit your environment.
+
+### 20.04
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-20.04.sh)"
+```
+
+In case a fresh install isn't possible for you, look at the [20.04 commands](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-20.04.sh) and use commands that suit your environment.
 
 ::: warning
 You should have at least 2GB RAM or the build of ta-lib [might fail](https://github.com/mrjbq7/ta-lib/issues/290).
