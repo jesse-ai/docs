@@ -2,6 +2,11 @@
 
 Assuming you already have [created](./strategies/generating-new-strategy.md) your first strategy, [imported](./import-candles.md) historical candles, and have set correct [routes](./routes.md) for your strategy, it is time to actually backtest it:
 
+::: warning
+Spot support is currently very limited - you can use futures mode with leverage 1 for now.
+:::
+
+
 ```
 jesse backtest 'start_date' 'finish_date'
 ```
