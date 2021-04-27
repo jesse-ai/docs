@@ -1396,7 +1396,7 @@ MACD(macd, signal, hist)
 ## macdext  
   
 ```python  
-macdext(candles: np.ndarray, fast_period=12, fast_matype=0, slow_period=26, slow_matype=0, signal_period=9, signalmatype=0, source_type="close", sequential=False) -> MACDEXT  
+macdext(candles: np.ndarray, fast_period=12, fast_matype=0, slow_period=26, slow_matype=0, signal_period=9, signal_matype=0, source_type="close", sequential=False) -> MACDEXT  
 ```  
   
 MACDEXT - MACD with controllable MA type  
@@ -1409,7 +1409,7 @@ MACDEXT - MACD with controllable MA type
 - `slow_period`: int - default: 26  
 - `slow_matype`: int - default: 0  
 - `signal_period`: int - default: 9  
-- `signalmatype`: int - default: 0  
+- `signal_matype`: int - default: 0  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default: False  
   
