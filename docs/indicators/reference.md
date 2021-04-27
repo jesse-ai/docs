@@ -77,7 +77,7 @@ float | np.ndarray
 ## adosc  
   
 ```python  
-adosc(candles: np.ndarray, fastperiod=3, slowperiod=10, sequential=False) -> Union[float, np.ndarray]  
+adosc(candles: np.ndarray, fast_period=3, slow_period=10, sequential=False) -> Union[float, np.ndarray]  
 ```  
   
 ADOSC - Chaikin A/D Oscillator  
@@ -85,8 +85,8 @@ ADOSC - Chaikin A/D Oscillator
 **Arguments**:  
   
 - `candles`: np.ndarray  
-- `fastperiod`: int - default: 3  
-- `slowperiod`: int - default: 10  
+- `fast_period`: int - default: 3  
+- `slow_period`: int - default: 10  
 - `sequential`: bool - default=False  
   
 **Returns**:  
@@ -167,7 +167,7 @@ AO(osc, change)
 ## apo  
   
 ```python  
-apo(candles: np.ndarray, fastperiod=12, slowperiod=26, matype=0, source_type="close", sequential=False) -> Union[  
+apo(candles: np.ndarray, fast_period=12, slow_period=26, matype=0, source_type="close", sequential=False) -> Union[  
   float, np.ndarray]  
 ```  
   
@@ -176,8 +176,8 @@ APO - Absolute Price Oscillator
 **Arguments**:  
   
 - `candles`: np.ndarray  
-- `fastperiod`: int - default: 12  
-- `slowperiod`: int - default: 26  
+- `fast_period`: int - default: 12  
+- `slow_period`: int - default: 26  
 - `matype`: int - default: 0  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
@@ -1375,7 +1375,7 @@ float | np.ndarray
 ## macd  
   
 ```python  
-macd(candles: np.ndarray, fastperiod=12, slowperiod=26, signalperiod=9, source_type="close", sequential=False) -> MACD  
+macd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, source_type="close", sequential=False) -> MACD  
 ```  
   
 MACD - Moving Average Convergence/Divergence  
@@ -1383,7 +1383,7 @@ MACD - Moving Average Convergence/Divergence
 **Arguments**:  
   
 - `candles`: np.ndarray  
-- `fastperiod`: int - default: 12  
+- `fast_period`: int - default: 12  
 - `slow_period`: int - default: 26  
 - `signal_period`: int - default: 9  
 - `source_type`: str - default: "close"  
@@ -1396,7 +1396,7 @@ MACD(macd, signal, hist)
 ## macdext  
   
 ```python  
-macdext(candles: np.ndarray, fastperiod=12, fastmatype=0, slowperiod=26, slowmatype=0, signalperiod=9, signalmatype=0, source_type="close", sequential=False) -> MACDEXT  
+macdext(candles: np.ndarray, fast_period=12, fast_matype=0, slow_period=26, slow_matype=0, signal_period=9, signalmatype=0, source_type="close", sequential=False) -> MACDEXT  
 ```  
   
 MACDEXT - MACD with controllable MA type  
@@ -1404,10 +1404,10 @@ MACDEXT - MACD with controllable MA type
 **Arguments**:  
   
 - `candles`: np.ndarray  
-- `fastperiod`: int - default: 12  
-- `fastmatype`: int - default: 0  
+- `fast_period`: int - default: 12  
+- `fast_matype`: int - default: 0  
 - `slow_period`: int - default: 26  
-- `slowmatype`: int - default: 0  
+- `slow_matype`: int - default: 0  
 - `signal_period`: int - default: 9  
 - `signalmatype`: int - default: 0  
 - `source_type`: str - default: "close"  
@@ -1817,7 +1817,7 @@ PIVOT(r4, r3, r2, r1, pp, s1, s2, s3, s4)
 ## ppo  
   
 ```python  
-ppo(candles: np.ndarray, fastperiod=12, slowperiod=26, matype=0, source_type="close", sequential=False) -> Union[  
+ppo(candles: np.ndarray, fast_period=12, slow_period=26, matype=0, source_type="close", sequential=False) -> Union[  
   float, np.ndarray]  
 ```  
   
@@ -2241,9 +2241,9 @@ STC - Schaff Trend Cycle (Oscillator)
   
 - `candles`: np.ndarray  
 - `fast_period`: int - default: 23  
-- `fastmatype`: int - default: 1  
+- `fast_matype`: int - default: 1  
 - `slow_period`: int - default: 50  
-- `slowmatype`: int - default: 1  
+- `slow_matype`: int - default: 1  
 - `k_period`: int - default: 10  
 - `d_period`: int - default: 3  
 - `source_type`: str - default: "close"  
@@ -2757,7 +2757,7 @@ float | np.ndarray
 ## vwmacd  
   
 ```python  
-vwmacd(candles: np.ndarray, fastperiod=12, slowperiod=26, signalperiod=9, sequential=False) -> VWMACD  
+vwmacd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, sequential=False) -> VWMACD  
 ```  
   
 VWMACD - Volume Weighted Moving Average Convergence/Divergence  
@@ -2765,7 +2765,7 @@ VWMACD - Volume Weighted Moving Average Convergence/Divergence
 **Arguments**:  
   
 - `candles`: np.ndarray  
-- `fastperiod`: int - default: 12  
+- `fast_period`: int - default: 12  
 - `slow_period`: int - default: 26  
 - `signal_period`: int - default: 9  
 - `sequential`: bool - default: False  
