@@ -9,6 +9,10 @@ Most indicators have a `sequential=False` parameter. When set to `True`, it retu
 
 When developing strategies however, you probably want to keep it as `False` to return only the indicator value for current trading candle.
 
+::: tip @cached
+The @cached decorator can increase performance a lot if applied to indicators - especially those called a lot in your strategy. [See here](https://docs.jesse.trade/docs/strategies/api.html#cached).
+:::
+
 ::: tip Performance and sequential
 With `sequential=False` the indicators will slice the candle array behind the scene to the warmup_candles_num you defined. That doesn't happen if you use `sequential=True`, as Jesse doesn't now how much lookback you need from your sequential indicator. To keep things fast you should slice the candles yourself before passing them to a indicator function to avoid unnecessary computation time: `self.candles[-60:]` - change the number accordingly.
 :::
