@@ -42,7 +42,7 @@ print(eth_candles[0])
 ```
 
 ## Indicators
-You can use [indicators](/docs/indicators) modules in your notebooks just as you did in your strategies. However, because indicators return single values by default, in case you intend to draw charts (I'm assuming that's why you're using Jupyter Notebooks in the first place) it is easier to set the `sequence=True` to get array of indicator values.
+You can use [indicators](/docs/indicators) modules in your notebooks just as you did in your strategies. However, because indicators return single values by default, in case you intend to draw charts (I'm assuming that's why you're using Jupyter Notebooks in the first place) it is easier to set the `sequential=True` to get array of indicator values.
 
 ## Example
 Let's import candles for `ETH-USDT` and calculate SMA with period of 50 and display them on a chart:
