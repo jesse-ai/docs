@@ -1622,7 +1622,7 @@ minmax - Get extrema
   
 **Returns**:  
   
-EXTREMA(min, max, last_min, last_max)  
+EXTREMA(is_min, is_max, last_min, last_max)  
   
 ## mom  
   
