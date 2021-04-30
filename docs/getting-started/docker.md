@@ -17,10 +17,21 @@ services:
       - jesse-trades-info
     environment:
       ENV_DATABASES_POSTGRES_HOST: "db"
+
+# Inject api credentials from host env (only for live):
+#      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY}
+#      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET}
+
+# Inject api credentials from env file (only for live):
+#    env_file:
+#      .env
+
     ports:
       - 8888:8888
     volumes:
       - ./jesseData:/home
+# Mount the live package as volume (only for live):
+#      - ./jesse_live-0.0.2-cp39-cp39-manylinux2010_x86_64.whl:/jesse_live-0.0.2-cp39-cp39-manylinux2010_x86_64.whl
 
   jesse-trades-info:
     image: jessetradesinfo/jesse-trades-info:v0.2.1
