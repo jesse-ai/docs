@@ -13,3 +13,4 @@ package-lock.json
 .eslintrc.js
 .vuepress/dist
 .history
+ru/.history
