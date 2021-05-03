@@ -1,5 +1,5 @@
 # Могу ли я торговать несколькими парами одновременно?
 
-Yes! Jesse has been built to support trading multiple pairs at once. All you need to do is to simply define multiple trading routes in your `routes.py` file. Read the documentation page about [routes](/docs/routes.html#trading-multiple-routes) for details and examples.
+Да! Джесси была сделана для поддержки торговли несколькими парами одновременно. Все, что нужно сделать, так это просто определить несколько торговых маршрутов в вашем файле `routes.py`. Прочитайте страницу документации о [маршрутах](/docs/routes.html#trading-multiple-routes) для деталей и примеров.
 
-Additionally, you can use the data of any other symbol (even multiple) while trading a certain symbol. For example, you can trade `ETHUSD` but also have access to price data of `BTCUSD`. Read the documentation page for [extra candles](/docs/routes.html#using-multiple-time-frames) if you're interested in that. 
+Дополнительно, вы можете использовать данные любого другого символа (даже несколько) во время торговли определенным символом. Например, вы можете торговать `ETHUSD` но также имейте доступ к данным цены `BTCUSD`. Read the documentation page for [extra candles](/docs/routes.html#using-multiple-time-frames) if you're interested in that. 
