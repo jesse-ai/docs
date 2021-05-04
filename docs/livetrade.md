@@ -71,3 +71,16 @@ jesse live --debug
 The app that you use to run the live session from matters. For example, PyCharm's built-in terminal is not interactive and live trade doesn't work in it.
 
 If you're on macOS or Linux, the built-in terminal apps are fine. On Windows, we tested the built-in CMD and it works fine. 
+
+## Secret Management
+
+Jesse support environment variable injection for any config file keys. The key format follow this rules: join the config node and replace in the key space by `_`. Env variable must be prefix with `ENV_`.
+
+Example `databases -> postgres -> host` value will be takes from env variables with the key:
+
+`ENV_DATABASES_POSTGRES_HOST`.
+
+In order to keep your config file versioned, it's recommended to inject api key and secret.
+Example for binance testnet futures keys (`exchanges -> Testnet Binance Futures -> api_key`) would be:
+- `ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY`
+- `ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET`
