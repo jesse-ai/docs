@@ -84,3 +84,15 @@ Next time you want to access the container, of course, you don't need to repeat 
 ```sh
 docker-compose run jesse bash
 ```
+
+## Managing sensitive config values 
+
+Jesse supports environment variable injection for any config file keys. The key format follows this rule: join the config node and replace the ` ` by `_`. Env variable must be prefixed with `ENV_`.
+
+For example, `databases -> postgres -> host` value will be taken from env variables with the key `ENV_DATABASES_POSTGRES_HOST`.
+
+To keep your config file versioned, it's recommended to inject API key and secret.
+
+An example for binance testnet futures keys (`exchanges -> Testnet Binance Futures -> api_key`) would be:
+- `ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY`
+- `ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET`
