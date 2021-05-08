@@ -2,6 +2,19 @@
 
 Here you can see that changes were made at each release.
 
+## 0.22.0
+- [BREAKING CHANGE] For consistency `ta.vwmacd` now accepts `signal_period` instead of `signalperiod`
+- [Improvement] Updated Docker images. By [TheCrazyLex](https://github.com/TheCrazyLex). 
+- [Improvement] Packages updated -  scipy from `1.6.2` to `1.6.3`, arrow from `1.0.3` to `1.1.0`, quantstats from `0.0.30` to `0.0.32`, websocket-client from `0.58.0` to `0.59.0`, quantstats from `0.0.32` to `0.0.34`, pytest from `6.2.3` to `6.2.4`
+- [Improvement] Rounding for live or paper now uses the required precision from the exchange. Could have caused exceptions before for coins with exotic precision requirement.
+- [Improvement] `risk_to_qty` and `size_to_qty` now round the qty down. As in some conditions the qty would otherwise exceed the `self.available_margin` / `self.capital` leading to the InsufficientMargin exception.
+- [Improvement] `risk_to_qty` now also accepts `precision` parameter.
+- [Improvement] The full report (quantstats) now uses 365 trading days for the metrics which makes its calculations crypto friendly. By [sbkhosh](https://github.com/sbkhosh) and [mblum](https://github.com/mblum). 
+- [Improvement] The ExampleStrategy imports ta and utils by default now.
+- [FIX] Error in `ta.minmax` solved.  Namedtuple changed: `min -> is_min ` and  `max -> is_max`
+- [FIX] Setting configs via environment variables now also works when spaces are involved. By [julesGoullee](https://github.com/julesGoullee). 
+- [NEW FEATURE] New indicator: Polarized Fractal Efficiency (PFE)
+
 ## 0.21.3
 - [NEW FEATURE] Added HTML reports with a more complete set of metrics and charts enabled by the `--full-reports` flag in your backtests. By [nicolay-zlobin](https://github.com/nicolay-zlobin). 
 - [NEW FEATURE] New indicators: Elder Ray Index (ERI), ttm_trend, kurtosis, mean_ad, median_ad, skewness

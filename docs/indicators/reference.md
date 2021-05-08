@@ -1792,6 +1792,26 @@ int | np.ndarray
 -   CDLXSIDEGAP3METHODS - Upside/Downside Gap Three Methods
 :::
 
+## pfe  
+  
+```python  
+pfe(candles: np.ndarray, period: int = 10, smoothing: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Polarized Fractal Efficiency (PFE)  
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 10  
+- `smoothing`: int - default: 5  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## pivot  
   
 ```python  
