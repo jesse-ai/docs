@@ -1,6 +1,6 @@
 # Вход и выход из сделок
 
-Решение войти в сделку это нечно иное как `True` или `False`.
+Решение войти в сделку это нечно иное как выбрать `True` или `False`.
 
 Джесси использует `should_long()` и `should_short()` методы которые всегда возвращают булево.
 
@@ -8,7 +8,7 @@
 
 ## should_long()
 
-**Return Type**: bool
+**возвращемый тип**: bool
 
 Предполагая, что позиция в настоящее время закрыта, открывает длинную позицию.
 
@@ -16,7 +16,7 @@
 
 ```py
 def should_long(self):
-    # return true if current candle is a bullish candle
+    # возвращет истину, если текущая свеча является бычьей свечей
     if self.close > self.open:
         return True
 
@@ -25,32 +25,32 @@ def should_long(self):
 
 ## should_short()
 
-**Return Type**: bool
+**возвращемый тип**: bool
 
 Предполагая, что позиция в настоящее время закрыта, открывает короткую позицию.
 
 ```py
 def should_short(self):
-    # return true if current candle is a bearish candle
+    # возвращет истину, если текущая свеча является медвежьей свечей
     if self.close < self.open:
         return True
 
     return False
 ```
 
-::: warning
+::: warning Внимание
 Очевидно, что вы не можете одновременно открывать и короткую, и длинную позицию. Следовательно, `should_long()` и `should_short()` не могут одновременно возвращать True.
 :::
 
-::: warning
+::: warning Внимание
 `should_long()` and `should_short()` только для входа в сделку. Это означает, что они будут запрашиваться на каждой новой свече, только если ни одна позиция не открыта, и ни один ордер не активен.
 
-Если вы хотите динамически закрывать сделки то, [update_position()](/docs/strategies/entering-and-exiting.html#update-position) что вы ищите. 
+Если вы хотите динамически закрывать сделки то, [update_position()](/docs/strategies/entering-and-exiting.html#update-position) то, что вы ищите. 
 :::
 
 ## go_long()
 
-Внутри `go_long()` метода вы ставите entry_price (цену покупки, точку входа), quantity (количество, сколько вы покупаете), the stop-loss и take-profit (стоп-лос и тейк-профит, точки выхода) объемом и ценой. Базовый синтаксис:
+Внутри `go_long()` метода вы ставите entry_price (цену покупки, точку входа), quantity (количество, сколько вы покупаете), the stop-loss и take-profit (стоп-лос и тейк-профит точки выхода) объемом и ценой. Базовый синтаксис:
 
 ```py
 def go_long(self):
@@ -73,7 +73,7 @@ def go_long(self):
 ```
 
 ::: tip Умная система выставления ордеров
-Обратите внимание, что нам не нужно было определять, какой тип заказа использовать. Джесси достаточно умен, чтобы самостоятельно определять тип ордера.
+Обратите внимание, что нам не нужно было определять, какой тип заказа использовать. Джесси достаточно умна, чтобы самостоятельно определять тип ордера.
 
 Например, если это длинная позиция, вот как рассуждает Джесси:
 
@@ -85,7 +85,7 @@ def go_long(self):
 
 ## go_short()
 
-Так же [go_long()](#go-long) и использует `self.sell` для входа в рынок в место `self.buy`:
+Так же [go_long()](#go-long) использует `self.sell` для входа в рынок в место `self.buy`:
 
 ```py
 def go_short(self):
@@ -100,7 +100,7 @@ def go_short(self):
 def go_short(self):
     qty = 1
 
-    # opens position with a MARKET order
+    # открывает позицию с типом ордера MARKET
     self.sell = qty, self.price
     self.stop_loss = qty, self.high + 10
     self.take_profit = qty, self.low - 10
@@ -120,17 +120,17 @@ def go_short(self):
 
 ## should_cancel()
 
-**Return Type**: bool
+**возвращаемый тип**: bool
 
-Этот метод спрашивает вас: если ордер на открытую позицию уже отправлен, но _еще не выполнен_, следует ли его отменить?
+Этот метод спрашивает вас: ордер на открытую позицию уже отправлен, но _еще не выполнен_, следует ли его отменить?
 
-::: tip
+::: tip Совет
 
 После подачи ордеров на открытие новых позиций вы либо сразу войдете в позицию с помощью рыночного ордера, либо вам придется подождать, пока ваш лимитный / стоп-ордер будет исполнен. Этот метод используется для второго сценария.
 
 :::
 
-A good example would be for a trade we're trying to open a position when the price continues the uptrend:
+Хорошим примером было бы торговать если мы пытаемся открыть позицию, когда цена продолжается восходящий тренд:
 
 ```py
 def should_long(self):
@@ -145,28 +145,28 @@ def go_long(self):
     self.take_profit = qty, entry + 10
 ```
 
-Since the entry price is above the current price, Jesse will submit a stop order for entering this trade. If the price indeed rises we'll be fine, but what if a new candle is passed, and the price goes down? Then we would want the previous order to be canceled and a new order submitted based on the high price of the new candle.
+Поскольку цена входа выше текущей цены, Джесси отправит стоп ордер для входа в торговлю. Если цена действительно поднимается и все в порядке, но что, если пропущена новая свеча, и цена идет вниз? Тогда мы бы хотели, чтобы предыдущий заказ был отменен, а новый заказ, был отправлен на основе высокой цены новой свечи.
 
-To do this, we'll have to specify the `should_cancel()`:
+Для этого нам придется указать `should_cancel()`:
 
 ```py
 def should_cancel(self):
     return True
 ```
 
-In your strategy, you may need to do some checking before deciding whether or not the previous open-position order is still valid or has to be canceled.
+В вашей стратегии, вам может потребоваться выполнить некоторую проверку, прежде чем решить, держать предыдущий заказ открытым еще или он уже должен быть отменен.
 
 ::: tip
-`should_cancel()` only decides whether or not to cancel the entry order. It does not affect your exit (take-profit and stop-loss) orders.
+`should_cancel()` только решает, отменить или нет. Это не влияет на ваш выход по (take-profit и stop-loss) ордерам.
 :::
 
-## Entering and/or exiting at multiple points
+## Вход и/или выход в нескольких точках
 
-So far we defined enter-once and exit-once strategy examples using only `go_long()` and `go_short()` methods. This may not be enough for your strategies. 
+До сих пор мы определили пример одновходную и одновыходную  стратегию используя `go_long()` и `go_short()` методы. Этого может быть недостаточно для ваших стратегий. 
 
-For entering/exiting at one point we defined **single tuples**. To enter/exit at multiple points all you need to do is to use a **list of tuples** instead.
+Для входа/выхода в одной точке мы обозначаем **один картеж**. Для входа/выхода в нескольких точках все что нужно сделать так это переписать на использование **списка картежей**.
 
-Example of taking profit at two points:
+Пример забирания прибыли в двух точках:
 
 ```py
 def go_long():
@@ -175,22 +175,22 @@ def go_long():
     self.buy = qty, 100
     self.stop_loss = qty, 80
 
-    # take-profit at two points
+    # take-profit в двух точках
     self.take_profit = [
         (qty/2, 120),
         (qty/2, 140)
     ]
 ```
 
-We could do the same for `self.stop_loss` if it makes sense in your strategy.
+Мы могли бы сделать то же самое для `self.stop_loss` если это имеет смысл в вашей стратегии.
 
-Example of entering the trade at two points:
+Пример входа в сделку по двум точкам:
 
 ```py
 def go_long():
     qty = 1
 
-    # open position at $120 and increase it at $140
+    # открыть позицию при $120 и увеличить ее при $140
     self.buy = [
         (qty/2, 120),
         (qty/2, 140)
@@ -199,74 +199,75 @@ def go_long():
     self.take_profit = qty, 160
 ```
 
-What if we're not aware of our exact exit point at the time of entering the trade? For instance, it is a common case in trend-following strategies to exit when the trend has stopped. 
+Что, если мы не знаем о нашей точной точке выхода на момент входа в торговлю? Например, это общий случай в стратегиях следования тренду, выходить когда тенденция остановилась. 
 
-The next section introduces the concept of [events](./events.html) to fulfill this need.
+Следующий раздел вводит концепцию [событий](./events.html) заполняет эту потребность.
 
 ## prepare()
-As explained in the [flowchart](./), this is the first method that gets called when a new candle is received. It is used for updating `self.vars` (custom variables) or any other action you might have in mind that needs to be done before your strategy gets executed. 
+Как объяснялось на [схеме](./), первый метод который вызывается когда получается новая свеча. Это используется для обновления `self.vars` (пользовательских переменных) или любых других действий которые по вашему нужно сделать после выполенния вашей стратегии. 
 
-**See also**: [vars](./api.html#vars)
+**смотри так же**: [переменные](./api.html#vars)
 
 
 ## update_position() 
-Assuming there's an open position, this method is used to update exit points or to add to the size of the position if needed.
+Предполагая, что есть открытая сделка, этот метод используется для обновления точек выхода или чтобы добавть до размера позиции если необходимо.
 
-:::tip 
-If your strategy exits dynamically (for example if at the time of entering the trade you don't know the take-profit price) then you definitely need to use `update_position`.
+
+:::tip Совет
+Если ваша стратегия динамически выходит динамически (например, если во время входа в торговлю вы не знаете цену на получение прибыли), то вам определенно нужно использовать `update_position`.
 :::
 
-**Example #1:** Exiting the trade by implementing a trailing stop for take-profit: 
+**Пример #1:** Выход сделки, осуществляя трейлинг-стоп для получения прибыли: 
 ```py 
 def update_position(self):
     qty = self.position.qty 
 
-    # set stop-loss price $10 away from the high/low of the current candle
+    # ставит цену stop-loss $10 от выше/ниже от текущей цвечи
     if self.is_long:
         self.take_profit = qty, self.high - 10
     else:
         self.take_profit = qty, self.low + 10
 ```
 
-**Example #2:** Liquidating the open position at a certain condition. In this case, we [liquidate](/docs/strategies/api.html#liquidate) if we're in a long trade and the RSI reaches 100: 
+**Пример #3:** Ликвидация открытой сделки в определенном состоянии. В этом случае, есть [ликвидация](/ru/strategies/api.html#liquidate) если мы в долгой позиции и RSI достигает 100: 
 ```py 
 def update_position(self):
     if self.is_long and ta.rsi(self.candles) == 100:
         self.liquidate()
 ```
 
-**Example #3:** Double the size of my long position if the RSI shows oversold and I'm sitting at more than 5% profit:
+**Пример #3:** Удвоение размера моей длинной позиции если RSI показывает перепроданность и я сижу в более чем 5% прибыли:
 ```py 
 def update_position(self):
     if self.is_long:
         if self.position.pnl_percentage > 5 and ta.rsi(self.candles) < 30:
-            # double the size of the already open position at current price (with a MARKET order)
+            # удвоение размера уже открытой позиции от текущей цены (с помощью MARKET сделки)
             self.buy = self.position.qty, self.price
 ```
 
 ## \_\_init\_\_()
-The `__init__` is not a new concept. It's the constructor of a Python class. Jesse strategies are Python classes, hence you may use the `__init__` method for actions that need to be performed in the beginning of a strategy and only for once. 
+`__init__` не новая концепция. Это конструктор Python класса. Стратегии Джесси это классы Python, следовательно вы можете использовать метод `__init__` для действия которое должны быть выполнено в начале стратегии и только один раз. 
 
-You could say `__init__` is the opposite of the [terminate()](./entering-and-exiting.html#terminate) method in a Jesse strategy. 
+Вы можете сказать `__init__` в противоположность методу [terminate()](./entering-and-exiting.html#terminate) в вашей стратегии Джесси. 
 
-::: warning
-Remember to begin `__init__` method's content with a `super().__init__()` call, otherwise you will get an error.
+::: warning Внимание
+Помните в начале метода `__init__` должен быть вызов `super().__init__()`, иначе вы получите ошибку.
 :::
 
 ```py
 def __init__(self):
     super().__init__()
 
-    print('initiated the strategy class')
+    print('инициализация класса стратегии')
 ```
 
 
 ## terminate() 
-There are cases where you need to tell Jesse to perform a task right before terminating (like finishing the backtest simulation). Examples of a such a task would be to log a value, or save a machine learning model. 
+Есть случаи, когда вам нужно сказать Джессе, чтобы выполнить задачу прямо до того, как будет уничтожена (как завершении симуляции бектеста). Примеры такой задачи логировали бы значения или сохраняли модель обучения машины.
 
-You could say `terminate` is the opposite of the [\_\_init\_\_](./entering-and-exiting.html#init) method in a Jesse strategy.
+Скажем `terminate` противоположность методу [\_\_init\_\_](./entering-and-exiting.html#init) стратегии Джесси.
 
 ```py
 def terminate(self):
-    print('backtest is done')
+    print('Бэктест завершен.')
 ```
