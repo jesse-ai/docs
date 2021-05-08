@@ -16,56 +16,56 @@
 У большинства из вас это уже установлено. Это инструкции по установке для трех основных операционных систем. Есть Докер образ Джесси, который позваляет быстрее всего начать работать. 
 
 - [Docker guide](/ru/getting-started/docker.md)
-- [Ubuntu 18.04](/ru/getting-started/environment-setup.html#ubuntu)
+- [Ubuntu](/ru/getting-started/environment-setup.html#ubuntu)
 - [macOS](/ru/getting-started/environment-setup.html#macos)
 - [Windows](/ru/getting-started/environment-setup.html#windows)
 
 ## Установка через PIP
 
-First install the required dependency packages:
+Во первых установите необходимые пакеты зависимостей:
 ```
 pip install -r https://raw.githubusercontent.com/jesse-ai/jesse/master/requirements.txt
 ```
 
-Now install Jesse:
+Теперь установите Джесси:
 ```
 pip install jesse
 ```
 
 ## Обновление через PIP
 
-We are constantly pushing new patches. To upgrade to the latest version run:
+Мы постоянно выкатываем новые патчи. Чтобы обновиться до последней версии выполните:
 ```
 pip install -U jesse
 ```
 
-::: warning
-Sometimes pip doesn't upgrade to the latest version on first time running above command. To make sure you're running the latest release, checkout the latest version number on [PyPi](https://pypi.org/project/jesse/), and then make sure you see that version in `pip list` output. 
+::: warning Внимание
+Иногда pip не обновляет до последней версии с первого раза выполнения команды. Чтобы убедиться что вы запускаете последний релиз, проверьте последний номер версии на [PyPi](https://pypi.org/project/jesse/), и далее убедитесь что вы видете эту же версию в списке команды `pip list`. 
 :::
 
 ## Создание нового проекта
 
-You'll need to create your own Jesse project in order to define your very own strategies. 
+Вам нужно будет создать свой собственный проект Jesse, чтобы определить свои собственные стратегии.
 
-Go to the directory you intend to create the project in and run:
+Перейдите в каталог, который вы намерены создать проект и запустите:
 
 ```
 jesse make-project name-of-project
 ```
 
-This will create a new project containing only files and folders that you actually need:
+Это создаст новый проект, содержащий только файлы и папки, которые действительно необходимы:
 
 ```sh
-├── config.py # file where you enter your database credentials, etc
-├── routes.py # file where routes are defined in 
-├── storage # folder containing logs, chart images, etc
+├── config.py # файл где вы заполняете данные о вашей базе данных учетных записях и тд
+├── routes.py # файл где обозначаются торговые маршруты
+├── storage # папка содержащая логи, изображения графиков и тд
 │   ├── charts
 │   ├── genetics
 │   ├── logs
 │   │   └── trades
-│   └── temp # directory that Jesse uses behind the scenes. 
+│   └── temp # директория которую Джесси использует для закулисных дел
 │   └── trading-view-pine-editor
-└── strategies # folder where you define your strategies
+└── strategies # директория в которой вы определяете ваши стратегии
     ├── Strategy01
     │   └─ __init__.py
     └── Strategy02
