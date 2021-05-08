@@ -1,28 +1,31 @@
 # Импорт свечей
 
-You need historical candles to run backtest simulations. The command to import candles is:
+Вам нужны исторические данные (свечи), чтобы запустить бэктесты. Команда для импорта свечей:
 
 ```
 jesse import-candles exchange symbol start_date
 ```
 
-A working example would be:
+Работающий пример будет:
 
 ```
-jesse import-candles 'Binance' 'BTCUSDT' '2018-06-01'
+jesse import-candles 'Binance' 'BTC-USDT' '2018-06-01'
 ```
 
-This will import candles for `BTCUSDT` from Binance since `2018-01-01` until this very moment.
+Это загрузит свечи для `BTC-USDT` из `Binance` с `2018-01-01` по настоящее время.
 
-::: tip
-You may run this command as many times as you desire. Duplicate candles will get skipped automatically. 
-
-That means in the future, you can run the same command you just used, for fetching most recent candles. 
+::: tip Совет
+Вы можете запустить эту команду столько раз, сколько вы хотите. Дублирующие свечи будут пропущены автоматически.
+Это означает в будущем, вы можете запустить одну и ту же команду, которую вы только что использовали, для получения последних свечей.
 :::
 
-## Поддержка бирж
 
-Supported exchanges (so far) are:
+::: warning Внимание
+Для некоторых CLI вам нужно удалить кавычки чтобы команда сработала.
+:::
+
+## Поддерживаемые биржки
+Поддерживаемые биржм (до сих пор) это:
 
 -   `Binance`
 -   `Testnet Binance Futures`

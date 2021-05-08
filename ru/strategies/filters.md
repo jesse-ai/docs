@@ -4,7 +4,7 @@
 
 ## Базовый синтаксис
 
-Вопервых, добавьте `filters()` метод к вашему классе стратегии который возвращает список (list):
+Вопервых, добавьте `filters()` метод в вашему классе стратегии который возвращает список:
 ```py
 def filters(self):
     return []
@@ -12,13 +12,12 @@ def filters(self):
 
 Дальше определите фильтровочные методы, столько, сколько требуется. Они могут называться как угодно, но рекомендуется включать `filter` в название:
 
-
 ```py
 def filter_1(self):
     return abs(self.price - self.long_EMA) < abs(self.price - self.longer_EMA)
 ```
 
-And then add the method's object to the `filters` method's list:
+А затем добавьте объект метода к списку метода `filters`:
 ```py
 def filters(self):
     return [
@@ -26,8 +25,8 @@ def filters(self):
     ]
 ```
 
-::: danger
-Notice that you must only add the method's object to the list. Do not call the method! (no parentheses at the end of the method name)
+::: danger Опасно
+Обратите внимание, что вы должны добавить только объект метода в список. Не называйте метод! (Нет скобок в конце имени метода)
 
 Wrong example:
 ```py
@@ -38,22 +37,22 @@ def filters(self):
 ```
 :::
 
-## Why filters?
-There are two reasons for using them:
+## Почему фильтры?
+Есть две причины использования их:
 
-### 1. To keep entry rules clean
-Having so many conditional statements in `should_long()`/`should_short()` is not good practice. 
+### 1. Чтобы сохранить правила входа чистымы
+Так как много условных выражений в `should_long()`/`should_short()` не хорошая практика. 
 
-You should keep your entry rules as simple as possible. You can then add filters per each special condition that you would like to avoid.
+Вы должны сохранить правила вашего входа максимально простыми. Затем вы можете добавить фильтры на каждое особое условие, которое вы хотели бы избежать.
 
-### 2. Filters have access to entry and exit points
-Entry rules are defined in `should_long()` and `should_short()` functions; however entry and exit points are defined in `go_long()` and `go_short()` functions. That means if you need to evaluate a condition based on entry and exit points, you have to do it in a filter instead. 
+### 2. Фильтры имеют доступ к точкам входа и выхода
+Правила входа определены в `should_long()` а также `should_short()` функциях; Однако точки входа и выхода определены в `go_long()` и `go_short()` функциях. Это означает, что если вам нужно оценить условие на основе точек входа и выхода, вы должны сделать это в фильтре. 
 
-They say a picture worths a thousand words:
+Лучше один раз увидеть:
 
 ![filters](../../docs/imgs/filters-diagram.png)
 
-For example let's write a filter that makes sure the minimum PNL for trades is bigger than 1%:
+Например, давайте напишем фильтр, который гарантирует, что минимальный PNL для сделок больше 1%:
 
 ```py 
 def minimum_pnl_filter(self):
@@ -62,10 +61,10 @@ def minimum_pnl_filter(self):
     return pnl_percentage > 1
 ```
 
-Notice that we are using `self.average_entry_price` and `self.average_take_profit` properties which were not available inside `should_long()` methods.
+Обратите внимание, что мы используем `self.average_entry_price` и `self.average_take_profit` свойства, которые не были доступны внутри `should_long()` метода.
 
 
-### 3. Easier debugging 
-When a filter prevents opening a trade by not passing, it gets logged. 
+### 3. Легкая отладка 
+Когда фильтр предотвращает открытие сделки, не проходя, он записывается в лог.
 
-At the moment Jesse only supports backtesting so you need to run your backtests with `--debug` flag to see the logged message for filters. Later, when the live trade plugin is released, this will make a difference in your live strategies too. 
+На данный момент Джесси поддерживает только бэктесты, поэтому вам нужно запускать тесты с `--debug` флагом, чтобы увидеть зарегистрированное сообщение о фильтрации. Позже, когда плагин живой торговле будет реализован, это добавит разницу для живых стратегий тоже. 
