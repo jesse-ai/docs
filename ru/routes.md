@@ -1,80 +1,98 @@
 # Маршруты
 
-Routes are how you define which **symbol** to trade, in which **time frame**, at which **exchange**, and which **strategy** to use.
+Маршруты, это то как вы определяете, какими **символами** торговать, и какие **таймфреймы**, на каких **биржах**, по каким **стратегиям** использовать.
 
-Routes are located at the `routes.py` file in your project. 
+Маршруты находяться в файле `routes.py` вашего проекта. 
 
-## Basic syntax
+## Базовый синтаксис
 
-You must implement at least one route. Here is the basic syntax:
+Вы должны реализовать хотя бы один маршрут. Вот основной синтаксис:
 
 ```py
-(exchange, symbol, timeframe, strategy)
+(биржа, символ, таймфрейм, стратегия)
 ```
 
-Working example:
+Рабочий пример:
 
 ```py
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
+    ('Binance', 'BTC-USDT', '4h', 'TrendFollowingStrategy'),
 ]
 ```
 
-In this example, we're telling Jesse to trade `BTCUSDT` using `TrendFollowingStrategy` strategy at `Binance` exchange in `4h` time interval.
+В данном примере, мы говорим Джесси торговать `BTC-USDT` используя стратегию `TrendFollowingStrategy` на `Binance` бирже по `4h` временным интервалам.
 
-::: tip
-Instead of writing `'4h'`, you could write `timeframes.HOUR_4`. This is optional but helps to prevent misspelling string.
+::: tip Совет
+Вместо написания `'4h'`, вы могли бы написать `timeframes.HOUR_4`. Это необязательно, но помогает предотвратить неправильную строку.
 :::
+## Доступные таймфреймы:
+```py
+MINUTE_1 = '1m'  
+MINUTE_3 = '3m'  
+MINUTE_5 = '5m'  
+MINUTE_15 = '15m'  
+MINUTE_30 = '30m'  
+MINUTE_45 = '45m'  
+HOUR_1 = '1h'  
+HOUR_2 = '2h'  
+HOUR_3 = '3h'  
+HOUR_4 = '4h'  
+HOUR_6 = '6h'  
+HOUR_8 = '8h'  
+HOUR_12 = '12h'  
+DAY_1 = '1D'  
+DAY_3 = '3D'  
+WEEK_1 = '1W'
+```
+## Торговля в несколько маршрутов
 
-## Trading multiple routes
-
-You can trade more than one route at the same time. The `routes` variable is a list, so we can put multiple routes in it:
+Вы можете торговать более чем одним маршрутом одновременно. Переменная `routes` это список, так что мы можем положить в него несколько маршрутов:
 
 ```py
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
-    ('Binance', 'ETHUSDT', '15m', 'MeanReverseStrategy'),
+    ('Binance', 'BTC-USDT', '4h', 'TrendFollowingStrategy'),
+    ('Binance', 'ETH-USDT', '15m', 'MeanReverseStrategy'),
 ]
 ```
 
-::: warning
-The `exchange` and `symbol` pairs must be unique.
+::: warning Внимание
+Параметры `биржа` и `символ` пары должны быть уникальными.
 
-That means you CAN trade `BTCUSDT` at the same time in both `Binance` and `Bitfinex`; but you CANNOT trade `BTCUSDT` in `Binance` on both `1h` and `4h` timeframes at the same time.
+Это означает что вы МОЖЕТЕ торговать `BTC-USDT` в тоже время на `Binance` и `Bitfinex`; Но вы НЕ МОЖЕТЕ торговать `BTC-USDT` на `Binance` по `1h` и `4h` таймфреймам одновременно.
 
-Why? Because exchanges support only one position per symbol and we want to keep it simple.
+Почему? Потому что биржи поддерживают только одну позицию на символ, и мы  не хотим, усложнять это.
 :::
 
-## Using multiple time frames
+## Использование нескольких таймфреймов
 
-You can use multiple time frames when writing strategies.
+Вы можете использовать несколько таймфреймов при написании своей стратегии.
 
-A typical example might be to use the daily time frame to detect the bigger trend of the market, and the hourly time frame to detect the smaller trend.
+Типичный пример может быть использование ежедневных таймфреймов для обнаружения большего тренда рынка, а часовых таймфреймов для обнаружения менших тенденций.
 
-::: tip
-This is a common feature that professional traders use in their manual trading. However, in algorithmic trading, it gets tricky because of the [Look-Ahead Bias](https://www.investopedia.com/terms/l/lookaheadbias.asp). This issue _is completely taken care of_ in Jesse.
+::: tip Совет
+Это общая особенность, которую используют профессиональные трейдеры в их ручной торговле. Тем не мение, в алгоритмической торговле, это становится сложно из-за [возможной предвзятости](https://www.investopedia.com/terms/l/lookaheadbias.asp). Об этой проблеме _полностью позаботится_ Джесси.
 :::
 
-All you need to do is to define extra candles. The syntax for `extra_candles` is the same as `routes` except no need to define the _strategy_ name at the end.
+Все, что вам нужно сделать, так это определить дополнительные свечи. Синтаксис для `extra_candles` такой же как для `routes` кроме необходимости определять имя _стратегии_ в конце.
 
-For example, if you're trading `4h` time frame, and using `1D` time frame in your strategy, this is how your routes must look like:
+Например, если вы торгуете `4h` таймфреймом, и используете `1D` таймфрейм в вашей стратегии, вот как это может выглядеть:
 
 ```py
 from jesse.enums import exchanges, timeframes
 
 routes = [
-    ('Binance', 'BTCUSDT', '4h', 'TrendFollowingStrategy'),
+    ('Binance', 'BTC-USDT', '4h', 'TrendFollowingStrategy'),
 ]
 
 extra_candles = [
-    ('Binance', 'BTCUSDT', '1D'),
+    ('Binance', 'BTC-USDT', '1D'),
 ]
 ```
 
-::: warning
-You may be thinking why not just define few extra routes and leave them be; whether or not using them. That would work; however, Jesse goes through expensive calculations to make extra candles work without the [Look-Ahead Bias](https://www.investopedia.com/terms/l/lookaheadbias.asp); hence, you will be facing longer backtest simulations.
+::: warning Внимание
+Вы можете подумать почему бы просто не обозначить несколько экстра маршрутов и оставить их; и использовать ли их. Это будет работать; тем не мение, Джесси проходит через затратные расчеты чтобы сделать дополнительные свечи работать без [возможной предвзятости](https://www.investopedia.com/terms/l/lookaheadbias.asp); Следовательно, вы будете сталкиваться с более длительными симуляциями бэктестов.
 :::
