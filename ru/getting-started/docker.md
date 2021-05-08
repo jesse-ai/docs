@@ -1,62 +1,85 @@
 # Докер
 
-Нет единственного правильного пути использования Докера, их много. Однако на этой странице мы опишем один способ шаг за шагом.
+Нет единственного правильного способа использовать Docker; их много. На этой странице, тем не мение, мы опишем минимальную установку, готовую к работе с [docker compose](https://docs.docker.com/compose).
 
-Во-первых, извлеките образ из DockerHub:
+Если вы ищете готовую сборку, смотрите репозиторий [jesse-stack-docker](https://github.com/jesse-ai/jesse-stack-docker). Нажмите на `Use as template` и тяните свой ответвленный репозиторий локально.
+Этот репозиторий использует файл docker-compose который включает несколько сервисов: основной jesse, базу данных postgres, информацию о сделках [jesse trade info](https://github.com/nicolay-zlobin/jesse-trades-info) веб-график созданный для обзора результатов тестирования. Он монтирует локальные файлы для сохранения на вашей базе данных вашей машины, база данных хранит историю торгов используемых для бэктестов, и ваши файлы стратегии Джесси:
 ```sh
-docker pull salehmir/jesse:python38
+# docker-compose.yml
+version: '3.8'
+
+services:
+
+  jesse:
+    image: salehmir/jesse:0.21.3
+    depends_on:
+      - db
+      - jesse-trades-info
+    environment:
+      ENV_DATABASES_POSTGRES_HOST: "db"
+
+# Inject api credentials from host env (only for live):
+#      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY}
+#      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET}
+
+# Inject api credentials from env file (only for live):
+#    env_file:
+#      .env
+
+    ports:
+      - 8888:8888
+    volumes:
+      - ./jesseData:/home
+# Mount the live package as volume (only for live):
+#      - ./jesse_live-0.0.2-cp39-cp39-manylinux2010_x86_64.whl:/jesse_live-0.0.2-cp39-cp39-manylinux2010_x86_64.whl
+
+  jesse-trades-info:
+    image: jessetradesinfo/jesse-trades-info:v0.2.1
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: jesse_db
+      DB_USER: jesse_user
+      DB_PASSWORD: password
+      DB_PORT: 5432
+    ports:
+      - 3000:3000
+
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: jesse_user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: jesse_db
+      POSTGRES_HOST_AUTH_METHOD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - ./dbData:/var/lib/postgresql/data
+
 ```
 
-Предполагаю, что вы запускаете Докер на своем локальном компьютере (а не на VPS), вы, вероятно, захотите отредактировать свой проект с помощью редактора кода.
-
-В таком случае, я создам и назову директорию `home` на локальном компьюетре и позже а затем сопоставлю его с каталогом `/home` контейнера. Таким образом, можно редактировать свой проект либо на своем компьюетере (с помощью IDE), либо из контейнера, и изменения будут и там и там.
-
+Запуск контейнера Джесси и его зависимостей:
 ```sh
-# to get the exact path to my local machine's home directory:
-pwd
-# /Users/saleh/Codes/tests/docker/home
+docker-compose run jesse bash
 ```
-
-Теперь я создаю контейнер из образа Джесси, называю его `jesse` для облегчения доступа, сопоставляю c `/home` директорией, и публикую порт контейнера `8888` на хосте (на случай если вы хотите получить доступ к ноутбукам Jupyter из браузера хоста):
-
-```sh
-docker run -v /Users/saleh/Codes/tests/docker/home:/home -p 8888:8888 -it --name jesse salehmir/jesse:python38 /bin/bash
-# root@7caf4a8a8a59:/#
-```
-
-Теперь вы будете внутри образа ubuntu, на котором установлен весь необходимый стек и даже пакеты pip.
-
-Поскольку PostgreSQL изначально не запускается после запуска контейнера, запустите его с помощью команды:
-```
-sudo service postgresql start
-```
-
-Чтобы убедиться, что у вас установлена последняя версия Джесси, вам необходимо установить ее вручную:
-```
-pip install jesse
-``` 
-
-Теперь давайте создадим новый проект в `/home` чтобы мы могли открыть его с помощью редактора кода:
+Теперь вы вошли в терминал внутри контейнера Джесси, давайте создадим новый проект в `/home`, докер монтирует диск вашей локальной машины, так что мы можем открыть его с помощью редактора кода:
 ```sh
 cd /home
 jesse make-project mybot
 ```
 
-Теперь вы найденте каталог `mybot` на локальном компьютере. В этом примере он расположен в `/Users/saleh/Codes/tests/docker/home/mybot`. Откройте его в своём IDE и пишите свои стратегии.
+Теперь вы найдете `mybot` каталог в вашем локальном компьютере. Откройте его редактором кода и напишите свои собственные стратегии. 
 
-Чтобы запустить команды jesse, откройте контейнер, переместитесь `cd` в проект и запустите джесси внутри него. Например запустите команду `routes`, чтобы увидеть текущие маршруты.
+Когда вы закончите с контейнером, вы можете выйти с помощью `exit` команды. 
 
-```
-jesse routes
-```
-
-Когда вы закончили с контейнером, вы можете выйти, используя команду `exit`.
-
-В следующий раз, когда вы захотите получить доступ к контейнеру не нужно повторять вышеуказанные шаги. Просто перезапустите контейнер, а затем запустите базу данных.
-
+Чтобы остановить весь контейнер и зависимости
 ```sh
-# to reattach to created container 
-docker restart jesse && docker exec -it jesse bash
-# start PostgreSQL
-sudo service postgresql start
+docker-compose stop
+```
+
+В следующий раз, когда вы хотите получить доступ к контейнеру, конечно, вам не нужно повторять вышеуказанные шаги. Просто перезапустите контейнер, а затем запустите базу данных:
+```sh
+docker-compose run jesse bash
 ```
