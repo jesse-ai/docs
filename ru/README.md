@@ -14,5 +14,5 @@ tagline: An advanced algo-trading framework
 
 ## Некоторые особенности перевода
 
-routes - маршруты
-extra candles - экстра свечи
+- routes - маршруты
+- extra candles - экстра свечи
