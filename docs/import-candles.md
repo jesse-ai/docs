@@ -12,7 +12,7 @@ A working example would be:
 jesse import-candles 'Binance' 'BTC-USDT' '2018-06-01'
 ```
 
-This will import candles for `BTC-USDT` from Binance since `2018-01-01` until this very moment.
+This will import candles for `BTC-USDT` from Binance since `2018-06-01` until this very moment.
 
 ::: tip
 You may run this command as many times as you desire. Duplicate candles will get skipped automatically. 
