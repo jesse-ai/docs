@@ -9,7 +9,7 @@ jesse import-candles exchange symbol start_date
 A working example would be:
 
 ```
-jesse import-candles Binance BTC-USDT 2018-06-01
+jesse import-candles 'Binance' 'BTC-USDT' '2018-06-01'
 ```
 
 This will import candles for `BTC-USDT` from Binance since `2018-06-01` until this very moment.
