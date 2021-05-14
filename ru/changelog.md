@@ -1,111 +1,187 @@
 # Ченджлист
 
-Here you can see that changes were made at each release.
+Здесь будет списки изменений которые были сделаны при каждом выпуске.
+
+## 0.22.0
+- [ОТБОЙКА] Для последовательности `ta.vwmacd` сейчас используется `signal_period` взамен `signalperiod`
+- [Улучшение] Обновленный образ Docker. От [TheCrazyLex](https://github.com/TheCrazyLex). 
+- [Улучшение] обновления пакетов -  scipy от `1.6.2` к `1.6.3`, arrow от `1.0.3` к `1.1.0`, quantstats от `0.0.30` к `0.0.32`, websocket-client от `0.58.0` к `0.59.0`, quantstats от `0.0.32` к `0.0.34`, pytest от `6.2.3` к `6.2.4`
+- [Улучшение] Округление для режимов Live или Paper теперь использует необходимую точность от биржи. Мог раньше вызывать исключения для монет с экзотическими  требованиями точности.
+- [Улучшение] `risk_to_qty` и `size_to_qty` сейчас округляет qty вниз. В некоторых случаях qty, например `self.available_margin` / `self.capital` приводит к  исключению: InsufficientMargin.
+- [Улучшение] `risk_to_qty` сейчас принимает параметр `precision`.
+- [Улучшение] Полный отчет (квантстатс) сейчас использует 365 торговых дней для метрик которые делают расчеты крипто-дружелюбнее. От [sbkhosh](https://github.com/sbkhosh) и [mblum](https://github.com/mblum). 
+- [Стратегия] В ExampleStrategy в imports включены ta и utils по умолчанию.
+- [Исправление] Ошибка `ta.minmax` решена.  Именованый кортеж поменяли: `min -> is_min ` и  `max -> is_max`
+- [Исправление] Настройка конфигурации через переменные среды теперь также работает, когда есть пробелы. От [julesGoullee](https://github.com/julesGoullee). 
+- [НОВАЯ ФИЧА] Новый индикатор: Polarized Fractal Efficiency (PFE)
+
+## 0.21.3
+- [НОВАЯ ФИЧА] Добавлены отчеты HTML с более детальными метриками и графиками включаемыим с помощью флага `--full-reports` в ваших бэктестах. От [nicolay-zlobin](https://github.com/nicolay-zlobin). 
+- [НОВАЯ ФИЧА] Новые индикаторы: Elder Ray Index (ERI), ttm_trend, kurtosis, mean_ad, median_ad, skewness
+- [Улучшение] Добавлена проверка правильности формата (с чертой) в режиме импорта свечей - предотвращение возможной путаницы и полученные ошибки.
+- [Улучшение] Свойство @cached было добавлено для улучшения производительности и избегания ненужных повторных расчетов. Это разумно применяется в классе стратегии и доступно с помощью импорта индикатора в пользовательсной стратегии. Некоторые стратегии могут увидеть огромное повышение производительности из-за этого.
+- [Улучшение] Все индикаторы сейчас используют функции помощников same_length и slice_candles. 
+- [Улучшение] `self.metrics` в настоящее время рассчитывается только в том случае, если бы торговля произошла, это приводит к повышению производительности.
+- [Улучшение] старый способ работы со строками (формат) был заменен с более быстрым f-strings и лидирующим улучшением производительности. 
+- [Исправление] Ошибочные исключения InsufficientMargin которые были вызваны reduce_only orders. 
+- [Исправление] Ошибка в экспорте в json из бэктеста сейчас исправлена.
+- [Исправление] Используя фьючерсный режим, вы должны были добавить все используемые активы в файл config.py - хотя это должно было быть только для режима спот. Это больше не нужно. Кроме того, режим спот теперь дает более четкую ошибку, если активы отсутствуют в конфиге.
+- Несколько подготовок для плагина режима живой торговли. Другие режимы не подвержены этим.
+
+## 0.20.0
+- Новые индикаторы: Fibonacci's Weighted Moving Average (FWMA), Sine Weighted Moving Average (SINWMA), Chande Forcast Oscillator (CFO), Kaufman Efficency indicator, High Pass Filter 2-Pole, Supersmoother 3-Pole, Kaufmanstop, Safezonestop, Devstop, RSMK, STC, RVI, VWAP, 
+- Новые таймфреймы: `45m`, `12h`, `3D`, `1W` 
+- [Улучшение] Индикаторы теперь используют настроенные разогревочные свечи
+- [Фикс] Спот должен работать опять, исправление от [discohead](https://github.com/discohead)
+- [Фикс] Иногда пользователели получают исключюнение InsufficentMargin - это было вызвано небольшим багом в обработке кредитного плеча рыночных ордеров.
+- [Улучшение] Продолжительность теперь отображаются без десятичных единиц от[maebert](https://github.com/maebert)
+- [Улучшение] Утилита crossed должна стать несколько быстрее, потому что мы используем numpy.
+
+## 0.19.2
+- Добавлено свойство `metrics` в АПИ стратегии. 
+- Добавлено свойство `available_margin` в АПИ стратегии. 
+- Добавлено свойство `leverage` в АПИ стратегии. 
+- Обновил поведение `capital`. Теперь возвращает баланс кошелька. 
+- Добавлена поддержка кредитного плеча (за исключением механизма ликвидации)
+- [ОТБОЙКА] Изменили значение конфигурации для работы с помощью поддержки кредитного плеча. Сейчас вместо `margin` вам нужно ввести `futures`. 
+- Добавлено свойство `total_cost` в модель Position. 
+- Добавлено свойство `roi` (возврат от инвестиций) В модель Position. Рассчитано при рассмотрении плеча, тем же способом, который делается на Binance Futures. 
+- Добавлен индикатор `RSX`.
+- Добавлена метрика Изменения рынка.
+- Добавлены функции утилит `signal_line()`, `streaks()`, `kelly_criterion()`, `strictly_increasing()`, `strictly_decreasing()`, и `dd()`. 
+- Добавлено свойсвто `trades` в АПИ стратегии для получения предыдущих сделок от[nicolay-zlobin](https://github.com/nicolay-zlobin). 
+- Updated the docker image. Updated the docs to work with docker-compose. By [julesGoullee](https://github.com/julesGoullee).
+- Exported trades as json now include `considering_timeframes` by [julesGoullee](https://github.com/julesGoullee).
+- Added `--skip_confirmation` flag to `import-canldes` command to avoid confirmation on candle duplicates by [Gabri](https://github.com/Gabri).
+
+## 0.18.0
+- [ОТБОЙКА] Отключена поддержка Python `3.6`
+- [ОТБОЙКА] Исправлен синтаксив описания обменных символов, нужно добавлять `-` в середине, для разделения базового и котируемый активов. Вместо `BTCUSD` сейчас нужно писать `BTC-USD`. 
+- Добавлена элетарность в алгоритм генетики/эволюции от [fjelic](https://github.com/fjelic)
+
+## 0.17.0
+- [ОТБОЙКА] Пропускает объект `order` как параметр для событийных методов таких как `on_open_position`, `on_take_profit`, `on_stop_loss`, `on_reduced_position`, и `on_increased_position`.
+- Исправлен баг для добавления открытых позиций используя `self.buy` and `self.sell`. 
+- Добавлены свойства `increased_count` и `reduced_count` в АПИ стратегии. 
+- [ОТБОЙКА] удалены свойства `is_reduced` и `is_increased`. 
+- Добавлен метод `after()` для АПИ стратегий
+- [ОТБОЙКА] Переименован метод `prepare()` на `before()`
+
+## 0.16.0
+- Добавлена валидация маршрута
+- Улучшена производительность загрузки свечей для свечей с несколькими торговыми маршрутами
+- Добавлено свойство `routes` в АПИ стратегии
+- Улучшения в сообщениях об исключениях
+- Добавлено `has_active_entry_orders` свойство для АПИ стратегии
+- Улучшены визуализации сделок на сгенерированных графиках бэктестов от (macd2)[https://github.com/macd2]
+- Фиксированная обработка открытой торговли в конце бектеста
 
 ## 0.15.1
-- Added support for Python 3.9
-- Fixed calculations of formulas depending on Quantopian's empyrical package (like annual return, Sharpe Ratio, etc) using [our own fork](https://github.com/jesse-ai/crypto-empyrical) of it. 
-- Changed default value of `type` for all exchanges in `config.py` to `margin`
-- Added damiani_volatmeter indicator
+- Добавлена поддержка Python 3.9
+- Исправлены расчеты в формулах в зависимости от сборки Quantopian (такие как годовой возврат (annual return), коэффициент Шарпа, и тд) используя [собственный форк](https://github.com/jesse-ai/crypto-empyrical) этого.
+- Исправлены значения по умолчанию для `type`  для всех бирж в `config.py` на `margin`
+- Добавлен индикатор damiani_volatmeter 
 
 ## 0.14.1
-- Changed the color of printed logs in `--debug` mode to white for more readability
-- Fixed a bug where `should_cancel()` was being executed in strategies with multiple entry orders
-- Made caching configurable. You can now change the settings for your cache driver or completely disable it 
-- Added `sum_floats()` and `subtract_floats()` utility functions 
-- Fixed a bug where position stayed open with a close-to-zero size caused by rounding issues in Python 
-- Fixed for a bug in detecting executed orders with candles with gap
-- Added support for reduce-only orders (take-profit and stop-loss orders)
-- Added VossFilter indicator 
-- Added TrendFlex indicator 
-- Added ReFlex indicator 
-- Added High Pass Filter indicator 
-- Added Roofing indicator 
-- Added DV indicator 
+- Изменен цвет распечатки логов при режимие `--debug` чтобы улучшить читаемость
+- Исправлена ошибка, где `should_cancel()` выполнялся в стратегиях с несколькими точками входа
+- Сделали кэширование настраиваемым. Вы можете поменять настройку для своего драйвера кеша или вовсе выключить кеширование
+- Добавлены функции в утилиты `sum_floats()` and `subtract_floats()`
+- Исправлен баг в котором позиция оставалась открытой с размером близкому к нулю, вызванному вопросами округления в Python
+- Исправлен баг в определении выполненных ордеров со свечами с разрывом
+- Добавлена поддержка только уменьшения ордера (ордера на получение прибыли и фиксацией убытков)
+- Добавлен индикатор VossFilter
+- Добавлен индикатор TrendFlex 
+- Добавлен индикатор ReFlex
+- Добавлен индикатор High Pass Filter
+- Добавлен индикатор Roofing
+- Добавлен индикатор DV
+
 
 ## 0.13.1
-- Added support for balance handling for trading on spot markets 
-- Improved calculation and logging of fees (when `--debug` flag is enabled)
-- Improved calculation of daily balance change. It is now more accurate.
-- Improved format in displaying of currencies. Instead of `10000`, it now displays `10,000`.
+- Добавлена поддержка обработка баланка для торговли на спотовых рынках
+- Улучшены расчеты и сохранения логов о комиссиям (когда флаг --debug включен)
+- Улучшены расчеты и отображение ежедневных изменений баланка. Сейчас они гораздо аккуратнее.
+- Улучшен формат отображения валют. Взамен `10000`, сейчас он отображается как `10,000`.
 
 ## 0.12.7
-- Made number of warmup candles configurable
-- Fixed an issue with log folder being absent in newly created projects by [jparklev](https://github.com/jparklev)
-- Improved performance of the chande indicator
+- Сделана возможность конфигурирования количества разогревочных свечей 
+- Исправлена проблема с директорией логов в только созданных проектах от [jparklev](https://github.com/jparklev)
+- Улучшена производительность индикатора chande
 
 ## 0.12.2
-- Added the `--cpu` option for the optimize mode to specify the number of cpu cores to use when running the optimize mode. 
-- Improved monitoring dashboard of the optimization mode. 
+- Добавлен опционный флаг `--cpu` для режима оптимизации чтобы специфицировать количество ядер которые будут задействованы для оптимизации
+- Улучшение панели мониторинга для режима оптимизации
 
 ## 0.12.1
-- Renamed `hyper_parameters()` method to `hyperparameters()`
-- Fixed `--dna` flag in "jesse routes" command
-- Improved error detection in the optimize mode
-- Fixed when few of DNA trials caused optimize session to fail entirely
-- Optimize mode's traceback is now printed to a log file
-- Improved optimize mode's monitoring dashboard
-- Fixed an issue with newly created projects missing the log directory
-- Added `.csv` and `.json` files to gitignore of newly created projects
+- Переименование метода `hyper_parameters()` в `hyperparameters()`
+- Испраление флагов `--dna` и команды "jesse routes"
+- Улучшенное обнаружение ошибок в режиме оптимизации
+- Завершает неудачно сессию оптимизации ДНК в случае когда нет достаточного количества данных
+- Трассировка режима оптимизации теперь печатается в файл журнала
+- Улучшена панель мониторинга режима оптимизации
+- Исправление проблемы с вновь созданными проектами связанными с потерей папки логов
+- Добавлены `.csv` и `.json` в gitignore для новых проектов
 
 ## 0.11.0
-- Implemented the initial version of the optimize mode which uses the Genetic Algorithm to find the best parameters for your strategy. 
+- Реализовано начальная версия режима оптимизации, который использует генетический алгоритм для поиска лучших параметров для вашей стратегии.
+
 
 ## 0.10.0
-- Suppression of the "FutureWarning: pandas.util.testing is deprecated" caused by empyrical
-- Added KST indicator
-- Added Coppock curve indicator
-- Added vortex indicator
-- Added EFI indicator
-- Added Chandelier Exit indicator
-- Update of scipy and matplotlib
-- Fixed issue related to NegativeBalance
-- Some fixes and additions related to pytest
+- Подавление "FutureWarning: pandas.util.testing is deprecated" empyrical
+- Добавлен индикатор KST
+- Добавлен индикатор Coppock curve
+- Добавлен индикатор vortex
+- Добавлен индикатор EFI
+- Добавлен индикатор Chandelier Exit
+- Обновление scipy and matplotlib
+- Исправление связанные с NegativeBalance (Отрицательным Балансом)
+- Некоторые исправления и дополнения связанные с pytest
 
 ## 0.9.0
-- Refactored directories that generated output files are stored at (csv, json, tradingview, charts). 
-- `json` logs files are disabled by default. You now HAVE TO use the `json` flag to enable it. 
-- Added CSV output for completed trades by [h0ke](https://github.com/h0ke).
+- Рефакторинг директорий, которые хранят файлы (csv, json, tradingview, charts). 
+- `json` файлы логов по умолчанию отключены. Сейчас нужно включать флаг `json` чтобы использовать их. 
+- Добавлен вывод в CSV для завершенных сделок от [h0ke](https://github.com/h0ke).
 
 ## 0.8.2
-- Added exception for when trying to spend more than available exchange balance by [fengkiej](https://github.com/fengkiej)
-- Added [fee_rate](/docs/strategies/api.html#fee-rate) property to Strategy API
-- Added `fee_rate` as optional parameter for [risk_to_qty](/docs/utils.html#risk-to-qty) and [size_to_qty](/docs/utils.html#size-to-qty) utilities
-- Added readable error for when strategy structure is incorrect
-- [numpy_candles_to_dataframe](https://docs.jesse.trade/docs/utils.html#numpy-candles-to-dataframe) now uses Pandas datetime format for candle timestamps by [lightyear15](https://github.com/lightyear15)
-- Improved exception text for unsupported exchanges
+- Добавлено исключения для попытки потратить баланса больше чем доступный баланс от [fengkiej](https://github.com/fengkiej)
+- Добавлены [fee_rate](/docs/strategies/api.html#fee-rate) свойство к API стратегии
+- Добавлены `fee_rate` как опционный параметр [risk_to_qty](/docs/utils.html#risk-to-qty) и [size_to_qty](/docs/utils.html#size-to-qty) utilities
+- Добавлена читабельная ошибка для новой структуры стратеггии в случае ее некоректности
+- [numpy_candles_to_dataframe](https://docs.jesse.trade/docs/utils.html#numpy-candles-to-dataframe) использует формат даты и времени для свечей от [lightyear15](https://github.com/lightyear15)
+- Улучшение текста исключения для неподдерживаемых бирж
 
 ## 0.7.1
-- Added the [\_\_init\_\_](./entering-and-exiting.html#init) method to the strategy API
-- Added the [terminate()](./entering-and-exiting.html#terminate) method to the strategy API
-- Added validation for `qty==0`
-- Added additional parameters to srsi indicator by [Gabri](https://github.com/Gabri)
+- Добавлен [\_\_init\_\_](./entering-and-exiting.html#init) метод инициализации в АПИ стратегии
+- Добавлен [terminate()](./entering-and-exiting.html#terminate) метод в АПИ стратегии
+- Добавлена валидация для `qty==0`
+- Добавлен дополнительный параметр для индикатора srsi от [Gabri](https://github.com/Gabri)
 
 
 ## 0.6.3
-- Fix issue [#34](https://github.com/jesse-ai/jesse/issues/34)
-- Made filter misusage exception more readable
-- Added new ratios in metrics: Calmar, Sortino, Omega
-- Improve TradingView output by [Gabri](https://github.com/Gabri)
-- Added supersmoother indicator
-- Added gauss indicator
-- Added itrend indicator
-- Added faulty indicator
-- Added beta indicator
-- Added LINEARREG_ANGLE - Linear Regression Angle indicator
-- Added LINEARREG - Linear Regression indicator
-- Added AVGPRICE - Average Price indicator
-- Added VWMACD - Volume Weighted Moving Average Convergence/Divergence indicator
-- Added AD - Chaikin A/D Line indicator
-- Added keltner indicator by [jeremytregunna](https://github.com/jeremytregunna)
+- Исправление по [#34](https://github.com/jesse-ai/jesse/issues/34)
+- Исключение неправильного использования фильтра стало более читаемое
+- Добавлены новые соотношения в метриках: Calmar, Sortino, Omega
+- Улучшен вывод в TradingView от [Gabri](https://github.com/Gabri)
+- Добавление индикатор supersmoother
+- Добавлен индикатор gauss
+- Добавлен индикатор itrend
+- Добавлен индикатор faulty
+- Добавлен индикатор beta
+- Добавлен индикатор LINEARREG_ANGLE - индикатор угла линейной регрессии
+- Добавлен индикатор LINEARREG - индикатор линейный регрессии
+- Добавлен индикатор AVGPRICE - индикатор средней цены
+- Добавлен индикатор VWMACD - Volume Weighted Moving Average Convergence/Divergence
+- Добавлен индикатор AD - Chaikin A/D Line
+- Добавлен индикатор Келтнера (keltner) от [jeremytregunna](https://github.com/jeremytregunna)
 
 ## 0.5.0
-- Fixed an [issue](https://forum.jesse.trade/d/37-strange-behavior-on-filters) with filters. 
-- Fixed an [issue](https://github.com/jesse-ai/jesse/issues/19) with CWD
-- Added new indicators: Hull Moving Average, Zero-Lag Exponential Moving Average, Donchian Channels, Empirical Mode Decomposition, RSI Laguerre Filter, True strength index (TSI), Fractal Adaptive Moving Average (FRAMA), Awesome Oscillator, Alligator, SMMA (Smoothed Moving Average)
+- Исправлена [проблема](https://forum.jesse.trade/d/37-strange-behavior-on-filters) с фильтрами. 
+- Исправлена [проблема](https://github.com/jesse-ai/jesse/issues/19) с CWD (определением текущей рабочей директории)
+- Добавлены новые индикаторы: Hull Moving Average, Zero-Lag Exponential Moving Average, Donchian Channels, Empirical Mode Decomposition, RSI Laguerre Filter, True strength index (TSI), Fractal Adaptive Moving Average (FRAMA), Awesome Oscillator, Alligator, SMMA (Smoothed Moving Average)
 
 ## 0.4.0
-- Added [Tulipy](https://pypi.org/project/tulipy/) library as a dependency. 
-- Added [vwma](./indicators/reference.html#vwma), [srsi](./indicators/reference.html#srsi), and [fisher](./indicators/reference.html#fisher) indicators. 
-- Added support for `8h` timeframe.
-- Removed the wrong time estimation for import-candles mode. [PR](https://github.com/jesse-ai/jesse/pull/14/files) by [0xVox](https://github.com/0xVox).
+- Добавлена библиотека [Tulipy](https://pypi.org/project/tulipy/) как зависимость. 
+- Добавлены индикаторы [vwma](./indicators/reference.html#vwma), [srsi](./indicators/reference.html#srsi), и [fisher](./indicators/reference.html#fisher). 
+- Добавлена поддержка `8h` таймфреймов.
+- Удалена неправильная оценка времени для режима импорта-свечей. [PR](https://github.com/jesse-ai/jesse/pull/14/files) by [0xVox](https://github.com/0xVox).

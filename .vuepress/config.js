@@ -21,10 +21,10 @@ module.exports = {
     editLinks: true,
 
     locales: {
-        '/' : {
+        '/': {
             lang: 'en-US', // this will be set as the lang attribute on <html>
             title: 'Jesse',
-            description: 'AI Trading System for Cryptocurrencies.',            
+            description: 'AI Trading System for Cryptocurrencies.',
         },
         '/ru/': {
             lang: 'ru-RU',
@@ -44,8 +44,7 @@ module.exports = {
 
                 editLinks: 'Edit page',
 
-                nav: [
-                    {
+                nav: [{
                         text: 'Home',
                         link: 'https://jesse.trade',
                     },
@@ -66,7 +65,7 @@ module.exports = {
                         link: 'http://github.com/jesse-ai/jesse',
                     },
                 ],
-        
+
                 sidebar: [
                     ['/docs/', 'Introduction'],
                     {
@@ -149,18 +148,17 @@ module.exports = {
                     // ['/docs/license', 'License']
                 ],
             },
-            "/ru/" : { 
+            "/ru/": {
 
-                docsRepo: 'jesse-ai/ru',
-                docsBranch: 'master', 
+                docsRepo: 'jesse-ai/docs',
+                docsBranch: 'master',
 
                 selectText: 'Языки',
                 label: 'Русский',
 
-                editLinks: 'Исправить источник',
-                               
-                nav: [
-                    {
+                editLinks: 'Исправить на Гитхаб',
+
+                nav: [{
                         text: 'Главная',
                         link: 'https://jesse.trade',
                     },
@@ -216,9 +214,54 @@ module.exports = {
                             ['/ru/strategies/filters', 'Фильтры'],
                             ['/ru/strategies/api', 'Справка по API'],
                         ],
-                    }
+                    },
+                    {
+                        title: 'Индикаторы', // required
+                        path: '/ru/indicators/', // optional, which should be an absolute path.
+                        collapsable: false,
+                        sidebarDepth: 1,
+                        children: [
+                            ['/ru/indicators/', 'Индикаторы'],
+                            ['/ru/indicators/reference', 'Ссылки по индикаторам'],
+                            ['/ru/indicators/custom-indicators', 'Пользовательские индикаторы']
+                        ],
+                    },
+                    ['/ru/utils', 'Утилиты'],
+                    ['/ru/backtest', 'Бэктесты'],
+                    ['/ru/livetrade', 'Живой трейдинг'],
+                    // ['/docs/papertrade', 'Трейдинг бумажками'],                    
+                    {
+                        title: 'Оптимизации стратегий', // required
+                        path: '/ru/optimize/', // optional, which should be an absolute path.
+                        collapsable: false, // optional, defaults to true
+                        sidebarDepth: 1, // optional, defaults to 1
+                        children: [
+                            ['/ru/optimize/', 'Вступление'],
+                            ['/ru/optimize/hyperparameters', 'Гиперпараметры'],
+                            ['/ru/optimize/executing-the-optimize-mode', 'Выполнение режима оптимизации'],
+                            ['/ru/optimize/dna-usage', 'Использование ДНК'],
+                            ['/ru/optimize/overfitting', 'Переобучение'],
+                        ],
+                    },
+                    // ['/docs/notifications', 'Notifications'],
+                    ['/ru/jupyter-notebooks', 'Ноутбуки Jupyter'],
+                    ['/ru/debugging', 'Отладка'],
+                    {
+                        title: 'Часто задаваемые вопросы',
+                        path: '/ru/faq/',
+                        collapsable: false,
+                        sidebarDepth: 1,
+                        children: [
+                            ['/ru/faq/', 'Вступление'],
+                            ['/ru/faq/can-i-trade-multiple-pairs-at-once.md', 'Могу ли я торговать несколькими парами одновременно?'],
+                            // ['/docs/faq/environment-setup', 'Environment Setup'],
+                        ],
+                    },
+                    ['/ru/changelog', 'Лог изменений.'],
+                    // ['/docs/faq', 'Frequently Asked Questions'],
+                    // ['/docs/license', 'License']                   
                 ],
             }
-        } 
+        }
     }
 }
