@@ -156,7 +156,7 @@ module.exports = {
                 selectText: 'Языки',
                 label: 'Русский',
 
-                editLinks: 'Исправить на Гитхаб',
+                editLinks: 'Исправить источник',
 
                 nav: [{
                         text: 'Главная',
@@ -257,7 +257,7 @@ module.exports = {
                             // ['/docs/faq/environment-setup', 'Environment Setup'],
                         ],
                     },
-                    ['/ru/changelog', 'Лог изменений.'],
+                    ['/ru/changelog', 'Лог изменений'],
                     // ['/docs/faq', 'Frequently Asked Questions'],
                     // ['/docs/license', 'License']                   
                 ],
