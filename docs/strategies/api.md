@@ -96,12 +96,29 @@ Returns the current wallet in your exchange wallet. In the futures market, it be
 
 This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
 
+Each candle's timestamp is the beginning of that time period, not the ending but the actual time it began.
+
+The candles are grouped according to the exchange-pairs' timeframe set in routes.py.
+
 **Return Type:** np.ndarray
 
 **Example**:
 ```py
 # get SMA with a period of 8 for current trading route
 sma8 = ta.sma(self.candles, 8)
+```
+
+**Example**:
+```py
+# get candles details - current trading route timeframe is '1h'
+lastcandle = self.candles[-1]
+print(lastcandle)  # [1.61982720e+12 5.76972500e+04 5.78114200e+04 5.80880000e+04 5.74210500e+04 3.48044949e+03]
+timestamp_ms = lastcandle[0] # Saturday, May 1, 2021 12:00:00 AM
+open = lastcandle[1]
+close = lastcandle[2]
+high = lastcandle[3]
+low = lastcandle[4]
+volume = lastcandle[5]
 ```
 
 ## capital
