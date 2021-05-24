@@ -316,6 +316,33 @@ The `leverage` property returns the leverage number that you have set in your co
 
 **Return Type**: int
 
+## liquidation_price
+
+The `liquidation_price` property returns the price at which the position will get liquidated which is used in futures exchanges only. At the moment, backtests support the `isolated` mode only and not the cross mode. 
+
+In the live mode, the value for the `liquidation_price` is fetched from the exchange once every minute so what you see in the dashboard isn't updated in real-time. 
+
+**Return Type**: float
+
+## mark_price
+
+The `mark_price` property returns the mark-price in futures exchanges which are used for the calculation of the liquidation price. This property is used for live trading futures exchanges only. During backtests, it equals to `self.price`. 
+
+**Return Type**: float
+
+
+## funding_rate
+
+The `funding_rate` property returns the current funding rate in futures exchanges. This property is used for live trading futures exchanges only. During backtests, it equals `0`. 
+
+**Return Type**: float
+
+## next_funding_timestamp
+
+The `next_funding_timestamp` property returns the timestamp for the next funding. It is used only when trading perpetual contracts. This property is used for live trading futures exchanges only. During backtests, it equals `None`. 
+
+**Return Type**: int
+
 
 ## liquidate
 
@@ -566,4 +593,3 @@ Using `vars` would also make it easier for debugging.
 
 
 **Return Type**: dict
-
