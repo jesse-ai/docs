@@ -22,7 +22,7 @@ Most of them, if not all, are installed on your machine. We provide guides on ho
 
 ## PIP Installation
 
-First install the required dependency packages:
+First make sure you have installed TA-lib's dependencies following its [documentaion](https://github.com/mrjbq7/ta-lib#dependencies). Then install the required dependency packages for Jesse:
 ```
 pip install -r https://raw.githubusercontent.com/jesse-ai/jesse/master/requirements.txt
 ```
