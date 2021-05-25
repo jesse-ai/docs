@@ -1,11 +1,11 @@
 
 # Продвинутый - добавление пользовательского индикатора
 
-Your strategy idea needs indicators, that aren't available yet? Let's see how to create and use custom indicators in Jesse. 
+Ваша идея нуждается в индикаторах, которых еще нет? Давайте посмотрим, как создавать и использовать пользовательские индикаторы в Джесси.
 
-## Tutorial for a custom indicator
+## Учебник по созданию пользовательского индикатора
 
-In this tutorial, we will convert [Elliott Wave Oscillator by Centrokom](https://id.tradingview.com/script/Q29rCz5S-Elliott-Wave-Oscillator/) that is originally written in Pine Script to a custom indicator usable in Jesse. The following is the original code from Tradingview:
+В этом руководстве мы будем переписывать [Elliott Wave Oscillator by Centrokom](https://id.tradingview.com/script/Q29rCz5S-Elliott-Wave-Oscillator/) который инзначально написана на Pine Script на пользовательский индикатор используемый в Джесси. Ниже приведен исходный код из Tradingview:
 ```js
 //@version=3
 study("Elliott Wave Oscillator")
@@ -14,24 +14,24 @@ c_color=s2 <= 0 ? red : lime
 plot(s2, color=c_color, style=histogram, linewidth=2)
 ```
 
-Now, let's start the creation of our first custom indicator:
-1. Create a new folder called `custom_indicators` and it's `__init__.py` file in project's `ROOT` folder.
-2. Then create a new file for the actual indicator, in this case we name it: `ewo.py` for our Elliott Wave Oscillator.
-3. The folder structure should look like this:
+Итак, давайте начнем создание нашего первого пользовательского индикатора:
+1. Создайте новую папку под названием `custom_indicators` и создайте `__init__.py` файл в корне этой папки.
+2. Затем создайте новый файл для этого индикатора, в этом примере мы назовев его: `ewo.py` для Elliott Wave Oscillator.
+3. Структура папок должна выглядеть приблизительно так:
 ```sh
-├── config.py # file where you enter your database credentials, etc
-├── routes.py # file where routes are defined in 
-├── storage # folder containing logs, chart images, etc
-├── strategies # folder where you define your strategies
-└── custom_indicators # folder for Jesse's custom indicator
+├── config.py # файл где вы прописываете свои учетные данные бд и тд
+├── routes.py # файл где находятся ваши торговые роуты
+├── storage # папка которая содержит логи, картинги графиков и все такое
+├── strategies # папка где вы храните ваши стратегии и тд
+└── custom_indicators # папки пользовательских индикаторов храняться здесь
     ├── __init__.py
     └── ewo.py
 ```
-4. Import the custom indicator file in `custom_indicators/__init__.py`.
+4. Импортируйте пользовательский индикатор в `custom_indicators/__init__.py`.
 ```python
 from .ewo import ewo
 ```
-5. Now we can start creating the actual indicator code in `ewo.py`.
+5. Теперь мы можем создавать пользовательский индикатор в `ewo.py`.
 ```python
 import numpy as np
 import talib
@@ -60,7 +60,7 @@ def ewo(candles: np.ndarray, short_period: int = 5, long_period: int = 34, sourc
     else:
         return ewo[-1]
 ```
-6. Finally, to use the indicator in a trading strategy, we add the custom_indicators as library.
+6. В конце, мы используем индикатор в торговой стратегии, мы добавляем папку custom_indicators как библиотеку.
 ```python
 from jesse.strategies import Strategy
 import custom_indicators as cta
@@ -70,10 +70,10 @@ class Strategy01(Strategy):
     def ewo(self):
         return cta.ewo(self.candles, short_period=5, long_period=34, source_type="close", sequential=True)
 ```
-## Hints
-### Accessing open, close, high, low and volume
-In the tutorial above we used the helper function. `src = get_candle_source(candles, source_type)`. 
-This function accepts as parameters:
+## Подсказка
+### Доступ к ценам открытия, закрытия, самой высокой, самой низкой и объему
+В этом руководстве ниже мы используем функцию хелпер. `src = get_candle_source(candles, source_type)`. 
+Функция получает как параметры:
 -   `"close"`
 -   `"high"`
 -   `"low"`
@@ -83,7 +83,7 @@ This function accepts as parameters:
 -   `"hlc3"`
 -   `"ohlc4"`
 
-and returns the corresponding candle data. That is usefull in many cases, but you can get and calculate that data directly inside the indicator yourself.
+и возвращает соотвествующую информацию по свечам. Это применимо в большинстве случаев, но вы можете получать и считать эти данные прямо в нутри вашего идикатора.
 ```python
 candles_open = candles[:, 1]
 candles_close = candles[:, 2]
@@ -95,63 +95,69 @@ candles_hlc3 = (candles[:, 3] + candles[:, 4] + candles[:, 2]) / 3
 candles_ohlc4 = (candles[:, 1] + candles[:, 3] + candles[:, 4] + candles[:, 2]) / 4
 ```
 ### The thing with NaN and zero
-You should set indicator values, that can't be calculate to `np.nan`!
+Вы должны поставить значения идникатора, которые не могут быть приведены к `np.nan`!
 
-About NaN values:
+О значениях NaN:
 
--   NaN is short for “Not a Number”.
--   NaN values represent undefined or unrepresentable results from certain mathematical operations.
--   Mathematical operations involving a NaN will either return a NaN or raise an exception.
--   Comparisons involving a NaN will return False.
+-   NaN сокращение от “Not a Number” - не число.
+-   NaN значения показывают неопределенный или непредставленные результаты для определенных математических операций.
+-   Математические операции с участием NaN будут возвращать либо NaN либо будут пробрасывать исключение.
+-   Сравнение с участием NaN возвращают False.
 
-What's the reasons for that? Depending on your calculation you might need N candles from the past. Because of that, you won't be able to calculate a value for the indicator at the beginning of your candle data for exactly these N candles. To avoid future problems in your strategy or calculations these should be set to  `np.nan` and not zero. Imagine a strategy where you enter on this condition `self.indicator_value < self.price`. If you had used zero instead of NaN and the current indicator value couldn't be calculate because of missing candles from the past or another problem in your calculation, the condition would be True, even if the real indicator value would be greater or the same as price. If you had used NaN it would return False as explained above and you are safe.
+Каковы причины для этого? Например в зависимости от вашего расчета вам может понадобиться N свечей из прошлого. Потому что, вы не хотите не сможете рассчитать значение для индикатора для именно этих N свечей в начале ваших данных. Чтобы избежать будущих проблем в вашей стратегии или расчетах, они должны быть установлены на `np.nan` и не NaN \ None. Представьте себе стратегию, где вы входите в состояние `self.indicator_value < self.price`. Если вы использовали None вместо NaN и текущее значение индикатора не сможет быть посчитано потому что пропущены свечи в прошлом или любая другая ситуация, условие должно быть True, если значение реального индикатора будет больше или такое же, как цена. Если вы использовали NaN то результат вернется False так избежите  проблем и вы в безопасности.
 
 
-### The thing with length
-Numpy makes calculations with arrays easy. For example you can easily create hl2 prices like that:
+### Фишка с длинной
+Numpy делает работу с массивами легкой. Например, вы можете легко создать цены hl2 типа этого:
 ```python
 candles_hl2 = (candles[:, 3] + candles[:, 4]) / 2
 ```
-That works because `candles[:, 3]` and `candles[:, 4]`have the same shape / length.
-That's the reason why it's important to always keep the lenght consistent. [Use this to match lengths](https://docs.jesse.trade/docs/indicators/custom_indicator.html#make-it-the-same-lenght-again) and read this to understand why it's important to use NaN for missing values: [The thing with NaN and zero](#the-thing-with-nan-and-zero).
+Это работает, потому что `candles[:, 3]` и `candles[:, 4]`имеют одинаковую форму / длину.
+Вот почему важно всегда сохранять длину. [Используйте это, чтобы сравнивать длины](https://docs.jesse.trade/docs/indicators/custom_indicator.html#make-it-the-same-lenght-again) и прочитайте это, чтобы понять, почему важно использовать NaN для пропущенных значений: [Фишка с NaN и пусто](#фишка-с-NaN-и-пусто).
 
+### Внешние библиотеки для технических индикаторов и штуки о которых нужно быть в курсе
+В основном существуют два вида библиотек Python для технических индикаторов: некоторые базируются на основе Pandas, а некоторые базируются на Numpy. По причинам производительности Джесси использует Numpy.
 
-### External libraries for technical indicators and things to be aware of
-There are mainly two kinds of python libraries for technical indicators: Some are Pandas based and some are Numpy based. For performance reasons Jesse uses Numpy. 
 #### Talib
-Talib is a perfect match for Jesse as it uses Numpy.
+Talib великолепно подходит для Jesse так как использует Numpy.
 ```python
 import talib
 ema = talib.EMA(candles[:, 2], timeperiod=period)
 ```
 #### Tulipy 
-Tulipy returns Numpy, but has two things you need to be aware of.
+Tulipy использует Numpy, но есть две вещи, о которых вы должны знать.
 ```python
 import tulipy
 zlema = tulipy.zlema(np.ascontiguousarray(candles[:, 2]), period=period)
 zlema_with_nan = np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema)
 ```
-  - Tulipy accepts only contiguousarray. The conversion can be done with: `np.ascontiguousarray(candles[:, 2])`
-  - The returned length of the array varies. That's connected to the problem explained in [The thing with NaN and zero](#the-thing-with-nan-and-zero). Tulipy just strips the values it couldn't calculate. To stay consistent with the length of our arrays we need to add those NaN ourself: `np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema), axis=0)`. This compares the lengths and adds the difference as NaN to the beginning of the indicator array.
+  - Tulipy работает только contiguousarray. Преобразование может быть сделано с: `np.ascontiguousarray(candles[:, 2])`
+  - Возвращенная длина массива варьируется. Это связано с проблемой, объясненной в [The thing with NaN and zero](#the-thing-with-nan-and-zero). Tulipy просто убирает значения которые он не может пощитать. Для того чтобы оставить согласованной длинну массивов, нам нужно зваолнить данные значениями NaN: `np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema), axis=0)`. Это сравнивает длину и добавляет разницу NaN к началу массива индикатора.
 
-#### Libraries using Pandas
-There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse.trade/docs/utils.html#numpy-candles-to-dataframe) for the conversion. The result of the indicator needs to be then converted back to numpy. Probably that will do it: [pandas.Series.to_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy). All that converting will cost you performance and Pandas itself is less performant than Numpy.
 
-### Loops
-Try to avoid loops whenever possible. Numpy and Scipy have a lot of functions that can replace the stuff that you might want to do in a loop. Loops will make the backtest very slow. The worst would be a loop within a loop. Do some research on ways to avoid them. The Jesse forum or Stackoverflow might be a good place.
+#### Библиотеки использующие Pandas
+Здесь есть библиотеки, использующие Pandas. Чтобы использовать их вам нужно сконвертировать Numpy в Pandas.
+Вы можете посмотреть [эту вспомогательную функцию](https://docs.jesse.trade/docs/utils.html#numpy-candles-to-dataframe) для этого преобразования. Результат индикатора должен быть преобразован обратно в Numpy. Вероятно, это можно сделать так: [pandas.Series.to_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy). 
+Все эти конвертации будут стоить производительности и Pandas сам по себе менее производительнее чем Numpy.
 
-#### How to do a loop if you couldn't avoid it:
-For this example we calculate the difference of the closing price to the closing price 10 candles ago.  First we create an empty array with NaNs. (For the reason check out: [The thing with NaN and zero](#the-thing-with-nan-and-zero)) Then we do the loop starting with i = 10, as we need 10 past candles for this calculation to work until we reach the maximal available candle length.
+
+### Петли
+Если возможно, то старайтесь избегать петель. Numpy и Scipy имеют много функций, которые могут заменить вещи, которые вы будете делать в цикле. Петли сделают бэкенд очень медленным. Наихудщее решение будет петля внутри цикла. Изучите немного пути как чтобы избежать их. Форум Джесси или Stackoverflow могут быть хорошим местом для обсуждения.
+
+
+#### Как сделать петлю, если вы не можете избежать этого:
+Для этого примера мы рассчитываем разницу цен закрытия к цене закрытия 10 свечей назад. Сначала мы создаем пустой массив с NaNами (Почему так смотри тут: [The thing with NaN and zero](#the-thing-with-nan-and-zero)). 
+Затем мы делаем петлю, начиная с i = 10, так как нам нужно 10 прошлых свечей для этого расчета, пока мы не достигнем максимальной доступной длины свечи.
 ```python
     close = candles[:, 2]
     my_indicator_from_loop = np.full_like(close, np.nan)
     for i in range(10, len(close)):
         my_indicator_from_loop[i] = close[i] - close[i-10]
 ```
-### Usefull Numpy stuff
-Here we collect functions and links, that are often usefull in indicator code.
+### Полезные вещи Numpy
+Здесь мы собираем функции и ссылки, которые часто полезны в индикаторе.
 
-#### Numpy's Shift
+#### Numpy's Shift (Сдвиг)
 ```python
 def shift(arr, num, fill_value=np.nan):  
     result = np.empty_like(arr)  
@@ -165,11 +171,11 @@ def shift(arr, num, fill_value=np.nan):
         result[:] = arr  
     return result
 ```
-[Source](https://stackoverflow.com/a/42642326/6437437)
+[Источник](https://stackoverflow.com/a/42642326/6437437)
 
-#### Make arrays the same lenght
+#### Делает длинну массивов одинаковыми
 ```python
 array_with_matching_lenght = np.concatenate((np.full((candles.shape[0] - array_with_shorter_lenght.shape[0]), np.nan), array_with_shorter_lenght)
 ```
 #### Use Numpy's Vectorized Operations
-Whenever possible you want to use [VectorizedOperations](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html), as they are faster.
+Если хотите, то есть возможность использовать [VectorizedOperations](https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html), так как так гораздо быстрее.
