@@ -296,7 +296,28 @@ BETA - Beta
 **Returns**:  
   
 float | np.ndarray  
+
+## bandpass
   
+```python  
+bandpass(candles: np.ndarray, period: int = 20, bandwidth: float = 0.3, source_type: str = "close", sequential: bool = False) -> BandPass
+```  
+  
+BandPass Filter  
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `bandwidth`: float - default: 0.3
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+BandPass(bp, bp_normalized, signal, trigger)  
+
+
 ## bollinger\_bands  
   
 ```python  
