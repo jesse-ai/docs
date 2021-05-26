@@ -33,6 +33,7 @@ The live mode will try to support as many exchanges as possible in long term but
 No. Currently, the finest data Jesse offers are 1m candles. 
 
 ## Jesse's indicator doesn't match TradingViews values.
+
 There are multiple explanations for this. 
 - Different exchanges might have different ohlcv values. Especially volume differs. Are you comparing the same exchange? Consider Spot != Futures. 
 - You compare different timeframes?
@@ -61,6 +62,32 @@ print(f'Time: {time} | My Buy conditions: {self.condition1} {self.condition2}')
 ```
 
 ## Jesses backtest results differ from backtesting with another tool. What's the reason?
+
 - Is the strategy tested exactly the same in both tools? Consider everything: indicators (same parameter, source type and formulas), stoplosses, takeprofit and commission fees. 
 - The formulas for metrics calculation might differ: Some backtest tools use stock market settings for the metrics (255 vs 365 trading days) leading to different metric values, to name one example. 
 - Additionally, some backtest tools can have the so-called lookahead/repainting issue. This means they access future candle data leading to (too) good results. One example would be renko candles.
+
+## How can I access the "live" price?
+
+The smallest timeframe available in Jesse is 1 minute. There are multiple reasons for that.
+- Finer historical price data aren't (easily) available. Historical (free) APIs for crypto prices normally offer 1m as the smallest timeframe.
+- The database size would grow a lot using finer data. (That's the reasons those finer data are often premium)
+- The only reason to have finer data would be high-frequency trading (hft) or orderbook strategies which Jesse currently isn't suited for.
+
+So is there a live price? Not really, it's always an aggregate price for the reasons above.
+
+"But I need to open/close a position immediately!" - See "Why can I open a position only after candles close and not immediately?"
+
+
+## Why can I open a position only after candles close and not immediately?
+
+Before you continue reading take a look at the [flowchart of Jesse](https://docs.jesse.trade/docs/strategies/) and the explanation about the "live" price.
+Question already answered? No? No problem. Let's dive into it.
+
+Jesse starts its workflow after a fully formed candle like seen in the flow chart. In that sense you can't do something "immediately". There is only the most recent candle. The whole candle concept in trading and the whole concept of trading strategies are based on aggregated prices in form of timeframes (1m, 5m, 15m...) and therefore the term "live" is misleading.
+
+"But I really need the live price to open/close a position immediately!" If you understood the above and are certain of what you are doing then let's take a look at how close we can get to immediately. Let's say for a reason you want to use indicators on a 1h timeframe to decide whether to enter a position, but your exit should react live (we learned this just means using a smaller timeframe / or the smallest possible), you could use 1m candles for the exit.
+Think about the flowchart. Jesse starts after a new candle formed. If you now set the routes timeframe to 1h you can't do anything until the next 1h is formed. So instead you would have to select the 1m timeframe in the routes and you can use get_candles() to get the 1h candles. As alternative you can use `self.index` to find the moment, where your 1h formed.  The open of the first 1m candle is the same open as the bigger 1h candle and the close of the last 1m candles within this 1h is the same as the 1h close. An hour has 60 minutes so with pythons modulo operator %, which returns the remainder of a division, you could do this to know whenever a 1h candle has formed: `self.index % 60 == 0`. 
+
+## I changed the config.py, but the live instance didn't change. 
+Jesse currently doesn't watch for config changes. You have to restart the instance for changes to have effect.
