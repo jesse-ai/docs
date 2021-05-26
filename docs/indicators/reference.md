@@ -48,6 +48,14 @@ In few indicators you can set a moving average type:
 -   `25`: pwma (Pascals Weighted Moving Average)
 -   `26`: swma (Symmetric Weighted Moving Average)
 :::
+    
+::: tip devtype
+In few indicators you can set a deviation type:
+
+-   `0`: standard deviation
+-   `1`: mean absolute deviation
+-   `2`: median absolute deviation
+:::
 
 ::: tip source_type
 In some indicators you can set the source type:
@@ -437,6 +445,25 @@ CFO - Chande Forcast Oscillator
   
 float | np.ndarray  
 
+## cg
+  
+```python  
+cg(candles: np.ndarray, period: int = 10, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Center of Gravity (CG)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=10  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## chande
   
 ```python  
@@ -451,6 +478,26 @@ Chandelier Exits
 - `period`: int - default=22
 - `mult`: float - default=3.0
 - `direction`: str - default="long" | "short"
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## chop
+  
+```python  
+chop(candles: np.ndarray, period: int = 14, scalar: float = 100, drift: int = 1, sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Choppiness Index (CHOP)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=14  
+- `scalar`: float- default=100 
+- `drift`: int - default=1  
 - `sequential`: bool - default=False  
   
 **Returns**:  
@@ -614,7 +661,7 @@ float | np.ndarray
 ## devstop
   
 ```python  
-devstop(candles: np.ndarray, period:int=20, mult: float = 0, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]
+devstop(candles: np.ndarray, period:int=20, mult: float = 0, devtype: int = 0, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]
 ```  
   
 Kase Dev Stops
@@ -623,7 +670,8 @@ Kase Dev Stops
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
-- `mult`: float - default: 0  
+- `mult`: float - default: 0
+- `devtype`: int - default: 0  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
@@ -1959,7 +2007,27 @@ PVI - Positive Volume Index
 **Returns**:  
   
 float | np.ndarray  
+
+## pwma  
   
+```python  
+pwma(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Pascals Weighted Moving Average (PWMA)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray
+- `period`: int - default: 5  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+
 ## qstick  
   
 ```python  
@@ -2157,7 +2225,7 @@ float | np.ndarray
 ## rvi 
   
 ```python  
-rvi(candles: np.ndarray, period: int = 10, ma_len: int = 14, matype: int = 1, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+rvi(candles: np.ndarray, period: int = 10, ma_len: int = 14, matype: int = 1, devtype: int = 0, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
 ```  
   
 RVI - Relative Volatility Index
@@ -2167,7 +2235,8 @@ RVI - Relative Volatility Index
 - `candles`: np.ndarray  
 - `period`: int - default: 10  
 - `ma_len`: int - default: 14  
-- `matype`: int - default: 1  
+- `matype`: int - default: 1
+- `devtype`: int - default: 0
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False
   
@@ -3011,7 +3080,7 @@ float | np.ndarray
 ## zscore  
   
 ```python  
-zscore(candles: np.ndarray, period=14, matype=0, nbdev=1, source_type="close", sequential=False) -> Union[  
+zscore(candles: np.ndarray, period=14, matype=0, nbdev=1, devtype: int = 0, source_type="close", sequential=False) -> Union[  
   float, np.ndarray]  
 ```  
   
@@ -3023,6 +3092,7 @@ zScore
 - `period`: int - default: 14  
 - `matype`: int - default: 0  
 - `nbdev`: int - default: 1  
+- `devtype`: int - default: 1  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
