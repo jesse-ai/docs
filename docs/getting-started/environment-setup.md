@@ -73,10 +73,20 @@ Installation on macOS is easy thanks to Homebrew. If you don't have [Homebrew](h
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
+:::tip
+If you are on using Apple silicon's M1 chip, all dependencies should work fine natively. At the moment there's just a problem with the `scipy` package. To fix it, first install `scipy` using the below commands:
+```
+brew install openblas
+export OPENBLAS=$(brew --prefix openblas)
+export CFLAGS="-falign-functions=8 ${CFLAGS}"
+pip install scipy
+```
+:::
+
 Now install Python, ta-lib, and PostgreSQL by running below commands one by one:
 
 ```sh
-brew install python@3.8
+brew install python
 brew install ta-lib
 brew install postgresql
 ```
