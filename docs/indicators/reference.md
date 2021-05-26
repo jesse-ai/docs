@@ -2455,8 +2455,27 @@ This indicator was described by John F. Ehlers
   
 **Returns**:  
   
-float | np.ndarray  
+float | np.ndarray
+
+## swma
   
+```python  
+swma(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Symmetric Weighted Moving Average (SWMA)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=5  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray
+
 ## supertrend  
   
 ```python  
