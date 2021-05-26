@@ -1154,7 +1154,27 @@ Ichimoku Cloud Sequential
 **Returns**:  
   
 IchimokuCloud(conversion_line, base_line, span_a, span_b, lagging_line, future_span_a, future_span_b)
+
+## ift_rsi
   
+```python  
+ift_rsi(candles: np.ndarray, rsi_period: int = 5, wma_period: int =9, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Modified Inverse Fisher Transform applied on RSI
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray
+- `rsi_period`: int - default: 5
+- `wma_period`: int - default: 9  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## itrend  
   
 ```python  
