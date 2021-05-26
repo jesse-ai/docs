@@ -46,3 +46,21 @@ At the moment Jesse only understands orders that it submitted by itself, and pos
 ## If I terminate and start again a live session, would the restarted live session know the previous open positions?
 
 No, it'll close them and start again. However, session consistency is a feature under development as it was added to our [Trello page](https://trello.com/b/F9Eb0wW5/live-trade-plugin). 
+
+## My strategy isn't working/trading like it should. What can I do?
+
+Are you certain you set the right [Routes](/docs/routes) and have the right version of your strategy uploaded? It's important to be structured here: Be sure to use clear naming and versioning of your strategies. If you are sure Jesse is really running the strategy (version) you intended, let's check more things you can do:
+ - Use the `--debug` command in backtesting to have Jesse print the things that happen behind the scenes.
+ - Check the conditions for validity. Especially custom code / indicators. To do that a good way is adding pythons `print()` command in your strategies functions. For example `print("Buy condition checked")`. That way you can validate if all the functions are called like intended and aren't mixed up.
+ - This snippet can be usefull for extensive debugging: It will give you the time of the current candle. Change the other variable according to your strategy. That way you are able to check precisely the values of your functions and indicators candlewise. Then open your favorite charting tool (same timeframe, same indicators) and do a comparison. That way you should be able to spot mistakes in conditions/calculations.
+
+```python
+from datetime import datetime
+time = datetime.fromtimestamp(self.current_candle[0] / 1000)
+print(f'Time: {time} | My Buy conditions: {self.condition1} {self.condition2}')
+```
+
+## Jesses backtest results differ from backtesting with another tool. What's the reason?
+- Is the strategy tested exactly the same in both tools? Consider everything: indicators (same parameter, source type and formulas), stoplosses, takeprofit and commission fees. 
+- The formulas for metrics calculation might differ: Some backtest tools use stock market settings for the metrics (255 vs 365 trading days) leading to different metric values, to name one example. 
+- Additionally, some backtest tools can have the so-called lookahead/repainting issue. This means they access future candle data leading to (too) good results. One example would be renko candles.
