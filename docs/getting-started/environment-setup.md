@@ -16,6 +16,10 @@ A good practice for providing an environment for running Python applications is 
 
 ## Ubuntu
 
+::: tip
+If you are a visual learner, you might want to check out our screencast tutorial about "[How to run Jesse on Ubuntu](https://youtu.be/4bwhr_CQcuQ)" on YouTube. 
+::: 
+
 We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install all the required stack and pip packages including Jesse itself on a machine running a fresh Ubuntu LTS installation.
 
 Run below commands based on your installed Ubuntu version:
