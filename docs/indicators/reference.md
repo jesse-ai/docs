@@ -1211,8 +1211,31 @@ Perry Kaufman's Stops
   
 **Returns**:  
   
-float | np.ndarray  
+float | np.ndarray
+
+## kdj  
   
+```python  
+kdj(candles: np.ndarray, fastk_period: int = 9, slowk_period: int = 3, slowk_matype: int = 0, slowd_period: int = 3, slowd_matype: int = 0, sequential: bool = False) -> KDJ
+```  
+  
+The KDJ Oscillator
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `fastk_period`: int - default: 9
+- `slowk_period`: int - default: 3 
+- `slowk_matype`: int - default: 0  
+- `slowd_period`: int - default: 3
+- `slowd_matype`: int - default: 0 
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+KDJ(k, d, j)  
+
+
 ## keltner  
   
 ```python  
