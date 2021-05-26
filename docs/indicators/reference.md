@@ -464,6 +464,27 @@ Center of Gravity (CG)
   
 float | np.ndarray  
 
+## cksp
+  
+```python  
+cksp(candles: np.ndarray, p: int = 10, x: float = 1.0, q: int = 9, sequential: bool = False) -> CKSP
+```  
+  
+Chande Kroll Stop (CKSP)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `p`: int - default=10  
+- `x`: float - default=1.0  
+- `q`: int - default=9
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+CKSP(long, short)
+
+
 ## chande
   
 ```python  
@@ -1262,7 +1283,28 @@ Instantaneous Trendline
 **Returns**:  
   
 ITREND(signal, it, trigger)  
+
+## jma  
   
+```python  
+jma(candles: np.ndarray, period:int=7, phase:float=50, power:int=2, source_type:str='close', sequential:bool=False) -> Union[float, np.ndarray]
+```  
+  
+Jurik Moving Average
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 7  
+- `phase`: float - default: 50  
+- `power`: int - default: 2  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## kama  
   
 ```python  
