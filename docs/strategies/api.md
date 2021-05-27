@@ -593,3 +593,14 @@ Using `vars` would also make it easier for debugging.
 
 
 **Return Type**: dict
+
+
+## log
+
+This method can be used to log text from within the strategy which is very helpful for debugging or monitoring (in case of live trading). Accepts a second `log_type` parameter with values as `info` or `error`. 
+
+The default is `info`. `error` logs are notified separately in the live mode, so that's a nice way of using them. 
+
+```py
+log(msg: str, log_type: str = 'info')
+```
