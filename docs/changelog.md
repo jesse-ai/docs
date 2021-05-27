@@ -2,6 +2,16 @@
 
 Here you can see that changes were made at each release.
 
+## 0.23.0
+- [NEW FEATURE] Added `self.log` method for easier logging from withing the strategy file. 
+- [NEW FEATURE] Added new properties to the Strategy API: `liquidation_price`, `mark_price`, `funding_rate`, `next_funding_timestamp`
+- [NEW FEATURE] Implemented the liquidation mechanism for the `isolated` mode in backtests, and both `isolated` and `cross` in live mode. 
+- [NEW FEATURE] New indicators: Jurik Moving Average, Chande Kroll Stop, Choppiness Index, Pascals Weighted Moving Average, Symmetric Weighted Moving Average, Bandpass filter, Inverse Fisher Transform applied on RSI, KDJ
+- [NEW FEATURE] `devstop`, `rvi`, and `zscore` indicators now let you choose the `devtype`.
+- [Improvement] Packages updated - Update matplotlib from 3.4.1 to 3.4.2, Update numpy from 1.20.2 to 1.20.3, Update ta-lib from 0.4.19 to 0.4.20, Update websocket-client from 0.59.0 to 1.0.1, Update click from 7.1.2 to 8.0.1 
+- [Improvement] Available `matypes` used in some indicators extended.
+- [Improvement] Improved handling of none string values in the logger
+
 ## 0.22.0
 - [BREAKING CHANGE] For consistency `ta.vwmacd` now accepts `signal_period` instead of `signalperiod`
 - [Improvement] Updated Docker images. By [TheCrazyLex](https://github.com/TheCrazyLex). 
