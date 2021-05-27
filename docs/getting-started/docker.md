@@ -16,7 +16,7 @@ version: '3.8'
 services:
 
   jesse:
-    image: salehmir/jesse:0.22.1
+    image: salehmir/jesse:latest
     depends_on:
       - db
       - jesse-trades-info
