@@ -95,7 +95,7 @@ The last step is to create a PostgreSQL database and user:
 
 ```sh
 # open PostgreSQL CLI
-psql
+psql postgres
 # create database
 CREATE DATABASE jesse_db;
 # create new user
