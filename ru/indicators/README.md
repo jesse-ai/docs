@@ -1,16 +1,16 @@
-# Indicators
+# Индикаторы
 
-Jesse offers many its own indicators which is basically an extended wrapper around the [ta-lib](http://ta-lib.org) library. 
+Джесси предлагает многие свои собственные индикаторы, которые в основном является расширенной оберткой вокруг библиотеки [ta-lib](http://ta-lib.org). 
 
-The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in [Jupyter Notebooks](/docs/jupyter-notebooks).
+API был разработан, чтобы быть самым простым, но достаточно гибким для всех видов потребностей от разработки стратегий до проведения исследований в [Jupyter Notebooks](/docs/jupyter-notebooks).
 
 ::: tip
-The default settings have been set to produce the same result as you would get on [TradingView](http://tradingview.com).
+Настройки по умолчанию были установлены для создания того же результата, что и в [TradingView](http://tradingview.com).
 :::
 
 ## Import
 
-To get started make sure the `indicators` module is imported:
+Чтобы начать, убедитесь, что модуль `indicators` импортируется:
 
 ```py
 import jesse.indicators as ta
@@ -18,18 +18,18 @@ import jesse.indicators as ta
 
 ## Example 1
 
-The first parameter of all indicators is `candles` with the type of a Numpy array. 
+Первый параметр всех показателей `candles` с типом массив Numpy. 
 
-When developing strategies, usually all you care about is the indicator's value for the current candle. To get just that, simply pass `self.candles`:
+При разработке стратегий, как правило, все, о чем нужно думать это ценность индикатора для текущей свечи. Чтобы получить это, просто напишите `self.candles`:
 
 ```py
-# give me SMA with period=8 for current candle:
+# дай мне SMA с периодом =8 для текущей свечи:
 ta.sma(self.candles, 8)
 ```
 
 ## Example 2
 
-To get indicator values for candles other than your trading [route](/docs/routes) (in case you have defined more than one route in your `routes.py` file), use `self.get_candles()` method:
+Чтобы получить данные индикатора отличного от того что вы торгуете в [маршрутах](/docs/routes) (в случае если вы прописали один маршрут в вашем файле `routes.py`)) используйте метод `self.get_candles()`:
 
 ```py
 ta.sma(self.get_candles('Binance', 'BTCUSDT', '4h'), 8)
@@ -37,23 +37,24 @@ ta.sma(self.get_candles('Binance', 'BTCUSDT', '4h'), 8)
 
 ## Named Tuples
 
+Для того чтобы вернуть тип всех индикаторов возвращающих множества значений как `namedtuple` объект Python. B в случае если вы не знакомы с концепцией именованных картежей (`namedtuple`) в языке Python.
 The return type of all indicators returning multiple values is a `namedtuple` Python object. In case you're not familiar with the concept of  `namedtuple` in Python, it's just like a regular tuple but you can also use it as a class object. 
 
-For example here are two ways you could use the Bollinger Bands indicator, which as you know, returns three values: `upperband`, `middleband`, `lowerband`
+Для примера здесь два пути которые могут быть использованы как индикатор Bollinger Bands, который как вам известно возвращает три значения: `upperband`, `middleband`, `lowerband`
 
-1. Use it as a normal tuple:
+1. Используйте это как обычный turple (картеж):
 ```py
-# as three variables
+# как три переменные
 upperband, middleband, lowerband = bollinger_bands(self.candles, period=20)
 
-# or you could fetch it as one tuple and retrieve values as you would from a tuple:
+# если вы сможете получить это как один картеж и обратиться к значениям как к обычному картежу
 bb = bollinger_bands(self.candles, period=20)
 bb[0] # upperband
 bb[1] # middleband
 bb[2] # lowerband
 ```
 
-2. The second way it to use it as a class instance:
+2. Второй путь это использовать это как класс:
 ```py
 bb = bollinger_bands(self.candles, period=20)
 bb.upperband
