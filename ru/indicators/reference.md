@@ -1,26 +1,26 @@
 
-# Indicators Reference
+# Справка
 
-Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
+Большинство индикаторов имеют параметр: `sequential=False`. Который после установки в `True` возвращает массив значений, которые полезны если вы делает исследования в [Jupyter Notebooks](/docs/jupyter-notebooks).
 
-When developing strategies however, you probably want to keep it as `False` to return only the indicator value for current trading candle.
+Однако при разработке стратегий, ты наверное захочешь сохранить это как `False` для того чтобы получать только значение индикатора для текущей свечи.
 
 ::: tip matype
-In few indicators you can set a moving average type:
+В нескольких индикаторах ты можешь установить тип скользящей средний (MA):
 
--   `0`: SMA (simple)
--   `1`: EMA (exponential)
--   `2`: WMA (weighted)
--   `3`: DEMA (double exponential)
--   `4`: TEMA (triple exponential)
--   `5`: TRIMA (triangular)
--   `6`: KAMA (Kaufman adaptive)
--   `7`: MAMA (Mesa adaptive)
--   `8`: T3 (triple exponential T3)
+-   `0`: SMA (simple, простой) 
+-   `1`: EMA (exponential, экспоненциальный)
+-   `2`: WMA (weighted, взвешенный)
+-   `3`: DEMA (double exponential, двойной экспоненциальный)
+-   `4`: TEMA (triple exponential, тройной экспоненциальный)
+-   `5`: TRIMA (triangular, треугольный)
+-   `6`: KAMA (Kaufman adaptive, Кауфман адаптивный)
+-   `7`: MAMA (Mesa adaptive, Меса адаптивный)
+-   `8`: T3 (triple exponential T3, тройной экспоненциальный Т3)
 :::
 
 ::: tip source_type
-In some indicators you can set the source type:
+В некоторых показателях вы можете установить тип источника:
 
 -   `"close"`
 -   `"high"`
@@ -38,14 +38,14 @@ In some indicators you can set the source type:
 acosc(candles: np.ndarray, sequential=False) -> AC  
 ```  
   
-Acceleration / Deceleration Oscillator (AC)  
+Acceleration / Deceleration Oscillator (AC)
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 AC(osc, change)  
   
@@ -57,12 +57,12 @@ ad(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 AD - Chaikin A/D Line  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -74,14 +74,14 @@ adosc(candles: np.ndarray, fastperiod=3, slowperiod=10, sequential=False) -> Uni
   
 ADOSC - Chaikin A/D Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `fastperiod`: int - default: 3  
 - `slowperiod`: int - default: 10  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -93,13 +93,13 @@ adx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray
   
 ADX - Average Directional Movement Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -111,13 +111,13 @@ adxr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarra
   
 ADXR - Average Directional Movement Index Rating  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -129,13 +129,13 @@ alligator(candles: np.ndarray, source_type="close", sequential=False) -> AG
   
 Alligator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 AG(jaw, teeth, lips)  
   
@@ -147,12 +147,12 @@ ao(candles: np.ndarray, sequential=False) -> AO
   
 Awesome Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 AO(osc, change)  
   
@@ -165,7 +165,7 @@ apo(candles: np.ndarray, fastperiod=12, slowperiod=26, matype=0, source_type="cl
   
 APO - Absolute Price Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `fastperiod`: int - default: 12  
@@ -174,7 +174,7 @@ APO - Absolute Price Oscillator
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -186,13 +186,13 @@ aroon(candles: np.ndarray, period=14, sequential=False) -> AROON
   
 AROON - Aroon  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 AROON(down, up)  
   
@@ -204,13 +204,13 @@ aroonosc(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.nd
   
 AROONOSC - Aroon Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -222,13 +222,13 @@ atr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray
   
 ATR - Average True Range  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -240,12 +240,12 @@ avgprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 AVGPRICE - Average Price  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -257,13 +257,13 @@ beta(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray
   
 BETA - Beta  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -275,7 +275,7 @@ bollinger_bands(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, sour
   
 BBANDS - Bollinger Bands  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
@@ -285,7 +285,7 @@ BBANDS - Bollinger Bands
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 BollingerBands(upperband, middleband, lowerband)  
   
@@ -297,7 +297,7 @@ bollinger_bands_width(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0
   
 BBW - Bollinger Bands Width - Bollinger Bands Bandwidth  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
@@ -307,7 +307,7 @@ BBW - Bollinger Bands Width - Bollinger Bands Bandwidth
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -319,12 +319,12 @@ bop(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 BOP - Balance Of Power  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -336,7 +336,7 @@ cc(candles: np.ndarray, wma_period=10, roc_short_period=11, roc_long_period=14, 
   
 Coppock Curve
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `wma_period`: int - default=10
@@ -345,7 +345,7 @@ Coppock Curve
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -357,13 +357,13 @@ cci(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray
   
 CCI - Commodity Channel Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -375,7 +375,7 @@ chande(candles: np.ndarray, period=22, mult=3.0, direction="long", sequential=Fa
   
 Chandelier Exits
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=22
@@ -383,7 +383,7 @@ Chandelier Exits
 - `direction`: str - default="long" | "short"
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -395,14 +395,14 @@ cmo(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Un
   
 CMO - Chande Momentum Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -414,13 +414,13 @@ correl(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarr
   
 CORREL - Pearson's Correlation Coefficient (r)  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -432,13 +432,13 @@ cvi(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]
   
 CVI - Chaikins Volatility  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -450,7 +450,7 @@ damiani_volatmeter(candles: np.ndarray, vis_atr=13, vis_std=20, sed_atr=40, sed_
   
 Damiani Volatmeter
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `vis_atr`: int - default: 13  
@@ -461,7 +461,7 @@ Damiani Volatmeter
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 DamianiVolatmeter(vol, anti)
 
@@ -473,13 +473,13 @@ decycler(candles: np.ndarray, hp_period=125, source_type="close", sequential=Fal
   
 Ehlers Simple Decycler  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `hp_period`: int - default=125  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -491,14 +491,14 @@ dec_osc(candles: np.ndarray, hp_period=125, k=1, source_type="close", sequential
   
 Ehlers Decycler Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `hp_period`: int - default=125  
 - `k`: float - default=1  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -510,14 +510,14 @@ dema(candles: np.ndarray, period=30, source_type="close", sequential=False) -> U
   
 DEMA - Double Exponential Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 30  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -529,13 +529,13 @@ di(candles: np.ndarray, period=14, sequential=False) -> DI
   
 DI - Directional Indicator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 DI(plus, minus)  
   
@@ -547,13 +547,13 @@ dm(candles: np.ndarray, period=14, sequential=False) -> DM
   
 DM - Directional Movement  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 DM(plus, minus)  
   
@@ -565,13 +565,13 @@ donchian(candles: np.ndarray, period=20, sequential=False) -> DonchianChannel
   
 Donchian Channels  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 DonchianChannel(upperband, middleband, lowerband)  
   
@@ -583,14 +583,14 @@ dpo(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Uni
   
 DPO - Detrended Price Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -602,13 +602,13 @@ dx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
   
 DX - Directional Movement Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -620,14 +620,14 @@ efi(candles: np.ndarray, period=13, source_type="close", sequential=False) -> Un
   
 EFI - Elders Force Index
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 13  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -639,14 +639,14 @@ ema(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Uni
   
 EMA - Exponential Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -658,7 +658,7 @@ emd(candles: np.ndarray, period=20, delta=0.5, fraction=0.1, sequential=False) -
   
 Empirical Mode Decomposition by John F. Ehlers and Ric Way  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=20  
@@ -666,7 +666,7 @@ Empirical Mode Decomposition by John F. Ehlers and Ric Way
 - `fraction`: float - default=0.1  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 EMD(upperband, middleband, lowerband)  
   
@@ -678,12 +678,12 @@ emv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 EMV - Ease of Movement  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -695,13 +695,13 @@ fisher(candles: np.ndarray, period=9, sequential=False) -> FisherTransform
   
 The Fisher Transform helps identify price reversals.  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 9  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 FisherTransform(fisher, signal)  
   
@@ -713,14 +713,14 @@ fosc(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Un
   
 FOSC - Forecast Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -732,7 +732,7 @@ frama(candles: np.ndarray, window=10, FC=1, SC=300, sequential=False) -> Union[f
   
 Fractal Adaptive Moving Average (FRAMA)  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `window`: int - default: 10  
@@ -740,7 +740,7 @@ Fractal Adaptive Moving Average (FRAMA)
 - `SC`: int - default: 300  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -752,13 +752,13 @@ gatorosc(candles: np.ndarray, source_type="close", sequential=False) -> GATOR
   
 Gator Oscillator by Bill M. Williams  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 GATOR(upper, lower, upper_change, lower_change)  
   
@@ -770,7 +770,7 @@ gauss(candles: np.ndarray, period=14, poles=4, source_type="close", sequential=F
   
 Gaussian Filter  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
@@ -778,7 +778,7 @@ Gaussian Filter
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -790,14 +790,14 @@ high_pass(candles: np.ndarray, period=48, source_type="close", sequential=False)
   
 High Pass Filter indicator by John F. Ehlers
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 48  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray 
 
@@ -809,14 +809,14 @@ hma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Uni
   
 Hull Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -828,13 +828,13 @@ ht_dcperiod(candles: np.ndarray, source_type="close", sequential=False) -> Union
   
 HT_DCPERIOD - Hilbert Transform - Dominant Cycle Period  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -846,13 +846,13 @@ ht_dcphase(candles: np.ndarray, source_type="close", sequential=False) -> Union[
   
 HT_DCPHASE - Hilbert Transform - Dominant Cycle Phase  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -864,13 +864,13 @@ ht_phasor(candles: np.ndarray, source_type="close", sequential=False) -> IQ
   
 HT_PHASOR - Hilbert Transform - Phasor Components  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 IQ(inphase, quadrature)  
   
@@ -882,13 +882,13 @@ ht_sine(candles: np.ndarray, source_type="close", sequential=False) -> SINEWAVE
   
 HT_SINE - Hilbert Transform - SineWave  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 SINEWAVE(sine, lead)  
   
@@ -900,13 +900,13 @@ ht_trendline(candles: np.ndarray, source_type="close", sequential=False) -> Unio
   
 HT_TRENDLINE - Hilbert Transform - Instantaneous Trendline  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -918,13 +918,13 @@ ht_trendmode(candles: np.ndarray, source_type="close", sequential=False) -> Unio
   
 HT_TRENDMODE - Hilbert Transform - Trend vs Cycle Mode  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 int | np.ndarray  
   
@@ -936,7 +936,7 @@ ichimoku_cloud(candles: np.ndarray, conversion_line_period=9, base_line_period=2
   
 Ichimoku Cloud  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `conversion_line_period`: int - default=9  
@@ -944,7 +944,7 @@ Ichimoku Cloud
 - `lagging_line_period`: int - default=52  
 - `displacement`: - default=26  
   
-**Returns**:  
+**Возвращает**:  
   
 IchimokuCloud(conversion_line, base_line, span_a, span_b)  
   
@@ -956,14 +956,14 @@ itrend(candles: np.ndarray, alpha=0.07, source_type="hl2", sequential=False) -> 
   
 Instantaneous Trendline  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `alpha`: float - default: 0.07  
 - `source_type`: str - default: "hl2"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 ITREND(signal, it, trigger)  
   
@@ -975,14 +975,14 @@ kama(candles: np.ndarray, period=30, source_type="close", sequential=False) -> U
   
 KAMA - Kaufman Adaptive Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 30  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -994,7 +994,7 @@ keltner(candles: np.ndarray, period=20, multiplier=2, matype=1, source_type="clo
   
 Keltner Channels  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
@@ -1003,7 +1003,7 @@ Keltner Channels
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 KeltnerChannel(upperband, middleband, lowerband)  
 
@@ -1015,7 +1015,7 @@ kst(candles: np.ndarray, sma_period1=10, sma_period2=10, sma_period3=10, sma_per
   
 Know Sure Thing (KST)
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sma_period1`: int - default: 10
@@ -1030,7 +1030,7 @@ Know Sure Thing (KST)
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 KST(line, signal)
 
@@ -1042,14 +1042,14 @@ kvo(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Uni
   
 KVO - Klinger Volume Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `short_period`: int - default: 2  
 - `long_period`: int - default: 5  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1061,14 +1061,14 @@ linearreg(candles: np.ndarray, period=14, source_type="close", sequential=False)
   
 LINEARREG - Linear Regression  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1080,14 +1080,14 @@ linearreg_angle(candles: np.ndarray, period=14, source_type="close", sequential=
   
 LINEARREG_ANGLE - Linear Regression Angle  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1099,14 +1099,14 @@ linearreg_intercept(candles: np.ndarray, period=14, source_type="close", sequent
   
 LINEARREG_INTERCEPT - Linear Regression Intercept  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1118,14 +1118,14 @@ linearreg_slope(candles: np.ndarray, period=14, source_type="close", sequential=
   
 LINEARREG_SLOPE - Linear Regression Slope  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1137,13 +1137,13 @@ lrsi(candles: np.ndarray, alpha=0.2, sequential=False) -> Union[float, np.ndarra
   
 RSI Laguerre Filter  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `alpha`: float - default=0.2  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1155,7 +1155,7 @@ macd(candles: np.ndarray, fastperiod=12, slowperiod=26, signalperiod=9, source_t
   
 MACD - Moving Average Convergence/Divergence  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `fastperiod`: int - default: 12  
@@ -1164,7 +1164,7 @@ MACD - Moving Average Convergence/Divergence
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default: False  
   
-**Returns**:  
+**Возвращает**:  
   
 MACD(macd, signal, hist)  
   
@@ -1176,7 +1176,7 @@ macdext(candles: np.ndarray, fastperiod=12, fastmatype=0, slowperiod=26, slowmat
   
 MACDEXT - MACD with controllable MA type  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `fastperiod`: int - default: 12  
@@ -1188,7 +1188,7 @@ MACDEXT - MACD with controllable MA type
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default: False  
   
-**Returns**:  
+**Возвращает**:  
   
 MACDEXT(macd, signal, hist)  
   
@@ -1200,7 +1200,7 @@ mama(candles: np.ndarray, fastlimit=0.5, slowlimit=0.05, source_type="close", se
   
 MAMA - MESA Adaptive Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `fastlimit`: float - default: 0.5  
@@ -1208,7 +1208,7 @@ MAMA - MESA Adaptive Moving Average
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 MAMA(mama, fama)  
   
@@ -1220,12 +1220,12 @@ marketfi(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 MARKETFI - Market Facilitation Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1237,13 +1237,13 @@ mass(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray
   
 MASS - Mass Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1255,12 +1255,12 @@ medprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 MEDPRICE - Median Price  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1272,13 +1272,13 @@ mfi(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray
   
 MFI - Money Flow Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1290,14 +1290,14 @@ midpoint(candles: np.ndarray, period=14, source_type="close", sequential=False) 
   
 MIDPOINT - MidPoint over period  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1309,13 +1309,13 @@ midprice(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.nd
   
 MIDPRICE - Midpoint Price over period  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1327,13 +1327,13 @@ minmax(candles: np.ndarray, order=3, sequential=False) -> EXTREMA
   
 minmax - Get extrema  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `order`: int - default = 3  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 EXTREMA(min, max, last_min, last_max)  
   
@@ -1345,14 +1345,14 @@ mom(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Un
   
 MOM - Momentum  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=10  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1364,14 +1364,14 @@ msw(candles: np.ndarray, period=5, source_type="close", sequential=False) -> MSW
   
 MSW - Mesa Sine Wave  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 MSW(sine, lead)  
   
@@ -1383,13 +1383,13 @@ natr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarra
   
 NATR - Normalized Average True Range  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1401,13 +1401,13 @@ nvi(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, 
   
 NVI - Negative Volume Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1419,12 +1419,12 @@ obv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 OBV - On Balance Volume  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1436,59 +1436,59 @@ pattern_recognition(candles: np.ndarray, pattern_type, penetration=0, sequential
   
 Pattern Recognition  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `penetration`: int - default = 0  
 - `pattern_type`: str  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 int | np.ndarray  
 
-::: tip Available pattern_type
--   CDL2CROWS - Two Crows
--   CDL3BLACKCROWS - Three Black Crows
--   CDL3INSIDE - Three Inside Up/Down
--   CDL3LINESTRIKE - Three-Line Strike
--   CDL3OUTSIDE - Three Outside Up/Down
--   CDL3STARSINSOUTH - Three Stars In The South
--   CDL3WHITESOLDIERS - Three Advancing White Soldiers
--   CDLABANDONEDBABY - Abandoned Baby
--   CDLADVANCEBLOCK - Advance Block
--   CDLBELTHOLD - Belt-hold
--   CDLBREAKAWAY - Breakaway
--   CDLCLOSINGMARUBOZU - Closing Marubozu
--   CDLCONCEALBABYSWALL - Concealing Baby Swallow
--   CDLCOUNTERATTACK - Counterattack
--   CDLDARKCLOUDCOVER - Dark Cloud Cover
--   CDLDOJI - Doji
--   CDLDOJISTAR - Doji Star
--   CDLDRAGONFLYDOJI - Dragonfly Doji
--   CDLENGULFING - Engulfing Pattern
--   CDLEVENINGDOJISTAR - Evening Doji Star
--   CDLEVENINGSTAR - Evening Star
--   CDLGAPSIDESIDEWHITE - Up/Down-gap side-by-side white lines
--   CDLGRAVESTONEDOJI - Gravestone Doji
--   CDLHAMMER - Hammer
--   CDLHANGINGMAN - Hanging Man
--   CDLHARAMI - Harami Pattern
--   CDLHARAMICROSS - Harami Cross Pattern
--   CDLHIGHWAVE - High-Wave Candle
--   CDLHIKKAKE - Hikkake Pattern
--   CDLHIKKAKEMOD - Modified Hikkake Pattern
--   CDLHOMINGPIGEON - Homing Pigeon
--   CDLIDENTICAL3CROWS - Identical Three Crows
--   CDLINNECK - In-Neck Pattern
--   CDLINVERTEDHAMMER - Inverted Hammer
--   CDLKICKING - Kicking
--   CDLKICKINGBYLENGTH - Kicking - bull/bear determined by the longer marubozu
--   CDLLADDERBOTTOM - Ladder Bottom
--   CDLLONGLEGGEDDOJI - Long Legged Doji
--   CDLLONGLINE - Long Line Candle
--   CDLMARUBOZU - Marubozu
--   CDLMATCHINGLOW - Matching Low
+::: tip Доступен pattern_type
+-   CDL2CROWS - Two Crows - Две короны
+-   CDL3BLACKCROWS - Three Black Crows - Три Черные Короны
+-   CDL3INSIDE - Three Inside Up/Down - Три внутри вверх / вниз
+-   CDL3LINESTRIKE - Three-Line Strike - Трехстрочный удар
+-   CDL3OUTSIDE - Three Outside Up/Down - Трехстрочный удар
+-   CDL3STARSINSOUTH - Three Stars In The South - Три звезды на юге
+-   CDL3WHITESOLDIERS - Three Advancing White Soldiers - Три продвижения белых солдат
+-   CDLABANDONEDBABY - Abandoned Baby - Заброшенный ребенок
+-   CDLADVANCEBLOCK - Advance Block - Авансовый блок
+-   CDLBELTHOLD - Belt-hold - Удержание
+-   CDLBREAKAWAY - Breakaway - Вырваться
+-   CDLCLOSINGMARUBOZU - Closing Marubozu - Закрывающийся Марубозу
+-   CDLCONCEALBABYSWALL - Concealing Baby Swallow - Сокрытие ребенка ласточки
+-   CDLCOUNTERATTACK - Counterattack - Контратака
+-   CDLDARKCLOUDCOVER - Dark Cloud Cover - Темное покрытие облака
+-   CDLDOJI - Doji - Доджи
+-   CDLDOJISTAR - Doji Star - Доджи Стар
+-   CDLDRAGONFLYDOJI - Dragonfly Doji - Стрекоза Доджи
+-   CDLENGULFING - Engulfing Pattern - Поглощающий рисунок
+-   CDLEVENINGDOJISTAR - Evening Doji Star - Вечерняя звезда Доджи
+-   CDLEVENINGSTAR - Evening Star - Вечерня звезда
+-   CDLGAPSIDESIDEWHITE - Up/Down-gap side-by-side white lines - Верх/вниз петли белые боковик
+-   CDLGRAVESTONEDOJI - Gravestone Doji - Грейдон Доджи. 
+-   CDLHAMMER - Hammer - Кувалда
+-   CDLHANGINGMAN - Hanging Man - Висящий мужчина 
+-   CDLHARAMI - Harami Pattern - Харами Шаблон
+-   CDLHARAMICROSS - Harami Cross Pattern - Крест Харами Шаблон
+-   CDLHIGHWAVE - High-Wave Candle - Свечи Высокой Волны
+-   CDLHIKKAKE - Hikkake Pattern - Хикаки Шаблон
+-   CDLHIKKAKEMOD - Modified Hikkake Pattern - Модифицированный Хикаки Шаблон 
+-   CDLHOMINGPIGEON - Homing Pigeon - Почтовый голубь
+-   CDLIDENTICAL3CROWS - Identical Three Crows - Идентичные три ворона 
+-   CDLINNECK - In-Neck Pattern - Шаблон Шеи 
+-   CDLINVERTEDHAMMER - Inverted Hammer - Перевернутый Молот
+-   CDLKICKING - Kicking - Пинание
+-   CDLKICKINGBYLENGTH - Kicking - bull/bear determined by the longer marubozu - Пинание бычий / медвежий определяется более длинным Муробузу
+-   CDLLADDERBOTTOM - Ladder Bottom - Лестница вниз 
+-   CDLLONGLEGGEDDOJI - Long Legged Doji - Длинные ноги Доджи
+-   CDLLONGLINE - Long Line Candle - Длинная линия свечи
+-   CDLMARUBOZU - Marubozu - Маробузу
+-   CDLMATCHINGLOW - Matching Low - Подходящее низкое
 -   CDLMATHOLD - Mat Hold
 -   CDLMORNINGDOJISTAR - Morning Doji Star
 -   CDLMORNINGSTAR - Morning Star
@@ -1513,13 +1513,13 @@ pivot(candles: np.ndarray, mode=0, sequential=False) -> PIVOT
   
 Pivot Points  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `mode`: int - default = 0  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 PIVOT(r4, r3, r2, r1, pp, s1, s2, s3, s4)  
   
@@ -1532,7 +1532,7 @@ ppo(candles: np.ndarray, fastperiod=12, slowperiod=26, matype=0, source_type="cl
   
 PPO - Percentage Price Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `fastperiod`: int - default: 12  
@@ -1541,7 +1541,7 @@ PPO - Percentage Price Oscillator
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1553,13 +1553,13 @@ pvi(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, 
   
 PVI - Positive Volume Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1571,13 +1571,13 @@ qstick(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarr
   
 Qstick  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -1589,14 +1589,14 @@ reflex(candles: np.ndarray, period=20, source_type="close", sequential=False) ->
   
 Reflex indicator by John F. Ehlers
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -1608,14 +1608,14 @@ roc(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Un
   
 ROC - Rate of change : ((price/prevPrice)-1)*100  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=10  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -1627,14 +1627,14 @@ rocp(candles: np.ndarray, period=10, source_type="close", sequential=False) -> U
   
 ROCP - Rate of change Percentage: (price-prevPrice)/prevPrice  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=10  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1646,14 +1646,14 @@ rocr(candles: np.ndarray, period=10, source_type="close", sequential=False) -> U
   
 ROCR - Rate of change ratio: (price/prevPrice)  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=10  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1665,14 +1665,14 @@ rocr100(candles: np.ndarray, period=10, source_type="close", sequential=False) -
   
 ROCR100 - Rate of change ratio 100 scale: (price/prevPrice)*100  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=10  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1684,7 +1684,7 @@ roofing(candles: np.ndarray, hp_period=48, lp_period=10, source_type="close", se
   
 Roofing Filter indicator by John F. Ehlers
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `hp_period`: int - default: 48  
@@ -1692,7 +1692,7 @@ Roofing Filter indicator by John F. Ehlers
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -1704,14 +1704,14 @@ rsi(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Un
   
 RSI - Relative Strength Index  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1723,14 +1723,14 @@ sar(candles: np.ndarray, acceleration=0.02, maximum=0.2, sequential=False) -> Un
   
 SAR - Parabolic SAR  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `acceleration`: float - default: 0.02  
 - `maximum`: float - default: 0.2  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1742,7 +1742,7 @@ sarext(candles: np.ndarray, startvalue=0, offsetonreverse=0, accelerationinitlon
   
 SAREXT - Parabolic SAR - Extended  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `startvalue`: float - default: 0  
@@ -1755,7 +1755,7 @@ SAREXT - Parabolic SAR - Extended
 - `accelerationmaxshort`: float - default: 0  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1767,14 +1767,14 @@ sma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Uni
   
 SMA - Simple Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1786,14 +1786,14 @@ smma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Un
   
 SMMA - Smoothed Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1805,14 +1805,14 @@ srsi(candles: np.ndarray, period=14, source_type="close", sequential=False) -> S
   
 Stochastic RSI  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 StochasticRSI(k, d)  
   
@@ -1824,7 +1824,7 @@ stddev(candles: np.ndarray, period=5, nbdev=1, source_type="close", sequential=F
   
 STDDEV - Standard Deviation  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
@@ -1832,7 +1832,7 @@ STDDEV - Standard Deviation
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1844,13 +1844,13 @@ stoch(candles: np.ndarray, fastk_period=14, slowk_period=3, slowk_matype=0, slow
   
 The Stochastic Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 Stochastic(k, d)  
   
@@ -1862,7 +1862,7 @@ stochf(candles: np.ndarray, fastk_period=5, fastd_period=3, fastd_matype=0, sequ
   
 Stochastic Fast  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `fastk_period`: int - default=5  
@@ -1870,7 +1870,7 @@ Stochastic Fast
 - `fastd_matype`: int - default=0  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 StochasticFast(k, d)  
   
@@ -1883,14 +1883,14 @@ supersmoother(candles: np.ndarray, cutoff=14, source_type="close", sequential=Fa
 Super Smoother Filter 2pole Butterworth  
 This indicator was described by John F. Ehlers  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `cutoff`: int - default=14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1902,14 +1902,14 @@ supertrend(candles: np.ndarray, period=10, factor=3, sequential=False) -> SuperT
   
 SuperTrend  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `factor`: int - default=3  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 SuperTrend(trend, changed)  
   
@@ -1921,7 +1921,7 @@ t3(candles: np.ndarray, period=5, vfactor=0, source_type="close", sequential=Fal
   
 T3 - Triple Exponential Moving Average (T3)  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
@@ -1929,7 +1929,7 @@ T3 - Triple Exponential Moving Average (T3)
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1941,14 +1941,14 @@ tema(candles: np.ndarray, period=9, source_type="close", sequential=False) -> Un
   
 TEMA - Triple Exponential Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 9  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1960,12 +1960,12 @@ trange(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 TRANGE - True Range  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -1977,14 +1977,14 @@ trendflex(candles: np.ndarray, period=20, source_type="close", sequential=False)
   
 Trendflex indicator by John F. Ehlers
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -1996,14 +1996,14 @@ trima(candles: np.ndarray, period=30, source_type="close", sequential=False) -> 
   
 TRIMA - Triangular Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 30  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2015,14 +2015,14 @@ trix(candles: np.ndarray, period=18, source_type="close", sequential=False) -> U
   
 TRIX - 1-day Rate-Of-Change (ROC) of a Triple Smooth EMA  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 18  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2034,14 +2034,14 @@ tsf(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Un
   
 TSF - Time Series Forecast  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2054,7 +2054,7 @@ tsi(candles: np.ndarray, long_period=25, short_period=13, source_type="close", s
   
 True strength index (TSI)  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `long_period`: int - default: 25  
@@ -2062,7 +2062,7 @@ True strength index (TSI)
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2074,12 +2074,12 @@ typprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 TYPPRICE - Typical Price  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2092,7 +2092,7 @@ ultosc(candles: np.ndarray, timeperiod1=7, timeperiod2=14, timeperiod3=28, seque
   
 ULTOSC - Ultimate Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `timeperiod1`: int - default=7  
@@ -2100,7 +2100,7 @@ ULTOSC - Ultimate Oscillator
 - `timeperiod3`: int - default=28  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2112,7 +2112,7 @@ var(candles: np.ndarray, period=14, nbdev=1, source_type="close", sequential=Fal
   
 VAR - Variance  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
@@ -2120,7 +2120,7 @@ VAR - Variance
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2132,13 +2132,13 @@ vi(candles: np.ndarray, period=14, sequential=False) -> VI
   
 Vortex Indicator (VI) 
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 VI(plus, minus)  
 
@@ -2150,7 +2150,7 @@ vidya(candles: np.ndarray, short_period=2, long_period=5, alpha=0.2, source_type
   
 VIDYA - Variable Index Dynamic Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `short_period`: int - default: 2  
@@ -2159,7 +2159,7 @@ VIDYA - Variable Index Dynamic Average
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2171,14 +2171,14 @@ vosc(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Un
   
 VOSC - Volume Oscillator  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `short_period`: int - default: 2  
 - `long_period`: int - default: 5  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
 
@@ -2190,7 +2190,7 @@ voss(candles: np.ndarray, period=20, predict=3, bandwith=0.25, source_type="clos
   
 Voss - Voss Filter indicator by John Ehlers
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
@@ -2199,7 +2199,7 @@ Voss - Voss Filter indicator by John Ehlers
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 VossFilter(voss, filt) 
 
@@ -2212,13 +2212,13 @@ vpt(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, 
   
 VPT - Volume Price Trend
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2230,14 +2230,14 @@ vwma(candles: np.ndarray, period=20, source_type="close", sequential=False) -> U
   
 VWMA - Volume Weighted Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2249,7 +2249,7 @@ vwmacd(candles: np.ndarray, fastperiod=12, slowperiod=26, signalperiod=9, sequen
   
 VWMACD - Volume Weighted Moving Average Convergence/Divergence  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `fastperiod`: int - default: 12  
@@ -2257,7 +2257,7 @@ VWMACD - Volume Weighted Moving Average Convergence/Divergence
 - `signal_period`: int - default: 9  
 - `sequential`: bool - default: False  
   
-**Returns**:  
+**Возвращает**:  
   
 VWMACD(macd, signal, hist)  
   
@@ -2269,12 +2269,12 @@ wad(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 WAD - Williams Accumulation/Distribution  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2286,12 +2286,12 @@ wclprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
   
 WCLPRICE - Weighted Close Price  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2303,14 +2303,14 @@ wilders(candles: np.ndarray, period=5, source_type="close", sequential=False) ->
   
 WILDERS - Wilders Smoothing  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 5  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2322,13 +2322,13 @@ willr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarr
   
 WILLR - Williams' %R  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default=14  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2340,14 +2340,14 @@ wma(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Un
   
 WMA - Weighted Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 30  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2359,14 +2359,14 @@ zlema(candles: np.ndarray, period=20, source_type="close", sequential=False) -> 
   
 Zero-Lag Exponential Moving Average  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray  
   
@@ -2379,7 +2379,7 @@ zscore(candles: np.ndarray, period=14, matype=0, nbdev=1, source_type="close", s
   
 zScore  
   
-**Arguments**:  
+**Аргументы**:  
   
 - `candles`: np.ndarray  
 - `period`: int - default: 14  
@@ -2388,6 +2388,6 @@ zScore
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
-**Returns**:  
+**Возвращает**:  
   
 float | np.ndarray
