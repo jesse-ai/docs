@@ -1,6 +1,6 @@
 # Environment Setup
 
-In this page we'll go through how to prepare your environment before installing Jesse. We'll cover three major operating systems:
+On this page, we'll go through how to prepare your environment before installing Jesse. We'll cover three major operating systems:
 
 - [Ubuntu](/docs/getting-started/environment-setup.html#ubuntu)
 - [macOS](/docs/getting-started/environment-setup.html#macos)
@@ -15,6 +15,10 @@ A good practice for providing an environment for running Python applications is 
 :::
 
 ## Ubuntu
+
+::: tip
+If you are a visual learner, you might want to check out our screencast tutorial about "[How to run Jesse on Ubuntu](https://youtu.be/4bwhr_CQcuQ)" on YouTube. 
+::: 
 
 We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install all the required stack and pip packages including Jesse itself on a machine running a fresh Ubuntu LTS installation.
 
@@ -40,7 +44,7 @@ A workaround is using a prebuilt wheel (.whl) of ta-lib.
 
 By default, the PostgreSQL database and username in the `config.py` file are `jesse_db` & `jesse_user`, respectively; and `password` as the default password.
 
-If you'd like these to be different from the default, please change them in your `config.py` prior to setting up PostgreSQL and replace the database and username that you choose in the following steps, otherwise the following is for the defaults.
+If you'd like these to be different from the default, please change them in your `config.py` before setting up PostgreSQL and replace the database and username that you choose in the following steps, otherwise, the following is for the defaults.
 
 
 ```sh
@@ -69,19 +73,31 @@ Installation on macOS is easy thanks to Homebrew. If you don't have [Homebrew](h
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-Now install Python, ta-lib, and PostgreSQL by running below commands one by one:
+:::tip
+Starting v`0.23.1`, Jesse can be installed natively on mac machines with Apple Silicon (M1). The performance on it amazing BTW! 
+
+The only dependency package that doesn't work with M1 macs yet is `numba`. However, we made the `numba` package optional. Meaning that if you are on a M1 machine, it won't install it, and the indicators that use it will work but will be slower. 
+```
+brew install openblas
+export OPENBLAS=$(brew --prefix openblas)
+export CFLAGS="-falign-functions=8 ${CFLAGS}"
+pip install scipy
+```
+:::
+
+Now install Python, ta-lib, and PostgreSQL by running the below commands one by one:
 
 ```sh
-brew install python@3.8
+brew install python
 brew install ta-lib
 brew install postgresql
 ```
 
-Last step is to create a PosgreSQL database and user:
+The last step is to create a PostgreSQL database and user:
 
 ```sh
 # open PostgreSQL CLI
-psql
+psql postgres
 # create database
 CREATE DATABASE jesse_db;
 # create new user
@@ -97,10 +113,10 @@ That's it. You should now be able to [install Jesse](/docs/getting-started/#pip-
 ## Windows
 
 ### Python and pip
-[Download](https://www.python.org/downloads/windows) the official Python installer. It doesn't matter whether you choose the executable installer or web-base installer. What matters is to choose the right version for your system type. If you are on `32bit` Windows download `Windows x86 ... installer`. If you are on 64bit Windows get the `Windows x86-64 ... installer`.
+[Download](https://www.python.org/downloads/windows) the official Python installer. It doesn't matter whether you choose the executable installer or web-based installer. What matters is to choose the right version for your system type. If you are on `32bit` Windows download `Windows x86 ... installer`. If you are on 64bit Windows get the `Windows x86-64 ... installer`.
 
 :::tip
-Not sure which system type you are on? Open a file explorer window. Right click on `This PC` and then `Properties`. Under `System` there is `System type`.
+Not sure which system type you are on? Open a file explorer window. Right-click on `This PC` and then `Properties`. Under `System` there is `System type`.
 :::
 
 ::: warning
@@ -116,7 +132,7 @@ python/pip is not recognized as an internal or external command,
 operable program or batch file.
 ```
 Then you probably didn't check `Add Python 3.X to PATH`.
-Start again or add it to your path manually. To edit your PATH variable use the windows search and search for `enviroment` you should see `Edit enviroment variables for you account`. Click that. Search for the `PATH` variable in the user section. Select it and click `Edit`. Click `Browse` and find your python installation folder.
+Start again or add it to your path manually. To edit your PATH variable use the windows search and search for `environment you should see `Edit environment variables for your account`. Click that. Search for the `PATH` variable in the user section. Select it and click `Edit`. Click `Browse` and find your python installation folder.
 You are sure Python is in the PATH? Restart your CLI and/or your machine might help.
 :::
 
@@ -129,10 +145,10 @@ You can unselect the components `pgAdmin` and `Stack Builder`. You can leave the
 :::
 
 Now add PostgreSQL to your `PATH`.
-To edit your `PATH` variable use the windows search and search for `enviroment`. Click on `Edit enviroment variables for you account`. Search for the `PATH` variable in the user section. Select it and click `Edit`. Now click `Browse` and find your PostgreSQL installation folder. Select the `bin` folder and save everything.
-The added path shoud look something like `C:\Program Files\PostgreSQL\12\bin`.
+To edit your `PATH` variable use the windows search and search for `environment. Click on `Edit environment variables for your account`. Search for the `PATH` variable in the user section. Select it and click `Edit`. Now click `Browse` and find your PostgreSQL installation folder. Select the `bin` folder and save everything.
+The added path should look something like `C:\Program Files\PostgreSQL\12\bin`.
 
-Now open a CMD to create the database for jesse by executing the following commands:
+Now open a CMD to create the database for Jesse by executing the following commands:
 
 ```sh
 # Switch to postgres user. You will be asked for the password

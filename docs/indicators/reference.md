@@ -20,15 +20,41 @@ With `sequential=False` the indicators will slice the candle array behind the sc
 ::: tip matype
 In few indicators you can set a moving average type:
 
--   `0`: SMA (simple)
--   `1`: EMA (exponential)
--   `2`: WMA (weighted)
--   `3`: DEMA (double exponential)
--   `4`: TEMA (triple exponential)
--   `5`: TRIMA (triangular)
--   `6`: KAMA (Kaufman adaptive)
--   `7`: MAMA (Mesa adaptive)
+-   `0`: sma (simple)
+-   `1`: ema (exponential)
+-   `2`: wma (weighted)
+-   `3`: dema (double exponential)
+-   `4`: tema (triple exponential)
+-   `5`: trima (triangular)
+-   `6`: kama (Kaufman adaptive)
+-   `7`: mama (Mesa adaptive)
 -   `8`: T3 (triple exponential T3)
+-   `9`: fwma (Fibonacci's Weighted Moving Average)
+-   `10`: hma (Hull Moving Average)
+-   `11`: linearreg (Linear Regression)
+-   `12`: wilders (Wilders Smoothing)
+-   `13`: sinwma (Sine Weighted Moving Average)
+-   `14`: supersmoother (Super Smoother Filter 2pole Butterworth)
+-   `15`: supersmoother_3_pole(Super Smoother Filter 3pole Butterworth)
+-   `16`: gauss (Gaussian Filter)
+-   `17`: high_pass (1-pole High Pass Filter by John F. Ehlers)
+-   `18`: high_pass_2_pole (2-pole High Pass Filter by John F. Ehlers)
+-   `19`: ht_trendline (Hilbert Transform - Instantaneous Trendline)
+-   `20`: jma (Jurik Moving Average)
+-   `21`: reflex (Reflex indicator by John F. Ehlers)
+-   `22`: trendflex (Trendflex indicator by John F. Ehlers)
+-   `23`: smma (Smoothed Moving Average)
+-   `24`: vwma (Volume Weighted Moving Average)
+-   `25`: pwma (Pascals Weighted Moving Average)
+-   `26`: swma (Symmetric Weighted Moving Average)
+:::
+    
+::: tip devtype
+In few indicators you can set a deviation type:
+
+-   `0`: standard deviation
+-   `1`: mean absolute deviation
+-   `2`: median absolute deviation
 :::
 
 ::: tip source_type
@@ -278,7 +304,28 @@ BETA - Beta
 **Returns**:  
   
 float | np.ndarray  
+
+## bandpass
   
+```python  
+bandpass(candles: np.ndarray, period: int = 20, bandwidth: float = 0.3, source_type: str = "close", sequential: bool = False) -> BandPass
+```  
+  
+BandPass Filter  
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 20  
+- `bandwidth`: float - default: 0.3
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+BandPass(bp, bp_normalized, signal, trigger)  
+
+
 ## bollinger\_bands  
   
 ```python  
@@ -398,6 +445,46 @@ CFO - Chande Forcast Oscillator
   
 float | np.ndarray  
 
+## cg
+  
+```python  
+cg(candles: np.ndarray, period: int = 10, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Center of Gravity (CG)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=10  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## cksp
+  
+```python  
+cksp(candles: np.ndarray, p: int = 10, x: float = 1.0, q: int = 9, sequential: bool = False) -> CKSP
+```  
+  
+Chande Kroll Stop (CKSP)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `p`: int - default=10  
+- `x`: float - default=1.0  
+- `q`: int - default=9
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+CKSP(long, short)
+
+
 ## chande
   
 ```python  
@@ -412,6 +499,26 @@ Chandelier Exits
 - `period`: int - default=22
 - `mult`: float - default=3.0
 - `direction`: str - default="long" | "short"
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+## chop
+  
+```python  
+chop(candles: np.ndarray, period: int = 14, scalar: float = 100, drift: int = 1, sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Choppiness Index (CHOP)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=14  
+- `scalar`: float- default=100 
+- `drift`: int - default=1  
 - `sequential`: bool - default=False  
   
 **Returns**:  
@@ -575,7 +682,7 @@ float | np.ndarray
 ## devstop
   
 ```python  
-devstop(candles: np.ndarray, period:int=20, mult: float = 0, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]
+devstop(candles: np.ndarray, period:int=20, mult: float = 0, devtype: int = 0, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]
 ```  
   
 Kase Dev Stops
@@ -584,7 +691,8 @@ Kase Dev Stops
   
 - `candles`: np.ndarray  
 - `period`: int - default: 20  
-- `mult`: float - default: 0  
+- `mult`: float - default: 0
+- `devtype`: int - default: 0  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   
@@ -1136,7 +1244,27 @@ Ichimoku Cloud Sequential
 **Returns**:  
   
 IchimokuCloud(conversion_line, base_line, span_a, span_b, lagging_line, future_span_a, future_span_b)
+
+## ift_rsi
   
+```python  
+ift_rsi(candles: np.ndarray, rsi_period: int = 5, wma_period: int =9, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Modified Inverse Fisher Transform applied on RSI
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray
+- `rsi_period`: int - default: 5
+- `wma_period`: int - default: 9  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## itrend  
   
 ```python  
@@ -1155,7 +1283,28 @@ Instantaneous Trendline
 **Returns**:  
   
 ITREND(signal, it, trigger)  
+
+## jma  
   
+```python  
+jma(candles: np.ndarray, period:int=7, phase:float=50, power:int=2, source_type:str='close', sequential:bool=False) -> Union[float, np.ndarray]
+```  
+  
+Jurik Moving Average
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default: 7  
+- `phase`: float - default: 50  
+- `power`: int - default: 2  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
 ## kama  
   
 ```python  
@@ -1193,8 +1342,31 @@ Perry Kaufman's Stops
   
 **Returns**:  
   
-float | np.ndarray  
+float | np.ndarray
+
+## kdj  
   
+```python  
+kdj(candles: np.ndarray, fastk_period: int = 9, slowk_period: int = 3, slowk_matype: int = 0, slowd_period: int = 3, slowd_matype: int = 0, sequential: bool = False) -> KDJ
+```  
+  
+The KDJ Oscillator
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `fastk_period`: int - default: 9
+- `slowk_period`: int - default: 3 
+- `slowk_matype`: int - default: 0  
+- `slowd_period`: int - default: 3
+- `slowd_matype`: int - default: 0 
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+KDJ(k, d, j)  
+
+
 ## keltner  
   
 ```python  
@@ -1877,7 +2049,27 @@ PVI - Positive Volume Index
 **Returns**:  
   
 float | np.ndarray  
+
+## pwma  
   
+```python  
+pwma(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Pascals Weighted Moving Average (PWMA)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray
+- `period`: int - default: 5  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+
 ## qstick  
   
 ```python  
@@ -2075,7 +2267,7 @@ float | np.ndarray
 ## rvi 
   
 ```python  
-rvi(candles: np.ndarray, period: int = 10, ma_len: int = 14, matype: int = 1, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+rvi(candles: np.ndarray, period: int = 10, ma_len: int = 14, matype: int = 1, devtype: int = 0, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
 ```  
   
 RVI - Relative Volatility Index
@@ -2085,7 +2277,8 @@ RVI - Relative Volatility Index
 - `candles`: np.ndarray  
 - `period`: int - default: 10  
 - `ma_len`: int - default: 14  
-- `matype`: int - default: 1  
+- `matype`: int - default: 1
+- `devtype`: int - default: 0
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False
   
@@ -2373,8 +2566,27 @@ This indicator was described by John F. Ehlers
   
 **Returns**:  
   
-float | np.ndarray  
+float | np.ndarray
+
+## swma
   
+```python  
+swma(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Symmetric Weighted Moving Average (SWMA)
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=5  
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray
+
 ## supertrend  
   
 ```python  
@@ -2910,7 +3122,7 @@ float | np.ndarray
 ## zscore  
   
 ```python  
-zscore(candles: np.ndarray, period=14, matype=0, nbdev=1, source_type="close", sequential=False) -> Union[  
+zscore(candles: np.ndarray, period=14, matype=0, nbdev=1, devtype: int = 0, source_type="close", sequential=False) -> Union[  
   float, np.ndarray]  
 ```  
   
@@ -2922,6 +3134,7 @@ zScore
 - `period`: int - default: 14  
 - `matype`: int - default: 0  
 - `nbdev`: int - default: 1  
+- `devtype`: int - default: 1  
 - `source_type`: str - default: "close"  
 - `sequential`: bool - default=False  
   

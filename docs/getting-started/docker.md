@@ -2,9 +2,17 @@
 
 There's not just one correct way to use Docker; there's plenty. On this page, however, we'll describe a minimal setup ready to go using [docker compose](https://docs.docker.com/compose).
 
+::: tip
+If you are a visual learner, you might want to check out our screencast tutorial about "[How to run Jesse using Docker](https://youtu.be/9P01T5_sNn8)" on YouTube. 
+::: 
+
 If you're looking for a ready to work repository, see [jesse-stack-docker](https://github.com/jesse-ai/jesse-stack-docker). You just need to copy the contents of the `docker-compose.yml` file into a file on your system.
 
 This `docker-compose.yml` file has 3 services: the `jesse` framework, `postgresql` database, and the [jesse trade info](https://github.com/nicolay-zlobin/jesse-trades-info) web chart utility which is used to explore backtest result. Two services (the `jesse` and `db`) mount your local directories to the containers so the jesse can read your strategies and the database can keep candles data and trades history permenantly.
+
+If you're looking for a ready to work repository, see [jesse-stack-docker](https://github.com/jesse-ai/jesse-stack-docker). Click on `Use as template` and pull your forked repo locally.
+This repository uses a docker-compose file that includes different services: main jesse, postgres database, [jesse trade info](https://github.com/nicolay-zlobin/jesse-trades-info) web chart US to explore backtest result. It mounts locally files to persist on your machine the database data contains trade history use for backtest, and your Jesse strategy files:
+
 ```sh
 # docker-compose.yml
 version: '3.8'
@@ -12,7 +20,7 @@ version: '3.8'
 services:
 
   jesse:
-    image: salehmir/jesse:0.22.1
+    image: salehmir/jesse:latest
     depends_on:
       - db
       - jesse-trades-info

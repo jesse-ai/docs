@@ -92,18 +92,6 @@ Returns the current wallet in your exchange wallet. In the futures market, it be
 **See Also**: [capital](#capital), [available_margin](#available-margin)
 
 
-## candles
-
-This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
-
-**Return Type:** np.ndarray
-
-**Example**:
-```py
-# get SMA with a period of 8 for current trading route
-sma8 = ta.sma(self.candles, 8)
-```
-
 ## capital
 
 Alias for [balance](#balance)
@@ -154,24 +142,26 @@ low_price = self.current_candle[4]
 volume = self.current_candle[5]
 ```
 
+::: tip
+Just like in the API of crypto exchanges, and TradingView, each candle's timestamp is the beginning of that time period, not the ending but the actual time it began. 
+
+For example if you are trading the `5m` timeframe and the current time is at `12:05:00`, the current_candle's timestamp will show `12:00:00`. 
+:::
+
 **See Also**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
 
-## fee_rate
 
-The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty). 
+## candles
 
-**Example:**
+This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
+
+**Return Type:** np.ndarray
+
+**Example**:
 ```py
-qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
+# get SMA with a period of 8 for current trading route
+sma8 = ta.sma(self.candles, 8)
 ```
-
-**Return Type**: float
-
-**See Also**: [risk_to_qty](/docs/utils.html#risk-to-qty)
-
-::: tip
-The `fee_rate` property returns exchange fee as a float. For example at Binance fee is `0.1%`, hence `self.fee_rate` would return `0.001`.
-:::
 
 
 ## get_candles
@@ -205,6 +195,25 @@ def big_trend(self):
 ```
 
 **See Also**: [candles](#candles)
+
+
+## fee_rate
+
+The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty). 
+
+**Example:**
+```py
+qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
+```
+
+**Return Type**: float
+
+**See Also**: [risk_to_qty](/docs/utils.html#risk-to-qty)
+
+::: tip
+The `fee_rate` property returns exchange fee as a float. For example at Binance fee is `0.1%`, hence `self.fee_rate` would return `0.001`.
+:::
+
 
 ## high
 
@@ -313,6 +322,33 @@ Is the type of the open position (current trade) `short`?
 ## leverage
 
 The `leverage` property returns the leverage number that you have set in your config file for the exchange you're running inside the strategy. For spot markets, it always returns `1`. 
+
+**Return Type**: int
+
+## liquidation_price
+
+The `liquidation_price` property returns the price at which the position will get liquidated which is used in futures exchanges only. At the moment, backtests support the `isolated` mode only and not the cross mode. 
+
+In the live mode, the value for the `liquidation_price` is fetched from the exchange once every minute so what you see in the dashboard isn't updated in real-time. 
+
+**Return Type**: float
+
+## mark_price
+
+The `mark_price` property returns the mark-price in futures exchanges which are used for the calculation of the liquidation price. This property is used for live trading futures exchanges only. During backtests, it equals to `self.price`. 
+
+**Return Type**: float
+
+
+## funding_rate
+
+The `funding_rate` property returns the current funding rate in futures exchanges. This property is used for live trading futures exchanges only. During backtests, it equals `0`. 
+
+**Return Type**: float
+
+## next_funding_timestamp
+
+The `next_funding_timestamp` property returns the timestamp for the next funding. It is used only when trading perpetual contracts. This property is used for live trading futures exchanges only. During backtests, it equals `None`. 
 
 **Return Type**: int
 
@@ -567,3 +603,13 @@ Using `vars` would also make it easier for debugging.
 
 **Return Type**: dict
 
+
+## log
+
+This method can be used to log text from within the strategy which is very helpful for debugging or monitoring (in case of live trading). Accepts a second `log_type` parameter with values as `info` or `error`. 
+
+The default is `info`. `error` logs are notified separately in the live mode, so that's a nice way of using them. 
+
+```py
+log(msg: str, log_type: str = 'info')
+```

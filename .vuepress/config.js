@@ -115,7 +115,7 @@ module.exports = {
             },
             ['/docs/jupyter-notebooks', 'Jupyter Notebooks'],
             ['/docs/debugging', 'Debugging'],
-            ['/docs/faq/', 'Frequently Asked Questions'],
+            ['https://jesse.trade/help', 'Frequently Asked Questions'],
             ['/docs/changelog', 'Changelog'],
             ['/docs/roadmap', 'Roadmap'],
             // ['/docs/license', 'License']
