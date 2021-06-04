@@ -334,3 +334,66 @@ sum_floats(float1: float, float2: float) -> float
 -   float2: float
 
 **Return Type**: float
+
+
+## prices\_to\_returns
+
+Converts a series of asset prices to returns. 
+
+In case you're wondering why you need to use price returns for price series analysis instead of the price values, check out this answer on [Quant Stackexchange](https://quant.stackexchange.com/a/16484). 
+
+::: tip 
+Notice that the first return value for the first index cannot be calculated hence it equals `nan`. 
+:::
+
+```py
+prices_to_returns(price_series: np.ndarray) -> np.ndarray
+```
+
+**Properties**:
+
+-   price_series: np.ndarray
+
+**Return Type**: np.ndarray
+
+
+## are\_cointegrated
+
+Uses unit-root test on residuals to test for a cointegrated relationship between two price return series. 
+
+::: tip
+Notice that for the formula to make sense `price_returns_1` and `price_returns_2` must be "price returns" and not the mere prices of the two assets. Hence you need to convert your asset prices to returns using the [prices_to_returns](#prices-to-returns) utility. 
+:::
+
+The `cutoff` parameter points to the p-value threshold used in the formula. 
+
+```py
+are_cointegrated(price_returns_1: np.ndarray, price_returns_2: np.ndarray, cutoff=0.05) -> bool
+```
+
+**Properties**:
+
+-   price_returns_1: np.ndarray
+-   price_returns_1: np.ndarray
+-   cutoff: float | default=0.05
+
+**Return Type**: bool
+
+
+## z\_score
+
+A Z-score is a numerical measurement that describes how many standard deviations far away the data is comparing to the mean of the data. 
+
+::: tip
+Notice that for the formula to make sense `price_returns` must be "price returns" and not the mere prices of the two assets. Hence you need to convert your asset prices to returns using the [prices_to_returns](#prices-to-returns) utility. 
+:::
+
+```py
+z_score(price_returns: np.ndarray) -> np.ndarray
+```
+
+**Properties**:
+
+-   price_returns: np.ndarray
+
+**Return Type**: np.ndarray
