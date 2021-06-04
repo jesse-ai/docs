@@ -73,15 +73,17 @@ Installation on macOS is easy thanks to Homebrew. If you don't have [Homebrew](h
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-<!-- :::tip
-If you are on using Apple silicon's M1 chip, all dependencies should work fine natively. At the moment there's just a problem with the `scipy` package. To fix it, first install `scipy` using the below commands:
+:::tip
+Starting v`0.23.1`, Jesse can be installed natively on mac machines with Apple Silicon (M1). The performance on it amazing BTW! 
+
+The only dependency package that doesn't work with M1 macs yet is `numba`. However, we made the `numba` package optional. Meaning that if you are on a M1 machine, it won't install it, and the indicators that use it will work but will be slower. 
 ```
 brew install openblas
 export OPENBLAS=$(brew --prefix openblas)
 export CFLAGS="-falign-functions=8 ${CFLAGS}"
 pip install scipy
 ```
-::: -->
+:::
 
 Now install Python, ta-lib, and PostgreSQL by running the below commands one by one:
 
