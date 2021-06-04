@@ -92,18 +92,6 @@ Returns the current wallet in your exchange wallet. In the futures market, it be
 **See Also**: [capital](#capital), [available_margin](#available-margin)
 
 
-## candles
-
-This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
-
-**Return Type:** np.ndarray
-
-**Example**:
-```py
-# get SMA with a period of 8 for current trading route
-sma8 = ta.sma(self.candles, 8)
-```
-
 ## capital
 
 Alias for [balance](#balance)
@@ -154,24 +142,26 @@ low_price = self.current_candle[4]
 volume = self.current_candle[5]
 ```
 
+::: tip
+Just like in the API of crypto exchanges, and TradingView, each candle's timestamp is the beginning of that time period, not the ending but the actual time it began. 
+
+For example if you are trading the `5m` timeframe and the current time is at `12:05:00`, the current_candle's timestamp will show `12:00:00`. 
+:::
+
 **See Also**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
 
-## fee_rate
 
-The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty). 
+## candles
 
-**Example:**
+This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
+
+**Return Type:** np.ndarray
+
+**Example**:
 ```py
-qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
+# get SMA with a period of 8 for current trading route
+sma8 = ta.sma(self.candles, 8)
 ```
-
-**Return Type**: float
-
-**See Also**: [risk_to_qty](/docs/utils.html#risk-to-qty)
-
-::: tip
-The `fee_rate` property returns exchange fee as a float. For example at Binance fee is `0.1%`, hence `self.fee_rate` would return `0.001`.
-:::
 
 
 ## get_candles
@@ -205,6 +195,25 @@ def big_trend(self):
 ```
 
 **See Also**: [candles](#candles)
+
+
+## fee_rate
+
+The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty). 
+
+**Example:**
+```py
+qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
+```
+
+**Return Type**: float
+
+**See Also**: [risk_to_qty](/docs/utils.html#risk-to-qty)
+
+::: tip
+The `fee_rate` property returns exchange fee as a float. For example at Binance fee is `0.1%`, hence `self.fee_rate` would return `0.001`.
+:::
+
 
 ## high
 
