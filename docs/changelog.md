@@ -2,6 +2,13 @@
 
 Here you can see that changes were made at each release.
 
+## 0.24.0
+- [NEW FEATURE] Added new utility functions that are used in statistical analysis of the prices such as for writing statistical arbitrage strategies: z_score, are_cointegrated, prices_to_returns
+- [IMPROVEMENT] Refactored how we execute routes in the live trade mode so the order of execution is the same as defined in the `routes.py` file. This makes it possible to write strategies that depend on it such as statistical arbitrage. 
+- [IMPROVEMENT] Added support for M1 macs. 
+- [CHANGE] The `numba` package has become an optional package which was a requirement for supporting M1 macs. Now `numba` won't be installed by default. This means, if you are an M1 user, you don’t have to install `numba ` and you can install Jesse as before and it will work just fine. If you are NOT an M1 user, then you can still take advantage of `numba` by installing it through running `pip install numba`. 
+- [IMPROVEMENT] Minor bug fixes
+
 ## 0.23.0
 - [NEW FEATURE] Added `self.log` method for easier logging from withing the strategy file. 
 - [NEW FEATURE] Added new properties to the Strategy API: `liquidation_price`, `mark_price`, `funding_rate`, `next_funding_timestamp`
