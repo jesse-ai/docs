@@ -2,6 +2,13 @@
 
 Here you can see that changes were made at each release.
 
+## 0.25.0
+
+- [NEW FEATURE] Introduces a plugin-based system for exchange drivers. 
+- [BREAKING] Requires a `plugins.py` present in the project. 
+- [CHANGE] Adjustments in the candle store as was required by the live trade mode. 
+- Minor bug fixes
+
 ## 0.24.0
 - [NEW FEATURE] Added new utility functions that are used in statistical analysis of the prices such as for writing statistical arbitrage strategies: z_score, are_cointegrated, prices_to_returns
 - [IMPROVEMENT] Refactored how we execute routes in the live trade mode so the order of execution is the same as defined in the `routes.py` file. This makes it possible to write strategies that depend on it such as statistical arbitrage. 
