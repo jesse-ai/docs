@@ -132,7 +132,7 @@ python/pip is not recognized as an internal or external command,
 operable program or batch file.
 ```
 Then you probably didn't check `Add Python 3.X to PATH`.
-Start again or add it to your path manually. To edit your PATH variable use the windows search and search for `environment you should see `Edit environment variables for your account`. Click that. Search for the `PATH` variable in the user section. Select it and click `Edit`. Click `Browse` and find your python installation folder.
+Start again or add it to your path manually. To edit your PATH variable use the windows search and search for `environment` you should see `Edit environment variables for your account`. Click that. Search for the `PATH` variable in the user section. Select it and click `Edit`. Click `Browse` and find your python installation folder.
 You are sure Python is in the PATH? Restart your CLI and/or your machine might help.
 :::
 
@@ -145,7 +145,7 @@ You can unselect the components `pgAdmin` and `Stack Builder`. You can leave the
 :::
 
 Now add PostgreSQL to your `PATH`.
-To edit your `PATH` variable use the windows search and search for `environment. Click on `Edit environment variables for your account`. Search for the `PATH` variable in the user section. Select it and click `Edit`. Now click `Browse` and find your PostgreSQL installation folder. Select the `bin` folder and save everything.
+To edit your `PATH` variable use the windows search and search for `environment`. Click on `Edit environment variables for your account`. Search for the `PATH` variable in the user section. Select it and click `Edit`. Now click `Browse` and find your PostgreSQL installation folder. Select the `bin` folder and save everything.
 The added path should look something like `C:\Program Files\PostgreSQL\12\bin`.
 
 Now open a CMD to create the database for Jesse by executing the following commands:
