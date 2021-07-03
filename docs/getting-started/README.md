@@ -32,6 +32,12 @@ Now install Jesse:
 pip install jesse
 ```
 
+(Optional) Install numba:
+```
+pip install numba
+```
+This package speeds up some indicators. M1 mac users can't use it.
+
 ## Upgrade with PIP
 
 We are constantly pushing new patches. To upgrade to the latest version run:
