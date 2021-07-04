@@ -11,7 +11,7 @@ Spot support is currently very limited - you can use futures mode with leverage 
 jesse backtest 'start_date' 'finish_date'
 ```
 
-`start_date` and `finish_date` must be valid date strings in `YY-MM-DD` format. A working example would be:
+`start_date` and `finish_date` must be valid date strings in `YYYY-MM-DD` format. A working example would be:
 
 ```
 jesse backtest '2016-01-01' '2020-04-06'
