@@ -15,6 +15,12 @@ For example, imagine that I have a trend-following strategy that I trade on the 
 
 Thus, by setting my `optimal_total` to a number like `60` I will successfully filter out such bad DNAs. 
 
+The fitness score is then determined by the closeness of a DNA's total to the `optimal_total` combined with the sharpe ratio of the DNA.
+
+::: tip
+You can choose another ratio for the fitness score / optimization goal in [config.py](/docs/configuration.html)
+:::
+
 ## CSV
 
 Jesse can output the optimization results (DNA, hyperparamters, fitness...) into a CSV file. You may open this CSV file with Excel, Google sheets, or whatever tool you like to analyse the optimization.
