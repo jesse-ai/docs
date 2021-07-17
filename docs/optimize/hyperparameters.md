@@ -23,6 +23,14 @@ def hyperparameters(self):
     ]
 ```
 
+::: tip
+Currently `int` and `float` are the only supported types. If you need a boolean, just use `int` with `min: 0`, `max: 1`. 
+:::
+
+::: tip
+Currently the step size of `float` can't be set. If you want a certain step size, just use `int` and then mutiply it with your step size.
+:::
+
 `slow_sma_period` and `fast_sma_period` are the names that I chose for these two hyperparameters. It could have been anything else. 
 
 Jesse (behind the scenes) injects each hyperparameter (gene) into the `self.hp` property that is available in your strategy class. 
