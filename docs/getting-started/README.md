@@ -44,6 +44,11 @@ We are constantly pushing new patches. To upgrade to the latest version run:
 ```
 pip install -U jesse
 ```
+(Optional) If you use numba, you then have to update it too. 
+
+```
+pip install -U numba
+```
 
 ::: warning
 Sometimes pip doesn't upgrade to the latest version on first time running above command. To make sure you're running the latest release, checkout the latest version number on [PyPi](https://pypi.org/project/jesse/), and then make sure you see that version in `pip list` output.
