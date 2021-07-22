@@ -2,6 +2,12 @@
 
 The "live-trade" plugin is available for early access. You can read the announcement article or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the installation page. 
 
+## Supported Exchanges
+
+At the moment only `Binance Futures` and its testnet version are supported for live/paper trading. Next I will implement support for the FTX exchange. And after that, most likely spot exchanges such as Binance, Coinbase, etc. New exchange drivers are developed based on demand. 
+
+So if you need an exchange that is not supported, please reach out and let me know. 
+
 ## Screenshots?
 Here is a sample of the early access version which has a CLI dashboard:
 
