@@ -1906,6 +1906,25 @@ Pattern Recognition
   
 int | np.ndarray  
 
+::: tip Return values
+- `+2` bullish pattern with confirmation
+- `+1` bullish pattern (most cases)
+- `0` no pattern
+- `-1` bearish pattern
+- `-2` bearish pattern with confirmation
+:::
+
+::: tip Penetration
+The `penetration` parameter only affects:
+- CDLABANDONEDBABY
+- CDLDARKCLOUDCOVER
+- CDLEVENINGDOJISTAR
+- CDLEVENINGSTAR
+- CDLMATHOLD
+- CDLMORNINGDOJISTAR
+- CDLMORNINGSTAR
+:::
+
 ::: tip Available pattern_type
 -   CDL2CROWS - Two Crows
 -   CDL3BLACKCROWS - Three Black Crows
