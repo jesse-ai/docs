@@ -2225,6 +2225,25 @@ PIVOT(r4, r3, r2, r1, pp, s1, s2, s3, s4)
 - 4: Woodie's Pivot Points - r4, r3, r2, r1, pp, s1, s2, s3, s4
   :::
 
+## pma
+
+```python  
+pma(candles: np.ndarray, source_type: str = "hl2", sequential: bool = False) -> PMA
+```  
+
+Ehlers Predictive Moving Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `source_type`: str - default="hl2"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+PMA(predict, trigger)
+
+
 ## ppo
 
 ```python  
