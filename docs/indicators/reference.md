@@ -46,6 +46,19 @@ accordingly.
 - `24`: vwma (Volume Weighted Moving Average)
 - `25`: pwma (Pascals Weighted Moving Average)
 - `26`: swma (Symmetric Weighted Moving Average)
+- `27`: alma (Arnaud Legoux Moving Average)
+- `28`: hwma (Holt-Winter Moving Average)
+- `29`: vwap (Volume weighted average price)
+- `30`: nma (Natural Moving Average)
+- `31`: edcf (Ehlers Distance Coefficient Filter)
+- `32`: mwdx (MWDX Average)
+- `33`: maaq (Moving Average Adaptive Q)
+- `34`: srwma (Square Root Weighted Moving Average)
+- `35`: sqwma (Square Weighted Moving Average)
+- `36`: vpwma (Variable Power Weighted Moving Average)
+- `37`: cwma (Cubed Weighted Moving Average)
+- `38`: jsa (Jsa Moving Average)
+- `39`: epma (End Point Moving Average)
   :::
 
 ::: tip devtype In few indicators you can set a deviation type:
