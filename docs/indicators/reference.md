@@ -1620,6 +1620,28 @@ MA - (nearly) All Moving Averages of Jesse
 
 float | np.ndarray
 
+## maaq
+
+```python  
+maaq(candles: np.ndarray, period: int = 11, fast_period: int = 2, slow_period: int = 30, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Moving Average Adaptive Q
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=11
+- `fast_period`: int - default=2
+- `slow_period`: int - default=30
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
+
 ## mab
 
 ```python  
