@@ -1378,6 +1378,25 @@ Jurik Moving Average
 
 float | np.ndarray
 
+## jsa
+
+```python  
+jsa(candles: np.ndarray, period: int = 30, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Jsa Moving Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=30
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
 ## kama
 
 ```python  
