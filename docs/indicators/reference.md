@@ -3432,6 +3432,30 @@ WMA - Weighted Moving Average
 
 float | np.ndarray
 
+## wt
+
+```python  
+wt(candles: np.ndarray, wtchannellen: int = 9, wtaveragelen: int = 12, wtmalen: int = 3, oblevel: int = 53,  oslevel: int = -53, source_type: str = "hlc3", sequential: bool = False) -> Wavetrend
+```  
+
+Wavetrend indicator
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `wtchannellen`:  int - period=9
+- `wtaveragelen`: int - period=12
+- `wtmalen`: int - period=3
+- `oblevel`: int - period=53
+- `oslevel`: int - period=-53
+- `source_type`: str - period="hlc3"
+- `sequential`: bool - period=False
+
+**Returns**:
+
+Wavetrend(wt1, wt2, wtCrossUp, wtCrossDown, wtOversold, wtOverbought, wtVwap)
+
+
 ## zlema
 
 ```python  
