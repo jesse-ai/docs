@@ -6,18 +6,21 @@ if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
 When developing strategies however, you probably want to keep it as `False` to return only the indicator value for
 current trading candle.
 
-::: tip @cached The @cached decorator can increase performance a lot if applied to indicators - especially those called
+::: tip @cached 
+The @cached decorator can increase performance a lot if applied to indicators - especially those called
 a lot in your strategy. [See here](https://docs.jesse.trade/docs/strategies/api.html#cached).
 :::
 
-::: tip Performance and sequential With `sequential=False` the indicators will slice the candle array behind the scene
+::: tip Performance and sequential 
+With `sequential=False` the indicators will slice the candle array behind the scene
 to the warmup_candles_num you defined. That doesn't happen if you use `sequential=True`, as Jesse doesn't now how much
 lookback you need from your sequential indicator. To keep things fast you should slice the candles yourself before
 passing them to a indicator function to avoid unnecessary computation time: `self.candles[-60:]` - change the number
 accordingly.
 :::
 
-::: tip matype In few indicators you can set a moving average type:
+::: tip matype 
+In few indicators you can set a moving average type:
 
 - `0`: sma (simple)
 - `1`: ema (exponential)
@@ -61,14 +64,16 @@ accordingly.
 - `39`: epma (End Point Moving Average)
   :::
 
-::: tip devtype In few indicators you can set a deviation type:
+::: tip devtype 
+In few indicators you can set a deviation type:
 
 - `0`: standard deviation
 - `1`: mean absolute deviation
 - `2`: median absolute deviation
   :::
 
-::: tip source_type In some indicators you can set the source type:
+::: tip source_type 
+In some indicators you can set the source type:
 
 - `"close"`
 - `"high"`
