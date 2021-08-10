@@ -2581,6 +2581,25 @@ SMMA - Smoothed Moving Average
 
 **Returns**:
 
+## sqwma
+
+```python  
+sqwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Square Weighted Moving Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=14
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
 float | np.ndarray
 
 ## srsi
@@ -2601,6 +2620,25 @@ Stochastic RSI
 **Returns**:
 
 StochasticRSI(k, d)
+
+## srwma
+
+```python  
+srwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Square Root Weighted Moving Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=14
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
 
 ## stc
 
