@@ -176,7 +176,29 @@ Alligator
 **Returns**:  
   
 AG(jaw, teeth, lips)  
+
+## alma  
   
+```python  
+alma(candles: np.ndarray, period: int = 9, sigma: float = 6.0, distribution_offset: float = 0.85, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+ALMA - Arnaud Legoux Moving Average
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray  
+- `period`: int - default=9
+- `sigma`: float - default=6.0
+- `distribution_offset`: float - default=0.85
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+float | np.ndarray  
+
+
 ## ao  
   
 ```python  
