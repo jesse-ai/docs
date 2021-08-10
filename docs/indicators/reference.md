@@ -616,6 +616,25 @@ CVI - Chaikins Volatility
 
 float | np.ndarray
 
+## cwma
+
+```python  
+cwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Cubed Weighted Moving Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=14
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
 ## damiani_volatmeter
 
 ```python  
