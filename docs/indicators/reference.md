@@ -1277,6 +1277,34 @@ HT_TRENDMODE - Hilbert Transform - Trend vs Cycle Mode
 
 int | np.ndarray
 
+## hurst_exponent
+
+```python  
+hurst_exponent(candles: np.ndarray, min_chunksize: int = 8, max_chunksize: int = 200, num_chunksize: int = 5, method: int = 1, source_type: str = "close") -> float
+```  
+
+Hurst Exponent
+
+::: tip methods
+- RS (only available with numba): Estimates the Hurst (H) exponent using the R/S method from the time series. The R/S method consists of dividing the series into pieces of equal size `series_len` and calculating the rescaled range. This repeats the process for several `series_len` values and adjusts data regression to obtain the H. `series_len` will take values between `min_chunksize` and `max_chunksize`, the step size from `min_chunksize` to `max_chunksize` can be controlled through the parameter `step_chunksize`.
+- DMA: Estimates the Hurst (H) exponent using the DMA method from the time series. The DMA method consists on calculate the moving average of size `series_len` and subtract it to the original series and calculating the standard deviation of that result. This repeats the process for several `series_len`values and adjusts data regression to obtain the H. `series_len` will take values between `min_chunksize` and `max_chunksize`, the step size from`min_chunksize` to `max_chunksize` can be controlled through the parameter`step_chunksize`.
+- DSOD: The estimation is based on the discrete second order derivative. Consists on  get two different noise of the original series and calculate the standard  deviation and calculate the slope of two point with that values.
+:::
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `min_chunksize`: int - default=8
+- `max_chunksize`: int - default=200
+- `num_chunksize`: int - default=5
+- `method`: int - default=1 - 0: RS | 1: DMA | 2: DSOD
+- `source_type`: str - default="close"
+
+**Returns**:
+
+float
+
+
 ## hwma
 
 ```python  
