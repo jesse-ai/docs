@@ -1932,6 +1932,25 @@ MOM - Momentum
 
 float | np.ndarray
 
+## mwdx
+
+```python  
+mwdx(candles: np.ndarray, factor: float = 0.2, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+MWDX Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `factor`: float - default=0.2
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
 ## msw
 
 ```python  
