@@ -1,6 +1,16 @@
 # Changelog
 
-Here you can see that changes were made at each release.
+Here you can see that changes were made at each release of the main framework. To read the changes of the live trade plugin, check out the "[releases](https://jesse.trade/releases)" page of the website. 
+
+
+## 0.26.0
+- [NEW FEATURE] Add `combinations_without_repeat` utility to create unique combinations. Useful for optimize mode.
+- [NEW FEATURE] New indicators: Arnaud Legoux Moving Average, Holt-Winter Moving Average, Natural Moving Average, Ehlers Distance Coefficient Filter, Moving Average Bands, Ulcer Index, Moving Average Adaptive Q, MWDX Average, Variable Length Moving Average, Square Root Weighted Moving Average, Squared Weighted Moving Average, Variable Power Weighted Moving Average, Cubed Weighted Moving Average, JSA Moving Average, End Point Moving Average, Ehlers Predictive Moving Average, Wavetrend, Hurst Exponent
+- [NEW FEATURE] - New Moving Averages added to the `ma` indicator.
+- [Improvement] Minor code optimizations. 
+- [Improvement] Packages updated - Update websocket-client from 1.1.0 to 1.1.1, Update scipy from 1.7.0 to 1.7.1, Update pandas from 1.3.0 to 1.3.1, Update numpy from 1.20.3 to 1.21.1, Update pydash from 5.0.1 to 5.0.2, Update requests from 2.25.1 to 2.26.0, Update ta-lib from 0.4.20 to 0.4.21
+- [FIX] The `ma` indicator now better handles volume which is needed for `vwap` and `vwma`.
+- [FIX] The `kaufmanstop` now uses the correct formula for long and now supports the `matype` parameter.
 
 ## 0.25.0
 
