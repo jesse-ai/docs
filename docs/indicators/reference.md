@@ -3187,6 +3187,26 @@ VPT - Volume Price Trend
 
 float | np.ndarray
 
+## vpwma
+
+```python  
+vpwma(candles: np.ndarray, period: int = 14, power: float = 0.382, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Variable Power Weighted Moving Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=14
+- `power`: float - default=0.382
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
 ## vwap
 
 ```python  
