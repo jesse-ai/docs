@@ -1467,7 +1467,7 @@ float | np.ndarray
 ## kaufmanstop
 
 ```python  
-kaufmanstop(candles: np.ndarray, period: int = 22, mult: float = 2, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]:  
+kaufmanstop(candles: np.ndarray, period: int = 22, mult: float = 2, direction: str = "long", matype: int = 0,  sequential: bool = False) -> Union[ float, np.ndarray]
 ```  
 
 Perry Kaufman's Stops
@@ -1477,7 +1477,8 @@ Perry Kaufman's Stops
 - `candles`: np.ndarray
 - `period`: int - default=22
 - `mult`: float - default=2
-- `direction`: str - default="long"  ("short)
+- `direction`: str - default="long" | "short"
+- `matype`: int - default=0
 - `sequential`: bool - default=False
 
 **Returns**:
