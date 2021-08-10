@@ -613,3 +613,44 @@ The default is `info`. `error` logs are notified separately in the live mode, so
 ```py
 log(msg: str, log_type: str = 'info')
 ```
+
+
+## watch_list
+
+This method is to be used in live trading mode only:
+
+```py
+watch_list() -> list
+```
+
+**Return Type:** list
+
+Sometimes you might want to debug/monitor your running strategy constantly. One way to do that is to define the `watch_list()` method in your strategy which returns a list of tuples containing keys and values. You can fill anything you want in it; indicator values, entry/exit signals, etc. 
+
+
+**Example**:
+```py
+@property
+def short_ema(self):
+    return ta.ema(self.candles, 50)
+    
+@property
+def long_ema(self):
+    return ta.ema(self.candles, 100)
+    
+def watch_list(self):
+    return [
+        ('Short EMA', self.short_ema),
+        ('Long EMA', self.long_ema),
+        ('Trend', 1 if self.short_ema > self.long_ema else -1),
+    ]
+```
+
+Then, when you run the live session, you will see a new table like:
+```
+ WATCH LIST   |
+--------------+---------
+ Short EMA    | 45990.9
+ Long EMA     |   45911
+ Trend        |       1
+```
