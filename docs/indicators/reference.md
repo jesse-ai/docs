@@ -113,7 +113,7 @@ ADOSC - Chaikin A/D Oscillator
 
 - `candles`: np.ndarray
 - `fast_period`: int - default= 3
-- `slow_period`: int - default= 10
+- `slow_period`: int - default=10
 - `sequential`: bool - default=False
 
 **Returns**:
@@ -224,7 +224,7 @@ APO - Absolute Price Oscillator
 **Arguments**:
 
 - `candles`: np.ndarray
-- `fast_period`: int - default= 12
+- `fast_period`: int - default=12
 - `slow_period`: int - default= 26
 - `matype`: int - default= 0
 - `source_type`: str - default="close"
@@ -627,11 +627,11 @@ Damiani Volatmeter
 **Arguments**:
 
 - `candles`: np.ndarray
-- `vis_atr`: int - default= 13
+- `vis_atr`: int - default=13
 - `vis_std`: int - default= 20
 - `sed_atr`: int - default= 40
-- `sed_std`: int - default= 100
-- `threshold`: float - default= 1.4
+- `sed_std`: int - default=100
+- `threshold`: float - default=1.4
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -800,8 +800,8 @@ DTI by William Blau
 **Arguments**:
 
 - `candles`: np.ndarray
-- `r`: int - default= 14
-- `s`: int - default= 10
+- `r`: int - default=14
+- `s`: int - default=10
 - `u`: int - default= 5
 - `sequential`: bool - default=False
 
@@ -820,7 +820,26 @@ DX - Directional Movement Index
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
+## edcf
+
+```python  
+edcf(candles: np.ndarray, period: int = 15, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Ehlers Distance Coefficient Filter
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=15
+- `source_type`: str - default="hl2"
 - `sequential`: bool - default=False
 
 **Returns**:
@@ -838,7 +857,7 @@ EFI - Elders Force Index
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 13
+- `period`: int - default=13
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -931,8 +950,8 @@ Elder Ray Index (ERI)
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 13
-- `matype`: int - default= 1
+- `period`: int - default=13
+- `matype`: int - default=1
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -988,8 +1007,8 @@ Fractal Adaptive Moving Average (FRAMA)
 **Arguments**:
 
 - `candles`: np.ndarray
-- `window`: int - default= 10
-- `FC`: int - default= 1
+- `window`: int - default=10
+- `FC`: int - default=1
 - `SC`: int - default= 300
 - `sequential`: bool - default=False
 
@@ -1414,7 +1433,7 @@ Keltner Channels
 - `candles`: np.ndarray
 - `period`: int - default= 20
 - `multiplier`: float - default= 2
-- `matype`: int - default= 1
+- `matype`: int - default=1
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -1433,12 +1452,12 @@ Know Sure Thing (KST)
 **Arguments**:
 
 - `candles`: np.ndarray
-- `sma_period1`: int - default= 10
-- `sma_period2`: int - default= 10
-- `sma_period3`: int - default= 10
-- `sma_period4`: int - default= 15
-- `roc_period1`: int - default= 10
-- `roc_period2`: int - default= 15
+- `sma_period1`: int - default=10
+- `sma_period2`: int - default=10
+- `sma_period3`: int - default=10
+- `sma_period4`: int - default=15
+- `roc_period1`: int - default=10
+- `roc_period2`: int - default=15
 - `roc_period3`: int - default= 20
 - `roc_period4`: int - default= 30
 - `signal_period`: int - default= 9
@@ -1498,7 +1517,7 @@ LINEARREG - Linear Regression
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -1517,7 +1536,7 @@ LINEARREG_ANGLE - Linear Regression Angle
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -1536,7 +1555,7 @@ LINEARREG_INTERCEPT - Linear Regression Intercept
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -1555,7 +1574,7 @@ LINEARREG_SLOPE - Linear Regression Slope
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -1592,7 +1611,7 @@ MACD - Moving Average Convergence/Divergence
 **Arguments**:
 
 - `candles`: np.ndarray
-- `fast_period`: int - default= 12
+- `fast_period`: int - default=12
 - `slow_period`: int - default= 26
 - `signal_period`: int - default= 9
 - `source_type`: str - default="close"
@@ -1613,7 +1632,7 @@ MACDEXT - MACD with controllable MA type
 **Arguments**:
 
 - `candles`: np.ndarray
-- `fast_period`: int - default= 12
+- `fast_period`: int - default=12
 - `fast_matype`: int - default= 0
 - `slow_period`: int - default= 26
 - `slow_matype`: int - default= 0
@@ -1692,7 +1711,7 @@ McGinley Dynamic
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 10
+- `period`: int - default=10
 - `k`: float - default= 0.6
 - `sequential`: bool - default=False
 
@@ -2027,7 +2046,7 @@ Polarized Fractal Efficiency (PFE)
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 10
+- `period`: int - default=10
 - `smoothing`: int - default= 5
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
@@ -2075,7 +2094,7 @@ PPO - Percentage Price Oscillator
 **Arguments**:
 
 - `candles`: np.ndarray
-- `fast_period`: int - default= 12
+- `fast_period`: int - default=12
 - `slow_period`: int - default= 26
 - `matype`: int - default= 0
 - `source_type`: str - default="close"
@@ -2247,7 +2266,7 @@ Roofing Filter indicator by John F. Ehlers
 
 - `candles`: np.ndarray
 - `hp_period`: int - default= 48
-- `lp_period`: int - default= 10
+- `lp_period`: int - default=10
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2266,7 +2285,7 @@ RSI - Relative Strength Index
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2288,8 +2307,8 @@ RSMK - Relative Strength
 - `lookback`: int - default= 90
 - `period`: int - default= 3
 - `signal_period`: int - default= 20
-- `matype`: int - default= 1
-- `signal_matype`: int - default= 1
+- `matype`: int - default=1
+- `signal_matype`: int - default=1
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2308,7 +2327,7 @@ RSX - Relative Strength Xtra
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2327,9 +2346,9 @@ RVI - Relative Volatility Index
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 10
-- `ma_len`: int - default= 14
-- `matype`: int - default= 1
+- `period`: int - default=10
+- `ma_len`: int - default=14
+- `matype`: int - default=1
 - `devtype`: int - default= 0
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
@@ -2414,7 +2433,7 @@ Sine Weighted Moving Average (SINWMA)
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2490,7 +2509,7 @@ Stochastic RSI
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2510,10 +2529,10 @@ STC - Schaff Trend Cycle (Oscillator)
 
 - `candles`: np.ndarray
 - `fast_period`: int - default= 23
-- `fast_matype`: int - default= 1
+- `fast_matype`: int - default=1
 - `slow_period`: int - default= 50
-- `slow_matype`: int - default= 1
-- `k_period`: int - default= 10
+- `slow_matype`: int - default=1
+- `k_period`: int - default=10
 - `d_period`: int - default= 3
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
@@ -2534,7 +2553,7 @@ STDDEV - Standard Deviation
 
 - `candles`: np.ndarray
 - `period`: int - default= 5
-- `nbdev`: int - default= 1
+- `nbdev`: int - default=1
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2763,7 +2782,7 @@ TRIX - 1-day Rate-Of-Change (ROC) of a Triple Smooth EMA
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 18
+- `period`: int - default=18
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2782,7 +2801,7 @@ TSF - Time Series Forecast
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2802,7 +2821,7 @@ True strength index (TSI)
 
 - `candles`: np.ndarray
 - `long_period`: int - default= 25
-- `short_period`: int - default= 13
+- `short_period`: int - default=13
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -3052,7 +3071,7 @@ VWMACD - Volume Weighted Moving Average Convergence/Divergence
 **Arguments**:
 
 - `candles`: np.ndarray
-- `fast_period`: int - default= 12
+- `fast_period`: int - default=12
 - `slow_period`: int - default= 26
 - `signal_period`: int - default= 9
 - `sequential`: bool - default= False
@@ -3182,10 +3201,10 @@ zScore
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default= 14
+- `period`: int - default=14
 - `matype`: int - default= 0
-- `nbdev`: int - default= 1
-- `devtype`: int - default= 1
+- `nbdev`: int - default=1
+- `devtype`: int - default=1
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
