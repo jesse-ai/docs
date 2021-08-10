@@ -2909,6 +2909,25 @@ TYPPRICE - Typical Price
 
 float | np.ndarray
 
+## ui
+
+```python  
+ui(candles: np.ndarray, period: int = 14, scalar: float = 100, source_type: str = "close",  sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Ulcer Index (UI)
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=14
+- `scalar`: float - default=100
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
 ## ultosc
 
 ```python  
