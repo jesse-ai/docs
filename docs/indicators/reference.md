@@ -1226,7 +1226,28 @@ HT_TRENDMODE - Hilbert Transform - Trend vs Cycle Mode
 **Returns**:  
   
 int | np.ndarray  
+
+## hwma
   
+```python  
+hwma(candles: np.ndarray, na: float = 0.2, nb: float = 0.1, nc: float = 0.1, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+  
+Holt-Winter Moving Average 
+  
+**Arguments**:  
+  
+- `candles`: np.ndarray
+- `na`: float - default: 0.2
+- `nb`: float - default: 0.1 
+- `nc`: float - default: 0.1
+- `source_type`: str - default: "close"  
+- `sequential`: bool - default=False  
+  
+**Returns**:  
+  
+int | np.ndarray  
+
 ## ichimoku\_cloud  
   
 ```python  
