@@ -3068,6 +3068,29 @@ VPCI - Volume Price Confirmation Indicator
 
 VPCI(vpci, vpcis)
 
+## vlma
+
+```python  
+vlma(candles: np.ndarray, min_period: int = 5, max_period: int = 50, matype: int = 0, devtype: int = 0, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+Variable Length Moving Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `min_period`: int - default=5
+- `max_period`: int - default=50
+- `matype`: int - default=0
+- `devtype`: int - default=0
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
+
 ## vosc
 
 ```python  
