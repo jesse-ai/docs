@@ -940,6 +940,26 @@ EMV - Ease of Movement
 
 float | np.ndarray
 
+## epma
+
+```python  
+epma(candles: np.ndarray, period: int = 11, offset: int = 4, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```  
+
+End Point Moving Average
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=11
+- `offset`: int - default=4
+- `source_type`: str - default="close"
+- `sequential`: bool - default=False
+
+**Returns**:
+
+float | np.ndarray
+
 ## er
 
 ```python  
