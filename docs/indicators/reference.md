@@ -2007,10 +2007,13 @@ minmax(candles: np.ndarray, order=3, sequential=False) -> EXTREMA
 ```  
 
 minmax - Get extrema
+
 Also called ZigZag sometimes.
 
 ::: tip Signal delayed
+
 Due to the nature of extrema detection signals are always delayed by the amount of order. Meaning you will never get the signal at the time of occurence. This means this is not working for `is_min` and `is_max`: `[-1]`, as this will always be false.  Working: `[-(order+1)]`.
+
 :::
 
 **Arguments**:
