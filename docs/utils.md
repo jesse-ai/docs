@@ -47,9 +47,25 @@ crossed(series1, series2, direction=None, sequential=False)
 
 **Return Type**: bool | np.ndarray
 
+## combinations_without_repeat
+
+Creates an array containing all combinations of the passed arrays individual values without repetitions. Useful for the optimization mode.
+
+```py
+combinations_without_repeat(a: np.ndarray, n: int = 2) -> np.ndarray
+```
+
+**Properties**:
+
+-   a: np.ndarray
+-   n: int - default: 2
+
+**Return Type**: np.ndarray
+
 ## dd
 
 The `dd` (dump and die) function dumps the given variables and ends execution of the script. It is used for debugging purposes. 
+
 
 ```py
 dd('some kind of variable that you need to debug')
