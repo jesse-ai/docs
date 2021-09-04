@@ -11,8 +11,22 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 
 - Initial release of live trade plugin (early access)
 - Release our most profitable strategy so far 
-- Integrate more exchanges based on demand from the community 
 - Support for liquidation mechanism in backtest and live trade
-- Support for inverse futures contracts
-- GUI dashboard for live trade 
+
+
+## Q3 2021
+
+- Beta release of GUI dashboard for live trade 
+- Integrate full Bybit exchange integration
+- Official release of the GUI dashboard for live trade 
+
+## Q4 2021
 - Support for spot trading 
+- Integrate spot exchanges such as Binance, Bybit, and american exchanges such as Kraken
+
+## 2020
+- Support for inverse future contracts
+- Reinforcement learning 
+- More backtest evaluation tools such as Monte Carlo 
+- More exchange drivers 
+- ...
