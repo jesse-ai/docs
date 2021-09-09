@@ -17,7 +17,7 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 ## Q3 2021
 
 - ✅ Beta release of GUI dashboard for live trade 
-- [Coming very soon] Integrate full FTX exchange integration
+- [Coming very soon] Integrate full integration with the "FTX Futures" exchange 
 - Official release of the GUI dashboard for live trade 
 
 ## Q4 2021
