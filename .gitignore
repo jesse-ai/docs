@@ -1,5 +1,7 @@
 /node_modules
 /.idea
+/docs/.vuepress/.cache
+/docs/.vuepress/.temp
 /storage/*.key
 .DS_Store
 Envoy.blade.php
