@@ -1,6 +1,8 @@
 module.exports = {
+
     title: 'Jesse',
     description: 'A Python trading framework for cryptocurrency markets.',
+
     plugins: [
         '@vuepress/last-updated',
         '@vuepress/medium-zoom',
@@ -17,6 +19,16 @@ module.exports = {
                 hostname: 'https://docs.jesse.trade',
             },
         ],
+        [
+            '@vuepress/plugin-search',
+            {
+                locales: {
+                    '/': {
+                        placeholder: 'Search',
+                    }
+                },
+            },
+        ]
     ],
     themeConfig: {
         docsRepo: 'jesse-ai/docs',
