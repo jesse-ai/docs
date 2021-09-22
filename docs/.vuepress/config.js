@@ -62,22 +62,26 @@ module.exports = {
         ],
         sidebar: [
             {
+                text: 'Introduction',
+                link: '/docs'
+            },
+            {
                 text: 'Getting Started',
-                link: '/getting-started',
+                link: '/docs/getting-started',
                 collapsable: false,
                 sidebarDepth: 1,
                 children: [
                     {
                         text: 'Installation',
-                        link: '/getting-started'
+                        link: '/docs/getting-started'
                     },
                     {
                         text: 'Docker',
-                        link: '/getting-started/docker'
+                        link: '/docs/getting-started/docker'
                     },
                     {
                         text: 'Environment Setup',
-                        link: '/getting-started/environment-setup'
+                        link: '/docs/getting-started/environment-setup'
                     }
                     // ['/docs/getting-started/generating-new-strategy', 'Generating new strategy'],
                     // ['/docs/getting-started/entering-and-exiting', 'Entering and exiting trades'],
@@ -88,126 +92,126 @@ module.exports = {
             },
             {
                 text: 'Configuration',
-                link: '/configuration'
+                link: '/docs/configuration'
             },
             {
                 text: 'Routing',
-                link: '/routes'
+                link: '/docs/routes'
             },
             {
                 text: 'Importing Candles',
-                link: '/import-candles'
+                link: '/docs/import-candles'
             },
             {
                 text: 'Strategies', // required
-                link: '/strategies/', // optional, which should be an absolute path.
+                link: '/docs/strategies/', // optional, which should be an absolute path.
                 collapsable: false, // optional, defaults to true
                 sidebarDepth: 1, // optional, defaults to 1
                 children: [
                     {
                         text: 'Introduction',
-                        link: '/strategies/'
+                        link: '/docs/strategies/'
                     },
                     {
                         text: 'Generating new strategy',
-                        link: '/strategies/generating-new-strategy'
+                        link: '/docs/strategies/generating-new-strategy'
                     },
                     {
                         text: 'Entering and exiting trades',
-                        link: '/strategies/entering-and-exiting'
+                        link: '/docs/strategies/entering-and-exiting'
                     },
                     {
                         text: 'Events',
-                        link: '/strategies/events'
+                        link: '/docs/strategies/events'
                     },
                     {
                         text: 'Filters',
-                        link: '/strategies/filters'
+                        link: '/docs/strategies/filters'
                     },
                     {
                         text: 'API reference',
-                        link: '/strategies/api'
+                        link: '/docs/strategies/api'
                     },
                     {
                         text: 'Examples',
-                        link: '/strategies/example-strategies.md'
+                        link: '/docs/strategies/example-strategies.md'
                     },
 
                 ],
             },
             {
                 text: 'Indicators', // required
-                link: '/indicators/', // optional, which should be an absolute path.
+                link: '/docs/indicators/', // optional, which should be an absolute path.
                 collapsable: false,
                 sidebarDepth: 1,
                 children: [
                     {
                         text: 'Introduction',
-                        link: '/indicators/'
+                        link: '/docs/indicators/'
                     },
                     {
                         text: 'Indicators Reference',
-                        link: '/indicators/reference'
+                        link: '/docs/indicators/reference'
                     },
                     {
                         text: 'Custom Indicators',
-                        link: '/indicators/custom-indicators'
+                        link: '/docs/indicators/custom-indicators'
                     }
                 ],
             },
             {
                 text: 'Utilities',
-                link: '/utils/'
+                link: '/docs/utils/'
             },
             {
                 text: 'Backtest',
-                link: '/backtest/'
+                link: '/docs/backtest/'
             },
             {
                 text: 'Live Trading',
-                link: '/livetrade/'
+                link: '/docs/livetrade/'
             },
             {
                 text: 'Notifications',
-                link: '/notifications/'
+                link: '/docs/notifications/'
             },
 
             // ['/docs/papertrade', 'Paper Trading'],
             {
                 text: 'Strategy Optimization', // required
-                link: '/optimize/', // optional, which should be an absolute path.
+                link: '/docs/optimize/', // optional, which should be an absolute path.
                 collapsable: false, // optional, defaults to true
                 sidebarDepth: 1, // optional, defaults to 1
                 children: [
                     {
                         text: 'Introduction',
-                        link: '/optimize/'
+                        link: '/docs/optimize/'
                     },
                     {
                         text: 'Hyperparameters',
-                        link: '/optimize/hyperparameters'
+                        link: '/docs/optimize/hyperparameters'
                     },
                     {
                         text: 'Executing the optimize mode',
-                        link: '/optimize/executing-the-optimize-mode'
+                        link: '/docs/optimize/executing-the-optimize-mode'
                     },
                     {
                         text: 'DNA usage',
-                        link: '/optimize/dna-usage'
+                        link: '/docs/optimize/dna-usage'
                     },
                     {
                         text: 'Overfitting',
-                        link: '/optimize/overfitting'
+                        link: '/docs/optimize/overfitting'
                     }
                 ],
             },
             {
                 text: 'Jupyter Notebooks',
-                link: '/optimize/jupyter-note'
+                link: '/docs/jupyter-notebooks'
             },
             {
                 text: 'Debugging',
-                link: '/debugging'
+                link: '/docs/debugging'
             },
             {
                 text: 'Frequently Asked Questions',
@@ -215,11 +219,11 @@ module.exports = {
             },
             {
                 text: 'Changelog',
-                link: '/changelog'
+                link: '/docs/changelog'
             },
             {
                 text: 'Roadmap',
-                link: '/roadmap'
+                link: '/docs/roadmap'
             }
             // ['/docs/license', 'License']
         ],
