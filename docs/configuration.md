@@ -120,6 +120,26 @@ config = {
             ],
         },
 
+        # https://ftx.com/markets/future
+        'FTX Futures': {
+            'fee': 0.0006,
+
+            # backtest mode only: accepted are 'spot' and 'futures'
+            # 'spot' support is currently very limited - you can use 'futures' with leverage 1 for now
+            'type': 'futures',
+
+            # futures mode only
+            'settlement_currency': 'USD',
+            # accepted values are: 'cross' and 'isolated'
+            'futures_leverage_mode': 'cross',
+            # FTX only allows for 1x, 3x, 5x, 10x, 20x values
+            'futures_leverage': 3,
+
+            'assets': [
+                {'asset': 'USD', 'balance': 10_000},
+            ],
+        },
+
         # https://pro.coinbase.com
         'Coinbase': {
             'fee': 0.005,

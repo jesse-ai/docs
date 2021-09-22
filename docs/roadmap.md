@@ -16,17 +16,20 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 
 ## Q3 2021
 
-- ✅ Beta release of GUI dashboard for live trade 
-- [Coming very soon] Full integration with the "FTX Futures" exchange 
-- Official release of the GUI dashboard for live trade 
+- ✅ Beta release of GUI dashboard
+- ✅ Full integration with the "FTX Futures" exchange 
+- Release second beta version of the GUI dashboard
 
 ## Q4 2021
+- Official release of the GUI dashboard
+ - Start our Youtube channel for publishing algo trading tutorials 
 - Support for spot trading 
 - Integrate spot exchanges such as Binance, FTX, Bybit, and american exchanges such as Kraken
 
 ## 2020
+- Integrate fast DEX platforms such as PancakeSwap, 1inch, etc 
 - Support for inverse future contracts
 - Reinforcement learning 
 - More backtest evaluation tools such as Monte Carlo 
-- More exchange drivers 
+- More exchange drivers: Kraken, Coinbase, Bitstamp, etc
 - ...

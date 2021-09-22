@@ -34,7 +34,9 @@ Supported exchanges (so far) are:
 -   `Binance Futures`
 -   `Bitfinex`
 -   `Coinbase`
--    `FTX` (via [plugin](https://github.com/jesse-ai/ftx-driver))
+-   `FTX Futures` 
+-   `Testnet Bybit Perpetual` 
+-   `Bybit Perpetual` 
 
 ## Creating custom exchange drivers 
 
@@ -74,6 +76,11 @@ import_candles_drivers = {
     'Testnet Binance Futures': TestnetBinanceFutures,
     'Bitfinex': Bitfinex,
     'Coinbase': Coinbase,
+    'Bybit Perpetual': BybitPerpetual,
+    'Testnet Bybit Perpetual': TestnetBybitPerpetual,
+    'FTX Futures': FTXFutures,
+
+    # this is for example only. Otherwise we now have built-in support for "FTX Futures"
     'FTX': FTX
 }
 ```

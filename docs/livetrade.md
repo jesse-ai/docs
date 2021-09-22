@@ -4,9 +4,13 @@ The "live-trade" plugin is available for early access. You can read the announce
 
 ## Supported Exchanges
 
-At the moment only `Binance Futures` and its testnet version are supported for live/paper trading. Next I will implement support for the FTX exchange. And after that, most likely spot exchanges such as Binance, Coinbase, etc. New exchange drivers are developed based on demand. 
+At the moment these are the supported exchanges for live-trading:
 
-So if you need an exchange that is not supported, please reach out and let me know. 
+- `Testnet Binance Futures`
+- `Binance Futures`
+- `FTX Futures`
+
+New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know. 
 
 ## Screenshots?
 Here is a sample of the early access version which has a CLI dashboard:
