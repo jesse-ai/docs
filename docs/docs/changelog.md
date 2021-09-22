@@ -2,9 +2,10 @@
 
 Here you can see that changes were made at each release of the main framework. To read the changes of the live trade plugin, check out the "[releases](https://jesse.trade/releases)" page of the website. 
 
-## 0.27.0
+## 0.27.3
 - [NEW FEATURE] Add support for `FTX Futures` exchange's perpetual futures trading (both live-trade and backtest). 
 - [NEW FEATURE] Add initial support for `Bybit Perpetuals` driver (backtest only). 
+- [NEW FEATURE] Added `wavelet_denoising()` utility function. 
 - [Improvement] Can handle many of order rejection events that sometimes happen from exchange's side instead of requiring to restart your live session. 
 
 ## 0.26.0
