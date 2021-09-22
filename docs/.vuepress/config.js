@@ -20,8 +20,10 @@ module.exports = {
             },
         ],
         [
-            '@vuepress/plugin-search',
+            '@vuepress/docsearch',
             {
+                apiKey: '5b718939748786f0bb2d064c6851bd68',
+                indexName: 'jesse',
                 locales: {
                     '/': {
                         placeholder: 'Search',
