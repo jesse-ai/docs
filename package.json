@@ -4,18 +4,21 @@
     "version": "0.1.0",
     "description": "Codebase for https://docs.jesse.trade",
     "scripts": {
-        "docs:dev": "vuepress dev",
-        "docs:build": "vuepress build"
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
     },
     "author": "Sully Fischer <fischersully@gmail.com>",
     "license": "AGPL-3.0-or-later",
     "devDependencies": {
         "@vuepress/plugin-google-analytics": "^1.8.2",
         "@vuepress/plugin-medium-zoom": "^1.8.2",
-        "vuepress": "^1.8.2",
+        "vuepress": "^2.0.0-beta.26",
         "vuepress-plugin-smooth-scroll": "^0.0.10"
     },
     "dependencies": {
+        "@vue/component-compiler-utils": "^3.2.2",
+        "@vuepress/plugin-last-updated": "^1.8.2",
+        "@vuepress/shared-utils": "^1.8.2",
         "vuepress-plugin-sitemap": "^2.3.1"
     }
 }
