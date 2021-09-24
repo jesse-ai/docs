@@ -3,4 +3,12 @@
     --c-text-accent: #667eea;
     --code-bg-color: #282c34;
     --c-border: #eaecef;
+    --c-brand: #6B7280;
+    --c-brand-light: #4B5563;
+}
+
+html.dark {
+    // brand colors
+    --c-brand: #9CA3AF;
+    --c-brand-light: #E5E7EB;
 }
