@@ -1,3 +1,7 @@
+---
+title: 'Live Trading'
+---
+
 # Live Trade
 
 The "live-trade" plugin is available for early access. You can read the announcement article or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the installation page. 

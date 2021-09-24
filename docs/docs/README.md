@@ -1,3 +1,7 @@
+---
+title: Introduction
+---
+
 # What is Jesse?
 
 Jesse is an advanced algo-trading framework that helps you to write trading strategies in Python, tune them using AI, backtest, and trade them on live markets. It focuses on simplicity.

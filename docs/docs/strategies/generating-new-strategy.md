@@ -1,3 +1,6 @@
+---
+title: Generating new strategy
+---
 # Generating new strategy file
 
 To get started, run:

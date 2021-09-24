@@ -63,28 +63,17 @@ module.exports = {
             },
         ],
         sidebar: [
-            {
-                text: 'Introduction',
-                link: '/docs'
-            },
+            '/docs',
             {
                 text: 'Getting Started',
                 link: '/docs/getting-started',
-                collapsable: false,
-                sidebarDepth: 1,
                 children: [
                     {
                         text: 'Installation',
                         link: '/docs/getting-started'
                     },
-                    {
-                        text: 'Docker',
-                        link: '/docs/getting-started/docker'
-                    },
-                    {
-                        text: 'Environment Setup',
-                        link: '/docs/getting-started/environment-setup'
-                    }
+                    '/docs/getting-started/docker',
+                    '/docs/getting-started/environment-setup'
                     // ['/docs/getting-started/generating-new-strategy', 'Generating new strategy'],
                     // ['/docs/getting-started/entering-and-exiting', 'Entering and exiting trades'],
                     // ['/docs/getting-started/events', 'Events'],
@@ -92,52 +81,23 @@ module.exports = {
                     // ['/docs/getting-started/api', 'API reference']
                 ],
             },
-            {
-                text: 'Configuration',
-                link: '/docs/configuration'
-            },
-            {
-                text: 'Routing',
-                link: '/docs/routes'
-            },
-            {
-                text: 'Importing Candles',
-                link: '/docs/import-candles'
-            },
+            '/docs/configuration',
+            '/docs/routes',
+            '/docs/import-candles',
             {
                 text: 'Strategies', // required
-                link: '/docs/strategies/', // optional, which should be an absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 1, // optional, defaults to 1
+                link: '/docs/strategies/',
                 children: [
                     {
                         text: 'Introduction',
                         link: '/docs/strategies/'
                     },
-                    {
-                        text: 'Generating new strategy',
-                        link: '/docs/strategies/generating-new-strategy'
-                    },
-                    {
-                        text: 'Entering and exiting trades',
-                        link: '/docs/strategies/entering-and-exiting'
-                    },
-                    {
-                        text: 'Events',
-                        link: '/docs/strategies/events'
-                    },
-                    {
-                        text: 'Filters',
-                        link: '/docs/strategies/filters'
-                    },
-                    {
-                        text: 'API reference',
-                        link: '/docs/strategies/api'
-                    },
-                    {
-                        text: 'Examples',
-                        link: '/docs/strategies/example-strategies.md'
-                    },
+                    '/docs/strategies/generating-new-strategy',
+                    '/docs/strategies/entering-and-exiting',
+                    '/docs/strategies/events',
+                    '/docs/strategies/filters',
+                    '/docs/strategies/api',
+                    '/docs/strategies/example-strategies.md',
 
                 ],
             },
@@ -151,32 +111,14 @@ module.exports = {
                         text: 'Introduction',
                         link: '/docs/indicators/'
                     },
-                    {
-                        text: 'Indicators Reference',
-                        link: '/docs/indicators/reference'
-                    },
-                    {
-                        text: 'Custom Indicators',
-                        link: '/docs/indicators/custom-indicators'
-                    }
+                    '/docs/indicators/reference',
+                    '/docs/indicators/custom-indicators'
                 ],
             },
-            {
-                text: 'Utilities',
-                link: '/docs/utils/'
-            },
-            {
-                text: 'Backtest',
-                link: '/docs/backtest/'
-            },
-            {
-                text: 'Live Trading',
-                link: '/docs/livetrade/'
-            },
-            {
-                text: 'Notifications',
-                link: '/docs/notifications/'
-            },
+            '/docs/utils/',
+            '/docs/backtest/',
+            '/docs/livetrade/',
+            '/docs/notifications/',
 
             // ['/docs/papertrade', 'Paper Trading'],
             {
@@ -189,44 +131,20 @@ module.exports = {
                         text: 'Introduction',
                         link: '/docs/optimize/'
                     },
-                    {
-                        text: 'Hyperparameters',
-                        link: '/docs/optimize/hyperparameters'
-                    },
-                    {
-                        text: 'Executing the optimize mode',
-                        link: '/docs/optimize/executing-the-optimize-mode'
-                    },
-                    {
-                        text: 'DNA usage',
-                        link: '/docs/optimize/dna-usage'
-                    },
-                    {
-                        text: 'Overfitting',
-                        link: '/docs/optimize/overfitting'
-                    }
+                    '/docs/optimize/hyperparameters',
+                    '/docs/optimize/executing-the-optimize-mode',
+                    '/docs/optimize/dna-usage',
+                    '/docs/optimize/overfitting'
                 ],
             },
-            {
-                text: 'Jupyter Notebooks',
-                link: '/docs/jupyter-notebooks'
-            },
-            {
-                text: 'Debugging',
-                link: '/docs/debugging'
-            },
+            '/docs/jupyter-notebooks',
+            '/docs/debugging',
             {
                 text: 'Frequently Asked Questions',
                 link: 'https://jesse.trade/help/'
             },
-            {
-                text: 'Changelog',
-                link: '/docs/changelog'
-            },
-            {
-                text: 'Roadmap',
-                link: '/docs/roadmap'
-            }
+            '/docs/changelog',
+            '/docs/roadmap'
             // ['/docs/license', 'License']
         ],
     },

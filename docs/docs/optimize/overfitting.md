@@ -1,3 +1,7 @@
+---
+title: 'Overfitting'
+---
+
 # Preventing Overfitting
 
 When it  comes to optimization, overfitting is probably the biggest danger. There are many ways to handle it, here is the method that we suggest:

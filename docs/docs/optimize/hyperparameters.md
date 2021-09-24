@@ -1,3 +1,7 @@
+---
+title: 'Hyperparameters'
+---
+
 # Defining hyperparameters
 Let's imagine that I want to optimize the period of two EMA indicators in my strategy. 
 

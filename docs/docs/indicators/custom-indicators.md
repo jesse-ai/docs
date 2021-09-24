@@ -1,3 +1,6 @@
+---
+title: Custom Indicators
+---
 
 # Advanced - Adding a custom indicator
 
