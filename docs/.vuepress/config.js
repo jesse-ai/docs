@@ -36,6 +36,7 @@ module.exports = {
         docsRepo: 'jesse-ai/docs',
         docsBranch: 'master',
         editLinks: true,
+        logo: './imgs/jesse-bot.png',
         algolia: {
             apiKey: '5b718939748786f0bb2d064c6851bd68',
             indexName: 'jesse'
