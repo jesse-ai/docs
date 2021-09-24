@@ -14,7 +14,7 @@ module.exports = {
             },
         ],
         [
-            'sitemap',
+            'sitemap2',
             {
                 hostname: 'https://docs.jesse.trade',
             },
