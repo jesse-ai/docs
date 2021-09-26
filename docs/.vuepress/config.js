@@ -1,7 +1,10 @@
+const { path } = require('@vuepress/utils')
+
 module.exports = {
 
     title: 'Jesse',
     description: 'A Python trading framework for cryptocurrency markets.',
+    theme: path.resolve(__dirname, './theme'),
 
     plugins: [
         '@vuepress/last-updated',
