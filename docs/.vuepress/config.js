@@ -5,6 +5,7 @@ module.exports = {
     title: 'Jesse',
     description: 'A Python trading framework for cryptocurrency markets.',
     theme: path.resolve(__dirname, './theme'),
+    head: [['script', { async: true, defer: true, 'data-domain': "docs.jesse.trade", src: "https://data.jesse.trade/js/plausible.js" }]],
 
     plugins: [
         '@vuepress/last-updated',
