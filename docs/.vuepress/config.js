@@ -12,12 +12,6 @@ module.exports = {
         '@vuepress/medium-zoom',
         'vuepress-plugin-smooth-scroll',
         [
-            '@vuepress/google-analytics',
-            {
-                ga: 'UA-135004813-1',
-            },
-        ],
-        [
             'sitemap2',
             {
                 hostname: 'https://docs.jesse.trade',
