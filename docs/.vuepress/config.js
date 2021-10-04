@@ -50,12 +50,20 @@ module.exports = {
                 link: 'https://jesse.trade/blog',
             },
             {
-                text: 'Forum',
-                link: 'https://forum.jesse.trade',
+                text: 'Help Center',
+                link: 'https://help.jesse.trade',
             },
             {
                 text: 'Discord',
-                link: 'https://discord.gg/nztUFbMnF5',
+                link: 'https://jesse.trade/discord',
+            },
+            {
+                text: 'Telegram',
+                link: 'https://t.me/jesse_trade',
+            },
+            {
+                text: 'Youtube',
+                link: 'https://www.youtube.com/channel/UCP7GU8awozElC70LoRTXxjQ',
             },
             {
                 text: 'Github',
