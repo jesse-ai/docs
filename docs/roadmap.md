@@ -18,9 +18,9 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 
 - ✅ Beta release of GUI dashboard
 - ✅ Full integration with the "FTX Futures" exchange 
-- Release second beta version of the GUI dashboard
 
 ## Q4 2021
+- Release second beta version of the GUI dashboard
 - Official release of the GUI dashboard
  - Start our Youtube channel for publishing algo trading tutorials 
 - Support for spot trading 
