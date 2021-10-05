@@ -149,7 +149,7 @@ module.exports = {
             '/docs/debugging',
             {
                 text: 'Frequently Asked Questions',
-                link: 'https://jesse.trade/help/'
+                link: 'https://help.jesse.trade/'
             },
             '/docs/changelog',
             '/docs/roadmap'
