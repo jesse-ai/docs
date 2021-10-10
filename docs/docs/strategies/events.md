@@ -33,7 +33,7 @@ This function is called right after an open-position order is executed. You may 
 ## on\_reduced\_position(self, order)
 The position has been reduced (but not closed) with the execution of either a stop-loss or a take-profit order. 
 
-An example usage of this would be to move the stop-loss to break even after part of the position has been exited: 
+Example usage of this would be to move the stop-loss to break even after part of the position has been exited: 
 
 ```py 
 def go_long(self):
@@ -48,19 +48,13 @@ def on_reduced_position(self, order):
     self.stop_loss = 1, 100
 ```
 
-## on\_stop\_loss(self, order)
-The position has been closed with the execution of the stop-loss order. 
+## on\_close\_position(self, order)
+
+The position has been closed with the execution of either a stop-loss or a take-profit order. 
 
 ::: tip 
-You do not need to worry about canceling other active orders in `on_stop_loss`. Jesse takes care of it. 
+You do not need to worry about canceling the remaining active orders. Jesse takes care of it for you.
 :::
 
-## on\_take\_profit(self, order)
-The position has been closed with the execution of the take-profit order. 
-
-::: tip 
-You do not need to worry about canceling other active orders in `on_take_profit`. Jesse takes care of it. 
-:::
-
-## on_cancel
-This function is called after all active orders have been canceled. An example usage would be if you are using a custom value that needs to be cleared after each completed trade. 
+## on_cancel(self)
+This function is called after all active orders have been canceled. An example of usage would be if you are using a custom value that needs to be cleared after each completed trade. 
