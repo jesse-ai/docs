@@ -51,7 +51,7 @@ module.exports = {
             },
             {
                 text: 'Help Center',
-                link: 'https://help.jesse.trade',
+                link: 'https://jesse.trade/help',
             },
             {
                 text: 'Discord',
@@ -149,7 +149,7 @@ module.exports = {
             '/docs/debugging',
             {
                 text: 'Frequently Asked Questions',
-                link: 'https://help.jesse.trade/'
+                link: 'https://jesse.trade/help'
             },
             '/docs/changelog',
             '/docs/roadmap'
