@@ -8,7 +8,7 @@ Getting started with Jesse is already easy. We've also done our best to make it 
 
 Here is the required stack:
 
--   Python >= `3.7`
+-   Python >= `3.8 and < 3.10 (not yet supported, as it takes some time until packages / dependencies adapt to new major releases) `
 -   pip >= `19.3.0`
 -   PostgreSQL >= `10`
 -   ta-lib >= `0.4`

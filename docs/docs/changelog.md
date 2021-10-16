@@ -2,6 +2,12 @@
 
 Here you can see that changes were made at each release of the main framework. To read the changes of the live trade plugin, check out the "[releases](https://jesse.trade/releases)" page of the website. 
 
+## 0.28.0
+- [BREAKING CHANGE] `on_take_profit()` and `on_stop_loss()` event methods have been removed, and replaced with the `on_closed_position()` method. 
+- [Improvement] If the price difference between the current price and order price are significantly small (less than 0.01%) Jesse will use a MARKET order instead of LIMIT or STOP. This probably has no effect on your backtests but prevents some communication errors from exchange's side in live trading mode. 
+- [Improvement] Replaced `crypto_empyrical` package with `quantstats`. This means now the metrics in Jesse's metrics report and Quantstat's HTML reports should be identical.
+- [NEW FEATURE] Added `smart sortino`, `smart sharpe` and `serenity` options for the optimize mode's fitness metric. 
+
 ## 0.27.3
 - [NEW FEATURE] Add support for `FTX Futures` exchange's perpetual futures trading (both live-trade and backtest). 
 - [NEW FEATURE] Add initial support for `Bybit Perpetuals` driver (backtest only). 
