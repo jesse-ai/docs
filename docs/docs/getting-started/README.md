@@ -22,12 +22,8 @@ Most of them, if not all, are installed on your machine. We provide guides on ho
 
 ## PIP Installation
 
-First install the required dependency packages:
-```
-pip install -r https://raw.githubusercontent.com/jesse-ai/jesse/master/requirements.txt
-```
+Jesse is hosted on [pypi](https://pypi.org/project/jesse/). You can install it with the following command:
 
-Now install Jesse:
 ```
 pip install jesse
 ```

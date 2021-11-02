@@ -76,12 +76,14 @@ Installation on macOS is easy thanks to Homebrew. If you don't have [Homebrew](h
 :::tip
 Starting v`0.23.1`, Jesse can be installed natively on mac machines with Apple Silicon (M1). The performance on it amazing BTW! 
 
-The only dependency package that doesn't work with M1 macs yet is `numba`. However, we made the `numba` package optional. Meaning that if you are on a M1 machine, it won't install it, and the indicators that use it will work but will be slower. 
+The only dependency package that doesn't work with M1 macs yet is `numba`. However, we made the `numba` package optional. Meaning that if you are on a M1 machine, it won't install it, and the indicators that use it will still work but will be a little slower. 
+
+Installing scipy is a bit tricky. We recommend installing it with Homebrew:
 ```
 brew install openblas
 export OPENBLAS=$(brew --prefix openblas)
 export CFLAGS="-falign-functions=8 ${CFLAGS}"
-pip install scipy
+brew install scipy
 ```
 :::
 
