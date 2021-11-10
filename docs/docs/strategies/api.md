@@ -15,7 +15,8 @@ This decorator can improve performance a lot. It will cache your functions / pro
         return ta.donchian(self.candles)
 ```
 ::: warning
-If you use it with `@property` make sure the order is right like above. Otherwise you will get an error.
+- If you use it with `@property` make sure the order is right like above. Otherwise you will get an error.
+- Caching consumes a little time too. So to benefit from it the cached function/indicator should be slow and called multiple times in the strategy. Do tests whether it actually improves speed. Ignoring this warning and adding it to all functions most likely does more harm than good.
 :::
 
 ## available_margin
