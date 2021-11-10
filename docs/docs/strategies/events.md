@@ -48,7 +48,7 @@ def on_reduced_position(self, order):
     self.stop_loss = 1, 100
 ```
 
-## on\_closed\_position(self, order)
+## on\_close\_position(self, order)
 
 The position has been closed with the execution of either a stop-loss or a take-profit order. 
 
