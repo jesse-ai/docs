@@ -2,6 +2,13 @@
 
 Here you can see that changes were made at each release of the main framework. To read the changes of the live trade plugin, check out the "[releases](https://jesse.trade/releases)" page of the website. 
 
+## 0.29.1
+[Improvement] Change Python version validation to recognize 3.10 (understood it as 3.1 before)
+[Improvement] The CSV created from the optimization mode now uses tab delimiter, as sometimes chars from the DNA would mess up the file.
+[Improvement] The CSV created from the optimization mode now includes all metrics from the backtest. 
+[Improvement] Added missing REQUIRED_PACKAGES to setup.py
+[DEPRECATED] 3D and Week candles have been removed, as they differed from the exchange.
+
 ## 0.28.0
 - [BREAKING CHANGE] `on_take_profit()` and `on_stop_loss()` event methods have been removed, and replaced with the `on_closed_position()` method. 
 - [Improvement] If the price difference between the current price and order price are significantly small (less than 0.01%) Jesse will use a MARKET order instead of LIMIT or STOP. This probably has no effect on your backtests but prevents some communication errors from exchange's side in live trading mode. 
