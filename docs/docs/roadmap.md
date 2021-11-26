@@ -26,7 +26,7 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 - Support for spot trading 
 - Integrate spot exchanges such as Binance, FTX, Bybit, and american exchanges such as Kraken
 
-## 2020
+## 2022
 - Integrate fast DEX platforms such as PancakeSwap, 1inch, etc 
 - Support for inverse future contracts
 - Reinforcement learning 
