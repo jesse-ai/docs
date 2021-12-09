@@ -6,10 +6,6 @@ title: Introduction
 
 Jesse is an advanced algo-trading framework that helps you to write trading strategies in Python, backtest them with the most accurate backtesting engine on the Internet, optimize them using AI, and trade them on live markets. **It focuses on simplicity, accuracy, and flexibility**. 
 
-::: warning
-This guide assumes you have basic knowledge of Python. In case you don't, please first check out [w3schools](https://www.w3schools.com/python/default.asp) to get started with Python syntax.
-:::
-
 ## Why do I need it?
 
 The short answer is: Jesse is more accurate, and way simpler than other solutions out there. In fact, if I have to summarize Jesse in one word, that word would be **simplicity**. Don't just take my word for it; try writing a strategy in Jesse and any other bot out there to see the difference by yourself.
@@ -35,5 +31,6 @@ Here are few (but not all) features of Jesse that you might be interested in:
 - Support for **partial fills**. Your strategies don't have to enter and exit at once. Jesse supports entering and exiting in multiple orders. 
 - **And a lot more!!**
 
-## Disclaimer
-This software is for educational purposes only. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS. Do not risk money which you are afraid to lose. There might be bugs in the code - this software DOES NOT come with ANY warranty.
+::: danger Disclaimer
+This software is for educational purposes only. We do NOT guarantee profitable trading results in any ways. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS. Do not risk money which you are afraid to lose. There might be bugs in the code - this software DOES NOT come with ANY warranty.
+:::
