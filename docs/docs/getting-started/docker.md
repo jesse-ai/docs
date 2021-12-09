@@ -1,107 +1,29 @@
 # Docker
 
-There's not just one correct way to use Docker; there's plenty. On this page, however, we'll describe a minimal setup ready to go using [docker compose](https://docs.docker.com/compose).
+All the required config files for docker are shipped with new Jesse projects. Assuming that you already have installed Docker itself, you are only a step away from running Jesse with Docker. 
 
-::: tip
-If you are a visual learner, you might want to check out our screencast tutorial about "[How to run Jesse using Docker](https://youtu.be/9P01T5_sNn8)" on YouTube. 
-::: 
+## Starting containers
 
-If you're looking for a ready to work repository, see [jesse-stack-docker](https://github.com/jesse-ai/jesse-stack-docker). You just need to copy the contents of the `docker-compose.yml` file into a file on your system.
+All the config files for Docker are present inside your project's `docker` directory. If it's not, just copy it from [this repository](https://github.com/jesse-ai/project-template).
 
-This `docker-compose.yml` file has 3 services: the `jesse` framework, `postgresql` database, and the [jesse trade info](https://github.com/nicolay-zlobin/jesse-trades-info) web chart utility which is used to explore backtest result. Two services (the `jesse` and `db`) mount your local directories to the containers so the jesse can read your strategies and the database can keep candles data and trades history permenantly.
-
-If you're looking for a ready to work repository, see [jesse-stack-docker](https://github.com/jesse-ai/jesse-stack-docker). Click on `Use as template` and pull your forked repo locally.
-This repository uses a docker-compose file that includes different services: main jesse, postgres database, [jesse trade info](https://github.com/nicolay-zlobin/jesse-trades-info) web chart US to explore backtest result. It mounts locally files to persist on your machine the database data contains trade history use for backtest, and your Jesse strategy files:
+Then inside the terminal open the `docker` directory and run the following command:
 
 ```sh
-# docker-compose.yml
-version: '3.8'
-
-services:
-
-  jesse:
-    image: salehmir/jesse:latest
-    depends_on:
-      - db
-      - jesse-trades-info
-    environment:
-      ENV_DATABASES_POSTGRES_HOST: "db"
-
-# Inject api credentials from host env (only for live):
-#      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY}
-#      ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET: ${ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET}
-
-# Inject api credentials from env file (only for live):
-#    env_file:
-#      .env
-
-    ports:
-      - 8888:8888
-    volumes:
-      - ./jesseData:/home
-# Mount the live package as volume (only for live):
-#      - ./jesse_live-0.0.2-cp39-cp39-manylinux2010_x86_64.whl:/jesse_live-0.0.2-cp39-cp39-manylinux2010_x86_64.whl
-
-  jesse-trades-info:
-    image: jessetradesinfo/jesse-trades-info:v0.2.1
-    depends_on:
-      - db
-    environment:
-      DB_HOST: db
-      DB_NAME: jesse_db
-      DB_USER: jesse_user
-      DB_PASSWORD: password
-      DB_PORT: 5432
-    ports:
-      - 3000:3000
-
-  db:
-    image: postgres:12-alpine
-    environment:
-      POSTGRES_USER: jesse_user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: jesse_db
-      POSTGRES_HOST_AUTH_METHOD: password
-    ports:
-      - 5432:5432
-    volumes:
-      - ./dbData:/var/lib/postgresql/data
-
+# run without the "-d" flag to see the output
+docker-compose up -d
 ```
 
-Start Jesse container and its dependencies:
-```sh
-docker-compose run jesse bash
-```
+The first time you do this, you have to wait until the images are downloaded. This can take a few minutes. Next times, will be much faster however, still it might take more than 10 seconds to start all the services. 
 
-Now you're logged into a terminal inside the Jesse container. If you remember, we had mounted the working local directory to the `jesse` container, so now we can open it with a code editor outside the container and start writing codes. First of all, let's create a new project at `/home` inside the container:
-```sh
-cd /home
-jesse make-project mybot
-```
+That's it! Now open [localhost:9000](https://localhost:9000) in your browser to see the dashboard.
 
-Now you'll find a `mybot` directory in your local machine. Open it with your code editor and write your own strategies.
+## Stopping container
+To stop the containers, if you started them with the `-d` flag, you can just run the following command:
 
-When you're done with the container, you can exit using `exit` command. 
-
-To stop all containers, run the `stop` command:
 ```sh
 docker-compose stop
 ```
 
-Next time you want to access the container, of course, you don't need to repeat the above steps. Just restart the container and then start the database:
-```sh
-docker-compose run jesse bash
-```
+If you did it without the `-d` flag (so you can see the outputs in the terminal), you stop containers by pressing `Ctrl` + `c` on your keyboard.
 
-## Managing sensitive config values 
 
-Jesse supports environment variable injection for any config file keys. The key format follows this rule: join the config node and replace the ` ` by `_`. Env variable must be prefixed with `ENV_`.
-
-For example, `databases -> postgres -> host` value will be taken from env variables with the key `ENV_DATABASES_POSTGRES_HOST`.
-
-To keep your config file versioned, it's recommended to inject API key and secret.
-
-An example for binance testnet futures keys (`exchanges -> Testnet Binance Futures -> api_key`) would be:
-- `ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_KEY`
-- `ENV_EXCHANGES_TESTNET_BINANCE_FUTURES_API_SECRET`
