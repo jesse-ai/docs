@@ -18,6 +18,7 @@ The first time you do this, you have to wait until the images are downloaded. Th
 That's it! Now open [localhost:9000](https://localhost:9000) in your browser to see the dashboard.
 
 ## Stopping container
+
 To stop the containers, if you started them with the `-d` flag, you can just run the following command:
 
 ```sh
@@ -26,4 +27,6 @@ docker-compose stop
 
 If you did it without the `-d` flag (so you can see the outputs in the terminal), you stop containers by pressing `Ctrl` + `c` on your keyboard.
 
+## Changing the port
 
+If you want to change the default `9000` port, you can do it by modifying the `APP_PORT` value in your project's `.env` file. 
