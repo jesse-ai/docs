@@ -7,7 +7,7 @@ On this page, we'll go through how to prepare your environment before installing
 - [Windows](/docs/getting-started/environment-setup.html#windows)
 
 ::: tip
-If for any reason this installation is not possible for you, you can always use our [Docker image](/docs/getting-started/docker.md).
+Remember that you don't need to do any of these steps if you want to use [Docker](./docker.md) instead.
 :::
 
 ::: tip
@@ -16,13 +16,9 @@ A good practice for providing an environment for running Python applications is 
 
 ## Ubuntu
 
-::: tip
-If you are a visual learner, you might want to check out our screencast tutorial about "[How to run Jesse on Ubuntu](https://youtu.be/4bwhr_CQcuQ)" on YouTube. 
-::: 
-
 We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install all the required stack and pip packages including Jesse itself on a machine running a fresh Ubuntu LTS installation.
 
-Run below commands based on your installed Ubuntu version:
+Run below one of below commands based on your installed Ubuntu version:
 
 ```sh
 # For Ubuntu 18.04 LTS
@@ -32,7 +28,7 @@ source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/m
 source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-20.04.sh)
 ```
 
-In case a fresh install isn't possible for you, look at the commands used by our scripts and execute the commands that suit your environment:
+In case a fresh install isn't possible for you, look at the commands used by our scripts and execute only the ones that suit your environment:
 
 - [18.04 script](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh)
 - [20.04 script](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-20.04.sh)
@@ -42,10 +38,11 @@ You should have at least 2GB RAM or the build of ta-lib [might fail](https://git
 A workaround is using a prebuilt wheel (.whl) of ta-lib.
 :::
 
-By default, the PostgreSQL database and username in the `config.py` file are `jesse_db` & `jesse_user`, respectively; and `password` as the default password.
+By default, values of `POSTGRES_HOST` and `REDIS_HOST` are set to `postgres` and `redis` which are the default values of the official Docker containers. You have to change them both to `localhost`.
 
-If you'd like these to be different from the default, please change them in your `config.py` before setting up PostgreSQL and replace the database and username that you choose in the following steps, otherwise, the following is for the defaults.
+### PostgreSQL
 
+Now you have to create the database, user, and password. You can do this by running the following commands:
 
 ```sh
 # switch to postgres user
@@ -64,19 +61,20 @@ GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
 exit
 ```
 
-Your PostgreSQL database and user are now ready. You can now quit psql with `\q`.
+Your environment should now be ready to [install and run](./README.md) Jesse.
 
 ## macOS
 
 Installation on macOS is easy thanks to Homebrew. If you don't have [Homebrew](https://brew.sh/) installed, install it by running:
+
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 :::tip
-Starting v`0.23.1`, Jesse can be installed natively on mac machines with Apple Silicon (M1). The performance on it amazing BTW! 
+Starting v`0.23.1`, Jesse can be installed natively on mac machines with Apple Silicon (M1). The performance on it amazing is BTW! 
 
-The only dependency package that doesn't work with M1 macs yet is `numba`. However, we made the `numba` package optional. Meaning that if you are on a M1 machine, it won't install it, and the indicators that use it will still work but will be a little slower. 
+The only dependency package that doesn't work with M1 macs yet is `numba`. However, we made the `numba` package optional. Meaning that if you are on an M1 machine, it won't install it, and the indicators that use it will still work but will be a little slower. 
 
 Installing scipy is a bit tricky. We recommend installing it with Homebrew:
 ```
@@ -87,13 +85,16 @@ brew install scipy
 ```
 :::
 
-Now install Python, ta-lib, and PostgreSQL by running the below commands one by one:
+Now install Python, ta-lib, Redis, and PostgreSQL by running the below commands one by one:
 
 ```sh
 brew install python
 brew install ta-lib
+brew install redis
 brew install postgresql
 ```
+
+### PostgreSQL
 
 The last step is to create a PostgreSQL database and user:
 
@@ -110,12 +111,12 @@ GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
 \q
 ```
 
-That's it. You should now be able to [install Jesse](/docs/getting-started/#pip-installation).
+That's it. You should now be able to [install and run Jesse](./README.md).
 
 ## Windows
 
 ### Python and pip
-[Download](https://www.python.org/downloads/windows) the official Python installer. It doesn't matter whether you choose the executable installer or web-based installer. What matters is to choose the right version for your system type. If you are on `32bit` Windows download `Windows x86 ... installer`. If you are on 64bit Windows get the `Windows x86-64 ... installer`.
+[Download](https://www.python.org/downloads/windows) the official Python installer. It doesn't matter whether you choose the executable installer or the web-based installer. What matters is to choose the right version for your system type. If you are on `32bit` Windows download `Windows x86 ... installer`. If you are on 64bit Windows get the `Windows x86-64 ... installer`.
 
 :::tip
 Not sure which system type you are on? Open a file explorer window. Right-click on `This PC` and then `Properties`. Under `System` there is `System type`.
@@ -157,7 +158,7 @@ Now open a CMD to create the database for Jesse by executing the following comma
 psql -U postgres
 # Create the database
 CREATE DATABASE jesse_db;
-# create new user
+# create a new user
 CREATE USER jesse_user WITH PASSWORD 'password';
 # set privileges of the created user
 GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
@@ -193,7 +194,4 @@ Run:
 pip install cython
 ```
 
-<br>
-<br>
-
-That's it. You should now be able to [install Jesse](/docs/getting-started/#pip-installation).
+That's it! You should now be able to [install and run](./README.md) Jesse.
