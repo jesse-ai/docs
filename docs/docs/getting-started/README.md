@@ -1,34 +1,33 @@
 # Getting Started
 
-Getting started with Jesse is already easy. We've also done our best to make it even easier for all operating systems.
+We understand the importance of getting started quickly and easily. So we've taken care of all the hard work for you.
 
-<!-- In case you already have the required stack installed on your environment, you can move on to the [package installation](./package-installation) page.   -->
-
-## Required Stack
+## Environment Setup
 
 Here is the required stack:
 
--   Python >= `3.8 and < 3.10 (not yet supported, as it takes some time until packages / dependencies adapt to new major releases) `
+-   Python >= `3.8 and < 3.10
 -   pip >= `19.3.0`
 -   PostgreSQL >= `10`
+-   Redis >= `5`
 -   ta-lib >= `0.4`
 
-Most of them, if not all, are installed on your machine. We provide guides on how to install them for 3 major operating systems. We also provide a docker image which might be the fastest way to get started.
+You have two options for your environment. To use the [docker](./docker.md), which is the fastest way to get started, or to install the required stack natively. Choose the option that suits you best:
 
-- [Docker guide](/docs/getting-started/docker.md)
-- [Ubuntu](/docs/getting-started/environment-setup.html#ubuntu)
-- [macOS](/docs/getting-started/environment-setup.html#macos)
-- [Windows](/docs/getting-started/environment-setup.html#windows)
+- [Docker guide](./docker.md) (Recommended for beginners)
+- [Ubuntu](./environment-setup.html#ubuntu)
+- [macOS](./environment-setup.html#macos)
+- [Windows](./environment-setup.html#windows)
 
 ## PIP Installation
 
-Jesse is hosted on [pypi](https://pypi.org/project/jesse/). You can install it with the following command:
+If you went with the [docker](./docker.md) option, then Jesse is installed for you and you don't have to do anything else. If you went with the native installation, then you have to install Jesse via `pip`:
 
 ```
 pip install jesse
 ```
 
-(Optional) Install numba:
+(Optional) Install numba (Doesn't work on M1 macs at the moment):
 ```
 pip install numba
 ```
@@ -40,6 +39,7 @@ We are constantly pushing new patches. To upgrade to the latest version run:
 ```
 pip install -U jesse
 ```
+
 (Optional) If you use numba, you then have to update it too. 
 
 ```
@@ -47,34 +47,59 @@ pip install -U numba
 ```
 
 ::: warning
-Sometimes pip doesn't upgrade to the latest version on first time running above command. To make sure you're running the latest release, checkout the latest version number on [PyPi](https://pypi.org/project/jesse/), and then make sure you see that version in `pip list` output.
+Sometimes pip doesn't upgrade to the latest version on the first time running the above command. To make sure you're running the latest release, check out the latest version number on [PyPi](https://pypi.org/project/jesse/), and then make sure you see that version in `pip show jesse` output.
 :::
 
-## Create a new project
+## Create a new Jesse project
 
-You'll need to create your own Jesse project in order to define your very own strategies.
+You'll need to create your own Jesse project to define your very own strategies.
 
 Go to the directory you intend to create the project in and run:
 
-```
-jesse make-project name-of-project
+```sh
+# change the name "my-bot" to whatever you want
+git clone https://github.com/jesse-ai/project-template my-bot
+# enter the directory
+cd my-bot
+# create a .env file by copying it from the template
+cp .env.example .env
 ```
 
 This will create a new project containing only files and folders that you actually need:
 
 ```sh
-├── config.py # file where you enter your database credentials, etc
-├── routes.py # file where routes are defined in
-├── storage # folder containing logs, chart images, etc
-│   ├── charts
-│   ├── genetics
-│   ├── logs
-│   │   └── trades
-│   └── temp # directory that Jesse uses behind the scenes.
-│   └── trading-view-pine-editor
-└── strategies # folder where you define your strategies
+├── .env # file where you enter the dashboard password, database credentials, etc
+├── plugins.py # file where you register installed plugins
+├── docker # directory containing the required config files for docker
+├── storage # directory containing logs, chart images, etc
+└── strategies # directory containing your strategies
     ├── Strategy01
-    │   └─ __init__.py
+    │   └─ __init__.py
     └── Strategy02
-        └─ __init__.py
+        └─ __init__.py
 ```
+
+## Start Jesse
+To get the party started, (**inside your Jesse project**) run the application by:
+
+```sh
+jesse run
+```
+
+And it will print a local URL for you to open in your browser such as:
+
+```
+INFO:     Started server process [66103]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)
+```
+
+Go ahead and open (in my case) [http://0.0.0.0:9000](http://0.0.0.0:9000) in your browser of choice. If you are running on a server, you can use the IP address of the server instead of 
+`0.0.0.0`. 
+
+So for example if the IP address of your server is `1.2.3.4` the URL would be [http://1.2.3.4:9000](http://1.2.3.4:9000). 
+
+::: tip
+If you want to change the default `9000` port, you can do it by modifying the `APP_PORT` value in your project's `.env` file. 
+:::
