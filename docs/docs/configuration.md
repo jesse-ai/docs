@@ -1,227 +1,83 @@
 # Configuration
 
-The config file is located at the root of your project and is named `config.py`.
+There are two types of configuration that you'll want to change. 
 
-It contains config values for databases, exchanges, logging, and notifications. The comments of each section is pretty clear.
+The first one contains your project's sensitive credentials such as passwords, exchange keys, etc. And the second type is the settings of the application itself which are accessible from the dashboard. 
 
-An example config file:
+Let's take a look at both:
 
-```py
-config = {
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # PostgreSQL Database
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #
-    # PostgreSQL is used as the database to store data such as candles.
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    'databases': {
-        'postgres_host': '127.0.0.1',
-        'postgres_name': 'jesse_db',
-        'postgres_port': 5432,
-        'postgres_username': 'jesse_user',
-        'postgres_password': 'password',
-    },
+## Environment Variables
+These config values are also called environment variables. They are stored in a file called `.env` inside your project. Here are the default values that ship with every project:
 
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # Caching
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #
-    # In some cases such as loading candles in the backtest mode, a
-    # caching mechanism is used to make further loadings faster.
-    # Valid options (so far) are: 'pickle', None
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    'caching': {
-        'driver': 'pickle'
-    },
+```sh
+PASSWORD=test
+APP_PORT=9000
 
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # Exchanges
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #
-    # Below values are used for exchanges.
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    'exchanges': {
-        # https://www.bitfinex.com
-        'Bitfinex': {
-            'fee': 0.002,
+# If not using docker, you probably want to set this to "localhost"
+POSTGRES_HOST=postgres
+# POSTGRES_HOST=localhost
+POSTGRES_NAME=jesse_db
+POSTGRES_PORT=5432
+POSTGRES_USERNAME=jesse_user
+POSTGRES_PASSWORD=password
 
-            # backtest mode only: accepted are 'spot' and 'futures'
-            'type': 'futures',
+# If not using docker, you probably want to set this to "localhost"
+# REDIS_HOST=localhost
+REDIS_HOST=redis
+REDIS_PORT=6379
+REDIS_PASSWORD=
 
-            # futures mode only
-            'settlement_currency': 'USD',
-            # accepted values are: 'cross' and 'isolated'
-            'futures_leverage_mode': 'cross',
-            # 1x, 2x, 10x, 50x, etc. Enter as integers
-            'futures_leverage': 1,
 
-            'assets': [
-                {'asset': 'USDT', 'balance': 10_000},
-                {'asset': 'USD', 'balance': 10_000},
-                {'asset': 'BTC', 'balance': 0},
-            ],
-        },
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# Live Trade Only                                                                 # 
+# =============================================================================== #
+# Below values don't concern you if you haven't installed the live trade plugin   #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-        # https://www.binance.com
-        'Binance': {
-            'fee': 0.001,
+# Enter the API token which you created at https://jesse.trade/user/api-tokens:
+LICENSE_API_TOKEN=
 
-            # backtest mode only: accepted are 'spot' and 'futures'
-            'type': 'futures',
+# For all notifications
+GENERAL_TELEGRAM_BOT_TOKEN=
+GENERAL_TELEGRAM_BOT_CHAT_ID=
+GENERAL_DISCORD_WEBHOOK=
 
-            # futures mode only
-            'settlement_currency': 'USDT',
-            # accepted values are: 'cross' and 'isolated'
-            'futures_leverage_mode': 'cross',
-            # 1x, 2x, 10x, 50x, etc. Enter as integers
-            'futures_leverage': 1,
+# For error notifications only
+ERROR_TELEGRAM_BOT_TOKEN=
+ERROR_TELEGRAM_BOT_CHAT_ID=
+ERROR_DISCORD_WEBHOOK=
 
-            'assets': [
-                {'asset': 'USDT', 'balance': 10_000},
-                {'asset': 'BTC', 'balance': 0},
-            ],
-        },
+# Testnet Binance Futures: 
+# http://testnet.binancefuture.com
+TESTNET_BINANCE_FUTURES_API_KEY=
+TESTNET_BINANCE_FUTURES_API_SECRET=
 
-        # https://www.binance.com
-        'Binance Futures': {
-            'fee': 0.0004,
+# Binance Futures: 
+# https://www.binance.com/en/futures/btcusdt
+BINANCE_FUTURES_API_KEY=
+BINANCE_FUTURES_API_SECRET=
 
-            # backtest mode only: accepted are 'spot' and 'futures'
-            'type': 'futures',
-
-            # futures mode only
-            'settlement_currency': 'USDT',
-            # accepted values are: 'cross' and 'isolated'
-            'futures_leverage_mode': 'cross',
-            # 1x, 2x, 10x, 50x, etc. Enter as integers
-            'futures_leverage': 1,
-
-            'assets': [
-                {'asset': 'USDT', 'balance': 10_000},
-            ],
-        },
-
-        # https://testnet.binancefuture.com
-        'Testnet Binance Futures': {
-            'fee': 0.0004,
-
-            # backtest mode only: accepted are 'spot' and 'futures'
-            'type': 'futures',
-
-            # futures mode only
-            'settlement_currency': 'USDT',
-            # accepted values are: 'cross' and 'isolated'
-            'futures_leverage_mode': 'cross',
-            # 1x, 2x, 10x, 50x, etc. Enter as integers
-            'futures_leverage': 1,
-
-            'assets': [
-                {'asset': 'USDT', 'balance': 10_000},
-            ],
-        },
-
-        # https://ftx.com/markets/future
-        'FTX Futures': {
-            'fee': 0.0006,
-
-            # backtest mode only: accepted are 'spot' and 'futures'
-            # 'spot' support is currently very limited - you can use 'futures' with leverage 1 for now
-            'type': 'futures',
-
-            # futures mode only
-            'settlement_currency': 'USD',
-            # accepted values are: 'cross' and 'isolated'
-            'futures_leverage_mode': 'cross',
-            # FTX only allows for 1x, 3x, 5x, 10x, 20x values
-            'futures_leverage': 3,
-
-            'assets': [
-                {'asset': 'USD', 'balance': 10_000},
-            ],
-        },
-
-        # https://pro.coinbase.com
-        'Coinbase': {
-            'fee': 0.005,
-
-            # backtest mode only: accepted are 'spot' and 'futures'
-            'type': 'futures',
-
-            # futures mode only
-            'settlement_currency': 'USD',
-            # accepted values are: 'cross' and 'isolated'
-            'futures_leverage_mode': 'cross',
-            # 1x, 2x, 10x, 50x, etc. Enter as integers
-            'futures_leverage': 1,
-
-            'assets': [
-                {'asset': 'USDT', 'balance': 10_000},
-                {'asset': 'USD', 'balance': 10_000},
-                {'asset': 'BTC', 'balance': 0},
-            ],
-        },
-    },
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # Logging
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #
-    # Below configurations are used to filter out the extra logging
-    # info that are displayed when the "--debug" flag is enabled.
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    'logging': {
-        'order_submission': True,
-        'order_cancellation': True,
-        'order_execution': True,
-        'position_opened': True,
-        'position_increased': True,
-        'position_reduced': True,
-        'position_closed': True,
-        'shorter_period_candles': False,
-        'trading_candles': True,
-        'balance_update': True,
-    },
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # Metrics
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #
-    # Below configurations are used to set the metrics
-    # that are displayed after a backtest.
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    'metrics': {
-        'sharpe_ratio': True,
-        'calmar_ratio': False,
-        'sortino_ratio': False,
-        'omega_ratio': False,
-        'winning_streak': False,
-        'losing_streak': False,
-        'largest_losing_trade': False,
-        'largest_winning_trade': False,
-        'total_winning_trades': False,
-        'total_losing_trades': False,
-    },
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # Optimize mode
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #
-    # Below configurations are related to the optimize mode
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    'optimization': {
-        # sharpe, calmar, sortino, omega
-        'ratio': 'sharpe',
-    },
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # Data
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #
-    # Below configurations are related to the data
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    'data': {
-        # The minimum number of warmup candles that is loaded before each session.
-        'warmup_candles_num': 210,
-    }
-}
+# FTX Futures: 
+# https://ftx.com/markets/future
+FTX_FUTURES_API_KEY=
+FTX_FUTURES_API_SECRET=
+# leave empty if it's the main account and not a subaccount
+FTX_FUTURES_SUBACCOUNT_NAME=
 ```
+
+It is generally a good idea to stop the application before modifying your `.env` file and start it again after you've made the changes.
+
+## Application Settings
+
+At the top-right corner of the dashboard, you'll see a gear icon. Click on it and you'll see a list of settings like this:
+
+
+![settings-optimization](https://jesse.trade/storage/images/docs/settings-optimization.jpg)
+
+Go ahead change it as you like. Changes are automatically saved which is why there's no "Save" button. 
+
+::: warning
+Changing the settings will not affect running sessions (if you have any).
+
+Note: you do NOT need to stop and start Jesse itself after changing these settings.
+:::
