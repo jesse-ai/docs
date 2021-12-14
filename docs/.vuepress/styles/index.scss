@@ -22,3 +22,12 @@ html.dark {
     --c-danger-title: #adbac7;
     --c-danger-text: #adbac7;
 }
+
+.medium-zoom-image {
+    --tw-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+    box-shadow: var(--tw-ring-offset-shadow,0 0 transparent),var(--tw-ring-shadow,0 0 transparent),var(--tw-shadow);
+    --tw-border-opacity: 1;
+    border-color: rgba(165,180,252,var(--tw-border-opacity));
+    border: 1px solid #f4f4f4;
+    border-radius: 2px;
+}
