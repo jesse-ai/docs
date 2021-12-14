@@ -1,9 +1,9 @@
 
 # Examples
 
-To get you started we prepared some examples how to approach certain things often used in trading.
+To get you started we prepared a few examples of how to approach certain scenarios often used in trading.
 
-For working startegies check out these repositories:
+For working strategies check out these repositories:
 
  - [https://github.com/jesse-ai/example-strategies](https://github.com/jesse-ai/example-strategies)
  - [https://github.com/nicolay-zlobin/jesse-indicators](https://github.com/nicolay-zlobin/jesse-indicators)
@@ -81,8 +81,8 @@ Channels can also be good for stoploss or take profit:
  - [Bollinger Bands](https://docs.jesse.trade/docs/indicators/reference.html#bollinger-bands)
 
 ## Getting the size right
-This example might help with the position size / qty.
-We use risk management. There might be situations where risk_to_qty returns a qty exceeding the available capital leading to an exception. The reason for this is a very close stop loss (often due to the usage of the ATR). That's not a error, but expected behaviour of the formula. We add a logic limiting the qty to a maximum percentage (in this case 25 %) of the capital for those cases.
+This example might help with the position size/qty.
+We use risk management. There might be situations where risk_to_qty returns a qty exceeding the available capital leading to an exception. The reason for this is a very close stop loss (often due to the usage of the ATR). That's not an error, but the expected behavior of the formula. We add a logic limiting the qty to a maximum percentage (in this case 25 %) of the capital for those cases.
 ```py
   
 def go_long(self):  
@@ -118,6 +118,7 @@ def kelly_qty(self, entry, stop):
     # never risk more than 25%  
     max_qty = utils.size_to_qty(0.25 * self.available_margin, entry, precision=6, fee_rate=self.fee_rate)  
     qty = min(risk_qty, max_qty)  
-    return qty
-```
-We need to check for a minimum of trades so we have a good win_rate and ratio_avg_win_loss to work with. In this case we use 20 trades. For those first trades we use hardcoded values, we got from backtests. win_rate is the same as *Percent Profitable* / 100. ratio_avg_win_loss is called *Ratio Avg Win / Avg Loss*.
+    return qty 
+``` 
+
+We need to check for a minimum of trades so we have a good `win_rate` and `ratio_avg_win_loss` to work with. In this case, we use 20 trades. For those first trades we use hardcoded values, we got from backtests. `win_rate` is the same as **Percent Profitable / 100**. `ratio_avg_win_loss` is called **Ratio Avg Win / Avg Loss**. 
