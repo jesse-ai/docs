@@ -1,33 +1,19 @@
 # Importing Candles
 
-You need historical candles to run backtest simulations. The command to import candles is:
+You need historical candles to run backtest simulations. To start importing candles head over to the "Import Candles" page. There, you will be able to choose the **exchange**, **Symbol**, and the **Start Date**. There's no **Finish Date** input because Jesse will always import until the same day (today).
 
-```
-jesse import-candles exchange symbol start_date
-```
+For example to import candles for `BTC-USDT` from `Binance` since `2018-06-01` until this very moment:
 
-A working example would be:
-
-```
-jesse import-candles 'Binance' 'BTC-USDT' '2018-06-01'
-```
-
-This will import candles for `BTC-USDT` from Binance since `2018-06-01` until this very moment.
+![import-candles-1](https://jesse.trade/storage/images/docs/import-candles-1.jpg)
 
 ::: tip
-You may run this command as many times as you desire. Duplicate candles will get skipped automatically. 
-
-That means in the future, you can run the same command you just used, for fetching most recent candles. 
+Next time, to keep your data storage up to date try running with the same inputs without worry, and duplicate candles will be skipped. So you can run the same import session as many times as you like to always have the latest candles without waiting a long time on every import session. 
 :::
 
-
-::: warning
-For some CLI you need to remove the quotation marks for the command to work.
-:::
 
 ## Supported exchanges
 
-Supported exchanges (so far) are:
+So far, the below exchanges are supported for importing candles and running backtests:
 
 -   `Binance`
 -   `Testnet Binance Futures`
@@ -40,7 +26,7 @@ Supported exchanges (so far) are:
 
 ## Creating custom exchange drivers 
 
-You can write your own custom exchange drivers as use them as plugins. You may even publish them as PIP packages so others can install and use them easily. 
+You can write your own custom exchange drivers and use them as plugins. You may even publish them as PIP packages so others can install and use them easily. 
 
 This can be done in three steps:
 1. Define a new class that inherits the `CandleExchange` class and implements all of its required methods. 
@@ -52,7 +38,7 @@ First, create a new directory and a new file for your driver. The directory coul
 
 The content should be a Python class inheriting from the `CandleExchange` class and it must implement below methods: 
 - `get_starting_time()`: it is used to detect the first date the data is available for that symbol. 
-- `fetch()`: It is where you actually submit the HTTP request to the exchange that receives the candles. It is supposed to return a list of candles. 
+- `fetch()`: It is where you submit the HTTP request to the exchange that receives the candles. It is supposed to return a list of candles. 
 
 The best way to get you started is to take a look at an [example driver](https://github.com/jesse-ai/ftx-driver), copy and paste it, and modify it based on the API of your targeted exchange! 
 
@@ -85,13 +71,4 @@ import_candles_drivers = {
 }
 ```
 
-Now I should be able to run import candles from FTX:
-
-```
-jesse import-candles 'FTX' 'BTC-USDT' '2012-06-04'
-```
-
-### Add new config values for running backtests
-Usually, the reason for importing candles in the first place is to run backtests on them. So we need to tell Jesse where to find the config values for our newly added exchange in order for it to run backtests on it. 
-
-We can do that by opening `config.py` and copying and pasting values from an existing exchange such as `Binance Futures` and changing the values according to our needs for our exchange. 
+Now I should be able to see FTX in the list of exchanges.
