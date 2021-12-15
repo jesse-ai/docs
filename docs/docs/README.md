@@ -8,11 +8,11 @@ Jesse is an advanced algo-trading framework that helps you to write trading stra
 
 ## Why do I need it?
 
-The short answer is: Jesse is more accurate, and way simpler than other solutions out there. In fact, if I have to summarize Jesse in one word, that word would be **simplicity**. Don't just take my word for it; try writing a strategy in Jesse and any other bot out there to see the difference by yourself.
+The short answer is: Jesse is more accurate, and way simpler than other solutions out there. If I have to summarize Jesse in one word, that word would be **simplicity**. Don't just take my word for it; try writing a strategy in Jesse and any other bot out there to see the difference by yourself.
 
 ## Features
 
-Here are few (but not all) features of Jesse that you might be interested in:
+Here are a few (but not all) features of Jesse that you might be interested in:
 
 -   The **simplest** possible syntax for **defining your strategies**. Supports both simple and advanced strategies. 
 -   The **most complete** library of **technical indicators** with the simplest usage syntax, documentation, and examples.
@@ -29,8 +29,9 @@ Here are few (but not all) features of Jesse that you might be interested in:
 - Support for **leveraged trading**. 
 - First-class support for **short-selling**. 
 - Support for **partial fills**. Your strategies don't have to enter and exit at once. Jesse supports entering and exiting in multiple orders. 
+- Creating advanced real-time **alerts** inside your strategies.
 - **And a lot more!!**
 
 ::: danger Disclaimer
-This software is for educational purposes only. We do NOT guarantee profitable trading results in any ways. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS. Do not risk money which you are afraid to lose. There might be bugs in the code - this software DOES NOT come with ANY warranty.
+This software is for educational purposes only. We do NOT guarantee profitable trading results in anyways. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS. Do not risk money which you are afraid to lose. There might be bugs in the code - this software DOES NOT come with ANY warranty.
 :::
