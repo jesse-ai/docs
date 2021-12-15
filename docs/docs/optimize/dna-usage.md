@@ -1,26 +1,14 @@
 # DNA usage
 
-Let's say you found a good DNA and now you want to use it in your strategy. Go ahead and copy the DNA string that is displayed in the "evolving" dashboard. It should be a weird-looking string such as `=;0`. Then, paste it as the 5th parameter of your trading route in your `routes.py` file:
+Let's say you found a good DNA and now you want to use it in your strategy. Go ahead and copy the DNA string that is displayed in the "evolving" dashboard. It should be a weird-looking string such as `t4`. Copy it from within the dashboard:
+
+![dna-example](https://jesse.trade/storage/images/docs/dna-example.jpg)
+
+Then, define a method called `dna` inside your strategy that returns the DNA string:
+
 ```py
-routes = [
-    ('Bitfinex', 'BTC-USD', '15m', 'SMACrossover', '=;0'),
-]
+def dna():
+    return 't4'
 ```
 
-To see what would be the translated values for this DNA, run:
-```sh
-jesse routes --dna
-```
-
-The result should look something like:
-
-```
-Translated DNAs into hyper-parameters:
-
-SMACrossover     |
------------------+-----------
-slow_sma_period  | 159
-fast_sma_period  | 28
-```
-
-Now if you run a backtest on the SMACrossover strategy, these new values will be used instead of the default ones that we defined earlier. 
+Now if you run the SMACrossover strategy, these new values will be used instead of the default ones that we defined [earlier](./hyperparameters.md). For example `slow_sma_period` will be 159 and `fast_sma_period` will be 28.
