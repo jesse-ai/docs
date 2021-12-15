@@ -2,7 +2,7 @@
 
 Debugging is an important part of developing strategies. Getting errors, figuring out why something is not working, and fixing them is just part of programming in general. 
 
-We try our best to make this part of the process as easy as possible for you via the tools we provide. 
+We try our best to make this part of the process as easy as possible for you via the tools we provide:
 
 ## 1. Debug mode 
 
