@@ -83,7 +83,8 @@ module.exports = {
                         link: '/docs/getting-started'
                     },
                     '/docs/getting-started/docker',
-                    '/docs/getting-started/environment-setup'
+                    '/docs/getting-started/environment-setup',
+                    '/docs/getting-started/migration'
                     // ['/docs/getting-started/generating-new-strategy', 'Generating new strategy'],
                     // ['/docs/getting-started/entering-and-exiting', 'Entering and exiting trades'],
                     // ['/docs/getting-started/events', 'Events'],
