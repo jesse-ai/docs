@@ -1,6 +1,6 @@
 # Docker
 
-All the required config files for docker are shipped with new Jesse projects. Assuming that you already have installed Docker itself, you are only a step away from running Jesse with Docker. 
+All the required config files for docker are shipped with [new Jesse projects](/docs/getting-started/#create-a-new-jesse-project). Assuming that you already have installed Docker itself, you are only a step away from running Jesse with Docker. 
 
 ## Starting containers
 

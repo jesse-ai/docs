@@ -80,7 +80,7 @@ This will create a new project containing only files and folders that you actual
 ```
 
 ## Start Jesse
-To get the party started, (**inside your Jesse project**) run the application by:
+If you are using Jesse via Docker, you don't need to run anything as it is explained in the [Docker documentation](./docker.md). For native setups however, to get the party started, (**inside your Jesse project**) run the application by:
 
 ```sh
 jesse run
