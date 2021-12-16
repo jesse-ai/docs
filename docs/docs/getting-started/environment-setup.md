@@ -189,7 +189,9 @@ pip install {downloaded_binary_file}
 
 Now check if it worked by running: `pip list` you should now find ta-lib in that list.
 
-> :information_source: You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. There is a tutorial: [HERE](https://github.com/mrjbq7/ta-lib#windows)
+::: tip
+You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. There is a tutorial: [HERE](https://github.com/mrjbq7/ta-lib#windows)
+:::
 
 ### Cython
 Run:
