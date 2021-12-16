@@ -139,6 +139,10 @@ Start again or add it to your path manually. To edit your PATH variable use the 
 You are sure Python is in the PATH? Restart your CLI and/or your machine might help.
 :::
 
+### Redis
+
+Will be added soon. In the meanwhile, you can use the [Docker](./docker.md) setup in windows. 
+
 ### PostgreSQL
 [Download](https://www.postgresql.org/download/windows) and install a version greater than `11.2` matching your system type (Windows `x86-64` or `x86-32`).
 
