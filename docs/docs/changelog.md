@@ -2,6 +2,29 @@
 
 Here you can see that changes were made at each release of the main framework. To read the changes of the live trade plugin, check out the "[releases](https://jesse.trade/releases)" page of the website. 
 
+## 0.30.0 (GUI Dashboard)
+
+- [NEW FEATURE] GUI Dashboard is now available and replaces the CLI.
+- [NEW FEATURE] Docker setup is improved and is now a first-class citizen of Jesse and is shipped with all newly created Jesse projects. It enabled you to run Jesse with one single command!
+- [NEW FEATURE] Sending feedback and exception reports with optional log-file attachment right from within the dashboard.
+- [NEW FEATURE] Responsive design which makes it easy to use even on mobile devices (if you install Jesse on a remote server)
+- [NEW FEATURE] Added average execution time for optimizing mode
+- [NEW FEATURE] All main forms of the dashboard remember your inputs. So repeating backtests, etc is much easier with a click of a button
+- [NEW FEATURE] Ability to open multiple tabs (inside the dashboard itself) and run multiple candle importing and backtests in parallel. 
+- [NEW FEATURE] You can choose between light and dark mode. 
+- [BREAKING CHANGE] Environment variables are now set in the `.env` file, and application settings are now in the settings section of the dashboard. No more `config.py` and `live-config.py` files.
+- [BREAKING CHANGE] DNAs of the optimize mode are now defined in the strategy instead of the `routes.py` file
+- [Improvement] The error handling is now much more robust and reliable.
+- [Improvement] Every time you run an action like a backtest, the action is run in a separate process. This means that the action is not blocking the main process; hence, the main process can continue to run even if an error occurs. One example good that comes out of this is that notifications are now more reliable. 
+- [Improvement] Installation of the live-trade plugin is now fully automated. No need to manually find your machine's info, download, and install. 
+- [Improvement] Faster backtest execution with the debug mode enabled because of no actual terminal printing
+- [Improvement] Improved handling of database connections
+- And much more! This was the biggest release yet.
+
+::: tip
+Starting from version 0.30.0, this page will include changelog of the live-trade plugin as well. 
+:::
+
 ## 0.29.1
 [Improvement] Change Python version validation to recognize 3.10 (understood it as 3.1 before)
 [Improvement] The CSV created from the optimization mode now uses tab delimiter, as sometimes chars from the DNA would mess up the file.

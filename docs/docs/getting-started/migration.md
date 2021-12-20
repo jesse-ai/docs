@@ -1,9 +1,9 @@
-# Migrating from 0.2.x to 0.3.x
+# Migrating from 0.2x.x to 0.3x.x
 
 Starting version 0.3 Jesse uses a GUI dashboard instead of a CLI. 
 
 ## Migration steps
-Here are the steps to migrate from 0.2.x to 0.3.x:
+Here are the steps to migrate from 0.2x.x to 0.3x.x:
 
 1. Create a new Jesse project as [explained here](/docs/getting-started/#create-a-new-jesse-project). This new project will contain all the required files, docker config, `.env` file, etc.
 2. Copy your environment values from your previous project's `config.py` and `live-config.py` files to the new project's `.env` file.

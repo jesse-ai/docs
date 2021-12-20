@@ -23,8 +23,13 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 - ✅ Release second beta version of the GUI dashboard
 - ✅ Official release of the GUI dashboard
 - ✅ Start our Youtube channel for publishing algo trading tutorials 
+
+## Q1 2022
+- Integrate Bybit Perpetuals exchange
+- Improve dashboard
 - Support for spot trading 
 - Integrate spot exchanges such as Binance, FTX, Bybit, and US versions of FTX and Binance
+- Release more tutorial screencasts
 
 ## 2022
 - Integrate fast DEX platforms such as PancakeSwap, 1inch, etc 
