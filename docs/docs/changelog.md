@@ -1,6 +1,6 @@
 # Changelog
 
-Here you can see that changes were made at each release of the main framework. To read the changes of the live trade plugin, check out the "[releases](https://jesse.trade/releases)" page of the website. 
+Here you can see that changes were made at each release of the main framework. 
 
 ## 0.30.0 (GUI Dashboard)
 
