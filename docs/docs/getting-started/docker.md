@@ -16,9 +16,11 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-
 
 All the config files for Docker are present inside your project's `docker` directory. If it's not, just copy it from [this repository](https://github.com/jesse-ai/project-template).
 
-Then inside the terminal open the `docker` directory and run the following command:
+Then inside the terminal make sure you are in the project root, open the `docker` directory and run the docker-compose command:
 
 ```sh
+# open the `docker` directory
+cd docker
 # run without the "-d" flag to see the output
 docker-compose up -d
 ```
