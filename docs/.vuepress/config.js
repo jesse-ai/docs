@@ -1,12 +1,25 @@
 const { path } = require('@vuepress/utils')
 
 module.exports = {
-
     title: 'Jesse',
     description: 'A Python trading framework for cryptocurrency markets.',
     theme: path.resolve(__dirname, './theme'),
-    head: [['script', { async: true, defer: true, 'data-domain': "docs.jesse.trade", src: "https://data.jesse.trade/js/plausible.js" }],
-    ['script', {}, 'window.$crisp=[];window.CRISP_WEBSITE_ID="1796fd03-a615-447a-b2d2-ff0269e39c05";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();']],
+    head: [
+        [
+            'script',
+            {
+                async: true,
+                defer: true,
+                'data-domain': 'docs.jesse.trade',
+                src: 'https://data.jesse.trade/js/plausible.js',
+            },
+        ],
+        [
+            'script',
+            {},
+            'window.$crisp=[];window.CRISP_WEBSITE_ID="1796fd03-a615-447a-b2d2-ff0269e39c05";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();',
+        ],
+    ],
 
     plugins: [
         '@vuepress/last-updated',
@@ -26,10 +39,10 @@ module.exports = {
                 locales: {
                     '/': {
                         placeholder: 'Search',
-                    }
+                    },
                 },
             },
-        ]
+        ],
     ],
     themeConfig: {
         docsRepo: 'jesse-ai/docs',
@@ -40,7 +53,7 @@ module.exports = {
         logo: './imgs/jesse-bot.png',
         algolia: {
             apiKey: '5b718939748786f0bb2d064c6851bd68',
-            indexName: 'jesse'
+            indexName: 'jesse',
         },
         navbar: [
             {
@@ -80,11 +93,11 @@ module.exports = {
                 children: [
                     {
                         text: 'Installation',
-                        link: '/docs/getting-started'
+                        link: '/docs/getting-started',
                     },
                     '/docs/getting-started/docker',
                     '/docs/getting-started/environment-setup',
-                    '/docs/getting-started/migration'
+                    '/docs/getting-started/migration',
                     // ['/docs/getting-started/generating-new-strategy', 'Generating new strategy'],
                     // ['/docs/getting-started/entering-and-exiting', 'Entering and exiting trades'],
                     // ['/docs/getting-started/events', 'Events'],
@@ -101,7 +114,7 @@ module.exports = {
                 children: [
                     {
                         text: 'Introduction',
-                        link: '/docs/strategies/'
+                        link: '/docs/strategies/',
                     },
                     '/docs/strategies/generating-new-strategy',
                     '/docs/strategies/entering-and-exiting',
@@ -109,7 +122,6 @@ module.exports = {
                     '/docs/strategies/filters',
                     '/docs/strategies/api',
                     '/docs/strategies/example-strategies.md',
-
                 ],
             },
             {
@@ -120,10 +132,10 @@ module.exports = {
                 children: [
                     {
                         text: 'Introduction',
-                        link: '/docs/indicators/'
+                        link: '/docs/indicators/',
                     },
                     '/docs/indicators/reference',
-                    '/docs/indicators/custom-indicators'
+                    '/docs/indicators/custom-indicators',
                 ],
             },
             '/docs/utils/',
@@ -140,22 +152,22 @@ module.exports = {
                 children: [
                     {
                         text: 'Introduction',
-                        link: '/docs/optimize/'
+                        link: '/docs/optimize/',
                     },
                     '/docs/optimize/hyperparameters',
                     '/docs/optimize/executing-the-optimize-mode',
                     '/docs/optimize/dna-usage',
-                    '/docs/optimize/overfitting'
+                    '/docs/optimize/overfitting',
                 ],
             },
             '/docs/jupyter-notebooks',
             '/docs/debugging',
             {
                 text: 'Frequently Asked Questions',
-                link: 'https://jesse.trade/help'
+                link: 'https://jesse.trade/help',
             },
             '/docs/changelog',
-            '/docs/roadmap'
+            '/docs/roadmap',
             // ['/docs/license', 'License']
         ],
     },
