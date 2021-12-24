@@ -42,3 +42,13 @@ If you did it without the `-d` flag (so you can see the outputs in the terminal)
 ## Changing the port
 
 If you want to change the default `9000` port, you can do it by modifying the `APP_PORT` value in your project's `.env` file. 
+
+## Sharing the database across instances.
+
+You can use the same database by sharing the volume of the postgres container. Just add `external: true` to the `docker-compose.yml` of the new instance you create, like shown below. This tells docker to not create a new volume, but use the external existing one.
+
+```
+volumes:
+  postgres-data:
+    external: true
+```
