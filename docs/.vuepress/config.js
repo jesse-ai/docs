@@ -99,6 +99,7 @@ module.exports = {
                         text: 'Installation',
                         link: '/docs/getting-started',
                     },
+                    '/docs/getting-started/update',
                     '/docs/getting-started/docker',
                     '/docs/getting-started/environment-setup',
                     '/docs/getting-started/migration',
