@@ -159,17 +159,19 @@ Launch ubuntu you will be promted to select a username and password for ubuntu.
 
 After that install Redis (you will be asked for the password you just set):
 
+```sh
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get install redis-server
     redis-cli -v
+```
 
- You should end up with something like that: redis-cli X.X.X
+ You should end up with something like that: `redis-cli X.X.X`
  
  This will start the server. You can close the windows after that:
-    
+```  
     redis-server
- 
+```
  
  But you need to start Redis server after each system reboot by running the redis-server command in the ubuntu terminal.
  
