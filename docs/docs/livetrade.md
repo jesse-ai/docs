@@ -44,3 +44,7 @@ All you have to do is to run a single command which will automatically download 
 ```sh
 jesse install-live
 ```
+
+## Update
+
+To update to the latest versions, usually you have to update Jesse itself first, and then the plugin. Here's the [guide](/docs/getting-started/update.html).
