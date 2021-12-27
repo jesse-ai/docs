@@ -141,7 +141,39 @@ You are sure Python is in the PATH? Restart your CLI and/or your machine might h
 
 ### Redis
 
-Will be added soon. In the meanwhile, you can use the [Docker](./docker.md) setup in windows. 
+The bad news are there is no version of Redis for windows. The good news: We can install Redis with the help of a virtual machine (VM) or windows subsystem.
+Here we will be using a linux on the windows subystem:
+
+Before installing any Linux distros for WSL, you must ensure that the "Windows Subsystem for Linux" optional feature is enabled:
+
+Open PowerShell as Administrator (windows search for "PowerShell" > right click > "run as administrator)  and type:
+`
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+    `
+    
+Restart your computer when prompted.
+
+Now download and install [Ubuntu 20.04](https://www.microsoft.com/en-us/store/p/ubuntu-2004-lts/9n6svws3rx71) from the [Microsoft Store](http://microsoft.com/store).
+
+Launch ubuntu you will be promted to select a username and password for ubuntu.
+
+After that install Redis (you will be asked for the password you just set):
+
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install redis-server
+    redis-cli -v
+
+ You should end up with something like that: redis-cli X.X.X
+ 
+ This will start the server. You can close the windows after that:
+    
+    redis-server
+ 
+ 
+ But you need to start Redis server after each system reboot by running the redis-server command in the ubuntu terminal.
+ 
+ Another alternative is [Memurai](https://www.memurai.com) - which has to be restarted every 10 days in the free version though.
 
 ### PostgreSQL
 [Download](https://www.postgresql.org/download/windows) and install a version greater than `11.2` matching your system type (Windows `x86-64` or `x86-32`).
