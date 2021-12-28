@@ -146,6 +146,7 @@ module.exports = {
             '/docs/utils/',
             '/docs/backtest/',
             '/docs/livetrade/',
+            '/docs/security',
             '/docs/notifications/',
 
             // ['/docs/papertrade', 'Paper Trading'],
