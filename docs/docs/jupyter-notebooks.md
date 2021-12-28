@@ -1,5 +1,20 @@
 # Jupyter Notebooks
 
+## Setup
+
+```ssh
+# inside the jesse container if you are using docker
+pip install jupyterlab
+```
+
+```ssh
+jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+```
+
+::: warning
+If you are running it on a VPS it's important to secure Jupyter (for example SSL, Password etc.). You will find tutorials about that in the internet. 
+:::
+
 To use Jesse inside your notebooks, you must create them inside the root of your Jesse project (so that it can see present `.env` file containing values for the database). Start by importing the research module:
 
 ```py
