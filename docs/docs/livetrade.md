@@ -4,7 +4,7 @@ title: 'Live Trading'
 
 # Live Trade
 
-The "live-trade" plugin is available for early access which enables live/paper trading with Jesse. You can read the [announcement article](https://jesse.trade/blog/news/the-live-trade-plugin-is-open-for-early-access) or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the [installation guide](http://localhost:8080/docs/livetrade.html#installation). 
+The "live-trade" plugin is available for early access which enables live/paper trading with Jesse. You can read the [announcement article](https://jesse.trade/blog/news/the-live-trade-plugin-is-open-for-early-access) or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the [installation guide](/docs/livetrade.html#installation). 
 
 **Update:** We are at the finishing days of the early-access phase. All the promised items are not available except for the spot trading which will be available soon. After that, the early-access phase is over and I will release version `1.0`.
 
