@@ -2,7 +2,7 @@
 
 **Jesse offers the simplest to use, and the most number of technical indicators among all trading systems**. Few of which are custom-made, and the rest are using the [ta-lib](http://ta-lib.org) or [tulip](https://tulipindicators.org/) libraries which are open source and well-known.
 
-You might stumble upon differences to other tools caused by the use of different indicator equations or memory. See here to learn more about memory of indicators: [https://jesse.trade/help/faq/i-changed-the-warm-up-candles-config-why-do-my-indicator-values-change] (https://jesse.trade/help/faq/i-changed-the-warm-up-candles-config-why-do-my-indicator-values-change). You can always use other libraries of course, there might be speed differences though. See here for an explaination:
+You might stumble upon differences to other tools caused by the use of different indicator equations or memory. See here to learn more about memory of indicators: [https://jesse.trade/help/faq/i-changed-the-warm-up-candles-config-why-do-my-indicator-values-change](https://jesse.trade/help/faq/i-changed-the-warm-up-candles-config-why-do-my-indicator-values-change). You can always use other libraries of course, there might be speed differences though. See here for an explaination:
 [https://docs.jesse.trade/docs/indicators/custom-indicators.html#external-libraries-for-technical-indicators-and-things-to-be-aware-of](https://docs.jesse.trade/docs/indicators/custom-indicators.html#external-libraries-for-technical-indicators-and-things-to-be-aware-of).
 
 The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in [Jupyter Notebooks](/docs/jupyter-notebooks).
