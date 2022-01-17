@@ -2,6 +2,19 @@
 
 Here you can see that changes were made at each release of the main framework. 
 
+## 0.31.0
+
+- [NEW FEATURE] `Testnet Bybit Perpetuals` is now supported for backtesting, paper, and live trading
+- [NEW FEATURE] Added [all_positions](/docs/strategies/api.html#all-positions) and [portfolio_value](/docs/strategies/api.html#portfolio-value) properties to the strategy API
+- [Improvement] Automated "handling of take-profit and stop-loss that are priced the opposite of what they are supposed to" in strategies by closing the position instead of raising an exception causing the session to terminate. 
+- [Improvement] Added support for cancelling (remaining) entry orders in `update_position()`
+- [Improvement] Error logs are now logged as info logs as well so info logs now include all the logs. 
+- [FIX] Fixed Discord notifications not working
+- [FIX] Fixed an error when handling rejected (take-profit/stop-loss) orders in live trading sessions 
+- [FIX] Fixed a bug that happened when live trading strategies that require "extra routes"
+- [FIX] The research module has been updated to support usage in Jupyter Notebooks
+- [FIX] Fixed a bug in database migrations 
+
 ## 0.30.0 (GUI Dashboard)
 
 - [NEW FEATURE] GUI Dashboard is now available and replaces the CLI.
