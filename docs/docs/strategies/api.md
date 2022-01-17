@@ -97,6 +97,15 @@ Returns the current wallet in your exchange wallet. In the futures market, it be
 
 Alias for [balance](#balance)
 
+## portfolio_value
+
+Returns the value (in the currency of your trading session. Usually it's `USDT` or `USD`) of your entire portfolio (all positions).
+
+This is sometimes useful as `self.capital` is like the "wallet balance" on futures exchanges and only changes **after** the position is closed. But `portfolio_value` takes both open and closed positions into account.
+
+**Return Type**: float
+
+**See Also**: [capital](#capital), [available_margin](#available-margin)
 
 ## close
 
@@ -519,6 +528,21 @@ def update_position(self):
 ```
 
 **See Also**: [is_long](#is-long), [is_short](#is-short), [is_open](#is-open), [is_close](#is-close)
+
+## all_positions
+
+Returns a python dictionary with all the positions. The keys are the symbols and the values are the position objects.
+
+**Return Type**: dict
+
+**Example:**
+```py
+# assuming that I have two trading routes, one for BTC-USDT and one for ETH-USDT
+btc_position = self.all_positions['BTC-USDT']
+eth_position = self.all_positions['ETH-USDT']
+```
+
+**See Also**: [position](#position)
 
 
 ## price
