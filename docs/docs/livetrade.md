@@ -18,16 +18,17 @@ You can enable paper trading by turning on the "Paper Trade" option on the "Live
 
 At the moment these are the supported exchanges for live trading:
 
-- `Testnet Binance Futures`
-- `Binance Futures`
-- `FTX Futures`
+<!-- - [Bybit (perpetual futures)](https://jesse.trade/bybit) -->
+- [FTX.com (perpetual futures)](https://ftx.com/trade/BTC-PERP)
+- [Binance.com (perpetual futures)](https://www.binance.com/en/futures/BTCUSDT)
+- [Testnet Binance Futures](https://testnet.binancefuture.com/en/futures/BTCUSDT)
 
 New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know. 
 
 **What about spot exchanges?** Spot support is the next big milestone for the project and is my current focus. After implementing the full support for spot exchanges, I can develop drivers for Binance (.com and .us), FTX (.com and .us) almost right away. Next, depending on the demand, I will add support for maybe Kraken, Coinbase, etc. 
 
 ## Installation
-The package is pre-built and the access is limited to those with an active license. We made sure the installation is as easy and made it automated as much as possible.
+The package is pre-built and the access is limited to those with an active license. We made sure the installation is easy and made it automated as much as possible.
 
 ### 1. Creating a license key
 First, you need to create a license access key. Assuming you are already logged in to your Jesse.Trade account, go into the [API Tokens](https://jesse.trade/user/api-tokens) page and generate a new token. The name of it doesn't matter. Then copy the token and paste it into the `LICENSE_API_TOKEN` variable inside your project's `.env` file.
