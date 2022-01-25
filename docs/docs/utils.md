@@ -16,20 +16,10 @@ anchor_timeframe(timeframe)
 
 **Example**:
 
-One useful example for this could be in your routes file when you need to define the anchor timeframe. Let's say for example we're trading `4h` timeframe but don't know the anchor timeframe for it.
-
-```py{9}
-from jesse.utils import anchor_timeframe
-
-# trading routes
-routes = [
-    ('Binance', 'BTC-USDT', '4h', 'ExampleStrategy'),
-]
-
-extra_candles = [
-    ('Binance', 'BTC-USDT', anchor_timeframe('4h')),
-]
+```py
+bigger_timeframe = anchor_timeframe('1h') # prints '4h'
 ```
+
 ## are\_cointegrated
 
 Uses unit-root test on residuals to test for a cointegrated relationship between two price return series. 
@@ -41,7 +31,9 @@ Notice that for the formula to make sense `price_returns_1` and `price_returns_2
 The `cutoff` parameter points to the p-value threshold used in the formula. 
 
 ```py
-are_cointegrated(price_returns_1: np.ndarray, price_returns_2: np.ndarray, cutoff=0.05) -> bool
+are_cointegrated(
+    price_returns_1: np.ndarray, price_returns_2: np.ndarray, cutoff=0.05
+) -> bool
 ```
 
 **Properties**:
@@ -83,20 +75,6 @@ combinations_without_repeat(a: np.ndarray, n: int = 2) -> np.ndarray
 -   n: int - default: 2
 
 **Return Type**: np.ndarray
-
-## dd
-
-The `dd` (dump and die) function dumps the given variables and ends execution of the script. It is used for debugging purposes. 
-
-
-```py
-dd('some kind of variable that you need to debug')
-```
-
-**Properties**:
--   msg
-
-**Return Type**: None
 
 ## estimate\_risk
 
