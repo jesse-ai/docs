@@ -2,6 +2,7 @@
 
 On this page, we'll go through how to prepare your environment before installing Jesse. We'll cover three major operating systems:
 
+- [Remote server](/docs/getting-started/environment-setup.html#remote-server)
 - [Ubuntu](/docs/getting-started/environment-setup.html#ubuntu)
 - [macOS](/docs/getting-started/environment-setup.html#macos)
 - [Windows](/docs/getting-started/environment-setup.html#windows)
@@ -13,6 +14,10 @@ Remember that you don't need to do any of these steps if you want to use [Docker
 ::: tip
 A good practice for providing an environment for running Python applications is setting up Python virtual environments. Especially when you have different projects with their own dependencies, you can create an isolated environment regardless of what dependencies every other project has. [Here](https://docs.python.org/3/tutorial/venv.html) you can find more information on creating virtual environments.
 :::
+
+## Remote server
+
+In case you intend to setup a remote server for live trading, there are a couple of steps that you need to take care of such as how to deploy your local code, how to make the server secure, etc. We have a step-by-step [tutorial on our blog](https://jesse.trade/blog/tutorials/how-to-deploy-your-jesse-project-into-the-production-server).
 
 ## Ubuntu
 
