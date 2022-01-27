@@ -8,7 +8,7 @@ pip install jupyterlab
 ```
 
 ```ssh
-jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+jupyter-lab --allow-root --ip 0.0.0.0 --no-browser
 ```
 
 ::: warning
