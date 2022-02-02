@@ -2,6 +2,22 @@
 
 Here you can see that changes were made at each release of the main framework. 
 
+## 0.32.0
+
+- [NEW FEATURE]: Added the **[watch_list](https://docs.jesse.trade/docs/strategies/api.html#watch-list)** function for monitoring custom info in live modes. 
+- [NEW FEATURE]: A "**Hyperparameters**" section is displayed in backtest results if the strategy has any hyperparameters defined. 
+- [NEW FEATURE] Added **Bybit Perpetual** driver for live trading. 
+- [NEW FEATURE]: Added support for PostgreSQL ssl mode via `POSTGRES_SSLMODE` environment variable. PR [submitted](https://github.com/jesse-ai/jesse/pull/307) by [Chirica Gheorghe](https://github.com/botzill). Thanks Chirica!
+- [IMPROVEMENT] Sends notification for the "reconnect" message of the WS connection in live mode
+- [IMPROVEMENT] Strategy execution for `update_position` is paused for 3 seconds if an order execution event was received before `update_position` was called. Reduces the number of unexpected behavior in live mode.
+- [IMPROVEMENT] Doesn't log fee-charging if fees are set to zero. Makes it easier to read the logs when developing.
+- [FIX] Fixed an issue in multi-threading which led to **memory leaks** when live trading on Linux machines. 
+- [FIX] Fixed a rare `KeyError` when generating charts after backtests.
+- [FIX] Fixed handling of the market `Partially filled` orders in live mode for `Binance Futures` driver. (limit `Partially filled` orders were working fine)
+- [FIX] Improved request submission in live mode to prevent `Connection reset by peer` error.
+- [FIX] Fixed a bug in updates of exit-orders made using `update_position()`.
+- [FIX] Fixed a bug in displaying the timeframe of candles in the live dashboard for timeframes bigger than `1m`
+
 ## 0.31.0
 
 - [NEW FEATURE] `Testnet Bybit Perpetuals` is now supported for backtesting, paper, and live trading
