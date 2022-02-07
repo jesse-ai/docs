@@ -12,7 +12,10 @@ The dashboard is supposed to be accessible only by you. That makes it easy to se
 
 This can be done via both a firewall from within the server or the firewall that your cloud provider provides ([Hetzner](https://jesse.trade/hetzner), [DigitalOcean](http://jesse.trade/digitalocean), etc).
 
-I will show you how to do it via **ufw** which is a popular firewall that ships with Ubuntu 20.04:
+
+### UFW Firewall
+
+If you are NOT using the Docker setup, you can use **ufw** which is a popular firewall that ships with Ubuntu 20.04:
 
 ```sh
 # to see if ufw is installed and activated
@@ -38,3 +41,23 @@ ufw status numbered
 # restart ufw to apply the changes
 systemctl restart ufw
 ```
+
+### Data center Firewall
+
+UFW doesn't play nice with docker. Here is how to use Hetzner's firewall service which is free to use. Other data centers usually have similar firewall services.
+
+Go into your server's page and click on the "Firewalls" tab and click on the "CREATE FIREWALL" button:
+
+![hetzner-firewall](https://jesse.trade/storage/images/how-to-deploy-jesse-to-production/hetzner-firewall.jpg)
+
+First, find your local machine's IP address by using a website such as [this one](http://icanhazip.com). 
+
+Now remove the default values saying "Any IPv4" and "Any IPv6" by clicking on them and hitting the backspace button of your keyboard. Then, paste in your local machine's IP address.
+
+We need two rules like this. Set the Protocol to TCP for both of them. The port number for one should be 22 which is the SSH port (so you can still SSH into your server). The port number for the other should be 9000 which is the dashboard port.
+
+In the end, click on the "CREATE FIREWALL" button.
+
+![hetzner-firewall-rules](https://jesse.trade/storage/images/how-to-deploy-jesse-to-production/hetzner-firewall-rules.jpg)
+
+If you changed your IP address in the future, you can always update the firewall rules and add your new IP address. That is a good reason why using Hetzner's firewall is better than using a firewall from within the server.
