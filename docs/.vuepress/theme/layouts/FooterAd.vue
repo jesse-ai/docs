@@ -2,12 +2,12 @@
   <div class="theme-default-content">
     <div class="sponsor">
       <div class="left">
-        <a href="https://tokenbot.com/" class="sponsor-title" ref="nofollow" target="_blank">
+        <a href="https://tokenbot.com/?utm_source=github&utm_medium=jesse&utm_campaign=algodevs" class="sponsor-title" ref="nofollow" target="_blank">
           <img src="../imgs/sponsor-footer.png" alt="sponsor">
         </a>
       </div>
       <div class="right">
-        <a href="https://tokenbot.com/" class="sponsor-title" ref="nofollow" target="_blank">TokenBot® - Discover and
+        <a href="https://tokenbot.com/?utm_source=github&utm_medium=jesse&utm_campaign=algodevs" class="sponsor-title" ref="nofollow" target="_blank">TokenBot® - Discover and
           copy the best algorithmic traders in the world. Join the first algorithmic trading desk for retail investors
           and social trading.</a>
 

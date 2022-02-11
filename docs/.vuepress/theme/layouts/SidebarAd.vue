@@ -1,12 +1,12 @@
 <template>
   <div class="sponsor">
     <div class="left">
-      <a class="sponsor-title" href="https://tokenbot.com/" ref="nofollow" target="_blank">
+      <a class="sponsor-title" href="https://tokenbot.com/?utm_source=github&utm_medium=jesse&utm_campaign=algodevs" ref="nofollow" target="_blank">
         <img src="../imgs/sponsor-sidebar.png" alt="sponsor">
       </a>
     </div>
     <div class="right">
-      <a href="https://tokenbot.com/" ref="nofollow" target="_blank" class="sponsor-title">
+      <a href="https://tokenbot.com/?utm_source=github&utm_medium=jesse&utm_campaign=algodevs" ref="nofollow" target="_blank" class="sponsor-title">
         Discover and copy the best algorithmic traders in the world. Join the first algorithmic trading desk for retail
         investors and social trading.
       </a>
