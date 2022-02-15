@@ -166,7 +166,22 @@ module.exports = {
                     '/docs/optimize/overfitting',
                 ],
             },
-            '/docs/jupyter-notebooks',
+            {
+                text: 'Research', // required
+                link: '/docs/research/', // optional, which should be an absolute path.
+                collapsable: true, // optional, defaults to true
+                sidebarDepth: 1, // optional, defaults to 1
+                children: [
+                    {
+                        text: 'Introduction',
+                        link: '/docs/research/',
+                    },
+                    '/docs/research/jupyter',
+                    '/docs/research/candles',
+                    '/docs/research/indicators',
+                    '/docs/research/backtest',
+                ],
+            },
             '/docs/debugging',
             {
                 text: 'Frequently Asked Questions',
