@@ -4,16 +4,16 @@ Here you can see that changes were made at each release of the main framework.
 
 ## 0.33.0 (15 February 2022)
 
-- [NEW FEATURE] Added [backtest](https://docs.jesse.trade/docs/research/backtest.html) function to the `research` module allowing you to run backtests via your Python script or Jupyter notebook.
-- [NEW FEATURE] Added [store_candles](https://docs.jesse.trade/docs/research/candles.html#store-candles) function to the `research` module allowing you to store candles in the database. An example use case is to import candles from a CSV file so you can use them in your backtests.
+- [NEW FEATURE] Added [backtest](https://docs.jesse.trade/docs/research/backtest.html) function to the **"research"** module allowing you to run backtests via your **Python script** or **Jupyter notebook**.
+- [NEW FEATURE] Added [store_candles](https://docs.jesse.trade/docs/research/candles.html#store-candles) function to the `research` module allowing you to store candles in the database. An example use case is to import candles from a **CSV file** so you can use them in your backtests.
 - [NEW FEATURE] Added [fake_candle](https://docs.jesse.trade/docs/research/candles.html#fake-candle), [fake_range_candles](https://docs.jesse.trade/docs/research/candles.html#fake-range-candles) and [candles_from_close_prices](https://docs.jesse.trade/docs/research/candles.html#candles-from-close-prices) functions to the `research` module for generating fake candle data for backtest or other any kind of research.
-- [NEW FEATURE] Added the "More" button for orders in the live mode which opens a slide over the page where you can see all orders. 
-- [NEW FEATURE] Added the value of the position (in USDT) to the live dashboard. To use it, hover on the `qty` of each position. 
-- [NEW FEATURE] Added support for running multiple instances of Jesse simultaneously. Just make sure they have different `APP_PORT` values in their `.env` file. 
-- [New FEATURE] Added a new "Report" button that is available during live sessions for submitting a report alongside logs of your running session. The previous report button was only available if an exception was raised causing the session to stop. This one is always available.
-- [IMPROVEMENT] Exception tracebacks are now logged in the info logs and included in the reports helping us to track down bugs.
-- [IMPROVEMENT] Strategies can now be long-only. That means `should_short()` and `go_short()` are optional. If you don't implement them, the strategy will be long-only.
-- [IMPROVEMENT] Improved debugging mode in the optimize mode to include a log file that is downloadable at any point in time in the optimization mode. 
+- [NEW FEATURE] Added the "More" button for orders in the live mode which opens a slide over the page where you can **see all orders**. 
+- [NEW FEATURE] Added the **value** of the position (in USDT) to the live dashboard. To use it, hover on the `qty` of each position. 
+- [NEW FEATURE] Added support for running **multiple instances** of Jesse **simultaneously**. Useful for those who want to trade using multiple sub-accounts. Just make sure they have different `APP_PORT` values in their `.env` file. 
+- [New FEATURE] Added a new **"Report"** button that is available during live sessions for submitting a report alongside logs of your running session. The previous report button was only available if an exception was raised causing the session to stop. This one is **always available**.
+- [IMPROVEMENT] Exception **tracebacks** are now logged in the info logs and included in the reports helping us to track down bugs.
+- [IMPROVEMENT] Strategies can now be **long-only**. That means `should_short()` and `go_short()` are optional. If you don't implement them, the strategy will be long-only.
+- [IMPROVEMENT] Improved **debugging mode** in the optimize mode to include a log file that is downloadable at any point in time in the optimization mode. 
 - [FIX] Fixed a bug causing optimization sessions to fail. The bug was introduced in the previous release.
 - [FIX] Fixed a bug where the optimize mode failed if the number of hyperparameters was 1. 
 - [FIX] Fixed usage of extra-routes in optimize mode. 
