@@ -52,6 +52,16 @@ def on_reduced_position(self, order):
 
 The position has been closed with the execution of either a stop-loss or a take-profit order. 
 
+To see if the position was closed because of a take-profit or a stop-loss, you can use the `order.is_take_profit` or `order.is_stop_loss` properties:
+
+```py
+def on_close_position(self, order):
+    if order.is_take_profit:
+        self.log("Take-profit closed the position")
+    elif order.is_stop_loss:
+        self.log("Stop-loss closed the position")
+```
+
 ::: tip 
 You do not need to worry about canceling the remaining active orders. Jesse takes care of it for you.
 :::
