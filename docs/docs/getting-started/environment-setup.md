@@ -21,21 +21,15 @@ In case you intend to setup a remote server for live trading, there are a couple
 
 ## Ubuntu
 
-We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install all the required stack and pip packages including Jesse itself on a machine running a fresh Ubuntu LTS installation.
-
-Run below one of below commands based on your installed Ubuntu version:
+We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install all the required stack and pip packages including Jesse itself on a machine running a fresh Ubuntu 20.04 LTS installation.
 
 ```sh
-# For Ubuntu 18.04 LTS
-source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-18.04.sh)
-
 # For Ubuntu 20.04 LTS
 source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-20.04.sh)
 ```
 
-In case a fresh install isn't possible for you, look at the commands used by our scripts and execute only the ones that suit your environment:
+In case a fresh install isn't possible for you, look at the commands used by our script and execute only the ones that suit your environment:
 
-- [18.04 script](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-18.04.sh)
 - [20.04 script](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-20.04.sh)
 
 ::: warning
