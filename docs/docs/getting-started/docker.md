@@ -27,7 +27,7 @@ docker-compose up -d
 
 The first time you do this, you have to wait until the images are downloaded. This can take a few minutes. Next times, will be much faster however, still it might take more than 10 seconds to start all the services. 
 
-That's it! Now open [localhost:9000](https://localhost:9000) in your browser to see the dashboard.
+That's it! Now open [localhost:9000](http://localhost:9000) in your browser to see the dashboard.
 
 ## Stopping container
 
