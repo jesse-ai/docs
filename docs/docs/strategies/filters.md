@@ -65,6 +65,4 @@ Notice that we are using `self.average_entry_price` and `self.average_take_profi
 
 
 ### 3. Easier debugging 
-When a filter prevents opening a trade by not passing, it gets logged. 
-
-At the moment Jesse only supports backtesting so you need to run your backtests with `--debug` flag to see the logged message for filters. Later, when the live trade plugin is released, this will make a difference in your live strategies too. 
+When a filter prevents opening a trade by not passing, it gets logged which is helpful for debugging.
