@@ -29,6 +29,10 @@ New exchange drivers are developed based on demand. So if you need an exchange t
 ## Installation
 The package is pre-built and the access is limited to those with an active license. We made sure the installation is easy and made it automated as much as possible.
 
+::: tip
+In case you prefer watching a video, here's a [short screencast of installing the plugin on remote server for live trading](https://www.youtube.com/watch?v=cUNX5FAVVYo).
+:::
+
 ### 1. Creating a license key
 First, you need to create a license access key. Assuming you are already logged in to your Jesse.Trade account, go into the [API Tokens](https://jesse.trade/user/api-tokens) page and generate a new token. The name of it doesn't matter. Then copy the token and paste it into the `LICENSE_API_TOKEN` variable inside your project's `.env` file.
 
