@@ -2,6 +2,17 @@
 
 Here you can see that changes were made at each release of the main framework. 
 
+## 0.34.0 (24 March 2022)
+
+- [IMPROVEMENTS] Instead of calculating changes in positions and orders, Jesse now uses data on the exchange to stay **in sync in real-time**. 
+- [NEW FEATURE] Added **persistency** support to the live mode. Jesse is now able to stop and start at a later time without starting from scratch. 
+- [NEW FEATURE] Added `is_stop_loss` and `is_take_profit` properties to the Order class. Useful for detecting the role of the executed order in methods such as [on_close_position()](https://docs.jesse.trade/docs/strategies/events.html#on-close-position-self-order).
+- [BREAKING CHANGE] **Dependencies are now locked**. So from this version forward, doing `pip install jesse` will force your dependencies to be the same as the current version's requirements. This is to prevent you from installing a different version of the dependencies leading to unexpected behavior. 
+- [NEW FEATURE] The position table now displays the liquidation price of the position in the live trading dashboard. 
+- [NEW FEATURE] Added `has_long_entry_orders` and `has_short_entry_orders` properties to the Strategy class. They are used for knowing the type of entry orders for times that position is not opened yet such as inside the `should_cancel()` and `before()` methods and also in filters.
+- [NEW FEATURE] Implemented a "check for newer version" component in the GUI dashboard. So you'll be notified inside the app for newer versions of both the framework and the live plugin. You can skip updates if you choose to. 
+- [IMPROVEMENTS] Improved the handling of "PARTIALLY FILLED" orders in the live mode. The new refactor handles them properly, and also you can see in the dashboard the amount of the order that was filled.
+
 ## 0.33.0 (15 February 2022)
 
 - [NEW FEATURE] Added [backtest](https://docs.jesse.trade/docs/research/backtest.html) function to the **"research"** module allowing you to run backtests via your **Python script** or **Jupyter notebook**.
