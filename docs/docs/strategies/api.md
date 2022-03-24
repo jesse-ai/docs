@@ -297,6 +297,29 @@ def before(self):
         do_slow_updates()
 ```
 
+
+
+## has\_long\_entry\_orders
+
+Used to know the type of entry orders for times that position is not opened yet such as inside the `should_cancel()` and `before()` methods and also in filters.
+
+**Return Type**: bool
+
+**Example**:
+
+```py
+def should_cancel(self):
+    # cancel entry orders only if trying to enter a long trade
+    if self.has_long_entry_orders:
+        return True
+```
+
+## has\_short\_entry\_orders
+
+Like [has_long_entry_orders](#has-long-entry-orders) but for short trades.
+
+**Return Type**: bool
+
 ## is_close
 
 Is the current position close?
