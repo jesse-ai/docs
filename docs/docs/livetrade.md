@@ -29,7 +29,7 @@ New exchange drivers are developed based on demand. So if you need an exchange t
 ## Installation
 The package is pre-built and the access is limited to those with an active license. We made sure the installation is easy and made it automated as much as possible.
 
-::: tip
+::: tip 🎥 Video Tutorial
 In case you prefer watching a video, here's a [short screencast of installing the plugin on remote server for live trading](https://www.youtube.com/watch?v=cUNX5FAVVYo).
 :::
 

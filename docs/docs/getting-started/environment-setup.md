@@ -18,8 +18,8 @@ A good practice for providing an environment for running Python applications is 
 ## Remote server
 
 In case you intend to use a remote server, we have step-by-step Youtube screencasts for you:
-- [How to set up a remote **dev environment** for algo-trading with Python in **VSCode**](https://www.youtube.com/watch?v=hAcG8Oey4VE)
-- [How to **deploy** your Jesse project into the production server for **live trading**](https://www.youtube.com/watch?v=cUNX5FAVVYo)
+- [How to set up a remote **dev environment** for algo-trading with Python in **VSCode**](https://www.youtube.com/watch?v=hAcG8Oey4VE) 🎥 
+- [How to **deploy** your Jesse project into the production server for **live trading**](https://www.youtube.com/watch?v=cUNX5FAVVYo) 🎥 
 
 ## Ubuntu
 

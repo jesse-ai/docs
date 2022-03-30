@@ -2,6 +2,12 @@
 
 All the required config files for docker are shipped with [new Jesse projects](/docs/getting-started/#create-a-new-jesse-project). 
 
+::: tip 🎥 Video Tutorial
+If you are a visual learner, try watching [this YouTube video](https://youtu.be/W8Hh56HJ-0I) that covers using Jesse with Docker. 
+
+The video also covers enabling code intellisense in VSCode which is a great tool for faster development.
+:::
+
 ## Install Docker
 
 If you are on macOS or Windows I suggest installing the [Docker for Desktop](https://www.docker.com/products/docker-desktop) app if you haven't already. If you are on Ubuntu, here are the steps:
