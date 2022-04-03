@@ -29,7 +29,7 @@ pip install jesse
 
 (Optional) Install numba (Doesn't work on M1 macs at the moment):
 ```
-pip install numba
+pip install numba==0.53
 ```
 This package speeds up some indicators. M1 mac users can't use it.
 
