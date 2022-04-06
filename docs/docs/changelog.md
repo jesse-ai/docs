@@ -2,6 +2,16 @@
 
 Here you can see that changes were made at each release of the main framework. 
 
+## 0.35.0 (6 April 2022)
+
+- [NEW FEATURE] Added the [import_candles()](https://docs.jesse.trade/docs/research/candles.html#import-candles) method to the "research" module. 
+- [IMPROVEMENT] Live mode now uses the REST API of the exchange to fetch candles and update the most recent candles. This is on top of the current Websocket implementation for real-time updates; and is supposed to make Jesse's data storage more reliable.
+- [IMPROVEMENT] Added error handling for Telegram and Discord notifications. 
+- [FIX] Fixed the `TypeError: decoding to str: need a bytes-like object, int found` occurring when resuming the previous live session with open orders on `Binance Futures` and `FTX Futures`.
+- [FIX] Fixed a visual bug where the entry price of the positions were displayed incorrectly on the dashboard when live trading. 
+- [FIX] Fixed an overflow bug in the daily_balances when using the research module's `backtest()` function. This did not affect the existing backtest and optimize mode of the GUI dashboard.
+- [FIX] Fixed the bug where the progressbar was not working when importing candles in some browsers.
+
 ## 0.34.0 (24 March 2022)
 
 - [IMPROVEMENTS] Instead of calculating changes in positions and orders, Jesse now uses data on the exchange to stay **in sync in real-time**. 

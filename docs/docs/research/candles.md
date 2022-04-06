@@ -8,6 +8,27 @@ We provide a few handful functions that allow you to:
 
 They can be quite useful for doing research in [Jupyter notebooks](./jupyter.md) or when writing your own custom scripts.
 
+## import_candles
+
+The equivalent to the [import candles mode](https://docs.jesse.trade/docs/import-candles.html#importing-candles) in the GUI dashboard. 
+
+Useful for operations such as a script to batch-import candles for a list of symbols.
+
+Returns the success message in the string format after a successful import. By default, a progress bar is shown which is helpful in environments such as Jupyter notebooks but it can be disabled by setting `show_progress_bar` to `False`.
+
+```py
+import_candles(exchange, symbol, start_date, show_progressbar=True)
+```
+
+**Properties**:
+
+-   exchange: str
+-   symbol: str
+-   start_date: str
+-   show_progressbar: bool (default: True)
+
+**Return Type**: str
+
 ## store_candles
 
 Stores candles in the database. The stored data can later be used for being fetched again via [get_candles](#get-candles) or even for running backtests on them.
