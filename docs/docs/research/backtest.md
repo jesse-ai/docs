@@ -10,18 +10,39 @@ Let's review two example use cases:
 
 2. Another use case is for writing batch operations, such as optimization, machine learning, etc. 
 
-## Noticeable differences 
+```py
+backtest(
+    config: dict,
+    routes: list,
+    extra_routes: list,
+    candles: dict,
+    generate_charts: bool = False,
+    generate_tradingview: bool = False,
+    generate_quantstats: bool = False,
+    generate_hyperparameters: bool = False,
+    generate_equity_curve: bool = False,
+    generate_csv: bool = False,
+    generate_json: bool = False,
+    hyperparameters: dict = None
+)
+```
 
-The `backtest()` function uses the same engine as the one in the GUI dashboard does. So the results are almost identical. But there is a **big difference in how warmup candles are handled** that you need to know about. 
+**Parameters:**
 
-In Jesse's typical backtests (via the GUI dashboard), warmup candles are injected **before** the backtest simulation is started. In fact, the required number of candles is calculated and then injected behind the scenes without you even knowing it. 
+- config: dict
+- routes: list
+- extra_routes: list
+- candles: dict
+- generate_charts: bool = False
+- generate_tradingview: bool = False
+- generate_quantstats: bool = False
+- generate_hyperparameters: bool = False
+- generate_equity_curve: bool = False
+- generate_csv: bool = False
+- generate_json: bool = False
+- hyperparameters: dict (optional)
 
-But in the `backtest()` function, as I mentioned you need to pass all the required data to it. So first the required warmup candles are cut from the candles you pass to it, injected in the store, and then the simulations are started. 
-
-If your strategy doesn't require any warmup candles, in the `config` value pass it as `0`.
-
-which is fine for most use cases but if you see different backtest results, this is the reason.
-
+**Return Type:** dict
 
 ## Usage example
 
@@ -95,7 +116,11 @@ candles = {
 # execute backtest
 # # # # # # # # # # # # # # # 
 result = backtest(
-    config, routes, extra_routes, candles
+    config,
+    routes,
+    extra_routes,
+    candles, 
+    generate_charts=True
 )
 # to access the metrics dict:
 result['metrics']
@@ -104,3 +129,15 @@ result['charts']
 # to access the logs list:
 result['logs']
 ```
+
+## Noticeable differences 
+
+The `backtest()` function uses the same engine as the one in the GUI dashboard does. So the results are almost identical. But there is a **big difference in how warmup candles are handled** that you need to know about. 
+
+In Jesse's typical backtests (via the GUI dashboard), warmup candles are injected **before** the backtest simulation is started. In fact, the required number of candles is calculated and then injected behind the scenes without you even knowing it. 
+
+But in the `backtest()` function, as I mentioned you need to pass all the required data to it. So first the required warmup candles are cut from the candles you pass to it, injected in the store, and then the simulations are started. 
+
+If your strategy doesn't require any warmup candles, in the `config` value pass it as `0`.
+
+which is fine for most use cases but if you see different backtest results, this is the reason.
