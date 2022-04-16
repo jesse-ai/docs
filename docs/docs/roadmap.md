@@ -45,4 +45,4 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 - Reinforcement learning 
 - More backtest evaluation tools such as Monte Carlo 
 - More exchange drivers: Kraken, Coinbase, Bitstamp, etc
-- ...
+- And more! Depends on the community's demand!
