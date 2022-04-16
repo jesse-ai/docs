@@ -25,11 +25,19 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 - ✅ Start our Youtube channel for publishing algo trading tutorials 
 
 ## Q1 2022
-- Integrate Bybit Perpetuals exchange
-- Improve dashboard
+- ✅ Integrate Bybit Perpetuals exchange
+- ✅ Add support for persistency in live trading
+- ✅ Release the "research" module allowing to use Jesse inside custom Python scripts (including Jupyter notebooks)
+- ✅ Release more tutorial screencasts
+
+## Q2 2022
 - Support for spot trading 
 - Integrate spot exchanges such as Binance, FTX, Bybit, and US versions of FTX and Binance
+- Release the stable `1.0` version
+- Improve the strategy index page to include more strategies with (automated) up-to-date metrics
+- Release the "community voting" page so users can choose which features to include first
 - Release more tutorial screencasts
+
 
 ## 2022
 - Integrate fast DEX platforms such as PancakeSwap, 1inch, etc 
