@@ -2,24 +2,6 @@
 
 Here you can see that changes were made at each release of the main framework. 
 
-## 0.36.0 (18 May 2022)
-
-- [NEW FEATURE] Added new optional parameters to research module's [backtest()](https://docs.jesse.trade/docs/research/backtest.html#backtest) function to handle quantstat reports, export hyperparameters, equity-curve chart values, CSV and JSON export, tradingview's pine-editor output and also made chart generation optional so your script can run faster if you don't need it. 
-- [IMPROVEMENT] Updated the [self.log()](https://docs.jesse.trade/docs/strategies/api.html#log) method to NOT send notifications by default in live mode. If you want to, you should pass `send_notification=True` to the method.
-- [IMPROVEMENT] Improved handling of errors in the REST API for fetching candles in the live mode which was introduced in version `0.35.0`. 
-- [IMPROVEMENT] Improved handling of the `entry_price` at FTX to be exactly what you see on their exchange dashboard. 
-- [IMPROVEMENT] Improved a few error messages in the live mode to include useful information about the error for easier debugging in the future.
-- [IMPROVEMENT] Added handling of `TypeError: 'NoneType' object is not subscriptable` errors caused by API keys being expired on Bybit. 
-- [IMPROVEMENT] Improved handling of a few common errors in the live mode that are safe to ignore. 
-- [IMPROVEMENT] Improved error handling for Bybit drivers in import-candles mode. 
-- [IMPROVEMENT] Refactored the notifications handler to work in a separate thread so that in the case of notifications taking long to respond, the main execution won't be affected. 
-- [IMPROVEMENT] You will now be asked if you're sure about closing the dashboard. This is to prevent accidental closing of the dashboard tab.
-- [FIX] Fixed a couple of errors happening with notification drivers (Telegram and Discord)
-- [FIX] Fixed a bug where empty log files were created in `storage/logs/backtest-mode` when running the optimize mode. 
-- [FIX] Fixed the `ValueError: No value exists in Redis for process ID of: xxx` error that occurred in docker setups. It requires you to update your project's `docker-compose.yml` manually. Here's a [quick guide](https://github.com/jesse-ai/jesse/issues/336#issuecomment-1121903402). 
-- [FIX] Implemented a workaround for an issue when sometimes multiple partially-filled orders in live mode caused unexpected behavior.
-- [FIX] Fixed an issue when paper mode raised an error about API keys of `Bybit Perpetuals` if their values were empty in the `.env` file.
-
 ## 0.35.0 (6 April 2022)
 
 - [NEW FEATURE] Added the [import_candles()](https://docs.jesse.trade/docs/research/candles.html#import-candles) method to the "research" module. 
