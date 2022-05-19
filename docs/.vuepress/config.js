@@ -13,7 +13,12 @@ module.exports = {
                 'data-domain': 'docs.jesse.trade',
                 src: 'https://data.jesse.trade/js/plausible.js',
             },
-        ]
+        ],
+        [
+            'script',
+            {},
+            'window.$crisp=[];window.CRISP_WEBSITE_ID="1796fd03-a615-447a-b2d2-ff0269e39c05";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();',
+        ],
     ],
     markdown: {
         code: {
