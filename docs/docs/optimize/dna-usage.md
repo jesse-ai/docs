@@ -7,7 +7,7 @@ Let's say you found a good DNA and now you want to use it in your strategy. Go a
 Then, define a method called `dna` inside your strategy that returns the DNA string:
 
 ```py
-def dna():
+def dna(self):
     return 't4'
 ```
 
