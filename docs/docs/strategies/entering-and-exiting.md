@@ -122,7 +122,7 @@ def go_short(self):
 
 **Return Type**: bool
 
-What this method is asking you is: Assuming a open position order has already been submitted but _not executed yet_, should it be cancled?
+What this method is asking you is: Assuming an open position order has already been submitted but _not executed yet_, should it be cancled?
 
 ::: tip
 After submitting orders for opening new positions either you'll enter a position immediately with a market order, or have to wait until your limit/stop order gets filled. This method is used for the second scenario.
