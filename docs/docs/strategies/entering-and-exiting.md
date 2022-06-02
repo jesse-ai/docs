@@ -1,6 +1,6 @@
 # Entering and exiting trades
 
-Deciding to enter a trade is nothing but a True of False decision.
+Deciding to enter a trade is nothing but a True or False decision.
 
 Jesse uses `should_long()` and `should_short()` methods which must return a boolean at all times.
 
