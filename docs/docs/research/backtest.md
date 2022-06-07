@@ -93,10 +93,13 @@ timeframe = '1m'
 config = {
     'starting_balance': 10_000,
     'fee': 0,
+    # accepted values are 'spot' and 'futures'
+    'type': 'futures',
+    # only used if type is 'futures'
     'futures_leverage': 2,
+    # only used if type is 'futures'
     'futures_leverage_mode': 'cross',
     'exchange': exchange_name,
-    'settlement_currency': 'USDT',
     'warm_up_candles': 0
 }
 routes = [
