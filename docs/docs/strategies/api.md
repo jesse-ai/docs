@@ -301,7 +301,7 @@ def before(self):
 
 ## has\_long\_entry\_orders
 
-Used to know the type of entry orders for times that position is not opened yet such as inside the `should_cancel()` and `before()` methods and also in filters.
+Used to know the type of entry orders for times that position is not opened yet such as inside the `should_cancel_entry()` and `before()` methods and also in filters.
 
 **Return Type**: bool
 
