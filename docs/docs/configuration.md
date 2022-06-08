@@ -47,22 +47,25 @@ ERROR_TELEGRAM_BOT_TOKEN=
 ERROR_TELEGRAM_BOT_CHAT_ID=
 ERROR_DISCORD_WEBHOOK=
 
-# Testnet Binance Futures: 
-# http://testnet.binancefuture.com
-TESTNET_BINANCE_FUTURES_API_KEY=
-TESTNET_BINANCE_FUTURES_API_SECRET=
+# Testnet Binance Futures (http://testnet.binancefuture.com)
+BINANCE_PERPETUAL_FUTURES_TESTNET_API_KEY=
+BINANCE_PERPETUAL_FUTURES_TESTNET_API_SECRET=
+# Binance Futures (https://www.binance.com/en/futures/btcusdt)
+BINANCE_PERPETUAL_FUTURES_API_KEY=
+BINANCE_PERPETUAL_FUTURES_API_SECRET=
 
-# Binance Futures: 
-# https://www.binance.com/en/futures/btcusdt
-BINANCE_FUTURES_API_KEY=
-BINANCE_FUTURES_API_SECRET=
+# Testnet Bybit Perpetual (https://testnet.bybit.com/trade/usdt/BTCUSDT)
+BYBIT_USDT_PERPETUAL_TESTNET_API_KEY=
+BYBIT_USDT_PERPETUAL_TESTNET_API_SECRET=
+# Bybit Perpetual (https://www.bybit.com/trade/usdt/BTCUSDT)
+BYBIT_USDT_PERPETUAL_API_KEY=
+BYBIT_USDT_PERPETUAL_API_SECRET=
 
-# FTX Futures: 
-# https://ftx.com/markets/future
-FTX_FUTURES_API_KEY=
-FTX_FUTURES_API_SECRET=
+# FTX Futures (https://ftx.com/markets/future)
+FTX_PERPETUAL_FUTURES_API_KEY=
+FTX_PERPETUAL_FUTURES_API_SECRET=
 # leave empty if it's the main account and not a subaccount
-FTX_FUTURES_SUBACCOUNT_NAME=
+FTX_PERPETUAL_FUTURES_SUBACCOUNT_NAME=
 ```
 
 It is generally a good idea to stop the application before modifying your `.env` file and start it again after you've made the changes.
