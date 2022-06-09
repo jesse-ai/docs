@@ -118,7 +118,7 @@ def go_short(self):
     pass
 ``` -->
 
-## should_cancel()
+## should_cancel_entry()
 
 **Return Type**: bool
 
@@ -145,17 +145,17 @@ def go_long(self):
 
 Since the entry price is above the current price, Jesse will submit a stop order for entering this trade. If the price indeed rises we'll be fine, but what if a new candle is passed, and the price goes down? Then we would want the previous order to be canceled and a new order submitted based on the high price of the new candle.
 
-To do this, we'll have to specify the `should_cancel()`:
+To do this, we'll have to specify the `should_cancel_entry()`:
 
 ```py
-def should_cancel(self):
+def should_cancel_entry(self):
     return True
 ```
 
 In your strategy, you may need to do some checking before deciding whether or not the previous open-position order is still valid or has to be canceled.
 
 ::: tip
-`should_cancel()` only decides whether or not to cancel the entry order. It does not affect your exit (take-profit and stop-loss) orders.
+`should_cancel_entry()` only decides whether or not to cancel the entry order. It does not affect your exit (take-profit and stop-loss) orders.
 :::
 
 ## Entering and/or exiting at multiple points

@@ -78,7 +78,7 @@ class ResearchStrategy(Strategy):
 
     def go_long(self):
         entry_price = self.price
-        qty = utils.size_to_qty(self.capital * 0.5, entry_price)
+        qty = utils.size_to_qty(self.balance * 0.5, entry_price)
         self.buy = qty, entry_price
 
     def go_short(self):
@@ -93,10 +93,13 @@ timeframe = '1m'
 config = {
     'starting_balance': 10_000,
     'fee': 0,
+    # accepted values are 'spot' and 'futures'
+    'type': 'futures',
+    # only used if type is 'futures'
     'futures_leverage': 2,
+    # only used if type is 'futures'
     'futures_leverage_mode': 'cross',
     'exchange': exchange_name,
-    'settlement_currency': 'USDT',
     'warm_up_candles': 0
 }
 routes = [

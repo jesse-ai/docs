@@ -23,13 +23,13 @@ This decorator can improve performance a lot. It will cache your functions / pro
 
 Returns the available/remaining margin in your exchange wallet. It equals to your initial wallet balance multiplied by the leverage you're using, added by the unrealized profits on your open positions, subtracted by spent margin for open orders. 
 
-For the sake of not getting liquidated, it is safer to just use the [capital](#capital) property in your strategies instead. 
+For the sake of not getting liquidated, it is safer to just use the [balance](#balance) property in your strategies instead. 
 
 It is meant to be used in the futures markets only although in the spot market it equals to the `self.balance` property. 
 
 **Return Type**: float
 
-**See Also**: [balance](#balance), [capital](#capital)
+**See Also**: [balance](#balance)
 
 
 ## average\_entry\_price
@@ -90,7 +90,7 @@ Returns the current wallet in your exchange wallet. In the futures market, it be
 
 **Aliases**: `capital`
 
-**See Also**: [capital](#capital), [available_margin](#available-margin)
+**See Also**: [available_margin](#available-margin)
 
 
 ## capital
@@ -101,11 +101,11 @@ Alias for [balance](#balance)
 
 Returns the value (in the currency of your trading session. Usually it's `USDT` or `USD`) of your entire portfolio (all positions).
 
-This is sometimes useful as `self.capital` is like the "wallet balance" on futures exchanges and only changes **after** the position is closed. But `portfolio_value` takes both open and closed positions into account.
+This is sometimes useful as `self.balance` is like the "wallet balance" on futures exchanges and only changes **after** the position is closed. But `portfolio_value` takes both open and closed positions into account.
 
 **Return Type**: float
 
-**See Also**: [capital](#capital), [available_margin](#available-margin)
+**See Also**: [available_margin](#available-margin)
 
 ## close
 
@@ -213,7 +213,7 @@ The `fee_rate` property returns the fee rate that the exchange your strategy is 
 
 **Example:**
 ```py
-qty = utils.risk_to_qty(self.capital, 3, entry, stop, self.fee_rate)
+qty = utils.risk_to_qty(self.balance, 3, entry, stop, self.fee_rate)
 ```
 
 **Return Type**: float
@@ -301,7 +301,7 @@ def before(self):
 
 ## has\_long\_entry\_orders
 
-Used to know the type of entry orders for times that position is not opened yet such as inside the `should_cancel()` and `before()` methods and also in filters.
+Used to know the type of entry orders for times that position is not opened yet such as inside the `should_cancel_entry()` and `before()` methods and also in filters.
 
 **Return Type**: bool
 
