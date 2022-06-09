@@ -78,7 +78,7 @@ class ResearchStrategy(Strategy):
 
     def go_long(self):
         entry_price = self.price
-        qty = utils.size_to_qty(self.capital * 0.5, entry_price)
+        qty = utils.size_to_qty(self.balance * 0.5, entry_price)
         self.buy = qty, entry_price
 
     def go_short(self):
