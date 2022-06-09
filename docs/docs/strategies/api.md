@@ -352,6 +352,14 @@ Is the type of the open position (current trade) `short`?
 
 **Return Type**: bool
 
+
+## exchange_type
+
+Returns the type of the exchange your strategy is trading on. It will be either `spot` or `futures`. 
+
+**Return Type**: str
+
+
 ## leverage
 
 The `leverage` property returns the leverage number that you have set in your config file for the exchange you're running inside the strategy. For spot markets, it always returns `1`. 
