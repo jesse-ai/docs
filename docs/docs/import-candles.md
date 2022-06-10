@@ -16,7 +16,7 @@ Next time, to keep your data storage up to date try running with the same inputs
 So far, the below exchanges are supported for importing candles and running backtests:
 
 -   `Binance Spot`
--   `Testnet Binance Futures`
+-   `Binance Perpetual Futures Testnet `
 -   `Binance Perpetual Futures`
 -   `Bitfinex Spot`
 -   `Coinbase Spot`
