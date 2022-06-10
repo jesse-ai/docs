@@ -314,7 +314,7 @@ Used to know the type of entry orders for times that position is not opened yet 
 **Example**:
 
 ```py
-def should_cancel(self):
+def should_cancel_entry(self):
     # cancel entry orders only if trying to enter a long trade
     if self.has_long_entry_orders:
         return True

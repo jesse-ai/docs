@@ -26,7 +26,7 @@ class AwesomeStrategy(Strategy):
     def should_short(self):
         return False
 
-    def should_cancel(self):
+    def should_cancel_entry(self):
         return False
 
     def go_long(self):
