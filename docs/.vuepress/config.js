@@ -126,6 +126,10 @@ module.exports = {
                     '/docs/strategies/events',
                     '/docs/strategies/filters',
                     '/docs/strategies/api',
+                    {
+                        text: 'Futures vs Spot',
+                        link: '/docs/strategies/futures-vs-spot',
+                    },
                     '/docs/strategies/example-strategies.md',
                 ],
             },
