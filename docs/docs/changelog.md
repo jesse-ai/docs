@@ -1,6 +1,25 @@
 # Changelog
 
-Here you can see that changes were made at each release of the main framework. 
+Here you can see that changes were made at each release of the main framework and the live plugin: 
+
+## 0.37.0 (10 June 2022)
+
+- [BREAKING CHANGE] The database tables must be deleted for:
+1. new settings which support spot trading
+2. for new indexing of candles table which now loads X times faster
+- [BREAKING CHANGE] Removed the driver for "Binance Inverse Futures" (known as coin-margined futures on Binance) from the list of supported exchanges for import candles. 
+- [BREAKING CHANGE] Updated exchange names to be more similar to what they are on the exchange websites to avoid confusion.
+- [BREAKING CHANGE] Updated the required config object that is passed to the `research.backtest()` function based on the mentioned changes in this release. Removed the `settlement_currency` and added 'type'. Read the example on the [documentation page](https://docs.jesse.trade/docs/research/backtest.html#usage-example) for more details.
+- [BREAKING CHANGE] The alias `self.capital` has been removed to prevent confusion. Please use `self.balance` instead. **Make sure to update your strategies accordingly**.
+- [BREAKING CHANGE] The `should_cancel()` method has been renamed to `should_cancel_entry()` which is more convenient since it is only used for canceling entry orders. **Make sure to update your strategies accordingly**.
+- [NEW FEATURE] Added `previous_qty` property to the Position class.
+- [NEW FEATURE] Added the [self.exchange_type](https://docs.jesse.trade/docs/strategies/api.html#exchange-type), [self.daily_balances](https://docs.jesse.trade/docs/strategies/api.html#daily-balances) properties to the Strategy class.
+- [NEW FEATURE] Added [self.is_spot_trading](https://docs.jesse.trade/docs/strategies/api.html#is-spot-trading) and [self.is_futures_trading](https://docs.jesse.trade/docs/strategies/api.html#is-futures-trading) properties to the Strategy class.
+- [IMPROVEMENT] The settlement currency is no longer fixed to `USDT` or `USD`. Instead, it is now the quote currency of the symbol you're trading. So it could be `USD`, `USDT`, `BUSD`, `BTC` (for spot markets), etc.
+- [IMPROVEMENT] The existence of `plugins.py` is now optional. It has been removed from new projects for the sake of simplicity. If you need to add a driver, you can do so by creating the file manually. 
+- [IMPROVEMENT] The "Exchange type", "Leverage", and "Leverage Mode" are now displayed on backtests' result page so you know what the settings have been for the executed backtest.
+- [IMPROVEMENT] Minor improvements to the UI of the dashboard. 
+- [FIX] Fixed a bug where generated CSV files in backtests were empty if the `export_json` option was disabled. 
 
 ## 0.36.0 (18 May 2022)
 
