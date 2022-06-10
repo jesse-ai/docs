@@ -1,10 +1,10 @@
 # Entering and exiting trades
 
-Deciding to enter a trade is nothing but a True of False decision.
+Deciding to enter a trade is nothing but a True or False decision.
 
 Jesse uses `should_long()` and `should_short()` methods which must return a boolean at all times.
 
-After making your mind about entering a trade, you need to come up with exact entry prices, and exit prices. Jesse uses `go_long()` and `go_short()` methods for that.
+After making up your mind about entering a trade, you need to come up with exact entry prices, and exit prices. Jesse uses `go_long()` and `go_short()` methods for that.
 
 ## should_long()
 
@@ -39,7 +39,7 @@ def should_short(self):
 ```
 
 ::: warning
-Obviously you cannot enter both a short and long position at the same time. Hence, `should_long()` and `should_short()` cannot return True at the same.
+Obviously, you cannot enter both a short and long position at the same time. Hence, `should_long()` and `should_short()` cannot return True at the same.
 :::
 
 ::: warning
@@ -50,7 +50,7 @@ If you're looking to close trades dynamically, [update_position()](/docs/strateg
 
 ## go_long()
 
-Inside `go_long()` method you set your buy price (entry point), quantity (how much to buy), the stop-loss and take-profit (exit points) quantity and prices. The basic syntax is:
+Inside the `go_long()` method you set your buy price (entry point), quantity (how much to buy), the stop-loss and take-profit (exit points) quantity, and prices. The basic syntax is:
 
 ```py
 def go_long(self):
@@ -59,7 +59,7 @@ def go_long(self):
     self.take_profit = qty, take_profit_price
 ```
 
-`qty`, `entry_price`, `stop_loss_price`, and `take_profit_price` are placeholders, can be anything you want; but `self.buy`, `self.stop_loss`, and `self.take_profit` are special variables that Jesse uses; they must be the same.
+`qty`, `entry_price`, `stop_loss_price`, and `take_profit_price` are placeholders, and can be anything you want; but `self.buy`, `self.stop_loss`, and `self.take_profit` are special variables that Jesse uses; they must be the same.
 
 A working example would be:
 
@@ -75,7 +75,7 @@ def go_long(self):
 ::: tip Smart ordering system
 Notice that we did not have to define which order type to use. Jesse is smart enough to decide the type of the orders by itself.
 
-For example if it is for a long position, here's how Jesse decides:
+For example, if it is for a long position, here's how Jesse decides:
 
 -   MARKET order: if `entry_price == current_price`
 -   LIMIT order: if `entry_price < current_price`
@@ -94,7 +94,7 @@ def go_short(self):
     self.take_profit = qty, take_profit_price
 ```
 
-A working Example would be:
+A working example would be:
 
 ```py
 def go_short(self):
@@ -108,7 +108,9 @@ def go_short(self):
 
 <!-- ## Margin trading
 
-`should_short()` and `go_short()` are used for shorting, which only possible if the market you're trading supports margin trading. In case it doesn't, you can turn off shorting by:
+`should_short()` and `go_short()` are used for short selling, which is only possible in the "futures" trading mode (which means it's not supported in spot trading mode). 
+
+You can either remove it or turn it off shorting by simply returning `False`:
 
 ```py
 def should_short(self):
@@ -122,7 +124,7 @@ def go_short(self):
 
 **Return Type**: bool
 
-What this method is asking you is: Assuming a open position order has already been submitted but _not executed yet_, should it be cancled?
+What this method is asking you is: Assuming an open position order has already been submitted but **not executed yet**, should it be canceled?
 
 ::: tip
 After submitting orders for opening new positions either you'll enter a position immediately with a market order, or have to wait until your limit/stop order gets filled. This method is used for the second scenario.
@@ -139,13 +141,11 @@ def go_long(self):
     entry = self.high + 2
 
     self.buy = qty, entry
-    self.stop_loss = qty, entry - 10
-    self.take_profit = qty, entry + 10
 ```
 
 Since the entry price is above the current price, Jesse will submit a stop order for entering this trade. If the price indeed rises we'll be fine, but what if a new candle is passed, and the price goes down? Then we would want the previous order to be canceled and a new order submitted based on the high price of the new candle.
 
-To do this, we'll have to specify the `should_cancel_entry()`:
+To do this, we'll have to define the `should_cancel_entry()` as:
 
 ```py
 def should_cancel_entry(self):
@@ -216,7 +216,7 @@ As explained in the [flowchart](./), this is the last method that gets called wh
 Assuming there's an open position, this method is used to update exit points or to add to the size of the position if needed.
 
 :::tip 
-If your strategy exits dynamically (for example if at the time of entering the trade you don't know the take-profit price) then you definitely need to use `update_position`.
+If your strategy exits dynamically (for example if at the time of entering the trade you don't know the take-profit price) then you definitely need to use `update_position()`.
 :::
 
 **Example #1:** Exiting the trade by implementing a trailing stop for take-profit: 
@@ -248,7 +248,7 @@ def update_position(self):
 ```
 
 ## \_\_init\_\_()
-The `__init__` is not a new concept. It's the constructor of a Python class. Jesse strategies are Python classes, hence you may use the `__init__` method for actions that need to be performed in the beginning of a strategy and only for once. 
+The `__init__` is not a new concept. It's the constructor of a Python class. Jesse strategies are Python classes, hence you may use the `__init__` method for actions that need to be performed at the beginning of a strategy and only once. 
 
 You could say `__init__` is the opposite of the [terminate()](./entering-and-exiting.html#terminate) method in a Jesse strategy. 
 
@@ -265,7 +265,7 @@ def __init__(self):
 
 
 ## terminate() 
-There are cases where you need to tell Jesse to perform a task right before terminating (like finishing the backtest simulation). Examples of a such a task would be to log a value, or save a machine learning model. 
+There are cases where you need to tell Jesse to perform a task right before terminating (like finishing the backtest simulation). Examples of such a task would be to log a value or save a machine learning model. 
 
 You could say `terminate` is the opposite of the [\_\_init\_\_](./entering-and-exiting.html#init) method in a Jesse strategy.
 
