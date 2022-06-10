@@ -93,10 +93,6 @@ Returns the current wallet in your exchange wallet. In the futures market, it be
 **See Also**: [available_margin](#available-margin)
 
 
-## capital
-
-Alias for [balance](#balance)
-
 ## portfolio_value
 
 Returns the value (in the currency of your trading session. Usually it's `USDT` or `USD`) of your entire portfolio (all positions).
@@ -106,6 +102,16 @@ This is sometimes useful as `self.balance` is like the "wallet balance" on futur
 **Return Type**: float
 
 **See Also**: [available_margin](#available-margin)
+
+
+## daily_balances
+
+Returns a list of daily balances of your portfolio. It is as if you were storing your portfolio's value each day using the [self.portfolio_value](#portfolio-value) property. It is used for calculation of metrics such as Sharpe Ratio, etc. 
+
+**Return Type**: List[float]
+
+**See Also**: [portfolio_value](#portfolio-value)
+
 
 ## close
 
@@ -358,6 +364,19 @@ Is the type of the open position (current trade) `short`?
 Returns the type of the exchange your strategy is trading on. It will be either `spot` or `futures`. 
 
 **Return Type**: str
+
+## is_spot_trading
+
+Returns whether the exchange your strategy is trading on is a spot exchange.
+
+**Return Type**: bool
+
+
+## is_futures_trading
+
+Returns whether the exchange your strategy is trading on is a futures exchange.
+
+**Return Type**: bool
 
 
 ## leverage
