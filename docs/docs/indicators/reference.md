@@ -1130,6 +1130,23 @@ Gaussian Filter
 
 float | np.ndarray
 
+## heikin_ashi_candles
+
+```python  
+heikin_ashi_candles(candles: np.ndarray, sequential=False) -> HA
+```  
+
+Heikin Ashi candlesticks
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `sequential`: bool - default=False
+
+**Returns**:
+
+HA(open, close, high, low)
+
 ## high_pass
 
 ```python  
