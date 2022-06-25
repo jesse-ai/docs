@@ -13,7 +13,7 @@ a lot in your strategy. [See here](https://docs.jesse.trade/docs/strategies/api.
 
 ::: tip Performance and sequential 
 With `sequential=False` the indicators will slice the candle array behind the scene
-to the warmup_candles_num you defined. That doesn't happen if you use `sequential=True`, as Jesse doesn't now how much
+to the warmup_candles_num you defined. That doesn't happen if you use `sequential=True`, as Jesse doesn't know how much
 lookback you need from your sequential indicator. To keep things fast you should slice the candles yourself before
 passing them to a indicator function to avoid unnecessary computation time: `self.candles[-60:]` - change the number
 accordingly.
@@ -1129,6 +1129,23 @@ Gaussian Filter
 **Returns**:
 
 float | np.ndarray
+
+## heikin_ashi_candles
+
+```python  
+heikin_ashi_candles(candles: np.ndarray, sequential=False) -> HA
+```  
+
+Heikin Ashi candlesticks
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `sequential`: bool - default=False
+
+**Returns**:
+
+HA(open, close, high, low)
 
 ## high_pass
 
