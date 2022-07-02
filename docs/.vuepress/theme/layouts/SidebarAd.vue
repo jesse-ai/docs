@@ -1,92 +1,114 @@
 <template>
-  <div></div>
-  <!-- <div class="sponsor">
-    <div class="left">
-      <a class="sponsor-title" href="https://tokenbot.com/?utm_source=github&utm_medium=jesse&utm_campaign=algodevs" ref="nofollow" target="_blank">
-        <img src="../imgs/sponsor-sidebar.png" alt="sponsor">
-      </a>
-    </div>
-    <div class="right">
-      <a href="https://tokenbot.com/?utm_source=github&utm_medium=jesse&utm_campaign=algodevs" ref="nofollow" target="_blank" class="sponsor-title">
-        Discover and copy the best algorithmic traders in the world. Join the first algorithmic trading desk for retail
-        investors and social trading.
-      </a>
-
-      <a href="mailto:sponsor@jesse.trade" class="sponsor-tag">
-        Sponsored
-      </a>
-    </div>
-  </div> -->
+  <div class="sponsor">
+    <a href="https://jesse.trade/bybit" ref="nofollow" target="_blank">
+      <div class="right">
+        <div class="heading">
+          BYB<span class="orange">I</span>T
+        </div>
+        <div class="description-item">
+          - Recommended exchange by <strong>Jesse</strong>
+        </div>
+        <div class="description-item">
+          - No <strong>KYC</strong> required. High <strong>liquidity</strong>. Low latency. 
+        </div>
+        <div class="description-item">
+          - Up to <strong>$4000 bonus</strong>
+        </div>
+      </div>
+    </a>
+  </div>
 </template>
 
 
 <style lang="scss" scoped>
-// .sponsor {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 1rem 1.5rem 0 1.25rem;
+.sponsor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem 1rem;
+  margin: 1rem 1rem 0 1rem;
+  border: 2px dashed #e6e6e6;
+  border-radius: 4px;
+  color: inherit;
+  user-select: none;
 
-//   img {
-//     width: 100%;
-//     box-shadow: none;
-//     cursor: pointer;
-//     border: 1px solid #e6e6e6;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-//     .dark & {
-//       border: 1px solid #2f2f2f;
-//     }
-//   }
+  .heading {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: .4em;
 
-//   .left {
-//     flex: 1;
-//   }
+    .orange {
+      color: #ff9100;
+    }
+  }
 
-//   .right {
-//     flex: 1.2;
-//   }
-// }
+  img {
+    width: 100%;
+    box-shadow: none;
+    cursor: pointer;
+    border: 1px solid #e6e6e6;
 
-// .sponsor-title {
-//   font-size: 12px;
-//   margin-left: 1rem;
-//   font-weight: 400;
-//   color: #444;
+    .dark & {
+      border: 1px solid #2f2f2f;
+    }
+  }
 
-//   &:hover {
-//     text-decoration: underline;
-//   }
+  .left {
+    flex: 1;
+  }
 
-//   .dark & {
-//     color: #adbac7;
-//   }
-// }
+  .right {
+    flex: 1.2;
+  }
+}
 
-// .sponsor-tag {
-//   font-size: .65rem;
-//   margin-left: 1rem;
-//   font-weight: 700;
-//   color: #999;
+.description-item {
+  font-size: 12px;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: .5em;
 
-//   .dark & {
-//     color: #f1f1f1;
-//   }
+  &:hover {
+    text-decoration: underline;
+  }
 
-//   display: block;
-//   margin-top: 0.5em;
+  .dark & {
+    color: #adbac7;
+  }
+}
 
-//   &:hover {
-//     text-decoration: underline;
-//   }
-// }
+.sponsor-tag {
+  font-size: .65rem;
+  margin-left: 1rem;
+  font-weight: 700;
+  color: #999;
 
-// @media (max-width: 959px) {
-//   .sponsor {
-//     flex-direction: column;
+  .dark & {
+    color: #f1f1f1;
+  }
 
-//     img {
-//       margin: 0 1rem 0.5rem 1rem;
-//     }
-//   }
-// }
+  display: block;
+  margin-top: 0.5em;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 959px) {
+  .sponsor {
+    flex-direction: column;
+
+    img {
+      margin: 0 1rem 0.5rem 1rem;
+    }
+  }
+}
 </style>
