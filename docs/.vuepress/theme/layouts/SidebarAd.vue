@@ -1,5 +1,5 @@
 <template>
-  <div class="sponsor">
+  <div class="sponsor" v-if="show" @dblclick="show = false">
     <a href="https://jesse.trade/bybit" ref="nofollow" target="_blank">
       <div class="right">
         <div class="heading">
@@ -18,6 +18,17 @@
     </a>
   </div>
 </template>
+
+<script lang="ts">
+export default {
+  name: "SidebarAd",
+  data() {
+    return {
+      show: true
+    };
+  }
+}
+</script>
 
 
 <style lang="scss" scoped>
