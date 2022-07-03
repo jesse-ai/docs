@@ -34,7 +34,11 @@ It is meant to be used in the futures markets only although in the spot market i
 
 ## average\_entry\_price
 
-The average entry price; buy price for long and sell price for short positions. The word average indicates that in case you use more than one point to enter a position, this property returns the average value. 
+The average entry price estimated based on **active orders**(and not the open position). The word average indicates that in case you use multiple entry orders, this property returns the average value. 
+
+::: warning
+`average_entry_price` **is not** necessarily the same as the `entry_price` of the open position. If you need open positions's average entry price, use `self.position.entry_price`.
+:::
 
 **Return Type**: float
 
