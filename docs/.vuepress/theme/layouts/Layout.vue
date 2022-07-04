@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <template v-slot:sidebar-top>
+    <!-- <template v-slot:sidebar-top>
       <SidebarAd />
-    </template>
+    </template> -->
 
     <template #page-bottom>
       <FooterAd />
