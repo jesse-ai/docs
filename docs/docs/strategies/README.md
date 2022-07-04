@@ -4,6 +4,6 @@ Jesse ships with a number of pre-built strategies. Whether they are profitable o
 
 Jesse waits until it receives a new candle. When it does, it goes through a series of functions to make decisions. Here's a flowchart presenting the steps:
 
-![symbols](../../docs/imgs/strategy-diagram.png)
+![symbols](../../docs/imgs/jesse-strategy-flowchart.svg)
 
 There's also the concept of [events](./events.html) which are functions you use to determine what should happen after certain events happen to your position. These could occur at any time and not necessarily at candle close time. For example, when your entry order gets executed and you open a new position, the `on_open_position` event is called.
