@@ -2,6 +2,22 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.38.0 (10 July 2022)
+
+- [NEW FEATURE] Added support for live spot trading on `Binance.com`, `FTX.com`, and `FTX.us`
+- [IMPROVEMENT] Improved handling of queued orders when trading multiple routes in the live mode.
+- [IMPROVEMENT] Loaded DNA values are now logged at the beginning of the live mode if the debugging mode is enabled.
+- [IMPROVEMENT] Added validation for timeframe of passed candles to `research.backtest()` to prevent confusions. 
+- [IMPROVEMENT] Queued orders' price points are now displayed on the real-time chart in the live mode. 
+- [IMPROVEMENT] Increased the font size of logs in live trading. 
+- [IMPROVEMENT] Improved behavior of the download links for backtest results so you won't face the exit popup question when you click on them. 
+- [IMPROVEMENT] Added proper handling of `{'code': -2011, 'msg': 'Unknown order sent.'}` errors on `Binance Perpetual Futures` which were occurring after a "reduced position" event. 
+- [FIX] Fixes a bug where the `dna()` was not being loaded in the live mode.
+- [FIX] Fixed the issue with the detection of liquidation orders on BinanceFutures
+- [FIX] Fixed the `ImportError: numpy.core.multiarray failed to import` error related to numpy in new installations on Ubuntu. 
+- [FIX] Fixed an issue causing `KeyError: 'futures_leverage'` error in new installations. 
+- [FIX] Fixed an issue where there are duplicate exchange names in the routes exchange list. 
+
 ## 0.37.0 (10 June 2022)
 
 - [BREAKING CHANGE] The database tables must be deleted for:
