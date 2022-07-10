@@ -6,7 +6,7 @@ title: 'Live Trading'
 
 The "live-trade" plugin is available for early access which enables live/paper trading with Jesse. You can read the [announcement article](https://jesse.trade/blog/news/the-live-trade-plugin-is-open-for-early-access) or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the [installation guide](/docs/livetrade.html#installation). 
 
-**Update:** We are at the finishing days of the early-access phase. All the promised items are not available except for the spot trading which will be available soon. After that, the early-access phase is over and I will release version `1.0`.
+**Update:** We are at the finishing days of the early-access phase. All the promised items are now available and the strategy API is pretty stable by now. I will release version `1.0.0` soon.
 
 ## Paper Trading
 
@@ -18,13 +18,14 @@ You can enable paper trading by turning on the "Paper Trade" option on the "Live
 
 At the moment these are the supported exchanges for live trading:
 
-- [Bybit (perpetual futures)](https://jesse.trade/bybit)
-- [FTX.com (perpetual futures)](https://ftx.com/trade/BTC-PERP)
-- [Binance.com (perpetual futures)](https://www.binance.com/en/futures/BTCUSDT)
+- [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
+- [FTX.com Perpetual Futures](https://ftx.com/trade/BTC-PERP)
+- [FTX.com Spot](https://ftx.com/trade/BTC/USD)
+- [FTX.us Spot](https://ftx.us/trade/BTC/USD)
+- [Binance.com Perpetual Futures](https://www.binance.com/en/futures/BTCUSDT)
+- [Binance.com Spot](https://www.binance.com/en/trade/BTC_USDT?theme=dark&type=spot)
 
 New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know. 
-
-**What about spot exchanges?** Spot support is the next big milestone for the project and is my current focus. After implementing the full support for spot exchanges, I can develop drivers for Binance (.com and .us), FTX (.com and .us) almost right away. Next, depending on the demand, I will add support for maybe Kraken, Coinbase, etc. 
 
 ## Installation
 The package is pre-built and the access is limited to those with an active license. We made sure the installation is easy and made it automated as much as possible.

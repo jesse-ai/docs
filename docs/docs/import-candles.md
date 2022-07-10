@@ -13,16 +13,20 @@ Next time, to keep your data storage up to date try running with the same inputs
 
 ## Supported exchanges
 
-So far, the below exchanges are supported for importing candles and running backtests:
+So far, the below exchanges are supported for **importing candles and running backtests**:
 
 -   `Binance Spot`
 -   `Binance Perpetual Futures Testnet `
 -   `Binance Perpetual Futures`
 -   `Bitfinex Spot`
 -   `Coinbase Spot`
+-   `FTX Spot` 
+-   `FTX US Spot` 
 -   `FTX Perpetual Futures` 
 -   `Bybit USDT Perpetual Testnet` 
 -   `Bybit USDT Perpetual` 
+
+To see the list supported exchanges for **live trading** please check [this page](/docs/livetrade.html#supported-exchanges). 
 
 ## Creating custom exchange drivers 
 
