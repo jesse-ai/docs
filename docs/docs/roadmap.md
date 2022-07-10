@@ -31,18 +31,19 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. I
 - ✅ Release more tutorial screencasts
 
 ## Q2 2022
-- Support for spot trading 
-- Integrate spot exchanges such as Binance, FTX, Bybit, and US versions of FTX and Binance
+- ✅ Support for spot trading 
+- ✅ Integrate spot exchanges such as Binance, FTX, Bybit, and US versions of FTX and Binance
+
+## Q3 2022
+- Support for stocks trading via FTX's "tokenized stocks" 
 - Release the stable `1.0` version
 - Improve the strategy index page to include more strategies with (automated) up-to-date metrics
+- More exchange drivers: Kraken, Coinbase, Bitstamp, etc
 - Release the "community voting" page so users can choose which features to include first
 - Release more tutorial screencasts
 
-
-## 2022
+## Beyond
 - Integrate fast DEX platforms such as PancakeSwap, 1inch, etc 
-- Support for inverse future contracts
 - Reinforcement learning 
 - More backtest evaluation tools such as Monte Carlo 
-- More exchange drivers: Kraken, Coinbase, Bitstamp, etc
 - And more! Depends on the community's demand!
