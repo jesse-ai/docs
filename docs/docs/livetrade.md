@@ -19,11 +19,12 @@ You can enable paper trading by turning on the "Paper Trade" option on the "Live
 At the moment these are the supported exchanges for live trading:
 
 - [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
-- [FTX.com Perpetual Futures](https://ftx.com/trade/BTC-PERP)
-- [FTX.com Spot](https://ftx.com/trade/BTC/USD)
-- [FTX.us Spot](https://ftx.us/trade/BTC/USD)
-- [Binance.com Perpetual Futures](https://www.binance.com/en/futures/BTCUSDT)
-- [Binance.com Spot](https://www.binance.com/en/trade/BTC_USDT?theme=dark&type=spot)
+- [FTX Perpetual Futures](https://ftx.com/trade/BTC-PERP)
+- [FTX Spot](https://ftx.com/trade/BTC/USD)
+- [FTX US Spot](https://ftx.us/trade/BTC/USD)
+- [Binance Perpetual Futures](https://www.binance.com/en/futures/BTCUSDT)
+- [Binance Spot](https://www.binance.com/en/trade/BTC_USDT?theme=dark&type=spot)
+- [Binance US Spot](https://www.binance.us)
 
 New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know. 
 
