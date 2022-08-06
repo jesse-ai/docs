@@ -2,6 +2,10 @@
 
 Routes are how you choose which **symbol** to trade, in which **timeframe**, at which **exchange**, and which **strategy** to use.
 
+::: tip 🎥 Video Tutorial
+In case you prefer watching a video, here's a [short screencast explaining routes](https://youtu.be/eF5ZzoLFydM).
+:::
+
 ## Basic usage
 
 You must choose at least one route. Here is a basic example:
