@@ -2,6 +2,13 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.38.3 (6 August 2022)
+
+- [NEW FEATURE] Added support for live trading on `Binance US Spot`. 
+- [IMPROVEMENT] Improved handling of stop orders on `Binance Spot` to ensure order fills in markets with low liquidity. 
+- [FIX] Fixed the `{'code': -2011, 'msg': 'Unknown order sent.'}` error on `Binance Spot` driver. 
+- [FIX] Fixed an issue where you could not close the position using `update_position()` and immediately open a new one in live and paper modes. 
+
 ## 0.38.0 (10 July 2022)
 
 - [NEW FEATURE] Added support for live spot trading on `Binance.com`, `FTX.com`, and `FTX.us`
