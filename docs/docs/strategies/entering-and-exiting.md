@@ -271,5 +271,5 @@ You could say `terminate` is the opposite of the [\_\_init\_\_](./entering-and-e
 
 ```py
 def terminate(self):
-    print('backtest is done')
+    print('About to terminate execution...')
 ```
