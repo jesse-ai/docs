@@ -81,8 +81,8 @@ module.exports = {
                 link: 'https://t.me/jesse_trade',
             },
             {
-                text: 'Youtube',
-                link: 'https://www.youtube.com/channel/UCP7GU8awozElC70LoRTXxjQ',
+                text: 'Video Tutorials',
+                link: 'https://jesse.trade/youtube',
             },
             {
                 text: 'Github',
