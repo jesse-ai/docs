@@ -1,6 +1,12 @@
 # Importing Candles
 
-You need historical candles to run backtest simulations. To start importing candles head over to the "Import Candles" page. There, you will be able to choose the **exchange**, **Symbol**, and the **Start Date**. There's no **Finish Date** input because Jesse will always import until the same day (today).
+You need historical candles to run backtest simulations. 
+
+::: tip 🎥 Video Tutorial
+In case you prefer watching a video, here's a [short screencast about candles in Jesse](https://bit.ly/3AFGCkB).
+:::
+
+To start importing candles head over to the "Import Candles" page. There, you will be able to choose the **exchange**, **Symbol**, and the **Start Date**. There's no **Finish Date** input because Jesse will always import until the same day (today).
 
 For example to import candles for `BTC-USDT` from `Binance` since `2018-06-01` until this very moment:
 
