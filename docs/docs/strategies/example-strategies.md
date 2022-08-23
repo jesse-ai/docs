@@ -96,7 +96,7 @@ def go_long(self):
 @property  
 def position_size(self, entry, stop):  
     # risk 10%
-    risk_qty = utils.risk_to_qty(self.balance, 10, entry, stop, self.fee_rate)  
+    risk_qty = utils.risk_to_qty(self.balance, 10, entry, stop, fee_rate=self.fee_rate)  
     # never risk more than 25% of the capital
     max_qty = utils.size_to_qty(0.25 * self.balance, entry, precision=6, fee_rate=self.fee_rate)  
     qty = min(risk_qty, max_qty) 

@@ -223,7 +223,7 @@ The `fee_rate` property returns the fee rate that the exchange your strategy is 
 
 **Example:**
 ```py
-qty = utils.risk_to_qty(self.balance, 3, entry, stop, self.fee_rate)
+qty = utils.risk_to_qty(self.balance, 3, entry, stop, fee_rate=self.fee_rate)
 ```
 
 **Return Type**: float
