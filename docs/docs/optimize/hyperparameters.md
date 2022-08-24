@@ -32,7 +32,7 @@ Currently `int` and `float` are the only supported types. If you need a boolean,
 :::
 
 ::: tip
-Currently the step size of `float` can't be set. If you want a certain step size, just use `int` and then mutiply it with your step size.
+Currently the step size of `int` and `float` can't be set. If you want a certain step size, just use `int` and then mutiply it with your step size inside your strategy.
 :::
 
 `slow_sma_period` and `fast_sma_period` are the names that I chose for these two hyperparameters. It could have been anything else. 
