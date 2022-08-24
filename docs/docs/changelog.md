@@ -2,6 +2,16 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.39.0 (24 August 2022)
+
+- [NEW FEATURE] Added The option to NOT generate candles (for timeframes bigger than 1m) locally and instead fetching them from the exchange. 
+- [NEW FEATURE] Added a new config for choosing between fetching candles for all timeframes from the exchange or generating them locally. 
+- [BREAKING] Added timeframe parameter to fetch() method of the import-candle drivers. In case you have developed your own drivers, you should update it accordingly.
+- [IMPROVEMENT] Improved the migration handling. This allows for easier updates in the future and also faster startup time for Jesse as duplicate migrations will not be performed.
+- [IMPROVEMENT] By default, when you open the settings page, it will now open the relative section to the page you're in. For example, if you're in the live trading section and click on the settings button, it'll open the live trading section.
+- [FIX] Fixed the `KeyError: 'stepSize'` error on the `Binance Spot` driver caused by an unexpected update of Binance's API. 
+- [FIX] Fixed a bug when calling `import_candles_mode.run()` from the `research` module. Many thanks to [getorca](https://github.com/getorca) for submitting the [PR](https://github.com/jesse-ai/jesse/pull/359). 
+
 ## 0.38.3 (6 August 2022)
 
 - [NEW FEATURE] Added support for live trading on `Binance US Spot`. 
