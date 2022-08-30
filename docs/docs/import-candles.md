@@ -35,7 +35,11 @@ So far, the below exchanges are supported for **importing candles and running ba
 
 To see the list supported exchanges for **live trading** please check [this page](/docs/livetrade.html#supported-exchanges). 
 
-## Creating custom exchange drivers 
+## Creating custom exchange drivers
+
+::: danger
+This feature is temporarily disabled.
+:::
 
 You can write your own custom exchange drivers and use them as plugins. You may even publish them as PIP packages so others can install and use them easily. 
 
