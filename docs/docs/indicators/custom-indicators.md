@@ -8,6 +8,10 @@ Does your strategy idea need indicators that aren't available yet? Let's see how
 
 ## Tutorial for a custom indicator
 
+::: tip Don't reinvent the wheel
+Before starting to code from scratch you might want to try finding existing implementations. Maybe you can use them right away or at least as a basis for your code: The Github search can be a good place for that. Search the name of your indicator (sometimes it helps to combine it with keywords like high, low, open, close or price). Click on "All Github". Then set the type to "Code" and language to "Python" or "Jupyter Notebook".
+:::
+
 In this tutorial, we will convert [Elliott Wave Oscillator by Centrokom](https://id.tradingview.com/script/Q29rCz5S-Elliott-Wave-Oscillator/) that is originally written in Pine Script to a custom indicator usable in Jesse. The following is the original code from Tradingview:
 ```js
 //@version=3
