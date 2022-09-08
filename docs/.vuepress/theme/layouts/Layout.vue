@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <!-- <template v-slot:sidebar-top>
-      <SidebarAd />
-    </template> -->
+    <template v-slot:sidebar-top>
+      <BybitAd />
+    </template>
 
     <template #page-bottom>
       <FooterAd />
@@ -12,13 +12,13 @@
 
 <script>
 import Layout from "@vuepress/theme-default/lib/client/layouts/Layout.vue";
-import SidebarAd from "./SidebarAd.vue";
+import BybitAd from "./BybitAd.vue";
 import FooterAd from "./FooterAd.vue";
 
 export default {
   components: {
     Layout,
-    SidebarAd,
+    BybitAd,
     FooterAd
   }
 };

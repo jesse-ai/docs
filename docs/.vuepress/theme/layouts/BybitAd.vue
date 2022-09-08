@@ -21,7 +21,7 @@
 
 <script lang="ts">
 export default {
-  name: "SidebarAd",
+  name: "BybitAd",
   data() {
     return {
       show: true
