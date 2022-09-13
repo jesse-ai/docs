@@ -93,22 +93,22 @@ def on_route_open_position(self, strategy):
 
 This event method is fired right after a position is **closed**. Useful if you want to know when a position is closed in **another strategy**.
 
-**see also**: [on\_route\_open\_position](api.html#on-route-open-position-strategy)
+**see also**: [on\_route\_open\_position](#on-route-open-position-self-strategy)
 
 ## on\_route\_increased\_position(self, strategy)
 
 This event method is fired right after a position is **increased** in size. Useful if you want to know when a position is increased in **another strategy**.
 
-**see also**: [on\_route\_open\_position](api.html#on-route-open-position-strategy)
+**see also**: [on\_route\_open\_position](#on-route-open-position-self-strategy)
 
 ## on\_route\_reduced\_position(self, strategy)
 
 This event method is fired right after a position is **reduced** in size. Useful if you want to know when a position is reduced in **another strategy**.
 
-**see also**: [on\_route\_open\_position](api.html#on-route-open-position-strategy)
+**see also**: [on\_route\_open\_position](#on-route-open-position-self-strategy)
 
 ## on\_route\_canceled(self, strategy)
 
 This event method is fired right after all active entry orders are **canceled**. Useful if you want to know when all active orders are canceled in **another strategy**.
 
-**see also**: [on\_route\_open\_position](api.html#on-route-open-position-strategy)
+**see also**: [on\_route\_open\_position](#on-route-open-position-self-strategy)
