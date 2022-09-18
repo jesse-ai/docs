@@ -252,7 +252,7 @@ The `__init__` is not a new concept. It's the constructor of a Python class. Jes
 
 You could say `__init__` is the opposite of the [terminate()](./entering-and-exiting.html#terminate) method in a Jesse strategy. 
 
-::: warning
+::: danger
 Remember to begin `__init__` method's content with a `super().__init__()` call, otherwise you will get an error.
 :::
 
@@ -263,13 +263,20 @@ def __init__(self):
     print('initiated the strategy class')
 ```
 
+## before_terminate() 
+
+The last function called right before [terminate()](#terminate). The difference between `before_terminate()` and `terminate()` is that in `before_terminate()` you are able to submit orders, in other words, make modifications to your position. For example, maybe before terminating a live session, you want to cut your position's size in half; or close it. 
+
+But in [terminate()](#terminate) you can't submit orders. You can use it for logging info, saving data to a file, etc. 
+
 
 ## terminate() 
-There are cases where you need to tell Jesse to perform a task right before terminating (like finishing the backtest simulation). Examples of such a task would be to log a value or save a machine learning model. 
+
+There are cases where you need to tell Jesse to perform a task right before terminating. Examples of such a task would be to log a value or save a machine learning model. 
 
 You could say `terminate` is the opposite of the [\_\_init\_\_](./entering-and-exiting.html#init) method in a Jesse strategy.
 
 ```py
 def terminate(self):
-    print('About to terminate execution...')
+    self.log('About to terminate execution...')
 ```
