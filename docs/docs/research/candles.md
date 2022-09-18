@@ -45,11 +45,20 @@ Jesse uses `1m` timeframe candles and generates others as needed on the fly. So 
 
 **Properties**:
 
--   candles: str
+-   candles: np.ndarray
 -   exchange: str
 -   symbol: str
 
 **Return Type**: None
+
+**Example:**
+
+```py
+close_prices = [10, 11, 12, 12, 11, 13, 14, 12, 11, 15]
+np_candles = research.candles_from_close_prices(close_prices)
+
+research.store_candles(np_candles, 'Test Exchange', 'BTC-USDT')
+```
 
 ## get_candles
 
