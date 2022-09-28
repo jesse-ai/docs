@@ -1,5 +1,9 @@
 # Entering and exiting trades
 
+::: tip 🎥 Video Tutorial
+In case you prefer watching a video, here's a [short screencast explaining "How to enter and exit trades"](https://youtu.be/BwZ6GYbUYkc).
+:::
+
 Deciding to enter a trade is nothing but a True or False decision.
 
 Jesse uses `should_long()` and `should_short()` methods which must return a boolean at all times.
