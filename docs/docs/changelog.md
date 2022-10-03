@@ -2,6 +2,24 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.40.0 (3 October 2022)
+
+- [BREAKING CHANGE] Removed the experimental plugin system used for defining custom exchange drivers for backtesting. 
+- [BREAKING CHANGE] Implemented a new method called [before_terminate](https://docs.jesse.trade/docs/strategies/entering-and-exiting.html#before-terminate) which does exactly what the `terminate()` used to do. And slightly changed the `terminate()` method. To see their differences, check the updated documentation for [before_terminate](https://docs.jesse.trade/docs/strategies/entering-and-exiting.html#before-terminate) and [terminate](https://docs.jesse.trade/docs/strategies/entering-and-exiting.html#terminate).
+- [NEW FEAWTURE] Implemented new event handler methods used for communicating among multiple strategies/routes: `on_route_open_position`, `on_route_close_position`, `on_route_increased_position`, `on_route_reduced_position`, `on_route_canceled`.
+- [IMPROVEMENT] Position entry price now displays all the digits after the decimal point.
+- [IMPROVEMENT] Added a warning if the open position is not in the list of trading symbols. 
+- [IMPROVEMENT] Improved some error messages to include links to the related help center page. 
+- [IMPROVEMENT] Improved authentication renewing of the WebSocket connection on Binance drivers. 
+- [IMPROVEMENT] Changed "bybit.com" endpoints to "bytick.com" in hopes of a better network connectivity as it is mentioned on Bybit's docs. 
+- [IMPROVEMENT] The "Reccuring position reports" feature of live sessions will now send reports even if the position is closed. This is to let you know that the bot is running (and not unexpectedly crashed for any reason).
+- [FIX] Fixed `TypeError: Cannot parse single argument of type <class 'numpy.ndarray'>.` for optimize mode
+- [FIX] Fixed `TypeError: Cannot parse single argument of type <class 'numpy.ndarray'>.` when using extra candles in live mode while "local candle generation" is enabled. 
+- [FIX] Fixed the issue of exchanges not appearing in the live settings. 
+- [FIX] Fixed the "Ratio Avg Win / Avg Loss" metric being always zero in backtest metrics. 
+- [FIX] Fixed the `store_candles()` function from the `research` module. Also added validation for its inputs to prevent future issues.
+- [FIX] Fixed the `TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'` error for a case after starting a session with the "persistency" feature enabled. 
+
 ## 0.39.0 (24 August 2022)
 
 - [NEW FEATURE] Added The option to NOT generate candles (for timeframes bigger than 1m) locally and instead fetching them from the exchange. 
