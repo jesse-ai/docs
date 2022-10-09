@@ -27,11 +27,10 @@ If you went with the [docker](./docker.md) option, then Jesse is installed for y
 pip install jesse
 ```
 
-(Optional) Install numba (Doesn't work on M1 macs at the moment):
+(Optional) Install numba to speed up a few indicators (**Doesn't work on M1 macs at the moment**):
 ```
 pip install numba==0.53
 ```
-This package speeds up some indicators. M1 mac users can't use it.
 
 ## Upgrade with PIP
 
@@ -69,7 +68,6 @@ This will create a new project containing only files and folders that you actual
 
 ```sh
 ├── .env # file where you enter the dashboard password, database credentials, etc
-├── plugins.py # file where you register installed plugins
 ├── docker # directory containing the required config files for docker
 ├── storage # directory containing logs, chart images, etc
 └── strategies # directory containing your strategies
