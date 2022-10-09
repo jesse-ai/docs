@@ -29,13 +29,19 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page.
 - ✅ Integrate spot exchanges such as Binance, FTX, Bybit, and US versions of FTX and Binance
 
 ## Q3 2022
-- Release more tutorial screencasts on [Youtube](https://jesse.trade/youtube)
+- ✅ Release more tutorial screencasts on [Youtube](https://jesse.trade/youtube)
+- ✅ Add improvements and new methods to the strategy API to finalize and prepare for the stable `1.0` version release.
+- ✅ Add a new method for handling candles via fetching them directly from the exchange for all timeframes. 
+- ✅ More bug fixes to make Jesse more stable and reliable. 
+
+## Q4 2022
+- A big surprise! It's an important partnership. Can't reveal details yet ;)
 - Support for stocks trading via FTX's "tokenized stocks" 
 - Release the stable `1.0` version
-- Improve the strategy index page to include more strategies with (automated) up-to-date metrics
-- More exchange drivers: Kraken, Coinbase, Bitstamp, etc
 
 ## Beyond
+- Improve the strategy index page to include more strategies with (automated) up-to-date metrics
+- More exchange drivers: Kraken, Coinbase, Bitstamp, etc
 - Integrate fast DEX platforms such as PancakeSwap, 1inch, etc 
 - Integrate reinforcement learning 
 - More backtest evaluation tools such as Monte Carlo 
