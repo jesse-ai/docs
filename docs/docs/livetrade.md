@@ -9,9 +9,9 @@ The "live-trade" plugin is available for early access which enables live/paper t
 **Update:** We are at the finishing days of the early-access phase. All the promised items are now available and the strategy API is pretty stable by now. I will release version `1.0.0` soon.
 
 
-::: warning
+<!-- ::: warning
 Before going live make sure the execution time of your strategy doesn't exceed your timeframe. For example, if you want to trade the 5min timeframe the execution of all your code for one new candle should be finished in under 5min.
-:::
+::: -->
 
 ## Paper Trading
 
