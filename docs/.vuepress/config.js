@@ -150,6 +150,7 @@ module.exports = {
             '/docs/utils/',
             '/docs/backtest/',
             '/docs/livetrade/',
+            '/docs/supported-exchanges/',
             '/docs/security',
             '/docs/notifications/',
 

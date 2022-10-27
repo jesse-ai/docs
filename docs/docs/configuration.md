@@ -80,7 +80,7 @@ At the top-right corner of the dashboard, you'll see a gear icon. Click on it an
 Go ahead change it as you like. Changes are automatically saved which is why there's no "Save" button. 
 
 ::: warning
-Changing the settings will not affect running sessions (if you have any).
+Changing the settings will not affect running sessions. If you have one, stop and start it again for the changes to take affect. 
 
 Note: you do NOT need to stop and start Jesse itself after changing these settings.
 :::

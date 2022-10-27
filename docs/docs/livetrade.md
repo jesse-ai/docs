@@ -4,9 +4,15 @@ title: 'Live Trading'
 
 # Live Trade
 
-The "live-trade" plugin is available for early access which enables live/paper trading with Jesse. You can read the [announcement article](https://jesse.trade/blog/news/the-live-trade-plugin-is-open-for-early-access) or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the [installation guide](/docs/livetrade.html#installation). 
+Live and paper trading functionality is supported by Jesse via an official plugin. 
 
-**Update:** We are at the finishing days of the early-access phase. All the promised items are now available and the strategy API is pretty stable by now. I will release version `1.0.0` soon.
+## Getting started
+
+To get started, you need to register on our website to generate your license key. Once you have your license key, you can [install](/docs/livetrade.html#installation) the plugin. 
+
+We have made sure to make the installation process as easy as possible. In fact, if you already have Jesse installed, you can install the plugin in just a few seconds.
+
+<!-- The "live-trade" plugin is available for early access which enables live/paper trading with Jesse. You can read the [announcement article](https://jesse.trade/blog/news/the-live-trade-plugin-is-open-for-early-access) or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the [installation guide](/docs/livetrade.html#installation).  -->
 
 
 <!-- ::: warning
@@ -18,20 +24,6 @@ Before going live make sure the execution time of your strategy doesn't exceed y
 Paper trading is possible with Jesse and is a good way to test-drive a strategy without risking real money. 
 
 You can enable paper trading by turning on the "Paper Trade" option on the "Live" page of the dashboard. 
-
-## Supported Exchanges
-
-At the moment these are the supported exchanges for live trading:
-
-- [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
-- [FTX Perpetual Futures](https://ftx.com/trade/BTC-PERP)
-- [FTX Spot](https://ftx.com/trade/BTC/USD)
-- [FTX US Spot](https://ftx.us/trade/BTC/USD)
-- [Binance Perpetual Futures](https://www.binance.com/en/futures/BTCUSDT)
-- [Binance Spot](https://www.binance.com/en/trade/BTC_USDT?theme=dark&type=spot)
-- [Binance US Spot](https://www.binance.us)
-
-New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know. 
 
 ## Installation
 The package is pre-built and the access is limited to those with an active license. We made sure the installation is easy and made it automated as much as possible.

@@ -1,5 +1,9 @@
-
 # Utilities
+
+**Risk management** and **statistic** calculations are essential for a successful algo trading career. 
+
+Hence, Jesse offers a collection of commonly used utility functions that life easier for quants. 
+
 ## anchor_timeframe
 
 Returns the anchor timeframe. Useful for writing dynamic strategies using multiple timeframes.

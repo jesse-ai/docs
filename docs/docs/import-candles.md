@@ -15,22 +15,3 @@ For example to import candles for `BTC-USDT` from `Binance` since `2018-06-01` u
 ::: tip
 Next time, to keep your data storage up to date try running with the same inputs without worry, and duplicate candles will be skipped. So you can run the same import session as many times as you like to always have the latest candles without waiting a long time on every import session. 
 :::
-
-
-## Supported exchanges
-
-So far, the below exchanges are supported for **importing candles and running backtests**:
-
--   `Binance Spot`
--   `Binance US Spot`
--   `Binance Perpetual Futures Testnet `
--   `Binance Perpetual Futures`
--   `Bitfinex Spot`
--   `Coinbase Spot`
--   `FTX Spot` 
--   `FTX US Spot` 
--   `FTX Perpetual Futures` 
--   `Bybit USDT Perpetual Testnet` 
--   `Bybit USDT Perpetual` 
-
-To see the list supported exchanges for **live trading** please check [this page](/docs/livetrade.html#supported-exchanges). 

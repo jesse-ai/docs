@@ -35,9 +35,10 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page.
 - ✅ More bug fixes to make Jesse more stable and reliable. 
 
 ## Q4 2022
-- A big surprise! It's an important partnership. Can't reveal details yet ;)
-- Support for stocks trading via FTX's "tokenized stocks" 
+- ✅ Release live trading driver for [Bitget](https://jesse.trade/bitget)
+- ✅ Introduce the "free" plan for live trading
 - Release the stable `1.0` version
+- Support for stocks trading via FTX's "tokenized stocks" 
 
 ## Beyond
 - Improve the strategy index page to include more strategies with (automated) up-to-date metrics
