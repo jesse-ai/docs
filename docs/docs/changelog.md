@@ -2,6 +2,21 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.41.0 (3 November 2022)
+
+- [BREAKING] On `FTX Perpetual Futures` exchange, symbols ending in `PERP` format are not supported anymore. Previously Jesse replaced the ending `PERP` with `USD` in the database but that was causing confusions. 
+- [NEW FEATURE] Added support for `Bitget USDT Futures` driver. 
+- [NEW FEATURE] Added a "free" plan allowing to trade live on [Bitget.com](https://jesse.trade/bitget).
+- [IMPROVEMENT] Added proper handling for the rare `listenKeyExpired` event that happened on `BinancePerpetualFutures` driver leading to the WebSocket connection for user account data not working anymore without throwing any errors. 
+- [IMPROVEMENT] Improves the ping-pong mechanism of the WebSocket connection on **Bybit** drivers leading to less disconnections (and reconnections).
+- [IMPROVEMENT] Improved handling of orders when deciding on the order types in a way to work better on sudden price changes. 
+- [IMPROVEMENT] Improved handling of exit orders to prevent `Cannot submit a reduce_position order when there is no open position` error occuring when a position is suddenly closed while Jesse's trying to execute a batch of (exit) orders.
+- [FIX] Fixed the `TypeError: 'NoneType' object is not subscriptable` error in **Bybit** drivers. 
+- [FIX] Fixed the `TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'` error in **Bybit** drivers. 
+- [FIX] Fixed the`TypeError: Cannot parse single argument of type <class 'numpy.ndarray'>` raised in live sessions with "local candle generation" enabled. 
+- [FIX] Fixed the issue where candles were not showing up in the live chart when "local candle generation" was enabled.
+- [FIX] Added handling of the `WebSocketConnectionClosedException` error in `Bybit USDT Perpetual` so that the running session won't be terminated. 
+
 ## 0.40.0 (3 October 2022)
 
 - [BREAKING CHANGE] Removed the experimental plugin system used for defining custom exchange drivers for backtesting. 
