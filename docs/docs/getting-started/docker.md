@@ -20,6 +20,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-
 
 ## Starting containers
 
+If you haven't [created a Jesse project](/docs/getting-started/#create-a-new-jesse-project) yet, make sure to do so. Next we can start the containers.
+
 All the config files for Docker are present inside your project's `docker` directory. If it's not, just copy it from [this repository](https://github.com/jesse-ai/project-template).
 
 Then inside the terminal make sure you are in the project root, open the `docker` directory and run the docker-compose command:
