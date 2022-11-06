@@ -150,7 +150,39 @@ module.exports = {
             '/docs/utils/',
             '/docs/backtest/',
             '/docs/livetrade/',
-            '/docs/supported-exchanges/',
+            {
+                text: 'Strategies', // required
+                link: '/docs/strategies/',
+                children: [
+                    {
+                        text: 'Introduction',
+                        link: '/docs/strategies/',
+                    },
+                    '/docs/strategies/generating-new-strategy',
+                    '/docs/strategies/entering-and-exiting',
+                    '/docs/strategies/events',
+                    '/docs/strategies/filters',
+                    '/docs/strategies/api',
+                    {
+                        text: 'Futures vs Spot',
+                        link: '/docs/strategies/futures-vs-spot',
+                    },
+                    '/docs/strategies/example-strategies.md',
+                ],
+            },
+            {
+                text: 'Supported Exchanges', // required
+                link: '/docs/supported-exchanges/', // optional, which should be an absolute path.
+                collapsable: false,
+                sidebarDepth: 1,
+                children: [
+                    {
+                        text: 'Backtesting and Live Trading',
+                        link: '/docs/supported-exchanges/',
+                    },
+                    '/docs/supported-exchanges/exchange-limitations',
+                ],
+            },
             '/docs/security',
             '/docs/notifications/',
 
