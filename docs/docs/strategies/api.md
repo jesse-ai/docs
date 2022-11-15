@@ -369,6 +369,34 @@ Returns the type of the exchange your strategy is trading on. It will be either 
 
 **Return Type**: str
 
+## is_backtesting
+
+Returns whether the strategy is running in backtest mode or not.
+
+**Return Type**: bool
+
+## is_livetrading
+
+Returns whether the strategy is running in live trading mode or not.
+
+**Return Type**: bool
+
+## is_papertrading
+
+Returns whether the strategy is running in paper trading mode or not.
+
+**Return Type**: bool
+
+## is_live
+
+Returns whether the strategy is running in either live trading or paper trading mode or not. It is the equivalent of: 
+
+```py
+self.is_livetrading or self.is_papertrading
+```
+
+**Return Type**: bool
+
 ## is_spot_trading
 
 Returns whether the exchange your strategy is trading on is a spot exchange.
