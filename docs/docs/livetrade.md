@@ -12,9 +12,6 @@ To get started, you need to register on our website to generate your license key
 
 We have made sure to make the installation process as easy as possible. In fact, if you already have Jesse installed, you can install the plugin in just a few seconds.
 
-<!-- The "live-trade" plugin is available for early access which enables live/paper trading with Jesse. You can read the [announcement article](https://jesse.trade/blog/news/the-live-trade-plugin-is-open-for-early-access) or head over to our website, [register](https://jesse.trade/register) and get your license, and then head over to the [installation guide](/docs/livetrade.html#installation).  -->
-
-
 <!-- ::: warning
 Before going live make sure the execution time of your strategy doesn't exceed your timeframe. For example, if you want to trade the 5min timeframe the execution of all your code for one new candle should be finished in under 5min.
 ::: -->
