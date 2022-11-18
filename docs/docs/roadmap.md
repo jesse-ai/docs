@@ -37,12 +37,12 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page.
 ## Q4 2022
 - ✅ Release live trading driver for [Bitget](https://jesse.trade/bitget)
 - ✅ Introduce the "free" plan for live trading
-- Release the stable `1.0` version
-- Support for stocks trading via FTX's "tokenized stocks" 
+- Launch the affiliate program
+- Add DEX support. Starting with DyDx
 
 ## Beyond
 - Improve the strategy index page to include more strategies with (automated) up-to-date metrics
-- More exchange drivers: Kraken, Coinbase, Bitstamp, etc
+- More exchange drivers: Kraken, Coinbase, kucoin, OKX, etc
 - Integrate fast DEX platforms such as PancakeSwap, 1inch, etc 
 - Integrate reinforcement learning 
 - More backtest evaluation tools such as Monte Carlo 
