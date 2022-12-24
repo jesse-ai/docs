@@ -61,3 +61,11 @@ def update_position(self):
 After running the code, on the next time interval, I expect to see two custom log messages among other logs (no matter if in the backtest or live mode). 
 
 If the first log message is not there, it means that the `update_position` method is not being called at all. If the second log message is not there, it means that my `if` statement is False. However, because in the first log message I logged the value that was important in the `if` statement, I can see why the `if` statement is False.
+
+## Log files
+
+Sometimes you want to access the logs after a session has ended. For example, maybe you want to send them to us for debugging purposes.
+
+The logs of each session are stored in the `/storage/logs/{mode}/{session_id}.txt`. There is one file for each session.
+
+There are also raw exchange streams that are specific to the live mode. You can find them in `/storage/logs/exchange-streams.txt`. The content of this file gets overwritten every time you start a new live session. 
