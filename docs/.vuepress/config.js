@@ -181,6 +181,7 @@ module.exports = {
                         link: '/docs/supported-exchanges/',
                     },
                     '/docs/supported-exchanges/exchange-limitations',
+                    '/docs/supported-exchanges/exchange-setup-guide',
                 ],
             },
             '/docs/security',

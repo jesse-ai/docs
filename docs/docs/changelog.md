@@ -2,6 +2,17 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.42.0 (7 May 2023)
+
+- [NEW FEATURE] Added support for our first DEX: [DYDX](https://jesse.trade/dydx).
+- [NEW FEATURE] Added new properties to the Strategy API: [is_backtesting](https://docs.jesse.trade/docs/strategies/api.html#is-backtesting), [is_livetrading](https://docs.jesse.trade/docs/strategies/api.html#is-backtesting), [is_papertrading](https://docs.jesse.trade/docs/strategies/api.html#is-papertrading), [is_live](https://docs.jesse.trade/docs/strategies/api.html#is-live)
+- [IMPROVEMENT] Jesse will now retry a failed STOP order with a MARKET order with the same size if the reason for it is its trigger price being in such a way that would have caused instant execution. This is an experimental feature and currently works only on `Bybit`. 
+- [IMPROVEMENT] Improves how order type is detected by Jesse to prevent unwanted order order types. 
+- [IMPROVEMENT] Improved detection of order types to prevent unwanted order types in the live mode.
+- [FIX] Fixes the `TypeError: Cannot parse single argument of type <class 'numpy.ndarray'>.` error when local candle generation is enabled.
+- [FIX] Fixes the `KeyError: 'data'` error in some cases of live sessions on `Bybit`.
+- [FIX] Fixes the `KeyError: 'cum_exec_qty'` error in some cases of live sessions on `Bybit`.
+
 ## 0.41.0 (3 November 2022)
 
 - [BREAKING] On `FTX Perpetual Futures` exchange, symbols ending in `PERP` format are not supported anymore. Previously Jesse replaced the ending `PERP` with `USD` in the database but that was causing confusions. 

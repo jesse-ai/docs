@@ -4,11 +4,13 @@ When it comes to live trading, sometimes we are limited by how an exchange's API
 
 This page lists the limitations of each exchange that are known so far:
 
-## FTX
+## DYDX
 
-Unfortunately, FTX doesn't offer Websocket streams for stop orders. 
+If you're going to trade on DYDX using Jesse, there are a few limitations you should know about:
 
-As a result, if you are running a live session with Jesse, and then submit/cancel a stop order manually on the exchange, Jesse won't pick up on that because FTX isn't streaming it at all 😕. (stop orders are supported when Jesse submits the order itself by itself because then their REST API is used).
+- Isolated margin can be achieved by creating separate accounts (sub-accounts) under the same user.
+- Accounts may only have up to 20 open orders for a given market/side pair at any one time. (For example up to 20 open BTC-USD bids).
+- The liquidation price that is shown on Jesse is slightly different than the one shown on DYDX's website. This is because DYDX's API doesn't provide the exact liquidation price and Jesse calculates it based on the available data. The difference is usually less than 3%. This is an [open issue](https://github.com/dydxprotocol/dydx-v3-python/issues/199). 
 
 ## Bitget
 

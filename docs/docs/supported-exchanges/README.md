@@ -18,9 +18,6 @@ So far, the below exchanges are supported for **importing candles and running ba
 -   `Binance Perpetual Futures`
 -   `Bitfinex Spot`
 -   `Coinbase Spot`
--   `FTX Spot` 
--   `FTX US Spot` 
--   `FTX Perpetual Futures` 
 -   `Bybit USDT Perpetual Testnet` 
 -   `Bybit USDT Perpetual` 
 
@@ -36,11 +33,9 @@ You can change the type of exchange for backtests in the settings page per each 
 
 At the moment these are the supported exchanges for live trading:
 
+- [DYDX](https://jesse.trade/dydx)
 - [Bitget USDT Perpetual](https://jesse.trade/bitget)
 - [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
-- [FTX Perpetual Futures](https://ftx.com/trade/BTC-PERP)
-- [FTX Spot](https://ftx.com/trade/BTC/USD)
-- [FTX US Spot](https://ftx.us/trade/BTC/USD)
 - [Binance Perpetual Futures](https://www.binance.com/en/futures/BTCUSDT)
 - [Binance Spot](https://www.binance.com/en/trade/BTC_USDT?theme=dark&type=spot)
 - [Binance US Spot](https://www.binance.us)

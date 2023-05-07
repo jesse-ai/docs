@@ -38,7 +38,9 @@ Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page.
 - ✅ Release live trading driver for [Bitget](https://jesse.trade/bitget)
 - ✅ Introduce the "free" plan for live trading
 - ✅ Launch the affiliate program
-- Add DEX support. Starting with DyDx
+
+## Q2 2023
+- ✅ Add DEX support for DYDX 
 
 ## Beyond
 - Improve the strategy index page to include more strategies with (automated) up-to-date metrics
