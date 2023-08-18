@@ -718,12 +718,15 @@ This method can be used to log text from within the strategy which is very helpf
 The default is `info`. `error` logs are notified separately in the live mode, so that's a nice way of using them. 
 
 If you need to send a notification for the logged message in live mode, pass the `send_notification` parameter as `True`.
+For custom logs to custom channels, you can set `webhook` parameter with either a hard-coded webhook or an environment value from `.env`.
+Default is the General / Error channels. 
 
 ```py
 log(
     msg: str, 
     log_type: str = 'info', 
-    send_notification: bool = False
+    send_notification: bool = False,
+    webhook: str = None
 )
 ```
 
