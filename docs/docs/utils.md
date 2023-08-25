@@ -100,13 +100,14 @@ estimate_risk(entry_price, stop_price)
 Returns the [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp).
 
 ```py
-kelly_criterion(win_rate, ratio_avg_win_loss)
+kelly_criterion(win_rate, ratio_avg_win, ratio_avg_loss)
 ```
 
 **Properties**:
 
 -   win_rate: float
--   ratio_avg_win_loss: float
+-   ratio_avg_win: float
+-   ratio_avg_loss: float
 
 **Return Type**: float
 
