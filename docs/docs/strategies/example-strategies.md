@@ -107,7 +107,8 @@ Using the kelly criterion:
 def kelly_qty(self, entry, stop):  
     if not self.metrics or self.metrics['total'] < 20:  
         win_rate = 0.46  
-        ratio_avg_win_loss = 1.6  
+        avg_win_ratio = 1.1
+        avg_loss_ratio = 0.5
     else:  
         win_rate = self.metrics['win_rate']  
         avg_win_ratio = self.metrics['avg_win_percentage'] / 100
