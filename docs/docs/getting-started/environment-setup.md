@@ -12,7 +12,7 @@ Remember that you don't need to do any of these steps if you want to use [Docker
 :::
 
 ::: tip
-A good practice for providing an environment for running Python applications is setting up Python virtual environments. Especially when you have different projects with their own dependencies, you can create an isolated environment regardless of what dependencies every other project has. [Here](https://docs.python.org/3/tutorial/venv.html) you can find more information on creating virtual environments.
+A good practice for providing an environment for running Python applications is setting up Python virtual environments. Especially when you have different projects with their own dependencies, you can create an isolated environment regardless of what dependencies every other project has. [Here](./#setting-up-virtual-environment) you can find more information on creating virtual environments.
 :::
 
 ## Remote server
