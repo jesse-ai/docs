@@ -72,7 +72,7 @@ pip install -U jesse
 Sometimes pip doesn't upgrade to the latest version on the first time running the above command. To make sure you're running the latest release, check out the latest version number on [PyPi](https://pypi.org/project/jesse/), and then make sure you see that version in `pip show jesse` output.
 :::
 
-## Setting up virtual environment
+## Virtual environment set up
 
 A Python virtual environment is very helpful because it creates an isolated space on your computer for each project, allowing you to install and manage Python packages separately for each one
 
