@@ -1,51 +1,56 @@
 # Roadmap
 
-Starting Q2 of 2021, we'll be logging our next goals here on the roadmap page. 
-
+Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap page.
 
 ## Q2 2021
 - ✅ Initial release of live trade plugin (early access)
-- ✅ Release our most profitable strategy so far 
-- ✅ Support for liquidation mechanism in backtest and live trade
-
+- ✅ Release of our most profitable strategy to date
+- ✅ Support for liquidation mechanisms in both backtesting and live trading
 
 ## Q3 2021
-- ✅ Beta release of GUI dashboard
-- ✅ Full integration with the "FTX Futures" exchange 
+- ✅ Beta release of the GUI dashboard
+- ✅ Full integration with the FTX Futures exchange
 
 ## Q4 2021
-- ✅ Release second beta version of the GUI dashboard
+- ✅ Second beta release of the GUI dashboard
 - ✅ Official release of the GUI dashboard
-- ✅ Start our Youtube channel for publishing algo trading tutorials 
+- ✅ Launch of our YouTube channel for publishing algo-trading tutorials
 
 ## Q1 2022
-- ✅ Integrate Bybit Perpetuals exchange
-- ✅ Add support for persistency in live trading
-- ✅ Release the "research" module allowing to use Jesse inside custom Python scripts (including Jupyter notebooks)
-- ✅ Release more tutorial screencasts
+- ✅ Integration with Bybit Perpetuals exchange
+- ✅ Support for persistence trading sessions in live trading
+- ✅ Release of the "research" module, allowing Jesse to be used within custom Python scripts (including Jupyter notebooks)
+- ✅ Additional tutorial screencasts
 
 ## Q2 2022
-- ✅ Support for spot trading 
-- ✅ Integrate spot exchanges such as Binance, FTX, Bybit, and US versions of FTX and Binance
+- ✅ Support for spot trading
+- ✅ Integration with spot exchanges such as Binance, FTX, Bybit, and the US versions of FTX and Binance
 
 ## Q3 2022
-- ✅ Release more tutorial screencasts on [Youtube](https://jesse.trade/youtube)
-- ✅ Add improvements and new methods to the strategy API to finalize and prepare for the stable `1.0` version release.
-- ✅ Add a new method for handling candles via fetching them directly from the exchange for all timeframes. 
-- ✅ More bug fixes to make Jesse more stable and reliable. 
+- ✅ Additional tutorial screencasts on [YouTube](https://jesse.trade/youtube)
+- ✅ Improvements and new methods added to the strategy API in preparation for the stable `1.0` version release
+- ✅ New method for handling candles by fetching them directly from the exchange for all timeframes
+- ✅ Further bug fixes to improve Jesse's stability and reliability
 
 ## Q4 2022
-- ✅ Release live trading driver for [Bitget](https://jesse.trade/bitget)
-- ✅ Introduce the "free" plan for live trading
-- ✅ Launch the affiliate program
+- ✅ Release of live trading driver for [Bitget](https://jesse.trade/bitget)
+- ✅ Introduction of the "free" plan for live trading
+- ✅ Launch of the affiliate program
 
 ## Q2 2023
-- ✅ Add DEX support for DYDX 
+- ✅ DEX support for DYDX
+- ✅ Additional properties added to the strategy API
+- ✅ Bug fixes and improvements based on community feedback
+
+## Q4 2023
+- ✅ Support for Python `3.10` and `3.11`
+- Launch of the new documentation website
+- Introduction of the new strategy index page featuring a variety of strategies with automated, up-to-date metrics
 
 ## Beyond
-- Improve the strategy index page to include more strategies with (automated) up-to-date metrics
-- More exchange drivers: Kraken, Coinbase, kucoin, OKX, etc
-- Integrate fast DEX platforms such as PancakeSwap, 1inch, etc 
-- Integrate reinforcement learning 
-- More backtest evaluation tools such as Monte Carlo 
-- And more! Depends on the community's demand!
+- Future exchange drivers: Kraken, Coinbase, Kucoin, OKX, etc.
+- Integration with fast DEX platforms like PancakeSwap, 1inch, etc.
+- Integration of reinforcement learning
+- Additional backtest evaluation tools such as Monte Carlo simulations
+- More features depending on community demand
+- A few exciting surprises to be announced later on
