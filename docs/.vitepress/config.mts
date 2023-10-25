@@ -151,6 +151,7 @@ export default defineConfig({
             { text: 'Backtest', link: '/docs/research/backtest' }
         ]
     },
+    { text: '🔗 Resources', link: 'https://github.com/jesse-ai/awesome-jesse/' },
     { text: '📚 FAQs', link: 'https://jesse.trade/help' },
     { text: '📜 Changelog', link: '/docs/changelog' },
     { text: '📈 Roadmap', link: '/docs/roadmap' }
