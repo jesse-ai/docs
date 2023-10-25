@@ -44,7 +44,9 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 
 ## Q4 2023
 - ✅ Support for Python `3.10` and `3.11`
-- Launch of the new documentation website
+- ✅ Add support for Bybit unified accounts
+- ✅ Upgrade to Bybit version 5 API
+- ✅ Launch of the new documentation website
 - Introduction of the new strategy index page featuring a variety of strategies with automated, up-to-date metrics
 
 ## Beyond
