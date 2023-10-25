@@ -1,7 +1,16 @@
 {
-  "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
-  }
+    "name": "jesse-docs",
+    "private": true,
+    "version": "2.0.0",
+    "description": "Codebase for https://docs.jesse.trade",
+    "author": "Saleh Mir <saleh@jesse.trade>",
+    "license": "MIT",
+    "scripts": {
+        "docs:dev": "vitepress dev docs",
+        "docs:build": "vitepress build docs",
+        "docs:preview": "vitepress preview docs"
+    },
+    "devDependencies": {
+        "vitepress": "^1.0.0-rc.24"
+    }
 }
