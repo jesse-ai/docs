@@ -1,7 +1,7 @@
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful
-if you're doing research [Jupyter Notebooks](/docs/jupyter-notebooks).
+if you're doing research [Jupyter Notebooks](/docs/research/jupyter).
 
 When developing strategies however, you probably want to keep it as `False` to return only the indicator value for
 current trading candle.

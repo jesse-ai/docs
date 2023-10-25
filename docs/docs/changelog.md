@@ -419,8 +419,8 @@ Starting from version 0.30.0, this page will include changelog of the live-trade
 - Improved exception text for unsupported exchanges
 
 ## 0.7.1
-- Added the [\_\_init\_\_](./entering-and-exiting.html#init) method to the strategy API
-- Added the [terminate()](./entering-and-exiting.html#terminate) method to the strategy API
+- Added the \_\_init\_\_ method to the strategy API
+- Added the terminate() method to the strategy API
 - Added validation for `qty==0`
 - Added additional parameters to srsi indicator by [Gabri](https://github.com/Gabri)
 

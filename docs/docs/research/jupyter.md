@@ -8,7 +8,7 @@ To use Jesse inside your notebooks, you must create them inside the root of your
 
 To install Jupyter notebooks/labs, you can use the following command:
 
-```ssh
+```
 pip install jupyterlab
 ```
 
@@ -26,6 +26,6 @@ jupyter-lab
 
 If you are running Jupyter inside a docker container, or on a remote server, add `--ip 0.0.0.0 --no-browser --allow-root` to the command so that you can use the external IP address of your server to access it:
 
-```ssh
+```
 jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```

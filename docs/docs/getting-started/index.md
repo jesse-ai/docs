@@ -121,7 +121,7 @@ INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)
 ```
 
-Go ahead and open (in my case) [127.0.0.1:9000](127.0.0.1:9000) in your browser of choice. If you are running on a server, you can use the IP address of the server instead of 
+Go ahead and open (in my case) [127.0.0.1:9000](http://127.0.0.1:9000) in your browser of choice. If you are running on a server, you can use the IP address of the server instead of 
 `0.0.0.0`. 
 
 So for example if the IP address of your server is `1.2.3.4` the URL would be [http://1.2.3.4:9000](http://1.2.3.4:9000). 

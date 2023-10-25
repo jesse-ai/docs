@@ -61,7 +61,7 @@ GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
 exit
 ```
 
-Your environment should now be ready to [install and run](./README.md) Jesse.
+Your environment should now be ready to [install and run](./index.md) Jesse.
 
 ## macOS
 
@@ -111,7 +111,7 @@ GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
 \q
 ```
 
-That's it. You should now be able to [install and run Jesse](./README.md).
+That's it. You should now be able to [install and run Jesse](./index.md).
 
 ## Windows
 
@@ -234,4 +234,4 @@ Run:
 pip install cython
 ```
 
-That's it! You should now be able to [install and run](./README.md) Jesse.
+That's it! You should now be able to [install and run](./index.md) Jesse.

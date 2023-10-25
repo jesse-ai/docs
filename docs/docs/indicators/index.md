@@ -6,7 +6,7 @@
 You might stumble upon differences to other tools caused by the use of different indicator equations or memory. [See here](https://jesse.trade/help/faq/i-changed-the-warm-up-candles-config-why-do-my-indicator-values-change) to learn more about memory of indicators. If you use a very big period you should increase the warm-up-candle amount to have enough candles and to account for the memory. You can always use other libraries directly of course, there might be speed differences though. See here for an [explaination](https://docs.jesse.trade/docs/indicators/custom-indicators.html#external-libraries-for-technical-indicators-and-things-to-be-aware-of).
 :::
 
-The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in [Jupyter Notebooks](/docs/docs/research/jupyter.md).
+The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in [Jupyter Notebooks](/docs/research/jupyter).
 
 ## Import
 
@@ -29,7 +29,7 @@ ta.sma(self.candles, 8)
 
 ## Example 2
 
-To get indicator values for candles other than your trading [route](/docs/docs/routes.md) (in case you have defined more than one route in your `routes.py` file), use `self.get_candles()` method:
+To get indicator values for candles other than your trading [route](/docs/routes.md) (in case you have defined more than one route in your `routes.py` file), use `self.get_candles()` method:
 
 ```py
 ta.sma(self.get_candles('Binance', 'BTC-USDT', '4h'), 8)

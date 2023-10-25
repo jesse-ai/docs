@@ -5,6 +5,7 @@ export default defineConfig({
   title: "Jesse",
   description: "The algo-trading framework that simplifies Python trading with unmatched accuracy",
   cleanUrls: true,
+  ignoreDeadLinks: 'localhostLinks',
   sitemap: {
     hostname: 'https://docs.jesse.trade'
   },

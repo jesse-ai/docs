@@ -173,7 +173,7 @@ For example if you are trading the `5m` timeframe and the current time is at `12
 
 ## candles
 
-This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators) because the first parameter for all indicators is `candles`. 
+This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators/) because the first parameter for all indicators is `candles`. 
 
 **Return Type:** np.ndarray
 

@@ -1,7 +1,7 @@
 /node_modules
 /.idea
-/docs/.vuepress/.cache
-/docs/.vuepress/.temp
+/docs/.vitepress/.cache
+/docs/.vitepress/.temp
 /storage/*.key
 .DS_Store
 Envoy.blade.php
@@ -13,4 +13,4 @@ composer.lock
 .vscode
 package-lock.json
 .eslintrc.js
-.vuepress/dist
+.vitepress/dist
