@@ -20,12 +20,12 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: '/imgs/jesse-bot.png',
     search: {
-      provider: 'local',
-    //   options: {
-    //     apiKey: '5b718939748786f0bb2d064c6851bd68',
-    //     indexName: 'jesse',
-    //     appId: 'NITQT80K2O',
-    //   },
+      provider: 'algolia',
+      options: {
+        apiKey: 'f86422ffcc6d387724fb67f7f47c2a97',
+        indexName: 'jesse',
+        appId: 'V91PVVUMS3',
+      },
     },
     footer: {
         message: 'We do NOT guarantee profitable trading results in anyways. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS. Do not risk money which you are afraid to lose. There might be bugs in the code - this software DOES NOT come with ANY warranty. All investments carry risk! Past performance is no guarantee of future results! Be aware of overfitting!',
