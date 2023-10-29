@@ -2,6 +2,12 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.43.3 (29 October 2023)
+
+- [IMPROVEMENT] **Mandatory migration to Bybit API V5**. This update is indispensable if you're trading on Bybit, as it adapts Jesse to Bybit's latest API version.
+- [NEW FEATURE] **Support for Bybit's Unified Margin Account**. This will simplify your asset management and elevate trading flexibility on Bybit.
+- [FIX] Addressed the issue of orders on **DYDX expiring early**. This fix ensures that your trading activities on DYDX are as seamless as possible.
+
 ## 0.43.0 (5 October 2023)
 
 - [NEW FEATURE] Added support for Python `3.10` and Python `3.11`. Both the main framework and livetrading plugin. 
