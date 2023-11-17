@@ -21,16 +21,30 @@ This decorator can improve performance a lot. It will cache your functions / pro
 
 ## available_margin
 
-Returns the available/remaining margin in your exchange wallet. It equals to your initial wallet balance multiplied by the leverage you're using, added by the unrealized profits on your open positions, subtracted by spent margin for open orders. 
+`available_margin` represents the current margin available in your trading account. It is calculated as the balance minus the margin used for open positions and orders.
 
-For the sake of not getting liquidated, it is safer to just use the [balance](#balance) property in your strategies instead. 
-
-It is meant to be used in the futures markets only although in the spot market it equals to the `self.balance` property. 
+::: warning
+`available_margin` is calculated by subtracting the margin used in open positions and orders from your account balance. For instance, if your balance is $10,000 and you have $2,000 tied up in trades with 2x leverage, the available margin would be $10,000 - ($2,000 / 2) = $9,000. 
+:::
 
 **Return Type**: float
 
-**See Also**: [balance](#balance)
+**See Also**: [leveraged_available_margin](#leveraged-available-margin), [balance](#balance)
 
+---
+
+## leveraged\_available\_margin
+
+`leveraged_available_margin` is the same as `self.available_margin` except that it takes leverage into account in a way that is more intuitive for some traders. 
+It is basically `self.available_margin * self.leverage`. 
+
+::: warning
+leveraged_available_margin takes the account balance, multiplies it by the leverage, and then subtracts the margin used for open positions and orders. For example, with a $10,000 balance and $2,000 used in trades at 2x leverage, it would be calculated as ($10,000 * 2) - $2,000 = $18,000. This provides a realistic view of the margin available for new trades.
+:::
+
+**Return Type**: float
+
+**See Also**: [available_margin](#available-margin), [balance](#balance), [leverage](#leverage)
 
 ## average\_entry\_price
 
