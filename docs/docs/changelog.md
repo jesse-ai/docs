@@ -2,6 +2,14 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.44.0 (17 November 2023)
+
+- [FIXED] Resolved the `Stream error received: Internal error, could not fetch data for subscription: v3_accountsUnauthorized` error on DYDX.
+- [IMPROVEMENT] Enhanced handling of market order submissions on `DYDX` and `Bybit` to prevent the `The exchange did not respond as expected for order execution` error.
+- [IMPROVEMENT] Upgraded the optimize mode's hyperparameters display table to [include the DNA](https://user-images.githubusercontent.com/804303/279473594-a8a0c9e6-02d1-4b27-958c-8dd596f4931c.png), thanks to [btagliani](https://github.com/btagliani).
+- [NEW FEATURE] Reintroduced CSV logging for optimize mode, as shown in [this pull request](https://github.com/jesse-ai/jesse/pull/411) by [btagliani](https://github.com/btagliani).
+- [BREAKING] Changes to the calculation of `self.available_margin` in backtest and paper trading modes for more realistic margin representation.
+
 ## 0.43.3 (29 October 2023)
 
 - [IMPROVEMENT] **Mandatory migration to Bybit API V5**. This update is indispensable if you're trading on Bybit, as it adapts Jesse to Bybit's latest API version.
