@@ -19,7 +19,7 @@ onMounted(() => {
 
 <template>
   <Layout>
-    <template #layout-bottom>
+    <!-- <template #layout-bottom>
       <div v-show="showBanner" class="sticky-banner" role="contentinfo" aria-label="Discount banner">
         <img src="../../public/imgs/b-01.svg"
              alt="Jesse logo" width="90"
@@ -38,7 +38,6 @@ onMounted(() => {
           </a>
         </div>
 
-        <!-- Close button -->
         <button @click="closeBanner" class="close-button" aria-label="Close banner">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
             <title>Close banner</title>
@@ -46,7 +45,7 @@ onMounted(() => {
           </svg>
         </button>
       </div>
-    </template>
+    </template> -->
   </Layout>
 </template>
 <style scoped>
