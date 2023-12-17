@@ -364,7 +364,7 @@ BandPass(bp, bp_normalized, signal, trigger)
 ## bollinger\_bands
 
 ```python  
-bollinger_bands(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, source_type="close", sequential=False) -> BollingerBands  
+bollinger_bands(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, devtype=0, source_type="close", sequential=False) -> BollingerBands  
 ```  
 
 BBANDS - Bollinger Bands
@@ -376,12 +376,17 @@ BBANDS - Bollinger Bands
 - `devup`: float - default=2
 - `devdn`: float - default=2
 - `matype`: int - default=0
+- `devtype`: int - default=0
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
 **Returns**:
 
 BollingerBands(upperband, middleband, lowerband)
+
+::: tip devtype
+The `devtype` argument determines the type of deviation to use. If `devtype` is 0, standard deviation is used. If `devtype` is 1, mean absolute deviation is used. If `devtype` is 2, median absolute deviation is used.
+:::
 
 ## bollinger\_bands\_width
 
