@@ -779,3 +779,9 @@ def watch_list(self):
 Then, when you run the live session, you will see a new table like:
 
 ![watch-list](https://jesse.trade/storage/images/docs/watch-list.jpg)
+
+## min_qty
+
+The minimum quantity that you can trade on the exchange for the symbol you're trading. It is available in live and paper trading modes only.
+
+**Return Type**: float
