@@ -47,6 +47,9 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 - ✅ Add support for Bybit unified accounts
 - ✅ Upgrade to Bybit version 5 API
 - ✅ Launch of the new documentation website
+- ✅ Launch of Jesse GPT
+
+## Q1 2024
 - Introduction of the new strategy index page featuring a variety of strategies with automated, up-to-date metrics
 
 ## Beyond

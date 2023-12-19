@@ -2,6 +2,18 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.45.0 (19 December 2023)
+
+-  **[IMPROVEMENT]** Updated syncing of existing candles in Live Mode for better alignment with exchange data.
+-  **[FIX]** Addressed the "No order found with clientId: acd20b4e-xxxx-xxxx-xxxx-d059896b920b21" error on DYDX.
+-  **[FIX]** Rectified the `ExchangeRejectedOrder: reduce-only order has same side with current position` error on Bybit, which occurred under specific conditions in live mode.
+-  **[FIX]** Solved the `KeyError: None - fee = config['env']['exchanges'][self.exchange]['fee']` error.
+-  **[FIX]** Eliminated the `ConnectionResetError: [Errno 104] Connection reset by peer` on Bybit.
+-  **[FIX]** Enhanced error handling for `BrokenPipeError` in Bybit's WebSocket connection.
+-  **[FIX]** Corrected issues with handling of low-priced assets like `1000PEPE-USDT`.
+-  **[IMPROVEMENT]** Added retry logic for `Bybit` API requests to bolster reliability during intermittent network issues.
+-  **[NEW FEATURE]** Introduced `min_qty` attribute in the Strategy class, applicable in live trading mode, to define the minimum tradeable quantity for a symbol on specific exchanges.
+
 ## 0.44.0 (17 November 2023)
 
 - [FIXED] Resolved the `Stream error received: Internal error, could not fetch data for subscription: v3_accountsUnauthorized` error on DYDX.
