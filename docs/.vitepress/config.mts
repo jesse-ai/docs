@@ -30,7 +30,7 @@ export default defineConfig({
     },
     footer: {
         message: 'We do NOT guarantee profitable trading results in anyways. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS. Do not risk money which you are afraid to lose. There might be bugs in the code - this software DOES NOT come with ANY warranty. All investments carry risk! Past performance is no guarantee of future results! Be aware of overfitting!',
-        copyright: 'Copyright © 2020-2023 Jesse.Trade'
+        copyright: 'Copyright © 2020-2024 Jesse.Trade'
     },
     editLink: {
       text: 'Edit this page on GitHub',
