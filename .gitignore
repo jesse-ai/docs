@@ -2,6 +2,7 @@
 /.idea
 /docs/.vitepress/.cache
 /docs/.vitepress/.temp
+/docs/docs/articles/*
 /storage/*.key
 .DS_Store
 Envoy.blade.php
