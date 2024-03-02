@@ -2,7 +2,7 @@
 
 **Risk management** and **statistic** calculations are essential for a successful algo trading career. 
 
-Hence, Jesse offers a collection of commonly used utility functions that life easier for quants. 
+Hence, Jesse offers a collection of commonly used utility functions that make life easier for quants. 
 
 ## anchor_timeframe
 
@@ -23,6 +23,7 @@ anchor_timeframe(timeframe)
 ```py
 bigger_timeframe = anchor_timeframe('1h') # prints '4h'
 ```
+
 
 ## are\_cointegrated
 
@@ -80,6 +81,7 @@ combinations_without_repeat(a: np.ndarray, n: int = 2) -> np.ndarray
 
 **Return Type**: np.ndarray
 
+
 ## estimate\_risk
 
 Estimates the risk per share
@@ -111,7 +113,6 @@ kelly_criterion(win_rate, ratio_avg_win_loss)
 **Return Type**: float
 
 
-
 ## limit\_stop\_loss
 
 Limits the stop-loss price according to the max allowed risk percentage. (How many percent you're OK with the price going against your position)
@@ -128,6 +129,7 @@ limit_stop_loss(entry_price, stop_price, trade_type, max_allowed_risk_percentage
 -   max_allowed_risk_percentage: float
 
 **Return Type**: float
+
 
 ## numpy\_candles\_to\_dataframe
 
@@ -151,6 +153,27 @@ numpy_candles_to_dataframe(candles: np.ndarray, name_date="date", name_open="ope
 **Return Type**: pd.DataFrame
 
 
+## prices\_to\_returns
+
+Converts a series of asset prices to returns. 
+
+In case you're wondering why you need to use price returns for price series analysis instead of the price values, check out this answer on [Quant Stackexchange](https://quant.stackexchange.com/a/16484). 
+
+::: tip 
+Notice that the first return value for the first index cannot be calculated hence it equals `nan`. 
+:::
+
+```py
+prices_to_returns(price_series: np.ndarray) -> np.ndarray
+```
+
+**Properties**:
+
+-   price_series: np.ndarray
+
+**Return Type**: np.ndarray
+
+
 ## qty\_to\_size
 
 Converts a quantity to its corresponding position-size.
@@ -167,12 +190,13 @@ qty_to_size(qty, price)
 
 **Return Type**: float
 
+
 ## risk\_to\_qty
 
 Calculates the quantity, based on the percentage of the capital you're willing to risk per trade.
 
 ::: tip
-This is probably the most important helper function that you're going to need in your strategies. Those of you whom are familiar with compounding risk would love this function.
+This is probably the most important helper function that you're going to need in your strategies. Those of you who are familiar with compounding risk would love this function.
 
 We made a [website](https://positionsizingcalculator.netlify.app) for you just to play with this simple but important formula.
 :::
@@ -225,6 +249,7 @@ qty = utils.risk_to_qty(capital, risk_perc, entry, stop, self.fee_rate)
 ```
 
 **See Also**: [fee_rate](/docs/strategies/api.html#fee-rate)
+
 
 ## risk\_to\_size
 
@@ -297,7 +322,7 @@ streaks(series: np.array, use_diff=True) -> np.array
 
 ## strictly\_decreasing
 
-Returns whether a series in strictly decreasing or not. 
+Returns whether a series is strictly decreasing or not. 
 
 ```py
 strictly_increasing(series, lookback)
@@ -312,7 +337,7 @@ strictly_increasing(series, lookback)
 
 ## strictly\_increasing
 
-Returns whether a series in strictly increasing or not. 
+Returns whether a series is strictly increasing or not. 
 
 ```py
 strictly_increasing(series, lookback)
@@ -355,26 +380,6 @@ sum_floats(float1: float, float2: float) -> float
 
 **Return Type**: float
 
-
-## prices\_to\_returns
-
-Converts a series of asset prices to returns. 
-
-In case you're wondering why you need to use price returns for price series analysis instead of the price values, check out this answer on [Quant Stackexchange](https://quant.stackexchange.com/a/16484). 
-
-::: tip 
-Notice that the first return value for the first index cannot be calculated hence it equals `nan`. 
-:::
-
-```py
-prices_to_returns(price_series: np.ndarray) -> np.ndarray
-```
-
-**Properties**:
-
--   price_series: np.ndarray
-
-**Return Type**: np.ndarray
 
 ## wavelet\_denoising
 
