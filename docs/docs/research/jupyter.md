@@ -1,9 +1,9 @@
 # Jupyter
 
-[Jupyter](https://jupyter.org) is a great and simple research environment for Python. 
+[Jupyter](https://jupyter.org) is a simple and powerful research environment for Python. 
 
 ::: warning
-To use Jesse inside your notebooks, you must create them inside the root of your Jesse project (so that it can see present `.env` file containing values for the database, etc). 
+To use Jesse inside your notebooks, you must create them inside the root of your Jesse project (so that it can find the `.env` file containing values for the database, etc). 
 :::
 
 To install Jupyter notebooks/labs, you can use the following command:
@@ -24,7 +24,7 @@ jupyter notebook
 jupyter-lab
 ```
 
-If you are running Jupyter inside a docker container, or on a remote server, add `--ip 0.0.0.0 --no-browser --allow-root` to the command so that you can use the external IP address of your server to access it:
+If you are running Jupyter inside a Docker container, or on a remote server, add `--ip 0.0.0.0 --no-browser --allow-root` to the command so that you can use the external IP address of your server to access it:
 
 ```
 jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
