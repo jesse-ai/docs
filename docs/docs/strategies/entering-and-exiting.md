@@ -4,17 +4,15 @@
 In case you prefer watching a video, here's a [short screencast explaining "How to enter and exit trades"](https://youtu.be/BwZ6GYbUYkc).
 :::
 
-Deciding to enter a trade is nothing but a True or False decision.
+Deciding to enter a trade is nothing but a True or False decision. For this, Jesse uses the `should_long()` and `should_short()` methods, which must return a boolean at all times.
 
-Jesse uses `should_long()` and `should_short()` methods which must return a boolean at all times.
-
-After making up your mind about entering a trade, you need to come up with exact entry prices, and exit prices. Jesse uses `go_long()` and `go_short()` methods for that.
+After making up your mind about entering a trade, you need to come up with exact entry prices and exit prices. Jesse uses the `go_long()` and `go_short()` methods for that.
 
 ## should_long()
 
 **Return Type**: bool
 
-Assuming the position is currently close, should it open a long position.
+Assuming the position is currently closed, returns whether to open a long position.
 
 Example:
 
@@ -31,7 +29,7 @@ def should_long(self):
 
 **Return Type**: bool
 
-Assuming the position is currently close, should it open a short position.
+Assuming the position is currently closed, returns whether to open a short position.
 
 ```py
 def should_short(self):
@@ -63,7 +61,7 @@ def go_long(self):
     self.take_profit = qty, take_profit_price
 ```
 
-`qty`, `entry_price`, `stop_loss_price`, and `take_profit_price` are placeholders, and can be anything you want; but `self.buy`, `self.stop_loss`, and `self.take_profit` are special variables that Jesse uses; they must be the same.
+`qty`, `entry_price`, `stop_loss_price`, and `take_profit_price` are placeholders, and can be anything you want; but `self.buy`, `self.stop_loss`, and `self.take_profit` are special variables that Jesse uses; they must be the set.
 
 A working example would be:
 
@@ -257,7 +255,7 @@ The `__init__` is not a new concept. It's the constructor of a Python class. Jes
 You could say `__init__` is the opposite of the [terminate()](./entering-and-exiting.html#terminate) method in a Jesse strategy. 
 
 ::: danger
-Remember to begin `__init__` method's content with a `super().__init__()` call, otherwise you will get an error.
+Remember to start your `__init__` method code with a `super().__init__()` call, otherwise you will get an error.
 :::
 
 ```py
