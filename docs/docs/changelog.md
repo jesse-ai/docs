@@ -1,6 +1,6 @@
 # Changelog
 
-Here you can see that changes were made at each release of the main framework and the live plugin: 
+Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
 ## 0.45.0 (19 December 2023)
 
@@ -30,7 +30,7 @@ Here you can see that changes were made at each release of the main framework an
 
 ## 0.43.0 (5 October 2023)
 
-- [NEW FEATURE] Added support for Python `3.10` and Python `3.11`. Both the main framework and livetrading plugin. 
+- [NEW FEATURE] Added support for Python `3.10` and Python `3.11`. Both the main framework and live trading plugin. 
 - [IMPROVEMENT] The style of the equity curve chart has been improved. Special thanks to a pull request submitted by [Movy](https://github.com/Movy). Check out the pull request [here](https://github.com/jesse-ai/jesse/pull/391).
 - [FIX] Fixed the `Order size must adhere to quantity step of 10` error when submitting orders on DYDX for small-sized symbols like `TRX-USD`. 
 - [FIX] Resolved the `Cannot cancel order with id: xxx because it is already canceled` error on DYDX. 
