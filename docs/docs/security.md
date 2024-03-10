@@ -48,7 +48,7 @@ UFW doesn't play nice with docker. Here is how to use Hetzner's firewall service
 
 Go into your server's page and click on the "Firewalls" tab and click on the "CREATE FIREWALL" button:
 
-![hetzner-firewall](https://jesse.trade/storage/images/how-to-deploy-jesse-to-production/hetzner-firewall.jpg)
+![hetzner-firewall](https://api1.jesse.trade/storage/images/how-to-deploy-jesse-to-production/hetzner-firewall.jpg)
 
 First, find your local machine's IP address by using a website such as [this one](http://icanhazip.com). 
 
@@ -58,6 +58,6 @@ We need two rules like this. Set the Protocol to TCP for both of them. The port 
 
 In the end, click on the "CREATE FIREWALL" button.
 
-![hetzner-firewall-rules](https://jesse.trade/storage/images/how-to-deploy-jesse-to-production/hetzner-firewall-rules.jpg)
+![hetzner-firewall-rules](https://api1.jesse.trade/storage/images/how-to-deploy-jesse-to-production/hetzner-firewall-rules.jpg)
 
 If you changed your IP address in the future, you can always update the firewall rules and add your new IP address. That is a good reason why using Hetzner's firewall is better than using a firewall from within the server.

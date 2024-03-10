@@ -2,7 +2,7 @@
 
 Let's say you found a good DNA and now you want to use it in your strategy. Go ahead and copy the DNA string that is displayed in the "evolving" dashboard. It should be a weird-looking string such as `t4`. Copy it from within the dashboard:
 
-![dna-example](https://jesse.trade/storage/images/docs/dna-example.jpg)
+![dna-example](https://api1.jesse.trade/storage/images/docs/dna-example.jpg)
 
 Then, define a method called `dna` inside your strategy that returns the DNA string:
 

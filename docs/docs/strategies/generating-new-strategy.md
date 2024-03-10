@@ -5,11 +5,11 @@ title: Generating new strategy
 
 To get started, go the menu, and click on the "New Strategy" button:
 
-![new-strategy-menu-button](https://jesse.trade/storage/images/docs/new-strategy-menu-button.jpg)
+![new-strategy-menu-button](https://api1.jesse.trade/storage/images/docs/new-strategy-menu-button.jpg)
 
 Then, give it a name. For example:
 
-![new-strategy-form](https://jesse.trade/storage/images/docs/new-strategy-form.jpg)
+![new-strategy-form](https://api1.jesse.trade/storage/images/docs/new-strategy-form.jpg)
 
 This will generate `AwesomeStrategy` class located at `jesse/strategies/AwesomeStrategy/__init__.py` including all the methods that are required to run the strategy:
 

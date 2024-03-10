@@ -2,11 +2,11 @@
 
 Assuming you already have [created](./strategies/generating-new-strategy.md) your first strategy and [imported](./import-candles.md) historical candles for your strategy, it is time to actually backtest it:
 
-![backtest-dark-1](https://jesse.trade/storage/images/docs/backtest-dark-1.jpg)
+![backtest-dark-1](https://api1.jesse.trade/storage/images/docs/backtest-dark-1.jpg)
 
 After choosing the routes, press the "Start" button. And here are the results:
 
-![backtest-results](https://jesse.trade/storage/images/docs/backtest-results.jpg)
+![backtest-results](https://api1.jesse.trade/storage/images/docs/backtest-results.jpg)
 
 ## Charts
 
@@ -14,7 +14,7 @@ Other than the chart that you see in the metrics section, there are also two  "L
 
 After the backtest is finished, you can download the charts by pressing the "Legacy Chart" button. Here is an example of the charts:
 
-![legacy-charts-example](https://jesse.trade/storage/images/docs/legacy-charts-example.jpg)
+![legacy-charts-example](https://api1.jesse.trade/storage/images/docs/legacy-charts-example.jpg)
 
 ## Quantstats Report
 

@@ -246,4 +246,4 @@ candlestick_chart(np_candles)
 
 Which would display:
 
-![candlestick-chart-example](https://jesse.trade/storage/images/docs/candlestick-chart-example.jpg)
+![candlestick-chart-example](https://api1.jesse.trade/storage/images/docs/candlestick-chart-example.jpg)

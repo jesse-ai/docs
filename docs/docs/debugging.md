@@ -16,7 +16,7 @@ For **live trading** the difference is not noticeable so in fact, it's recommend
 
 You can modify what should be printed while in the debugging mode and what shouldn't. To do so, head over to the "Logs" section of the settings page (which you can open by clicking on the "gear" icon), on your dashboard's settings page:
 
-![settings-backtest-logs](https://jesse.trade/storage/images/docs/settings-backtest-logs.jpg)
+![settings-backtest-logs](https://api1.jesse.trade/storage/images/docs/settings-backtest-logs.jpg)
 
 
 ## Paper trading
@@ -25,11 +25,11 @@ Paper trading is also a good idea for monitoring a strategy before risking real 
 
 Remember that while live/paper trading, you can access logs at all times from within the dashboard by clicking on the "Info Logs" button:
 
-![logs-button-live-mode-1](https://jesse.trade/storage/images/docs/logs-button-live-mode-1.jpg)
+![logs-button-live-mode-1](https://api1.jesse.trade/storage/images/docs/logs-button-live-mode-1.jpg)
 
 Which will open a modal window with the logs:
 
-![logs-button-live-mode-2](https://jesse.trade/storage/images/docs/logs-button-live-mode-2.jpg)
+![logs-button-live-mode-2](https://api1.jesse.trade/storage/images/docs/logs-button-live-mode-2.jpg)
 
 ## How to debug your code to see why it's not working as expected
 

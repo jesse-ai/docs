@@ -2,7 +2,7 @@
 
 Executing an optimization session is similar to how you execute a [backtest](../backtest.md):
 
-![optimize-mode](https://jesse.trade/storage/images/docs/optimize-mode.jpg)
+![optimize-mode](https://api1.jesse.trade/storage/images/docs/optimize-mode.jpg)
  
 ## Important considerations
 
@@ -34,7 +34,7 @@ For example, in my example, the average number of trades per year is 30-60, so I
 
 There's a section in the settings page in the dashboard which allows you to change the settings for the optimization mode:
 
-![settings-optimize-mode](https://jesse.trade/storage/images/docs/settings-optimize-mode.jpg)
+![settings-optimize-mode](https://api1.jesse.trade/storage/images/docs/settings-optimize-mode.jpg)
 
 ## When is the optimization over?
 After starting the optimize mode, first, the initial population is generated. There is a progress bar telling you how long you have to wait until it's done. During this period, no optimization is being done. It's just a random generation of the DNA. 

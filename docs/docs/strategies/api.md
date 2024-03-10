@@ -778,7 +778,7 @@ def watch_list(self):
 
 Then, when you run the live session, you will see a new table like:
 
-![watch-list](https://jesse.trade/storage/images/docs/watch-list.jpg)
+![watch-list](https://api1.jesse.trade/storage/images/docs/watch-list.jpg)
 
 ## min_qty
 

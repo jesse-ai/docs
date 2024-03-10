@@ -16,7 +16,7 @@ Behind the scenes, Jesse divides this dataset into two periods; training(85%) an
 
 In the optimize mode's dashboard, metrics such as the `win-rate` and `PNL` are shown for both `Training` and `Testing` periods, and are divided by the `|` symbol:
 
-![picking-good-dnas](https://jesse.trade/storage/images/docs/picking-good-dnas.jpg)
+![picking-good-dnas](https://api1.jesse.trade/storage/images/docs/picking-good-dnas.jpg)
 
 Since DNAs have been ranked from best to worst, you will usually find good ones at the beginning. Try to choose the ones that have good metrics for both `Training` and `Testing` periods. Then, [inject them into your strategy](./dna-usage.md) backtest each of the good ones on the validation period which we set aside earlier. In our example that 6 month period is from `2019-07-01` to `2020-01-01`. 
 

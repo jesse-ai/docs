@@ -75,7 +75,7 @@ It is generally a good idea to stop the application before modifying your `.env`
 At the top-right corner of the dashboard, you'll see a gear icon. Click on it and you'll see a list of settings like this:
 
 
-![settings-optimization](https://jesse.trade/storage/images/docs/settings-optimization.jpg)
+![settings-optimization](https://api1.jesse.trade/storage/images/docs/settings-optimization.jpg)
 
 Go ahead change it as you like. Changes are automatically saved which is why there's no "Save" button. 
 
