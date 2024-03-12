@@ -13,7 +13,7 @@
         <li>Self-custody (<strong>DEX</strong>)</li>
         <li>No <strong>KYC</strong></li>
         <li>Lowest fees</li>
-        <li>Up to <strong>100x</strong> leverage</li>
+        <li>Up to <strong>50x</strong> leverage</li>
       </ul>
 
       <div href="https://jesse.trade/apex" target="_blank" rel="noopener noreferrer" aria-label="Get it now"
