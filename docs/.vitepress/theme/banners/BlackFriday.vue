@@ -18,7 +18,7 @@ onMounted(() => {
 
 <template>
   <div v-show="showBanner" class="sticky-banner" role="contentinfo" aria-label="Discount banner">
-    <img src="../../public/imgs/b-01.svg"
+    <img src="../../../public/imgs/b-01.svg"
          alt="Jesse logo" width="90"
          class="logo">
 
