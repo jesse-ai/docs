@@ -1,53 +1,55 @@
+<template>
+  <Layout>
+<!--    <template #layout-bottom>-->
+<!--      <div v-show="showBanner" class="sticky-banner" role="contentinfo" aria-label="Discount banner">-->
+<!--        <img src="../../public/imgs/b-01.svg"-->
+<!--             alt="Jesse logo" width="90"-->
+<!--             class="logo">-->
+
+<!--        <div class="action-section">-->
+<!--          <a href="https://jesse.trade/pricing" target="_blank" rel="noopener noreferrer" aria-label="Get it now"-->
+<!--             class="uppercase gradient">-->
+<!--            63% BLACK FRIDAY DISCOUNT-->
+<!--          </a>-->
+<!--          <span>Get your lifetime live trading plug-in license</span>-->
+
+<!--          <a href="https://jesse.trade/pricing" target="_blank" rel="noopener noreferrer" aria-label="Get it now"-->
+<!--             class="button">-->
+<!--            <span>GET IT NOW →</span>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <button @click="closeBanner" class="close-button" aria-label="Close banner">-->
+<!--          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">-->
+<!--            <title>Close banner</title>-->
+<!--            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>-->
+<!--          </svg>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </template>-->
+  </Layout>
+</template>
+
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import {ref, onMounted} from 'vue'
 
 const {Layout} = DefaultTheme
 const showBanner = ref(true)
+const bannerName = 'hideBannerBlackFriday2023'
 
 function closeBanner() {
   showBanner.value = false;
-  localStorage.setItem('hideBannerBlackFriday2023', 'true');
+  localStorage.setItem(bannerName, 'true');
 }
 
 onMounted(() => {
-  if (localStorage.getItem('hideBannerBlackFriday2023') === 'true') {
+  if (localStorage.getItem(bannerName) === 'true') {
     showBanner.value = false;
   }
 });
 </script>
 
-<template>
-  <Layout>
-    <!-- <template #layout-bottom>
-      <div v-show="showBanner" class="sticky-banner" role="contentinfo" aria-label="Discount banner">
-        <img src="../../public/imgs/b-01.svg"
-             alt="Jesse logo" width="90"
-             class="logo">
-
-        <div class="action-section">
-          <a href="https://jesse.trade/pricing" target="_blank" rel="noopener noreferrer" aria-label="Get it now"
-             class="uppercase gradient">
-            63% BLACK FRIDAY DISCOUNT
-          </a>
-          <span>Get your lifetime live trading plug-in license</span>
-
-          <a href="https://jesse.trade/pricing" target="_blank" rel="noopener noreferrer" aria-label="Get it now"
-             class="button">
-            <span>GET IT NOW →</span>
-          </a>
-        </div>
-
-        <button @click="closeBanner" class="close-button" aria-label="Close banner">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
-            <title>Close banner</title>
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-    </template> -->
-  </Layout>
-</template>
 <style scoped>
 .sticky-banner {
   position: fixed;
