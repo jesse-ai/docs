@@ -2,6 +2,14 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.46.0 (14 March 2024)
+
+-  [IMPROVEMENT] Added a parameter for generating logs in the research backtest function, returning the file path if enabled.
+-  [IMPROVEMENT] Enhanced candle validation in the research module's `get_candles` function for clearer error messages.
+-  [IMPROVEMENT] Introduced `warmup_candles` parameter in the research module's backtest function for consistent results between research and dashboard backtests.
+-  [FIX] Resolved `_pickle.UnpicklingError` that occurred when loading candles from cache, improving loading times.
+-  [FIX] Addressed `ssl.SSLEOFError` on the `Bybit` driver due to unexpected WebSocket closures.
+
 ## 0.45.0 (19 December 2023)
 
 -  **[IMPROVEMENT]** Updated syncing of existing candles in Live Mode for better alignment with exchange data.
