@@ -16,6 +16,7 @@ backtest(
     routes: list,
     extra_routes: list,
     candles: dict,
+    warmup_candles: dict = None,
     generate_charts: bool = False,
     generate_tradingview: bool = False,
     generate_quantstats: bool = False,
@@ -23,6 +24,7 @@ backtest(
     generate_equity_curve: bool = False,
     generate_csv: bool = False,
     generate_json: bool = False,
+    generate_logs: bool = False,
     hyperparameters: dict = None
 )
 ```
@@ -33,6 +35,7 @@ backtest(
 - routes: list
 - extra_routes: list
 - candles: dict
+- warmup_candles: dict = None,
 - generate_charts: bool = False
 - generate_tradingview: bool = False
 - generate_quantstats: bool = False
@@ -40,6 +43,7 @@ backtest(
 - generate_equity_curve: bool = False
 - generate_csv: bool = False
 - generate_json: bool = False
+- generate_logs: bool = False
 - hyperparameters: dict (optional)
 
 **Return Type:** dict
@@ -61,6 +65,7 @@ from jesse.research import backtest, candles_from_close_prices
 # generate fake candles
 # # # # # # # # # # # # # # # 
 prices01 = [10, 11, 12, 12, 11, 13, 14, 12, 11, 15]
+# must be 1m candles
 fake_candles01 = candles_from_close_prices(prices01)
 
 # # # # # # # # # # # # # # # 
@@ -89,7 +94,7 @@ class ResearchStrategy(Strategy):
 # # # # # # # # # # # # # # # 
 exchange_name = 'Fake Exchange'
 symbol = 'BTC-USDT'
-timeframe = '1m'
+timeframe = '4h'
 config = {
     'starting_balance': 10_000,
     'fee': 0,
@@ -139,8 +144,20 @@ The `backtest()` function uses the same engine as the one in the GUI dashboard d
 
 In Jesse's typical backtests (via the GUI dashboard), warmup candles are injected **before** the backtest simulation is started. In fact, the required number of candles is calculated and then injected behind the scenes without you even knowing it. 
 
-But in the `backtest()` function, as I mentioned you need to pass all the required data to it. So first the required warmup candles are cut from the candles you pass to it, injected in the store, and then the simulations are started. 
+You have two options. First, it is to simply pass the candles and expect your results to be slightly different than what you will get in the GUI dashboard. And the second option is to fetch warm-up candles and pass them using the ‍‍‍‍‍‍‍‍‍‍‍‍‍‍`warmup_candles` parameter that was added since version `0.46.0`. 
 
 If your strategy doesn't require any warmup candles, in the `config` value pass it as `0`.
 
-which is fine for most use cases but if you see different backtest results, this is the reason.
+::: danger
+Remember that Jesse always expects the candles to be in the `1m` timeframe. This implies that even if you are backtesting with larger timeframes, you should only specify those additional time frames in your routes. 
+
+However, when passing candles to the backtest function, ensure that those candles are `1m` candles. 
+
+Therefore, you should fetch the candles like this:
+
+```python
+candles = get_candles(
+    exchange_name, symbol, '1m', start_date_str, finish_date_str
+)
+```
+:::
