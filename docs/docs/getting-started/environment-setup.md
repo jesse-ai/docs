@@ -18,8 +18,8 @@ A good practice for providing an environment for running Python applications is 
 ## Remote server
 
 In case you intend to use a remote server, we have step-by-step Youtube screencasts for you:
-- [How to set up a remote **dev environment** for algo-trading with Python in **VSCode**](https://www.youtube.com/watch?v=hAcG8Oey4VE) 🎥 
-- [How to **deploy** your Jesse project into the production server for **live trading**](https://www.youtube.com/watch?v=cUNX5FAVVYo) 🎥 
+- [How to set up a remote **dev environment** for algo-trading with Python in **VSCode**](https://www.youtube.com/watch?v=hAcG8Oey4VE) 🎥
+- [How to **deploy** your Jesse project into the production server for **live trading**](https://www.youtube.com/watch?v=cUNX5FAVVYo) 🎥
 
 ## Ubuntu
 
@@ -72,9 +72,7 @@ Installation on macOS is easy thanks to Homebrew. If you don't have [Homebrew](h
 ```
 
 :::tip
-Starting v`0.23.1`, Jesse can be installed natively on mac machines with Apple Silicon (M1). The performance on it amazing is BTW! 
-
-The only dependency package that doesn't work with M1 macs yet is `numba`. However, we made the `numba` package optional. Meaning that if you are on an M1 machine, it won't install it, and the indicators that use it will still work but will be a little slower. 
+Starting v`0.23.1`, Jesse can be installed natively on mac machines with Apple Silicon (M1). The performance on it amazing is BTW!
 
 Installing scipy is a bit tricky. We recommend installing it with Homebrew:
 ```
@@ -150,7 +148,7 @@ Open PowerShell as Administrator (windows search for "PowerShell" > right click 
 `
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
     `
-    
+
 Restart your computer when prompted.
 
 Now download and install [Ubuntu 20.04](https://www.microsoft.com/en-us/store/p/ubuntu-2004-lts/9n6svws3rx71) from the [Microsoft Store](http://microsoft.com/store).
@@ -167,14 +165,14 @@ After that install Redis (you will be asked for the password you just set):
 ```
 
  You should end up with something like that: `redis-cli X.X.X`
- 
+
  This will start the server. You can close the windows after that:
-```  
+```
     redis-server
 ```
- 
+
  But you need to start Redis server after each system reboot by running the redis-server command in the ubuntu terminal.
- 
+
  Another alternative is [Memurai](https://www.memurai.com) - which has to be restarted every 10 days in the free version though.
 
 ### PostgreSQL
