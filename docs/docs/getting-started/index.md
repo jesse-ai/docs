@@ -31,6 +31,7 @@ git clone https://github.com/jesse-ai/project-template my-bot
 # enter the directory
 cd my-bot
 # create a .env file by copying it from the template
+# edit this to match you enviroment
 cp .env.example .env
 ```
 
@@ -47,6 +48,43 @@ This will create a new project containing only files and folders that you actual
         └─ __init__.py
 ```
 
+## Virtual environment (Optional but recommended)
+
+A Python virtual environment is very helpful because it creates an isolated space on your computer for each project, allowing you to install and manage Python packages separately for each one
+
+To get started, navigate to your Jesse project directory where you want to set up the virtual environment.
+
+```bash
+cd path/to/your/jesse-project
+```
+
+Create a Python virtual environment named `venv`.
+
+```bash
+python3 -m venv venv  # macOS and Linux
+python -m venv venv   # Windows
+```
+
+Activate the virtual environment. You'll need to do this every time you want to run your bot.
+
+```bash
+source venv/bin/activate  # macOS and Linux
+.\venv\Scripts\Activate   # Windows
+```
+
+Install the `jesse` package using pip.
+
+```bash
+pip install jesse
+```
+
+Verify that `jesse` has been installed successfully.
+
+```bash
+pip show jesse
+```
+
+Remember to activate the virtual environment each time you want to run your Jesse project.
 
 ## PIP Installation
 
@@ -54,11 +92,6 @@ If you went with the [docker](./docker.md) option, then Jesse is installed for y
 
 ```
 pip install jesse
-```
-
-(Optional) Install numba to speed up a few indicators (**Doesn't work on M1 macs at the moment**):
-```
-pip install numba==0.53
 ```
 
 ## Upgrade with PIP
@@ -71,39 +104,6 @@ pip install -U jesse
 ::: warning
 Sometimes pip doesn't upgrade to the latest version on the first time running the above command. To make sure you're running the latest release, check out the latest version number on [PyPi](https://pypi.org/project/jesse/), and then make sure you see that version in `pip show jesse` output.
 :::
-
-## Virtual environment (Optional but recommended)
-
-A Python virtual environment is very helpful because it creates an isolated space on your computer for each project, allowing you to install and manage Python packages separately for each one
-
-To get started, navigate to your Jesse project directory where you want to set up the virtual environment.
-```bash
-cd path/to/your/jesse-project
-```
-
-Create a Python virtual environment named `venv`.
-```bash
-python3 -m venv venv  # macOS and Linux
-python -m venv venv   # Windows
-```
-
-Activate the virtual environment. You'll need to do this every time you want to run your bot.
-```bash
-source venv/bin/activate  # macOS and Linux
-.\venv\Scripts\Activate   # Windows
-```
-
-Install the `jesse` package using pip.
-```bash
-pip install jesse
-```
-
-Verify that `jesse` has been installed successfully.
-```bash
-pip show jesse
-```
-
-Remember to activate the virtual environment each time you want to run your Jesse project.
 
 ## Start Jesse
 If you are using Jesse via Docker, you don't need to run anything as it is explained in the [Docker documentation](./docker.md). For native setups however, to get the party started, (**inside your Jesse project**) first make sure that the values for both `POSTGRES_HOST` and `REDIS_HOST` are set to `localhost`. And then run the application by:
@@ -121,11 +121,11 @@ INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)
 ```
 
-Go ahead and open (in my case) [127.0.0.1:9000](http://127.0.0.1:9000) in your browser of choice. If you are running on a server, you can use the IP address of the server instead of 
-`0.0.0.0`. 
+Go ahead and open (in my case) [127.0.0.1:9000](http://127.0.0.1:9000) in your browser of choice. If you are running on a server, you can use the IP address of the server instead of
+`0.0.0.0`.
 
-So for example if the IP address of your server is `1.2.3.4` the URL would be [http://1.2.3.4:9000](http://1.2.3.4:9000). 
+So for example if the IP address of your server is `1.2.3.4` the URL would be [http://1.2.3.4:9000](http://1.2.3.4:9000).
 
 ::: tip
-If you want to change the default `9000` port, you can do it by modifying the `APP_PORT` value in your project's `.env` file. 
+If you want to change the default `9000` port, you can do it by modifying the `APP_PORT` value in your project's `.env` file.
 :::
