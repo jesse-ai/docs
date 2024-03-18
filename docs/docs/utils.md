@@ -202,7 +202,7 @@ We made a [website](https://positionsizingcalculator.netlify.app) for you just t
 :::
 
 ::: warning
-There might be situations where this helper returns a qty exceeding the available capital leading to an exception. The reason for this is a very close stop loss (often due to the usage of the ATR). You can check this with the calculator above. That's not a error, but expected behavior of the formula. You might want to add a logic limiting the qty to a maximum percentage of the capital.
+There might be situations where this helper returns a qty exceeding the available capital leading to an exception. The reason for this is a very close stop loss (often due to the usage of the ATR). You can check this with the calculator above. That's not an error, but expected behavior of the formula. You might want to add a logic limiting the qty to a maximum percentage of the capital.
 :::
 
 ```py

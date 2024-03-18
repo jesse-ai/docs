@@ -84,7 +84,7 @@ That's the reason we use slice_candles(). We use the configured warmup_candles_n
 We don't do it by default if sequential=True, as Jesse doesn't know how much lookback you need from your sequential indicator. But as you know it, you can remove this condition.
 
 ::: tip Too few past data change indicator values
-Some indicators are influenced by the whole range of past data. These functions are called functions with memory. Check [here](https://ta-lib.org/d_api/ta_setunstableperiod.html) for a good explanation. That's the reason for warm_up_candles_num changing indicator values under some conditions or variations to other implementations (like TradingView). 
+Some indicators are influenced by the whole range of past data. These functions are called functions with memory. Check [here](https://ta-lib.org/api/#Unstable%20Period) for a good explanation. That's the reason for warm_up_candles_num changing indicator values under some conditions or variations to other implementations (like TradingView).
 :::
 
 
