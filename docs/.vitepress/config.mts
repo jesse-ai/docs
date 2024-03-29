@@ -61,6 +61,10 @@ export default defineConfig({
                 text: 'Video Tutorials',
                 link: 'https://jesse.trade/youtube',
             },
+            {
+                text: 'Strategies',
+                link: 'https://jesse.trade/strategies',
+            },
         ],
 
 
@@ -153,6 +157,7 @@ export default defineConfig({
                 ]
             },
             {text: '🔗 Resources', link: 'https://github.com/jesse-ai/awesome-jesse/'},
+            {text: '🎯 Strategies', link: 'https://jesse.trade/strategies/'},
             {text: '📚 FAQs', link: 'https://jesse.trade/help'},
             {text: '📜 Changelog', link: '/docs/changelog'},
             {text: '📈 Roadmap', link: '/docs/roadmap'}
