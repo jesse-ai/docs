@@ -130,7 +130,7 @@ adosc(candles: np.ndarray, fast_period=3, slow_period=10, sequential=False) -> U
 
 The **Chaikin A/D Oscillator** is a momentum oscillator derived from the Chaikin Accumulation/Distribution Line, indicating the momentum of accumulation or distribution within a security by measuring the difference between its short-term and long-term accumulation/distribution values.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -151,7 +151,7 @@ adx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray
 
 The **Average Directional Movement Index (ADX)** is a technical indicator used to quantify the strength of a trend in a security, irrespective of its direction, by measuring the magnitude of price movements over a specified time period.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -171,7 +171,7 @@ adxr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarra
 
 The **Average Directional Movement Index Rating (ADXR)** is a variation of the ADX indicator that calculates the average of the current ADX value and a previous ADX value to provide a smoothed indication of the trend strength over time.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -191,7 +191,7 @@ alligator(candles: np.ndarray, source_type="close", sequential=False) -> AG
 
 The **Alligator** is a technical analysis tool composed of three smoothed moving averages with different periods, representing the balance between trend-following and range-bound market conditions, helping traders identify potential trends and trade signals.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -211,7 +211,7 @@ alma(candles: np.ndarray, period: int = 9, sigma: float = 6.0, distribution_offs
 
 The **Arnaud Legoux Moving Average (ALMA)** is a unique moving average that adjusts its sensitivity based on market volatility, aiming to reduce lag and provide smoother trend signals by incorporating a variable smoothing factor calculated from the Gaussian distribution.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -234,7 +234,7 @@ ao(candles: np.ndarray, sequential=False) -> AO
 
 The **Awesome Oscillator** is a momentum indicator that measures the difference between the 34-period and 5-period simple moving averages of a security's price, indicating the momentum of the market based on the interaction between these moving averages.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -254,7 +254,7 @@ apo(candles: np.ndarray, fast_period=12, slow_period=26, matype=0, source_type="
 
 The **Absolute Price Oscillator (APO)** is a technical indicator that measures the difference between two moving averages of the price of a security, providing insights into the direction and strength of the trend by analyzing changes in the absolute price values.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -277,7 +277,7 @@ aroon(candles: np.ndarray, period=14, sequential=False) -> AROON
 
 The **Aroon** **indicator** is a technical analysis tool used to identify trends and trend reversals by calculating the time elapsed since the highest and lowest prices within a specified period, indicating the strength and direction of the trend.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -297,7 +297,7 @@ aroonosc(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.nd
 
 The **Aroon Oscillator** is a technical indicator derived from the Aroon indicator, representing the difference between the Aroon Up and Aroon Down lines, providing insights into the strength of a trend and potential trend reversals.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -317,7 +317,7 @@ atr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray
 
 The **Average True Range (ATR)** is a technical indicator that measures the volatility of a security by calculating the average of the true ranges over a specified period, providing insight into the magnitude of price movements and potential trend changes.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -337,7 +337,7 @@ avgprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
 
 The **Average Price** is a simple calculation of the average price of a security over a specified period, typically used to smooth out price fluctuations and provide a reference point for assessing the current price level.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -355,6 +355,8 @@ beta(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray
 ```
 
 **Beta** is a measure of a stock's volatility in relation to the market, calculated by comparing its price movements to those of a benchmark index, such as BTC, providing insight into the stock's risk relative to the overall market.
+
+\#trend
 
 **Arguments**:
 
@@ -374,7 +376,7 @@ bandpass(candles: np.ndarray, period: int = 20, bandwidth: float = 0.3, source_t
 
 The **Bandpass** function isolates specific frequency ranges within price data by applying a bandpass filter. It calculates signals useful for technical analysis and trading strategies by normalizing the filtered data and comparing it to a trigger signal.
 
-#filter
+\#filter
 
 **Arguments**:
 
@@ -396,7 +398,7 @@ bollinger_bands(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, devt
 
 **Bollinger Bands** are a technical analysis tool consisting of a middle band being a simple moving average (SMA) and upper and lower bands representing a specified number of standard deviations from the SMA, used to measure volatility and identify potential overbought or oversold conditions in a security's price.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -425,7 +427,7 @@ bollinger_bands_width(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0
 
 **Bollinger Bands Bandwidth** is a technical indicator derived from Bollinger Bands, representing the width of the bands relative to the moving average, providing insights into the volatility of a security and potential trading opportunities based on changes in volatility levels.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -466,7 +468,7 @@ cc(candles: np.ndarray, wma_period=10, roc_short_period=11, roc_long_period=14, 
 
 The **Coppock Curve** is a momentum indicator used in technical analysis to identify long-term buying opportunities in the stock market by calculating the summation of two weighted moving averages of the rate of change for two different time periods.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -489,7 +491,7 @@ cci(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray
 
 CCI, or **Commodity Channel Index**, is a versatile technical indicator used to identify overbought and oversold conditions in a security by measuring its deviation from its statistical mean over a specified period, aiding traders in identifying potential trend reversals and market extremes.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -509,7 +511,7 @@ cfo(candles: np.ndarray, period: int = 14, scalar: float = 100, source_type: str
 
 The **Chande Forecast Oscillator** predicts future price movements by comparing the closing price of a security to its highest high and lowest low over a specified period, aiding traders in identifying potential trend reversals and momentum shifts.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -530,7 +532,7 @@ cg(candles: np.ndarray, period: int = 10, source_type: str = "close", sequential
 
 The **Center of Gravity (CG)** indicator identifies potential reversal points by calculating the average price level over a specified period, providing traders with insights into the equilibrium or balance point of a security's price movements.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -551,7 +553,7 @@ cksp(candles: np.ndarray, p: int = 10, x: float = 1.0, q: int = 9, sequential: b
 
 The **Chande Kroll Stop (CKSP)** is a trailing stop-loss indicator that dynamically adjusts based on market volatility, aiming to protect profits by placing stops at a distance from the current price proportional to recent price fluctuations.
 
-#exit
+\#exit
 
 **Arguments**:
 
@@ -573,7 +575,7 @@ chande(candles: np.ndarray, period=22, mult=3.0, direction="long", sequential=Fa
 
 **Chandelier Exits** is a volatility-based trailing stop-loss indicator that dynamically adjusts its level based on recent high or low prices, providing a method for traders to protect profits and manage risk by trailing stops behind price movements.
 
-#exit
+\#exit
 
 **Arguments**:
 
@@ -595,7 +597,7 @@ chop(candles: np.ndarray, period: int = 14, scalar: float = 100, drift: int = 1,
 
 The **Choppiness Index (CHOP)** is a technical indicator designed to measure the market's trendiness or choppiness by calculating the ratio of the current range to the maximum range over a specified period, helping traders identify periods of consolidation or trend development.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -617,7 +619,7 @@ cmo(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Un
 
 The **Chande Momentum Oscillator** measures the momentum of a security by calculating the difference between the sum of recent gains and losses over a specified period, providing insights into overbought and oversold conditions and potential trend reversals.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -638,7 +640,7 @@ correlation_cycle(candles: np.ndarray, period=20, threshold=9, source_type="clos
 
 John Ehlers' **Correlation Cycle, Correlation Angle, and Market State** are components of a market analysis framework aimed at identifying cyclical patterns and trend directions in financial markets. The Correlation Cycle measures the cyclic behavior of market data, the Correlation Angle quantifies the phase angle of market cycles, and the Market State evaluates the current state of the market, aiding traders in making informed decisions based on cyclical and trend characteristics.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -680,7 +682,7 @@ cvi(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]
 
 The **Chaikin's Volatility Indicator** measures the volatility of a security by calculating the difference between the high and low prices over a specified period, helping traders identify periods of increased or decreased price movement volatility.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -700,7 +702,7 @@ cwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequenti
 
 The **Cubed Weighted Moving Average** is a variant of the Weighted Moving Average that assigns higher weights to recent data points cubically, resulting in more emphasis on recent price action and less on older data, providing traders with a smoother trend indicator that responds quickly to price changes.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -721,7 +723,7 @@ damiani_volatmeter(candles: np.ndarray, vis_atr=13, vis_std=20, sed_atr=40, sed_
 
 The **Damiani Volatmeter** is a technical indicator used to gauge market volatility by comparing the difference between the high and low prices with a reference level over a specified period, providing insights into potential changes in market volatility and helping traders adjust their strategies accordingly.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -746,7 +748,7 @@ decycler(candles: np.ndarray, hp_period=125, source_type="close", sequential=Fal
 
 The **Ehlers Simple Decycler** is a technical indicator developed by John Ehlers that aims to filter out high-frequency noise from price data while preserving the underlying trend. It achieves this by applying a low-pass filter to the price series, emphasizing longer-term price movements and reducing short-term fluctuations.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -766,7 +768,7 @@ dec_osc(candles: np.ndarray, hp_period=125, k=1, source_type="close", sequential
 
 The **Ehlers Decycler Oscillator** seeks to filter out short-term price fluctuations and highlight longer-term trends in the market. It accomplishes this by applying a high-pass filter to the price data, effectively removing high-frequency noise and emphasizing the underlying cyclical components of the price series.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -787,7 +789,7 @@ dema(candles: np.ndarray, period=30, source_type="close", sequential=False) -> U
 
 The **Double Exponential Moving Average (DEMA)** is a type of moving average that applies two exponential smoothing techniques to the price data, resulting in a smoother and more responsive indicator compared to traditional moving averages. It aims to reduce lag and provide quicker signals by placing more weight on recent price data while still maintaining a stable average.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -808,7 +810,7 @@ devstop(candles: np.ndarray, period:int=20, mult: float = 0, devtype: int = 0, d
 
 **Kase Dev Stop** is an adaptive stop-loss indicator that adjusts dynamically based on market volatility and price behavior.
 
-#exit
+\#exit
 
 **Arguments**:
 
@@ -831,7 +833,7 @@ di(candles: np.ndarray, period=14, sequential=False) -> DI
 
 The **Directional Indicator** is a technical analysis tool that measures the strength and direction of a trend in a financial market. It consists of two components: The positive Directional Indicator (+DI) and the negative Directional Indicator (-DI) - quantifying the strength of the price movements.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -851,7 +853,7 @@ dm(candles: np.ndarray, period=14, sequential=False) -> DM
 
 **Directional Movement** is a concept in technical analysis that quantifies the strength and direction of price movements in a financial market. It's often used in conjunction with the Directional Indicator (DI) to assess the strength of trends. Directional Movement is typically calculated using the True Range (TR) and measures the magnitude of price movements without considering direction. By comparing upward and downward price movements, traders can determine the prevailing direction and strength of a trend.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -871,7 +873,7 @@ donchian(candles: np.ndarray, period=20, sequential=False) -> DonchianChannel
 
 **Donchian Channels** are used to identify potential breakout and breakdown levels, as well as to gauge the overall volatility of a market. Traders often use these channels to establish entry and exit points for their trades, with breakouts above the upper channel signaling potential buy opportunities and breakdowns below the lower channel indicating potential sell opportunities.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -891,7 +893,7 @@ dpo(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Uni
 
 The **Detrended Price Oscillator (DPO)** is a momentum oscillator that helps traders identify short-term cycles or overbought/oversold conditions in a financial asset. It accomplishes this by comparing the current price to a historical average, typically the simple moving average (SMA) of the price over a specified lookback period. By detrending the price data, the DPO filters out longer-term trends, focusing on shorter-term price movements. This allows traders to identify potential reversals or shifts in market sentiment.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -912,7 +914,7 @@ dti(candles: np.ndarray, r=14, s=10, u=5, sequential=False) -> Union[float, np.n
 
 The **Directional Trend Index (DTI)** by William Blau is a technical indicator that combines elements of ADX and DMI to gauge both trend strength and direction in the market.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -934,7 +936,7 @@ dx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
 
 The **Directional Movement Index (DMI)** is a technical indicator that assesses the strength and direction of a trend in a financial asset.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -954,7 +956,7 @@ edcf(candles: np.ndarray, period: int = 15, source_type: str = "hl2", sequential
 
 The **Ehlers Distance Coefficient Filter** filters out high-frequency noise from price data while preserving the underlying trend. It calculates the distance between current price and a weighted moving average, adjusting the weighting factor based on market conditions to provide a smoother and more accurate representation of price trends.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -975,7 +977,7 @@ efi(candles: np.ndarray, period=13, source_type="close", sequential=False) -> Un
 
 **Elder's Force Index** is a technical indicator developed by Dr. Alexander Elder that combines price movement and volume to measure the strength of bulls or bears in the market. It is calculated by multiplying the price change by the volume, providing insights into the underlying force driving the current trend.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -996,7 +998,7 @@ ema(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Uni
 
 EMA stands for **Exponential Moving Average**, which is a type of moving average that places more weight on recent data points, making it more responsive to recent price changes compared to a simple moving average (SMA).
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1017,7 +1019,7 @@ emd(candles: np.ndarray, period=20, delta=0.5, fraction=0.1, sequential=False) -
 
 **Empirical Mode Decomposition (EMD)**, by John F. Ehlers and Ric Way, decomposes time series signals into intrinsic mode functions (IMFs) and a residual component, revealing underlying cyclical patterns in the data.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1039,7 +1041,7 @@ emv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
 
 EMV, or **Ease of Movement**, is a technical indicator designed to assess the relationship between price and volume in the market. It quantifies the ease with which prices move by dividing the change in price by the volume, helping traders identify potential trend reversals or continuation patterns based on divergence between price and volume movements.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1058,7 +1060,7 @@ epma(candles: np.ndarray, period: int = 11, offset: int = 4, source_type: str = 
 
 The **End Point Moving Average (EPMA)** is a type of moving average that calculates the average of the most recent data points, emphasizing the endpoint of the data series. It aims to provide a smoother representation of recent price trends while minimizing lag compared to traditional moving averages.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1080,7 +1082,7 @@ er(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential:
 
 The **Efficiency Ratio (ER)**, or Kaufman Efficiency Indicator, quantifies the efficiency of price movements by comparing net price change to total price movement over a specified period, normalized to a scale from 0 to 1.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1100,7 +1102,7 @@ eri(candles: np.ndarray, period: int = 13, matype: int = 1, source_type: str = "
 
 The **Elder Ray Index** helps traders assess the balance of power between bulls and bears and identify potential trend reversals or continuations based on the divergence between price and the EMA.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1122,7 +1124,7 @@ fisher(candles: np.ndarray, period=9, sequential=False) -> FisherTransform
 
 The **Fisher Transform** is a technical indicator developed by John Ehlers that transforms prices into a Gaussian distribution to make trends and turning points easier to identify. It converts price data into values that oscillate between -1 and 1, making it particularly useful for detecting trend reversals.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1142,7 +1144,7 @@ fosc(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Un
 
 The **Forecast Oscillator (FOSC)** is a technical indicator that measures the difference between the current price and a forecasted price based on a linear regression over a specified period. It helps traders identify potential overbought or oversold conditions and assess the strength of a trend by comparing the actual price to the expected price.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1163,7 +1165,7 @@ frama(candles: np.ndarray, window=10, FC=1, SC=300, sequential=False) -> Union[f
 
 The **Fractal Adaptive Moving Average (FRAMA)** is a type of moving average that adjusts its sensitivity to market volatility. It dynamically changes the length of the moving average based on recent price volatility, aiming to provide smoother and more accurate trend signals compared to traditional moving averages.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1185,7 +1187,7 @@ fwma(candles: np.ndarray, period: int = 5, source_type: str = "close",sequential
 
 **Fibonacci's Weighted Moving Average (FWMA)** is a type of moving average that assigns weights to each data point based on Fibonacci ratios, typically 0.618 and 0.382. This weighting scheme aims to give more importance to recent data while still considering historical prices, providing a smoother trend indicator compared to simple moving averages.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1206,7 +1208,7 @@ gatorosc(candles: np.ndarray, source_type="close", sequential=False) -> GATOR
 
 The **Gator Oscillator**, developed by Bill M. Williams, is a technical indicator used to identify the presence of trends and their relative strength in the market. It consists of two histograms, one representing the difference between the Alligator's jaw and teeth (blue) and the other representing the difference between the teeth and lips (red). The convergence and divergence of these histograms provide signals for potential changes in trend direction and momentum.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1226,7 +1228,7 @@ gauss(candles: np.ndarray, period=14, poles=4, source_type="close", sequential=F
 
 The **Gaussian Filter** is a data filtering technique used to smooth out noise and extract underlying trends or patterns from a signal. It applies a Gaussian distribution or bell-shaped curve to weight data points, giving more emphasis to points closer to the center and less weight to those farther away. This helps in reducing noise while preserving the integrity of the signal.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1248,7 +1250,7 @@ heikin_ashi_candles(candles: np.ndarray, sequential=False) -> HA
 
 **Heikin Ashi candlesticks** are a type of Japanese candlestick charting technique that uses modified candlesticks to filter out market noise and emphasize trends. Each Heikin Ashi candlestick is calculated based on the average prices of the current and previous periods, resulting in smoother candlestick patterns compared to traditional candlesticks. They help traders identify trends more easily and make informed decisions based on trend direction and momentum.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1267,7 +1269,7 @@ high_pass(candles: np.ndarray, period=48, source_type="close", sequential=False)
 
 The **1-pole High Pass Filter**, by John F. Ehlers, is a digital filter designed to reduce low-frequency noise while retaining high-frequency components in a signal.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1288,7 +1290,7 @@ high_pass_2_pole(candles: np.ndarray, period=48, source_type="close", sequential
 
 The **2-pole High Pass Filter**, developed by John F. Ehlers, is a digital filter that attenuates low-frequency components while preserving high-frequency components in a signal. It achieves this by utilizing two poles in its transfer function, offering improved noise reduction compared to a single-pole filter.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1309,7 +1311,7 @@ hma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Uni
 
 The **Hull Moving Average (HMA)** is a type of moving average developed by Alan Hull that aims to reduce lag while maintaining smoothness. It achieves this by using a weighted average of three different exponential moving averages (EMAs) with different periods. The resulting moving average is more responsive to recent price movements compared to traditional moving averages, making it useful for identifying trends and potential entry or exit points.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1330,7 +1332,7 @@ ht_dcperiod(candles: np.ndarray, source_type="close", sequential=False) -> Union
 
 The **Hilbert Transform - Dominant Cycle Period** is used to identify the dominant cycle period within a financial time series. It applies the Hilbert Transform algorithm to the price data, providing insights into the prevailing cycle length or frequency in the market.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1350,7 +1352,7 @@ ht_dcphase(candles: np.ndarray, source_type="close", sequential=False) -> Union[
 
 The **Hilbert Transform - Dominant Cycle Phase** calculates the phase of the dominant cycle in a financial time series, helping traders anticipate potential turning points or trend reversals based on cyclical movements.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1370,7 +1372,7 @@ ht_phasor(candles: np.ndarray, source_type="close", sequential=False) -> IQ
 
 The **Hilbert Transform - Phasor Components** describe the amplitude and phase of a sinusoidal waveform, aiding in the analysis and manipulation of complex signals.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1390,7 +1392,7 @@ ht_sine(candles: np.ndarray, source_type="close", sequential=False) -> SINEWAVE
 
 The **Hilbert Transform - SineWave (HT\_SINE)** applies the Hilbert Transform algorithm to a financial time series to generate a sine wave. This sine wave can help to identify cyclical patterns and turning points or continuation patterns.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1410,7 +1412,7 @@ ht_trendline(candles: np.ndarray, source_type="close", sequential=False) -> Unio
 
 The **Hilbert Transform - Instantaneous Trendline** generates a trendline that adapts rapidly to changing market conditions. This trendline aims to capture the current direction of the trend more accurately compared to traditional moving averages, making it useful for identifying trend reversals and determining entry or exit points in trading.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1430,7 +1432,7 @@ ht_trendmode(candles: np.ndarray, source_type="close", sequential=False) -> Unio
 
 The **Hilbert Transform - Trend vs Cycle Mode (HT\_TRENDMODE)** is a technical tool that distinguishes between trend and cycle components within a financial time series. It helps identify whether the dominant movement in the data is more trend-like or cycle-like.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1451,7 +1453,7 @@ hurst_exponent(candles: np.ndarray, min_chunksize: int = 8, max_chunksize: int =
 The **Hurst Exponent** is a statistical measure used to quantify the long-term memory of a time series data. It indicates the degree of self-similarity or fractal nature of the data, helping to identify whether the data is trending, mean-reverting, or displaying random behavior.
 In simpler terms, the function helps quantify how likely trends in the data will continue. A Hurst exponent close to 0.5 indicates random fluctuations, while values closer to 1 suggest persistent trends. The function offers different methods for this estimation and allows you to choose the most suitable one for your data.
 
-#trend
+\#trend
 
 ::: tip methods
 
@@ -1481,7 +1483,7 @@ hwma(candles: np.ndarray, na: float = 0.2, nb: float = 0.1, nc: float = 0.1, sou
 
 The **Holt-Winters Moving Average**, also known as the Triple Exponential Smoothing, is a method used for forecasting time series data. It extends the Exponential Moving Average (EMA) by incorporating seasonal components, making it suitable for capturing and predicting seasonal patterns in data.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1504,7 +1506,7 @@ ichimoku_cloud(candles: np.ndarray, conversion_line_period=9, base_line_period=2
 
 The **Ichimoku Cloud**, or Ichimoku Kinko Hyo, is a versatile technical analysis tool that provides insights into the trend direction, momentum, and potential support and resistance levels in the market. It consists of several components, including the Senkou Span A and Senkou Span B lines, the Kijun-sen and Tenkan-sen lines, and the Chikou Span.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1526,7 +1528,7 @@ ichimoku_cloud_seq(candles: np.ndarray, conversion_line_period=9, base_line_peri
 
 The **Ichimoku Cloud Sequential** is a trading strategy that combines the Ichimoku Cloud indicator with specific rules for entering and exiting trades based on the sequence of signals generated by the Ichimoku components. It aims to capture trends and reversals in the market by providing clear guidelines for trade execution, often incorporating criteria such as the alignment of different Ichimoku lines and the positioning of price relative to the Cloud.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1548,7 +1550,7 @@ ift_rsi(candles: np.ndarray, rsi_period: int = 5, wma_period: int =9, source_typ
 
 The **Modified Inverse Fisher Transform applied to the RSI** is a technical analysis technique that transforms the RSI values into a more normalized distribution using the Inverse Fisher Transform. This modification helps to improve the effectiveness of the RSI indicator by reducing noise and providing clearer signals for identifying overbought and oversold conditions in the market.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1570,7 +1572,7 @@ itrend(candles: np.ndarray, alpha=0.07, source_type="hl2", sequential=False) -> 
 
 The **Instantaneous Trendline** is a dynamic indicator that swiftly captures the current trend direction, aiding in identifying trend reversals and entry or exit points in trading.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1591,7 +1593,7 @@ jma(candles: np.ndarray, period:int=7, phase:float=50, power:int=2, source_type:
 
 The **Jurik Moving Average** is a type of moving average developed by Mark Jurik. It aims to reduce lag and improve responsiveness compared to traditional moving averages by applying advanced mathematical techniques for smoothing and filtering noise.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1614,7 +1616,7 @@ jsa(candles: np.ndarray, period: int = 30, source_type: str = "close", sequentia
 
 The **Jsa Moving Average** computes the midpoint of a given price series by averaging each element with the element shifted forward by a specified period.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1635,7 +1637,7 @@ kama(candles: np.ndarray, period=30, source_type="close", sequential=False) -> U
 
 The **Kaufman Adaptive Moving Average (KAMA)** is a type of moving average developed by Perry Kaufman. It dynamically adjusts its smoothing period based on market volatility, aiming to provide a more accurate representation of price trends while minimizing lag. KAMA increases its responsiveness during periods of high volatility and decreases it during periods of low volatility, making it particularly useful in adapting to changing market conditions.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1656,7 +1658,7 @@ kaufmanstop(candles: np.ndarray, period: int = 22, mult: float = 2, direction: s
 
 **Perry Kaufman's Stops** are dynamic exit strategy indicators that provide adaptive stop-loss levels that adjust based on market conditions, aiming to protect profits and limit losses effectively.
 
-#exit
+\#exit
 
 **Arguments**:
 
@@ -1679,7 +1681,7 @@ kdj(candles: np.ndarray, fastk_period: int = 9, slowk_period: int = 3, slowk_mat
 
 The **KDJ Oscillator** is derived from the Stochastic Oscillator. It consists of three lines: %K, %D, and the J line. The %K line compares the current closing price to the recent trading range, while the %D line is a moving average of %K. The J line represents the difference between %D and a smoothed %D. The KDJ Oscillator helps traders identify overbought and oversold conditions and potential trend reversals.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1703,7 +1705,7 @@ keltner(candles: np.ndarray, period=20, multiplier=2, matype=1, source_type="clo
 
 **Keltner Channels** are volatility-based technical indicators used to identify potential price breakouts and trend reversals in the market. They consist of three lines: the middle line, which is typically a moving average of the asset's price, and an upper and lower channel line, which are derived from the middle line by adding and subtracting a multiple of the Average True Range (ATR). Keltner Channels expand and contract based on market volatility, providing traders with a visual representation of price volatility and potential support and resistance levels.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -1726,7 +1728,7 @@ kst(candles: np.ndarray, sma_period1=10, sma_period2=10, sma_period3=10, sma_per
 
 The **Know Sure Thing (KST)** is a momentum oscillator developed by Martin Pring. It combines multiple smoothed rate-of-change indicators over different periods to generate a single composite momentum indicator. The KST aims to identify significant trend changes and overbought or oversold conditions in the market.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1755,7 +1757,7 @@ kurtosis(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequent
 
 **Kurtosis** is a statistical measure used to quantify the "tailedness" or "peakedness" of a probability distribution. It provides insights into the shape of the distribution of returns for a given asset. Positive kurtosis indicates a distribution with heavier tails and a more peaked shape than the normal distribution, while negative kurtosis indicates lighter tails and a flatter shape.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -1776,7 +1778,7 @@ kvo(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Uni
 
 The **Klinger Volume Oscillator (KVO)** is a volume-based technical indicator developed by Stephen J. Klinger. It combines two volume-based moving averages—the volume force and the volume trend—to identify bullish and bearish trends in the market. The KVO helps traders assess the relationship between price and volume, providing insights into potential trend reversals or continuations.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1797,7 +1799,7 @@ linearreg(candles: np.ndarray, period=14, source_type="close", sequential=False)
 
 The **Linear Regression** indicator (LINEARREG) calculates the linear regression line for a given set of data points, representing the best-fit line that minimizes the distance between the data points and the line. It helps to identify the overall trend direction.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1818,7 +1820,7 @@ linearreg_angle(candles: np.ndarray, period=14, source_type="close", sequential=
 
 The **Linear Regression Angle** (LINEARREG\_ANGLE) measures the angle of the linear regression line. It quantifies the slope or steepness of the trend.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1839,7 +1841,7 @@ linearreg_intercept(candles: np.ndarray, period=14, source_type="close", sequent
 
 The **Linear Regression Intercept** indicator returns a single float value, which represents the y-intercept of the linear regression line.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1860,7 +1862,7 @@ linearreg_slope(candles: np.ndarray, period=14, source_type="close", sequential=
 
 The **Linear Regression Slope** is helps to identify potential trends in price movements by analyzing the slope of a linear regression line fitted to past price data. A positive slope suggests an uptrend, while a negative slope suggests a downtrend. The slope's magnitude indicates the strength of the trend.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1881,7 +1883,7 @@ lrsi(candles: np.ndarray, alpha=0.2, sequential=False) -> Union[float, np.ndarra
 
 The **RSI Laguerre Filter** is a technical indicator that combines the Relative Strength Index (RSI) with Laguerre filtering techniques. It aims to provide smoother and more responsive signals compared to traditional RSI indicators by applying Laguerre filtering to the RSI values.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1921,7 +1923,7 @@ maaq(candles: np.ndarray, period: int = 11, fast_period: int = 2, slow_period: i
 
 The **Moving Average Adaptive Q** is a technical indicator designed to adapt to changing market conditions by dynamically adjusting the smoothing factor of the moving average. It aims to provide smoother and more accurate trend signals by automatically optimizing the smoothing parameter based on recent price data.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1944,7 +1946,7 @@ mab(candles: np.ndarray, fast_period: int = 10, slow_period: int = 50, devup: fl
 
 **Moving Average Bands** are a type of technical indicator that consists of multiple moving averages plotted above and below the asset's price. These bands serve as dynamic support and resistance levels, expanding or contracting based on market volatility. As with _ma_ you can use all available ma types - even different ones for the slow and fast period.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -1970,7 +1972,7 @@ macd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, sourc
 
 The **Moving Average Convergence Divergence (MACD)** is a momentum indicator that consists of two lines: the MACD line and the signal line. The MACD line is calculated by subtracting the longer-term Exponential Moving Average (EMA) from the shorter-term EMA. The signal line is a moving average of the MACD line. Traders use the MACD to identify bullish and bearish momentum signals, trend reversals, and divergence between price and momentum.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -1993,7 +1995,7 @@ macdext(candles: np.ndarray, fast_period=12, fast_matype=0, slow_period=26, slow
 
 This is an **(MACD) extended** version of the Moving Average Convergence Divergence indicator, allowing users to specify the type of moving averages used in its calculation. It provides additional flexibility by allowing to choose from various types of moving averages, such as Simple Moving Average (SMA), Exponential Moving Average (EMA), Weighted Moving Average (WMA), and others. This customization enables traders to adapt the MACD to different market conditions and trading strategies.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2019,7 +2021,7 @@ mama(candles: np.ndarray, fastlimit=0.5, slowlimit=0.05, source_type="close", se
 
 The **MESA Adaptive Moving Average (MAMA)** is a technical indicator developed by John F. Ehlers. It utilizes a complex mathematical formula to adaptively adjust the smoothing period of a moving average based on market volatility. MAMA aims to provide smoother and more responsive trend signals compared to traditional moving averages, making it particularly useful for trend-following strategies in dynamic market conditions.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2041,7 +2043,7 @@ marketfi(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
 
 The **Market Facilitation Index** (MFI) is a volume-based indicator developed by Bill Williams. It measures the ease of price movement based on changes in trading volume. The MFI is calculated by dividing the difference between the high and low prices by the volume. It helps traders identify periods of low liquidity, consolidation, and potential breakout opportunities in the market.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -2060,7 +2062,7 @@ mass(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray
 
 The **Mass Index** is a technical indicator developed by Donald Dorsey. It measures the range expansion of prices to identify potential trend reversals. The Mass Index calculates the difference between two exponential moving averages of the high-low range and then applies a smoothing function to create an index.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -2080,7 +2082,7 @@ mcginley_dynamic(candles: np.ndarray, period=10, k=0.6, source_type="close", seq
 
 The **McGinley Dynamic** is a technical indicator developed by John McGinley. It is a moving average designed to track price movements more accurately compared to traditional moving averages. The McGinley Dynamic adjusts its speed based on market conditions, becoming more responsive during volatile periods and smoothing out during quieter times.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2101,7 +2103,7 @@ mean_ad(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequenti
 
 **Mean Absolute Deviation** is a statistical measure used to quantify the dispersion of data points around their mean or median. It is calculated by taking the average of the absolute differences between each data point and the mean or median of the dataset. MAD provides insights into the variability or spread of a dataset and is commonly to assess risk and volatility.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -2122,7 +2124,7 @@ median_ad(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequen
 
 **Median Absolute Deviation** is a statistical measure used to quantify the dispersion of data points around their median. It is calculated by taking the median of the absolute differences between each data point and the median of the dataset. It is robust to outliers and provides insights into the variability or spread of a dataset, similar to Mean Absolute Deviation, but using the median instead of the mean.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -2143,7 +2145,7 @@ medprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
 
 The **Median Price (MEDPRICE)** calculates the median of the high and low prices for each period. It provides a single price value that represents the central tendency of the price range over a specified period.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2162,7 +2164,7 @@ mfi(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray
 
 The **Money Flow Index (MFI)** is a momentum indicator that measures the strength and direction of money flowing in and out of a security. It combines price and volume data to assess buying and selling pressure. The MFI is calculated using a formula that compares typical price changes with volume, generating values between 0 and 100.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2182,7 +2184,7 @@ midpoint(candles: np.ndarray, period=14, source_type="close", sequential=False) 
 
 The **MidPoint** is a technical indicator that calculates the midpoint price of a financial instrument over a specified period. It is calculated by taking the average of the current and the previous candle.
 
-#filter
+\#filter
 
 **Arguments**:
 
@@ -2203,7 +2205,7 @@ midprice(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.nd
 
 The **MidPrice** is basically just hl2
 
-#filter
+\#filter
 
 **Arguments**:
 
@@ -2223,7 +2225,7 @@ minmax(candles: np.ndarray, order=3, sequential=False) -> EXTREMA
 
 The "**minmax**" function is a mathematical operation that retrieves the extrema (i.e., the minimum and maximum values) from a dataset or a specified range of values. It can be used to identify the lowest and highest values within a given dataset. This operation is often employed to find support and resistance levels in the market.
 
-#trend
+\#trend
 
 Also called ZigZag sometimes.
 
@@ -2251,7 +2253,7 @@ mom(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Un
 
 The **Momentum (MOM)** indicator is used to measure the rate of change in price movements over a specified period. It calculates the difference between the current closing price and the closing price from a previous period. Positive values indicate upward momentum, while negative values indicate downward momentum.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2272,7 +2274,7 @@ mwdx(candles: np.ndarray, factor: float = 0.2, source_type: str = "close", seque
 
 The **MWDX Average** is a customized version of the exponential moving average (EMA), providing traders with a smoothed representation of price data with adjustable sensitivity controlled by the factor parameter.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2293,7 +2295,7 @@ msw(candles: np.ndarray, period=5, source_type="close", sequential=False) -> MSW
 
 The **Mesa Sine Wave (MSW)** aims to identify trend reversals by analyzing the cyclical components of the price data. The "sine" component represents the smoothed sine wave, while the "lead" component represents the leading indicator of trend reversals.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2314,7 +2316,7 @@ natr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarra
 
 The **Normalized Average True Range (NATR)** is a technical indicator that measures market volatility. It is derived from the Average True Range (ATR) indicator but is normalized to a percentage scale. The NATR calculates the ratio of the current ATR value to the closing price, providing a volatility measure relative to the price level. The NATR is commonly used to assess the magnitude of price movements and to set appropriate stop-loss and take-profit levels.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -2334,7 +2336,7 @@ nma(candles: np.ndarray, period: int = 40, source_type: str = "close", sequentia
 
 The **Natural Moving Average (NMA)** is a dynamic moving average that adjusts its smoothing factor based on market volatility, providing smoother trend signals in changing market conditions.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2355,7 +2357,7 @@ nvi(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, 
 
 The **Negative Volume Index (NVI)** focuses on the relationship between volume and price changes. It is based on the premise that during periods of low volume, smart money investors are more active, and vice versa. The NVI calculates a cumulative index that increases when prices decrease on lower-than-average volume and decreases when prices increase on lower-than-average volume. Traders use the NVI to identify potential distribution phases in the market and to confirm bearish trends.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2375,7 +2377,7 @@ obv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
 
 The **On Balance Volume (OBV)** is a momentum indicator that uses volume flow to predict changes in stock price. It measures buying and selling pressure by adding the volume on up days and subtracting the volume on down days. The OBV line rises when volume on up days is greater than volume on down days, indicating buying pressure, and falls when the opposite is true, indicating selling pressure.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2394,7 +2396,7 @@ pattern_recognition(candles: np.ndarray, pattern_type, penetration=0, sequential
 
 This utility function for **Pattern Recognition** allows analysts to automate the detection of specific candlestick patterns, which can be used as signals for making trading decisions or conducting further analysis.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2495,7 +2497,7 @@ pfe(candles: np.ndarray, period: int = 10, smoothing: int = 5, source_type: str 
 
 The **Polarized Fractal Efficiency (PFE)** measures how efficiently price moves over time. It calculates the ratio of actual price movement to the ideal straight-line movement between two points. PFE values range from 0 to 1, where 1 indicates perfect efficiency and 0 suggests inefficiency.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2517,7 +2519,7 @@ pivot(candles: np.ndarray, mode=0, sequential=False) -> PIVOT
 
 **Pivot Points** are a type of technical indicator used to identify potential support and resistance levels in trading. They are calculated using the previous day's high, low, and close prices. The main pivot point indicates a potential turning point in market sentiment, with other support and resistance levels derived from it. Pivot Points are commonly used to determine entry and exit points.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2546,7 +2548,7 @@ pma(candles: np.ndarray, source_type: str = "hl2", sequential: bool = False) -> 
 
 The **Ehlers Predictive Moving Average** is a type of moving average developed by John Ehlers. Unlike traditional moving averages, which rely solely on historical price data, the Predictive Moving Average attempts to predict future price movement by applying a series of calculations based on the current and past prices. It aims to reduce lag and provide more timely signals for traders.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2567,7 +2569,7 @@ ppo(candles: np.ndarray, fast_period=12, slow_period=26, matype=0, source_type="
 
 The **Percentage Price Oscillator (PPO)** is a momentum oscillator that measures the difference between two moving averages as a percentage of the larger moving average. It helps traders identify bullish and bearish trends in the market. The PPO is calculated by subtracting the longer-term moving average from the shorter-term moving average and then dividing the result by the longer-term moving average.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2590,7 +2592,7 @@ pvi(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, 
 
 The **Positive Volume Index (PVI)** is used identify the strength of positive volume flows. It calculates cumulative volume changes based on days when the volume increases from the previous day. The PVI increases when the volume for the current day is greater than the volume for the previous day and decreases when the volume is lower.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2610,7 +2612,7 @@ pwma(candles: np.ndarray, period: int = 5, source_type: str = "close", sequentia
 
 **Pascal's Weighted Moving Average (PWMA)** is a type of moving average that assigns weights to each data point in the series based on Pascal's triangle. It calculates the weighted average of the data points, giving more importance to recent data while still considering historical data. This weighting scheme aims to provide a smoother representation of the underlying trend compared to simple moving averages. PWMA is particularly useful for traders who prefer a moving average that reacts quickly to recent price changes while reducing noise from erratic price movements.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2631,7 +2633,7 @@ qstick(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarr
 
 **Qstick** measures the difference between opening and closing prices over a period, indicating buying (positive values) or selling (negative values) pressure. It helps identify trends and potential reversals, with positive values signaling bullish and negative values bearish trends. Traders watch for deviations from the zero line to spot overbought or oversold conditions.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2651,7 +2653,7 @@ reflex(candles: np.ndarray, period=20, source_type="close", sequential=False) ->
 
 The **Reflex indicator by John F. Ehlers** aims to filter out high-frequency noise in price data while retaining trend information. It calculates the difference between the current price and the price 'n' bars ago, where 'n' is a user-defined parameter. This difference is then smoothed using a smoothing function.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2672,7 +2674,7 @@ roc(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Un
 
 The **Rate of Change (ROC)** indicator measures the percentage change in price from one period to the next. It calculates the difference between the current price and the price 'n' periods ago, then expresses this difference as a percentage of the previous price. Mathematically, it is represented as ((price/prevPrice) - 1) \* 100.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2694,7 +2696,7 @@ rocp(candles: np.ndarray, period=10, source_type="close", sequential=False) -> U
 The **Rate of Change Percentage (ROCP)** indicator, also known as the Price Rate-of-Change, measures the percentage change in price over a specified number of periods. It calculates the percentage difference between the current price and the price 'n' periods ago.
 Mathematically: (price-prevPrice)/prevPrice.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2715,7 +2717,7 @@ rocr(candles: np.ndarray, period=10, source_type="close", sequential=False) -> U
 
 The **Rate of Change Ratio (ROCR)** indicator measures the ratio of the current price to the price 'n' periods ago. Mathematically, it is represented as (price / prevPrice).
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2736,7 +2738,7 @@ rocr100(candles: np.ndarray, period=10, source_type="close", sequential=False) -
 
 ROCR100, or Rate of Change Ratio 100, is a momentum indicator that measures the percentage change in price over a specified period. It calculates the ratio of the current price to the price 'n' periods ago and expresses the result as a percentage. (price / prevPrice) \* 100
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2757,7 +2759,7 @@ roofing(candles: np.ndarray, hp_period=48, lp_period=10, source_type="close", se
 
 The **Roofing Filter** is a technical indicator developed by John F. Ehlers. It's designed to smooth out market cycles and reduce noise in price data, making it easier to identify trends. The indicator utilizes a bandpass filter to extract the dominant cycle components of the price series. By filtering out the shorter-term and longer-term cycles, the Roofing Filter aims to provide a clearer view of the underlying trend.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2779,7 +2781,7 @@ rsi(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Un
 
 The **Relative Strength Index (RSI)** is a momentum oscillator that measures the speed and change of price movements. It oscillates between 0 and 100 and is typically used to identify overbought or oversold conditions in an asset. RSI is calculated using the average gain and average loss over a specified period, often 14 periods by default. Traders often look for divergences between RSI and price movements to anticipate potential trend reversals. High RSI values suggest overbought conditions, while low RSI values indicate oversold conditions.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2800,7 +2802,7 @@ rsmk(candles: np.ndarray, candles_compare: np.ndarray, lookback: int = 90, perio
 
 The **Relative Strength (RSMK)** indicator measures the ratio of the price of one security to another over a specified period. It calculates the relative strength by taking the logarithm of the ratio of the price of the first security to the price of the second security, and then applies a moving average to smooth the result. This indicator helps identify potential trends or reversals in the performance of one security relative to another.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2825,7 +2827,7 @@ rsx(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Un
 
 The **RSX (Relative Strength Xtra)** is a momentum oscillator that helps identify overbought and oversold conditions in the market. It is calculated by applying an exponential smoothing function to the ratio of the average gain to the average loss over a specified period.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -2846,7 +2848,7 @@ rvi(candles: np.ndarray, period: int = 10, ma_len: int = 14, matype: int = 1, de
 
 The **Relative Volatility Index (RVI)** measures directional volatility by comparing smoothed moving averages of positive and negative price changes. It calculates the ratio of upward and downward volatility averages using a specified deviation type (standard, mean, or median) and a moving average for smoothing.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -2870,7 +2872,7 @@ safezonestop(candles: np.ndarray, period: int = 22, mult: float = 2.5, max_lookb
 
 The **Safezone Stops** indicator calculates stop levels for long or short positions based on price volatility. For long positions, it computes the maximum between the previous low minus a multiple of the negative directional movement and a specified lookback period. For short positions, it calculates the minimum between the previous high plus a multiple of the positive directional movement and the specified lookback period.
 
-#exit
+\#exit
 
 **Arguments**:
 
@@ -2893,7 +2895,7 @@ sar(candles: np.ndarray, acceleration=0.02, maximum=0.2, sequential=False) -> Un
 
 The **Parabolic SAR (SAR)** is a trend-following indicator used to identify potential reversal points in price movements. It plots dots above or below the price to indicate trend direction. Parameters like acceleration and maximum values control its sensitivity. Traders use it for entry and exit signals, with dots switching positions suggesting trend reversals.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2914,7 +2916,7 @@ sarext(candles: np.ndarray, startvalue=0, offsetonreverse=0, accelerationinitlon
 
 The **Parabolic SAR - Extended (SAREXT)** is an extension of the Parabolic SAR indicator. It is used to identify potential reversal points in the price trend of an asset. SAREXT calculates the SAR values based on the high and low prices of the asset, along with parameters such as start value, offset on reverse, and various acceleration settings for both long and short positions. By adjusting these parameters, traders can fine-tune the sensitivity of the indicator to better suit different market conditions and trading strategies.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2941,7 +2943,7 @@ sinwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequen
 
 The **Sine Weighted Moving Average (SINWMA)** is a type of moving average that assigns different weights to each data point based on the sine function. This weighting scheme gives more importance to recent data points while gradually reducing the influence of older data points. As a result, the SINWMA is sensitive to changes in trend direction, making it useful for trend-following strategies.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2962,7 +2964,7 @@ skew(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential:
 
 **Skewness** measures the asymmetry of a probability distribution. Positive skewness indicates a right-leaning distribution, negative skewness implies a left-leaning one, and zero skewness means perfect symmetry.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -2983,7 +2985,7 @@ sma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Uni
 
 The **Simple Moving Average (SMA)** calculates the average price of a security over a specified number of periods. It's a commonly used technical indicator that helps smooth out price data to identify trends.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3004,7 +3006,7 @@ smma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Un
 
 The **Smoothed Moving Average (SMMA)** is a type of moving average that assigns less weight to the most recent data points compared to the Simple Moving Average (SMA). It aims to reduce lag and provide a smoother representation of price trends.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3023,7 +3025,7 @@ sqwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequent
 
 The **Square Weighted Moving Average (SQWMA)** is a type of weighted moving average where the weights applied to each data point are squared. This method assigns greater importance to recent data points while still considering older ones, resulting in a smoother and more responsive moving average compared to traditional methods.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3046,7 +3048,7 @@ srsi(candles: np.ndarray, period=14, source_type="close", sequential=False) -> S
 
 The **Stochastic RSI (SRSI)** is a momentum oscillator that combines elements of both the Relative Strength Index (RSI) and the Stochastic Oscillator. It measures the relative position of the RSI within its range over a specified period, typically 14 days, and then applies the Stochastic formula to generate values between 0 and 100. This indicator helps traders identify overbought and oversold conditions more effectively than using RSI alone.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3067,7 +3069,7 @@ srwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequent
 
 The **Square Root Weighted Moving Average (SRWMA)** assigns weights to each data point based on the square root of its position in the series. This means that more recent data points are given relatively higher importance compared to older ones, similar to other weighted moving averages. It's useful for smoothing out price data while placing more emphasis on recent price movements.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3088,7 +3090,7 @@ stc(candles: np.ndarray, fast_period: int = 23, fast_matype: int = 1, slow_perio
 
 The **Schaff Trend Cycle (STC)** is a technical indicator designed to identify market trends and potential reversals. It combines the concepts of cycle analysis and momentum oscillators to produce signals for both trending and range-bound markets. The STC oscillator fluctuates between 0 and 100, where readings above 25 typically indicate bullish momentum, and readings below 75 suggest bearish momentum. Traders often use crossovers and divergences with price action to generate buy or sell signals.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3114,7 +3116,7 @@ stddev(candles: np.ndarray, period=5, nbdev=1, source_type="close", sequential=F
 
 The **Standard Deviation (STDDEV)** calculates the dispersion of a set of data points from its mean value. It is often used to assess the risk or volatility of an asset's price movements over a specific period. Higher standard deviation values indicate greater price volatility, while lower values suggest more stable price action. STDDEV is used to gauge potential price fluctuations and adjust trading strategies accordingly.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -3136,7 +3138,7 @@ stoch(candles: np.ndarray, fastk_period=14, slowk_period=3, slowk_matype=0, slow
 
 The **Stochastic Oscillator** is a momentum indicator used to spot overbought and oversold conditions in a market. It comprises two lines: %K and %D. Readings above 80 suggest overbought conditions, signaling a potential downturn, while readings below 20 indicate oversold conditions, signaling a possible upturn.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3156,7 +3158,7 @@ stochf(candles: np.ndarray, fastk_period=5, fastd_period=3, fastd_matype=0, sequ
 
 The **Stochastic Fast** indicator calculates the fast %K and %D lines. It measures the current closing price relative to the high-low range over a specified period. The %K line represents the current price in relation to the range, while the %D line is a moving average of the %K line.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3178,7 +3180,7 @@ supersmoother(candles: np.ndarray, period=14, source_type="close", sequential=Fa
 
 The **Super Smoother Filter 2-pole** Butterworth is an indicator introduced by John F. Ehlers. It functions as a smoothing filter designed to eliminate aliasing noise while preserving the phase characteristics of the original signal. This filter employs a 2-pole Butterworth filter to achieve its smoothing effect, resulting in a smoother output compared to traditional moving averages.
 
-#filter
+\#filter
 
 **Arguments**:
 
@@ -3199,7 +3201,7 @@ supersmoother_3_pole(candles: np.ndarray, period=14, source_type="close", sequen
 
 The **Super Smoother Filter 3-pole** Butterworth, described by John F. Ehlers, is an advanced smoothing filter designed to reduce noise and preserve the phase of the original signal. It utilizes a 3-pole Butterworth filter to achieve even smoother output. This filter is particularly effective in removing high-frequency noise while retaining the essential features of the underlying data.
 
-#filter
+\#filter
 
 **Arguments**:
 
@@ -3220,7 +3222,7 @@ swma(candles: np.ndarray, period: int = 5, source_type: str = "close", sequentia
 
 The **Symmetric Weighted Moving Average (SWMA)** is a type of moving average that assigns weights symmetrically to data points around the center of the window. Unlike simple moving averages where all data points have equal weight, SWMA gives more weight to the values closer to the center of the window and gradually decreases the weight as the distance from the center increases. This weighting scheme allows SWMA to respond more quickly to recent price changes while still providing smoother results compared to other weighted moving averages.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3241,7 +3243,7 @@ supertrend(candles: np.ndarray, period=10, factor=3, sequential=False) -> SuperT
 
 The **SuperTrend** is a trend-following indicator that helps identify the direction of the current trend in the market. It is based on the concept of average true range (ATR) and plots a line above or below the price, indicating bullish or bearish trends, respectively. The SuperTrend line changes its position based on the underlying price movement and volatility, providing traders with potential entry and exit signals.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3262,7 +3264,7 @@ t3(candles: np.ndarray, period=5, vfactor=0, source_type="close", sequential=Fal
 
 The **Triple Exponential Moving Average (T3)** is a type of moving average that applies triple exponential smoothing to the price data. It is designed to reduce lag and provide smoother trends compared to traditional moving averages. The T3 incorporates multiple exponential moving averages with different smoothing factors to adapt to changing market conditions more effectively.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3284,7 +3286,7 @@ tema(candles: np.ndarray, period=9, source_type="close", sequential=False) -> Un
 
 The **Triple Exponential Moving Average (TEMA)** is a type of moving average that applies triple exponential smoothing to the price data. It aims to reduce lag and to provide smoother trends compared to traditional moving averages by incorporating multiple exponential moving averages with different smoothing factors. TEMA responds more rapidly to price changes while maintaining a smoother trajectory, making it useful for trend-following strategies.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3311,7 +3313,7 @@ The **True Range** is a measure of market volatility, representing the greatest 
 
 It provides insight into the price movement range, capturing potential price gaps and sudden shifts. True Range is often used in the calculation of various technical indicators, such as Average True Range (ATR), to assess market volatility and adjust trading strategies accordingly.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -3330,7 +3332,7 @@ trendflex(candles: np.ndarray, period=20, source_type="close", sequential=False)
 
 The **Trendflex** indicator, developed by John F. Ehlers, aims to identify trend reversals by smoothing price data. It combines cycle extraction and trend extraction components to filter out noise and identify underlying trends, providing clearer signals for traders.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3351,7 +3353,7 @@ trima(candles: np.ndarray, period=30, source_type="close", sequential=False) -> 
 
 TRIMA, or **Triangular Moving Average**, is a type of moving average that places equal weight on prices over a specified time period. It is calculated by taking the average of prices over this period, with the middle prices receiving the most weight.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3372,7 +3374,7 @@ trix(candles: np.ndarray, period=18, source_type="close", sequential=False) -> U
 
 TRIX - 1-day Rate-Of-Change (ROC) of a Triple Smooth EMA is a momentum oscillator that measures the percentage change in a triple-smoothed EMA over a specified time period. It calculates the rate of change of the EMA by comparing the current value to the value 1 day ago, then expresses this change as a percentage.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3393,7 +3395,7 @@ tsf(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Un
 
 The **Time Series Forecast (TSF)** indicator predicts future price movements based on past price data. It uses linear regression to estimate the future value of the price based on historical prices. TSF extrapolates the trend of the data points and extends it into the future, providing a projection of where the price may go.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3414,7 +3416,7 @@ tsi(candles: np.ndarray, long_period=25, short_period=13, source_type="close", s
 
 The **True Strength Index (TSI)** is a momentum oscillator that measures price strength relative to volatility. TSI is calculated by taking the difference between two moving averages of price momentum and dividing it by the absolute value of the longer-term moving average of price momentum. Positive TSI values indicate bullish momentum, while negative values suggest bearish momentum.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3436,7 +3438,7 @@ ttm_trend(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequen
 
 The **TTM Trend** indicator identifies the prevailing market trend by analyzing price action. It employs proprietary algorithms to determine whether the market is in a bullish (True) or bearish (False) phase.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3457,7 +3459,7 @@ typprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
 
 The **Typical Price (TYPPRICE)** represents the average price of a security over a specific period. It's calculated by adding the high, low, and closing prices of a candle and then dividing the sum by three. This indicator is useful for smoothing out price fluctuations and providing a clearer picture of the underlying trend.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3476,7 +3478,7 @@ ui(candles: np.ndarray, period: int = 14, scalar: float = 100, source_type: str 
 
 The **Ulcer Index (UI)** is a technical indicator designed to measure the downside volatility of an investment. It helps investors and traders assess the risk associated with a particular investment by quantifying the extent and duration of drawdowns or declines from previous peaks. The Ulcer Index is calculated by taking the square root of the mean of the squared percentage drawdowns over a specified period, usually 14 days. A higher Ulcer Index value indicates higher volatility and greater risk.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -3498,7 +3500,7 @@ ultosc(candles: np.ndarray, timeperiod1=7, timeperiod2=14, timeperiod3=28, seque
 
 The **Ultimate Oscillator (ULTOSC)** is a momentum oscillator that blends short-term, intermediate-term, and long-term price action into one indicator. It ranges between 0 and 100, helping traders spot overbought and oversold conditions and potential trend reversals.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3520,7 +3522,7 @@ var(candles: np.ndarray, period=14, nbdev=1, source_type="close", sequential=Fal
 
 **Variance** is a statistical measure that quantifies the degree of dispersion or spread in a dataset. It calculates the average of the squared differences from the mean. In finance, variance is often used to assess the volatility or risk of an asset's returns.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
@@ -3542,7 +3544,7 @@ vi(candles: np.ndarray, period=14, sequential=False) -> VI
 
 The **Vortex Indicator (VI)** is a technical analysis tool that consists of two components: the Positive Vortex Indicator (+VI) and the Negative Vortex Indicator (-VI). These components are represented by the named tuple VI, which includes the values for both the positive and negative indicators.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3562,7 +3564,7 @@ vidya(candles: np.ndarray, short_period=2, long_period=5, alpha=0.2, source_type
 
 The **Variable Index Dynamic Average (VIDYA)** is a type of moving average that dynamically adjusts its sensitivity based on market volatility. It aims to provide smoother and more responsive results compared to traditional moving averages. VIDYA is calculated using a variable index factor that adapts to changing market conditions, making it suitable for trend-following strategies.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3585,7 +3587,7 @@ vpci(candles: np.ndarray, short_range=5, long_range=25, sequential=False) -> VPC
 
 The **Volume Price Confirmation Indicator (VPCI)** is a technical analysis tool used to confirm price movements based on volume. It combines both price and volume data to assess the strength of a trend. VPCI compares the percentage change in price to the percentage change in volume over a specified period. By analyzing the relationship between price and volume, traders can gain insights into the sustainability of price movements and potential trend reversals.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3606,7 +3608,7 @@ vlma(candles: np.ndarray, min_period: int = 5, max_period: int = 50, matype: int
 
 The **Variable Length Moving Average (VLMA)** is a type of moving average that adjusts its length based on market conditions. Unlike traditional moving averages with fixed periods, the VLMA dynamically changes its period length in response to changes in volatility or other predefined criteria. This adaptive nature allows the VLMA to better capture shifts in the underlying price trend, potentially providing more timely and accurate signals to traders.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3630,7 +3632,7 @@ vosc(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Un
 
 The **Volume Oscillator (VOSC)** is a momentum oscillator that measures the difference between two volume-based moving averages. It helps traders identify bullish and bearish trends in trading volume. The VOSC is calculated by subtracting a longer-term volume moving average from a shorter-term volume moving average. This difference is then plotted as a histogram or a line chart, providing insights into the strength and direction of volume trends.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3672,7 +3674,7 @@ vpt(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, 
 
 The **Volume Price Trend (VPT)** indicator analyzes the relationship between volume and price changes to assess the strength of a trend. It's calculated by cumulatively adding the percentage change in price multiplied by volume over a specified period.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3692,7 +3694,7 @@ vpwma(candles: np.ndarray, period: int = 14, power: float = 0.382, source_type: 
 
 The **Variable Power Weighted Moving Average (VPWMA)** adjusts the weights of each price data point in its calculation based on their respective volumes. This means that periods with higher trading volumes have a greater influence on the moving average.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3714,7 +3716,7 @@ vwap(candles: np.ndarray, source_type: str = "hlc3", anchor: str = "D", sequenti
 
 The **Volume Weighted Average Price (VWAP)** calculates the average price of a financial asset over a specified time period, weighted by the trading volume during each period. It provides insight into the average price at which a security has traded throughout the day, based on both volume and price. The `anchor` parameter allows you to specify the time interval for which the VWAP is calculated.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3735,7 +3737,7 @@ vwma(candles: np.ndarray, period=20, source_type="close", sequential=False) -> U
 
 The **Volume Weighted Moving Average (VWMA)** is a type of moving average that considers the volume traded at each price level. It calculates the average price of a financial asset over a specified time period, with each price point weighted by its corresponding trading volume. This provides a more accurate representation of average price levels compared to traditional moving averages.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3756,7 +3758,7 @@ vwmacd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, seq
 
 The **Volume Weighted Moving Average Convergence/Divergence (VWMACD)** is a variation of the traditional MACD indicator that incorporates volume-weighted moving averages. It is primarily used to identify changes in momentum based on both price and volume data.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3778,7 +3780,7 @@ wad(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
 
 The **Williams Accumulation/Distribution (WAD)** indicator, developed by Larry Williams, evaluates the flow of funds into and out of a security based on price movements and volume. It helps traders identify potential reversals or confirm trends by analyzing the relationship between price and volume.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3797,7 +3799,7 @@ wclprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
 
 The **Weighted Close Price (WCLPRICE)** is a technical indicator that calculates the average of high, low, and twice the closing price. It provides a weighted representation of the closing price and is often used in technical analysis to identify trends and potential reversal points in the market.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3816,7 +3818,7 @@ wilders(candles: np.ndarray, period=5, source_type="close", sequential=False) ->
 
 **Wilders Smoothing**, named after its creator J. Welles Wilder Jr., is a method used to smooth time series data, such as prices or indicators. It applies an exponential moving average (EMA) with a smoothing factor of 1/n, where n is the period specified. This smoothing technique assigns more weight to recent data points, making it responsive to current market conditions.
 
-#filter
+\#filter
 
 **Arguments**:
 
@@ -3837,7 +3839,7 @@ willr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarr
 
 **Williams' %R**, developed by Larry Williams, is a momentum indicator that measures overbought or oversold conditions in a financial instrument. It is calculated as the difference between the highest high of the specified period and the current closing price, divided by the highest high minus the lowest low of the period, multiplied by -100. The result oscillates between -100 and 0, where values above -20 indicate overbought conditions, and values below -80 indicate oversold conditions.
 
-#momentum
+\#momentum
 
 **Arguments**:
 
@@ -3857,7 +3859,7 @@ wma(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Un
 
 The **Weighted Moving Average (WMA)** is a technical analysis indicator that calculates the average price of a security over a specified time period, giving more weight to recent data points. Unlike simple moving averages, which assign equal weight to each data point, WMAs assign greater weight to more recent prices. This is achieved by multiplying each price by a weighting factor determined by its position in the data series. The WMA is used to identify trends and smooth out price fluctuations over time.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3878,7 +3880,7 @@ wt(candles: np.ndarray, wtchannellen: int = 9, wtaveragelen: int = 12, wtmalen: 
 
 The **Wavetrend** indicator combines moving averages to identify trend strength and direction. It offers buy signals when the trend line crosses above the signal line, indicating a bullish trend, and sell signals when it crosses below, suggesting a bearish trend.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3903,7 +3905,7 @@ zlema(candles: np.ndarray, period=20, source_type="close", sequential=False) -> 
 
 The **Zero-Lag Exponential Moving Average (ZLEMA)** is designed to reduce lag associated with traditional exponential moving averages. It achieves this by using a subtraction factor to eliminate delay, resulting in a smoother and more responsive moving average.
 
-#trend
+\#trend
 
 **Arguments**:
 
@@ -3925,7 +3927,7 @@ zscore(candles: np.ndarray, period=14, matype=0, nbdev=1, devtype: int = 0, sour
 
 The **zScore** indicator measures the distance between a data point and the mean of a dataset in terms of standard deviations. It helps identify overbought and oversold conditions based on how far the current value deviates from the mean.
 
-#volatility
+\#volatility
 
 **Arguments**:
 
