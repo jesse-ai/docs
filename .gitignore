@@ -1,6 +1,6 @@
 /node_modules
 /.idea
-/docs/.vitepress/.cache
+/docs/.vitepress/cache
 /docs/.vitepress/.temp
 /docs/docs/articles/*
 /storage/*.key
@@ -14,4 +14,5 @@ composer.lock
 .vscode
 package-lock.json
 .eslintrc.js
-.vitepress/dist
+/docs/.vitepress/dist
+

@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as o,Q as s}from"./chunks/framework.4719a631.js";const g=JSON.parse('{"title":"Routing","description":"","frontmatter":{},"headers":[],"relativePath":"docs/routes.md","filePath":"docs/routes.md"}'),a={name:"docs/routes.md"},r=s("",20),i=[r];function n(c,l,m,h,d,u){return t(),o("div",null,i)}const f=e(a,[["render",n]]);export{g as __pageData,f as default};
