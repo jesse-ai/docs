@@ -703,7 +703,7 @@ You would need `shared_vars` for writing strategies that require more than one r
 
 ## time
 
-The current UTC timestamp.
+The current UTC timestamp. In other words, the closing time of the current candle.
 
 **Return Type**: int
 
