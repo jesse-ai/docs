@@ -2,6 +2,14 @@
 
 Here you can see that changes were made at each release of the main framework and the live plugin: 
 
+## 0.47.0 (10 April 2024)
+
+- **[FIX]** Improved market order detection for lower prices, thanks to [Movi's PR](https://github.com/jesse-ai/jesse/pull/415/)
+- **[IMPROVEMENT]** The handling of market order submissions on `Binance Futures` has been enhanced to prevent the "The exchange did not respond as expected for order execution" error.
+- **[NEW FEATURE]** Default fees (for backtests) for all Bybit Futures have been lowered to 0.0550%
+- **[NEW FEATURE]** Added new exchange driver `Bybit USDC Perpetual` for trading on Bybit with USDC as the settlement currency. `Bybit USDC Perpetual Testnet` is also available for testing.
+- **[NEW FEATURE]** Added support for spot trading on Bybit with the new exchange driver `Bybit Spot`. `Bybit Spot Testnet` is also available for testing. Both classic and unified accounts are supported.
+
 ## 0.46.0 (14 March 2024)
 
 -  [IMPROVEMENT] Added a parameter for generating logs in the research backtest function, returning the file path if enabled.
