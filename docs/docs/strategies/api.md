@@ -24,7 +24,7 @@ This decorator can improve performance a lot. It will cache your functions / pro
 `available_margin` represents the current margin available in your trading account. It is calculated as the balance minus the margin used for open positions and orders.
 
 ::: warning
-`available_margin` is calculated by subtracting the margin used in open positions and orders from your account balance. For instance, if your balance is $10,000 and you have $2,000 tied up in trades with 2x leverage, the available margin would be $10,000 - ($2,000 / 2) = $9,000. 
+`available_margin` is calculated by subtracting the margin used in open positions and orders from your account balance. For instance, if your balance is $10,000 and you have $2,000 tied up in trades with 2x leverage, the available margin would be $10,000 - ($2,000 / 2) = $9,000.
 :::
 
 **Return Type**: float
@@ -35,8 +35,8 @@ This decorator can improve performance a lot. It will cache your functions / pro
 
 ## leveraged\_available\_margin
 
-`leveraged_available_margin` is the same as `self.available_margin` except that it takes leverage into account in a way that is more intuitive for some traders. 
-It is basically `self.available_margin * self.leverage`. 
+`leveraged_available_margin` is the same as `self.available_margin` except that it takes leverage into account in a way that is more intuitive for some traders.
+It is basically `self.available_margin * self.leverage`.
 
 ::: warning
 leveraged_available_margin takes the account balance, multiplies it by the leverage, and then subtracts the margin used for open positions and orders. For example, with a $10,000 balance and $2,000 used in trades at 2x leverage, it would be calculated as ($10,000 * 2) - $2,000 = $18,000. This provides a realistic view of the margin available for new trades.
@@ -48,7 +48,7 @@ leveraged_available_margin takes the account balance, multiplies it by the lever
 
 ## average\_entry\_price
 
-The average entry price estimated based on **active orders**(and not the open position). The word average indicates that in case you use multiple entry orders, this property returns the average value. 
+The average entry price estimated based on **active orders**(and not the open position). The word average indicates that in case you use multiple entry orders, this property returns the average value.
 
 ::: warning
 `average_entry_price` **is not** necessarily the same as the `entry_price` of the open position. If you need open positions's average entry price, use `self.position.entry_price`.
@@ -64,7 +64,7 @@ def go_long(self):
 
     # self.average_entry_price is equal to (100 + 120) / 2 == 110
     self.buy = [
-        (1, 100), 
+        (1, 100),
         (1, 120)
     ]
     self.stop_loss = qty, 80
@@ -77,7 +77,7 @@ def filter_min_pnl(self):
 ```
 
 ::: warning
-Note that `average_entry_price` is only available after `go_long()` or `go_short()` is executed. Hence, it is only supposed to be used in either filter functions or when the position is open. 
+Note that `average_entry_price` is only available after `go_long()` or `go_short()` is executed. Hence, it is only supposed to be used in either filter functions or when the position is open.
 
 In other words, you cannot use it inside `should_long()` and `should_short()`.
 :::
@@ -86,7 +86,7 @@ In other words, you cannot use it inside `should_long()` and `should_short()`.
 
 ## average\_stop\_loss
 
-Same as [average_entry_price](#average-entry-price) but for stop-loss. The word average indicates that in case you use more than one point for stop-loss, this property returns the average value. 
+Same as [average_entry_price](#average-entry-price) but for stop-loss. The word average indicates that in case you use more than one point for stop-loss, this property returns the average value.
 
 **Return Type**: float
 
@@ -94,7 +94,7 @@ Same as [average_entry_price](#average-entry-price) but for stop-loss. The word 
 
 ## average\_take\_profit
 
-Same as [average_entry_price](#average-entry-price) but for take-profit. The word average indicates that in case you use more than one point for take-profit, this property returns the average value. 
+Same as [average_entry_price](#average-entry-price) but for take-profit. The word average indicates that in case you use more than one point for take-profit, this property returns the average value.
 
 **Return Type**: float
 
@@ -124,7 +124,7 @@ This is sometimes useful as `self.balance` is like the "wallet balance" on futur
 
 ## daily_balances
 
-Returns a list of daily balances of your portfolio. It is as if you were storing your portfolio's value each day using the [self.portfolio_value](#portfolio-value) property. It is used for calculation of metrics such as Sharpe Ratio, etc. 
+Returns a list of daily balances of your portfolio. It is as if you were storing your portfolio's value each day using the [self.portfolio_value](#portfolio-value) property. It is used for calculation of metrics such as Sharpe Ratio, etc.
 
 **Return Type**: List[float]
 
@@ -177,9 +177,9 @@ volume = self.current_candle[5]
 ```
 
 ::: tip
-Just like in the API of crypto exchanges, and TradingView, each candle's timestamp is the beginning of that time period, not the ending but the actual time it began. 
+Just like in the API of crypto exchanges, and TradingView, each candle's timestamp is the beginning of that time period, not the ending but the actual time it began.
 
-For example if you are trading the `5m` timeframe and the current time is at `12:05:00`, the current_candle's timestamp will show `12:00:00`. 
+For example if you are trading the `5m` timeframe and the current time is at `12:05:00`, the current_candle's timestamp will show `12:00:00`.
 :::
 
 **See Also**: [price](#price), [close](#close), [open](#open), [high](#high), [low](#low)
@@ -187,7 +187,7 @@ For example if you are trading the `5m` timeframe and the current time is at `12
 
 ## candles
 
-This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators/) because the first parameter for all indicators is `candles`. 
+This property returns candles for current trading exchange, symbol, and timeframe. Is it frequently used when using [technical indicators](/docs/indicators/) because the first parameter for all indicators is `candles`.
 
 **Return Type:** np.ndarray
 
@@ -200,7 +200,7 @@ sma8 = ta.sma(self.candles, 8)
 
 ## get_candles
 
-This method returns candles for the exchange, symbol, and timeframe that you specify, unlike `self.candles` which returns candles for the current route. 
+This method returns candles for the exchange, symbol, and timeframe that you specify, unlike `self.candles` which returns candles for the current route.
 
 ```py
 get_candles(exchange: str, symbol: str, timeframe: str)
@@ -215,7 +215,7 @@ For simple strategies that trade only one route and use only one timeframe, `sel
 @property
 def big_trend(self):
     """
-    Uses the SRSI indicator to determine the bigger trend of the market. 
+    Uses the SRSI indicator to determine the bigger trend of the market.
     The trading timeframe is "4h" so we use "1D" timeframe as the anchor timeframe.
     """
     k, d = ta.srsi(self.get_candles(self.exchange, self.symbol, '1D'))
@@ -233,7 +233,7 @@ def big_trend(self):
 
 ## fee_rate
 
-The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty). 
+The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty).
 
 **Example:**
 ```py
@@ -267,22 +267,22 @@ def go_long(self):
 
 ## increased_count
 
-How many times has the position size been increased since this trade was opened? 
+How many times has the position size been increased since this trade was opened?
 
 This is useful for strategies that for example enter/exit in multiple points, and you'd like to update something related to it.
 
 **Return Type**: int
 
-This property is useful if: 
+This property is useful if:
 1. You have been trying to open position in more than one point:
 ```py
 def go_long(self):
     self.buy = [
         (0.5, self.price + 10),
         # after this point self.increased_count will be 1
-        (0.5, self.price + 20), 
+        (0.5, self.price + 20),
         # after this point self.increased_count will be 2
-        (0.5, self.price + 30), 
+        (0.5, self.price + 30),
         # after this point self.increased_count will be 3
     ]
 ```
@@ -313,7 +313,7 @@ The `index` property is a counter which can be used to detect how many times the
 def should_long(self):
     return self.index == 0
 
-# example #2: let's say there are some expensive operations in a  
+# example #2: let's say there are some expensive operations in a
 # method I've defined called do_slow_updates() (like machine learning stuff)
 # that I'd like to do once a day while trading "1m" candles
 def before(self):
@@ -379,7 +379,7 @@ Is the type of the open position (current trade) `short`?
 
 ## exchange_type
 
-Returns the type of the exchange your strategy is trading on. It will be either `spot` or `futures`. 
+Returns the type of the exchange your strategy is trading on. It will be either `spot` or `futures`.
 
 **Return Type**: str
 
@@ -403,7 +403,7 @@ Returns whether the strategy is running in paper trading mode or not.
 
 ## is_live
 
-Returns whether the strategy is running in either live trading or paper trading mode or not. It is the equivalent of: 
+Returns whether the strategy is running in either live trading or paper trading mode or not. It is the equivalent of:
 
 ```py
 self.is_livetrading or self.is_papertrading
@@ -427,34 +427,34 @@ Returns whether the exchange your strategy is trading on is a futures exchange.
 
 ## leverage
 
-The `leverage` property returns the leverage number that you have set in your config file for the exchange you're running inside the strategy. For spot markets, it always returns `1`. 
+The `leverage` property returns the leverage number that you have set in your config file for the exchange you're running inside the strategy. For spot markets, it always returns `1`.
 
 **Return Type**: int
 
 ## liquidation_price
 
-The `liquidation_price` property returns the price at which the position will get liquidated which is used in futures exchanges only. At the moment, backtests support the `isolated` mode only and not the cross mode. 
+The `liquidation_price` property returns the price at which the position will get liquidated which is used in futures exchanges only. At the moment, backtests support the `isolated` mode only and not the cross mode.
 
-In the live mode, the value for the `liquidation_price` is fetched from the exchange once every minute so what you see in the dashboard isn't updated in real-time. 
+In the live mode, the value for the `liquidation_price` is fetched from the exchange once every minute so what you see in the dashboard isn't updated in real-time.
 
 **Return Type**: float
 
 ## mark_price
 
-The `mark_price` property returns the mark-price in futures exchanges which are used for the calculation of the liquidation price. This property is used for live trading futures exchanges only. During backtests, it equals to `self.price`. 
+The `mark_price` property returns the mark-price in futures exchanges which are used for the calculation of the liquidation price. This property is used for live trading futures exchanges only. During backtests, it equals to `self.price`.
 
 **Return Type**: float
 
 
 ## funding_rate
 
-The `funding_rate` property returns the current funding rate in futures exchanges. This property is used for live trading futures exchanges only. During backtests, it equals `0`. 
+The `funding_rate` property returns the current funding rate in futures exchanges. This property is used for live trading futures exchanges only. During backtests, it equals `0`.
 
 **Return Type**: float
 
 ## next_funding_timestamp
 
-The `next_funding_timestamp` property returns the timestamp for the next funding. It is used only when trading perpetual contracts. This property is used for live trading futures exchanges only. During backtests, it equals `None`. 
+The `next_funding_timestamp` property returns the timestamp for the next funding. It is used only when trading perpetual contracts. This property is used for live trading futures exchanges only. During backtests, it equals `None`.
 
 **Return Type**: int
 
@@ -512,7 +512,7 @@ def go_long(self):
 The `metrics` property returns the metrics that you usually would see at the end of backtests. It is useful for coding formulas such as [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp).
 
 ::: warning
-Be aware that without trades it will return `None`. 
+Be aware that without trades it will return `None`.
 :::
 
 **Available metrics:**
@@ -520,41 +520,41 @@ Be aware that without trades it will return `None`.
 - total_winning_trades
 - total_losing_trades
 - starting_balance
-- finishing_balance 
-- win_rate 
-- max_R 
-- min_R 
-- mean_R 
-- ratio_avg_win_loss 
-- longs_count 
-- longs_percentage 
-- short_percentage 
-- shorts_count 
-- fee 
-- net_profit 
-- net_profit_percentage 
-- average_win 
-- average_loss 
-- expectancy 
+- finishing_balance
+- win_rate
+- max_R
+- min_R
+- mean_R
+- ratio_avg_win_loss
+- longs_count
+- longs_percentage
+- short_percentage
+- shorts_count
+- fee
+- net_profit
+- net_profit_percentage
+- average_win
+- average_loss
+- expectancy
 - expectancy_percentage
 - expected_net_profit_every_100_trades
-- average_holding_period 
-- average_winning_holding_period 
-- average_losing_holding_period 
-- gross_profit 
-- gross_loss 
-- max_drawdown 
-- annual_return 
-- sharpe_ratio 
-- calmar_ratio 
-- sortino_ratio 
-- omega_ratio 
-- total_open_trades 
+- average_holding_period
+- average_winning_holding_period
+- average_losing_holding_period
+- gross_profit
+- gross_loss
+- max_drawdown
+- annual_return
+- sharpe_ratio
+- calmar_ratio
+- sortino_ratio
+- omega_ratio
+- total_open_trades
 - open_pl
-- winning_streak 
-- losing_streak 
-- largest_losing_trade 
-- largest_winning_trade 
+- winning_streak
+- losing_streak
+- largest_losing_trade
+- largest_winning_trade
 - current_streak
 
 **Return Type**: dict
@@ -584,16 +584,16 @@ Returns all the orders submitted by this strategy.
 
 ## position
 
-The position object of the trading route. 
+The position object of the trading route.
 
 ::: tip
-Please note that each route instance has only one position which is accessible inside the strategy. It doesn't mean that you cannot trade two positions using one strategy; to do that simply create two routes using the same strategy but with different symbols. 
+Please note that each route instance has only one position which is accessible inside the strategy. It doesn't mean that you cannot trade two positions using one strategy; to do that simply create two routes using the same strategy but with different symbols.
 :::
 
 **Return Type**: Position
 
 ```py
-# only useful properties are mentioned 
+# only useful properties are mentioned
 class Position:
     # the (average) entry price of the position | None if position is close
     entry_price: float
@@ -659,7 +659,7 @@ def go_long(self):
 
 ## reduced_count
 
-How many times has the position size been reduced since this trade was opened? 
+How many times has the position size been reduced since this trade was opened?
 
 This is useful for strategies that for example exit in multiple points, and you'd like to update something related to it.
 
@@ -672,12 +672,12 @@ def go_long(self):
     self.buy = 1, self.price
     self.stop_loss = 1, self.price - 10
     self.take_profit = [
-        (0.5, self.price + 10), 
-        (0.5, self.price + 20) 
+        (0.5, self.price + 10),
+        (0.5, self.price + 20)
     ]
 
 def update_position(self):
-    # even though we have especified the exit price 
+    # even though we have especified the exit price
     # for the second half, we now updated to exit with SMA20
     if self.reduced_count > 0:
         self.take_profit = 0.5, self.SMA20
@@ -690,9 +690,9 @@ def SMA20(self):
 
 ## shared_vars
 
-`shared_vars` is a dictionary object just like `vars` except that it is shared among all your [routes](/docs/routes). 
+`shared_vars` is a dictionary object just like `vars` except that it is shared among all your [routes](/docs/routes).
 
-You would need `shared_vars` for writing strategies that require more than one route, and when those routes need to communicate with each other. 
+You would need `shared_vars` for writing strategies that require more than one route, and when those routes need to communicate with each other.
 
 `shared_vars` could act as a bridge. One example could be in a pairs trading strategy which requires two routes to communicate with each other (one goes long when the other goes short)
 
@@ -703,7 +703,10 @@ You would need `shared_vars` for writing strategies that require more than one r
 
 ## time
 
-The current UTC timestamp. In other words, the closing time of the current candle.
+The current execution timestamp (UTC) of the strategy, which  means one of two things:
+
+- The closing time of the current candle as it gets available
+- The current time for any occuring [event](./events.html) e.g. `on_open_position`
 
 **Return Type**: int
 
@@ -715,7 +718,7 @@ Returns all the completed trades for this strategy.
 
 ## vars
 
-`vars` is the name of a dictionary object present in your strategy that you can use as a placeholder for your variables. 
+`vars` is the name of a dictionary object present in your strategy that you can use as a placeholder for your variables.
 
 Of course, you could define your own variables inside `__init__` instead, but that would bring a concern about naming your variables to prevent conflict with built-in variables and properties.
 
@@ -727,18 +730,18 @@ Using `vars` would also make it easier for debugging.
 
 ## log
 
-This method can be used to log text from within the strategy which is very helpful for debugging or monitoring (in case of live trading). Accepts a second `log_type` parameter with values as `info` or `error`. 
+This method can be used to log text from within the strategy which is very helpful for debugging or monitoring (in case of live trading). Accepts a second `log_type` parameter with values as `info` or `error`.
 
-The default is `info`. `error` logs are notified separately in the live mode, so that's a nice way of using them. 
+The default is `info`. `error` logs are notified separately in the live mode, so that's a nice way of using them.
 
 If you need to send a notification for the logged message in live mode, pass the `send_notification` parameter as `True`.
 For custom logs to custom channels, you can set `webhook` parameter with either a hard-coded webhook or an environment value from `.env`.
-Default is the General / Error channels. 
+Default is the General / Error channels.
 
 ```py
 log(
-    msg: str, 
-    log_type: str = 'info', 
+    msg: str,
+    log_type: str = 'info',
     send_notification: bool = False,
     webhook: str = None
 )
@@ -755,7 +758,7 @@ watch_list() -> list
 
 **Return Type:** list
 
-Sometimes you might want to debug/monitor your running strategy constantly. One way to do that is to define the `watch_list()` method in your strategy which returns a list of tuples containing keys and values. You can fill anything you want in it; indicator values, entry/exit signals, etc. 
+Sometimes you might want to debug/monitor your running strategy constantly. One way to do that is to define the `watch_list()` method in your strategy which returns a list of tuples containing keys and values. You can fill anything you want in it; indicator values, entry/exit signals, etc.
 
 
 **Example**:
@@ -763,11 +766,11 @@ Sometimes you might want to debug/monitor your running strategy constantly. One 
 @property
 def short_ema(self):
     return ta.ema(self.candles, 50)
-    
+
 @property
 def long_ema(self):
     return ta.ema(self.candles, 100)
-    
+
 def watch_list(self):
     return [
         ('Short EMA', self.short_ema),
