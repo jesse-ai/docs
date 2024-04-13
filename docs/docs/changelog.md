@@ -1,6 +1,14 @@
 # Changelog
 
-Here you can see that changes were made at each release of the main framework and the live plugin: 
+Here you can see the changes made with each release of the main framework and the live trading plugin: 
+
+## 0.47.0 (10 April 2024)
+
+- **[FIX]** Improved market order detection for lower prices, thanks to [Movi's PR](https://github.com/jesse-ai/jesse/pull/415/)
+- **[IMPROVEMENT]** The handling of market order submissions on `Binance Futures` has been enhanced to prevent the "The exchange did not respond as expected for order execution" error.
+- **[NEW FEATURE]** Default fees (for backtests) for all Bybit Futures have been lowered to 0.0550%
+- **[NEW FEATURE]** Added new exchange driver `Bybit USDC Perpetual` for trading on Bybit with USDC as the settlement currency. `Bybit USDC Perpetual Testnet` is also available for testing.
+- **[NEW FEATURE]** Added support for spot trading on Bybit with the new exchange driver `Bybit Spot`. `Bybit Spot Testnet` is also available for testing. Both classic and unified accounts are supported.
 
 ## 0.46.0 (14 March 2024)
 
@@ -38,7 +46,7 @@ Here you can see that changes were made at each release of the main framework an
 
 ## 0.43.0 (5 October 2023)
 
-- [NEW FEATURE] Added support for Python `3.10` and Python `3.11`. Both the main framework and livetrading plugin. 
+- [NEW FEATURE] Added support for Python `3.10` and Python `3.11`. Both the main framework and live trading plugin. 
 - [IMPROVEMENT] The style of the equity curve chart has been improved. Special thanks to a pull request submitted by [Movy](https://github.com/Movy). Check out the pull request [here](https://github.com/jesse-ai/jesse/pull/391).
 - [FIX] Fixed the `Order size must adhere to quantity step of 10` error when submitting orders on DYDX for small-sized symbols like `TRX-USD`. 
 - [FIX] Resolved the `Cannot cancel order with id: xxx because it is already canceled` error on DYDX. 

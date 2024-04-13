@@ -107,11 +107,13 @@ Using the kelly criterion:
 def kelly_qty(self, entry, stop):  
     if not self.metrics or self.metrics['total'] < 20:  
         win_rate = 0.46  
-        ratio_avg_win_loss = 1.6  
+        avg_win_ratio = 1.1
+        avg_loss_ratio = 0.5
     else:  
         win_rate = self.metrics['win_rate']  
-        ratio_avg_win_loss = self.metrics['ratio_avg_win_loss']  
-    kc = utils.kelly_criterion(win_rate, ratio_avg_win_loss) * 100  
+        avg_win_ratio = self.metrics['avg_win_percentage'] / 100
+        avg_loss_ratio = self.metrics['avg_loss_percentage'] / 100
+    kc = utils.kelly_criterion(win_rate, avg_win_ratio, avg_loss_ratio) * 100  
     if not kc or kc <= 0:  
         raise ValueError("Bad Kelly criterion.")  
     risk_qty = utils.risk_to_qty(self.available_margin, kc, entry, stop, self.fee_rate)  

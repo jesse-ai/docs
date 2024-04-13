@@ -703,7 +703,7 @@ You would need `shared_vars` for writing strategies that require more than one r
 
 ## time
 
-The current UTC timestamp.
+The current execution timestamp (UTC) of the strategy.
 
 **Return Type**: int
 

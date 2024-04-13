@@ -14,7 +14,7 @@ from jesse import research
 import jesse.indicators as ta
 
 
-btc_candles = research.get_candles('Binance', 'BTC-USDT', '30m', '2021-11-10', '2021-11-20')
+btc_candles = research.get_candles('Binance Spot', 'BTC-USDT', '30m', '2021-11-10', '2021-11-20')
 btc_sma_50 = ta.sma(btc_candles, 50, sequential=True)
 btc_close = btc_candles[:, 2]
 

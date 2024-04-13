@@ -50,10 +50,12 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 - ✅ Launch of Jesse GPT
 
 ## Q1 2024
-- Introduction of the new strategy index page featuring a variety of strategies with automated, up-to-date metrics
-- Implement spot driver for Bybit
+- ✅ Introduction of the new strategy index page featuring a variety of strategies with automated, up-to-date metrics
+- ✅ Implement spot driver for Bybit
 
 ## Q2 2024
+- ✅ Implement driver for Bybit USDC futures
+- Release new version of the dashboard
 - Integrate a new DEX driver ([Apex](https://jesse.trade/apex))
 - Release Jesse v1.0.0
 

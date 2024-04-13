@@ -1,6 +1,6 @@
 /node_modules
 /.idea
-/docs/.vitepress/.cache
+/docs/.vitepress/cache
 /docs/.vitepress/.temp
 /docs/docs/articles/*
 /storage/*.key

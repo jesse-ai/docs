@@ -34,7 +34,7 @@ export default defineConfig({
         },
         editLink: {
             text: 'Edit this page on GitHub',
-            pattern: 'https://github.com/jesse-ai/docs/edit/master/:path',
+            pattern: 'https://github.com/jesse-ai/docs/edit/master/docs/:path',
         },
         nav: [
             {
