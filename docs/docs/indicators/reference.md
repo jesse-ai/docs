@@ -1,17 +1,17 @@
 # Indicators Reference
 
 Most indicators have a `sequential=False` parameter. When set to `True`, it returns an array of values; which is helpful
-if you're doing research [Jupyter Notebooks](/docs/research/jupyter).
+if you're doing research in [Jupyter Notebooks](/docs/research/jupyter).
 
 When developing strategies however, you probably want to keep it as `False` to return only the indicator value for
 current trading candle.
 
-::: tip @cached 
+::: tip @cached
 The @cached decorator can increase performance a lot if applied to indicators - especially those called
 a lot in your strategy. [See here](https://docs.jesse.trade/docs/strategies/api.html#cached).
 :::
 
-::: tip Performance and sequential 
+::: tip Performance and sequential
 With `sequential=False` the indicators will slice the candle array behind the scene
 to the warmup_candles_num you defined. That doesn't happen if you use `sequential=True`, as Jesse doesn't know how much
 lookback you need from your sequential indicator. To keep things fast you should slice the candles yourself before
@@ -19,7 +19,7 @@ passing them to a indicator function to avoid unnecessary computation time: `sel
 accordingly.
 :::
 
-::: tip matype 
+::: tip matype
 In few indicators you can set a moving average type:
 
 - `0`: sma (simple)
@@ -64,7 +64,7 @@ In few indicators you can set a moving average type:
 - `39`: epma (End Point Moving Average)
   :::
 
-::: tip devtype 
+::: tip devtype
 In few indicators you can set a deviation type:
 
 - `0`: standard deviation
@@ -72,7 +72,7 @@ In few indicators you can set a deviation type:
 - `2`: median absolute deviation
   :::
 
-::: tip source_type 
+::: tip source_type
 In some indicators you can set the source type:
 
 - `"close"`
@@ -87,9 +87,9 @@ In some indicators you can set the source type:
 
 ## acosc
 
-```python  
-acosc(candles: np.ndarray, sequential=False) -> AC  
-```  
+```python
+acosc(candles: np.ndarray, sequential=False) -> AC
+```
 
 Acceleration / Deceleration Oscillator (AC)
 
@@ -104,9 +104,9 @@ AC(osc, change)
 
 ## ad
 
-```python  
-ad(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+ad(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 AD - Chaikin A/D Line
 
@@ -121,9 +121,9 @@ float | np.ndarray
 
 ## adosc
 
-```python  
-adosc(candles: np.ndarray, fast_period=3, slow_period=10, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+adosc(candles: np.ndarray, fast_period=3, slow_period=10, sequential=False) -> Union[float, np.ndarray]
+```
 
 ADOSC - Chaikin A/D Oscillator
 
@@ -140,9 +140,9 @@ float | np.ndarray
 
 ## adx
 
-```python  
-adx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+adx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 ADX - Average Directional Movement Index
 
@@ -158,9 +158,9 @@ float | np.ndarray
 
 ## adxr
 
-```python  
-adxr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+adxr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 ADXR - Average Directional Movement Index Rating
 
@@ -176,9 +176,9 @@ float | np.ndarray
 
 ## alligator
 
-```python  
-alligator(candles: np.ndarray, source_type="close", sequential=False) -> AG  
-```  
+```python
+alligator(candles: np.ndarray, source_type="close", sequential=False) -> AG
+```
 
 Alligator
 
@@ -194,9 +194,9 @@ AG(jaw, teeth, lips)
 
 ## alma
 
-```python  
+```python
 alma(candles: np.ndarray, period: int = 9, sigma: float = 6.0, distribution_offset: float = 0.85, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 ALMA - Arnaud Legoux Moving Average
 
@@ -215,9 +215,9 @@ float | np.ndarray
 
 ## ao
 
-```python  
-ao(candles: np.ndarray, sequential=False) -> AO  
-```  
+```python
+ao(candles: np.ndarray, sequential=False) -> AO
+```
 
 Awesome Oscillator
 
@@ -232,10 +232,10 @@ AO(osc, change)
 
 ## apo
 
-```python  
-apo(candles: np.ndarray, fast_period=12, slow_period=26, matype=0, source_type="close", sequential=False) -> Union[  
-  float, np.ndarray]  
-```  
+```python
+apo(candles: np.ndarray, fast_period=12, slow_period=26, matype=0, source_type="close", sequential=False) -> Union[
+  float, np.ndarray]
+```
 
 APO - Absolute Price Oscillator
 
@@ -254,9 +254,9 @@ float | np.ndarray
 
 ## aroon
 
-```python  
-aroon(candles: np.ndarray, period=14, sequential=False) -> AROON  
-```  
+```python
+aroon(candles: np.ndarray, period=14, sequential=False) -> AROON
+```
 
 AROON - Aroon
 
@@ -272,9 +272,9 @@ AROON(down, up)
 
 ## aroonosc
 
-```python  
-aroonosc(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+aroonosc(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 AROONOSC - Aroon Oscillator
 
@@ -290,9 +290,9 @@ float | np.ndarray
 
 ## atr
 
-```python  
-atr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+atr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 ATR - Average True Range
 
@@ -308,9 +308,9 @@ float | np.ndarray
 
 ## avgprice
 
-```python  
-avgprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+avgprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 AVGPRICE - Average Price
 
@@ -325,9 +325,9 @@ float | np.ndarray
 
 ## beta
 
-```python  
-beta(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+beta(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]
+```
 
 BETA - Beta
 
@@ -343,9 +343,9 @@ float | np.ndarray
 
 ## bandpass
 
-```python  
+```python
 bandpass(candles: np.ndarray, period: int = 20, bandwidth: float = 0.3, source_type: str = "close", sequential: bool = False) -> BandPass
-```  
+```
 
 BandPass Filter
 
@@ -363,9 +363,9 @@ BandPass(bp, bp_normalized, signal, trigger)
 
 ## bollinger\_bands
 
-```python  
-bollinger_bands(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, devtype=0, source_type="close", sequential=False) -> BollingerBands  
-```  
+```python
+bollinger_bands(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, devtype=0, source_type="close", sequential=False) -> BollingerBands
+```
 
 BBANDS - Bollinger Bands
 
@@ -390,9 +390,9 @@ The `devtype` argument determines the type of deviation to use. If `devtype` is 
 
 ## bollinger\_bands\_width
 
-```python  
-bollinger_bands_width(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+bollinger_bands_width(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 BBW - Bollinger Bands Width - Bollinger Bands Bandwidth
 
@@ -412,9 +412,9 @@ float | np.ndarray
 
 ## bop
 
-```python  
-bop(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+bop(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 BOP - Balance Of Power
 
@@ -429,9 +429,9 @@ float | np.ndarray
 
 ## cc
 
-```python  
-cc(candles: np.ndarray, wma_period=10, roc_short_period=11, roc_long_period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+cc(candles: np.ndarray, wma_period=10, roc_short_period=11, roc_long_period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 Coppock Curve
 
@@ -450,9 +450,9 @@ float | np.ndarray
 
 ## cci
 
-```python  
-cci(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+cci(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 CCI - Commodity Channel Index
 
@@ -468,9 +468,9 @@ float | np.ndarray
 
 ## cfo
 
-```python  
+```python
 cfo(candles: np.ndarray, period: int = 14, scalar: float = 100, source_type: str = "close", squential: bool = False) -> Union[float, np.ndarray]:
-```  
+```
 
 CFO - Chande Forcast Oscillator
 
@@ -487,9 +487,9 @@ float | np.ndarray
 
 ## cg
 
-```python  
+```python
 cg(candles: np.ndarray, period: int = 10, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Center of Gravity (CG)
 
@@ -506,9 +506,9 @@ float | np.ndarray
 
 ## cksp
 
-```python  
+```python
 cksp(candles: np.ndarray, p: int = 10, x: float = 1.0, q: int = 9, sequential: bool = False) -> CKSP
-```  
+```
 
 Chande Kroll Stop (CKSP)
 
@@ -526,9 +526,9 @@ CKSP(long, short)
 
 ## chande
 
-```python  
+```python
 chande(candles: np.ndarray, period=22, mult=3.0, direction="long", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 Chandelier Exits
 
@@ -546,9 +546,9 @@ float | np.ndarray
 
 ## chop
 
-```python  
+```python
 chop(candles: np.ndarray, period: int = 14, scalar: float = 100, drift: int = 1, sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Choppiness Index (CHOP)
 
@@ -566,9 +566,9 @@ float | np.ndarray
 
 ## cmo
 
-```python  
-cmo(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+cmo(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 CMO - Chande Momentum Oscillator
 
@@ -585,9 +585,9 @@ float | np.ndarray
 
 ## correlation_cycle
 
-```python  
+```python
 correlation_cycle(candles: np.ndarray, period=20, threshold=9, source_type="close", sequential=False) -> CC
-```  
+```
 
 Correlation Cycle, Correlation Angle, Market State - John Ehlers
 
@@ -605,9 +605,9 @@ CC(real, imag, angle, state)
 
 ## correl
 
-```python  
-correl(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+correl(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]
+```
 
 CORREL - Pearson's Correlation Coefficient (r)
 
@@ -623,9 +623,9 @@ float | np.ndarray
 
 ## cvi
 
-```python  
-cvi(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+cvi(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]
+```
 
 CVI - Chaikins Volatility
 
@@ -641,9 +641,9 @@ float | np.ndarray
 
 ## cwma
 
-```python  
+```python
 cwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Cubed Weighted Moving Average
 
@@ -660,9 +660,9 @@ float | np.ndarray
 
 ## damiani_volatmeter
 
-```python  
+```python
 damiani_volatmeter(candles: np.ndarray, vis_atr=13, vis_std=20, sed_atr=40, sed_std=100, threshold=1.4, source_type="close", sequential=False) -> DamianiVolatmeter
-```  
+```
 
 Damiani Volatmeter
 
@@ -683,9 +683,9 @@ DamianiVolatmeter(vol, anti)
 
 ## decycler
 
-```python  
-decycler(candles: np.ndarray, hp_period=125, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+decycler(candles: np.ndarray, hp_period=125, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 Ehlers Simple Decycler
 
@@ -701,9 +701,9 @@ float | np.ndarray
 
 ## dec\_osc
 
-```python  
-dec_osc(candles: np.ndarray, hp_period=125, k=1, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+dec_osc(candles: np.ndarray, hp_period=125, k=1, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 Ehlers Decycler Oscillator
 
@@ -720,9 +720,9 @@ float | np.ndarray
 
 ## dema
 
-```python  
-dema(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+dema(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 DEMA - Double Exponential Moving Average
 
@@ -739,9 +739,9 @@ float | np.ndarray
 
 ## devstop
 
-```python  
+```python
 devstop(candles: np.ndarray, period:int=20, mult: float = 0, devtype: int = 0, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Kase Dev Stops
 
@@ -760,9 +760,9 @@ float | np.ndarray
 
 ## di
 
-```python  
-di(candles: np.ndarray, period=14, sequential=False) -> DI  
-```  
+```python
+di(candles: np.ndarray, period=14, sequential=False) -> DI
+```
 
 DI - Directional Indicator
 
@@ -778,9 +778,9 @@ DI(plus, minus)
 
 ## dm
 
-```python  
-dm(candles: np.ndarray, period=14, sequential=False) -> DM  
-```  
+```python
+dm(candles: np.ndarray, period=14, sequential=False) -> DM
+```
 
 DM - Directional Movement
 
@@ -796,9 +796,9 @@ DM(plus, minus)
 
 ## donchian
 
-```python  
-donchian(candles: np.ndarray, period=20, sequential=False) -> DonchianChannel  
-```  
+```python
+donchian(candles: np.ndarray, period=20, sequential=False) -> DonchianChannel
+```
 
 Donchian Channels
 
@@ -814,9 +814,9 @@ DonchianChannel(upperband, middleband, lowerband)
 
 ## dpo
 
-```python  
-dpo(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+dpo(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 DPO - Detrended Price Oscillator
 
@@ -833,9 +833,9 @@ float | np.ndarray
 
 ## dti
 
-```python  
+```python
 dti(candles: np.ndarray, r=14, s=10, u=5, sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 DTI by William Blau
 
@@ -853,9 +853,9 @@ float | np.ndarray
 
 ## dx
 
-```python  
-dx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+dx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 DX - Directional Movement Index
 
@@ -871,9 +871,9 @@ float | np.ndarray
 
 ## edcf
 
-```python  
+```python
 edcf(candles: np.ndarray, period: int = 15, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Ehlers Distance Coefficient Filter
 
@@ -890,9 +890,9 @@ float | np.ndarray
 
 ## efi
 
-```python  
+```python
 efi(candles: np.ndarray, period=13, source_type="close", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 EFI - Elders Force Index
 
@@ -909,9 +909,9 @@ float | np.ndarray
 
 ## ema
 
-```python  
-ema(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+ema(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 EMA - Exponential Moving Average
 
@@ -928,9 +928,9 @@ float | np.ndarray
 
 ## emd
 
-```python  
-emd(candles: np.ndarray, period=20, delta=0.5, fraction=0.1, sequential=False) -> EMD  
-```  
+```python
+emd(candles: np.ndarray, period=20, delta=0.5, fraction=0.1, sequential=False) -> EMD
+```
 
 Empirical Mode Decomposition by John F. Ehlers and Ric Way
 
@@ -948,9 +948,9 @@ EMD(upperband, middleband, lowerband)
 
 ## emv
 
-```python  
-emv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+emv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 EMV - Ease of Movement
 
@@ -965,9 +965,9 @@ float | np.ndarray
 
 ## epma
 
-```python  
+```python
 epma(candles: np.ndarray, period: int = 11, offset: int = 4, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 End Point Moving Average
 
@@ -985,9 +985,9 @@ float | np.ndarray
 
 ## er
 
-```python  
+```python
 er(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]:
-```  
+```
 
 ER - The Kaufman Efficiency indicator
 
@@ -1003,9 +1003,9 @@ float | np.ndarray
 
 ## eri
 
-```python  
+```python
 eri(candles: np.ndarray, period: int = 13, matype: int = 1, source_type: str = "close", sequential: bool = False) -> ERI
-```  
+```
 
 Elder Ray Index (ERI)
 
@@ -1023,9 +1023,9 @@ ERI(bull, bear)
 
 ## fisher
 
-```python  
-fisher(candles: np.ndarray, period=9, sequential=False) -> FisherTransform  
-```  
+```python
+fisher(candles: np.ndarray, period=9, sequential=False) -> FisherTransform
+```
 
 The Fisher Transform helps identify price reversals.
 
@@ -1041,9 +1041,9 @@ FisherTransform(fisher, signal)
 
 ## fosc
 
-```python  
-fosc(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+fosc(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 FOSC - Forecast Oscillator
 
@@ -1060,9 +1060,9 @@ float | np.ndarray
 
 ## frama
 
-```python  
-frama(candles: np.ndarray, window=10, FC=1, SC=300, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+frama(candles: np.ndarray, window=10, FC=1, SC=300, sequential=False) -> Union[float, np.ndarray]
+```
 
 Fractal Adaptive Moving Average (FRAMA)
 
@@ -1080,9 +1080,9 @@ float | np.ndarray
 
 ## fwma
 
-```python  
+```python
 fwma(candles: np.ndarray, period: int = 5, source_type: str = "close",sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Fibonacci's Weighted Moving Average (FWMA)
 
@@ -1099,9 +1099,9 @@ float | np.ndarray
 
 ## gatorosc
 
-```python  
-gatorosc(candles: np.ndarray, source_type="close", sequential=False) -> GATOR  
-```  
+```python
+gatorosc(candles: np.ndarray, source_type="close", sequential=False) -> GATOR
+```
 
 Gator Oscillator by Bill M. Williams
 
@@ -1117,9 +1117,9 @@ GATOR(upper, lower, upper_change, lower_change)
 
 ## gauss
 
-```python  
-gauss(candles: np.ndarray, period=14, poles=4, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+gauss(candles: np.ndarray, period=14, poles=4, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 Gaussian Filter
 
@@ -1137,9 +1137,9 @@ float | np.ndarray
 
 ## heikin_ashi_candles
 
-```python  
+```python
 heikin_ashi_candles(candles: np.ndarray, sequential=False) -> HA
-```  
+```
 
 Heikin Ashi candlesticks
 
@@ -1154,9 +1154,9 @@ HA(open, close, high, low)
 
 ## high_pass
 
-```python  
+```python
 high_pass(candles: np.ndarray, period=48, source_type="close", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 1-pole High Pass Filter by John F. Ehlers
 
@@ -1173,9 +1173,9 @@ float | np.ndarray
 
 ## high_pass_2_pole
 
-```python  
+```python
 high_pass_2_pole(candles: np.ndarray, period=48, source_type="close", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 2-pole High Pass Filter by John F. Ehlers
 
@@ -1192,9 +1192,9 @@ float | np.ndarray
 
 ## hma
 
-```python  
-hma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+hma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 Hull Moving Average
 
@@ -1211,9 +1211,9 @@ float | np.ndarray
 
 ## ht\_dcperiod
 
-```python  
-ht_dcperiod(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+ht_dcperiod(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 HT_DCPERIOD - Hilbert Transform - Dominant Cycle Period
 
@@ -1229,9 +1229,9 @@ float | np.ndarray
 
 ## ht\_dcphase
 
-```python  
-ht_dcphase(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+ht_dcphase(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 HT_DCPHASE - Hilbert Transform - Dominant Cycle Phase
 
@@ -1247,9 +1247,9 @@ float | np.ndarray
 
 ## ht\_phasor
 
-```python  
-ht_phasor(candles: np.ndarray, source_type="close", sequential=False) -> IQ  
-```  
+```python
+ht_phasor(candles: np.ndarray, source_type="close", sequential=False) -> IQ
+```
 
 HT_PHASOR - Hilbert Transform - Phasor Components
 
@@ -1265,9 +1265,9 @@ IQ(inphase, quadrature)
 
 ## ht\_sine
 
-```python  
-ht_sine(candles: np.ndarray, source_type="close", sequential=False) -> SINEWAVE  
-```  
+```python
+ht_sine(candles: np.ndarray, source_type="close", sequential=False) -> SINEWAVE
+```
 
 HT_SINE - Hilbert Transform - SineWave
 
@@ -1283,9 +1283,9 @@ SINEWAVE(sine, lead)
 
 ## ht\_trendline
 
-```python  
-ht_trendline(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+ht_trendline(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 HT_TRENDLINE - Hilbert Transform - Instantaneous Trendline
 
@@ -1301,9 +1301,9 @@ float | np.ndarray
 
 ## ht\_trendmode
 
-```python  
-ht_trendmode(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+ht_trendmode(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 HT_TRENDMODE - Hilbert Transform - Trend vs Cycle Mode
 
@@ -1319,9 +1319,9 @@ int | np.ndarray
 
 ## hurst_exponent
 
-```python  
+```python
 hurst_exponent(candles: np.ndarray, min_chunksize: int = 8, max_chunksize: int = 200, num_chunksize: int = 5, method: int = 1, source_type: str = "close") -> float
-```  
+```
 
 Hurst Exponent
 
@@ -1347,9 +1347,9 @@ float
 
 ## hwma
 
-```python  
+```python
 hwma(candles: np.ndarray, na: float = 0.2, nb: float = 0.1, nc: float = 0.1, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Holt-Winter Moving Average
 
@@ -1368,9 +1368,9 @@ int | np.ndarray
 
 ## ichimoku\_cloud
 
-```python  
-ichimoku_cloud(candles: np.ndarray, conversion_line_period=9, base_line_period=26, lagging_line_period=52, displacement=26) -> IchimokuCloud  
-```  
+```python
+ichimoku_cloud(candles: np.ndarray, conversion_line_period=9, base_line_period=26, lagging_line_period=52, displacement=26) -> IchimokuCloud
+```
 
 Ichimoku Cloud
 
@@ -1388,9 +1388,9 @@ IchimokuCloud(conversion_line, base_line, span_a, span_b)
 
 ## ichimoku_cloud_seq
 
-```python  
+```python
 ichimoku_cloud_seq(candles: np.ndarray, conversion_line_period=9, base_line_period=26, lagging_line_period=52,displacement=26, sequential=False) -> IchimokuCloud
-```  
+```
 
 Ichimoku Cloud Sequential
 
@@ -1408,9 +1408,9 @@ IchimokuCloud(conversion_line, base_line, span_a, span_b, lagging_line, future_s
 
 ## ift_rsi
 
-```python  
+```python
 ift_rsi(candles: np.ndarray, rsi_period: int = 5, wma_period: int =9, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Modified Inverse Fisher Transform applied on RSI
 
@@ -1428,9 +1428,9 @@ float | np.ndarray
 
 ## itrend
 
-```python  
-itrend(candles: np.ndarray, alpha=0.07, source_type="hl2", sequential=False) -> ITREND  
-```  
+```python
+itrend(candles: np.ndarray, alpha=0.07, source_type="hl2", sequential=False) -> ITREND
+```
 
 Instantaneous Trendline
 
@@ -1447,9 +1447,9 @@ ITREND(signal, it, trigger)
 
 ## jma
 
-```python  
+```python
 jma(candles: np.ndarray, period:int=7, phase:float=50, power:int=2, source_type:str='close', sequential:bool=False) -> Union[float, np.ndarray]
-```  
+```
 
 Jurik Moving Average
 
@@ -1468,9 +1468,9 @@ float | np.ndarray
 
 ## jsa
 
-```python  
+```python
 jsa(candles: np.ndarray, period: int = 30, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Jsa Moving Average
 
@@ -1487,9 +1487,9 @@ float | np.ndarray
 
 ## kama
 
-```python  
-kama(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+kama(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 KAMA - Kaufman Adaptive Moving Average
 
@@ -1506,9 +1506,9 @@ float | np.ndarray
 
 ## kaufmanstop
 
-```python  
+```python
 kaufmanstop(candles: np.ndarray, period: int = 22, mult: float = 2, direction: str = "long", matype: int = 0,  sequential: bool = False) -> Union[ float, np.ndarray]
-```  
+```
 
 Perry Kaufman's Stops
 
@@ -1527,9 +1527,9 @@ float | np.ndarray
 
 ## kdj
 
-```python  
+```python
 kdj(candles: np.ndarray, fastk_period: int = 9, slowk_period: int = 3, slowk_matype: int = 0, slowd_period: int = 3, slowd_matype: int = 0, sequential: bool = False) -> KDJ
-```  
+```
 
 The KDJ Oscillator
 
@@ -1549,9 +1549,9 @@ KDJ(k, d, j)
 
 ## keltner
 
-```python  
-keltner(candles: np.ndarray, period=20, multiplier=2, matype=1, source_type="close", sequential=False) -> KeltnerChannel  
-```  
+```python
+keltner(candles: np.ndarray, period=20, multiplier=2, matype=1, source_type="close", sequential=False) -> KeltnerChannel
+```
 
 Keltner Channels
 
@@ -1570,9 +1570,9 @@ KeltnerChannel(upperband, middleband, lowerband)
 
 ## kst
 
-```python  
-kst(candles: np.ndarray, sma_period1=10, sma_period2=10, sma_period3=10, sma_period4=15, roc_period1=10, roc_period2=15, roc_period3=20, roc_period4=30, signal_period=9, source_type="close", sequential=False) -> KST: 
-```  
+```python
+kst(candles: np.ndarray, sma_period1=10, sma_period2=10, sma_period3=10, sma_period4=15, roc_period1=10, roc_period2=15, roc_period3=20, roc_period4=30, signal_period=9, source_type="close", sequential=False) -> KST:
+```
 
 Know Sure Thing (KST)
 
@@ -1597,9 +1597,9 @@ KST(line, signal)
 
 ## kurtosis
 
-```python  
+```python
 kurtosis(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Kurtosis
 
@@ -1616,9 +1616,9 @@ float | np.ndarray
 
 ## kvo
 
-```python  
-kvo(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+kvo(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Union[float, np.ndarray]
+```
 
 KVO - Klinger Volume Oscillator
 
@@ -1635,9 +1635,9 @@ float | np.ndarray
 
 ## linearreg
 
-```python  
-linearreg(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+linearreg(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 LINEARREG - Linear Regression
 
@@ -1654,9 +1654,9 @@ float | np.ndarray
 
 ## linearreg\_angle
 
-```python  
-linearreg_angle(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+linearreg_angle(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 LINEARREG_ANGLE - Linear Regression Angle
 
@@ -1673,9 +1673,9 @@ float | np.ndarray
 
 ## linearreg\_intercept
 
-```python  
-linearreg_intercept(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+linearreg_intercept(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 LINEARREG_INTERCEPT - Linear Regression Intercept
 
@@ -1692,9 +1692,9 @@ float | np.ndarray
 
 ## linearreg\_slope
 
-```python  
-linearreg_slope(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+linearreg_slope(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 LINEARREG_SLOPE - Linear Regression Slope
 
@@ -1711,9 +1711,9 @@ float | np.ndarray
 
 ## lrsi
 
-```python  
-lrsi(candles: np.ndarray, alpha=0.2, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+lrsi(candles: np.ndarray, alpha=0.2, sequential=False) -> Union[float, np.ndarray]
+```
 
 RSI Laguerre Filter
 
@@ -1729,9 +1729,9 @@ float | np.ndarray
 
 ## ma
 
-```python  
+```python
 ma(candles: np.ndarray, period: int = 30, matype: int = 0,  source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]:
-```  
+```
 
 MA - (nearly) All Moving Averages of Jesse
 
@@ -1749,9 +1749,9 @@ float | np.ndarray
 
 ## maaq
 
-```python  
+```python
 maaq(candles: np.ndarray, period: int = 11, fast_period: int = 2, slow_period: int = 30, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Moving Average Adaptive Q
 
@@ -1771,9 +1771,9 @@ float | np.ndarray
 
 ## mab
 
-```python  
+```python
 mab(candles: np.ndarray, fast_period: int = 10, slow_period: int = 50, devup: float = 1, devdn: float = 1, fast_matype: int = 0, slow_matype: int = 0, source_type: str = "close", sequential: bool = False) -> MAB
-```  
+```
 
 Moving Average Bands
 
@@ -1795,9 +1795,9 @@ MAB(upperband, middleband, lowerband)
 
 ## macd
 
-```python  
-macd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, source_type="close", sequential=False) -> MACD  
-```  
+```python
+macd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, source_type="close", sequential=False) -> MACD
+```
 
 MACD - Moving Average Convergence/Divergence
 
@@ -1816,9 +1816,9 @@ MACD(macd, signal, hist)
 
 ## macdext
 
-```python  
-macdext(candles: np.ndarray, fast_period=12, fast_matype=0, slow_period=26, slow_matype=0, signal_period=9, signal_matype=0, source_type="close", sequential=False) -> MACDEXT  
-```  
+```python
+macdext(candles: np.ndarray, fast_period=12, fast_matype=0, slow_period=26, slow_matype=0, signal_period=9, signal_matype=0, source_type="close", sequential=False) -> MACDEXT
+```
 
 MACDEXT - MACD with controllable MA type
 
@@ -1840,9 +1840,9 @@ MACDEXT(macd, signal, hist)
 
 ## mama
 
-```python  
-mama(candles: np.ndarray, fastlimit=0.5, slowlimit=0.05, source_type="close", sequential=False) -> MAMA  
-```  
+```python
+mama(candles: np.ndarray, fastlimit=0.5, slowlimit=0.05, source_type="close", sequential=False) -> MAMA
+```
 
 MAMA - MESA Adaptive Moving Average
 
@@ -1860,9 +1860,9 @@ MAMA(mama, fama)
 
 ## marketfi
 
-```python  
-marketfi(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+marketfi(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 MARKETFI - Market Facilitation Index
 
@@ -1877,9 +1877,9 @@ float | np.ndarray
 
 ## mass
 
-```python  
-mass(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+mass(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]
+```
 
 MASS - Mass Index
 
@@ -1895,9 +1895,9 @@ float | np.ndarray
 
 ## mcginley_dynamic
 
-```python  
+```python
 mcginley_dynamic(candles: np.ndarray, period=10, k=0.6, source_type="close", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 McGinley Dynamic
 
@@ -1914,9 +1914,9 @@ float | np.ndarray
 
 ## mean_ad
 
-```python  
+```python
 mean_ad(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Mean Absolute Deviation
 
@@ -1933,9 +1933,9 @@ float | np.ndarray
 
 ## median_ad
 
-```python  
+```python
 median_ad(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Median Absolute Deviation
 
@@ -1952,9 +1952,9 @@ float | np.ndarray
 
 ## medprice
 
-```python  
-medprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+medprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 MEDPRICE - Median Price
 
@@ -1969,9 +1969,9 @@ float | np.ndarray
 
 ## mfi
 
-```python  
-mfi(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+mfi(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 MFI - Money Flow Index
 
@@ -1987,9 +1987,9 @@ float | np.ndarray
 
 ## midpoint
 
-```python  
-midpoint(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+midpoint(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 MIDPOINT - MidPoint over period
 
@@ -2006,9 +2006,9 @@ float | np.ndarray
 
 ## midprice
 
-```python  
-midprice(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+midprice(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 MIDPRICE - Midpoint Price over period
 
@@ -2024,9 +2024,9 @@ float | np.ndarray
 
 ## minmax
 
-```python  
-minmax(candles: np.ndarray, order=3, sequential=False) -> EXTREMA  
-```  
+```python
+minmax(candles: np.ndarray, order=3, sequential=False) -> EXTREMA
+```
 
 minmax - Get extrema
 
@@ -2050,9 +2050,9 @@ EXTREMA(is_min, is_max, last_min, last_max)
 
 ## mom
 
-```python  
-mom(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+mom(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 MOM - Momentum
 
@@ -2069,9 +2069,9 @@ float | np.ndarray
 
 ## mwdx
 
-```python  
+```python
 mwdx(candles: np.ndarray, factor: float = 0.2, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 MWDX Average
 
@@ -2088,9 +2088,9 @@ float | np.ndarray
 
 ## msw
 
-```python  
-msw(candles: np.ndarray, period=5, source_type="close", sequential=False) -> MSW  
-```  
+```python
+msw(candles: np.ndarray, period=5, source_type="close", sequential=False) -> MSW
+```
 
 MSW - Mesa Sine Wave
 
@@ -2107,9 +2107,9 @@ MSW(sine, lead)
 
 ## natr
 
-```python  
-natr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+natr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 NATR - Normalized Average True Range
 
@@ -2125,9 +2125,9 @@ float | np.ndarray
 
 ## nma
 
-```python  
-nma(candles: np.ndarray, period: int = 40, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray] 
-```  
+```python
+nma(candles: np.ndarray, period: int = 40, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```
 
 Natural Moving Average
 
@@ -2144,9 +2144,9 @@ float | np.ndarray
 
 ## nvi
 
-```python  
-nvi(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+nvi(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 NVI - Negative Volume Index
 
@@ -2162,9 +2162,9 @@ float | np.ndarray
 
 ## obv
 
-```python  
-obv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+obv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 OBV - On Balance Volume
 
@@ -2179,9 +2179,9 @@ float | np.ndarray
 
 ## pattern\_recognition
 
-```python  
-pattern_recognition(candles: np.ndarray, pattern_type, penetration=0, sequential=False) -> Union[int, np.ndarray]  
-```  
+```python
+pattern_recognition(candles: np.ndarray, pattern_type, penetration=0, sequential=False) -> Union[int, np.ndarray]
+```
 
 Pattern Recognition
 
@@ -2276,9 +2276,9 @@ The `penetration` parameter only affects:
 
 ## pfe
 
-```python  
+```python
 pfe(candles: np.ndarray, period: int = 10, smoothing: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Polarized Fractal Efficiency (PFE)
 
@@ -2296,9 +2296,9 @@ float | np.ndarray
 
 ## pivot
 
-```python  
-pivot(candles: np.ndarray, mode=0, sequential=False) -> PIVOT  
-```  
+```python
+pivot(candles: np.ndarray, mode=0, sequential=False) -> PIVOT
+```
 
 Pivot Points
 
@@ -2323,9 +2323,9 @@ PIVOT(r4, r3, r2, r1, pp, s1, s2, s3, s4)
 
 ## pma
 
-```python  
+```python
 pma(candles: np.ndarray, source_type: str = "hl2", sequential: bool = False) -> PMA
-```  
+```
 
 Ehlers Predictive Moving Average
 
@@ -2342,10 +2342,10 @@ PMA(predict, trigger)
 
 ## ppo
 
-```python  
-ppo(candles: np.ndarray, fast_period=12, slow_period=26, matype=0, source_type="close", sequential=False) -> Union[  
-  float, np.ndarray]  
-```  
+```python
+ppo(candles: np.ndarray, fast_period=12, slow_period=26, matype=0, source_type="close", sequential=False) -> Union[
+  float, np.ndarray]
+```
 
 PPO - Percentage Price Oscillator
 
@@ -2364,9 +2364,9 @@ float | np.ndarray
 
 ## pvi
 
-```python  
-pvi(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+pvi(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 PVI - Positive Volume Index
 
@@ -2382,9 +2382,9 @@ float | np.ndarray
 
 ## pwma
 
-```python  
+```python
 pwma(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Pascals Weighted Moving Average (PWMA)
 
@@ -2401,9 +2401,9 @@ float | np.ndarray
 
 ## qstick
 
-```python  
-qstick(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+qstick(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]
+```
 
 Qstick
 
@@ -2419,9 +2419,9 @@ float | np.ndarray
 
 ## reflex
 
-```python  
+```python
 reflex(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 Reflex indicator by John F. Ehlers
 
@@ -2438,9 +2438,9 @@ float | np.ndarray
 
 ## roc
 
-```python  
-roc(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+roc(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 ROC - Rate of change : ((price/prevPrice)-1)*100
 
@@ -2457,9 +2457,9 @@ float | np.ndarray
 
 ## rocp
 
-```python  
-rocp(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+rocp(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 ROCP - Rate of change Percentage: (price-prevPrice)/prevPrice
 
@@ -2476,9 +2476,9 @@ float | np.ndarray
 
 ## rocr
 
-```python  
-rocr(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+rocr(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 ROCR - Rate of change ratio: (price/prevPrice)
 
@@ -2495,9 +2495,9 @@ float | np.ndarray
 
 ## rocr100
 
-```python  
-rocr100(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+rocr100(candles: np.ndarray, period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 ROCR100 - Rate of change ratio 100 scale: (price/prevPrice)*100
 
@@ -2514,9 +2514,9 @@ float | np.ndarray
 
 ## roofing
 
-```python  
+```python
 roofing(candles: np.ndarray, hp_period=48, lp_period=10, source_type="close", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 Roofing Filter indicator by John F. Ehlers
 
@@ -2534,9 +2534,9 @@ float | np.ndarray
 
 ## rsi
 
-```python  
-rsi(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+rsi(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 RSI - Relative Strength Index
 
@@ -2553,9 +2553,9 @@ float | np.ndarray
 
 ## rsmk
 
-```python  
-rsmk(candles: np.ndarray, candles_compare: np.ndarray, lookback: int = 90, period: int = 3, signal_period: int = 20, matype: int = 1, signal_matype: int = 1, source_type: str = "close", sequential: bool = False) -> RSMK  
-```  
+```python
+rsmk(candles: np.ndarray, candles_compare: np.ndarray, lookback: int = 90, period: int = 3, signal_period: int = 20, matype: int = 1, signal_matype: int = 1, source_type: str = "close", sequential: bool = False) -> RSMK
+```
 
 RSMK - Relative Strength
 
@@ -2576,9 +2576,9 @@ RSMK(indicator, signal)
 
 ## rsx
 
-```python  
+```python
 rsx(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 RSX - Relative Strength Xtra
 
@@ -2595,9 +2595,9 @@ float | np.ndarray
 
 ## rvi
 
-```python  
+```python
 rvi(candles: np.ndarray, period: int = 10, ma_len: int = 14, matype: int = 1, devtype: int = 0, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 RVI - Relative Volatility Index
 
@@ -2617,9 +2617,9 @@ float | np.ndarray
 
 ## safezonestop
 
-```python  
+```python
 safezonestop(candles: np.ndarray, period: int = 22, mult: float = 2.5, max_lookback: int = 3, direction: str = "long", sequential: bool = False) -> Union[float, np.ndarray]:
-```  
+```
 
 Safezone Stops
 
@@ -2638,9 +2638,9 @@ float | np.ndarray
 
 ## sar
 
-```python  
-sar(candles: np.ndarray, acceleration=0.02, maximum=0.2, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+sar(candles: np.ndarray, acceleration=0.02, maximum=0.2, sequential=False) -> Union[float, np.ndarray]
+```
 
 SAR - Parabolic SAR
 
@@ -2657,9 +2657,9 @@ float | np.ndarray
 
 ## sarext
 
-```python  
-sarext(candles: np.ndarray, startvalue=0, offsetonreverse=0, accelerationinitlong=0, accelerationlong=0, accelerationmaxlong=0, accelerationinitshort=0, accelerationshort=0, accelerationmaxshort=0, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+sarext(candles: np.ndarray, startvalue=0, offsetonreverse=0, accelerationinitlong=0, accelerationlong=0, accelerationmaxlong=0, accelerationinitshort=0, accelerationshort=0, accelerationmaxshort=0, sequential=False) -> Union[float, np.ndarray]
+```
 
 SAREXT - Parabolic SAR - Extended
 
@@ -2682,9 +2682,9 @@ float | np.ndarray
 
 ## sinwma
 
-```python  
-sinwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray] 
-```  
+```python
+sinwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
+```
 
 Sine Weighted Moving Average (SINWMA)
 
@@ -2701,9 +2701,9 @@ float | np.ndarray
 
 ## skew
 
-```python  
+```python
 skew(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Skewness
 
@@ -2720,9 +2720,9 @@ float | np.ndarray
 
 ## sma
 
-```python  
-sma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+sma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 SMA - Simple Moving Average
 
@@ -2739,9 +2739,9 @@ float | np.ndarray
 
 ## smma
 
-```python  
-smma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+smma(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 SMMA - Smoothed Moving Average
 
@@ -2756,9 +2756,9 @@ SMMA - Smoothed Moving Average
 
 ## sqwma
 
-```python  
+```python
 sqwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Square Weighted Moving Average
 
@@ -2777,9 +2777,9 @@ float | np.ndarray
 
 ## srsi
 
-```python  
-srsi(candles: np.ndarray, period=14, source_type="close", sequential=False) -> StochasticRSI  
-```  
+```python
+srsi(candles: np.ndarray, period=14, source_type="close", sequential=False) -> StochasticRSI
+```
 
 Stochastic RSI
 
@@ -2796,9 +2796,9 @@ StochasticRSI(k, d)
 
 ## srwma
 
-```python  
+```python
 srwma(candles: np.ndarray, period: int = 14, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Square Root Weighted Moving Average
 
@@ -2815,9 +2815,9 @@ float | np.ndarray
 
 ## stc
 
-```python  
+```python
 stc(candles: np.ndarray, fast_period: int = 23, fast_matype: int = 1, slow_period: int = 50, slow_matype: int = 1, k_period: int = 10, d_period: int = 3, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 STC - Schaff Trend Cycle (Oscillator)
 
@@ -2839,9 +2839,9 @@ float | np.ndarray
 
 ## stddev
 
-```python  
-stddev(candles: np.ndarray, period=5, nbdev=1, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+stddev(candles: np.ndarray, period=5, nbdev=1, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 STDDEV - Standard Deviation
 
@@ -2859,9 +2859,9 @@ float | np.ndarray
 
 ## stoch
 
-```python  
-stoch(candles: np.ndarray, fastk_period=14, slowk_period=3, slowk_matype=0, slowd_period=3, slowd_matype=0, sequential=False) -> Stochastic  
-```  
+```python
+stoch(candles: np.ndarray, fastk_period=14, slowk_period=3, slowk_matype=0, slowd_period=3, slowd_matype=0, sequential=False) -> Stochastic
+```
 
 The Stochastic Oscillator
 
@@ -2877,9 +2877,9 @@ Stochastic(k, d)
 
 ## stochf
 
-```python  
-stochf(candles: np.ndarray, fastk_period=5, fastd_period=3, fastd_matype=0, sequential=False) -> StochasticFast  
-```  
+```python
+stochf(candles: np.ndarray, fastk_period=5, fastd_period=3, fastd_matype=0, sequential=False) -> StochasticFast
+```
 
 Stochastic Fast
 
@@ -2897,11 +2897,11 @@ StochasticFast(k, d)
 
 ## supersmoother
 
-```python  
-supersmoother(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+supersmoother(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
-Super Smoother Filter 2pole Butterworth  
+Super Smoother Filter 2pole Butterworth
 This indicator was described by John F. Ehlers
 
 **Arguments**:
@@ -2917,11 +2917,11 @@ float | np.ndarray
 
 ## supersmoother_3_pole
 
-```python  
-supersmoother_3_pole(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+supersmoother_3_pole(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
-Super Smoother Filter 3pole Butterworth  
+Super Smoother Filter 3pole Butterworth
 This indicator was described by John F. Ehlers
 
 **Arguments**:
@@ -2937,9 +2937,9 @@ float | np.ndarray
 
 ## swma
 
-```python  
+```python
 swma(candles: np.ndarray, period: int = 5, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Symmetric Weighted Moving Average (SWMA)
 
@@ -2956,9 +2956,9 @@ float | np.ndarray
 
 ## supertrend
 
-```python  
-supertrend(candles: np.ndarray, period=10, factor=3, sequential=False) -> SuperTrend  
-```  
+```python
+supertrend(candles: np.ndarray, period=10, factor=3, sequential=False) -> SuperTrend
+```
 
 SuperTrend
 
@@ -2975,9 +2975,9 @@ SuperTrend(trend, changed)
 
 ## t3
 
-```python  
-t3(candles: np.ndarray, period=5, vfactor=0, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+t3(candles: np.ndarray, period=5, vfactor=0, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 T3 - Triple Exponential Moving Average (T3)
 
@@ -2995,9 +2995,9 @@ float | np.ndarray
 
 ## tema
 
-```python  
-tema(candles: np.ndarray, period=9, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+tema(candles: np.ndarray, period=9, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 TEMA - Triple Exponential Moving Average
 
@@ -3014,9 +3014,9 @@ float | np.ndarray
 
 ## trange
 
-```python  
-trange(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+trange(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 TRANGE - True Range
 
@@ -3031,9 +3031,9 @@ float | np.ndarray
 
 ## trendflex
 
-```python  
+```python
 trendflex(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]
-```  
+```
 
 Trendflex indicator by John F. Ehlers
 
@@ -3050,9 +3050,9 @@ float | np.ndarray
 
 ## trima
 
-```python  
-trima(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+trima(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 TRIMA - Triangular Moving Average
 
@@ -3069,9 +3069,9 @@ float | np.ndarray
 
 ## trix
 
-```python  
-trix(candles: np.ndarray, period=18, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+trix(candles: np.ndarray, period=18, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 TRIX - 1-day Rate-Of-Change (ROC) of a Triple Smooth EMA
 
@@ -3088,9 +3088,9 @@ float | np.ndarray
 
 ## tsf
 
-```python  
-tsf(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+tsf(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 TSF - Time Series Forecast
 
@@ -3107,9 +3107,9 @@ float | np.ndarray
 
 ## tsi
 
-```python  
-tsi(candles: np.ndarray, long_period=25, short_period=13, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+tsi(candles: np.ndarray, long_period=25, short_period=13, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 True strength index (TSI)
 
@@ -3127,9 +3127,9 @@ float | np.ndarray
 
 ## ttm_trend
 
-```python  
+```python
 ttm_trend(candles: np.ndarray, period: int = 5, source_type: str = "hl2", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 TTM Trend
 
@@ -3146,9 +3146,9 @@ float | np.ndarray
 
 ## typprice
 
-```python  
-typprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+typprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 TYPPRICE - Typical Price
 
@@ -3163,9 +3163,9 @@ float | np.ndarray
 
 ## ui
 
-```python  
+```python
 ui(candles: np.ndarray, period: int = 14, scalar: float = 100, source_type: str = "close",  sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Ulcer Index (UI)
 
@@ -3182,10 +3182,10 @@ float | np.ndarray
 
 ## ultosc
 
-```python  
-ultosc(candles: np.ndarray, timeperiod1=7, timeperiod2=14, timeperiod3=28, sequential=False) -> Union[  
-  float, np.ndarray]  
-```  
+```python
+ultosc(candles: np.ndarray, timeperiod1=7, timeperiod2=14, timeperiod3=28, sequential=False) -> Union[
+  float, np.ndarray]
+```
 
 ULTOSC - Ultimate Oscillator
 
@@ -3203,9 +3203,9 @@ float | np.ndarray
 
 ## var
 
-```python  
-var(candles: np.ndarray, period=14, nbdev=1, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+var(candles: np.ndarray, period=14, nbdev=1, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 VAR - Variance
 
@@ -3223,9 +3223,9 @@ float | np.ndarray
 
 ## vi
 
-```python  
-vi(candles: np.ndarray, period=14, sequential=False) -> VI  
-```  
+```python
+vi(candles: np.ndarray, period=14, sequential=False) -> VI
+```
 
 Vortex Indicator (VI)
 
@@ -3241,9 +3241,9 @@ VI(plus, minus)
 
 ## vidya
 
-```python  
-vidya(candles: np.ndarray, short_period=2, long_period=5, alpha=0.2, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+vidya(candles: np.ndarray, short_period=2, long_period=5, alpha=0.2, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 VIDYA - Variable Index Dynamic Average
 
@@ -3262,9 +3262,9 @@ float | np.ndarray
 
 ## vpci
 
-```python  
+```python
 vpci(candles: np.ndarray, short_range=5, long_range=25, sequential=False) -> VPCI
-```  
+```
 
 VPCI - Volume Price Confirmation Indicator
 
@@ -3281,9 +3281,9 @@ VPCI(vpci, vpcis)
 
 ## vlma
 
-```python  
+```python
 vlma(candles: np.ndarray, min_period: int = 5, max_period: int = 50, matype: int = 0, devtype: int = 0, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Variable Length Moving Average
 
@@ -3304,9 +3304,9 @@ float | np.ndarray
 
 ## vosc
 
-```python  
-vosc(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+vosc(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Union[float, np.ndarray]
+```
 
 VOSC - Volume Oscillator
 
@@ -3323,9 +3323,9 @@ float | np.ndarray
 
 ## voss
 
-```python  
+```python
 voss(candles: np.ndarray, period=20, predict=3, bandwith=0.25, source_type="close", sequential=False) -> VossFilter
-```  
+```
 
 Voss - Voss Filter indicator by John Ehlers
 
@@ -3344,9 +3344,9 @@ VossFilter(voss, filt)
 
 ## vpt
 
-```python  
-vpt(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+vpt(candles: np.ndarray, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 VPT - Volume Price Trend
 
@@ -3362,9 +3362,9 @@ float | np.ndarray
 
 ## vpwma
 
-```python  
+```python
 vpwma(candles: np.ndarray, period: int = 14, power: float = 0.382, source_type: str = "close", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 Variable Power Weighted Moving Average
 
@@ -3382,9 +3382,9 @@ float | np.ndarray
 
 ## vwap
 
-```python  
+```python
 vwap(candles: np.ndarray, source_type: str = "hlc3", anchor: str = "D", sequential: bool = False) -> Union[float, np.ndarray]
-```  
+```
 
 VWAP - Volume weighted average price
 
@@ -3401,9 +3401,9 @@ float | np.ndarray
 
 ## vwma
 
-```python  
-vwma(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+vwma(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 VWMA - Volume Weighted Moving Average
 
@@ -3420,9 +3420,9 @@ float | np.ndarray
 
 ## vwmacd
 
-```python  
-vwmacd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, sequential=False) -> VWMACD  
-```  
+```python
+vwmacd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, sequential=False) -> VWMACD
+```
 
 VWMACD - Volume Weighted Moving Average Convergence/Divergence
 
@@ -3440,9 +3440,9 @@ VWMACD(macd, signal, hist)
 
 ## wad
 
-```python  
-wad(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+wad(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 WAD - Williams Accumulation/Distribution
 
@@ -3457,9 +3457,9 @@ float | np.ndarray
 
 ## wclprice
 
-```python  
-wclprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+wclprice(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+```
 
 WCLPRICE - Weighted Close Price
 
@@ -3474,9 +3474,9 @@ float | np.ndarray
 
 ## wilders
 
-```python  
-wilders(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+wilders(candles: np.ndarray, period=5, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 WILDERS - Wilders Smoothing
 
@@ -3493,9 +3493,9 @@ float | np.ndarray
 
 ## willr
 
-```python  
-willr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+willr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+```
 
 WILLR - Williams' %R
 
@@ -3511,9 +3511,9 @@ float | np.ndarray
 
 ## wma
 
-```python  
-wma(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+wma(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 WMA - Weighted Moving Average
 
@@ -3530,9 +3530,9 @@ float | np.ndarray
 
 ## wt
 
-```python  
+```python
 wt(candles: np.ndarray, wtchannellen: int = 9, wtaveragelen: int = 12, wtmalen: int = 3, oblevel: int = 53,  oslevel: int = -53, source_type: str = "hlc3", sequential: bool = False) -> Wavetrend
-```  
+```
 
 Wavetrend indicator
 
@@ -3554,9 +3554,9 @@ Wavetrend(wt1, wt2, wtCrossUp, wtCrossDown, wtOversold, wtOverbought, wtVwap)
 
 ## zlema
 
-```python  
-zlema(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]  
-```  
+```python
+zlema(candles: np.ndarray, period=20, source_type="close", sequential=False) -> Union[float, np.ndarray]
+```
 
 Zero-Lag Exponential Moving Average
 
@@ -3573,10 +3573,10 @@ float | np.ndarray
 
 ## zscore
 
-```python  
-zscore(candles: np.ndarray, period=14, matype=0, nbdev=1, devtype: int = 0, source_type="close", sequential=False) -> Union[  
-  float, np.ndarray]  
-```  
+```python
+zscore(candles: np.ndarray, period=14, matype=0, nbdev=1, devtype: int = 0, source_type="close", sequential=False) -> Union[
+  float, np.ndarray]
+```
 
 zScore
 

@@ -1,8 +1,8 @@
 # Utilities
 
-**Risk management** and **statistic** calculations are essential for a successful algo trading career. 
+**Risk management** and **statistic** calculations are essential for a successful algo trading career.
 
-Hence, Jesse offers a collection of commonly used utility functions that make life easier for quants. 
+Hence, Jesse offers a collection of commonly used utility functions that make life easier for quants.
 
 ## anchor_timeframe
 
@@ -27,13 +27,13 @@ bigger_timeframe = anchor_timeframe('1h') # prints '4h'
 
 ## are\_cointegrated
 
-Uses unit-root test on residuals to test for a cointegrated relationship between two price return series. 
+Uses unit-root test on residuals to test for a cointegrated relationship between two price return series.
 
 ::: tip
-Notice that for the formula to make sense `price_returns_1` and `price_returns_2` must be "price returns" and not the mere prices of the two assets. Hence you need to convert your asset prices to returns using the [prices_to_returns](#prices-to-returns) utility. 
+Notice that for the formula to make sense `price_returns_1` and `price_returns_2` must be "price returns" and not the mere prices of the two assets. Hence you need to convert your asset prices to returns using the [prices_to_returns](#prices-to-returns) utility.
 :::
 
-The `cutoff` parameter points to the p-value threshold used in the formula. 
+The `cutoff` parameter points to the p-value threshold used in the formula.
 
 ```py
 are_cointegrated(
@@ -156,12 +156,12 @@ numpy_candles_to_dataframe(candles: np.ndarray, name_date="date", name_open="ope
 
 ## prices\_to\_returns
 
-Converts a series of asset prices to returns. 
+Converts a series of asset prices to returns.
 
-In case you're wondering why you need to use price returns for price series analysis instead of the price values, check out this answer on [Quant Stackexchange](https://quant.stackexchange.com/a/16484). 
+In case you're wondering why you need to use price returns for price series analysis instead of the price values, check out this answer on [Quant Stackexchange](https://quant.stackexchange.com/a/16484).
 
-::: tip 
-Notice that the first return value for the first index cannot be calculated hence it equals `nan`. 
+::: tip
+Notice that the first return value for the first index cannot be calculated hence it equals `nan`.
 :::
 
 ```py
@@ -203,7 +203,7 @@ We made a [website](https://positionsizingcalculator.netlify.app) for you just t
 :::
 
 ::: warning
-There might be situations where this helper returns a qty exceeding the available capital leading to an exception. The reason for this is a very close stop loss (often due to the usage of the ATR). You can check this with the calculator above. That's not a error, but expected behavior of the formula. You might want to add a logic limiting the qty to a maximum percentage of the capital.
+There might be situations where this helper returns a qty exceeding the available capital leading to an exception. The reason for this is a very close stop loss (often due to the usage of the ATR). You can check this with the calculator above. That's not an error, but expected behavior of the formula. You might want to add a logic limiting the qty to a maximum percentage of the capital.
 :::
 
 ```py
@@ -242,7 +242,7 @@ def go_long(self):
 
 In real trading, you usually need to include the exchange fee in qty calculation to make sure you don't spend more than the existing capital (in which case Jesse would raise an error):
 ```py
-# so instead of 
+# so instead of
 qty = utils.risk_to_qty(capital, risk_perc, entry, stop)
 
 # it's better to do
@@ -323,7 +323,7 @@ streaks(series: np.array, use_diff=True) -> np.array
 
 ## strictly\_decreasing
 
-Returns whether a series is strictly decreasing or not. 
+Returns whether a series is strictly decreasing or not.
 
 ```py
 strictly_increasing(series, lookback)
@@ -338,7 +338,7 @@ strictly_increasing(series, lookback)
 
 ## strictly\_increasing
 
-Returns whether a series is strictly increasing or not. 
+Returns whether a series is strictly increasing or not.
 
 ```py
 strictly_increasing(series, lookback)
@@ -387,7 +387,7 @@ sum_floats(float1: float, float2: float) -> float
 Denoises / filters timeseries data. First deconstructs and then reconstructs based on a threshold.
 
 ::: tip
-Based on [PyWavelets](https://pywavelets.readthedocs.io/en/latest/). See its docs for more information. 
+Based on [PyWavelets](https://pywavelets.readthedocs.io/en/latest/). See its docs for more information.
 It's recommended to consider only `haar`, `db`, `sym`, `coif` wavelet basis functions, as these are relatively suitable for financial data.
 :::
 
@@ -408,10 +408,10 @@ wavelet_denoising(raw: np.ndarray, wavelet: str ='haar', level: int = 1, mode: s
 
 ## z\_score
 
-A Z-score is a numerical measurement that describes how many standard deviations far away the data is comparing to the mean of the data. 
+A Z-score is a numerical measurement that describes how many standard deviations far away the data is comparing to the mean of the data.
 
 ::: tip
-Notice that for the formula to make sense `price_returns` must be "price returns" and not the mere prices of the two assets. Hence you need to convert your asset prices to returns using the [prices_to_returns](#prices-to-returns) utility. 
+Notice that for the formula to make sense `price_returns` must be "price returns" and not the mere prices of the two assets. Hence you need to convert your asset prices to returns using the [prices_to_returns](#prices-to-returns) utility.
 :::
 
 ```py

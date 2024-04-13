@@ -4,7 +4,7 @@ title: Custom Indicators
 
 # Advanced - Adding a custom indicator
 
-Does your strategy idea need indicators that aren't available yet? Let's see how to create and use custom indicators in Jesse. 
+Does your strategy idea need indicators that aren't available yet? Let's see how to create and use custom indicators in Jesse.
 
 ## Tutorial for a custom indicator
 
@@ -55,7 +55,7 @@ def ewo(candles: np.ndarray, short_period: int = 5, long_period: int = 34, sourc
     :return: Union[float, np.ndarray]
     """
     candles = slice_candles(candles, sequential)
-    
+
     src = get_candle_source(candles, source_type)
     ewo = np.subtract(talib.EMA(src, timeperiod=short_period), talib.EMA(src, timeperiod=long_period))
 
@@ -84,7 +84,7 @@ That's the reason we use slice_candles(). We use the configured warmup_candles_n
 We don't do it by default if sequential=True, as Jesse doesn't know how much lookback you need from your sequential indicator. But as you know it, you can remove this condition.
 
 ::: tip Too few past data change indicator values
-Some indicators are influenced by the whole range of past data. These functions are called functions with memory. Check [here](https://ta-lib.org/d_api/ta_setunstableperiod.html) for a good explanation. That's the reason for warm_up_candles_num changing indicator values under some conditions or variations to other implementations (like TradingView). 
+Some indicators are influenced by the whole range of past data. These functions are called functions with memory. Check [here](https://ta-lib.org/api/#Unstable%20Period) for a good explanation. That's the reason for warm_up_candles_num changing indicator values under some conditions or variations to other implementations (like TradingView).
 :::
 
 
@@ -98,7 +98,7 @@ def slice_candles(candles: np.ndarray, sequential: bool) -> np.ndarray:
 
 ### Accessing open, close, high, low, and volume
 
-In the tutorial above we used the helper function. `src = get_candle_source(candles, source_type)`. 
+In the tutorial above we used the helper function. `src = get_candle_source(candles, source_type)`.
 This function accepts as parameters:
 -   `"close"`
 -   `"high"`
@@ -153,7 +153,7 @@ Jesse uses [Numba](https://numba.pydata.org/) to speed up indicator calculations
 
 ### External libraries for technical indicators and things to be aware of
 
-There are mainly two kinds of python libraries for technical indicators: Some are Pandas based and some are Numpy based. For performance reasons Jesse uses Numpy. 
+There are mainly two kinds of python libraries for technical indicators: Some are Pandas based and some are Numpy based. For performance reasons Jesse uses Numpy.
 
 #### Talib
 
@@ -163,7 +163,7 @@ import talib
 ema = talib.EMA(candles[:, 2], timeperiod=period)
 ```
 
-#### Tulipy 
+#### Tulipy
 
 Tulipy returns Numpy, but has two things you need to be aware of.
 ```python
@@ -241,7 +241,7 @@ The [sliding_window_view](https://numpy.org/devdocs/reference/generated/numpy.li
 ```python
 array_with_matching_lenght = np.concatenate((np.full((candles.shape[0] - array_with_shorter_lenght.shape[0]), np.nan), array_with_shorter_lenght)
 ```
-or 
+or
 ```python
 from jesse.helpers import same_length
 array_with_matching_lenght = same_length(candles, array_with_shorter_lenght)
