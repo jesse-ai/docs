@@ -703,10 +703,7 @@ You would need `shared_vars` for writing strategies that require more than one r
 
 ## time
 
-The current execution timestamp (UTC) of the strategy, which  means one of two things:
-
-- The closing time of the current candle as it gets available
-- The current time for any occuring [event](./events.html) e.g. `on_open_position`
+The current execution timestamp (UTC) of the strategy.
 
 **Return Type**: int
 
