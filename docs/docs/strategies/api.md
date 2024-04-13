@@ -233,7 +233,7 @@ def big_trend(self):
 
 ## fee_rate
 
-The `fee_rate` property returns the fee rate that the exchange your strategy is trading on uses. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty).
+The `fee_rate` property returns the fee rate of the exchange your strategy is trading on. This property is most commonly used as a parameter for [risk_to_qty](/docs/utils.html#risk-to-qty).
 
 **Example:**
 ```py

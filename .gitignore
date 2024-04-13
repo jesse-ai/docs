@@ -14,5 +14,5 @@ composer.lock
 .vscode
 package-lock.json
 .eslintrc.js
-/docs/.vitepress/dist
-
+.vitepress/dist
+docs/.vitepress
