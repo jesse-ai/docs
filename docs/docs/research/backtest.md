@@ -1,16 +1,16 @@
 # Backtest
 
-Jesse's backtesting feature that you access via the GUI dashboard is great, but there were cases when users needed to run backtests via their python scripts, or in Jupyter notebooks. 
+Jesse's backtesting feature accessed via the GUI dashboard is excellent. However, there have been cases where users needed to run backtests through their Python scripts or in Jupyter notebooks.
 
-Hence, I created the `backtest()` that is a pure function. Meaning that it only uses the input you pass to it. This means it is ready for multiprocessing too!
+Therefore, I created the `backtest()` function as a pure function. It utilizes only the input you provide, making it suitable for multiprocessing.
 
-Let's review two example use cases:
+Let's examine two example use cases:
 
-1. An example of this would be when you intend to generate some data series based on whatever statistical formula that you have in mind, and want to test out the main logic behind your strategy. For this purpose, you need to generate candles, write the strategy, and run the backtest all inside the same file (or Jupyter notebook).
+1. An instance where you aim to generate data series based on a statistical formula to test the main logic of your strategy. Here, you need to generate candles, write the strategy, and conduct the backtest within the same file or Jupyter notebook.
 
-2. Another use case is for writing batch operations, such as optimization, machine learning, etc. 
+2. Another scenario is for batch operations like optimization, machine learning, etc.
 
-```py
+```python
 backtest(
     config: dict,
     routes: list,
@@ -25,52 +25,46 @@ backtest(
     generate_csv: bool = False,
     generate_json: bool = False,
     generate_logs: bool = False,
-    hyperparameters: dict = None
+    hyperparameters: dict = None,
+    fast_mode: bool = True
 )
 ```
 
 **Parameters:**
-
-- config: dict
-- routes: list
-- extra_routes: list
-- candles: dict
-- warmup_candles: dict = None,
-- generate_charts: bool = False
-- generate_tradingview: bool = False
-- generate_quantstats: bool = False
-- generate_hyperparameters: bool = False
-- generate_equity_curve: bool = False
-- generate_csv: bool = False
-- generate_json: bool = False
-- generate_logs: bool = False
-- hyperparameters: dict (optional)
+-  config: dict
+-  routes: list
+-  extra_routes: list
+-  candles: dict
+-  warmup_candles: dict = None
+-  generate_charts: bool = False
+-  generate_tradingview: bool = False
+-  generate_quantstats: bool = False
+-  generate_hyperparameters: bool = False
+-  generate_equity_curve: bool = False
+-  generate_csv: bool = False
+-  generate_json: bool = False
+-  generate_logs: bool = False
+-  hyperparameters: dict (optional)
+-  fast_mode: bool = True
 
 **Return Type:** dict
 
-## Usage example
+## Usage example 1:
 
-Here's an example where I generate a few candles from a small price data. Then, I write a super basic strategy, prepare inputs for the backtest function and execute it. 
+Here's an example where I generate candles from price data, write a basic strategy, prepare inputs, and execute the backtest.
 
-```py
-# # # # # # # # # # # # # # # 
-# imports 
-# # # # # # # # # # # # # # # 
+```python
+# imports
 import jesse.helpers as jh
 from jesse.strategies import Strategy
 from jesse import utils
 from jesse.research import backtest, candles_from_close_prices
 
-# # # # # # # # # # # # # # # 
 # generate fake candles
-# # # # # # # # # # # # # # # 
 prices01 = [10, 11, 12, 12, 11, 13, 14, 12, 11, 15]
-# must be 1m candles
 fake_candles01 = candles_from_close_prices(prices01)
 
-# # # # # # # # # # # # # # # 
 # strategy
-# # # # # # # # # # # # # # # 
 class ResearchStrategy(Strategy):
     def should_long(self):
         return True
@@ -89,20 +83,15 @@ class ResearchStrategy(Strategy):
     def go_short(self):
         pass
 
-# # # # # # # # # # # # # # # 
 # prepare inputs
-# # # # # # # # # # # # # # # 
 exchange_name = 'Fake Exchange'
 symbol = 'BTC-USDT'
 timeframe = '4h'
 config = {
     'starting_balance': 10_000,
     'fee': 0,
-    # accepted values are 'spot' and 'futures'
     'type': 'futures',
-    # only used if type is 'futures'
     'futures_leverage': 2,
-    # only used if type is 'futures'
     'futures_leverage_mode': 'cross',
     'exchange': exchange_name,
     'warm_up_candles': 0
@@ -112,7 +101,6 @@ routes = [
 ]
 extra_routes = []
 candles = {
-    # keys must be in this format: 'Fake Exchange-BTC-USDT'
     jh.key(exchange_name, symbol): {
         'exchange': exchange_name,
         'symbol': symbol,
@@ -120,44 +108,80 @@ candles = {
     },
 }
 
-# # # # # # # # # # # # # # # 
 # execute backtest
-# # # # # # # # # # # # # # # 
 result = backtest(
     config,
     routes,
     extra_routes,
-    candles, 
+    candles,
     generate_charts=True
 )
-# to access the metrics dict:
+# access the metrics dict:
 result['metrics']
-# to access the charts string (path of the generated file): 
+# access the charts string (path of the generated file):
 result['charts']
-# to access the logs list:
+# access the logs list:
 result['logs']
 ```
 
-## Noticeable differences 
+## Usage example 2:
 
-The `backtest()` function uses the same engine as the one in the GUI dashboard does. So the results are almost identical. But there is a **big difference in how warmup candles are handled** that you need to know about. 
-
-In Jesse's typical backtests (via the GUI dashboard), warmup candles are injected **before** the backtest simulation is started. In fact, the required number of candles is calculated and then injected behind the scenes without you even knowing it. 
-
-You have two options. First, it is to simply pass the candles and expect your results to be slightly different than what you will get in the GUI dashboard. And the second option is to fetch warm-up candles and pass them using the ‍‍‍‍‍‍‍‍‍‍‍‍‍‍`warmup_candles` parameter that was added since version `0.46.0`. 
-
-If your strategy doesn't require any warmup candles, in the `config` value pass it as `0`.
-
-::: danger
-Remember that Jesse always expects the candles to be in the `1m` timeframe. This implies that even if you are backtesting with larger timeframes, you should only specify those additional time frames in your routes. 
-
-However, when passing candles to the backtest function, ensure that those candles are `1m` candles. 
-
-Therefore, you should fetch the candles like this:
+Here is a function I created for automating our new strategy listing page to execute backtests automatically, representing a real-world use case.
 
 ```python
-candles = get_candles(
-    exchange_name, symbol, '1m', start_date_str, finish_date_str
-)
+def execute_strategy(
+        strategy_name: str,
+        exchange_name: str,
+        symbol: str,
+        timeframe: str,
+        config: dict,
+        start_date_str: str,
+        finish_date_str: str
+):
+    warmup_candles, trading_candles = get_candles(
+        exchange_name, symbol, timeframe, jh.date_to_timestamp(start_date_str), jh.date_to_timestamp(finish_date_str),
+        config['warm_up_candles'], caching=True, is_for_jesse=True
+    )
+
+    routes = [
+        {'exchange': exchange_name, 'strategy': strategy_name, 'symbol': symbol, 'timeframe': timeframe}
+    ]
+
+    trading_candles = {
+        jh.key(exchange_name, symbol): {
+            'exchange': exchange_name,
+            'symbol': symbol,
+            'candles': trading_candles,
+        },
+    }
+    warmup_candles = {
+        jh.key(exchange_name, symbol): {
+            'exchange': exchange_name,
+            'symbol': symbol,
+            'candles': warmup_candles,
+        },
+    }
+
+    # Execute backtest
+    result = backtest(
+        config,
+        routes,
+        [],
+        candles=trading_candles,
+        warmup_candles=warmup_candles,
+        generate_charts=True,
+        generate_quantstats=True,
+        generate_equity_curve=True,
+        generate_csv=True,
+        generate_json=True,
+        generate_logs=True,
+        fast_mode=True
+    )
+
+    # Print result as a JSON string
+    print(json.dumps(result, ignore_nan=True, cls=NpEncoder))
 ```
+
+::: tip
+The `fast_mode` parameter is a new feature that speeds up the backtest process by orders of magnitude. It is enabled by default and will become the default behavior in the future. But for now, you can disable it by setting it to `False` to get the same behavior as the GUI dashboard.
 :::
