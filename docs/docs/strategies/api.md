@@ -299,29 +299,26 @@ def update_position(self):
             self.buy = 1, self.price
 ```
 
-
 ## index
 
-The `index` property is a counter which can be used to detect how many times the strategy has been executed. Imagine we're doing a loop in backtest mode, and this index is the index of that loop. The below examples can explain it better.
+The `index` property is a counter that can be used to detect how many times the strategy has been executed. Imagine we're in a loop in backtest mode, and this index represents the iteration of that loop. The examples below can provide a better explanation.
 
 **Return Type**: int
 
 **Example:**
 
-```py
-# example #1: go long when the first candle is received
+```python
+# Example #1: Go long when the first candle is received
 def should_long(self):
     return self.index == 0
 
-# example #2: let's say there are some expensive operations in a
-# method I've defined called do_slow_updates() (like machine learning stuff)
-# that I'd like to do once a day while trading "1m" candles
+# Example #2: Suppose there are some expensive operations in a
+# method I've defined called do_slow_updates() (like machine learning tasks)
+# that I want to perform once a day while trading "1m" candles
 def before(self):
     if self.index % 1440 == 0:
         do_slow_updates()
 ```
-
-
 
 ## has\_long\_entry\_orders
 

@@ -156,24 +156,23 @@ numpy_candles_to_dataframe(candles: np.ndarray, name_date="date", name_open="ope
 
 ## prices\_to\_returns
 
-Converts a series of asset prices to returns.
+Convert a series of asset prices into returns.
 
-In case you're wondering why you need to use price returns for price series analysis instead of the price values, check out this answer on [Quant Stackexchange](https://quant.stackexchange.com/a/16484).
+If you are wondering why you should use price returns for price series analysis instead of price values, refer to this answer on [Quant Stackexchange](https://quant.stackexchange.com/a/16484).
 
 ::: tip
-Notice that the first return value for the first index cannot be calculated hence it equals `nan`.
+Note that the initial return value for the first index cannot be calculated, so it equals `nan`.
 :::
 
-```py
+```python
 prices_to_returns(price_series: np.ndarray) -> np.ndarray
 ```
 
 **Properties**:
 
--   price_series: np.ndarray
+-  price_series: np.ndarray
 
 **Return Type**: np.ndarray
-
 
 ## qty\_to\_size
 

@@ -62,30 +62,42 @@ research.store_candles(np_candles, 'Test Exchange', 'BTC-USDT')
 
 ## get_candles
 
-Fetches candles from the database and returns them as a numpy array with the same structure that Jesse's [self.candles](/docs/strategies/api.html#candles) does.
+Fetches candles from the database and returns them as a NumPy array with the same structure that Jesse's `self.candles` does.
 
-```py
-get_candles(exchange, symbol, timeframe, start_date, finish_date)
+Returns both warm-up candles and the actual trading candles that you requested. If `warmup_candles_num` is passed as `0`, then it will only return `None` for the warm-up candles. Either way, it will always return two values.
+
+If you pass a `warmup_candles_num` greater than 0, then it will return that many warm-up candles. These warm-up candles are quite useful if you're trying to execute backtests using Jesse's backtesting function of the research module.
+
+Also, `is_for_jesse` is a flag that should be set to `True` if you're going to use the returned candles for running backtests using Jesse's backtesting function. This is because Jesse expects the candles to be in a specific format, and this flag will ensure that the returned candles are in that format. However, if you're going to simply use those candles for any other use case, such as plotting them on a chart, then pass it as `False`.
+
+```python
+get_candles(exchange, symbol, timeframe, start_date_timestamp, finish_date_timestamp, warmup_candles_num=0, caching=False, is_for_jesse=False)
 ```
 
 **Properties**:
 
--   exchange: str
--   symbol: str
--   timeframe: str (supported: `1m`, `3m`, `5m`, `15m`, `30m`, `1h`, `2h`, `3h`, `4h`, `6h`, `1D`)
--   start_date: str
--   finish_date: str
+-  exchange: str
+-  symbol: str
+-  timeframe: str (supported: `1m`, `3m`, `5m`, `15m`, `30m`, `1h`, `2h`, `3h`, `4h`, `6h`, `1D`)
+-  start_date_timestamp: int
+-  finish_date_timestamp: int
+-  warmup_candles_num: int (default: 0)
+-  caching: bool (default: False)
+-  is_for_jesse: bool (default: False)
 
-**Return Type**: np.ndarray
+**Return Type**: Tuple[np.ndarray, np.ndarray]
 
-**Example:**
+**Example 1:**
 
-```py
-eth_candles = research.get_candles('Binance Spot', 'ETH-USDT', '4h', '2019-07-28', '2019-09-28')
+```python
+warmup_candles, trading_candles = research.get_candles('Binance Spot', 'ETH-USDT', '4h', 1564272000000, 1569628800000)
 
-print(eth_candles[0])
+print(warmup_candles)
+# None
+
+print(trading_candles[0])
 # array([
-#     1.56427200e+12, # timestamp 
+#     1.56427200e+12, # timestamp
 #     2.07300000e+02, # open
 #     2.07750000e+02, # close
 #     2.08230000e+02, # high
@@ -94,6 +106,33 @@ print(eth_candles[0])
 # ])
 ```
 
+**Example 2:**
+
+```python
+import jesse.helpers as jh
+
+warmup_candles, trading_candles = get_candles(
+    'Binance Spot', 'BTC-USDT', '4h', jh.date_to_timestamp('2020-01-25'), jh.date_to_timestamp('2020-03-25'),
+    warmup_candles_num=210, caching=True, is_for_jesse=True
+)
+
+trading_candles = {
+    jh.key('Binance Spot', 'BTC-USDT'): {
+        'exchange': 'Binance Spot',
+        'symbol': 'BTC-USDT',
+        'candles': trading_candles,
+    },
+}
+warmup_candles = {
+    jh.key('Binance Spot', 'BTC-USDT'): {
+        'exchange': 'Binance Spot',
+        'symbol': 'BTC-USDT',
+        'candles': warmup_candles,
+    },
+}
+
+# Now we are ready to run backtests with these candles.
+```
 
 ## fake_candle
 
