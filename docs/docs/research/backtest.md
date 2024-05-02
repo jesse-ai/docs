@@ -26,7 +26,7 @@ backtest(
     generate_json: bool = False,
     generate_logs: bool = False,
     hyperparameters: dict = None,
-    fast_mode: bool = True
+    fast_mode: bool = False
 )
 ```
 
@@ -45,7 +45,7 @@ backtest(
 -  generate_json: bool = False
 -  generate_logs: bool = False
 -  hyperparameters: dict (optional)
--  fast_mode: bool = True
+-  fast_mode: bool = False
 
 **Return Type:** dict
 
@@ -183,5 +183,7 @@ def execute_strategy(
 ```
 
 ::: tip
-The `fast_mode` parameter is a new feature that speeds up the backtest process by orders of magnitude. It is enabled by default and will become the default behavior in the future. But for now, you can disable it by setting it to `False` to get the same behavior as the GUI dashboard.
+The `fast_mode` parameter is a new feature that speeds up the backtest process by orders of magnitude. It is disabled by default but will become the default behavior in the future. But for now, you can enable it by setting it to `True` to get the same behavior as the GUI dashboard.
+
+Just notice that for now it does not support backtests when you are trading multiple routes. It is a work in progress.
 :::
