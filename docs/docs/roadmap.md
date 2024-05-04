@@ -56,13 +56,20 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 ## Q2 2024
 - ✅ Implement driver for Bybit USDC futures
 - Release new version of the dashboard
-- Integrate a new DEX driver ([Apex](https://jesse.trade/apex))
+- Integrate a new DEX driver ([Apex Pro](https://jesse.trade/apex))
+- Integrate a new CEX driver (Coinbase Advanced)
 - Release Jesse v1.0.0
+- Improve charts
+- New trading features
+- Improve strategy listing page
 
-## Beyond
-- Future exchange drivers: Kraken, Coinbase, Kucoin, OKX, etc.
-- Integration with fast DEX platforms like PancakeSwap, 1inch, etc.
+## Q3 2024
 - Integration of reinforcement learning
 - Additional backtest evaluation tools such as Monte Carlo simulations
+- More AI features
+
+## Beyond
+- More exchange drivers: Gate.io, Kucoin, OKX, MECX, etc.
+- More strategies
 - More features depending on community demand
 - A few exciting surprises to be announced later on
