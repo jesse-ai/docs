@@ -29,7 +29,9 @@ Technically, there's no limit to the number of routes you can define with Jesse.
 ::: warning
 The `exchange` and `symbol` pairs must be unique.
 
-That means you CAN trade `BTC-USDT` at the same time in both `Binance` and `Bitfinex`; but you CANNOT trade `BTC-USDT` in `Binance` on both `1h` and `4h` timeframes at the same time.
+That means you CANNOT trade `BTC-USDT` in `Binance` on both `1h` and `4h` timeframes at the same time.
+
+Of course, you can use extra routes if you merely need the data. But you cannot have more than one position open for the same symbol.
 
 Why? Because exchanges support only one position per symbol and we want to keep it simple so you can check whether or not Jesse and the exchange are in sync.
 :::
