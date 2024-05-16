@@ -2,6 +2,18 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 0.48.0 (16 May 2024)
+
+- **[FIX]** Fixed the `requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)` error when starting live/paper trade.
+- **[FIX]** Fixed an issue where API keys were needed in paper trading mode.
+- **[IMPROVEMENT]** Improved strategy performance by optimizing order iteration process for futures exchanges, reducing simulation time in an example case from 173 seconds to 60 seconds for a 6 month period with a timeframe of 5 minutes, thanks to [yakir4123's PR](https://github.com/jesse-ai/jesse/pull/430).
+- **[IMPROVEMENT]** Numba is now a mandatory requirement and is installed by default, thanks to [kakulukia's PR](https://github.com/jesse-ai/jesse/pull/429).
+- **[IMPROVEMENT]** Improved error messages related to candles to include better information, thanks to [kakulukia's PR](https://github.com/jesse-ai/jesse/pull/431).
+- **[NEW FEATURE]** Added `warmup_candles` parameter to the Research module's get_candles() function to allow for consistent backtest results between the Research module and executing the backtest from the dashboard, thanks to [kakulukia's PR](https://github.com/jesse-ai/jesse/pull/435).
+- **[BREAKING]** Research module's get_candles() now returns both warmup and trading candles, making it significantly easier to use.
+- **[IMPROVEMENT]** Improved the speed of backtest simulations by **multiple times**, thanks to [yakir4123's PR](https://github.com/jesse-ai/jesse/pull/426).
+- **[IMPROVEMENT]** Added `wsaccel` to the requirements to improve the stability of the WebSocket connection, leading to fewer disconnections. 
+
 ## 0.47.0 (10 April 2024)
 
 - **[FIX]** Improved market order detection for lower prices, thanks to [Movi's PR](https://github.com/jesse-ai/jesse/pull/415/)

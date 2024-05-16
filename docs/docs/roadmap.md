@@ -55,13 +55,13 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 
 ## Q2 2024
 - ✅ Implement driver for Bybit USDC futures
+- ✅ Improve strategy listing page
 - Release new version of the dashboard
 - Integrate a new DEX driver ([Apex Pro](https://jesse.trade/apex))
 - Integrate a new CEX driver (Coinbase Advanced)
 - Release Jesse v1.0.0
 - Improve charts
 - New trading features
-- Improve strategy listing page
 
 ## Q3 2024
 - Integration of reinforcement learning
