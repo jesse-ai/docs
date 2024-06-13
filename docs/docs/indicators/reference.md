@@ -3108,6 +3108,28 @@ The **Schaff Trend Cycle (STC)** is a technical indicator designed to identify m
 
 float | np.ndarray
 
+## stiffness
+
+The Stiffness Indicator is a technical indicator developed by [daviddtech on tradingview](https://www.tradingview.com/script/MOw6mUQl-Stiffness-Indicator-DaviddTech), and it is used to measure the power of a trend. The stiffness is calculated based on the moving average and standard deviation of the price.
+
+```py
+stiffness(candles: np.ndarray, ma_length: int = 100, stiff_length: int = 60, stiff_smooth: int = 3, threshold: int = 90, source_type: str = "close")
+```
+
+**Parameters**:
+
+- `candles`: `np.ndarray` - Input candle data.
+- `ma_length`: `int` (default: 100) - Length of the moving average.
+- `stiff_length`: `int` (default: 60) - Length of the stiffness calculation.
+- `stiff_smooth`: `int` (default: 3) - Smoothing period for the stiffness calculation.
+- `threshold`: `int` (default: 90) - Threshold value for the stiffness calculation.
+- `source_type`: `str` (default: "close") - Source type for the candle (e.g., "open", "high", "low", "close").
+
+**Return Type**: `Stiffness` tuple containing two values:
+
+- `stiffness`: The stiffness value.
+- `threshold`: The threshold value.
+
 ## stddev
 
 ```python
@@ -3790,6 +3812,35 @@ The **Williams Accumulation/Distribution (WAD)** indicator, developed by Larry W
 **Returns**:
 
 float | np.ndarray
+
+## Waddah Attar Explosion
+
+The Addah Attar Explosion is a technical indicator that combines the Moving Average Convergence Divergence (MACD) with Bollinger Bands to identify potential trend reversals and explosions in price action. This indicator to LazyBear and available onView.
+
+\#trend
+
+### Parameters
+
+```py
+waddah_attar_explosion(candles, sensitivity=150,=20, slow_length=40,_length=20, mult=20,="close")
+``**Properties**:
+
+- `candles`: `np.ndarray` - Input candle data.
+- `sensitivity`: `int` (default 150 Sensitivity parameter for MACD calculation.
+- `fast_length`: `int` (default: 20) - Fast period for the MACD calculation.
+-slow_length`:int` (default: 40) - Slow period for the MACD calculation.
+- `channel_length`:int` (default: 20 - Length of the Bollinger channel.
+- `mult`: `float` (default: 20) - Multiplier for the Bollinger Bands.
+- `source_type`: `strdefault: "close") - Source type for the candle (e.g "open", "high", "low", "close").
+
+**Return Type**
+
+`WaddahAttarExplosionTuple` containing three values:
+
+- `explosion_line The explosion line value.
+- `rend_power`: The trend power value- `trend`: The trend direction value (1 for upward trend, -1 for downward trend).
+
+This indicator is useful for identifying potential trend reversals and explosions in price action, and can used in conjunction other indicators form a comprehensive trading strategy.
 
 ## wclprice
 
