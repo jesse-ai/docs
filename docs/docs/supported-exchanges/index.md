@@ -33,6 +33,7 @@ You can change the type of exchange for backtests in the settings page per each 
 
 At the moment these are the supported exchanges for live trading:
 
+-   [Apex Pro](https://jesse.trade/apex)
 -   [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit USDC Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit Spot](https://jesse.trade/bybit)
@@ -41,6 +42,5 @@ At the moment these are the supported exchanges for live trading:
 -   [Binance US Spot](https://www.binance.us)
 -   [DYDX (experimental)](https://jesse.trade/dydx)
 -   [Bitget USDT Perpetual (experimental)](https://jesse.trade/bitget)
--   [Apex Pro (coming soon)](https://jesse.trade/apex)
 
  New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know.
