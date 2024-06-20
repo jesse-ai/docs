@@ -351,16 +351,17 @@ float | np.ndarray
 ## beta
 
 ```python
-beta(candles: np.ndarray, period=5, sequential=False) -> Union[float, np.ndarray]
+beta(candles: np.ndarray, benchmark_candles: np.ndarray, period: int = 5, sequential: bool = False) -> Union[float, np.ndarray]
 ```
 
-**Beta** is a measure of a stock's volatility in relation to the market, calculated by comparing its price movements to those of a benchmark index, such as BTC, providing insight into the stock's risk relative to the overall market.
+**Beta** is a measure of volatility in relation to the market, calculated by comparing its price movements to those of a benchmark index, such as BTC, providing insight into the coins's risk relative to the overall market.
 
 \#trend
 
 **Arguments**:
 
 - `candles`: np.ndarray
+- `benchmark_candles`: np.ndarray
 - `period`: int - default=5
 - `sequential`: bool - default=False
 
