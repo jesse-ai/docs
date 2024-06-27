@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <template #aside-ads-before>
-      <ApexPro/>
-    </template>
+    <!-- <template #aside-ads-before> -->
+      <!-- <ApexPro/> -->
+    <!-- </template> -->
 
     <template #layout-bottom>
 <!--      <BlackFriday/>-->
