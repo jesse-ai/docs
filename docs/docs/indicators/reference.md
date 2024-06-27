@@ -3473,6 +3473,33 @@ The **TTM Trend** indicator identifies the prevailing market trend by analyzing 
 
 bool | np.ndarray
 
+## ttm_squeeze (TTM Squeeze)
+
+TTMSqueeze is a technical indicator that identifies potential squeeze situations in the market. It combines Bollinger Bands and Keltner Channels to detect when the volatility is decreasing, indicating a potential breakout.
+
+**Author:** daviddtech
+
+**Credits:** [https://www.tradingview.com/script/Mh3EmxF5-TTM-Squeeze-DaviddTech/](https://www.tradingview.com/script/Mh3EmxF5-TTM-Squeeze-DaviddTech/)
+
+### Parameters
+
+```py
+ttm_squeeze(candles: np.ndarray, length_ttms: int = 20, bb_mult_ttms: float = 2.0, kc_mult_low_ttms: float = 2.0) -> bool
+```
+
+**Properties**:
+
+- `candles`: `np.ndarray` - Input candle data.
+- `length_ttms`: `int` (default: 20) - Period for the Bollinger Bands and Keltner Channels.
+- `bb_mult_ttms`: `float` (default: 2.0) - Multiplier for the Bollinger Bands.
+- `kc_mult_low_ttms`: `float` (default: 2.0) - Multiplier for the lower Keltner Channel.
+
+**Return Type**: `bool`
+
+**Return Value**: `True` if a squeeze situation is detected, `False` otherwise.
+
+This indicator is useful for identifying potential breakout situations in the market. It can be used in conjunction with other indicators to form a comprehensive trading strategy.
+
 ## typprice
 
 ```python
