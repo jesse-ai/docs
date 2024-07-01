@@ -41,6 +41,7 @@ At the moment these are the supported exchanges for live trading:
 -   [Binance Spot](https://www.binance.com/en/trade/BTC_USDT?theme=dark&type=spot)
 -   [Binance US Spot](https://www.binance.us)
 -   [DYDX (experimental)](https://jesse.trade/dydx)
--   [Bitget USDT Perpetual (experimental)](https://jesse.trade/bitget)
+-   Coinbase Spot (coming soon)
+-   [Gate.io (coming soon)](https://jesse.trade/gate)
 
  New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know.
