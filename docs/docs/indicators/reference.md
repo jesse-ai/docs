@@ -3278,6 +3278,34 @@ The **SuperTrend** is a trend-following indicator that helps identify the direct
 
 SuperTrend(trend, changed)
 
+## support_resistance_with_breaks
+
+This indicator calculates support and resistance levels with break lines based on the provided candle data. Check it out on [Tradingview](https://www.tradingview.com/script/JDFoWQbL-Support-and-Resistance-Levels-with-Breaks-LuxAlgo) for more information.
+
+**Credits**: [LuxAlgo](https://www.tradingview.com/script/JDFoWQbL-Support-and-Resistance-Levels-with-Breaks-LuxAlgo)
+
+```py
+support_resistance_with_breaks(candles: np.ndarray, left_bars: int = 15, right_bars: int = 15, vol_threshold: int = 20) -> SupportResistanceWithBreaks
+```
+
+**Properties**:
+
+- `candles`: `np.ndarray` - Input candle data.
+- `left_bars`: `int` (default: 15) - Number of left bars for support and resistance calculation.
+- `right_bars`: `int` (default: 15) - Number of right bars for support and resistance calculation.
+- `vol_threshold`: `int` (default: 20) - Volume threshold for break detection.
+
+**Return Type**: `SupportResistanceWithBreaks` containing six values:
+
+- `support`: The calculated support level.
+- `resistance`: The calculated resistance level.
+- `red_break`: A boolean indicating a red break (bearish signal).
+- `green_break`: A boolean indicating a green break (bullish signal).
+- `bear_wick`: A boolean indicating a bearish wick.
+- `bull_wick`: A boolean indicating a bullish wick.
+
+This function can be used to identify potential support and resistance levels, as well as detect breaks and wicks in the price action, which can be useful for developing trading strategies.
+
 ## t3
 
 ```python
