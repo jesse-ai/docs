@@ -2,6 +2,20 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 0.49.0 (2 July 2024)
+
+- **[IMPROVEMENT]** Minor improvements thanks to [Yakir's PR](https://github.com/jesse-ai/jesse/pull/454)
+- **[FIX]** Fixed an issue in backtests where if the order prices are not sorted in the strategy, the order of the execution could have been wrong if multiple orders were to get executed in the same one-minute candle, thanks to [Yakir's PR](https://github.com/jesse-ai/jesse/pull/453)
+- **[FIX]** Fixed an error message related to candles thanks to [Movi's PR](https://github.com/jesse-ai/jesse/pull/445/files)
+- **[FIX]** Fixed an issue where attempting to cancel both stop-loss and take-profit orders simultaneously would raise an error, thanks to [Yakir's PR](https://github.com/jesse-ai/jesse/pull/456)
+- **[FIX]** Fixed the `ValueError: could not convert string to float: ''` error on Bybit
+- **[IMPROVEMENT]** Improved handling of logging rejected orders on `Binance Futures`
+- **[IMPROVEMENT]** Improved error handling for some HTTP requests on ByBit driver
+- **[NEW FEATURE]** Added `Apex Pro Perpetual` and its testnet for live trading
+- **[FIX]** Fixed the `Illegal characters found in parameter 'price'; legal range is '^([0-9]{1,20})(\.[0-9]{1,20})?$'.` error on Binance Spot for coins with prices that have a huge number of decimal places such as `SHIB-EUR`
+- **[NEW FEATURE]** Added new indicators based on DavidTech's videos from YouTube: **TTMSqueeze**, **Stiffness**, **Waddah Attar Explosion**, and **support_resistance_with_breaks**. You can find the documentation for them on our website
+- **[IMPROVEMENT]** Improved `stddev` and `macd` indicators to support one-dimensional input arrays as an optional replacement for candles, so you can easily use them to create other indicators on top of them
+
 ## 0.48.0 (16 May 2024)
 
 - **[FIX]** Fixed the `requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)` error when starting live/paper trade.
