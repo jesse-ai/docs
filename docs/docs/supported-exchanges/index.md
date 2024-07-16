@@ -16,7 +16,7 @@ So far, the below exchanges are supported for **importing candles and running ba
 -   `Binance US Spot`
 -   `Binance Perpetual Futures`
 -   `Bitfinex Spot`
--   `Coinbase Spot`
+-   `Coinbase Spot (Coinbase Advanced)`
 -   `Bybit USDT Perpetual`
 -   `Bybit USDC Perpetual`
 -   `Bybit Spot`
@@ -40,8 +40,8 @@ At the moment these are the supported exchanges for live trading:
 -   [Binance Perpetual Futures](https://www.binance.com/en/futures/BTCUSDT)
 -   [Binance Spot](https://www.binance.com/en/trade/BTC_USDT?theme=dark&type=spot)
 -   [Binance US Spot](https://www.binance.us)
+-   [Coinbase Spot (Coinbase Advanced)](https://www.coinbase.com/advanced-trade/spot/BTC-USD) 
 -   [DYDX (experimental)](https://jesse.trade/dydx)
--   Coinbase Spot (coming soon)
 -   [Gate.io (coming soon)](https://jesse.trade/gate)
 
  New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know.
