@@ -2,6 +2,23 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 1.0.0 (25 July 2024)
+
+- **[NEW FEATURE]** Added support for Coinbase Spot for live trading. 
+- **[IMPROVEMENT]** Tabs and their data are now **persistent within the browser**, so you can refresh your page without worrying about losing results of backtests, etc.
+- **[IMPROVEMENT]** Tab names are now **dynamic and more descriptive**, making it easier to navigate the dashboard.
+- **[NEW FEATURE]** A **general settings page** has been added, with options for clearing the browser cache in the frontend of the dashboard and the database cache in the backend.
+- **[IMPROVEMENT]** You can now **close tabs by clicking the middle button of the mouse**, making it easier to manage multiple tabs.
+- **[IMPROVEMENT]** "Extra routes" have been renamed to **"data routes"** for better clarity.
+- **[NEW FEATURE]** You can now **enter Exchange API keys from within the dashboard**, allowing you to enter multiple accounts from the same exchange, which is useful for trading with multiple sub-accounts.
+- **[NEW FEATURE]** You can now **enter API keys for your notification drivers** (such as Telegram, Slack, or Discord) from within the dashboard, instead of the `.env` file.
+- **[NEW FEATURE]** You can now **run multiple live trading sessions simultaneously** from within a single Jesse instance.
+- **[IMPROVEMENT]** You can now **enable fast mode for backtests from within the dashboard**.
+- **[IMPROVEMENT]** "Available margin" and leverage info have been added to the live dashboard.
+- **[IMPROVEMENT]** The backtest results and equity curve can now include the option to **display the market benchmark**.
+- **[IMPROVEMENT]** When backtesting with a strategy that uses data routes, if you forget to add them in the dashboard, you'll get an error notification. However, the system will automatically handle it, allowing your backtest to proceed instead of failing.
+- **[IMPROVEMENT]** When live trading with multiple routes, you can now **change the candles chart to any of them**.
+
 ## 0.49.0 (2 July 2024)
 
 - **[IMPROVEMENT]** Minor improvements thanks to [Yakir's PR](https://github.com/jesse-ai/jesse/pull/454)
