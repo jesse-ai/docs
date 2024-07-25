@@ -6,7 +6,7 @@
 
     <template #layout-bottom>
 <!--      <BlackFriday/>-->
-      <PremiumDiscount />
+      <!-- <PremiumDiscount /> -->
     </template>
   </Layout>
 </template>
