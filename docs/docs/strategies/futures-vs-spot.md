@@ -1,13 +1,5 @@
 ## Differences between "spot" and "futures" modes
 
-At the moment Jesse supports trading of perpetual futures in both backtest, and live trading. The spot support however has just been added for backtesting just and will soon be supported in live trading. 
-
-::: tip
-On the settings page, you can select the trading mode for the exchange you're using. That means you can use candle data for your backtests from `Binance Spot` but run your backtests in the "futures" mode. 
-
-This is useful as spot exchanges usually provide more data than futures exchanges.
-:::
-
 It's important to know the differences between spot and futures trading modes when writing your strategies. 
 
 - Short selling is not supported in spot trading so strategies should either avoid `should_short()` or make sure it returns `False`. 
@@ -20,3 +12,9 @@ def on_open_position(self, order):
 - The [self.leverage](/docs/strategies/api.html#leverage) property always returns 1 in spot trading mode. In fact, if you backtest a strategy in futures mode with leverage of 1, and only open long positions, you should get very similar results as if you had backtested it in the spot mode.
 - When Futures trading, your wallet balance (or `self.balance` in Jesse's API) only changes when a position is closed and the PNL is added or subtracted. It also does when fees are being charged. But in spot trading, it changes on order submission. In most cases this is not a problem; but nonetheless, if you're using the [self.balance](/docs/strategies/api.html#balance) property in your strategies in a creative way, you should be aware of this.
 - [self.available_margin](/docs/strategies/api.html#available-margin) equals to [self.balance](/docs/strategies/api.html#balance) in the spot trading mode. 
+
+::: tip
+On the settings page, you can select the trading mode for the exchange you're using. That means you can use candle data for your backtests from `Binance Spot` but run your backtests in the "futures" mode. 
+
+This is useful as spot exchanges usually provide more data than futures exchanges.
+:::
