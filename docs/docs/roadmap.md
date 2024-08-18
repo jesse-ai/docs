@@ -63,12 +63,16 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 - ✅ Integrate a new CEX driver (Coinbase Spot)
 - ✅ Release Jesse v1.0.0
 - ✅ Improve charts
-- New free and premium strategies
-- More Youtube tutorials
+- ✅ New free and premium strategies
+- ✅ More Youtube tutorials
+- ✅ A built-in editor for strategies
 - Integrate a new CEX driver ([Gate.io](https://jesse.trade/gate))
 - New trading features
 
 ## Q4 2024
+- More strategies
+- More features depending on community demand
+- More tutorial videos
 - Integration of reinforcement learning
 - Additional backtest evaluation tools such as Monte Carlo simulations
 - More AI features

@@ -2,6 +2,24 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 1.1.0 (18 August 2024)
+
+- **[FIX]** Changing the finish date in backtest will no longer change the start date.
+- **[FIX]** Fixed an issue where changing the name of a second symbol would have changed the symbol in other tabs in backtests.
+- **[FIX]** Fixed an issue where if you enter a date that candles didn't exist on the market, Jesse couldn't figure out the first existing date and begin the importing.
+- **[FIX]** Fixed the issue with import candles of the research module.
+- **[IMPROVEMENT]** No longer add info logs for ping pong messages.
+- **[FIX]** Fixed the `Apex Pro Perpetual unsuccessful response over WS from "Apex Pro Perpetual Testnet": error:topic:already subscribed instrumentInfo.H.BTCUSDT` error.
+- **[FIX]** Fixed the `InvalidExchangeApiKeys: [401 ERROR]: Your API keys for Binance Perpetual Futures are either wrong or don't have the correct permissions` error on **Binance**.
+- **[FIX]** Fixed the `TypeError: run() missing 1 required positional argument: 'start_date_str'` error when the local candle generation is enabled.
+- **[FIX]** Fixed the issue of duplicate order detections on Binance testnet
+- **[IMPROVEMENT]** Brought back the alert section displaying the execution time of the backtest instead of a notification, so you won't miss it even when you're not in front of your computer.
+- **[NEW FEATURE]** Added benchmark option to backtest function in the research module.
+- **[NEW FEATURE]** Added support for `BNFCR` (Binance Futures Credit) for European users.
+- **[IMPROVEMENT]** Bollinger Bands and the ADX indicators now also support one-dimensional NumPy array as input instead of candles. This is useful if you're writing complex statistical strategies.
+- **[FIX]** Fixed the `ValueError: Unable to close a trade that is not yet open. If you're getting this in the live mode, it is likely due to an unstable connection to the exchange, either on your side or the exchange's side` error on `Binance Futures`.
+- **[NEW FEATURE]** Added a new section called strategies, which allows you to use the built-in editor with most of the VS Code features to edit your strategies.
+
 ## 1.0.0 (25 July 2024)
 
 - **[NEW FEATURE]** Added support for Coinbase Spot for live trading. 
