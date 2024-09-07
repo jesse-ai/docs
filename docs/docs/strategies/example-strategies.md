@@ -3,10 +3,7 @@
 
 To get you started we prepared a few examples of how to approach certain scenarios often used in trading.
 
-For working strategies check out these repositories:
-
- - [https://github.com/jesse-ai/example-strategies](https://github.com/jesse-ai/example-strategies)
- - [https://github.com/nicolay-zlobin/jesse-indicators](https://github.com/nicolay-zlobin/jesse-indicators)
+For working strategies check out our strategies listing page on our [website](https://jesse.trade/strategies) where we host a collection of **free** and **premium** strategies.
 
 ## Crossovers
 Let's try to catch the moment the price moves above the bollinger middleband.
@@ -124,3 +121,11 @@ def kelly_qty(self, entry, stop):
 ``` 
 
 We need to check for a minimum of trades so we have a good `win_rate` and `ratio_avg_win_loss` to work with. In this case, we use 20 trades. For those first trades we use hardcoded values, we got from backtests. `win_rate` is the same as **Percent Profitable / 100**. `ratio_avg_win_loss` is called **Ratio Avg Win / Avg Loss**. 
+
+## Updating the stoploss to break even when in profit
+```py
+def update_position(self):  
+    # update trailing_stop_loss only if in profit more than 2 ATR
+    if self.is_long and self.price > self.position.entry_price + ta.atr(self.candles) * 2:
+        self.stop_loss = self.position.qty, self.position.entry_price
+```
