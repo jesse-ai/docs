@@ -116,6 +116,14 @@ export default defineConfig({
                 ]
             },
             {
+                text: 'Charts',
+                collapsed: true,
+                items: [
+                    {text: 'Introduction', link: '/docs/charts/'},
+                    {text: 'Interactive Charts', link: '/docs/charts/interactive-charts'},
+                ]
+            },
+            {
                 text: 'Live Trading',
                 collapsed: true,
                 items: [
@@ -157,6 +165,7 @@ export default defineConfig({
                 ]
             },
             {text: '🔗 Resources', link: 'https://github.com/jesse-ai/awesome-jesse/'},
+            {text: '📺 Video Tutorials', link: 'https://jesse.trade/youtube'},
             {text: '🎯 Strategies', link: 'https://jesse.trade/strategies/'},
             {text: '📚 FAQs', link: 'https://jesse.trade/help'},
             {text: '📜 Changelog', link: '/docs/changelog'},
