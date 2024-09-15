@@ -6,6 +6,10 @@ Like all other features of Jesse, the optimize mode is designed to give you full
 
 However, to take full advantage of it, you need to have a basic understanding of how it works; so make sure to read all of this page, carefully. 
 
+::: tip 🎥 Video Tutorial
+In case you prefer watching a video, here's a [short screencast about the optimize mode in Jesse](https://www.youtube.com/watch?v=1LiAkvIpR-g).
+:::
+
 ## How does it work?
 Jesse optimizes parameters using a [genetic algorithm](https://en.wikipedia.org/wiki/Genetic_algorithm); a type of [evolutionary algorithm](https://en.wikipedia.org/wiki/Evolutionary_algorithm). You do not have to be an expert on the subject to use the optimize mode, but is recommended to get familiar with the basics of it. Here's a nice 5-minute video that explains it:
 
