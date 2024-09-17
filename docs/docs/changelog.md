@@ -2,6 +2,18 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 1.2.0 (17 September 2024)
+
+-  **[FIX]** Resolved the `TypeError: int() argument must be a string, a bytes-like object or a real number, not 'dict'` error.
+-  **[FIX]** Corrected the issue of inaccurate P&L calculations during live trading.
+-  **[FIX]** Fixed the wallet balance not updating correctly on **Apex Pro**.
+-  **[FIX]** Addressed the problem where settings were being overwritten, ensuring your preferences remain intact.
+-  **[NEW FEATURE]** Added a new button next to each trading route as a shortcut for editing the source code of that strategy using the built-in editor of the dashboard.
+- **[NEW FEATURE]** Introduced the ability to add custom indicators to the dashboard.
+-  **[BREAKING]** Removed the `generate_charts` option from the research module's backtest function.
+-  **[IMPROVEMENT]** Enhanced web socket reconnection for **Apex**, **ByBit**, and **Binance** drivers.
+-  **[IMPROVEMENT]** Improved multiprocessing handling in Jesse, resulting in significantly better stability for scenarios requiring a restart.
+
 ## 1.1.0 (18 August 2024)
 
 - **[FIX]** Changing the finish date in backtest will no longer change the start date.

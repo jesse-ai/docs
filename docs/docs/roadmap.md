@@ -66,6 +66,7 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 - ✅ New free and premium strategies
 - ✅ More Youtube tutorials
 - ✅ A built-in editor for strategies
+- ✅ Ability to plot indicators on the chart easily
 - Integrate a new CEX driver ([Gate.io](https://jesse.trade/gate))
 - New trading features
 
