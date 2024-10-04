@@ -6,7 +6,7 @@ We understand the importance of getting started quickly and easily. So we've tak
 
 Here is the required stack:
 
--   Python >= `3.8` and <= `3.11`
+-   Python >= `3.9` and <= `3.11`
 -   pip >= `19.3.0`
 -   PostgreSQL >= `10`
 -   Redis >= `5`

@@ -24,11 +24,6 @@ In case you intend to use a remote server, we have step-by-step Youtube screenca
 
 We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install all the required stack and pip packages on machines running fresh installs of either Ubuntu 20.04 or 22.04 LTS.
 
-### Ubuntu 20.04 (Python 3.8)
-```sh
-source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-20.04.sh)
-```
-
 ### Ubuntu 22.04 (Python 3.11)
 ```sh
 source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-22.04.sh)
