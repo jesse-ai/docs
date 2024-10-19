@@ -20,6 +20,7 @@ So far, the below exchanges are supported for **importing candles and running ba
 -   `Bybit USDT Perpetual`
 -   `Bybit USDC Perpetual`
 -   `Bybit Spot`
+-   `Gate.io Perpetual Futures`
 
 ::: tip
 Notice that the words `Spot` and `Futures` in the exchange names above merely indicate the source of the candles and NOT the type of backtests you can run with them.
@@ -34,6 +35,7 @@ You can change the type of exchange for backtests in the settings page per each 
 At the moment these are the supported exchanges for live trading:
 
 -   [Apex Pro](https://jesse.trade/apex)
+-   [Apex Omni (coming soon)](https://jesse.trade/apex)
 -   [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit USDC Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit Spot](https://jesse.trade/bybit)
@@ -41,7 +43,7 @@ At the moment these are the supported exchanges for live trading:
 -   [Binance Spot](https://www.binance.com/en/trade/BTC_USDT?theme=dark&type=spot)
 -   [Binance US Spot](https://www.binance.us)
 -   [Coinbase Spot (Coinbase Advanced)](https://www.coinbase.com/advanced-trade/spot/BTC-USD) 
--   [DYDX (experimental)](https://jesse.trade/dydx)
--   [Gate.io (coming soon)](https://jesse.trade/gate)
+-   [Gate.io Perpetual Futures](https://jesse.trade/gate)
+-   [Gate.io Spot](https://jesse.trade/gate)
 
- New exchange drivers are developed based on demand. So if you need an exchange that is not supported, please reach out and let me know.
+New exchange drivers are developed based on demand. If we don't already support the one you need, you can sponsor its development to expedite the process. Please reach out to me if you require an unsupported exchange.
