@@ -67,10 +67,19 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 - ✅ More Youtube tutorials
 - ✅ A built-in editor for strategies
 - ✅ Ability to plot indicators on the chart easily
-- Integrate a new CEX driver ([Gate.io](https://jesse.trade/gate))
-- New trading features
 
 ## Q4 2024
+
+- ✅ Integrate a new CEX driver ([Gate.io](https://jesse.trade/gate))
+- ✅ Benchmark feature for backtesting
+- JesseGPT
+- Integrate Apex Omni (DEX)
+- Improve candle management
+- More trading features
+- More free and premium strategies
+- Integrate Optuna for hyperparameter optimization
+
+## Q1 2025
 - More strategies
 - More features depending on community demand
 - More tutorial videos

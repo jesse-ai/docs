@@ -2,6 +2,22 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 1.3.0 (21 October 2024)
+
+-  **[NEW FEATURE]** Added support for futures trading and spot trading on **Gate.io**.
+-  **[NEW FEATURE]** Introduced a new page for backtesting called **benchmark**, allowing you to quickly compare the backtesting results of all open tabs in a table format and perform mass operations like re-running all of them.
+-  **[NEW FEATURE]** Added a new configuration for live trading to make it optional to receive exchange reconnecting messages. By default, this is set to **true**.
+-  **[IMPROVEMENT]** Improved the display of buy and sell orders in the interactive charts, making it easier to identify which orders are for long positions and which are for short positions.
+-  **[IMPROVEMENT]** Added validation for chart functions to prevent unsupported values.
+-  **[IMPROVEMENT]** Enhanced the **WebSocket reconnection** process on Bybit, ensuring a more reliable connection during trading.
+-  **[FIX]** Resolved the issue of **decimal numbers being incorrect** for meme coins with low prices on the live trading chart, ensuring more accurate price representation.
+-  **[FIX]** Fixed the problem with **in-dashboard bug reporting**, making it easier for users to report issues directly from the interface.
+-  **[FIX]** Addressed the `KeyError: 'unified_margin_status'` error that occurred on Bybit unified accounts.
+-  **[FIX]** Resolved an issue where the logs in the live trading dashboard sometimes displayed incorrect tab info logs when running multiple live sessions.
+-  **[BREAKING]** Removed the `threshold` parameter from the `stiffness` indicator.
+- **[IMPROVEMENT]** Added support for `FDUSD` and `TUSD` pairs on **Binance Spot**.
+- **[FIX]** Fixed the `TypeError: run() missing 1 required positional argument: 'start_date_str'` error. 
+
 ## 1.2.0 (17 September 2024)
 
 -  **[FIX]** Resolved the `TypeError: int() argument must be a string, a bytes-like object or a real number, not 'dict'` error.
