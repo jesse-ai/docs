@@ -72,8 +72,8 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 
 - ✅ Integrate a new CEX driver ([Gate.io](https://jesse.trade/gate))
 - ✅ Benchmark feature for backtesting
-- JesseGPT
-- Integrate Apex Omni (DEX)
+- ✅ JesseGPT
+- ✅ Integrate Apex Omni (DEX)
 - Improve candle management
 - More trading features
 - More free and premium strategies
