@@ -2,7 +2,7 @@
 import {onMounted, ref} from 'vue'
 
 const showBanner = ref(true)
-const bannerName = 'hideBannerBlackFriday2023'
+const bannerName = 'hideBannerBlackFriday2024'
 
 function closeBanner() {
   showBanner.value = false;
@@ -25,9 +25,9 @@ onMounted(() => {
     <div class="action-section">
       <a href="https://jesse.trade/pricing" target="_blank" rel="noopener noreferrer" aria-label="Get it now"
          class="uppercase gradient">
-        63% BLACK FRIDAY DISCOUNT
+        47% BLACK FRIDAY DISCOUNT
       </a>
-      <span>Get your lifetime live trading plug-in license</span>
+      <span>Get your lifetime license</span>
 
       <a href="https://jesse.trade/pricing" target="_blank" rel="noopener noreferrer" aria-label="Get it now"
          class="button">
