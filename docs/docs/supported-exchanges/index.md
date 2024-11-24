@@ -35,7 +35,7 @@ You can change the type of exchange for backtests in the settings page per each 
 At the moment these are the supported exchanges for live trading:
 
 -   [Apex Pro](https://jesse.trade/apex)
--   [Apex Omni (coming soon)](https://jesse.trade/apex)
+-   [Apex Omni](https://jesse.trade/apex)
 -   [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit USDC Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit Spot](https://jesse.trade/bybit)
