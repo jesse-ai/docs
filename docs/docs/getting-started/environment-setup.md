@@ -22,16 +22,14 @@ In case you intend to use a remote server, we have step-by-step Youtube screenca
 - [How to **deploy** your Jesse project into the production server for **live trading**](https://www.youtube.com/watch?v=cUNX5FAVVYo) 🎥
 ## Ubuntu
 
-We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install all the required stack and pip packages on machines running fresh installs of either Ubuntu 20.04 or 22.04 LTS.
+We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages on machines running a fresh install of Ubuntu 22.04 LTS.
 
-### Ubuntu 22.04 (Python 3.11)
 ```sh
 source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-22.04.sh)
 ```
 
-If a fresh install isn't possible for you, look at the commands used by our scripts and execute only the ones that suit your environment:
+If a fresh install isn't possible for you, you can look at the commands used by our script and execute only the ones that suit your environment:
 
--  [Ubuntu 20.04 installer script source code](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-20.04.sh)
 -  [Ubuntu 22.04 installer script source code](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-22.04.sh)
 
 ::: warning
@@ -41,26 +39,9 @@ A workaround is using a prebuilt wheel (.whl) of ta-lib.
 
 By default, the values of `POSTGRES_HOST` and `REDIS_HOST` are set to `postgres` and `redis`, which are the default values of the official Docker containers. You have to change them both to `localhost`.
 
-### PostgreSQL
-
-Now you have to create the database, user, and password. You can do this by running the following commands:
-
-```sh
-# switch to postgres user
-sudo su - postgres
-# open PostgreSQL CLI
-psql
-# create database
-CREATE DATABASE jesse_db;
-# create new user
-CREATE USER jesse_user WITH PASSWORD 'password';
-# set privileges of the created user
-GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
-# exit PostgreSQL CLI
-\q
-# exit postgres user (back to root)
-exit
-```
+::: tip
+The installer script automatically creates the required PostgreSQL database and user for you, so you don't need to set up the database manually.
+:::
 
 Your environment should now be ready to [install and run](./index.md) Jesse.
 
