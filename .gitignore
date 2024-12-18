@@ -15,4 +15,3 @@ composer.lock
 package-lock.json
 .eslintrc.js
 .vitepress/dist
-docs/.vitepress
