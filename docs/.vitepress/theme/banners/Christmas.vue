@@ -25,7 +25,7 @@ onMounted(() => {
     <div class="action-section">
       <a href="https://jesse.trade/pricing" target="_blank" rel="noopener noreferrer" aria-label="Get it now"
          class="uppercase gradient">
-        🎄 CHRISTMAS SPECIAL - 37% OFF 🎅
+        🎄 CHRISTMAS SPECIAL - 40% OFF 🎅
       </a>
       <span>✨ Give yourself the gift of algo-trading 🎁</span>
 
