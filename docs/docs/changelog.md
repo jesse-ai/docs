@@ -2,6 +2,25 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 1.4.0 (23 December 2024)
+
+-  **[NEW FEATURE]** Added support for **[Apex Omni](https://jesse.trade/apex)** which is a DEX for trading perpetual futures. 
+-  **[NEW FEATURE]** Introduced support for **2h, 6h, and 12h timeframes** on Apex Pro, providing more flexibility in your trading strategies.
+-  **[NEW FEATURE]** Completely refactored the candle importing experience, allowing for **automatic queuing** of multiple imports and better management of previously imported candles.
+-  **[NEW FEATURE]** Implemented a new page for managing the existing candles, allowing for operations such as deleting them or updating them with one click.
+-  **[IMPROVEMENT]** Increased the limit for data routes in **Pro and Enterprise plans** by 5x. 
+-  **[IMPROVEMENT]** The `should_cancel_entry` method is no longer mandatory in strategies; it now defaults to returning **true**, simplifying strategy development.
+-  **[IMPROVEMENT]** Improved handling of available symbols when selecting trading routes in the dashboard, making it easier to navigate.
+-  **[IMPROVEMENT]** Enhanced the experience when insufficient candles are available for backtesting, providing a warning and a single-click solution to import required candles.
+-  **[FIX]** Resolved the **`Invalid size scale parameters. Value: xxx, stepSize is xxx`** error on Apex Omni.
+-  **[FIX]** Fixed the **`AttributeError: 'Popen' object has no attribute 'kill'`** error.
+-  **[FIX]** Corrected the bug in the **`get_candles()`** function of the research module when the caching parameter was set to **False**.
+-  **[FIX]** Fixed calculation errors in daily balance during backtesting in spot mode, especially when using strategies with the partial fill feature.
+-  **[FIX]** Improved handling of **`Repeat auth`** errors on Bybit and **`Invalid JSON response from server with status code 503: b'Service Unavailable'`** errors on Apex.
+-  **[FIX]** Resolved issues with live trading websocket handling across all exchanges, particularly for **Apex**, **ByBit**, and **Binance Futures**.
+-  **[FIX]** Enhanced error messages for existing strategy names to avoid confusion.
+-  **[BREAKING CHANGE]** Removed deprecated drivers: **DYDX** and **Bitget**.
+
 ## 1.3.0 (21 October 2024)
 
 -  **[NEW FEATURE]** Added support for futures trading and spot trading on **Gate.io**.

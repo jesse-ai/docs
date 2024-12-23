@@ -74,21 +74,22 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 - ✅ Benchmark feature for backtesting
 - ✅ JesseGPT
 - ✅ Integrate Apex Omni (DEX)
-- Improve candle management
-- More trading features
-- More free and premium strategies
-- Integrate Optuna for hyperparameter optimization
+- ✅ Improve candle management
+- ✅ More trading features
+- ✅ More free and premium strategies
+- ✅ Youtube tutorials
 
 ## Q1 2025
 - More strategies
 - More features depending on community demand
 - More tutorial videos
 - Integration of reinforcement learning
+- Integrate Optuna for hyperparameter optimization
 - Additional backtest evaluation tools such as Monte Carlo simulations
 - More AI features
 
 ## Beyond
-- More exchange drivers: Kucoin, OKX, MECX, etc.
+- More exchange drivers: Kucoin, OKX, MEXC, etc.
 - More strategies
 - More features depending on community demand
 - A few exciting surprises to be announced later on

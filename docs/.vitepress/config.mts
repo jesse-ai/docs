@@ -42,6 +42,10 @@ export default defineConfig({
                 link: 'https://jesse.trade',
             },
             {
+                text: 'JesseGPT',
+                link: 'https://jesse.trade/gpt',
+            },
+            {
                 text: 'Blog',
                 link: 'https://jesse.trade/blog',
             },
@@ -164,6 +168,7 @@ export default defineConfig({
                     {text: 'Backtest', link: '/docs/research/backtest'}
                 ]
             },
+            {text: '✨ JesseGPT', link: 'https://jesse.trade/gpt'},
             {text: '🔗 Resources', link: 'https://github.com/jesse-ai/awesome-jesse/'},
             {text: '📺 Video Tutorials', link: 'https://jesse.trade/youtube'},
             {text: '🎯 Strategies', link: 'https://jesse.trade/strategies/'},
