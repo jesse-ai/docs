@@ -421,3 +421,25 @@ z_score(price_returns: np.ndarray) -> np.ndarray
 -   price_returns: np.ndarray
 
 **Return Type**: np.ndarray
+
+## timeframe_to_one_minutes
+
+Converts a given timeframe to its equivalent in minutes.
+
+```py
+timeframe_to_one_minutes(timeframe)
+```
+
+**Properties**:
+
+-   timeframe: str - The timeframe to convert. Supported timeframes include:
+    - '1m', '3m', '5m', '15m', '30m', '45m', '1h', '2h', '3h', '4h', '6h', '8h', '12h', 
+      '1d', '3d', '1w', '1M'.
+
+**Return Type**: int - The equivalent number of minutes for the given timeframe.
+
+**Example**:
+
+```py
+minutes = timeframe_to_one_minutes('1h')  # returns 60
+```
