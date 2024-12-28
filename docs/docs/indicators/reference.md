@@ -1840,7 +1840,7 @@ float | np.ndarray
 linearreg_intercept(candles: np.ndarray, period=14, source_type="close", sequential=False) -> Union[float, np.ndarray]
 ```
 
-The **Linear Regression Intercept** indicator returns a single float value, which represents the y-intercept of the linear regression line.
+The **Linear Regression Intercept** indicator returns a single float value, which represents the y-intercept of the linear regression line.
 
 \#trend
 
@@ -3877,24 +3877,26 @@ The Addah Attar Explosion is a technical indicator that combines the Moving Aver
 
 ```py
 waddah_attar_explosion(candles, sensitivity=150,=20, slow_length=40,_length=20, mult=20,="close")
-``**Properties**:
+```
+**Properties**:
 
 - `candles`: `np.ndarray` - Input candle data.
 - `sensitivity`: `int` (default 150 Sensitivity parameter for MACD calculation.
 - `fast_length`: `int` (default: 20) - Fast period for the MACD calculation.
--slow_length`:int` (default: 40) - Slow period for the MACD calculation.
-- `channel_length`:int` (default: 20 - Length of the Bollinger channel.
+- `slow_length`: `int` (default: 40) - Slow period for the MACD calculation.
+- `channel_length`: `int` (default: 20 - Length of the Bollinger channel.
 - `mult`: `float` (default: 20) - Multiplier for the Bollinger Bands.
-- `source_type`: `strdefault: "close") - Source type for the candle (e.g "open", "high", "low", "close").
+- `source_type`: `str` (default: "close") - Source type for the candle (e.g "open", "high", "low", "close").
 
 **Return Type**
 
 `WaddahAttarExplosionTuple` containing three values:
 
-- `explosion_line The explosion line value.
-- `rend_power`: The trend power value- `trend`: The trend direction value (1 for upward trend, -1 for downward trend).
+- `explosion_line`: The explosion line value.
+- `rend_power`: The trend power value.
+- `trend`: The trend direction value (1 for upward trend, -1 for downward trend).
 
-This indicator is useful for identifying potential trend reversals and explosions in price action, and can used in conjunction other indicators form a comprehensive trading strategy.
+This indicator is useful for identifying potential trend reversals and explosions in price action, and can be used in conjunction with other indicators to form a comprehensive trading strategy.
 
 ## wclprice
 
@@ -4047,3 +4049,21 @@ The **zScore** indicator measures the distance between a data point and the mean
 **Returns**:
 
 float | np.ndarray
+
+## volume
+
+```python
+volume(candles: np.ndarray, period: int = 20, sequential: bool = False) -> Volume
+```
+
+The **Volume** indicator returns the volume of the current candle and its moving average.
+
+**Arguments**:
+
+- `candles`: np.ndarray
+- `period`: int - default=20
+- `sequential`: bool - default=False
+
+**Returns**:
+
+Volume(volume, ma)
