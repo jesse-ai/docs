@@ -8,6 +8,10 @@ If you are a visual learner, try watching [this YouTube video](https://youtu.be/
 The video also covers enabling code intellisense in VSCode which is a great tool for faster development.
 :::
 
+::: tip
+If you're interested in running Jesse with Kubernetes and Helm, check out the community maintained repository at [jesse-chart](https://github.com/TrianaLab/jesse-chart).
+:::
+
 ## Install Docker
 
 If you are on macOS or Windows I suggest installing the [Docker for Desktop](https://www.docker.com/products/docker-desktop) app if you haven't already. If you are on Ubuntu, here are the steps:
