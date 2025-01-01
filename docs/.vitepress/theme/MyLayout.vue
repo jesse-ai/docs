@@ -7,7 +7,7 @@
     <template #layout-bottom>
      <!-- <BlackFriday/> -->
       <!-- <PremiumDiscount /> -->
-      <Christmas />
+      <!-- <Christmas /> -->
     </template>
   </Layout>
 </template>
