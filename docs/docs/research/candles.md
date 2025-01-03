@@ -141,7 +141,7 @@ Generates a fake candle. If attributes are passed, then it'll create using those
 If `reset` is passed as `True`, then all values including timestamp will be reset (and no longer will look like a price series)
 
 ```py
-candlestick_chart(attributes, reset)
+fake_candle(attributes, reset)
 ```
 
 **Properties**:
@@ -258,31 +258,3 @@ print(np_candles)
 ```
 
 **See Also**: [fake_candle](#fake-candle), [fake_range_candles](#fake-range-candles)
-
-## candlestick_chart
-
-Displays a candlestick chart from candles in numpy array format (which is the default for Jesse). 
-
-```py
-candlestick_chart(candles)
-```
-
-**Properties**:
-
--   candles: np.ndarray
-
-**Return Type**: None
-
-**Example:**
-
-```py
-# generate fake candles from close prices
-close_prices = [10, 11, 12, 12, 11, 13, 14, 12, 11, 15]
-np_candles = research.candles_from_close_prices(close_prices)
-
-candlestick_chart(np_candles)
-```
-
-Which would display:
-
-![candlestick-chart-example](https://api1.jesse.trade/storage/images/docs/candlestick-chart-example.jpg)
