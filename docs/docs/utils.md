@@ -379,31 +379,6 @@ sum_floats(float1: float, float2: float) -> float
 
 **Return Type**: float
 
-
-## wavelet\_denoising
-
-Denoises / filters timeseries data. First deconstructs and then reconstructs based on a threshold.
-
-::: tip
-Based on [PyWavelets](https://pywavelets.readthedocs.io/en/latest/). See its docs for more information.
-It's recommended to consider only `haar`, `db`, `sym`, `coif` wavelet basis functions, as these are relatively suitable for financial data.
-:::
-
-```py
-wavelet_denoising(raw: np.ndarray, wavelet: str ='haar', level: int = 1, mode: str = 'symmetric', smoothing_factor: float = 0, threshold_mode: str = 'hard') -> np.ndarray
-```
-
-**Properties**:
-
--   raw: np.ndarray
--   [wavelet](https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html#built-in-wavelets-wavelist): str
--   level: int
--   [mode](https://pywavelets.readthedocs.io/en/latest/ref/signal-extension-modes.html#ref-modes): str
--   smoothing_factor: float
--   [threshold_mode](https://pywavelets.readthedocs.io/en/latest/ref/thresholding-functions.html?highlight=mode#thresholding): str
-
-**Return Type**: np.ndarray
-
 ## z\_score
 
 A Z-score is a numerical measurement that describes how many standard deviations far away the data is comparing to the mean of the data.
