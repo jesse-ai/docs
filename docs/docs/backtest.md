@@ -16,12 +16,6 @@ After the backtest is finished, you can download the charts by pressing the "Leg
 
 ![legacy-charts-example](https://api1.jesse.trade/storage/images/docs/legacy-charts-example.jpg)
 
-## Quantstats Report
-
-Enabling the "Export QuantStats reports" checkbox will generate a [QuantStats](https://github.com/ranaroussi/quantstats) report in the HTML format for you. This report is very detailed and has a lot of useful information and charts about your portfolio's performance.
-
-[Here's an example Quantstats](https://jesse.trade/storage/backtest-metrics/3/oHvy7Mja-BT-2021-07-01T09-34-27-SlowTrendFollowing-Bitfinex-BTC-USD-6h-2018-01-01-2019-01-01.html) report file which you can see in your browser.
-
 ## TradingView
 
 This feature is useful for those who use [TradingView](https://www.tradingview.com) for their chart needs.

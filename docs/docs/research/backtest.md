@@ -19,7 +19,6 @@ backtest(
     warmup_candles: dict = None,
     generate_charts: bool = False,
     generate_tradingview: bool = False,
-    generate_quantstats: bool = False,
     generate_hyperparameters: bool = False,
     generate_equity_curve: bool = False,
     generate_csv: bool = False,
@@ -38,7 +37,6 @@ backtest(
 -  warmup_candles: dict = None
 -  generate_charts: bool = False
 -  generate_tradingview: bool = False
--  generate_quantstats: bool = False
 -  generate_hyperparameters: bool = False
 -  generate_equity_curve: bool = False
 -  generate_csv: bool = False
@@ -170,7 +168,6 @@ def execute_strategy(
         candles=trading_candles,
         warmup_candles=warmup_candles,
         generate_charts=True,
-        generate_quantstats=True,
         generate_equity_curve=True,
         generate_csv=True,
         generate_json=True,
