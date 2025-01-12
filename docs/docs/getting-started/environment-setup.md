@@ -68,7 +68,7 @@ brew install scipy
 Now install Python, ta-lib, Redis, and PostgreSQL by running the below commands one by one:
 
 ```sh
-brew install python@3.9
+brew install python@3.11
 brew install ta-lib
 brew install redis
 brew install postgresql
