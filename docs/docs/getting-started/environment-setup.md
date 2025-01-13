@@ -71,7 +71,7 @@ Now install Python, ta-lib, Redis, and PostgreSQL by running the below commands 
 brew install python@3.11
 brew install ta-lib
 brew install redis
-brew install postgresql
+brew install postgresql@17
 ```
 
 ### PostgreSQL
@@ -87,6 +87,8 @@ CREATE DATABASE jesse_db;
 CREATE USER jesse_user WITH PASSWORD 'password';
 # set privileges of the created user
 GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
+# set the owner of the database to the new user (required for PostgreSQL >= 15)
+ALTER DATABASE jesse_db OWNER TO jesse_user;
 # exit PostgreSQL CLI
 \q
 ```
@@ -180,6 +182,8 @@ CREATE DATABASE jesse_db;
 CREATE USER jesse_user WITH PASSWORD 'password';
 # set privileges of the created user
 GRANT ALL PRIVILEGES ON DATABASE jesse_db to jesse_user;
+# set the owner of the database to the new user (required for PostgreSQL >= 15)
+ALTER DATABASE jesse_db OWNER TO jesse_user;
 # exit PostgreSQL CLI
 \q
 ```
