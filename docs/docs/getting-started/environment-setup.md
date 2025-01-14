@@ -192,24 +192,20 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 ### Talib
 
 To install Talib on Windows the easiest way is to use a prebuilt binary.
-Go [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/) and search `TA-Lib` and download a version `>= 0.4` matching your system and python version.
+Go [here](https://github.com/cgohlke/talib-build/releases) and download a version `>= 0.4` matching your system and python version.
 
 Example:
--   **TA_Lib‑0.4.17‑cp38‑cp38‑win_amd64.whl**: this would be the version for Python *3.8 (cp38)* and Windows *64bit (win_amd64)*
--   **TA_Lib‑0.4.17‑cp38‑cp38‑win32.whl**: this would be the version for Python *3.8 (cp38)* and Windows *32bit (win32)*
+-   **TA_Lib‑0.4.17‑cp311‑cp311‑win_amd64.whl**: this would be the version for Python *3.11 (cp311)* and Windows *64bit (win_amd64)*
+-   **TA_Lib‑0.4.17‑cp312‑cp312‑win_amd64.whl**: this would be the version for Python *3.12 (cp312)* and Windows *64bit (win_amd64)*
 
 Now open CMD and go the directory where you downloaded the binary file and run:
 ```sh
 pip install {downloaded_binary_file}
 # for example:
-# pip install TA_Lib‑0.4.17‑cp38‑cp38‑win_amd64.whl
+# pip install TA_Lib‑0.4.17‑cp311‑cp311‑win_amd64.whl
 ```
 
 Now check if it worked by running: `pip list` you should now find ta-lib in that list.
-
-::: tip
-You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. There is a tutorial: [HERE](https://github.com/mrjbq7/ta-lib#windows)
-:::
 
 ### Cython
 Run:
