@@ -1037,7 +1037,7 @@ EMD(upperband, middleband, lowerband)
 ## emv
 
 ```python
-emv(candles: np.ndarray, sequential=False) -> Union[float, np.ndarray]
+emv(candles: np.ndarray, length=14, div=10000, sequential=False) -> Union[float, np.ndarray]
 ```
 
 EMV, or **Ease of Movement**, is a technical indicator designed to assess the relationship between price and volume in the market. It quantifies the ease with which prices move by dividing the change in price by the volume, helping traders identify potential trend reversals or continuation patterns based on divergence between price and volume movements.
@@ -1047,6 +1047,8 @@ EMV, or **Ease of Movement**, is a technical indicator designed to assess the re
 **Arguments**:
 
 - `candles`: np.ndarray
+- `length`: int - default=14
+- `div`: int - default=10000
 - `sequential`: bool - default=False
 
 **Returns**:
@@ -1774,7 +1776,7 @@ float | np.ndarray
 ## kvo
 
 ```python
-kvo(candles: np.ndarray, short_period=2, long_period=5, sequential=False) -> Union[float, np.ndarray]
+kvo(candles: np.ndarray, short_period=34, long_period=55, sequential=False) -> Union[float, np.ndarray]
 ```
 
 The **Klinger Volume Oscillator (KVO)** is a volume-based technical indicator developed by Stephen J. Klinger. It combines two volume-based moving averages—the volume force and the volume trend—to identify bullish and bearish trends in the market. The KVO helps traders assess the relationship between price and volume, providing insights into potential trend reversals or continuations.
@@ -1784,8 +1786,8 @@ The **Klinger Volume Oscillator (KVO)** is a volume-based technical indicator de
 **Arguments**:
 
 - `candles`: np.ndarray
-- `short_period`: int - default=2
-- `long_period`: int - default=5
+- `short_period`: int - default=34
+- `long_period`: int - default=55
 - `sequential`: bool - default=False
 
 **Returns**:
@@ -2287,27 +2289,6 @@ The **MWDX Average** is a customized version of the exponential moving average (
 **Returns**:
 
 float | np.ndarray
-
-## msw
-
-```python
-msw(candles: np.ndarray, period=5, source_type="close", sequential=False) -> MSW
-```
-
-The **Mesa Sine Wave (MSW)** aims to identify trend reversals by analyzing the cyclical components of the price data. The "sine" component represents the smoothed sine wave, while the "lead" component represents the leading indicator of trend reversals.
-
-\#trend
-
-**Arguments**:
-
-- `candles`: np.ndarray
-- `period`: int - default=5
-- `source_type`: str - default="close"
-- `sequential`: bool - default=False
-
-**Returns**:
-
-MSW(sine, lead)
 
 ## natr
 
@@ -3635,7 +3616,7 @@ VI(plus, minus)
 ## vidya
 
 ```python
-vidya(candles: np.ndarray, short_period=2, long_period=5, alpha=0.2, source_type="close", sequential=False) -> Union[float, np.ndarray]
+vidya(candles: np.ndarray, length: int = 9, fix_cmo: bool = True, select: bool = True, source_type="close", sequential=False) -> Union[float, np.ndarray]
 ```
 
 The **Variable Index Dynamic Average (VIDYA)** is a type of moving average that dynamically adjusts its sensitivity based on market volatility. It aims to provide smoother and more responsive results compared to traditional moving averages. VIDYA is calculated using a variable index factor that adapts to changing market conditions, making it suitable for trend-following strategies.
@@ -3645,9 +3626,9 @@ The **Variable Index Dynamic Average (VIDYA)** is a type of moving average that 
 **Arguments**:
 
 - `candles`: np.ndarray
-- `short_period`: int - default=2
-- `long_period`: int - default=5
-- `alpha`: float - default=0.2
+- `length`: int - default=9
+- `fix_cmo`: bool - default=True
+- `select`: bool - default=True
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
