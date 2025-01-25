@@ -2,6 +2,31 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 1.5.0 (25 January 2025)
+
+-  **[BREAKING]** Removed `wavelet_denoising` from the utils module and the Tulipy library as a dependency to simplify installations, especially on Windows machines and newer Python versions.
+-  **[BREAKING]** Changed the default parameters of the `emv`, `kvo`, `vidya` indicators. 
+-  **[BREAKING]** Removed the `msw` indicator.
+-  **[NEW FEATURE]** Added a `volume` indicator to help you analyze market activity more effectively.
+-  **[NEW FEATURE]** Introduced a `timeframe_to_one_minutes` function in the utils module for better time management in your strategies.
+-  **[IMPROVEMENT]** The calculation for `self.portfolio_value` for futures has changed to `(total_position_values * self.leverage) + self.balance`, providing a more accurate representation of your portfolio.
+-  **[IMPROVEMENT]** Improved handling of the `Bybit USDT Perpetual seems to be either down or too busy. Error with status code 504` error to prevent live sessions from crashing.
+-  **[IMPROVEMENT]** Enhanced the user interface in tabs on mobile devices for a better user experience.
+-  **[IMPROVEMENT]** The backtest results page now displays logs instead of downloading them as a file, making it much faster to access your results.
+-  **[IMPROVEMENT]** Brought back the order handling mechanism using HTTP requests for Apex Pro and Apex Omni, thanks to the new and improved mechanism.
+-  **[FIX]** Resolved an issue with `get_candles()` in data routes during live mode.
+-  **[FIX]** Fixed the `ImportError: cannot import name igcdex` error on Windows machines when running live.
+-  **[FIX]** Fixed the `KeyError: 'order_id'` error on `Coinbase Spot`.
+-  **[FIX]** Addressed the `ValueError: could not convert string to float` error on `Coinbase Spot`.
+-  **[FIX]** Fixed the `UnicodeDecodeError: 'utf-8' codec can't decode byte 0x95 in position 67: invalid start byte` error. Thanks to [movy](https://github.com/jesse-ai/jesse/pull/491) for the fix.
+-  **[FIX]** Fixed the `ValueError: could not convert string to float: ''` error on `Bybit Perpetual`.
+-  **[FIX]** Fixed an issue with rounding prices in the interactive charts on the backtest results page.
+-  **[FIX]** Resolved the issue of XRP not appearing in the list of supported symbols for ByBit.
+-  **[FIX]** Fixed the issue with the number input in the settings.
+-  **[FIX]** Fixed an issue with the import of candles not working on the "import candles" page.
+-  **[FIX]** Fixed the `orderQty will be truncated to zero.` error on `Bybit Perpetual`.
+-  **[FIX]** Resolved the display issue for coins with low prices, such as meme coins, in interactive charts.
+
 ## 1.4.0 (23 December 2024)
 
 -  **[NEW FEATURE]** Added support for **[Apex Omni](https://jesse.trade/apex)** which is a DEX for trading perpetual futures. 

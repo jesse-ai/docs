@@ -173,19 +173,6 @@ import talib
 ema = talib.EMA(candles[:, 2], timeperiod=period)
 ```
 
-#### Tulipy
-
-Tulipy returns Numpy, but has two things you need to be aware of.
-
-```python
-import tulipy
-zlema = tulipy.zlema(np.ascontiguousarray(candles[:, 2]), period=period)
-zlema_with_nan = np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema)
-```
-
-- Tulipy accepts only contiguous arrays. The conversion can be done with: `np.ascontiguousarray(candles[:, 2])`
-- The returned length of the array varies. That's connected to the problem explained in [The thing with NaN and zero](#the-thing-with-nan-and-zero "The thing with NaN and zero"). Tulipy just strips the values it couldn't calculate. To stay consistent with the length of our arrays we need to add those NaN ourself: `np.concatenate((np.full((candles.shape[0] - zlema.shape[0]), np.nan), zlema), axis=0)`. This compares the lengths and adds the difference as NaN to the beginning of the indicator array.
-
 #### Libraries using Pandas
 
 There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse.trade/docs/utils.html#numpy-candles-to-dataframe "this helper function") for the conversion. The result of the indicator needs to be then converted back to numpy. Probably that will do it: [pandas.Series.to\_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy "pandas.Series.to_numpy"). All that converting will cost you performance and Pandas itself is less performant than Numpy.
