@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 1.6.0 (28 January 2025)
+
+- Added support for Talib `0.6`
+- Added support for Python `3.13` on macOS.
+
 ## 1.5.0 (25 January 2025)
 
 -  **[BREAKING]** Removed `wavelet_denoising` from the utils module and the Tulipy library as a dependency to simplify installations, especially on Windows machines and newer Python versions.
