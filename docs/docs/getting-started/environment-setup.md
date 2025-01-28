@@ -47,37 +47,59 @@ Your environment should now be ready to [install and run](./index.md) Jesse.
 
 ## macOS
 
-Installation on macOS is easy thanks to Homebrew. If you don't have [Homebrew](https://brew.sh/) installed, install it by running:
+Installation on macOS is straightforward using Homebrew and Miniconda. Follow these steps to set up your environment:
+
+### 1. Install Homebrew
+If you don't have [Homebrew](https://brew.sh/) installed, run this command:
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-:::tip
-Starting v`0.23.1`, Jesse can be installed natively on mac machines with Apple Silicon (M1). The performance on it amazing is BTW!
+### 2. Install Miniconda
+Miniconda provides isolated Python environments, preventing conflicts with other Python packages on your system.
 
-Installing scipy is a bit tricky. We recommend installing it with Homebrew:
-```
-brew install openblas
-export OPENBLAS=$(brew --prefix openblas)
-export CFLAGS="-falign-functions=8 ${CFLAGS}"
-brew install scipy
-```
-:::
-
-Now install Python, ta-lib, Redis, and PostgreSQL by running the below commands one by one:
-
+For Apple Silicon (M1/M2/M3/M4) machines:
 ```sh
-brew install python@3.11
-brew install ta-lib
-brew install redis
-brew install postgresql@17
+mkdir -p ~/miniconda3
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
 ```
 
-### PostgreSQL
+For Intel-based machines:
+```sh
+mkdir -p ~/miniconda3
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+```
 
-The last step is to create a PostgreSQL database and user:
+Initialize conda:
+```sh
+source ~/miniconda3/bin/activate
+conda init --all
+```
 
+### 3. Create Jesse Environment
+Create a dedicated environment for Jesse using Python 3.13:
+```sh
+conda create --name jesse python=3.13
+```
+
+Activate the environment whenever you work with Jesse:
+```sh
+conda activate jesse
+```
+
+### 4. Install Required Packages
+Install essential dependencies via Homebrew:
+```sh
+brew install ta-lib redis postgresql@17
+```
+
+### 5. Set Up PostgreSQL
+Create the database and user for Jesse:
 ```sh
 # open PostgreSQL CLI
 psql postgres
@@ -93,7 +115,7 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 \q
 ```
 
-That's it. You should now be able to [install and run Jesse](./index.md).
+Your macOS environment is now ready to [install and run Jesse](./index.md).
 
 ## Windows
 

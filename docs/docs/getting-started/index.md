@@ -6,11 +6,11 @@ We understand the importance of getting started quickly and easily. So we've tak
 
 Here is the required stack:
 
--   Python >= `3.9` and <= `3.11`
--   pip >= `19.3.0`
+-   Python >= `3.10` and <= `3.13`
+-   pip >= `23`
 -   PostgreSQL >= `10`
 -   Redis >= `5`
--   ta-lib >= `0.4`
+-   ta-lib >= `0.6`
 
 You have two options for your environment. To use the [docker](./docker.md), which is the fastest way to get started, or to install the required stack natively. Choose the option that suits you best:
 
