@@ -1,6 +1,10 @@
-# Changelog
+# Jesse Changelog
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
+
+## 1.6.2 (29 January 2025)
+
+- Fixes an issue with the log viewing window in backtests.
 
 ## 1.6.1 (29 January 2025)
 
