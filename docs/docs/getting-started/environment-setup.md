@@ -119,29 +119,29 @@ Your macOS environment is now ready to [install and run Jesse](./index.md).
 
 ## Windows
 
-### Python and pip
-[Download](https://www.python.org/downloads/windows) the official Python installer. It doesn't matter whether you choose the executable installer or the web-based installer. What matters is to choose the right version for your system type. If you are on `32bit` Windows download `Windows x86 ... installer`. If you are on 64bit Windows get the `Windows x86-64 ... installer`.
+### Miniconda
+Miniconda provides isolated Python environments, preventing conflicts with other Python packages on your system.
 
-:::tip
-Not sure which system type you are on? Open a file explorer window. Right-click on `This PC` and then `Properties`. Under `System` there is `System type`.
-:::
+Download and install Miniconda using these commands in PowerShell:
 
-::: warning
-Make sure to check `Add Python 3.X to PATH` during installation. In the end, the installation may ask you to disable the length limit for the PATH. Make sure to do that, by clicking that. You can leave the other settings as they are.
-:::
-
-Now check if the installation was successful by opening a CMD and typing `python --version`. You should get `Python 3.X.X` according to the version you just installed. Type `pip --version`. You should get `pip 19.X.X from ...`.
-
-::: tip
-In case you get:
+```sh
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o .\miniconda.exe
+start /wait "" .\miniconda.exe /S
+del .\miniconda.exe
 ```
-python/pip is not recognized as an internal or external command,
-operable program or batch file.
+
+Create a dedicated environment for Jesse using Python 3.13:
+
+```sh
+conda create --name jesse python=3.13
 ```
-Then you probably didn't check `Add Python 3.X to PATH`.
-Start again or add it to your path manually. To edit your PATH variable use the windows search and search for `environment` you should see `Edit environment variables for your account`. Click that. Search for the `PATH` variable in the user section. Select it and click `Edit`. Click `Browse` and find your python installation folder.
-You are sure Python is in the PATH? Restart your CLI and/or your machine might help.
-:::
+
+Activate the environment whenever you work with Jesse:
+```sh
+conda activate jesse
+```
+
+Remember that you need to run the `conda activate jesse` command in every new PowerShell window you open before running any Jesse or Python commands.
 
 ### Redis
 
