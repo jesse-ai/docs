@@ -2,11 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
-## 1.6.2 (29 January 2025)
-
-- Fixes an issue with the log viewing window in backtests.
-
-## 1.6.1 (29 January 2025)
+## 1.6.3 (29 January 2025)
 
 - This release addresses some issues with the packaging for new installations. If your session is already running fine, you don't need to upgrade to this.
 
