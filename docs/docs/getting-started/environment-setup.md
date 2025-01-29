@@ -213,7 +213,7 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 
 ### Talib
 
-To install TA-Lib on Windows, you can use prebuilt wheels from GitHub. Run the command that matches your Python version:
+To install TA-Lib on Windows, you can use prebuilt wheels. Run the command that matches your Python version:
 
 - **Python 3.10 64-bit:**
   ```sh
@@ -233,7 +233,9 @@ To install TA-Lib on Windows, you can use prebuilt wheels from GitHub. Run the c
 - **Python 3.13 64-bit:**
   ```sh
   pip install https://github.com/saleh-mir/talib-build/raw/main/windows/TA_Lib-0.6.0-cp313-cp313-win_amd64.whl
-  ```Now check if it worked by running: `pip list` you should now find ta-lib in that list.
+  ```
+  
+  Now check if it worked by running: `pip list` you should now find ta-lib in that list.
 
 ::: tip
 You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. There is a tutorial: [HERE](https://github.com/mrjbq7/ta-lib#windows)
