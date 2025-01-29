@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin: 
 
+## 1.6.1 (29 January 2025)
+
+- This release addresses some issues with the packaging for new installations. If your session is already running fine, you don't need to upgrade to this.
+
 ## 1.6.0 (28 January 2025)
 
 - Added support for Talib `0.6`
