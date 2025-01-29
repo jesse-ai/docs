@@ -48,44 +48,6 @@ This will create a new project containing only files and folders that you actual
         └─ __init__.py
 ```
 
-## Virtual environment (Optional but recommended)
-
-A Python virtual environment is very helpful because it creates an isolated space on your computer for each project, allowing you to install and manage Python packages separately for each one
-
-To get started, navigate to your Jesse project directory where you want to set up the virtual environment.
-
-```bash
-cd path/to/your/jesse-project
-```
-
-Create a Python virtual environment named `venv`.
-
-```bash
-python3 -m venv venv  # macOS and Linux
-python -m venv venv   # Windows
-```
-
-Activate the virtual environment. You'll need to do this every time you want to run your bot.
-
-```bash
-source venv/bin/activate  # macOS and Linux
-.\venv\Scripts\Activate   # Windows
-```
-
-Install the `jesse` package using pip.
-
-```bash
-pip install jesse
-```
-
-Verify that `jesse` has been installed successfully.
-
-```bash
-pip show jesse
-```
-
-Remember to activate the virtual environment each time you want to run your Jesse project.
-
 ## PIP Installation
 
 If you went with the [docker](./docker.md) option, then Jesse is installed for you and you don't have to do anything else. If you went with the native installation, then you have to install Jesse via `pip`:
