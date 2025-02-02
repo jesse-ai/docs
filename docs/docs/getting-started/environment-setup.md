@@ -217,22 +217,22 @@ To install TA-Lib on Windows, you can use prebuilt wheels. Run the command that 
 
 - **Python 3.10 64-bit:**
   ```sh
-  pip install https://github.com/saleh-mir/talib-build/raw/main/windows/TA_Lib-0.6.0-cp310-cp310-win_amd64.whl
+  pip install https://github.com/saleh-mir/talib-build/raw/refs/heads/main/windows/TA_Lib-0.4.32-cp310-cp310-win_amd64.whl
   ```
 
 - **Python 3.11 64-bit:**
   ```sh
-  pip install https://github.com/saleh-mir/talib-build/raw/main/windows/TA_Lib-0.6.0-cp311-cp311-win_amd64.whl
+  pip install https://github.com/saleh-mir/talib-build/raw/refs/heads/main/windows/TA_Lib-0.4.32-cp311-cp311-win_amd64.whl
   ```
 
 - **Python 3.12 64-bit:**
   ```sh
-  pip install https://github.com/saleh-mir/talib-build/raw/main/windows/TA_Lib-0.6.0-cp312-cp312-win_amd64.whl
+  pip install https://github.com/saleh-mir/talib-build/raw/refs/heads/main/windows/TA_Lib-0.4.32-cp312-cp312-win_amd64.whl
   ```
 
 - **Python 3.13 64-bit:**
   ```sh
-  pip install https://github.com/saleh-mir/talib-build/raw/main/windows/TA_Lib-0.6.0-cp313-cp313-win_amd64.whl
+  pip install https://github.com/saleh-mir/talib-build/raw/refs/heads/main/windows/TA_Lib-0.4.32-cp313-cp313-win_amd64.whl
   ```
   
   Now check if it worked by running: `pip list` you should now find ta-lib in that list.
