@@ -119,6 +119,16 @@ Your macOS environment is now ready to [install and run Jesse](./index.md).
 
 ## Windows
 
+::: warning
+
+**Update 3 Feb 2025**:
+I've been trying to create installation guides for native setup on macOS, Windows, and Ubuntu. What I realized is that the Talib library is being a real pain. Whichever setup I change to make one operating system work, it breaks the others.
+
+So, I've decided to remove Talib. However, that's going to take a while for me to finish because more than a hundred of our indicators are using it. I have to refactor their code to not use Talib anymore and conduct testing to ensure I don't break anything.
+
+In the meantime, anyone who has issues with setting things up natively, please use the [Docker setup](https://docs.jesse.trade/docs/getting-started/docker).
+:::
+
 ### Miniconda
 Miniconda provides isolated Python environments, preventing conflicts with other Python packages on your system.
 
