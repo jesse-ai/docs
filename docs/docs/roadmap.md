@@ -80,15 +80,17 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 - ✅ Youtube tutorials
 
 ## Q1 2025
-- More strategies
-- More features depending on community demand
+- ✅ More strategies
 - More tutorial videos
+- Improving interactive charts in backtesting to see details of the executed trades.
+- Improvements such as adding new LLM models to JesseGPT.
+- More AI features
+- Integrating Hyperliquid Dex
+
+## Beyond
 - Integration of reinforcement learning
 - Integrate Optuna for hyperparameter optimization
 - Additional backtest evaluation tools such as Monte Carlo simulations
-- More AI features
-
-## Beyond
 - More exchange drivers: Kucoin, OKX, MEXC, etc.
 - More strategies
 - More features depending on community demand
