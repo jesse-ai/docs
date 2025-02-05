@@ -85,7 +85,7 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 - Improving interactive charts in backtesting to see details of the executed trades.
 - Improvements such as adding new LLM models to JesseGPT.
 - More AI features
-- Integrating Hyperliquid Dex
+- Integrating Hyperliquid DEX
 
 ## Beyond
 - Integration of reinforcement learning
