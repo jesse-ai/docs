@@ -171,6 +171,10 @@ adxr(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarra
 
 The **Average Directional Movement Index Rating (ADXR)** is a variation of the ADX indicator that calculates the average of the current ADX value and a previous ADX value to provide a smoothed indication of the trend strength over time.
 
+**Author:** KivancOzbilgic
+
+**Credits:** [https://www.tradingview.com/script/9f5zDi3r/](https://www.tradingview.com/script/9f5zDi3r/)
+
 \#trend
 
 **Arguments**:
@@ -423,7 +427,7 @@ The `devtype` argument determines the type of deviation to use. If `devtype` is 
 ## bollinger\_bands\_width
 
 ```python
-bollinger_bands_width(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0, source_type="close", sequential=False) -> Union[float, np.ndarray]
+bollinger_bands_width(candles: np.ndarray, period=20, mult=2, source_type="close", sequential=False) -> Union[float, np.ndarray]
 ```
 
 **Bollinger Bands Bandwidth** is a technical indicator derived from Bollinger Bands, representing the width of the bands relative to the moving average, providing insights into the volatility of a security and potential trading opportunities based on changes in volatility levels.
@@ -434,9 +438,7 @@ bollinger_bands_width(candles: np.ndarray, period=20, devup=2, devdn=2, matype=0
 
 - `candles`: np.ndarray
 - `period`: int - default=20
-- `devup`: float - default=2
-- `devdn`: float - default=2
-- `matype`: int - default=0
+- `mult`: float - default=2
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -724,6 +726,10 @@ damiani_volatmeter(candles: np.ndarray, vis_atr=13, vis_std=20, sed_atr=40, sed_
 
 The **Damiani Volatmeter** is a technical indicator used to gauge market volatility by comparing the difference between the high and low prices with a reference level over a specified period, providing insights into potential changes in market volatility and helping traders adjust their strategies accordingly.
 
+**Author:** RicardoSantos
+
+**Credits:** [https://www.tradingview.com/v/rYWBBk3a/](https://www.tradingview.com/v/rYWBBk3a/)
+
 \#volatility
 
 **Arguments**:
@@ -932,7 +938,7 @@ float | np.ndarray
 ## dx
 
 ```python
-dx(candles: np.ndarray, period=14, sequential=False) -> Union[float, np.ndarray]
+dx(candles: np.ndarray, di_length=14, adx_smoothing=14,sequential=False) -> Union[float, np.ndarray]
 ```
 
 The **Directional Movement Index (DMI)** is a technical indicator that assesses the strength and direction of a trend in a financial asset.
@@ -942,12 +948,13 @@ The **Directional Movement Index (DMI)** is a technical indicator that assesses 
 **Arguments**:
 
 - `candles`: np.ndarray
-- `period`: int - default=14
+- `di_length`: int - default=14
+- `adx_smoothing`: int - default=14
 - `sequential`: bool - default=False
 
 **Returns**:
 
-float | np.ndarray
+DX(adx, plusDI, minusDI)
 
 ## edcf
 
@@ -1635,7 +1642,7 @@ float | np.ndarray
 ## kama
 
 ```python
-kama(candles: np.ndarray, period=30, source_type="close", sequential=False) -> Union[float, np.ndarray]
+kama(candles: np.ndarray, period=30, fast_length=2, slow_length=30, source_type="close", sequential=False) -> Union[float, np.ndarray]
 ```
 
 The **Kaufman Adaptive Moving Average (KAMA)** is a type of moving average developed by Perry Kaufman. It dynamically adjusts its smoothing period based on market volatility, aiming to provide a more accurate representation of price trends while minimizing lag. KAMA increases its responsiveness during periods of high volatility and decreases it during periods of low volatility, making it particularly useful in adapting to changing market conditions.
@@ -1646,6 +1653,8 @@ The **Kaufman Adaptive Moving Average (KAMA)** is a type of moving average devel
 
 - `candles`: np.ndarray
 - `period`: int - default=30
+- `fast_length`: int - default=2
+- `slow_length`: int - default=30
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -2370,106 +2379,6 @@ The **On Balance Volume (OBV)** is a momentum indicator that uses volume flow to
 
 float | np.ndarray
 
-## pattern\_recognition
-
-```python
-pattern_recognition(candles: np.ndarray, pattern_type, penetration=0, sequential=False) -> Union[int, np.ndarray]
-```
-
-This utility function for **Pattern Recognition** allows analysts to automate the detection of specific candlestick patterns, which can be used as signals for making trading decisions or conducting further analysis.
-
-\#trend
-
-**Arguments**:
-
-- `candles`: np.ndarray
-- `penetration`: int - default = 0
-- `pattern_type`: str
-- `sequential`: bool - default=False
-
-**Returns**:
-
-int | np.ndarray
-
-::: tip Return values
-
-- `+2` bullish pattern with confirmation
-- `+1` bullish pattern (most cases)
-- `0` no pattern
-- `-1` bearish pattern
-- `-2` bearish pattern with confirmation
-:::
-
-::: tip Penetration
-The `penetration` parameter only affects:
-
-- CDLABANDONEDBABY
-- CDLDARKCLOUDCOVER
-- CDLEVENINGDOJISTAR
-- CDLEVENINGSTAR
-- CDLMATHOLD
-- CDLMORNINGDOJISTAR
-- CDLMORNINGSTAR
-:::
-
-::: tip Available pattern\_type
-
-- CDL2CROWS - Two Crows
-- CDL3BLACKCROWS - Three Black Crows
-- CDL3INSIDE - Three Inside Up/Down
-- CDL3LINESTRIKE - Three-Line Strike
-- CDL3OUTSIDE - Three Outside Up/Down
-- CDL3STARSINSOUTH - Three Stars In The South
-- CDL3WHITESOLDIERS - Three Advancing White Soldiers
-- CDLABANDONEDBABY - Abandoned Baby
-- CDLADVANCEBLOCK - Advance Block
-- CDLBELTHOLD - Belt-hold
-- CDLBREAKAWAY - Breakaway
-- CDLCLOSINGMARUBOZU - Closing Marubozu
-- CDLCONCEALBABYSWALL - Concealing Baby Swallow
-- CDLCOUNTERATTACK - Counterattack
-- CDLDARKCLOUDCOVER - Dark Cloud Cover
-- CDLDOJI - Doji
-- CDLDOJISTAR - Doji Star
-- CDLDRAGONFLYDOJI - Dragonfly Doji
-- CDLENGULFING - Engulfing Pattern
-- CDLEVENINGDOJISTAR - Evening Doji Star
-- CDLEVENINGSTAR - Evening Star
-- CDLGAPSIDESIDEWHITE - Up/Down-gap side-by-side white lines
-- CDLGRAVESTONEDOJI - Gravestone Doji
-- CDLHAMMER - Hammer
-- CDLHANGINGMAN - Hanging Man
-- CDLHARAMI - Harami Pattern
-- CDLHARAMICROSS - Harami Cross Pattern
-- CDLHIGHWAVE - High-Wave Candle
-- CDLHIKKAKE - Hikkake Pattern
-- CDLHIKKAKEMOD - Modified Hikkake Pattern
-- CDLHOMINGPIGEON - Homing Pigeon
-- CDLIDENTICAL3CROWS - Identical Three Crows
-- CDLINNECK - In-Neck Pattern
-- CDLINVERTEDHAMMER - Inverted Hammer
-- CDLKICKING - Kicking
-- CDLKICKINGBYLENGTH - Kicking - bull/bear determined by the longer marubozu
-- CDLLADDERBOTTOM - Ladder Bottom
-- CDLLONGLEGGEDDOJI - Long Legged Doji
-- CDLLONGLINE - Long Line Candle
-- CDLMARUBOZU - Marubozu
-- CDLMATCHINGLOW - Matching Low
-- CDLMATHOLD - Mat Hold
-- CDLMORNINGDOJISTAR - Morning Doji Star
-- CDLMORNINGSTAR - Morning Star
-- CDLONNECK - On-Neck Pattern
-- CDLPIERCING - Piercing Pattern
-- CDLRICKSHAWMAN - Rickshaw Man
-- CDLSEPARATINGLINES - Separating Lines
-- CDLSHOOTINGSTAR - Shooting Star
-- CDLSHORTLINE - Short Line Candle
-- CDLSTALLEDPATTERN - Stalled Pattern
-- CDLTAKURI - Takuri (Dragonfly Doji with very long lower shadow)
-- CDLTHRUSTING - Thrusting Pattern
-- CDLUNIQUE3RIVER - Unique 3 River
-- CDLXSIDEGAP3METHODS - Upside/Downside Gap Three Methods
- :::
 
 ## pfe
 
@@ -2779,7 +2688,7 @@ float | np.ndarray
 ## rsmk
 
 ```python
-rsmk(candles: np.ndarray, candles_compare: np.ndarray, lookback: int = 90, period: int = 3, signal_period: int = 20, matype: int = 1, signal_matype: int = 1, source_type: str = "close", sequential: bool = False) -> RSMK
+rsmk(candles: np.ndarray, candles_compare: np.ndarray, lookback: int = 90, period: int = 3, signal_period: int = 20, source_type: str = "close", sequential: bool = False) -> RSMK
 ```
 
 The **Relative Strength (RSMK)** indicator measures the ratio of the price of one security to another over a specified period. It calculates the relative strength by taking the logarithm of the ratio of the price of the first security to the price of the second security, and then applies a moving average to smooth the result. This indicator helps identify potential trends or reversals in the performance of one security relative to another.
@@ -2792,8 +2701,6 @@ The **Relative Strength (RSMK)** indicator measures the ratio of the price of on
 - `lookback`: int - default=90
 - `period`: int - default=3
 - `signal_period`: int - default=20
-- `matype`: int - default=1
-- `signal_matype`: int - default=1
 - `source_type`: str - default="close"
 - `sequential`: bool - default=False
 
@@ -3814,6 +3721,11 @@ vwmacd(candles: np.ndarray, fast_period=12, slow_period=26, signal_period=9, seq
 ```
 
 The **Volume Weighted Moving Average Convergence/Divergence (VWMACD)** is a variation of the traditional MACD indicator that incorporates volume-weighted moving averages. It is primarily used to identify changes in momentum based on both price and volume data.
+
+
+**Author:** David.
+
+**Credits:** [https://www.tradingview.com/script/33Y1LzRq-Volume-Weighted-Moving-Average-Convergence-Divergence-MACD/](https://www.tradingview.com/script/33Y1LzRq-Volume-Weighted-Moving-Average-Convergence-Divergence-MACD/)
 
 \#momentum
 
