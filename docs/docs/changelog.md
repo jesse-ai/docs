@@ -1,6 +1,16 @@
 # Jesse Changelog
 
-Here you can see the changes made with each release of the main framework and the live trading plugin: 
+Here you can see the changes made with each release of the main framework and the live trading plugin:
+
+## 1.6.4 (4 February 2025)
+
+-  **[IMPROVEMENT]** Brought back the `reduce-only` orders on `Bybit`.
+-  **[IMPROVEMENT]** Improved the order detection (backup HTTP mechanism) on `Apex Omni`, `Apex Pro`, `ByBit Perpetual`, `Gate.io`, and `Binance Perpetual`.
+-  **[IMPROVEMENT]** We now submit the stop-order first before submitting take-profit.
+-  **[IMPROVEMENT]** Improved the error reporting (notifications) when a strategy fails to execute and an exception is raised.
+-  **[IMPROVEMENT]** The strategy's `watch_list()` method will no longer cause the live trading dashboard to crash if it raises an exception. Instead, it display the error in the dashboard.
+-  **[FIX]** Fixed the issue where changing the exchange in the live tab sometimes didn't work and required refresh.
+-  **[FIX]** Fixed the issue where sometimes symbols in the live and backtest tabs were not updated when the exchange was changed.
 
 ## 1.6.3 (29 January 2025)
 
