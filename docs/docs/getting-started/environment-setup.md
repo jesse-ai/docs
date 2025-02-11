@@ -32,11 +32,6 @@ If a fresh install isn't possible for you, you can look at the commands used by 
 
 -  [Ubuntu 22.04 installer script source code](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-22.04.sh)
 
-::: warning
-You should have at least 2GB of RAM or the build of ta-lib [might fail](https://github.com/mrjbq7/ta-lib/issues/290).
-A workaround is using a prebuilt wheel (.whl) of ta-lib.
-:::
-
 By default, the values of `POSTGRES_HOST` and `REDIS_HOST` are set to `postgres` and `redis`, which are the default values of the official Docker containers. You have to change them both to `localhost`.
 
 ::: tip
@@ -93,12 +88,14 @@ conda activate jesse
 ```
 
 ### 4. Install Required Packages
+
 Install essential dependencies via Homebrew:
 ```sh
-brew install ta-lib redis postgresql@17
+brew install redis postgresql@17
 ```
 
 ### 5. Set Up PostgreSQL
+
 Create the database and user for Jesse:
 ```sh
 # open PostgreSQL CLI
@@ -118,16 +115,6 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 Your macOS environment is now ready to [install and run Jesse](./index.md).
 
 ## Windows
-
-::: warning
-
-**Update: 3 Feb 2025**:
-I've been trying to create installation guides for native setup on macOS, Windows, and Ubuntu. What I realized is that the Talib library is being a real pain. Whichever setup I change to make one operating system work, it breaks the others.
-
-So, I've decided to remove Talib. However, that's going to take a while for me to finish because more than a hundred of our indicators are using it. I have to refactor their code to not use Talib anymore and conduct testing to ensure I don't break anything.
-
-In the meantime, anyone who has issues with setting things up natively, please use the [Docker setup](https://docs.jesse.trade/docs/getting-started/docker).
-:::
 
 ### Miniconda
 Miniconda provides isolated Python environments, preventing conflicts with other Python packages on your system.
@@ -219,37 +206,6 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 # exit PostgreSQL CLI
 \q
 ```
-
-
-### Talib
-
-To install TA-Lib on Windows, you can use prebuilt wheels. Run the command that matches your Python version:
-
-- **Python 3.10 64-bit:**
-  ```sh
-  pip install https://github.com/saleh-mir/talib-build/raw/refs/heads/main/windows/TA_Lib-0.4.32-cp310-cp310-win_amd64.whl
-  ```
-
-- **Python 3.11 64-bit:**
-  ```sh
-  pip install https://github.com/saleh-mir/talib-build/raw/refs/heads/main/windows/TA_Lib-0.4.32-cp311-cp311-win_amd64.whl
-  ```
-
-- **Python 3.12 64-bit:**
-  ```sh
-  pip install https://github.com/saleh-mir/talib-build/raw/refs/heads/main/windows/TA_Lib-0.4.32-cp312-cp312-win_amd64.whl
-  ```
-
-- **Python 3.13 64-bit:**
-  ```sh
-  pip install https://github.com/saleh-mir/talib-build/raw/refs/heads/main/windows/TA_Lib-0.4.32-cp313-cp313-win_amd64.whl
-  ```
-  
-  Now check if it worked by running: `pip list` you should now find ta-lib in that list.
-
-::: tip
-You don't have to use the prebuilt wheel. You can build it yourself, but you have more work this way. There is a tutorial: [HERE](https://github.com/mrjbq7/ta-lib#windows)
-:::
 
 ### Cython
 Run:
