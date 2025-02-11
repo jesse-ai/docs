@@ -8,6 +8,24 @@ Here you can see the changes made with each release of the main framework and th
 - **[NEW FEATURE]** Added a download button to the backtest's logs view to download the logs as a file alongside with the existing copy button.
 - **[IMPROVEMENT]** Improved the logs fetching mechanism to reduce the amount of data sent to the frontend using gzip compression which significantly reduces the size of the data sent.
 
+- **[BREAKING]** Removed the `TA-Lib` dependency and rewrote the code for the indicators that were using it. Most of the indicators are not changed in input and output, but some of them are, and some of them are removed. Here are the changes that you need to be aware of:
+
+-  **VWMACD Indicator**: A minor adjustment has been made to the output values.
+-  **ADXR Indicator**: A minor adjustment has been made to the output values.
+-  **Bollinger Band Width**: The calculation logic has been updated. The parameters `devup`, `devdn`, and `matype` have been removed, and a new parameter `mult` has been introduced.
+-  **DX Indicator**: The input parameters have been modified. The `period` parameter has been removed, and `di_length` and `ad;'x_smoothing` have been added. Additionally, the final output values have been adjusted.
+-  **TRIX Indicator**: A minor adjustment has been made to the final output values.
+-  **KAMA Indicator**: The input parameters have been updated. The parameters `fast_length` and `slow_length` have been added, but there are no changes to the output values.
+-  **RSMK Indicator**: The input parameters have been modified. The parameters `matype` and `signal_matype` have been removed, but there are no changes to the output values.
+-  **HT_DCPeriod**: The indicator has been removed as it is not available or supported in TradingView.
+-  **HT_DCPhase**: The indicator has been removed as it is not available or supported in TradingView.
+-  **HT_Phasor**: The indicator has been removed as it is not available or supported in TradingView.
+-  **HT_Sine**: The indicator has been removed as it is not available or supported in TradingView.
+-  **HT_Trendline**: The indicator has been removed as it is not available or supported in TradingView.
+-  **HT_Trendmode**: The indicator has been removed as it is not available or supported in TradingView.
+-  **Pattern Recognition**: The indicator has been removed as it is not available or supported in TradingView.
+-  **MACDEXT**: The indicator has been removed as it is not available or supported in TradingView.
+-  **SAREXT**: The indicator has been removed as it is not available or supported in TradingView.
 
 ## 1.6.4 (4 February 2025)
 
