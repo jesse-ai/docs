@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.6.5
+
+- **[NEW FEATURE]** Added a table displaying the executed trades on the interactive charts page. This allows you to browse them and easily navigate to see your most profitable and worst trades quickly.
+- **[NEW FEATURE]** Added a download button to the backtest's logs view to download the logs as a file alongside with the existing copy button.
+- **[IMPROVEMENT]** Improved the logs fetching mechanism to reduce the amount of data sent to the frontend using gzip compression which significantly reduces the size of the data sent.
+
+
 ## 1.6.4 (4 February 2025)
 
 -  **[IMPROVEMENT]** Brought back the `reduce-only` orders on `Bybit`.
