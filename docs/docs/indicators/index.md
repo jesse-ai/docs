@@ -1,9 +1,9 @@
 # Indicators
 
-**Jesse offers the simplest to use, and the most number of technical indicators among all trading systems**. Few of which are custom-made, and the rest are using the [ta-lib](http://ta-lib.org) or [tulip](https://tulipindicators.org/) libraries which are open source and well-known.
+**Jesse offers the simplest to use, and the most number of technical indicators among all trading systems**. All indicators are built-in and optimized for performance, providing consistent results across different platforms.
 
 ::: tip
-You might stumble upon differences to other tools caused by the use of different indicator equations or memory. [See here](https://jesse.trade/help/faq/i-changed-the-warm-up-candles-config-why-do-my-indicator-values-change) to learn more about memory of indicators. If you use a very big period you should increase the warm-up-candle amount to have enough candles and to account for the memory. You can always use other libraries directly of course, there might be speed differences though. See here for an [explaination](https://docs.jesse.trade/docs/indicators/custom-indicators.html#external-libraries-for-technical-indicators-and-things-to-be-aware-of).
+You might stumble upon differences to other tools caused by the use of different indicator equations or memory. [See here](https://jesse.trade/help/faq/i-changed-the-warm-up-candles-config-why-do-my-indicator-values-change) to learn more about memory of indicators. If you use a very big period you should increase the warm-up-candle amount to have enough candles and to account for the memory.
 :::
 
 The API has been designed to be the simplest yet flexible enough for all types of needs from developing strategies to doing research in [Jupyter Notebooks](/docs/research/jupyter).

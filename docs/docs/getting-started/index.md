@@ -10,7 +10,6 @@ Here is the required stack:
 -   pip >= `23`
 -   PostgreSQL >= `10`
 -   Redis >= `5`
--   ta-lib >= `0.6`
 
 You have two options for your environment. To use the [docker](./docker.md), which is the fastest way to get started, or to install the required stack natively. Choose the option that suits you best:
 

@@ -45,7 +45,6 @@ from .ewo import ewo
 
 ```python
 import numpy as np
-import talib
 from typing import Union
 
 from jesse.helpers import get_candle_source, slice_candles
@@ -63,7 +62,9 @@ def ewo(candles: np.ndarray, short_period: int = 5, long_period: int = 34, sourc
     candles = slice_candles(candles, sequential)
 
     src = get_candle_source(candles, source_type)
-    ewo = np.subtract(talib.EMA(src, timeperiod=short_period), talib.EMA(src, timeperiod=long_period))
+    # Calculate EMAs using Jesse's built-in EMA function
+    from jesse.indicators import ema
+    ewo = np.subtract(ema(src, period=short_period, sequential=True), ema(src, period=long_period, sequential=True))
 
     if sequential:
         return ewo
@@ -137,7 +138,7 @@ You should set indicator values, that can't be calculated to `np.nan`!
 
 About NaN values:
 
-- NaN is short for “Not a Number”.
+- NaN is short for "Not a Number".
 - NaN values represent undefined or unrepresentable results from certain mathematical operations.
 - Mathematical operations involving a NaN will either return a NaN or raise an exception.
 - Comparisons involving a NaN will return False.
@@ -162,20 +163,17 @@ Jesse uses [Numba](https://numba.pydata.org/ "Numba") to speed up indicator calc
 
 ### External libraries for technical indicators and things to be aware of
 
-There are mainly two kinds of python libraries for technical indicators: Some are Pandas based and some are Numpy based. For performance reasons Jesse uses Numpy.
-
-#### Talib
-
-Talib is a perfect match for Jesse as it uses Numpy.
+Jesse provides built-in implementations of most common technical indicators. You can import and use them directly from `jesse.indicators`. For example:
 
 ```python
-import talib
-ema = talib.EMA(candles[:, 2], timeperiod=period)
+from jesse.indicators import ema, sma, rsi
+
+ema_value = ema(candles, period=14, sequential=True)
+sma_value = sma(candles, period=20, sequential=True)
+rsi_value = rsi(candles, period=14, sequential=True)
 ```
 
-#### Libraries using Pandas
-
-There are libraries out there using pandas. To use them you need to convert Numpy to Pandas. You can use [this helper function](https://docs.jesse.trade/docs/utils.html#numpy-candles-to-dataframe "this helper function") for the conversion. The result of the indicator needs to be then converted back to numpy. Probably that will do it: [pandas.Series.to\_numpy](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_numpy.html#pandas-series-to-numpy "pandas.Series.to_numpy"). All that converting will cost you performance and Pandas itself is less performant than Numpy.
+These built-in indicators are optimized for performance and work directly with Jesse's numpy-based candle data structure.
 
 ### Loops
 
