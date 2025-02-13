@@ -4,7 +4,7 @@ Here you can see the changes made with each release of the main framework and th
 
 ## 1.7.1 (13 February 2025)
 
-- **[IMPROVEMENT]** Improved the speed of EMA, ATR, ATX, Bollinger Bands width, IchimokuCloud, RSI, Keltner Channel, KMA, Bollinger Bands, TRIX, and Alligator Indicators.
+- **[IMPROVEMENT]** Improved the speed of EMA, ATR, ATX, Bollinger Bands width, IchimokuCloud, RSI, Keltner Channel, KAMA, Bollinger Bands, TRIX, and Alligator Indicators.
 
 ## 1.7.0 (11 February 2025)
 
