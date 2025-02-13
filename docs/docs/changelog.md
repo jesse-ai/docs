@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.7.1 (13 February 2025)
+
+- **[IMPROVEMENT]** Improved the speed of EMA, ATR, ATX, Bollinger Bands width, IchimokuCloud, RSI, Keltner Channel, KMA, Bollinger Bands, TRIX, and Alligator Indicators.
+
 ## 1.7.0 (11 February 2025)
 
 - **[NEW FEATURE]** Added a table displaying the executed trades on the interactive charts page. This allows you to browse them and easily navigate to see your most profitable and worst trades quickly.
