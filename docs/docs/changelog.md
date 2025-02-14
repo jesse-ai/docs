@@ -2,10 +2,6 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 1.8.0
-
-- **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one.
-
 ## 1.7.2 (14 February 2025)
 
 - **[IMPROVEMENT]** Improved the speed of `ADOSC`, `AROONOSC`, `CCI`, `CFO`, `CHANDE`, `CHOP`, `CMO`, `DEMA`, `DTI`, `MACD`, and `SuperTrend` indicators.
