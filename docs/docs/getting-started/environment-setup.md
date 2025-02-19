@@ -127,10 +127,10 @@ start /wait "" .\miniconda.exe /S
 del .\miniconda.exe
 ```
 
-Create a dedicated environment for Jesse using Python 3.13:
+Create a dedicated environment for Jesse using Python 3.12:
 
 ```sh
-conda create --name jesse python=3.13
+conda create --name jesse python=3.12
 ```
 
 Activate the environment whenever you work with Jesse:
@@ -147,10 +147,11 @@ Here we will be using a linux on the windows subystem:
 
 Before installing any Linux distros for WSL, you must ensure that the "Windows Subsystem for Linux" optional feature is enabled:
 
-Open PowerShell as Administrator (windows search for "PowerShell" > right click > "run as administrator)  and type:
-`
+Open PowerShell as Administrator (windows search for "PowerShell" > right click > "run as administrator") and type:
+
+```sh
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-    `
+```
 
 Restart your computer when prompted.
 
@@ -167,11 +168,12 @@ After that install Redis (you will be asked for the password you just set):
     redis-cli -v
 ```
 
- You should end up with something like that: `redis-cli X.X.X`
+You should end up with something like that: `redis-cli X.X.X`
 
- This will start the server. You can close the windows after that:
-```
-    redis-server
+This will start the server. You can close the windows after that:
+
+```sh
+redis-server
 ```
 
  But you need to start Redis server after each system reboot by running the redis-server command in the ubuntu terminal.
@@ -179,6 +181,7 @@ After that install Redis (you will be asked for the password you just set):
  Another alternative is [Memurai](https://www.memurai.com) - which has to be restarted every 10 days in the free version though.
 
 ### PostgreSQL
+
 [Download](https://www.postgresql.org/download/windows) and install a version greater than `11.2` matching your system type (Windows `x86-64` or `x86-32`).
 
 ::: warning
@@ -208,6 +211,7 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 ```
 
 ### Cython
+
 Run:
 
 ```sh
