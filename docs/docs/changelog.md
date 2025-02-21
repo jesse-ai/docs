@@ -2,6 +2,17 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+<!-- ## 1.8.0
+
+- **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
+
+## 1.7.3 (21 February 2025)
+
+- **[IMPROVEMENT]** Improved the handling of `matype` parameter in indicators that use it.
+- **[IMPROVEMENT]** Improved the speed of `ADXR`, `DX`, `EFI`, `linearreg`, `Safe Zone`, `T3`, `TEMA`, `VPCI`, and `WT` indicators.
+- **[IMPROVEMENT]** Improved the backup order detection mechanism to avoid throwing an error when it encounters an unsupported order.
+- **[FIX]** Fixed the `AttributeError: 'NoneType' object has no attribute 'json'` error on `Binance Perpetual`.
+
 ## 1.7.2 (14 February 2025)
 
 - **[IMPROVEMENT]** Improved the speed of `ADOSC`, `AROONOSC`, `CCI`, `CFO`, `CHANDE`, `CHOP`, `CMO`, `DEMA`, `DTI`, `MACD`, and `SuperTrend` indicators.
