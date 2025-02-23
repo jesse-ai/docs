@@ -22,20 +22,66 @@ In case you intend to use a remote server, we have step-by-step Youtube screenca
 - [How to **deploy** your Jesse project into the production server for **live trading**](https://www.youtube.com/watch?v=cUNX5FAVVYo) 🎥
 ## Ubuntu
 
+### Fresh install (recommended for a newly made server)
+
 We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages on machines running a fresh install of Ubuntu 22.04 LTS.
 
 ```sh
 source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-22.04.sh)
 ```
 
+### Existing installation (recommended for desktop users)
+
 If a fresh install isn't possible for you, you can look at the commands used by our script and execute only the ones that suit your environment:
 
--  [Ubuntu 22.04 installer script source code](https://github.com/jesse-ai/stack-installer/blob/master/ubuntu-22.04.sh)
+#### Install Miniconda
 
-By default, the values of `POSTGRES_HOST` and `REDIS_HOST` are set to `postgres` and `redis`, which are the default values of the official Docker containers. You have to change them both to `localhost`.
+Go to the [Miniconda](https://www.anaconda.com/download/success/) website and download the latest version for your system.
+
+Go to the directory you downloaded the file to and run the following command:
+
+```sh
+bash {name of the file you downloaded}
+```
+
+To create a new environment and activate it, run the following commands:
+
+```sh
+conda create --name jesse python=3.12
+conda activate jesse
+```
 
 ::: tip
-The installer script automatically creates the required PostgreSQL database and user for you, so you don't need to set up the database manually.
+Remember that you need to activate the environment every time you open a new terminal by running `conda activate jesse`.
+:::
+
+#### Install PostgreSQL
+
+To install PostgreSQL, run the following command:
+
+```sh
+sudo apt-get install postgresql postgresql-contrib
+```
+
+To create the database and user, run the following commands:
+
+```sh
+sudo -u postgres psql -c "CREATE DATABASE jesse_db;"
+sudo -u postgres psql -c "CREATE USER jesse_user WITH PASSWORD 'password';"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE jesse_db TO jesse_user;"
+sudo -u postgres psql -c "ALTER DATABASE jesse_db OWNER TO jesse_user;"
+```
+
+#### Install Redis
+
+To install Redis, run the following command:
+
+```sh
+sudo apt-get install redis-server
+```
+
+::: danger
+By default, the values of `POSTGRES_HOST` and `REDIS_HOST` are set to `postgres` and `redis`, which are the default values of the official Docker containers. You have to change them both to `localhost`.
 :::
 
 Your environment should now be ready to [install and run](./index.md) Jesse.
