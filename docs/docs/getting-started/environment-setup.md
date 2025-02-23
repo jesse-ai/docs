@@ -38,7 +38,9 @@ If a fresh install isn't possible for you, you can look at the commands used by 
 
 Go to the [Miniconda](https://www.anaconda.com/download/success/) website and download the latest version for your system.
 
-Go to the directory you downloaded the file to and run the following command:
+Go to the directory you downloaded the file to and run the following command.
+
+**Remember to type "yes" at the end of the installation process. to initialize conda.**
 
 ```sh
 bash {name of the file you downloaded}
