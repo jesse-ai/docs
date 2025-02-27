@@ -90,6 +90,10 @@ Your environment should now be ready to [install and run](./index.md) Jesse.
 
 ## macOS
 
+::: tip 🎥 Video Tutorial
+In case you prefer watching a video, here's a [screencast explaining macOS setup](https://youtu.be/R0uTj92wRTU).
+:::
+
 Installation on macOS is straightforward using Homebrew and Miniconda. Follow these steps to set up your environment:
 
 ### 1. Install Homebrew
@@ -163,6 +167,10 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 Your macOS environment is now ready to [install and run Jesse](./index.md).
 
 ## Windows
+
+::: tip 🎥 Video Tutorial
+In case you prefer watching a video, here's a [screencast explaining Windows setup](https://youtu.be/R5aIUmOOBr8).
+:::
 
 ### Miniconda
 Miniconda provides isolated Python environments, preventing conflicts with other Python packages on your system.
