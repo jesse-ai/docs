@@ -2,9 +2,15 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-<!-- ## 1.8.0
+<!-- ## 1.8.0 (24 February 2025)
 
 - **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
+
+## 1.7.4 (28 February 2025)
+
+- **[IMPROVEMENT]** Improved the error message in backtests when the order size is too large for the available margin.
+- **[IMPROVEMENT]** Improved handling of the `CANCELING` order statuses on `Apex Omni`.
+- **[FIX]** Fixed the `AttributeError: 'NoneType' object has no attribute 'json'` error on `Apex Omni`.
 
 ## 1.7.3 (21 February 2025)
 
