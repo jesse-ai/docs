@@ -129,9 +129,9 @@ conda init --all
 ```
 
 ### 3. Create Jesse Environment
-Create a dedicated environment for Jesse using Python 3.13:
+Create a dedicated environment for Jesse using Python 3.12:
 ```sh
-conda create --name jesse python=3.13
+conda create --name jesse python=3.12
 ```
 
 Activate the environment whenever you work with Jesse:
