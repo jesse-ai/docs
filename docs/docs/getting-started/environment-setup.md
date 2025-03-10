@@ -22,6 +22,10 @@ In case you intend to use a remote server, we have step-by-step Youtube screenca
 - [How to **deploy** your Jesse project into the production server for **live trading**](https://www.youtube.com/watch?v=cUNX5FAVVYo) 🎥
 ## Ubuntu
 
+::: tip 🎥 Video Tutorial
+In case you prefer watching a video, here's a [screencast explaining Ubuntu setup](https://www.youtube.com/watch?v=00RY6eL5CXw).
+:::
+
 ### Fresh install (recommended for a newly made server)
 
 We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages on machines running a fresh install of Ubuntu 22.04 LTS.
