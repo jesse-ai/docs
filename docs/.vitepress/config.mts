@@ -15,6 +15,15 @@ export default defineConfig({
             'data-domain': 'docs.jesse.trade',
             src: 'https://data.jesse.trade/js/plausible.js',
         }],
+        ['script', {
+            async: 'true',
+            src: 'https://widget.gurubase.io/widget.latest.min.js',
+            'data-widget-id': 'LNLTSHtsPNmDOqHgB_ksyrwElbY4zFnKDD5_dlvovQo',
+            'data-text': 'Ask AI',
+            'data-margins': '{"bottom": "1rem", "right": "1rem"}',
+            'data-light-mode': 'true',
+            id: 'guru-widget-id'
+        }],
     ],
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
