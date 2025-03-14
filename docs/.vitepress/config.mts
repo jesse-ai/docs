@@ -18,7 +18,7 @@ export default defineConfig({
         ['script', {
             async: 'true',
             src: 'https://widget.gurubase.io/widget.latest.min.js',
-            'data-widget-id': 'LNLTSHtsPNmDOqHgB_ksyrwElbY4zFnKDD5_dlvovQo',
+            'data-widget-id': 'op-hMFR89Cgf_cDppi0ZmF9BkBGgLwSH1S3V_JIv4I8',
             'data-text': 'Ask AI',
             'data-margins': '{"bottom": "1rem", "right": "1rem"}',
             'data-light-mode': 'true',
