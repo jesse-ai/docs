@@ -11,12 +11,15 @@ In case you prefer watching a video, here's a [short screencast about the optimi
 :::
 
 ## How does it work?
-Jesse optimizes parameters using a [genetic algorithm](https://en.wikipedia.org/wiki/Genetic_algorithm); a type of [evolutionary algorithm](https://en.wikipedia.org/wiki/Evolutionary_algorithm). You do not have to be an expert on the subject to use the optimize mode, but is recommended to get familiar with the basics of it. Here's a nice 5-minute video that explains it:
+Jesse optimizes parameters using [Optuna](https://optuna.org/), a hyperparameter optimization framework, accelerated with [Ray](https://www.ray.io/) for parallel processing. The optimization process systematically searches through the parameter space to find optimal combinations that maximize your strategy's performance.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/qiKW1qX97qA" frameborder="0" allowfullscreen></iframe>
+Optuna employs efficient search algorithms to intelligently explore the parameter space, focusing on regions that show promise while balancing exploration of new areas. This approach allows for much faster convergence to optimal parameters compared to random or grid search methods.
+
+## What is being optimized?
+By default, Jesse optimizes for the Sharpe ratio, which measures the risk-adjusted return of your strategy. This can be changed in the settings to other metrics such as Calmar ratio, Sortino ratio, or Omega ratio.
 
 ## Which parameters can I optimize? 
-The optimize mode is pretty flexible. You can use it to optimize *anything* that is written inside your strategy file. A few examples might be:
+The optimize mode is highly flexible. You can use it to optimize *anything* that is written inside your strategy file. A few examples might be:
 
 1. The period of an EMA indicator. Not sure whether to use the 50, 51, 52, ... or 100 period? Let the optimize mode decide. 
 2. The choice between which indicator to use in the first place. Not sure whether to use RSI, Stochastic, or the SRSI? Let the optimize mode decide. 

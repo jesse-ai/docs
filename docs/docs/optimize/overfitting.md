@@ -4,20 +4,52 @@ title: 'Overfitting'
 
 # Preventing Overfitting
 
-When it comes to optimization, overfitting is probably the biggest danger. There are many ways to handle it, here is the method that we suggest:
+When it comes to optimization, overfitting is probably the biggest danger. Overfitting occurs when a model performs well on the data it was trained on but fails to generalize to new data. In trading, this often results in strategies that look great in backtests but perform poorly in live trading.
 
-Divide your dataset (of candles) into 3 periods. Training, testing, and validation. Here is a step-by-step example:
+## Jesse's Approach to Preventing Overfitting
 
-Imagine that you want to optimize your strategy for a period of 2 years (24 months). Let's say that two years is from 2018-01-01 to 2020-01-01. First cut a 6 months period of data preferably from the end of that period. We'll later use this dataset for validation. 
+Jesse's optimization mode is designed with built-in safeguards against overfitting:
 
-Now start the optimize mode for 2018-01-01 to 2019-06-30.
+1. **Training/Testing Split**: The optimization process evaluates each parameter set on both training and testing datasets.
 
-Behind the scenes, Jesse divides this dataset into two periods; training(85%) and testing(15%). The training period is what Jesse uses to optimize the strategy's parameters. The testing period is merely a period that gets backtested at the same time as the training period. Why? Because if a DNA string is performing well on both training and testing periods, there's a good chance that it will perform well overall. 
+2. **Optimization for Robustness**: The objective functions (Sharpe, Calmar, etc.) favor consistent performance over occasional big wins.
 
-In the optimize mode's dashboard, metrics such as the `win-rate` and `PNL` are shown for both `Training` and `Testing` periods, and are divided by the `|` symbol:
+3. **Optimal Trades Parameter**: This helps filter out parameter combinations that result in too few trades, which are more likely to be statistical outliers.
 
-![picking-good-dnas](https://api1.jesse.trade/storage/images/docs/picking-good-dnas.jpg)
+## Three-Period Validation Method
 
-Since DNAs have been ranked from best to worst, you will usually find good ones at the beginning. Try to choose the ones that have good metrics for both `Training` and `Testing` periods. Then, [inject them into your strategy](./dna-usage.md) and backtest each of the good ones on the validation period which we set aside earlier. In our example that 6 month period is from `2019-07-01` to `2020-01-01`. 
+For thorough validation, we recommend dividing your dataset into three periods:
 
-If you got good results using the new DNA during the validation period, chances are that your strategy is not over-fit, because the optimization mode had only used the training period; it did not see/use the data for testing and validation periods.
+1. **Training Period (60-70%)**: Used by the optimizer to find the best parameters
+2. **Testing Period (15-20%)**: Used during optimization to verify parameters work on unseen data
+3. **Validation Period (15-20%)**: Not used in optimization at all; reserved for final validation
+
+Here's how to implement this approach:
+
+1. Identify your full period, for example from 2018-01-01 to 2020-01-01 (24 months)
+
+2. Divide it into the three periods:
+   - Training period: 2018-01-01 to 2019-04-30 (16 months)
+   - Testing period: 2019-05-01 to 2019-08-31 (4 months)
+   - Validation period: 2019-09-01 to 2020-01-01 (4 months)
+
+3. Run the optimization using the training and testing periods.
+
+4. In the optimization results, look for parameter combinations that perform well in both training and testing periods:
+
+![picking-good-parameters](https://api1.jesse.trade/storage/images/docs/picking-good-dnas.jpg)
+
+5. Select several of the best-performing parameter combinations and test each of them on the validation period.
+
+6. Choose the parameter combination that performs consistently across all three periods, not just the one with the highest metrics.
+
+## Warning Signs of Overfitting
+
+Be cautious if you observe:
+
+1. Parameters that perform extremely well in training but poorly in testing
+2. Very few trades during the testing period
+3. Highly specific parameter values that seem arbitrary
+4. Performance that's significantly better than logical market expectations
+
+Remember, the goal is to find robust parameters that work well across different market conditions, not just parameters optimized for a specific historical period.
