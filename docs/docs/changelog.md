@@ -2,9 +2,16 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-<!-- ## 1.8.0 (24 February 2025)
+## 1.8.0 (12 April 2025)
 
-- **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
+- **[IMPROVEMENT]** Completely refactored the optimization mode to use the Optuna library with new options such as the step, the categorical type of parameters, a significant improvement in multiprocessing and more.
+- **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one.
+- **[IMPROVEMENT]** Improved the welcome message.
+  
+## 1.7.6
+
+- **[FIX]** Fixed an issue with the price of the stop orders being displayed incorrectly on `Apex` Exchange.
+- **[IMPROVEMENT]** Improved performance of large logs in backtests.
 
 ## 1.8.6 (3 June 2025)
 
