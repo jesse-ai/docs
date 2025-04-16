@@ -82,11 +82,14 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 ## Q1 2025
 - ✅ More strategies
 - ✅ Improving interactive charts in backtesting to see details of the executed trades.
-- Improvements such as adding new LLM models to JesseGPT.
-- Integrate Optuna for hyperparameter optimization
-- More tutorial videos
-- More AI features
+- ✅ More tutorial videos
+- ✅ More strategies
+
+## Q2 2025
+- ✅ JesseGPT 2.0
 - Integrating Hyperliquid DEX
+- Integrate Optuna for hyperparameter optimization
+- More AI features
 
 ## Beyond
 - Integration of reinforcement learning
