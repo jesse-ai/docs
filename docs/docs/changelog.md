@@ -6,6 +6,10 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
 
+## 1.7.6 (8 May 2025)
+
+- **[FIX]** Fixed the issue where the finish date in backtest was not being validated correctly and could cause the `Sent only 5 candles but 15 is required to create a "15m" candle` error.
+
 ## 1.7.5 (28 February 2025)
 
 - **[FIX]** Fixed the `ImportError: cannot import name 'store_candle_into_db' from partially initialized module 'jesse.models' (most likely due to a circular import) (/jesse-docker/jesse/models/init.py)` error.
