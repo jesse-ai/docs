@@ -8,7 +8,7 @@ Here you can see the changes made with each release of the main framework and th
 
 ## 1.7.8 (9 May 2025)
 
-- **[FIX]** Removed some debugging logs. 
+- **[FIX]** Removed some debugging logs.
 
 ## 1.7.7 (9 May 2025)
 
