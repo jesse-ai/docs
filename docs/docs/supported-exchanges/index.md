@@ -36,6 +36,7 @@ At the moment these are the supported exchanges for live trading:
 
 -   [Apex Pro](https://jesse.trade/apex)
 -   [Apex Omni](https://jesse.trade/apex)
+-   [Hyperliquid](https://jesse.trade/hyperliquid)
 -   [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit USDC Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit Spot](https://jesse.trade/bybit)
