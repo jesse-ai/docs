@@ -6,6 +6,12 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
 
+## 1.8.1 (13 May 2025)
+
+- **[FIX]** Fixed the `AttributeError: 'NoneType' object has no attribute 'json'` error on `Binance Perpetual`.
+- **[FIX]** Fixed the wrong order price being reported in notifications for stop and market orders on `Apex Omni`.
+- **[IMPROVEMENT]** Improves the handling of order streams WS on `Apex Omni`.
+
 ## 1.8.0 (11 May 2025)
 
 - **[NEW FEATURE]** Added support for **Hyperliquid** as a live trading exchange.
