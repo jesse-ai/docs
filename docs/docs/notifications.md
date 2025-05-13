@@ -17,23 +17,19 @@ Open Telegram and search for `BotFather`. Follow the instructions by BotFather t
 234325981:BBF5-H-FIdlfGVwXaSDfsAdy5A9_4uVsnH
 ```
 
-Enter it in your project's `.env` file for either `GENERAL_TELEGRAM_BOT_TOKEN` or `ERROR_TELEGRAM_BOT_TOKEN`. 
-
-::: tip
-`GENERAL_TELEGRAM_BOT_TOKEN` is used for all notifications while `ERROR_TELEGRAM_BOT_TOKEN` is used for error notifications only. It is sometimes useful to have a separate bot for urgent notifications so you can mute the general one as it can be sometimes too verbose.
-:::
+Enter this token in the "Notification API Keys" page under the "Bot Token" field when adding a new Telegram notification driver. 
 
 Now search for the username of your bot in your contacts, select it, and click on the `/start`. This will permit the bot to send messages to your Telegram account.
 
 ### Find your user ID
 
-Please notice that we're talking about your user ID and NOT your username. If you don't already know your Telegram account's user ID, open the [getuserid](https://telegram.me/getuseridbot) bot, press `/start` and it'll tell you your user ID. Enter it for the `GENERAL_TELEGRAM_BOT_CHAT_ID` value in your project's `.env` file. 
+Please notice that we're talking about your user ID and NOT your username. If you don't already know your Telegram account's user ID, open the [getuserid](https://telegram.me/getuseridbot) bot, press `/start` and it'll tell you your user ID. Enter this ID in the "Chat ID" field when adding a new Telegram notification driver in the "Notification API Keys" page.
 
 ## Discord
 
 Discord webhooks are easier to set up if you already have a Discord server. If you don't, you can create one; it's free. 
 
-First, create a new text channel in your discord server. Then click on the gear icon on the right side of the channel button. Then go to the `integrations` section. Click on the box which is titled "Webhooks". Click on the blue "New Webhook" button, give it a name, and maybe a picture also. At last, click on the "Copy Webhook URL" button and paste that as the value for the `GENERAL_DISCORD_WEBHOOK` in your `.env` file. 
+First, create a new text channel in your discord server. Then click on the gear icon on the right side of the channel button. Then go to the `integrations` section. Click on the box which is titled "Webhooks". Click on the blue "New Webhook" button, give it a name, and maybe a picture also. At last, click on the "Copy Webhook URL" button and paste that URL in the "Webhook URL" field when adding a new Discord notification driver in the "Notification API Keys" page.
 
 ## Slack
 
@@ -46,10 +42,8 @@ Incoming Webhooks* toggle to switch it on.
 One of those options will be a really helpful button marked Add New Webhook to Workspace, and you should click it.
 Choose your channel and click *Authorize*.
 - You'll be sent back to your app settings, and you should now see a new entry under the Webhook URLs for Your Workspace
-section
-The last thing to do is put your webhook as a value to `GENERAL_SLACK_WEBHOOK` in your `.env` file.
-
-You can create another channel and another webhook for errors at the value of `ERROR_SLACK_WEBHOOK`. 
+section.
+- Copy the webhook URL and paste it in the "Webhook URL" field when adding a new Slack notification driver in the "Notification API Keys" page.
 
 Further information can be found [here](https://api.slack.com/messaging/webhooks).
 
@@ -59,5 +53,4 @@ Sometimes you might want to send a custom notification based on some condition t
 
 ### Sending custom information to custom channels
 You might want to go further with your notification and organize it to different channels in your Slack workspace or Discord server.
-To do so you can add to [self.log()](./strategies/api.html#log) a webhook to what channel to use or an environment
-variable that is in `.env` with a webhook value.
+To do so you can add to [self.log()](./strategies/api.html#log) a webhook to what channel to use.
