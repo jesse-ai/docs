@@ -87,9 +87,9 @@ Starting in Q2 of 2021, we will begin listing our upcoming goals on this roadmap
 
 ## Q2 2025
 - ✅ JesseGPT 2.0
-- Integrating Hyperliquid DEX
-- Integrate Optuna for hyperparameter optimization
-- More AI features
+- ✅ Integrating Hyperliquid DEX
+- ✅ Integrate Optuna for hyperparameter optimization
+- ✅ More AI features
 
 ## Beyond
 - Integration of reinforcement learning
