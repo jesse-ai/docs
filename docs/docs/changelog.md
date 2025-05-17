@@ -6,6 +6,12 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
 
+## 1.8.2 (17 May 2025)
+
+- **[FIX]** Fixed the `JSONDecodeError: Expecting value: line 1 column 1 (char 0)` error on Hyperliquid.
+- **[FIX]** Fixed the `TypeError: Argument 'order_id' has incorrect type (expected str, got int)` error on Hyperliquid.
+- **[IMPROVEMENT]** Added logs for balance changes in live trading.
+
 ## 1.8.1 (13 May 2025)
 
 - **[FIX]** Fixed the `AttributeError: 'NoneType' object has no attribute 'json'` error on `Binance Perpetual`.
