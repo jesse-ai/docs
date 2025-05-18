@@ -6,6 +6,10 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
 
+## 1.8.3 (18 May 2025)
+
+- **[FIX]** Fixed the `ConnectionError: ERROR 422 Unprocessable Entity` error on `Hyperliquid`.
+
 ## 1.8.2 (17 May 2025)
 
 - **[FIX]** Fixed the `JSONDecodeError: Expecting value: line 1 column 1 (char 0)` error on Hyperliquid.
