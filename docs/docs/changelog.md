@@ -6,6 +6,12 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
 
+## 1.8.4 (20 May 2025)
+
+- **[FIX]** Fixed the `Unable to close a trade that is not yet open...` error on `Binance Perpetual` (and potentially other exchanges).
+- **[FIX]** Fixed the `TypeError: must be real number, not str` error on `Apex Omni`.
+- **[IMPROVEMENT]** Improved the balance update mechanism in live trading to handle cases where the position's quantity is not updated immediately after a order is executed due to the exchange's API not working as expected during sudden market movements.
+
 ## 1.8.3 (18 May 2025)
 
 - **[FIX]** Fixed the `ConnectionError: ERROR 422 Unprocessable Entity` error on `Hyperliquid`.
