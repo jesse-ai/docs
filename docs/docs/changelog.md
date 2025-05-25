@@ -6,6 +6,12 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
 
+## 1.8.5 (25 May 2025)
+
+- **[FIX]** Fixed the `ValueError: Unknown order status: minTradeNtlRejected` error on `Hyperliquid`.
+- **[IMPROVEMENT]** Improved the balance update logging mechanism in live trading to avoid excessive logging.
+- **[IMPROVEMENT]** Improved the previously implemented mechanism for preventing the `ValueError: Unable to close a trade that is not yet open...` error on `Binance Perpetual`.
+
 ## 1.8.4 (20 May 2025)
 
 - **[FIX]** Fixed the `Unable to close a trade that is not yet open...` error on `Binance Perpetual` (and potentially other exchanges).
