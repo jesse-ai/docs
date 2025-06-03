@@ -6,6 +6,12 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[NEW FEATURE]** Added a retry button for the times when the backtest fails. This is helpful for when you fix something and want to rerun the backtest. You can now just click the retry button, and it will cancel the current execution and start a new one. -->
 
+## 1.8.6
+
+- **[IMPROVEMENT]** Improved interactive charts now when you hover each thread it will highlight it on the chart without going to it on the chart
+- **[FIX]** Fixed the `TypeError: must be real number, not str` error on `Apex Omni`.
+- **[FIX]** Fixed the `wss://api.hyperliquid.xyz/ws WS raised an error: 'HyperliquidPerpetual' object has no attribute 'api_key'` error on `Hyperliquid` in paper trading mode.
+
 ## 1.8.5 (25 May 2025)
 
 - **[FIX]** Fixed the `ValueError: Unknown order status: minTradeNtlRejected` error on `Hyperliquid`.
