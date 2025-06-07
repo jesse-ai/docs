@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.9.1 (7 June 2025)
+
+- **[FIX]** Fixed the `"[GET] "/logs/backtest/1fb720bc-f8dd-440b-897d-7654d5258b50?token=83xxx": 404 Not Found"` error when trying to get the logs of a backtest.
+- **[IMPROVEMENT]** Improved the copy button for the DNA in the optimization mode.
+
 ## 1.9.0 (6 June 2025)
 
 - **[IMPROVEMENT]** Completely refactored the optimization mode to use the Optuna library with new options such as the step, the categorical type of parameters, a significant improvement in multiprocessing and more.
