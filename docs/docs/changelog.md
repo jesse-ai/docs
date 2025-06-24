@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.9.3 (24 June 2025)
+
+- **[NEW FEATURE]** Added new property: `self.volume`
+- **[NEW FEATURE]** Added new property: `self.last_trade_index`
+- **[IMPROVEMENT]** The Bollinger Bands width now accepts one-dimension input, as well as candles Just like the Bollinger Bands indicator.
+- **[FIX]** Fixed the `Unexpected error in fetch_orders: Unknown order status: siblingFilledCanceled` error on `Hyperliquid`.
+
 ## 1.9.2 (9 June 2025)
 
 - **[FIX]** Improved handling of `503` and `504` errors on `Hyperliquid`.
