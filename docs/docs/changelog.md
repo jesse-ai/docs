@@ -8,6 +8,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[NEW FEATURE]** Added new property: `self.last_trade_index`
 - **[IMPROVEMENT]** The Bollinger Bands width now accepts one-dimension input, as well as candles Just like the Bollinger Bands indicator.
 - **[FIX]** Fixed the `Unexpected error in fetch_orders: Unknown order status: siblingFilledCanceled` error on `Hyperliquid`.
+- **[FIX]** Fixed the `KeyError: 'type'` error on `Coinbase Spot`.
 
 ## 1.9.2 (9 June 2025)
 
