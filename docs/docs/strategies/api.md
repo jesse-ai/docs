@@ -1,4 +1,3 @@
-
 # API reference
 
 ## @cached
@@ -320,6 +319,23 @@ def before(self):
         do_slow_updates()
 ```
 
+## last_trade_index
+
+The `last_trade_index` property returns the index at which the last trade was closed. This is useful for strategies that need to track when the last trade occurred. Or how many candles have passed since the last trade was closed.
+
+**Return Type**: int
+
+**Example**:
+```py
+def should_long(self):
+    # Only enter a new trade if it's been at least 5 candles since the last trade
+    if self.index - self.last_trade_index >= 5:
+        return True
+    return False
+```
+
+**See Also**: [index](#index)
+
 ## has\_long\_entry\_orders
 
 Used to know the type of entry orders for times that position is not opened yet such as inside the `should_cancel_entry()` and `before()` methods and also in filters.
@@ -503,6 +519,14 @@ def go_long(self):
     # stop-loss at 2 dollars below current candle's low
     self.buy = qty, self.low - 2
 ```
+
+## volume
+
+The current candle's volume. Same as `self.current_candle[5]`.
+
+**Return Type**: float
+
+**See Also**: [current_candle](#current-candle)
 
 ## metrics
 
