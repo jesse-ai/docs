@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.9.4 (28 June 2025)
+
+- **[NEW FEATURE]** Added new property: `self.current_route_index`
+- **[IMPROVEMENT]** Some performance improvements in the backtest thanks to PRs from [@luceCoding](https://github.com/luceCoding).
+- **[FIX]** Fixed the UI issue with symbols which have lower case in them such as `kPEPE-USD` on `Hyperliquid`.
+
 ## 1.9.3 (24 June 2025)
 
 - **[NEW FEATURE]** Added new property: `self.volume`

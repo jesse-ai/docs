@@ -806,3 +806,15 @@ Then, when you run the live session, you will see a new table like:
 The minimum quantity that you can trade on the exchange for the symbol you're trading. It is available in live and paper trading modes only.
 
 **Return Type**: float
+
+## current_route_index
+
+The index of the current route. This is useful for strategies that need to know which route they are currently trading on such as pairs trading strategies.
+
+**Return Type**: int
+
+## routes
+
+The running routes of the current session. This is helpful for strategies that need to communicate with other routes such as pairs trading strategies.
+
+**Return Type**: List[Route]
