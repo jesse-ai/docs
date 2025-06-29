@@ -2,7 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 1.9.6 (29 June 2025)
+## 1.9.7 (29 June 2025)
 
 - **[FIX]** Fixed an issue with rounding of meme coins when there are multiple routes in live trading.
 
