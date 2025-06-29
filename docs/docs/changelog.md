@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.9.5 (29 June 2025)
+
+- **[FIX]** Fixed an issue with rounding of meme coins when there are multiple routes in live trading.
+
 ## 1.9.4 (28 June 2025)
 
 - **[NEW FEATURE]** Added new property: `self.current_route_index`
