@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.9.8 (30 June 2025)
+
+- **[IMPROVEMENT]** On `Coinbase Spot`, when trying to fetch the previously existing orders, if the type of the order is not supported by Jesse, we now log that message instead of terminating the session.
+- **[FIX]** Fixed the `wss://api.hyperliquid.xyz/ws WS raised an error: 'HyperliquidPerpetual' object has no attribute 'api_key'` error on paper trading mode of `Hyperliquid`.
+- **[IMPROVEMENT]** Added a new setting to enable/disable the "strategy execution" logs in the live/paper trading mode.
+
 ## 1.9.7 (29 June 2025)
 
 - **[FIX]** Fixed an issue with rounding of meme coins when there are multiple routes in live trading.
