@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.10.0 (10 July 2025)
+
+- **[IMPROVEMENT]** Improved the performance of the indicators by rewriting them in `Rust`.
+
 ## 1.9.8 (30 June 2025)
 
 - **[IMPROVEMENT]** On `Coinbase Spot`, when trying to fetch the previously existing orders, if the type of the order is not supported by Jesse, we now log that message instead of terminating the session.
