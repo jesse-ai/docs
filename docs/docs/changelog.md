@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.10.1 (12 July 2025)Attempting to reconnect
+
+- **[FIX]** Fixed the `ValueError: Unknown order status: ***` error on `Hyperliquid`.
+- **[FIX]** Fixed the `KeyError: 'channel'` error on `Coinbase Spot`.
+- **[IMPROVEMENT]** Improved the error handling for `Gate USDT Perpetual seems to be either down or too busy. Error with status code 502` error on `Gate USDT Perpetual`.
+
 ## 1.10.0 (10 July 2025)
 
 - **[IMPROVEMENT]** Improved the performance of the indicators by rewriting them in `Rust`.
