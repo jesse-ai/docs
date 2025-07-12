@@ -2,7 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 1.10.1 (12 July 2025)Attempting to reconnect
+## 1.10.1 (12 July 2025)
 
 - **[FIX]** Fixed the `ValueError: Unknown order status: ***` error on `Hyperliquid`.
 - **[FIX]** Fixed the `KeyError: 'channel'` error on `Coinbase Spot`.
