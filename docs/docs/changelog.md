@@ -6,6 +6,7 @@ Here you can see the changes made with each release of the main framework and th
 ## 1.10.2 (15 July 2025)
 
 - **[NEW FEATURE]** Added new property: `self.data_routes`
+- **[FIX]** Fixed the installation issue on Windows machines.
 
 ## 1.10.1 (12 July 2025)
 
