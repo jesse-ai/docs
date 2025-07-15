@@ -818,3 +818,9 @@ The index of the current route. This is useful for strategies that need to know 
 The running routes of the current session. This is helpful for strategies that need to communicate with other routes such as pairs trading strategies.
 
 **Return Type**: List[Route]
+
+## data_routes
+
+The running data routes of the current session. This is helpful for strategies that need to communicate with other routes such as pairs trading strategies.
+
+**Return Type**: List[Route]

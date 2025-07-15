@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+
+## 1.10.2 (15 July 2025)
+
+- **[NEW FEATURE]** Added new property: `self.data_routes`
+
 ## 1.10.1 (12 July 2025)
 
 - **[FIX]** Fixed the `ValueError: Unknown order status: ***` error on `Hyperliquid`.
