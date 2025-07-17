@@ -3,6 +3,12 @@
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
 
+## 1.10.3 (17 July 2025)
+
+- **[IMPROVEMENT]** Improved the error handling for `customInitialMarginRate` error on `Apex Omni`.
+- **[FIX]** Fixed the issue of symbols, where the symbol change is not working properly when you change the exchange in live and backtesting mode forms.
+- **[IMPROVEMENT]** Improved the display of prices in the logs especially for small prices like `0.00000012`. 
+
 ## 1.10.2 (15 July 2025)
 
 - **[NEW FEATURE]** Added new property: `self.data_routes`
