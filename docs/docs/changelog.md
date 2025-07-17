@@ -2,6 +2,9 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.10.4 (17 July 2025)
+
+- **[FIX]** Fixed the issue of the price of candlestick not updating in live mode in the UI.
 
 ## 1.10.3 (17 July 2025)
 
