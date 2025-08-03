@@ -2,13 +2,24 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.10.5 (20 July 2025)
+
+- **[IMPROVEMENT]** Improved the WebSocket reconnection mechanism to handle more downtime such as recent Hyperliquid downtimes in high volatility markets.
+- **[IMPROVEMENT]** Improved the logging mechanism for order cancellations on `Apex Omni`.
+- **[FIX]** Fixed the `Empty response from server with status code 200` error on `Apex Omni`.
+- **[FIX]** Fixed the `ValueError: Unknown order status: siblingFilledCanceled` error on `Hyperliquid`.
+- **[FIX]** Better handling of 5xx errors on all exchanges.
+- **[FIX]** Fixed the `rpc error: code = Unauthenticated desc = Failed to check signature!` error on `Apex Omni`.
+- **[FIX]** Fixed the `IndexError: index * is out of bounds for axis 0 with size *` in live mode.
+- **[FIX]** Fixed the issue with the wrong symbol for `SYS-USDT` being shown as `SY-SUSDT`.
+
 ## 1.10.4 (17 July 2025)
 
 - **[FIX]** Fixed the issue of the price of candlestick not updating in live mode in the UI.
 - **[IMPROVEMENT]** Improved the error handling for `customInitialMarginRate` error on `Apex Omni`.
 - **[FIX]** Fixed the issue of symbols, where the symbol change is not working properly when you change the exchange in live and backtesting mode forms.
 - **[IMPROVEMENT]** Improved the display of prices in the logs especially for small prices like `0.00000012`. 
-
+    
 ## 1.10.2 (15 July 2025)
 
 - **[NEW FEATURE]** Added new property: `self.data_routes`
