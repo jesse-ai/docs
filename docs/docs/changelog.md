@@ -2,7 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 1.10.5 (20 July 2025)
+## 1.10.5 (3 August 2025)
 
 - **[IMPROVEMENT]** Improved the WebSocket reconnection mechanism to handle more downtime such as recent Hyperliquid downtimes in high volatility markets.
 - **[IMPROVEMENT]** Improved the logging mechanism for order cancellations on `Apex Omni`.
