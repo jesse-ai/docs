@@ -2,6 +2,16 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.10.6 (11 August 2025)
+
+- **[NEW FEATURE]** Added new keyboard shortcuts for closing tabs in live and backtest modes by pressing the `w` key.
+- **[NEW FEATURE]** Added new keyboard shortcuts for navigating between tabs in live and backtest modes by pressing the `ArrowLeft` and `ArrowRight` keys.
+- **[IMPROVEMENT]** Improved logging for order streams on `Gate USDT Perpetual`.
+- **[IMPROVEMENT]** Improved logging for canceling all orders to know which symbol the orders are for.
+- **[IMPROVEMENT]** Implemented a retrying mechanism for the initial candle fetching in cases such as `429` error. It will now wait 10 seconds before retrying and will retry up to three times before failing.
+- **[FIX]** Fixed issue where triggering "cancel all" request was causing cancellation of stop orders in other trading routes on `Gate`.
+
+
 ## 1.10.5 (3 August 2025)
 
 - **[IMPROVEMENT]** Improved the WebSocket reconnection mechanism to handle more downtime such as recent Hyperliquid downtimes in high volatility markets.
