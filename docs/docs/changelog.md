@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.10.7 (16 August 2025)
+
+- **[FIX]** Fixed the issue where the real-time candle chart couldn't properly handle certain cases, which caused the dashboard to freeze.
+- **[IMPROVEMENT]** Significant improvement in the performance of live trading sessions, allowing you to run more live tabs simultaneously without the dashboard slowing down.
+
 ## 1.10.6 (11 August 2025)
 
 - **[NEW FEATURE]** Added new keyboard shortcuts for closing tabs in live and backtest modes by pressing the `w` key.
