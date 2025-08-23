@@ -2,6 +2,15 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.10.8 (23 August 2025)
+
+- **[IMPROVEMENT]** Improved the `watch_list()` mechanism so that when you change the trading route, it will also change to display the watchlist items of that symbol.
+- **[IMPROVEMENT]** Improved the display of prices in the logs especially for small prices like `0.00000012`.
+- **[IMPROVEMENT]** Improved the logging mechanism for errors on `Apex Omni`.
+- **[IMPROVEMENT]** Improved the logging mechanism for order submissions on `Apex Omni`.
+- **[FIX]** Fixed the `invalid time range filterBeginTimeInclusive:1755013127000,filterEndTimeExclusive:0` error on `Apex Omni`.
+- **[FIX]** Fixed, the recently created issue where if you open the dashboard in a new browser, the live sessions weren't showing up.
+
 ## 1.10.7 (16 August 2025)
 
 - **[FIX]** Fixed the issue where the real-time candle chart couldn't properly handle certain cases, which caused the dashboard to freeze.
