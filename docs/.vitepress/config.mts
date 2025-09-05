@@ -174,7 +174,8 @@ export default defineConfig({
                     {text: 'Jupyter', link: '/docs/research/jupyter'},
                     {text: 'Candles', link: '/docs/research/candles'},
                     {text: 'Indicators', link: '/docs/research/indicators'},
-                    {text: 'Backtest', link: '/docs/research/backtest'}
+                    {text: 'Backtest', link: '/docs/research/backtest'},
+                    {text: 'Monte Carlo', link: '/docs/research/monte_carlo'}
                 ]
             },
             {text: '✨ JesseGPT', link: 'https://jesse.trade/gpt'},
