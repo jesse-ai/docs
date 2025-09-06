@@ -26,6 +26,14 @@ Monte Carlo analysis is an effective guard against overfitting. By running your 
 
 Apply Monte Carlo early in development and after tuning to ensure changes improve genuine robustness and not just historical fit.
 
+
+::: warning
+Some Monte Carlo analysis features in Jesse (such as plotting scenario distributions or equity curves) require the `matplotlib` package. 
+
+**Before running examples that use plotting, make sure to install it.**
+:::
+
+
 ## Trade-Order Shuffling Monte Carlo
 
 ### Purpose
@@ -188,7 +196,7 @@ Scenarios missing an `equity_curve` are filtered out automatically.
 - **num_scenarios** (int, default=1000): Number of Monte Carlo scenarios to run
 - **progress_bar** (bool, default=False): Show progress bar during execution
 - **fast_mode** (bool, default=True): Use optimized mode for faster execution
-- **candles_pipeline_class** (class): Pipeline class to modify candles (see Candle Pipelines section)
+- **candles_pipeline_class** (class): Pipeline class to modify candles (see [Candle Pipelines](/docs/research/monte_carlo#candle-pipelines) section)
 - **candles_pipeline_kwargs** (dict, optional): Parameters for the pipeline class
 - **cpu_cores** (int, optional): Number of CPU cores to use
 
