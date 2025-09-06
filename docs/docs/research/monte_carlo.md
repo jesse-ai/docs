@@ -28,9 +28,11 @@ Apply Monte Carlo early in development and after tuning to ensure changes improv
 
 
 ::: warning
-Some Monte Carlo analysis features in Jesse (such as plotting scenario distributions or equity curves) require the `matplotlib` package. 
+Some Monte Carlo analysis features in Jesse (such as plotting scenario distributions or equity curves) require the `matplotlib` package.
 
-**Before running examples that use plotting, make sure to install it.**
+Install it before running plotting examples:
+
+`pip install matplotlib`
 :::
 
 
