@@ -221,19 +221,28 @@ from jesse.research.monte_carlo.candle_pipelines import GaussianNoiseCandlesPipe
 pipeline_kwargs = {
     "batch_size": 7 * 24 * 60,  # 1 week in minutes
     "close_mu": 0.0,           # Average for close price noise
-    "close_sigma": None,       # How much noise for close price (auto-calculated if None)
+    "close_sigma": 10.0,       # How much noise for close price (required)
     "high_mu": 0.0,            # Average for high price noise  
-    "high_sigma": None,        # How much noise for high price (auto-calculated if None)
+    "high_sigma": 5.0,         # How much noise for high price (required)
     "low_mu": 0.0,             # Average for low price noise
-    "low_sigma": None          # How much noise for low price (auto-calculated if None)
+    "low_sigma": 5.0           # How much noise for low price (required)
 }
 ```
 
 **What it does:**
-- Automatically calculates appropriate noise levels based on past price movements
+- Uses the specified sigma values to add gaussian noise to price data
 - Keeps proper OHLC relationships (High ≥ max(Open, Close), Low ≤ min(Open, Close))
 - Makes sure all prices stay positive
 - Keeps volume and timestamp data unchanged
+
+**Choosing sigma values:**
+- Set `close_sigma` to roughly match the average absolute price change per one-minute candle in your dataset. For example, if the average 1m change is about $10, set `close_sigma = 10.0`.
+- Set `high_sigma` and `low_sigma` smaller than close, for example `2.0`, to create realistic high/low wicks without overwhelming the candle body.
+- These are not one-size-fits-all. You should experiment with different sigma values to best approximate the level of noise you want to inject for your asset and timeframe. For more robust tests with fewer manual knobs, consider the Moving Block Bootstrap pipeline below.
+
+**About `batch_size`:**
+- `batch_size` is the number of one-minute candles processed per batch by the pipeline. In the example above it is set to `7 * 24 * 60`, which is one week of one-minute candles.
+- You can tune this value depending on how much short-term market direction you want to preserve within each transformation step. Larger batches can better retain short-horizon structure; smaller batches increase mixing.
 
 ### MovingBlockBootstrapCandlesPipeline
 
@@ -253,6 +262,10 @@ pipeline_kwargs = {
 - Keeps short-term patterns in price changes
 - Automatically finds the right block size from batch_size
 - Keeps realistic price behavior
+
+**When to use this:**
+- Highly recommended for most cases because it preserves local structure without needing to hand-pick sigma values.
+- `batch_size` (in one-minute candles) controls the typical block length that is resampled. In the example, `7 * 24 * 60` corresponds to one week. Increase it to retain more short-term trend/direction; decrease it to encourage more frequent regime mixing.
 
 ## Complete Example
 
@@ -313,7 +326,7 @@ MONTE_CARLO_CANDLES_CONFIG = {
     # "pipeline_class": MovingBlockBootstrapCandlesPipeline,
     # "pipeline_kwargs": {"batch_size": 7 * 24 * 60}, # 1 week batches
     "pipeline_class": GaussianNoiseCandlesPipeline,
-    "pipeline_kwargs": {"batch_size": 7 * 24 * 60}, # 1 week batches
+    "pipeline_kwargs": {"batch_size": 7 * 24 * 60, "close_sigma": 10.0, "high_sigma": 5.0, "low_sigma": 5.0}, # 1 week batches
 }
 
 # =============================================================================
