@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.10.9 (10 September 2025)
+
+- **[NEW FEATURE]** Added support for monte carlo candles and trades analysis via the research module.
+
 ## 1.10.8 (23 August 2025)
 
 - **[IMPROVEMENT]** Improved the `watch_list()` mechanism so that when you change the trading route, it will also change to display the watchlist items of that symbol.
