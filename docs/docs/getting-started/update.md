@@ -18,11 +18,11 @@ Sometimes pip doesn't upgrade to the latest version on the first time running th
 If you are using Jesse via [Docker](./docker.md), while inside the `docker` directory, run the below commands:
 ```sh
 # in case the containers are still running:
-docker-compose stop
+docker compose stop
 # to fetch the latest version
-docker-compose pull
+docker compose pull
 # to start the containers again with the latest version
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Live Trade Plugin

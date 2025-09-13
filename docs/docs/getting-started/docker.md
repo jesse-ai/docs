@@ -18,7 +18,7 @@ If you are on macOS or Windows I suggest installing the [Docker for Desktop](htt
 ```sh
 # install docker
 curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
-# install docker-compose 
+# install docker compose 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 ```
 
@@ -34,7 +34,7 @@ Then inside the terminal make sure you are in the project root, open the `docker
 # open the `docker` directory
 cd docker
 # run without the "-d" flag to see the output
-docker-compose up -d
+docker compose up -d
 ```
 
 The first time you do this, you have to wait until the images are downloaded. This can take a few minutes. Next times, will be much faster however, still it might take more than 10 seconds to start all the services. 
@@ -46,7 +46,7 @@ That's it! Now open [localhost:9000](http://localhost:9000) in your browser to s
 To stop the containers, if you started them with the `-d` flag, you can just run the following command:
 
 ```sh
-docker-compose stop
+docker compose stop
 ```
 
 If you did it without the `-d` flag (so you can see the outputs in the terminal), you stop containers by pressing `Ctrl` + `c` on your keyboard.
