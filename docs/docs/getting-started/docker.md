@@ -16,10 +16,8 @@ If you're interested in running Jesse with Kubernetes and Helm instead of Docker
 
 If you are on macOS or Windows I suggest installing the [Docker for Desktop](https://www.docker.com/products/docker-desktop) app if you haven't already. If you are on Ubuntu, here are the steps:
 ```sh
-# install docker
+# install docker and docker compose 
 curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
-# install docker compose 
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ## Starting containers
