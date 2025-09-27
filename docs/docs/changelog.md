@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 
+## 1.10.10 (26 September 2025)
+
+- **[FIX]** Fixed `TypeError: argument of type 'NoneType' is not iterable` error on `Hyperliquid`.
+- **[FIX]** Fixed `ValueError: math domain error` error on `Binance Perpetual Testnet`.
+- **[FIX]** Fixed `Exchange error code: 10001, message: "Qty invalid".` error on `Bybit Perpetual`.
+
 ## 1.10.9 (10 September 2025)
 
 - **[NEW FEATURE]** Added support for monte carlo candles and trades analysis via the research module.
