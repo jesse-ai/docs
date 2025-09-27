@@ -2,7 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 
+
 ## 1.10.10 (26 September 2025)
 
 - **[FIX]** Fixed `TypeError: argument of type 'NoneType' is not iterable` error on `Hyperliquid`.
