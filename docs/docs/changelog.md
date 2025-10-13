@@ -2,6 +2,18 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.11.0 (13 October 2025)
+
+- **[NEW FEATURE]** Added full backtest synchronization in the database and the ability to browse previous backtests (backtest history) and load them with all the results.
+- **[NEW FEATURE]** Added the ability to add notes, titles, and descriptions to strategy backtests.
+- **[NEW FEATURE]** Added the ability to search and filter the backtest history by title and date.
+- **[NEW FEATURE]** Added the ability to purge old backtest items.
+- **[IMPROVEMENT]** Improved the UI of tabs in backtest and live tabs on mobile devices.
+- **[IMPROVEMENT]** Improved the UI of benchmark page on mobile devices.
+- **[IMPROVEMENT]** Improved the performance of backtest pages on the frontend for heavy users who load lots of running backtests with long durations.
+- **[FIX]** Fixed an issue with interactive charts causing connection breaks when the backtest duration was really long.
+- **[FIX]** Fixed an issue with deleting a backtest in the backtest benchmark page was redirecting to the backtest page.
+- **[FIX]** Fixed the `TypeError: 'NoneType' object is not iterable` error on `Hyperliquid`.
 
 ## 1.10.10 (26 September 2025)
 
