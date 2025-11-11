@@ -11,10 +11,10 @@ export default defineConfig({
     },
     head: [
         ['link', {rel: 'icon', href: '/imgs/favicon.ico'}],
-        ['script', {
-            'data-domain': 'docs.jesse.trade',
-            src: 'https://data.jesse.trade/js/plausible.js',
-        }],
+        // ['script', {
+        //     'data-domain': 'docs.jesse.trade',
+        //     src: 'https://data.jesse.trade/js/plausible.js',
+        // }],
         ['script', {
             async: 'true',
             src: 'https://widget.gurubase.io/widget.latest.min.js',
