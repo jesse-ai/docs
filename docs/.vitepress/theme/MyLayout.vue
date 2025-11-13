@@ -5,7 +5,7 @@
     <!-- </template> -->
 
     <template #layout-bottom>
-     <!-- <BlackFriday/> -->
+     <BlackFriday/>
       <!-- <PremiumDiscount /> -->
       <!-- <Christmas /> -->
     </template>
