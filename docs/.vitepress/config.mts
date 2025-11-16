@@ -184,7 +184,7 @@ export default defineConfig({
             {text: '🎯 Strategies', link: 'https://jesse.trade/strategies/'},
             {text: '📚 FAQs', link: 'https://jesse.trade/help'},
             {text: '📜 Changelog', link: '/docs/changelog'},
-            {text: '📈 Roadmap', link: '/docs/roadmap'}
+            {text: '📈 Roadmap', link: 'https://jesse.trade/roadmap'}
         ],
 
         socialLinks: [
