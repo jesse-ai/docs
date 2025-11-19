@@ -2,6 +2,18 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.12.0 (19 November 2025)
+
+- **[NEW FEATURE]** Added a new Monte Carlo page to run monte carlo simulations for your strategies right within the dashboard. It supports both trade-order shuffling and candles-based simulations for stress-testing your strategies.
+- **[NEW FEATURE]** Huge improvements have been made to the built-in code editor in Jesse's dashboard, including new features like code completion.
+- **[IMPROVEMENT]** Improved the retry mechanism for HTTP requests to exchanges to handle more downtime such as recent Hyperliquid downtimes in high volatility markets.
+- **[IMPROVEMENT]** Improved handling of failed Redis subscriptions, which are used for the WebSocket connection handling in the dashboard. No more needing to restart Jesse to fix this issue.
+- **[IMPROVEMENT]** Improved the performance websocket connection handling in the dashboard by adding a heartbeat mechanism.
+- **[NEW FEATURE]** Added a new history page to browse previous optimization sessions, with added ability to add notes to each session. You can search for them, filter by some items, and also purge old sessions entirely.
+- **[IMPROVEMENT]** Improved the focus behavior of the action buttons in the confirm modal.
+- **[IMPROVEMENT]** Added the delete button to the sidebar items for easier deletion of strategies in the editor's sidebar.
+- **[IMPROVEMENT]** Countless minor improvements and bug fixes in the dashboard.
+
 ## 1.11.0 (13 October 2025)
 
 - **[NEW FEATURE]** Added full backtest synchronization in the database and the ability to browse previous backtests (backtest history) and load them with all the results.
