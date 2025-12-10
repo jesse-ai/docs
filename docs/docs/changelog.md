@@ -2,6 +2,14 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+<!-- ## 1.13.0 (10 December 2025)
+
+- Fixed the bug where the watchlist in live trading showed an empty box when it had no values instead of disappearing completely. -->
+
+## 1.12.1 (10 December 2025)
+
+- **[FIX]** Fixed the `{'code': -4120, 'msg': 'Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.'}` error on **Binance Futures** happening when dealing with stop orders after a sudden change in Binance's API with not enough preparation time.
+
 ## 1.12.0 (19 November 2025)
 
 - **[NEW FEATURE]** Added a new Monte Carlo page to run monte carlo simulations for your strategies right within the dashboard. It supports both trade-order shuffling and candles-based simulations for stress-testing your strategies.
