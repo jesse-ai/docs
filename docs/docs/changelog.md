@@ -6,6 +6,12 @@ Here you can see the changes made with each release of the main framework and th
 
 - Fixed the bug where the watchlist in live trading showed an empty box when it had no values instead of disappearing completely. -->
 
+## 1.12.2 (14 December 2025)
+
+- **[FIX]** Fixed the max drawdown value in the Monte Carlo table being wrong for the worst 5% and best 5% columns. 
+- **[NEW FEATURE]** In optimization mode, you can now select multiple best candidate options and copy their DNA together.
+- **[NEW FEATURE]** In optimization mode, you can now change the number of candidates in the best candidates table. Just remember, this setting only applies before starting the optimization session.
+
 ## 1.12.1 (10 December 2025)
 
 - **[FIX]** Fixed the `{'code': -4120, 'msg': 'Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.'}` error on **Binance Futures** happening when dealing with stop orders after a sudden change in Binance's API with not enough preparation time.
