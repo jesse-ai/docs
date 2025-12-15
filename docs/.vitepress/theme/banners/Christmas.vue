@@ -18,6 +18,14 @@ onMounted(() => {
 
 <template>
   <div v-show="showBanner" class="sticky-banner" role="contentinfo" aria-label="Christmas discount banner">
+    <button @click="closeBanner" class="close-button" aria-label="Close banner">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+           class="icon">
+        <title>Close banner</title>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
     <img src="../../../public/imgs/b-01.svg"
          alt="Jesse logo" width="90"
          class="logo">
@@ -25,7 +33,7 @@ onMounted(() => {
     <div class="action-section">
       <a href="https://jesse.trade/pricing" target="_blank" rel="noopener noreferrer" aria-label="Get it now"
          class="uppercase">
-        🎄 <span class="gradient">CHRISTMAS SPECIAL - 40% OFF</span> 🎅
+        🎄 <span class="gradient">CHRISTMAS SPECIAL - up to 45% OFF</span> 🎅
       </a>
       <span>✨ Give yourself the gift of algo-trading 🎁</span>
 
@@ -34,14 +42,6 @@ onMounted(() => {
         <span>CLAIM OFFER →</span>
       </a>
     </div>
-
-    <button @click="closeBanner" class="close-button" aria-label="Close banner">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-           class="icon">
-        <title>Close banner</title>
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
   </div>
 </template>
 
@@ -77,6 +77,7 @@ onMounted(() => {
 .sticky-banner .gradient {
   background: linear-gradient(to right, #ff1f1f, #ff4242);  /* Christmas red */
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   font-weight: bold;
   font-size: 1.4em;
@@ -123,10 +124,14 @@ onMounted(() => {
 }
 
 .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   background: none;
   border: none;
   color: white;
   transition: background 0.3s ease;
+  z-index: 1001;
 }
 
 .close-button:hover {
@@ -135,7 +140,7 @@ onMounted(() => {
 }
 
 .close-button .icon {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
 }
 </style> 
