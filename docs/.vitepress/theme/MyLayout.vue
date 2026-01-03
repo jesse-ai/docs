@@ -4,11 +4,11 @@
       <!-- <ApexPro/> -->
     <!-- </template> -->
 
-    <template #layout-bottom>
+    <!-- <template #layout-bottom> -->
      <!-- <BlackFriday/> -->
       <!-- <PremiumDiscount /> -->
-      <Christmas />
-    </template>
+      <!-- <Christmas /> -->
+    <!-- </template> -->
   </Layout>
 </template>
 
