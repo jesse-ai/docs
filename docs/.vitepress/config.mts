@@ -1,5 +1,7 @@
 import {defineConfig} from 'vitepress'
 
+const isDev = process.argv.includes('dev')
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
     title: "Jesse",
@@ -15,15 +17,17 @@ export default defineConfig({
         //     'data-domain': 'docs.jesse.trade',
         //     src: 'https://data.jesse.trade/js/plausible.js',
         // }],
-        ['script', {
-            async: 'true',
-            src: 'https://widget.gurubase.io/widget.latest.min.js',
-            'data-widget-id': 'op-hMFR89Cgf_cDppi0ZmF9BkBGgLwSH1S3V_JIv4I8',
-            'data-text': 'Ask AI',
-            'data-margins': '{"bottom": "1rem", "right": "1rem"}',
-            'data-light-mode': 'true',
-            id: 'guru-widget-id'
-        }],
+        ...(!isDev ? [
+            ['script', {
+                async: 'true',
+                src: 'https://widget.gurubase.io/widget.latest.min.js',
+                'data-widget-id': 'op-hMFR89Cgf_cDppi0ZmF9BkBGgLwSH1S3V_JIv4I8',
+                'data-text': 'Ask AI',
+                'data-margins': '{"bottom": "1rem", "right": "1rem"}',
+                'data-light-mode': 'true',
+                id: 'guru-widget-id'
+            }] as any,
+        ] : []),
     ],
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
@@ -164,6 +168,17 @@ export default defineConfig({
                     {text: 'Executing the Optimize Mode', link: '/docs/optimize/executing-the-optimize-mode'},
                     {text: 'DNA Usage', link: '/docs/optimize/dna-usage'},
                     {text: 'Overfitting', link: '/docs/optimize/overfitting'}
+                ]
+            },
+            {
+                text: 'Monte Carlo Analysis',
+                collapsed: true,
+                items: [
+                    {text: 'Introduction', link: '/docs/monte-carlo/'},
+                    {text: 'Trade-Order Shuffling', link: '/docs/monte-carlo/trade-order-shuffling'},
+                    {text: 'Candles-Based', link: '/docs/monte-carlo/candles-based'},
+                    {text: 'Candle Pipelines', link: '/docs/monte-carlo/candle-pipelines'},
+                    {text: 'Interpreting Results', link: '/docs/monte-carlo/interpreting-results'},
                 ]
             },
             {
