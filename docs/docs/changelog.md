@@ -2,13 +2,25 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-<!-- ## 1.13.0 (10 December 2025)
+## 1.13.0 (17 February 2026)
 
-- Fixed the bug where the watchlist in live trading showed an empty box when it had no values instead of disappearing completely. -->
+- **[BREAKING]** The `on_close_position()` function now includes the `closed_trade` object as a parameter.
+-  **[FIX]** Fixed a bug where the `watch_list()` in live trading displayed an empty box instead of disappearing when no values were present.
+-  **[FIX]** Fixed the calculation of the current balance and available margin on Coinbase Spot.
+-  **[IMPROVEMENT]** Synchronized tabs with the database, allowing you to close the browser and resume your session seamlessly from any device.
+-  **[NEW FEATURE]** Implemented a session history log for both Live and Paper trading sessions.
+-  **[NEW FEATURE]** Introduced a Live Sessions overview page featuring batch actions to start or stop multiple sessions simultaneously.
+-  **[IMPROVEMENT]** Redesigned several dashboard components to enhance the overall user experience.
+-  **[NEW FEATURE]** Added a history page to track all orders and trades executed during live or paper trading sessions.
+-  **[NEW FEATURE]** Added the ability to assign custom notes and titles to live sessions for better organization and future reference.
+-  **[NEW FEATURE]** Integrated an equity curve chart to visualize account balance snapshots during live trading.
+-  **[NEW FEATURE]** Added a multi-session equity chart to the Live Overview page, enabling side-by-side performance comparisons of all running sessions.
+-  **[NEW FEATURE]** Added functionality to export and import Exchange API keys directly from the dashboard.
+-  **[FIX]** Fixed an issue where the profile picture doesn't load properly.
 
 ## 1.12.2 (14 December 2025)
 
-- **[FIX]** Fixed the max drawdown value in the Monte Carlo table being wrong for the worst 5% and best 5% columns. 
+- **[FIX]** Fixed the max drawdown value in the Monte Carlo table being wrong for the worst 5% and best 5% columns.
 - **[NEW FEATURE]** In optimization mode, you can now select multiple best candidate options and copy their DNA together.
 - **[NEW FEATURE]** In optimization mode, you can now change the number of candidates in the best candidates table. Just remember, this setting only applies before starting the optimization session.
 
