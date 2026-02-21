@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 1.13.1 (21 February 2026)
+
+- **[FIX]** Fixed an issue where session info in the overview page of live trading was not updated.
+
 ## 1.13.0 (17 February 2026)
 
 - **[BREAKING]** The `on_close_position()` function now includes the `closed_trade` object as a parameter.
