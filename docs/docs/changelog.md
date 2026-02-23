@@ -3,6 +3,10 @@
 Here you can see the changes made with each release of the main framework and the live trading plugin:## 1.13.3 (22 February 2026)
 
 
+## 1.13.6 (23 February 2026)
+
+- **[FIX]** Fixed paper trading order execution simulation bug where orders were not being executed.
+
 ## 1.13.3 (22 February 2026)
 
 - **[NEW FEATURE]** Added aggregated metrics to the live trading overview page: **Total P&L**, **P&L %**, **Current Balance**, **Started Balance**, **Open Positions**, **Open Orders**, **Total Trades**, and **Win Rate** — all updated in real-time across running sessions. Financial metrics are grouped by currency with a shared currency selector in case of multi-currency accounts.
