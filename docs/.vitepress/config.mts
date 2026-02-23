@@ -17,17 +17,17 @@ export default defineConfig({
         //     'data-domain': 'docs.jesse.trade',
         //     src: 'https://data.jesse.trade/js/plausible.js',
         // }],
-        // ...(!isDev ? [
-        //     ['script', {
-        //         async: 'true',
-        //         src: 'https://widget.gurubase.io/widget.latest.min.js',
-        //         'data-widget-id': 'op-hMFR89Cgf_cDppi0ZmF9BkBGgLwSH1S3V_JIv4I8',
-        //         'data-text': 'Ask AI',
-        //         'data-margins': '{"bottom": "1rem", "right": "1rem"}',
-        //         'data-light-mode': 'true',
-        //         id: 'guru-widget-id'
-        //     }] as any,
-        // ] : []),
+        ...(!isDev ? [
+            ['script', {
+                async: 'true',
+                src: 'https://widget.gurubase.io/widget.latest.min.js',
+                'data-widget-id': 'op-hMFR89Cgf_cDppi0ZmF9BkBGgLwSH1S3V_JIv4I8',
+                'data-text': 'Ask AI',
+                'data-margins': '{"bottom": "1rem", "right": "1rem"}',
+                'data-light-mode': 'true',
+                id: 'guru-widget-id'
+            }] as any,
+        ] : []),
     ],
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
