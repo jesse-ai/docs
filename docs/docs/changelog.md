@@ -3,6 +3,11 @@
 Here you can see the changes made with each release of the main framework and the live trading plugin:## 1.13.3 (22 February 2026)
 
 
+## 1.13.7 (25 February 2026)
+
+- **[FIX]** Fixed the `ValueError: Order type not supported by Jesse: TAKE_PROFIT` error on `Binance Futures`.
+
+
 ## 1.13.6 (23 February 2026)
 
 - **[FIX]** Fixed paper trading order execution simulation bug where orders were not being executed.
