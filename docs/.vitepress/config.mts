@@ -190,7 +190,8 @@ export default defineConfig({
                     {text: 'Candles', link: '/docs/research/candles'},
                     {text: 'Indicators', link: '/docs/research/indicators'},
                     {text: 'Backtest', link: '/docs/research/backtest'},
-                    {text: 'Monte Carlo', link: '/docs/research/monte_carlo'}
+                    {text: 'Monte Carlo', link: '/docs/research/monte_carlo'},
+                    {text: 'Machine Learning', link: '/docs/research/ml'}
                 ]
             },
             {text: '✨ JesseGPT', link: 'https://jesse.trade/gpt'},
