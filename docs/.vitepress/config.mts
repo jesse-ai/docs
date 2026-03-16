@@ -191,7 +191,20 @@ export default defineConfig({
                     {text: 'Indicators', link: '/docs/research/indicators'},
                     {text: 'Backtest', link: '/docs/research/backtest'},
                     {text: 'Monte Carlo', link: '/docs/research/monte_carlo'},
-                    {text: 'Machine Learning', link: '/docs/research/ml'}
+                    {
+                        text: 'Machine Learning',
+                        collapsed: false,
+                        items: [
+                            {text: 'Overview',                link: '/docs/research/ml/'},
+                            {text: 'Gathering Data',          link: '/docs/research/ml/gathering-data'},
+                            {text: 'Stationarity',            link: '/docs/research/ml/stationarity'},
+                            {text: 'Binary Classification',   link: '/docs/research/ml/binary'},
+                            {text: 'Multiclass Classification', link: '/docs/research/ml/multiclass'},
+                            {text: 'Regression',              link: '/docs/research/ml/regression'},
+                            {text: 'Meta-Labeling',           link: '/docs/research/ml/meta-labeling'},
+                            {text: 'Deploying in a Strategy', link: '/docs/research/ml/deploying'},
+                        ]
+                    }
                 ]
             },
             {text: '✨ JesseGPT', link: 'https://jesse.trade/gpt'},
