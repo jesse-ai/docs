@@ -6,7 +6,7 @@ Once you have trained and saved a model, the final step is to load it inside you
 
 Switching your strategy from gather mode to deploy mode requires three things:
 
-1. Change `ML_MODE = "gather"` to `ML_MODE = "deploy"`
+1. Set `self.ml_mode = "deploy"` (it defaults to `"gather"` automatically — no class-level declaration needed)
 2. Load the model lazily on first use via `load_ml_model`
 3. Call the model in `should_long` / `should_short` (or wherever you use it) and act on its output
 
@@ -102,7 +102,6 @@ from jesse.strategies import Strategy
 
 
 class MyStrategy(Strategy):
-    ML_MODE      = "deploy"
     ML_THRESHOLD = 0.62      # minimum confidence to allow a trade
 
     # ────────────────────────────────────────────────────────────────────────
@@ -140,7 +139,7 @@ class MyStrategy(Strategy):
         )
         if not signal:
             return False
-        if self.ML_MODE == "deploy":
+        if self.ml_mode == "deploy":
             return self._ml_confidence() >= self.ML_THRESHOLD
         return True
 
@@ -181,7 +180,7 @@ def _ml_probabilities(self) -> dict:
     return {int(cls): float(p) for cls, p in zip(classes, probs)}
 
 def should_long(self) -> bool:
-    if self.ML_MODE != "deploy":
+    if self.ml_mode != "deploy":
         return self._your_entry_signal()
 
     probs   = self._ml_probabilities()
@@ -199,7 +198,7 @@ def should_short(self) -> bool:
     # Check primary signal first before calling the model
     if not self._your_short_signal():
         return False
-    if self.ML_MODE != "deploy":
+    if self.ml_mode != "deploy":
         return True
 
     probs   = self._ml_probabilities()
@@ -228,7 +227,7 @@ def should_long(self) -> bool:
     # Check primary signal first — only call the model when it fires
     if not self._your_entry_signal():
         return False
-    if self.ML_MODE == "deploy":
+    if self.ml_mode == "deploy":
         return self._ml_predicted_return() > 0.002
     return True
 ```
@@ -239,7 +238,7 @@ def should_long(self) -> bool:
 def go_long(self):
     entry          = self.price
     stop           = entry - ta.atr(self.candles) * 2.5
-    predicted_ret  = self._ml_predicted_return() if self.ML_MODE == "deploy" else 0.002
+    predicted_ret  = self._ml_predicted_return() if self.ml_mode == "deploy" else 0.002
     # Scale between 0.5× and 2× of base risk
     risk_pct       = max(0.5, min(2.0, predicted_ret / 0.002)) * 2.0
     qty            = utils.risk_to_qty(
@@ -299,7 +298,7 @@ def _build_features(self, side: int) -> dict:
     }
 
 def _record_features(self, side: int) -> None:
-    if self.ML_MODE == "gather":
+    if self.ml_mode == "gather":
         self.record_features(self._build_features(side))
 
 def should_long(self) -> bool:
@@ -339,7 +338,6 @@ from jesse.strategies import Strategy
 
 
 class MyStrategy(Strategy):
-    ML_MODE      = "deploy"   # "gather" | "deploy"
     ML_THRESHOLD = 0.62
 
     # ── shared feature builder (used by both gather and deploy) ──────────────
@@ -389,7 +387,7 @@ class MyStrategy(Strategy):
         # Always check primary signal first — only call model when it fires
         if not self._primary_signal_long:
             return False
-        if self.ML_MODE == "gather":
+        if self.ml_mode == "gather":
             self.record_features(self._build_features(1))
             return True
         return self._ml_confidence(1) >= self.ML_THRESHOLD
@@ -397,7 +395,7 @@ class MyStrategy(Strategy):
     def should_short(self) -> bool:
         if not self._primary_signal_short:
             return False
-        if self.ML_MODE == "gather":
+        if self.ml_mode == "gather":
             self.record_features(self._build_features(-1))
             return True
         return False   # short disabled in deploy; enable when you have a short model
@@ -414,7 +412,7 @@ class MyStrategy(Strategy):
         self.buy = qty, entry
 
     def on_close_position(self, order, closed_trade) -> None:
-        if self.ML_MODE != "gather":
+        if self.ml_mode != "gather":
             return
         self.record_label("profitable", closed_trade.pnl > 0)
 ```

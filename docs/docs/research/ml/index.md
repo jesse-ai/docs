@@ -20,7 +20,7 @@ The system is built around four public functions:
 ## Typical workflow
 
 ```
-1.  Write your strategy with ML_MODE = "gather"
+1.  Write your strategy (self.ml_mode defaults to "gather" automatically)
     → call record_features({...}) at each signal bar
     → call record_label(name, value) when the outcome is known
     → use before() / after() for continuous observation loops (vertical barrier)
@@ -35,7 +35,7 @@ The system is built around four public functions:
     → inspect feature importance, metrics, calibration, threshold sweep
     → saves model.pkl + scaler.pkl + feature_importance.pkl inside strategies/<Name>/
 
-4.  Switch your strategy to ML_MODE = "deploy"
+4.  Switch your strategy to deploy mode (set self.ml_mode = "deploy")
     → model is loaded lazily on first use via load_ml_model()
     → gate or weight entry signals using the model's output
     → feature array columns must be in alphabetical order (same as gather)

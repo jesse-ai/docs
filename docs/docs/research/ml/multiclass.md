@@ -51,7 +51,6 @@ from jesse.strategies import Strategy
 
 
 class MyStrategy(Strategy):
-    ML_MODE          = "gather"   # "gather" | "deploy"
     vertical_barrier = 50         # maximum holding period in bars
 
     # ── internal state ──────────────────────────────────────────────────────
@@ -74,7 +73,7 @@ class MyStrategy(Strategy):
         return True
 
     def before(self) -> None:
-        if self.ML_MODE != "gather":
+        if self.ml_mode != "gather":
             return
 
         if not self._features_recorded:
@@ -334,7 +333,7 @@ def _ml_probabilities(self) -> dict:
 def should_long(self) -> bool:
     if not self._your_entry_signal():
         return False
-    if self.ML_MODE != "deploy":
+    if self.ml_mode != "deploy":
         return True
     probs     = self._ml_probabilities()
     prob_up   = probs.get(1, 0.0)

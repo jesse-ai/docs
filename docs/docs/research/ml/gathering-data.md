@@ -38,16 +38,28 @@ self.record_label("return_pct", pnl_pct)                 # float
 
 `record_label` is called once the outcome is known — typically in `on_close_position` or after a vertical barrier expires in `before()`.
 
-## ML_MODE convention
+## ml_mode convention
 
-Use a class-level flag to switch the strategy between gather and deploy modes without changing any logic:
+Every strategy instance has a built-in `self.ml_mode` attribute (initialised to `"gather"` by `Strategy.__init__`). You do **not** need to declare it at the class level — it is always available.
+
+Guard every `record_*` call with `if self.ml_mode == "gather":` so the recording overhead is zero in deploy mode.
+
+To switch a strategy to deploy mode, set the attribute before running the backtest:
+
+```python
+# In a script — set it on the class so every instance starts in deploy mode
+import strategies.MyStrategy as mod
+mod.MyStrategy.ml_mode = "deploy"
+```
+
+Or override it at the top of `__init__` if you prefer the mode to live inside the strategy file:
 
 ```python
 class MyStrategy(Strategy):
-    ML_MODE = "gather"   # change to "deploy" when using the trained model
+    def __init__(self):
+        super().__init__()
+        self.ml_mode = "deploy"   # "gather" | "deploy"
 ```
-
-Guard every `record_*` call with `if self.ML_MODE == "gather":` so the recording overhead is zero in deploy mode.
 
 ## gather_ml_data
 
@@ -98,10 +110,8 @@ from jesse.strategies import Strategy
 
 
 class MyStrategy(Strategy):
-    ML_MODE = "gather"
-
     def _record_features(self, side: str) -> None:
-        if self.ML_MODE != "gather":
+        if self.ml_mode != "gather":
             return
         self.record_features({
             "side":          1 if side == "long" else -1,
@@ -137,7 +147,7 @@ class MyStrategy(Strategy):
         self.sell = qty, entry
 
     def on_close_position(self, order, closed_trade) -> None:
-        if self.ML_MODE != "gather":
+        if self.ml_mode != "gather":
             return
         self.record_label("profitable", closed_trade.pnl > 0)
 ```
@@ -165,7 +175,6 @@ from jesse.strategies import Strategy
 
 
 class MyStrategy(Strategy):
-    ML_MODE          = "gather"
     vertical_barrier = 48   # bars to wait before recording the return
 
     _features_recorded = False
@@ -173,7 +182,7 @@ class MyStrategy(Strategy):
     _entry_price       = None
 
     def before(self) -> None:
-        if self.ML_MODE != "gather":
+        if self.ml_mode != "gather":
             return
 
         if not self._features_recorded:

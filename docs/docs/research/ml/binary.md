@@ -42,10 +42,8 @@ from jesse.strategies import Strategy
 
 
 class MyStrategy(Strategy):
-    ML_MODE = "gather"   # "gather" | "deploy"
-
     def _record_features(self, side: str) -> None:
-        if self.ML_MODE != "gather":
+        if self.ml_mode != "gather":
             return
         atr   = ta.atr(self.candles)
         price = self.price
@@ -96,7 +94,7 @@ class MyStrategy(Strategy):
         self.sell = qty, entry
 
     def on_close_position(self, order, closed_trade) -> None:
-        if self.ML_MODE != "gather":
+        if self.ml_mode != "gather":
             return
         self.record_label("profitable", closed_trade.pnl > 0)   # bool
 ```

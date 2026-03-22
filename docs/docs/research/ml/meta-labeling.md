@@ -93,7 +93,6 @@ from jesse.strategies import Strategy
 
 
 class MyStrategy(Strategy):
-    ML_MODE      = "gather"   # "gather" | "deploy"
     ML_THRESHOLD = 0.60       # used in deploy mode only
 
     # ── triple-barrier config (gather mode) ──────────────────────────────────
@@ -152,12 +151,12 @@ class MyStrategy(Strategy):
     # ────────────────────────────────────────────────────────────────────────
 
     def should_long(self) -> bool:
-        if self.ML_MODE != "deploy":
+        if self.ml_mode != "deploy":
             return False
         return self._deploy_long and self._meta_confidence() >= self.ML_THRESHOLD
 
     def should_short(self) -> bool:
-        if self.ML_MODE != "deploy":
+        if self.ml_mode != "deploy":
             return False
         return self._deploy_short and self._meta_confidence() >= self.ML_THRESHOLD
 
@@ -193,7 +192,7 @@ class MyStrategy(Strategy):
     # ────────────────────────────────────────────────────────────────────────
 
     def before(self) -> None:
-        if self.ML_MODE == "gather":
+        if self.ml_mode == "gather":
             self._gather_tick()
 
     # ────────────────────────────────────────────────────────────────────────

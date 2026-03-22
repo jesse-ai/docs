@@ -53,7 +53,7 @@ class ML3(Strategy):
     """
     Regression ML strategy.
 
-    ML_MODE = "gather"
+    self.ml_mode = "gather"
         Records 18 price-derived features at every bar. When the
         vertical_barrier window expires, records the realised log-return
         over that holding period as a float label:
@@ -61,14 +61,13 @@ class ML3(Strategy):
             label name  : "forward_return"
             label type  : float  (e.g.  0.034 = +3.4%,  -0.012 = -1.2%)
 
-    ML_MODE = "deploy"
+    self.ml_mode = "deploy"
         Uses the regression model's predicted return to:
           1. Gate entries  — only enter when |predicted return| > ENTRY_THRESHOLD
           2. Size positions — scale risk proportionally to predicted magnitude
           3. Exit via stop-loss (2.5 × ATR) and take-profit (5 × ATR)
     """
 
-    ML_MODE          = "gather"   # "gather" | "deploy"
     vertical_barrier = 48         # bars to look forward (48 × 15m = 12 hours)
     ENTRY_THRESHOLD  = 0.002      # minimum predicted log-return to enter (0.2 %)
     BASE_RISK_PCT    = 2.0        # base risk % of margin per trade
@@ -111,13 +110,13 @@ class ML3(Strategy):
     # ─────────────────────────────────────────────────────────────────────────
 
     def should_long(self) -> bool:
-        if self.ML_MODE != "deploy":
+        if self.ml_mode != "deploy":
             return False
         pred = self._safe_predicted_return()
         return pred > self.ENTRY_THRESHOLD
 
     def should_short(self) -> bool:
-        if self.ML_MODE != "deploy":
+        if self.ml_mode != "deploy":
             return False
         pred = self._safe_predicted_return()
         return pred < -self.ENTRY_THRESHOLD
@@ -157,7 +156,7 @@ class ML3(Strategy):
     # ─────────────────────────────────────────────────────────────────────────
 
     def before(self) -> None:
-        if self.ML_MODE != "gather":
+        if self.ml_mode != "gather":
             return
 
         if not self._features_recorded:
@@ -279,7 +278,7 @@ Normalising the return by ATR makes the label more stationary across different v
 
 ```python
 def before(self) -> None:
-    if self.ML_MODE != "gather":
+    if self.ml_mode != "gather":
         return
 
     if not self._features_recorded:
@@ -694,7 +693,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 # Switch ML3 to deploy mode before Jesse imports the strategy class
 import strategies.ML3 as ml3_module
 
-ml3_module.ML3.ML_MODE = "deploy"
+ml3_module.ML3.ml_mode = "deploy"
 
 routes = [{"exchange": EXCHANGE_NAME, "strategy": "ML3",
            "symbol": SYMBOL, "timeframe": TIMEFRAME}]
