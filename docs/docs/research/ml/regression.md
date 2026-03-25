@@ -160,7 +160,7 @@ class ML3(Strategy):
             return
 
         if not self._features_recorded:
-            self._record_regression_features()
+            self.record_features(self.ml_features())
             self._entry_price       = self.price
             self._record_index      = self.index
             self._features_recorded = True
@@ -181,7 +181,11 @@ class ML3(Strategy):
     # Feature engineering  (shared between gather and deploy)
     # ─────────────────────────────────────────────────────────────────────────
 
-    def _build_features(self) -> dict:
+    def ml_features(self) -> dict:
+        """
+        Single source of truth for feature computation — used identically
+        in gather mode (via record_features) and deploy mode (via ml_predict).
+        """
         dt    = datetime.datetime.utcfromtimestamp(self.current_candle[0] / 1000.0)
         price = self.price
         atr   = self.atr
@@ -233,25 +237,14 @@ class ML3(Strategy):
             "dow_cos":           float(np.cos(2 * np.pi * dt.weekday() / 7)),
         }
 
-    def _record_regression_features(self) -> None:
-        self.record_features(self._build_features())
-
     # ─────────────────────────────────────────────────────────────────────────
     # Deploy-mode inference
     # ─────────────────────────────────────────────────────────────────────────
 
-    def _predicted_return(self) -> float:
-        self.load_ml_model()
-        feats = self._build_features()
-        keys  = sorted(feats.keys())
-        X     = np.array([[feats[k] for k in keys]])
-        X_sc  = self._ml_scaler.transform(X)
-        return float(self._ml_model.predict(X_sc)[0])
-
     def _safe_predicted_return(self) -> float:
         """Return 0.0 on any error (e.g. NaN during warmup) instead of raising."""
         try:
-            val = self._predicted_return()
+            val = self.ml_predict()
             return val if math.isfinite(val) else 0.0
         except Exception:
             return 0.0
@@ -265,10 +258,10 @@ class ML3(Strategy):
 
 A few design points worth noting:
 
-- **`_build_features()` is called in both modes** — gather and deploy use the identical feature vector, guaranteeing no train/deploy skew.
+- **`ml_features()` is called in both modes** — gather (`record_features(self.ml_features())` in `before()`) and deploy (`ml_predict()` in `should_long`/`should_short`) use the identical feature vector, guaranteeing no train/deploy skew.
 - **NaN guard on the 4h EMA-200** — the 4h indicator can return `NaN` for the first ~200 bars of warmup. Falling back to `price` keeps the feature bounded at 0 rather than propagating a NaN into the scaler.
 - **`_safe_predicted_return()`** — wraps `_predicted_return()` so that any unexpected error (e.g. warmup period, missing data) silently returns 0 instead of crashing the strategy.
-- **`self._ml_model` / `self._ml_scaler` are instance attributes** — `Strategy.__init__` already initialises them to `None`. Do not override them at the class level. The base-class `load_ml_model()` handles loading and caching automatically; you never need to assign them manually.
+- **`ml_predict()` handles everything** — model loading, scaling, and prediction are all handled internally.
 - **`stop_loss` and `take_profit` are required** — every `go_long` / `go_short` must set both. Without them, Jesse has no instructions to exit the position and it will be held indefinitely.
 - **`data_routes` must include `"4h"`** — the 4h candle store must be registered in both the gather script and the deploy backtest script, otherwise `get_candles(…, "4h")` throws `RouteNotFound`.
 
@@ -282,7 +275,7 @@ def before(self) -> None:
         return
 
     if not self._features_recorded:
-        self.record_features(self._build_features())
+        self.record_features(self.ml_features())
         self._entry_price  = self.price
         self._entry_atr    = ta.atr(self.candles) + 1e-9
         self._record_index = self.index

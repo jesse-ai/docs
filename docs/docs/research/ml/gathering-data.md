@@ -4,25 +4,39 @@ Before you can train a model you need labelled feature data. `gather_ml_data` ru
 
 ## Strategy methods
 
-Your strategy has two built-in methods for recording ML data, inherited from `Strategy`:
+Your strategy has built-in methods for recording ML data, inherited from `Strategy`.
 
-### `record_features(features_dict)`
+### `ml_features()`
 
-Call this when you want to capture a snapshot of the market state — your independent variables. Pass a flat dict of `{feature_name: value}` pairs. Calling it multiple times before the label is recorded is safe; it keeps updating the same open data point.
+Override `ml_features()` to define the features used for **both** data gathering and live inference. It is the single source of truth for feature computation — you write it once and the framework uses it automatically in both gather mode and deploy mode.
 
 ```python
-self.record_features({
-    "rsi_centered":  (ta.rsi(self.candles) - 50) / 50,
-    "atr_pct":       ta.atr(self.candles) / self.price,
-    "ema9_dist":     (self.price - ta.ema(self.candles, 9)) / ta.ema(self.candles, 9),
-})
+def ml_features(self) -> dict:
+    atr   = ta.atr(self.candles) + 1e-9
+    price = self.price
+    return {
+        "rsi_centered":    (ta.rsi(self.candles) - 50) / 50,
+        "atr_pct":         atr / price,
+        "ema9_dist":       (price - ta.ema(self.candles, 9)) / (ta.ema(self.candles, 9) + 1e-9),
+        "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
+    }
 ```
 
 ::: tip Feature engineering guidelines
 - **Normalise everything** — ratios, z-scores, and log-returns generalise across price regimes; raw prices and raw ATR values do not.
-- **Avoid look-ahead** — only use information available at the moment the signal fires. If you use data that Jesse provided, you are fine because it only contains past data. But if you use your own custom data, you need to becareful to avoid look-ahead bias. 
-- **Keep names stable** — `train_model` sorts feature names alphabetically when building the training matrix. Your deploy-mode feature array must follow that same order and contains the same names. 
+- **Avoid look-ahead** — only use information available at the moment the signal fires. If you use data that Jesse provided, you are fine because it only contains past data. But if you use your own custom data, you need to be careful to avoid look-ahead bias.
+- **Keep names stable** — `train_model` sorts feature names alphabetically when building the training matrix. The same sort is applied automatically at inference time via `ml_predict()` / `ml_predict_proba()`, so you never have to worry about column order yourself.
 :::
+
+### `record_features(features_dict)`
+
+Call this when you want to capture a snapshot of the market state — your independent variables. Pass a flat dict of `{feature_name: value}` pairs. Because you have defined `ml_features()`, the call is always:
+
+```python
+self.record_features(self.ml_features())
+```
+
+Calling it multiple times before the label is recorded is safe; it keeps updating the same open data point.
 
 ### `record_label(name, value)`
 
@@ -31,12 +45,12 @@ Call this when the outcome is known. This finalises the open data point and move
 ```python
 self.record_label("profitable", closed_trade.pnl > 0)   # bool
 self.record_label("triple_barrier", 1)                   # int: +1 / 0 / -1
-self.record_label("return_pct", pnl_pct)                 # float
+self.record_label("forward_return", 0.0043)              # float
 ```
 
-`record_features` should be called from a shared helper method that is invoked inside `should_long()` / `should_short()`. That keeps the entry rules in one place: the same condition that decides whether to enter is also the place where the feature snapshot is recorded.
+`record_features(self.ml_features())` should be called from inside `should_long()` / `should_short()` (Pattern 1) or from `before()` (Patterns 2 and 3). That keeps the entry rules and the feature snapshot in the same place.
 
-`record_label` is called once the outcome is known — typically in `on_close_position` or after a vertical barrier expires in `before()`.
+`record_label` is called once the outcome is known — typically in `on_close_position` or after a barrier expires in `before()`.
 
 ## ml_mode convention
 
@@ -61,48 +75,13 @@ class MyStrategy(Strategy):
         self.ml_mode = "deploy"   # "gather" | "deploy"
 ```
 
-## gather_ml_data
-
-```python
-gather_ml_data(
-    config:         dict,
-    routes:         list,
-    data_routes:    list,
-    candles:        dict,
-    warmup_candles: dict  = None,
-    csv_path:       str   = "auto",
-    verbose:        bool  = True,
-) -> dict
-```
-
-**Parameters**
-
-| Parameter | Type | Description |
-|---|---|---|
-| `config` | dict | Jesse exchange/backtest config — same format as `research.backtest()` |
-| `routes` | list | Strategy routes |
-| `data_routes` | list | Extra routes for additional timeframes / symbols |
-| `candles` | dict | Trading candles dict |
-| `warmup_candles` | dict | Warm-up candles dict |
-| `csv_path` | str | Where to save the data. `"auto"` saves to `strategies/<Name>/ml_data/<Name>_data.csv`. Pass an explicit path to override, or `None` to skip saving. |
-| `verbose` | bool | Print a formatted collection report (default: `True`) |
-
-**Returns** `dict` with keys:
-- `data_points` — `list[dict]`, each with `{time, features, label: {name, value}}`
-- `backtest_metrics` — standard Jesse metrics dict from the backtest run
-
-::: info
-When using `gather_ml_data` you do **not** need to call `export_ml_data()` inside your strategy. The research function pulls data points directly from the strategy object after the backtest completes and saves them automatically.
-:::
-
 ## Pattern 1 — label on trade close (boolean)
 
-The simplest pattern: record features inside a shared helper called for example  `_record_features()`, invoke it from both `should_long()` and `should_short()`, then record the outcome when the trade closes.
+The simplest pattern: record features inside `should_long()` / `should_short()` when the entry signal fires, then record the outcome when the trade closes.
 
 ::: tip When to use this pattern
 Use this pattern when your strategy **places many completed trades** during the gather period. If your entry signal is rare, has strict filters, or uses `should_cancel_entry = True`, most intended trades will never fully open and close — leaving you with very few labelled samples. In that case, use Pattern 2 (triple-barrier) instead, which collects data even when no actual trade runs to completion.
 :::
-
 
 ```python
 import jesse.indicators as ta
@@ -110,26 +89,26 @@ from jesse.strategies import Strategy
 
 
 class MyStrategy(Strategy):
-    def _record_features(self, side: str) -> None:
-        if self.ml_mode != "gather":
-            return
-        self.record_features({
-            "side":          1 if side == "long" else -1,
+
+    def ml_features(self) -> dict:
+        atr   = ta.atr(self.candles) + 1e-9
+        price = self.price
+        return {
             "rsi_centered":  (ta.rsi(self.candles) - 50) / 50,
-            "atr_pct":       ta.atr(self.candles) / self.price,
-            "ema200_dist":   (self.price - ta.ema(self.candles, 200)) / self.price,
-        })
+            "atr_pct":       atr / price,
+            "ema200_dist":   (price - ta.ema(self.candles, 200)) / price,
+        }
 
     def should_long(self) -> bool:
         signal = ta.rsi(self.candles) < 35 and self.price > ta.ema(self.candles, 200)
-        if signal:
-            self._record_features("long")
+        if signal and self.ml_mode == "gather":
+            self.record_features(self.ml_features())
         return signal
 
     def should_short(self) -> bool:
         signal = ta.rsi(self.candles) > 65 and self.price < ta.ema(self.candles, 200)
-        if signal:
-            self._record_features("short")
+        if signal and self.ml_mode == "gather":
+            self.record_features(self.ml_features())
         return signal
 
     def go_long(self):
@@ -152,6 +131,26 @@ class MyStrategy(Strategy):
         self.record_label("profitable", closed_trade.pnl > 0)
 ```
 
+::: tip Side as a feature
+If your strategy trades both long and short, add a `"side"` feature to `ml_features()` so the model knows the direction of the signal. Because `ml_features()` is called live (not pre-computed), you can pass direction context as a class variable:
+
+```python
+def ml_features(self) -> dict:
+    return {
+        "side":          float(self._signal_side),   # set to +1 or -1 before calling
+        "rsi_centered":  (ta.rsi(self.candles) - 50) / 50,
+        ...
+    }
+
+def should_long(self) -> bool:
+    signal = ...
+    if signal and self.ml_mode == "gather":
+        self._signal_side = 1
+        self.record_features(self.ml_features())
+    return signal
+```
+:::
+
 ## Pattern 2 — triple-barrier (integer label in `before`)
 
 The triple-barrier method anchors three barriers to a point on the price series and records a label when the first one is touched. No actual positions are opened — the loop runs entirely in `before()`. It produces three integer labels: `+1` (profit target hit), `-1` (stop-loss hit), and `0` (time expired).
@@ -161,6 +160,61 @@ This is the standard labeling approach when you **do not have a primary model th
 See the [Multiclass Classification](/docs/research/ml/multiclass) page for the full pattern with `task="multiclass"`.
 
 When you **do** have a primary model that sets the side (as in meta-labeling), the same loop is used but the three outcomes collapse to two: profit target hit = `True`, stop or time expiry = `False`. See the [Meta-Labeling](/docs/research/ml/meta-labeling) page for that pattern.
+
+```python
+import jesse.indicators as ta
+from jesse.strategies import Strategy
+
+
+class MyStrategy(Strategy):
+    vertical_barrier = 50
+    ATR_MULTIPLIER   = 2.0
+
+    _features_recorded = False
+
+    _record_index      = 0
+    _barrier_upper     = None
+    _barrier_lower     = None
+
+    def ml_features(self) -> dict:
+        atr   = ta.atr(self.candles) + 1e-9
+        price = self.price
+        return {
+            "rsi_centered":    (ta.rsi(self.candles) - 50) / 50,
+            "atr_pct":         atr / price,
+            "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
+        }
+
+    def should_long(self) -> bool:
+        return False   # no real trades in gather mode
+
+    def should_short(self) -> bool:
+        return False
+
+    def before(self) -> None:
+        if self.ml_mode != "gather":
+            return
+
+        if not self._features_recorded:
+            self.record_features(self.ml_features())
+            dist = ta.atr(self.candles) * self.ATR_MULTIPLIER
+            self._barrier_upper     = self.price + dist
+            self._barrier_lower     = self.price - dist
+            self._record_index      = self.index
+            self._features_recorded = True
+            return
+
+        upper_hit    = self.price >= self._barrier_upper
+        lower_hit    = self.price <= self._barrier_lower
+        vertical_hit = (self.index - self._record_index) >= self.vertical_barrier
+
+        if upper_hit or lower_hit or vertical_hit:
+            label = 1 if upper_hit else (-1 if lower_hit else 0)
+            self.record_label("triple_barrier", label)
+            self._features_recorded = False
+            self._barrier_upper     = None
+            self._barrier_lower     = None
+```
 
 ## Pattern 3 — pure time window (float label in `before`)
 
@@ -181,15 +235,24 @@ class MyStrategy(Strategy):
     _record_index      = 0
     _entry_price       = None
 
+    def ml_features(self) -> dict:
+        return {
+            "rsi_centered": (ta.rsi(self.candles) - 50) / 50,
+            "atr_pct":      ta.atr(self.candles) / self.price,
+        }
+
+    def should_long(self) -> bool:
+        return False
+
+    def should_short(self) -> bool:
+        return False
+
     def before(self) -> None:
         if self.ml_mode != "gather":
             return
 
         if not self._features_recorded:
-            self.record_features({
-                "rsi_centered": (ta.rsi(self.candles) - 50) / 50,
-                "atr_pct":      ta.atr(self.candles) / self.price,
-            })
+            self.record_features(self.ml_features())
             self._entry_price       = self.price
             self._record_index      = self.index
             self._features_recorded = True

@@ -15,7 +15,6 @@ The system is built around four public functions:
 | `gather_ml_data` | Run a backtest in "gather mode" and collect labelled feature samples |
 | `train_model` | Train any scikit-learn–compatible estimator on that data; produces a full report |
 | `load_ml_data_csv` | Reload previously saved data points from a CSV without re-running a backtest |
-| `load_ml_model` | Reload a saved model, scaler, and feature importance data for deploy mode |
 
 ## Typical workflow
 
@@ -36,9 +35,9 @@ The system is built around four public functions:
     → saves model.pkl + scaler.pkl + feature_importance.pkl inside strategies/<Name>/
 
 4.  Switch your strategy to deploy mode (set self.ml_mode = "deploy")
-    → model is loaded lazily on first use via load_ml_model()
-    → gate or weight entry signals using the model's output
-    → feature array columns must be in alphabetical order (same as gather)
+    → call ml_predict() for regression or ml_predict_proba() for classification
+    → model loading, scaling, and feature ordering are all handled automatically
+    → gate or weight entry signals using the returned scalar or probability dict
 
 5.  Backtest the filtered strategy and compare against the baseline
     → iterate on features, task type, estimator, and threshold
@@ -51,7 +50,6 @@ The system is built around four public functions:
 from jesse.research import (
     gather_ml_data,
     load_ml_data_csv,
-    load_ml_model,
     train_model,
 )
 ```
@@ -97,7 +95,7 @@ If you are just starting out, use **`"binary"`**. It is the simplest to reason a
 - [Multiclass Classification](/docs/research/ml/multiclass) — `task="multiclass"`, triple-barrier labels, per-class metrics, the `0`-class decision
 - [Regression](/docs/research/ml/regression) — `task="regression"`, forward log-return targets, MAE/R²/Spearman, interpreting weak results
 - [Meta-Labeling](/docs/research/ml/meta-labeling) — secondary model that learns bet *size* on top of a primary directional signal; F1-score workflow, confidence-based position sizing, vertical-barrier gather pattern
-- [Deploying in a Strategy](/docs/research/ml/deploying) — loading a model lazily, shared `_build_features` pattern, signal-first model calling, live trading considerations
+- [Deploying in a Strategy](/docs/research/ml/deploying) — `ml_features()` as single source of truth, `ml_predict()` / `ml_predict_proba()` for zero-boilerplate inference, signal-first model calling, live trading considerations
 
 ## `train_model` return value
 

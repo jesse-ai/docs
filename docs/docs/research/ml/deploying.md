@@ -4,98 +4,68 @@ Once you have trained and saved a model, the final step is to load it inside you
 
 ## Overview
 
-Switching your strategy from gather mode to deploy mode requires three things:
+Switching your strategy from gather mode to deploy mode requires two things:
 
 1. Set `self.ml_mode = "deploy"` (it defaults to `"gather"` automatically — no class-level declaration needed)
-2. Load the model lazily on first use via `load_ml_model`
-3. Call the model in `should_long` / `should_short` (or wherever you use it) and act on its output
+2. Call `ml_predict()` or `ml_predict_proba()` in `should_long()` / `should_short()` and act on the output
 
 Nothing else in the strategy needs to change. The entry logic, position sizing, and exit rules remain exactly the same.
 
-## load_ml_model
+## ml_features()
 
-There are two forms of this function depending on where you call it from.
-
-### Inside a strategy: `self.load_ml_model()`
-
-Call `self.load_ml_model()` with no arguments. It automatically locates the strategy's own directory, loads `model.pkl`, `scaler.pkl`, and (if present) `feature_importance.pkl` from it, and stores them directly on the instance. It returns **`None`**.
-
-After the call, the following attributes are available on the instance:
-- `self._ml_model` — the fitted estimator
-- `self._ml_scaler` — the fitted `StandardScaler`
-- `self._ml_feature_importance` — feature importance dict, or `None` if the file was not found
+Before calling `ml_predict()` or `ml_predict_proba()`, your strategy must override `ml_features()`. This is the single source of truth for feature computation — the framework calls it automatically during inference. 
 
 ```python
-def _ml_confidence(self) -> float:
-    self.load_ml_model()   # idempotent — loads once, then no-op
-    feats = self._build_features()
-    keys  = sorted(feats.keys())
-    X     = np.array([[feats[k] for k in keys]])
-    return float(self._ml_model.predict_proba(
-        self._ml_scaler.transform(X)
-    )[0, 1])
+def ml_features(self) -> dict:
+    atr   = ta.atr(self.candles) + 1e-9
+    price = self.price
+    return {
+        "adx_centered":    (float(ta.adx(self.candles)) - 25) / 25,
+        "atr_pct":         atr / price,
+        "ema9_dist":       (price - ta.ema(self.candles, 9)) / (ta.ema(self.candles, 9) + 1e-9),
+        "rsi_centered":    (float(ta.rsi(self.candles)) - 50) / 50,
+        "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
+    }
 ```
 
 ::: tip
-`self.load_ml_model()` is **idempotent** — subsequent calls return immediately without re-reading from disk once the model is cached. Call it at the top of any inference method; no extra `if self._ml_model is None` guard is needed.
-
-The directory is resolved automatically from the strategy's own file path. You never need to pass a path or import `os`.
-
-No class-level `_ml_model = None` declarations are needed — `Strategy.__init__` already initialises `self._ml_model`, `self._ml_scaler`, and `self._ml_feature_importance` to `None`.
+Feature names are sorted alphabetically when building the inference array — exactly the same sort that `train_model` applies when constructing the training matrix. This happens automatically inside `ml_predict()` and `ml_predict_proba()`. You never have to worry about column order. However, you need to use the same feature names in both "gather" and "deploy" modes.
 :::
 
-### Outside a strategy: `load_ml_model(directory)`
-
-If you need to load a model from an arbitrary directory outside a strategy (e.g. in a script or Jupyter notebook), use the standalone function:
+`ml_features()` is also the method you call from gather mode when recording data:
 
 ```python
-from jesse.research import load_ml_model
-
-artefacts = load_ml_model("/path/to/strategies/MyStrategy")
-model     = artefacts["model"]
-scaler    = artefacts["scaler"]
-fi        = artefacts.get("feature_importance")   # None if file not present
+if self.ml_mode == "gather":
+    self.record_features(self.ml_features())
 ```
 
-**Returns** `dict` with keys:
-- `model` — the fitted estimator
-- `scaler` — the fitted `StandardScaler`
-- `feature_importance` — feature importance dict (only present if `feature_importance.pkl` exists)
+Because both gather and deploy go through the same `ml_features()`, train/deploy feature skew is impossible.
 
-## Feature array column order
+## ml_predict_proba()
 
-::: warning
-The feature array you build at inference time **must have columns in exactly the same order** as during training. `train_model` sorts feature names alphabetically when it builds the training matrix. Your deploy-mode feature array must follow that same alphabetical order.
-
-The safest approach is to comment each row with the feature name, making the mapping visible and verifiable at a glance. If you record 19 features at gather time, the deploy array must also have exactly those 19 columns in the same alphabetical order — even a single omission or transposition will silently produce wrong predictions.
-:::
-
-For example, if you recorded these features during gather:
+For **classification** models (binary or multiclass). Returns a `dict` of `{class_label: probability}`.
 
 ```python
-self.record_features({
-    "rsi_centered":    ...,
-    "atr_pct":         ...,
-    "ema9_dist":       ...,
-    "supertrend_dist": ...,
-    "adx_centered":    ...,
-})
+probs = self.ml_predict_proba()
+# Binary:     {0: 0.38, 1: 0.62}
+# Multiclass: {-1: 0.21, 0: 0.31, 1: 0.48}
 ```
 
-`train_model` sorted them alphabetically, so the training matrix columns were:
+The model is loaded lazily on the first call and cached for the lifetime of the strategy instance — there is no overhead on subsequent calls.
 
-```
-adx_centered, atr_pct, ema9_dist, rsi_centered, supertrend_dist
-```
+## ml_predict()
 
-Your deploy-mode array must match that order exactly.
+For **regression** models. Returns the model's scalar prediction as a `float`.
+
+```python
+predicted_return = self.ml_predict()   # e.g. 0.0043
+```
 
 ## Binary classification deploy pattern
 
 For `task="binary"` the model outputs a probability between 0 and 1. Use a threshold to decide whether to allow the signal through.
 
 ```python
-import numpy as np
 import jesse.indicators as ta
 from jesse import utils
 from jesse.strategies import Strategy
@@ -104,301 +74,33 @@ from jesse.strategies import Strategy
 class MyStrategy(Strategy):
     ML_THRESHOLD = 0.62      # minimum confidence to allow a trade
 
-    # ────────────────────────────────────────────────────────────────────────
-    # Inference
-    # ────────────────────────────────────────────────────────────────────────
-
-    def _ml_confidence(self) -> float:
-        """Return the model's probability that this signal is the positive class."""
-        self.load_ml_model()
+    def ml_features(self) -> dict:
         atr   = ta.atr(self.candles) + 1e-9
         price = self.price
-
-        # Columns in alphabetical order: adx_centered, atr_pct, ema9_dist,
-        #                                rsi_centered, supertrend_dist
-        features = np.array([[
-            (float(ta.adx(self.candles)) - 25) / 25,                   # adx_centered
-            atr / price,                                                  # atr_pct
-            (price - ta.ema(self.candles, 9)) / (ta.ema(self.candles, 9) + 1e-9),  # ema9_dist
-            (float(ta.rsi(self.candles)) - 50) / 50,                    # rsi_centered
-            (price - ta.supertrend(self.candles).trend) / atr,          # supertrend_dist
-        ]])
-        X_scaled = self._ml_scaler.transform(features)
-        return float(self._ml_model.predict_proba(X_scaled)[0, 1])
-
-    # ────────────────────────────────────────────────────────────────────────
-    # Entry
-    # ────────────────────────────────────────────────────────────────────────
+        return {
+            "adx_centered":    (float(ta.adx(self.candles)) - 25) / 25,
+            "atr_pct":         atr / price,
+            "ema9_dist":       (price - ta.ema(self.candles, 9)) / (ta.ema(self.candles, 9) + 1e-9),
+            "rsi_centered":    (float(ta.rsi(self.candles)) - 50) / 50,
+            "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
+        }
 
     def should_long(self) -> bool:
-        # Check the primary signal first — only call the model when the signal
-        # fires.  Calling the model on every bar wastes CPU and adds latency.
+        # Check primary signal first — only call the model when it fires
         signal = (
             ta.supertrend(self.candles).trend < self.price
             and ta.adx(self.candles) > 25
         )
         if not signal:
             return False
-        if self.ml_mode == "deploy":
-            return self._ml_confidence() >= self.ML_THRESHOLD
-        return True
+        if self.ml_mode == "gather":
+            self.record_features(self.ml_features())
+            return True
+        # Deploy: gate on model confidence
+        return self.ml_predict_proba().get(1, 0.0) >= self.ML_THRESHOLD
 
     def should_short(self) -> bool:
         return False
-
-    def should_cancel_entry(self) -> bool:
-        return True
-
-    def go_long(self):
-        entry = self.price
-        stop  = entry - ta.atr(self.candles) * 2.5
-        qty   = utils.risk_to_qty(
-            self.available_margin, 2, entry, stop, fee_rate=self.fee_rate
-        )
-        self.buy = qty, entry
-```
-
-::: tip
-Always check the primary signal **before** calling the model. The model call involves a `StandardScaler.transform` + `predict_proba` on every invocation. If `should_long` calls the model unconditionally on every bar, it runs thousands of times per backtest for no benefit. Only call the model when the primary signal condition is already satisfied.
-:::
-
-## Multiclass classification deploy pattern
-
-For `task="multiclass"` the model's `predict_proba` returns a probability for each class. Use `model.classes_` to map probabilities to their class labels.
-
-```python
-def _ml_probabilities(self) -> dict:
-    """Return a dict of {class_label: probability}."""
-    self.load_ml_model()
-    # Build features in alphabetical column order — same as gather time
-    features = np.array([[
-        ...   # same columns as during gather, alphabetical
-    ]])
-    X_scaled = self._ml_scaler.transform(features)
-    probs    = self._ml_model.predict_proba(X_scaled)[0]
-    classes  = self._ml_model.classes_
-    return {int(cls): float(p) for cls, p in zip(classes, probs)}
-
-def should_long(self) -> bool:
-    if self.ml_mode != "deploy":
-        return self._your_entry_signal()
-
-    probs   = self._ml_probabilities()
-    prob_up = probs.get(1, 0.0)
-    prob_dn = probs.get(-1, 0.0)
-
-    # Enter long only when the model strongly favours the +1 class
-    return (
-        self._your_entry_signal()
-        and prob_up >= 0.50
-        and prob_up > prob_dn * 1.2   # at least 20% more confident than the short direction
-    )
-
-def should_short(self) -> bool:
-    # Check primary signal first before calling the model
-    if not self._your_short_signal():
-        return False
-    if self.ml_mode != "deploy":
-        return True
-
-    probs   = self._ml_probabilities()
-    prob_dn = probs.get(-1, 0.0)
-    prob_up = probs.get(1, 0.0)
-    return prob_dn >= 0.50 and prob_dn > prob_up * 1.2
-```
-
-## Regression deploy pattern
-
-For `task="regression"` the model's `predict` returns a scalar. Use it for signal gating, position sizing, or signal ranking.
-
-### Signal gating
-
-```python
-def _ml_predicted_return(self) -> float:
-    self.load_ml_model()
-    # Build features in alphabetical column order — same as gather time
-    features = np.array([[
-        ...   # alphabetical order
-    ]])
-    X_scaled = self._ml_scaler.transform(features)
-    return float(self._ml_model.predict(X_scaled)[0])
-
-def should_long(self) -> bool:
-    # Check primary signal first — only call the model when it fires
-    if not self._your_entry_signal():
-        return False
-    if self.ml_mode == "deploy":
-        return self._ml_predicted_return() > 0.002
-    return True
-```
-
-### Volatility-adjusted position sizing
-
-```python
-def go_long(self):
-    entry          = self.price
-    stop           = entry - ta.atr(self.candles) * 2.5
-    predicted_ret  = self._ml_predicted_return() if self.ml_mode == "deploy" else 0.002
-    # Scale between 0.5× and 2× of base risk
-    risk_pct       = max(0.5, min(2.0, predicted_ret / 0.002)) * 2.0
-    qty            = utils.risk_to_qty(
-        self.available_margin, risk_pct, entry, stop, fee_rate=self.fee_rate
-    )
-    self.buy = qty, entry
-```
-
-## Performance considerations
-
-### Lazy loading
-
-Always load the model lazily (on first use) rather than in `__init__`. Jesse instantiates strategy classes during import and configuration steps where file I/O should not occur.
-
-Call `self.load_ml_model()` at the top of any inference method. It is **idempotent** — it skips loading on every subsequent call once the model is already cached on the instance, so there is no performance cost to calling it on every bar:
-
-```python
-def _ml_confidence(self) -> float:
-    self.load_ml_model()   # no-op after the first bar
-    ...
-```
-
-No class-level `_ml_model = None` declarations are needed — `Strategy.__init__` already initialises `self._ml_model`, `self._ml_scaler`, and `self._ml_feature_importance` to `None`.
-
-### Inference cost
-
-- **SVM** — inference is fast (microseconds per prediction) even without GPU.
-- **Random Forest / XGBoost** — also fast; 300-tree forests typically predict in < 1ms.
-- **Neural networks** — if you use a PyTorch or TensorFlow model wrapped in an sklearn interface, ensure it runs on CPU and the batch size is 1.
-
-In live trading, `should_long` is called on every new candle. Keep your feature computation and inference lightweight:
-
-- Pre-compute values you reuse (e.g. ATR, EMA) as `@property` methods rather than recomputing them multiple times per bar.
-- Only call the model **after** the primary signal condition is satisfied — not on every bar unconditionally.
-- Avoid calling `ta.` functions with large period arguments (e.g. `ta.ema(candles, 200)`) inside the inference method if you can cache them as a property.
-
-### Consistent feature computation
-
-The scaler's `mean_` and `scale_` parameters were computed on the **training data distribution**. Features in deploy mode must be computed **identically** to how they were computed during gather — same indicator period, same normalisation formula, same column order. Even a small discrepancy (e.g. forgetting a `+ 1e-9` guard) will shift the scaled values and silently degrade predictions.
-
-A practical way to keep gather and deploy feature computation in sync is to extract the feature-building logic into a single `_build_features(self) -> dict` method and call it from both gather mode and deploy mode. The deploy mode sorts the dict keys alphabetically to build the inference array.
-
-::: warning
-If you want to include a feature that is only available at gather time (e.g. `"side"` indicating long vs short) you must **always** include it in `_build_features` and pass a meaningful value in deploy mode too — otherwise the training and inference arrays will have different column counts and the model will produce wrong predictions. In the example below, `"side"` is always in `_build_features`, and the caller sets it based on context.
-:::
-
-```python
-def _build_features(self, side: int) -> dict:
-    atr   = ta.atr(self.candles) + 1e-9
-    price = self.price
-    return {
-        "adx_centered":    (float(ta.adx(self.candles)) - 25) / 25,
-        "atr_pct":         atr / price,
-        "rsi_centered":    (float(ta.rsi(self.candles)) - 50) / 50,
-        "side":            float(side),   # +1 = long signal, -1 = short signal
-        "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
-    }
-
-def _record_features(self, side: int) -> None:
-    if self.ml_mode == "gather":
-        self.record_features(self._build_features(side))
-
-def should_long(self) -> bool:
-    signal = ta.supertrend(self.candles).trend < self.price and ta.adx(self.candles) > 25
-    if signal:
-        self._record_features(1)
-    return signal
-
-def should_short(self) -> bool:
-    signal = ta.supertrend(self.candles).trend > self.price and ta.adx(self.candles) > 25
-    if signal:
-        self._record_features(-1)
-    return signal
-
-# Deploy mode — sort keys alphabetically to match training column order
-def _ml_confidence(self, side: int) -> float:
-    self.load_ml_model()
-    feats = self._build_features(side)
-    keys  = sorted(feats.keys())   # alphabetical — must match training
-    X     = np.array([[feats[k] for k in keys]])
-    return float(self._ml_model.predict_proba(
-        self._ml_scaler.transform(X)
-    )[0, 1])
-```
-
-This pattern eliminates the risk of divergence between gather and deploy feature computation.
-
-## Complete deploy-mode strategy template
-
-This template uses the **shared `_build_features` method** pattern to guarantee gather and deploy feature computation stay in sync. Notice that `_build_features` always accepts `side` so the column count is identical at gather time and inference time.
-
-```python
-import numpy as np
-import jesse.indicators as ta
-from jesse import utils
-from jesse.strategies import Strategy
-
-
-class MyStrategy(Strategy):
-    ML_THRESHOLD = 0.62
-
-    # ── shared feature builder (used by both gather and deploy) ──────────────
-
-    def _build_features(self, side: int) -> dict:
-        """Build features dict. side: +1 = long signal, -1 = short signal."""
-        atr   = ta.atr(self.candles) + 1e-9
-        price = self.price
-        ema9  = ta.ema(self.candles, 9) + 1e-9
-        return {
-            "adx_centered":    (float(ta.adx(self.candles)) - 25) / 25,
-            "atr_pct":         atr / price,
-            "ema9_dist":       (price - ema9) / ema9,
-            "rsi_centered":    (float(ta.rsi(self.candles)) - 50) / 50,
-            "side":            float(side),   # +1 = long, -1 = short
-            "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
-        }
-
-    def _ml_confidence(self, side: int) -> float:
-        """Return probability that this signal is the positive class."""
-        self.load_ml_model()
-        feats = self._build_features(side)
-        # Sort keys alphabetically — must match the order used during training
-        keys  = sorted(feats.keys())
-        X     = np.array([[feats[k] for k in keys]])
-        return float(self._ml_model.predict_proba(
-            self._ml_scaler.transform(X)
-        )[0, 1])
-
-    # ── entry / exit ─────────────────────────────────────────────────────────
-
-    @property
-    def _primary_signal_long(self) -> bool:
-        return (
-            ta.supertrend(self.candles).trend < self.price
-            and ta.adx(self.candles) > 25
-        )
-
-    @property
-    def _primary_signal_short(self) -> bool:
-        return (
-            ta.supertrend(self.candles).trend > self.price
-            and ta.adx(self.candles) > 25
-        )
-
-    def should_long(self) -> bool:
-        # Always check primary signal first — only call model when it fires
-        if not self._primary_signal_long:
-            return False
-        if self.ml_mode == "gather":
-            self.record_features(self._build_features(1))
-            return True
-        return self._ml_confidence(1) >= self.ML_THRESHOLD
-
-    def should_short(self) -> bool:
-        if not self._primary_signal_short:
-            return False
-        if self.ml_mode == "gather":
-            self.record_features(self._build_features(-1))
-            return True
-        return False   # short disabled in deploy; enable when you have a short model
 
     def should_cancel_entry(self) -> bool:
         return True
@@ -417,7 +119,238 @@ class MyStrategy(Strategy):
         self.record_label("profitable", closed_trade.pnl > 0)
 ```
 
-`_build_features` is called identically from gather mode (inside `should_long`/`should_short`) and from `_ml_confidence` in deploy mode. The dict keys are sorted alphabetically inside `_ml_confidence` — the same sort that `train_model` applies internally when constructing the training matrix. Because `side` is always passed to `_build_features`, the column count is the same at both gather and inference time.
+::: tip
+Always check the primary signal **before** calling the model. `ml_predict_proba()` runs a `StandardScaler.transform` + `predict_proba` on every invocation. If `should_long` calls the model unconditionally on every bar, it runs thousands of times per backtest for no benefit. Only call it when the primary condition is already satisfied.
+:::
+
+## Multiclass classification deploy pattern
+
+For `task="multiclass"` the model returns a probability for each class. Use `.get(label, 0.0)` to safely retrieve the probability of any class.
+
+```python
+import jesse.indicators as ta
+import numpy as np
+from jesse.strategies import Strategy
+
+
+class MyStrategy(Strategy):
+    ML_LONG_THRESHOLD  = 0.45
+    ML_SHORT_THRESHOLD = 0.45
+
+    def ml_features(self) -> dict:
+        atr   = ta.atr(self.candles) + 1e-9
+        price = self.price
+
+        ema9  = ta.ema(self.candles, 9)  + 1e-9
+        ema21 = ta.ema(self.candles, 21) + 1e-9
+        ema50 = ta.ema(self.candles, 50) + 1e-9
+
+        closes    = self.candles[:, 2]
+        log_ret_1 = float(np.log(closes[-1] / closes[-2])) if closes[-2] != 0 else 0.0
+        log_ret_5 = float(np.log(closes[-1] / closes[-6])) if len(closes) >= 6 and closes[-6] != 0 else 0.0
+
+        keltner   = ta.keltner(self.candles)
+        keltner_w = (keltner.upperband - keltner.lowerband) + 1e-9
+
+        return {
+            "adx_centered":    (float(ta.adx(self.candles)) - 25) / 25,
+            "atr_pct":         atr / price,
+            "ema21_50_ratio":  (ema21 - ema50) / ema50,
+            "ema9_21_ratio":   (ema9  - ema21) / ema21,
+            "ema9_dist":       (price - ema9)  / ema9,
+            "keltner_pos":     (price - keltner.lowerband) / keltner_w,
+            "log_return_1":    log_ret_1,
+            "log_return_5":    log_ret_5,
+            "rsi_centered":    (float(ta.rsi(self.candles)) - 50) / 50,
+            "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
+        }
+
+    def should_long(self) -> bool:
+        if self.ml_mode == "gather":
+            return False   # no real trades in gather mode (triple-barrier pattern)
+
+        probs   = self.ml_predict_proba()
+        prob_up = probs.get(1, 0.0)
+        prob_dn = probs.get(-1, 0.0)
+        return prob_up >= self.ML_LONG_THRESHOLD and prob_up > prob_dn * 1.2
+
+    def should_short(self) -> bool:
+        if self.ml_mode == "gather":
+            return False
+
+        probs   = self.ml_predict_proba()
+        prob_dn = probs.get(-1, 0.0)
+        prob_up = probs.get(1, 0.0)
+        return prob_dn >= self.ML_SHORT_THRESHOLD and prob_dn > prob_up * 1.2
+```
+
+## Regression deploy pattern
+
+For `task="regression"` the model returns a scalar. Use it for signal gating, position sizing, or signal ranking.
+
+### Signal gating
+
+```python
+def should_long(self) -> bool:
+    if self.ml_mode != "deploy":
+        return False
+    return self.ml_predict() > self.ENTRY_THRESHOLD
+
+def should_short(self) -> bool:
+    if self.ml_mode != "deploy":
+        return False
+    return self.ml_predict() < -self.ENTRY_THRESHOLD
+```
+
+### Volatility-adjusted position sizing
+
+```python
+def go_long(self):
+    entry         = self.price
+    stop          = entry - ta.atr(self.candles) * 2.5
+    predicted_ret = self.ml_predict() if self.ml_mode == "deploy" else self.ENTRY_THRESHOLD
+    # Scale between 0.5× and 2× of base risk proportional to predicted magnitude
+    scale         = max(0.5, min(2.0, predicted_ret / max(self.ENTRY_THRESHOLD, 1e-9)))
+    risk_pct      = self.BASE_RISK_PCT * scale
+    qty           = utils.risk_to_qty(
+        self.available_margin, risk_pct, entry, stop, fee_rate=self.fee_rate
+    )
+    self.buy         = qty, entry
+    self.stop_loss   = qty, stop
+    self.take_profit = qty, entry + ta.atr(self.candles) * 5.0
+```
+
+## Performance considerations
+
+### Lazy loading
+
+The model is loaded from disk on the first call to `ml_predict()` or `ml_predict_proba()` and then cached for the lifetime of the strategy instance. Every subsequent call is a no-op for the loading step. There is no performance cost to calling these methods on every bar.
+
+Never load the model in `__init__`. Jesse instantiates strategy classes during import and configuration steps where file I/O should not occur.
+
+### Inference cost
+
+- **SVM** — inference is fast (microseconds per prediction).
+- **Random Forest / XGBoost** — also fast; 300-tree forests typically predict in < 1ms.
+
+In live trading, `should_long` is called on every new candle (Unless when there are no open positions or orders). Keep your feature computation and inference lightweight:
+
+- Pre-compute values you reuse (e.g. ATR, EMA) as `@property` methods rather than recomputing them multiple times per bar.
+- Only call `ml_predict()` / `ml_predict_proba()` **after** the primary signal condition is satisfied — not on every bar unconditionally.
+
+## Complete deploy-mode strategy template
+
+This template shows all three modes cleanly integrated: gather via the triple-barrier loop, deploy via `ml_predict_proba()`. `ml_features()` is defined once and used by both.
+
+```python
+import numpy as np
+import jesse.indicators as ta
+from jesse import utils
+from jesse.strategies import Strategy
+
+
+class MyStrategy(Strategy):
+    ML_LONG_THRESHOLD  = 0.45
+    ML_SHORT_THRESHOLD = 0.45
+    vertical_barrier   = 50
+    ATR_MULTIPLIER     = 2.0
+
+    _features_recorded = False
+    _record_index      = 0
+    _barrier_upper     = None
+    _barrier_lower     = None
+
+    # ── single source of truth for features ──────────────────────────────────
+
+    def ml_features(self) -> dict:
+        atr   = ta.atr(self.candles) + 1e-9
+        price = self.price
+        ema9  = ta.ema(self.candles, 9)  + 1e-9
+        ema21 = ta.ema(self.candles, 21) + 1e-9
+        ema50 = ta.ema(self.candles, 50) + 1e-9
+
+        closes    = self.candles[:, 2]
+        log_ret_1 = float(np.log(closes[-1] / closes[-2])) if closes[-2] != 0 else 0.0
+        log_ret_5 = float(np.log(closes[-1] / closes[-6])) if len(closes) >= 6 and closes[-6] != 0 else 0.0
+
+        keltner   = ta.keltner(self.candles)
+        keltner_w = (keltner.upperband - keltner.lowerband) + 1e-9
+
+        return {
+            "adx_centered":    (float(ta.adx(self.candles)) - 25) / 25,
+            "atr_pct":         atr / price,
+            "ema21_50_ratio":  (ema21 - ema50) / ema50,
+            "ema9_21_ratio":   (ema9  - ema21) / ema21,
+            "ema9_dist":       (price - ema9)  / ema9,
+            "keltner_pos":     (price - keltner.lowerband) / keltner_w,
+            "log_return_1":    log_ret_1,
+            "log_return_5":    log_ret_5,
+            "rsi_centered":    (float(ta.rsi(self.candles)) - 50) / 50,
+            "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
+        }
+
+    # ── deploy-mode entry ─────────────────────────────────────────────────────
+
+    def should_long(self) -> bool:
+        if self.ml_mode == "gather":
+            return False
+        probs   = self.ml_predict_proba()
+        prob_up = probs.get(1, 0.0)
+        prob_dn = probs.get(-1, 0.0)
+        return prob_up >= self.ML_LONG_THRESHOLD and prob_up > prob_dn * 1.2
+
+    def should_short(self) -> bool:
+        if self.ml_mode == "gather":
+            return False
+        probs   = self.ml_predict_proba()
+        prob_dn = probs.get(-1, 0.0)
+        prob_up = probs.get(1, 0.0)
+        return prob_dn >= self.ML_SHORT_THRESHOLD and prob_dn > prob_up * 1.2
+
+    def go_long(self) -> None:
+        entry = self.price
+        dist  = ta.atr(self.candles) * self.ATR_MULTIPLIER
+        qty   = utils.risk_to_qty(self.available_margin, 2, entry, entry - dist, fee_rate=self.fee_rate)
+        self.buy         = qty, entry
+        self.stop_loss   = qty, entry - dist
+        self.take_profit = qty, entry + dist
+
+    def go_short(self) -> None:
+        entry = self.price
+        dist  = ta.atr(self.candles) * self.ATR_MULTIPLIER
+        qty   = utils.risk_to_qty(self.available_margin, 2, entry, entry + dist, fee_rate=self.fee_rate)
+        self.sell        = qty, entry
+        self.stop_loss   = qty, entry + dist
+        self.take_profit = qty, entry - dist
+
+    # ── gather-mode triple-barrier loop ──────────────────────────────────────
+
+    def before(self) -> None:
+        if self.ml_mode != "gather":
+            return
+
+        if not self._features_recorded:
+            self.record_features(self.ml_features())   # same method, gather mode
+            dist = ta.atr(self.candles) * self.ATR_MULTIPLIER
+            self._barrier_upper     = self.price + dist
+            self._barrier_lower     = self.price - dist
+            self._record_index      = self.index
+            self._features_recorded = True
+            return
+
+        upper_hit    = self.price >= self._barrier_upper
+        lower_hit    = self.price <= self._barrier_lower
+        vertical_hit = (self.index - self._record_index) >= self.vertical_barrier
+
+        if upper_hit or lower_hit or vertical_hit:
+            label = 1 if upper_hit else (-1 if lower_hit else 0)
+            self.record_label("triple_barrier", label)
+            self._features_recorded = False
+            self._barrier_upper     = None
+            self._barrier_lower     = None
+```
+
+Notice that `ml_features()` is called identically from `before()` (gather mode) and from `should_long()` / `should_short()` (deploy mode via `ml_predict_proba()`). There is no separate `_build_features` helper, no manual scaler call, and no numpy array construction in user code.
 
 ## Iterating after deployment
 

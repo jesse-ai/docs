@@ -141,7 +141,7 @@ Because `train_model` accepts any sklearn-compatible classifier, the choice of a
 
 | Classifier | Best dataset size | Handles noisy data | Handles class imbalance | Needs calibration | Training speed | Notes |
 |---|---|---|---|---|---|---|
-| **Gradient Boosting** | Medium–Large (5 k – 500 k) | ✅ Good | ⚠️ Use `sample_weight` or `CalibratedClassifierCV` | ✅ Via `CalibratedClassifierCV` | Medium | Best default for financial tabular data; does not support `class_weight` directly |
+| **Gradient Boosting** | Medium–Large (5 k – 500 k) | ✅ Good | ⚠️ Use `sample_weight` | ✅ Via `CalibratedClassifierCV` | Medium | Best default for financial tabular data; does not support `class_weight` directly |
 | **Random Forest** | Medium–Large (5 k – 500 k) | ✅ Good | ✅ `class_weight="balanced"` | ✅ Built-in probabilities are reasonable | Fast | More robust to overfitting than Gradient Boosting; easy to tune |
 | **Calibrated SVM** | Small (< 10 k) | ⚠️ Can collapse to majority class | ⚠️ Use `class_weight` | ✅ Wrap with `CalibratedClassifierCV` | Slow on large data | Raw SVM probabilities are unreliable — always calibrate; avoid on weak/noisy features |
 | **XGBoost** | Large (> 50 k) | ✅ Good | ✅ `scale_pos_weight` | ⚠️ May need calibration | Fast (GPU support) | Highest accuracy ceiling but most prone to overfitting; requires careful tuning |
@@ -271,5 +271,5 @@ cw    = {0: 1.0, 1: n_neg / n_pos} if n_pos > 0 else {0: 1.0, 1: 1.0}
 ```
 
 ::: warning
-Class weights must be configured on your estimator **before** passing it to `train_model`. The function always clones your estimator and never modifies the object you pass in. Note that `GradientBoostingClassifier` does **not** support `class_weight` directly — wrap it in `CalibratedClassifierCV` or handle imbalance via `sample_weight` in a custom pipeline instead.
+Class weights must be configured on your estimator **before** passing it to `train_model`. The function always clones your estimator and never modifies the object you pass in. Note that `GradientBoostingClassifier` does **not** support `class_weight` directly — handle imbalance via `sample_weight` in a custom pipeline instead. `CalibratedClassifierCV` is for probability calibration only and does not address class imbalance.
 :::

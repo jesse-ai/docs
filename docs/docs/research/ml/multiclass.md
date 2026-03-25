@@ -63,6 +63,36 @@ class MyStrategy(Strategy):
     def _distance(self):
         return ta.atr(self.candles) * 2
 
+    # ── single source of truth for features ─────────────────────────────────
+
+    def ml_features(self) -> dict:
+        atr   = ta.atr(self.candles) + 1e-9
+        price = self.price
+
+        ema9  = ta.ema(self.candles, 9)  + 1e-9
+        ema21 = ta.ema(self.candles, 21) + 1e-9
+        ema50 = ta.ema(self.candles, 50) + 1e-9
+
+        closes    = self.candles[:, 2]
+        log_ret_1 = float(np.log(closes[-1] / closes[-2])) if closes[-2] != 0 else 0.0
+        log_ret_5 = float(np.log(closes[-1] / closes[-6])) if closes[-6] != 0 else 0.0
+
+        keltner   = ta.keltner(self.candles)
+        keltner_w = (keltner.upperband - keltner.lowerband) + 1e-9
+
+        return {
+            "adx_centered":    (float(ta.adx(self.candles)) - 25) / 25,
+            "atr_pct":         atr / price,
+            "ema21_50_ratio":  (ema21 - ema50) / ema50,
+            "ema9_21_ratio":   (ema9  - ema21) / ema21,
+            "ema9_dist":       (price - ema9)  / ema9,
+            "keltner_pos":     (price - keltner.lowerband) / keltner_w,
+            "log_return_1":    log_ret_1,
+            "log_return_5":    log_ret_5,
+            "rsi_centered":    (float(ta.rsi(self.candles)) - 50) / 50,
+            "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
+        }
+
     def should_long(self) -> bool:
         return False   # no actual trades placed in gather mode
 
@@ -77,35 +107,10 @@ class MyStrategy(Strategy):
             return
 
         if not self._features_recorded:
-            # ── Record features at the observation bar ───────────────────
-            atr   = ta.atr(self.candles) + 1e-9
-            price = self.price
-
-            ema9  = ta.ema(self.candles, 9)
-            ema21 = ta.ema(self.candles, 21)
-            ema50 = ta.ema(self.candles, 50)
-
-            closes      = self.candles[:, 2]
-            log_ret_1   = float(np.log(closes[-1] / closes[-2])) if closes[-2] != 0 else 0.0
-            log_ret_5   = float(np.log(closes[-1] / closes[-6])) if closes[-6] != 0 else 0.0
-
-            keltner      = ta.keltner(self.candles)
-            keltner_w    = (keltner.upperband - keltner.lowerband) + 1e-9
-
-            self.record_features({
-                "log_return_1":    log_ret_1,
-                "log_return_5":    log_ret_5,
-                "ema9_21_ratio":   (ema9  - ema21) / (ema21 + 1e-9),
-                "ema21_50_ratio":  (ema21 - ema50) / (ema50 + 1e-9),
-                "ema9_dist":       (price - ema9)  / (ema9  + 1e-9),
-                "atr_pct":         atr / price,
-                "rsi_centered":    (float(ta.rsi(self.candles)) - 50) / 50,
-                "adx_centered":    (float(ta.adx(self.candles)) - 25) / 25,
-                "keltner_pos":     (price - keltner.lowerband) / keltner_w,
-                "supertrend_dist": (price - ta.supertrend(self.candles).trend) / atr,
-            })
+            self.record_features(self.ml_features())
 
             # ── Anchor barriers to this bar's price ──────────────────────
+            price = self.price
             self._barrier_upper    = price + self._distance
             self._barrier_lower    = price - self._distance
             self._record_index     = self.index
@@ -118,13 +123,7 @@ class MyStrategy(Strategy):
         vertical_touched = (self.index - self._record_index) >= self.vertical_barrier
 
         if upper_touched or lower_touched or vertical_touched:
-            if upper_touched:
-                label = 1    # profit target hit  → positive
-            elif lower_touched:
-                label = -1   # stop-loss hit       → negative
-            else:
-                label = 0    # time expired        → neutral
-
+            label = 1 if upper_touched else (-1 if lower_touched else 0)
             self.record_label("triple_barrier", label)
 
             # ── Reset for the next observation ────────────────────────────
@@ -316,30 +315,25 @@ This filtered binary model is often the most useful variant of a triple-barrier 
 
 ## Using the model in deploy mode
 
-When deployed, the multiclass model's `predict_proba` returns a probability for **each class** in the order defined by `model.classes_`. Always use `model.classes_` to map probabilities to their labels — do not hardcode indices, because the class order depends on the classes present in the training set:
+In deploy mode, call `self.ml_predict_proba()` directly. It automatically loads the model, calls `self.ml_features()`, scales the features, and returns a `{class_label: probability}` dict.
 
 ```python
-def _ml_probabilities(self) -> dict:
-    """Return a dict of {class_label: probability}."""
-    self.load_ml_model()   # idempotent — loads once, then no-op
-    feats    = self._build_features()
-    keys     = sorted(feats.keys())
-    X        = np.array([[feats[k] for k in keys]])
-    X_scaled = self._ml_scaler.transform(X)
-    probs    = self._ml_model.predict_proba(X_scaled)[0]   # shape: (n_classes,)
-    classes  = list(self._ml_model.classes_)               # e.g. [-1, 0, 1]
-    return {int(cls): float(p) for cls, p in zip(classes, probs)}
-
 def should_long(self) -> bool:
-    if not self._your_entry_signal():
+    if self.ml_mode == "gather":
         return False
-    if self.ml_mode != "deploy":
-        return True
-    probs     = self._ml_probabilities()
+    probs     = self.ml_predict_proba()
     prob_up   = probs.get(1, 0.0)
     prob_down = probs.get(-1, 0.0)
     # Enter long only when the model strongly favours the +1 class
     return prob_up >= 0.55 and prob_up > prob_down * 1.2
+
+def should_short(self) -> bool:
+    if self.ml_mode == "gather":
+        return False
+    probs     = self.ml_predict_proba()
+    prob_down = probs.get(-1, 0.0)
+    prob_up   = probs.get(1, 0.0)
+    return prob_down >= 0.55 and prob_down > prob_up * 1.2
 ```
 
-See the [Deploying in a Strategy](/docs/research/ml/deploying) page for the full deploy-mode pattern.
+Because `ml_features()` is defined once and used by both `before()` (gather mode) and `ml_predict_proba()` (deploy mode), train/deploy feature skew is impossible. See the [Deploying in a Strategy](/docs/research/ml/deploying) page for the full combined template.

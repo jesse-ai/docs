@@ -242,7 +242,15 @@ class MyStrategy(Strategy):
     # Feature engineering
     # ────────────────────────────────────────────────────────────────────────
 
-    def _record_meta_features(self, direction: int) -> None:
+    def ml_features(self) -> dict:
+        """
+        Single source of truth for feature computation — used identically
+        in gather mode (via record_features) and deploy mode (via ml_predict_proba).
+
+        ``self._signal_side`` must be set to ``+1.0`` (long) or ``-1.0`` (short)
+        before calling this method. Both ``_record_meta_features`` and
+        ``_meta_confidence`` do this automatically.
+        """
         dt    = datetime.datetime.utcfromtimestamp(self.current_candle[0] / 1000.0)
         price = self.price
         atr   = self.atr
@@ -266,7 +274,7 @@ class MyStrategy(Strategy):
         rsi    = float(ta.rsi(self.candles))
         srsi_k = float(ta.srsi(self.candles).k)
 
-        self.record_features({
+        return {
             "adx_centered":      (adx    - 25.0) / 25.0,
             "atr_pct":           atr / price,
             "dow_cos":           float(np.cos(2 * np.pi * dt.weekday() / 7)),
@@ -285,10 +293,14 @@ class MyStrategy(Strategy):
             # Signal direction: +1 = long flip, -1 = short flip.
             # Allows the model to learn asymmetric patterns (e.g. longs work
             # better in bull regimes than shorts).
-            "signal_side":       float(direction),
+            "signal_side":       getattr(self, "_signal_side", 1.0),
             "srsi_k_centered":   (srsi_k - 50.0) / 50.0,
             "supertrend_dist":   (price - self.supertrend.trend[-1]) / atr,
-        })
+        }
+
+    def _record_meta_features(self, direction: int) -> None:
+        self._signal_side = float(direction)
+        self.record_features(self.ml_features())
 
     # ────────────────────────────────────────────────────────────────────────
     # Deploy-mode inference
@@ -300,54 +312,8 @@ class MyStrategy(Strategy):
         will succeed. Used both as a threshold gate (>= ML_THRESHOLD) and as
         a position-size multiplier in go_long / go_short.
         """
-        self.load_ml_model()   # idempotent — loads once, then no-op
-        dt    = datetime.datetime.utcfromtimestamp(self.current_candle[0] / 1000.0)
-        price = self.price
-        atr   = self.atr
-
-        ema9  = ta.ema(self.candles, 9)  + 1e-9
-        ema21 = ta.ema(self.candles, 21) + 1e-9
-        ema50 = ta.ema(self.candles, 50) + 1e-9
-
-        keltner  = ta.keltner(self.candles)
-        keltner_w = (keltner.upperband - keltner.lowerband) + 1e-9
-
-        closes       = self.candles[:, 2]
-        log_return_1 = float(np.log(closes[-1] / closes[-2])) if closes[-2] != 0 else 0.0
-        log_return_5 = float(np.log(closes[-1] / closes[-6])) if closes[-6] != 0 else 0.0
-
-        volumes     = self.candles[:, 5]
-        mean_vol    = float(np.mean(volumes[-20:])) + 1e-9
-        log_rel_vol = float(np.log(volumes[-1] / mean_vol)) if volumes[-1] > 0 else 0.0
-
-        adx    = float(ta.adx(self.candles))
-        rsi    = float(ta.rsi(self.candles))
-        srsi_k = float(ta.srsi(self.candles).k)
-
-        # Columns in alphabetical order — must match training order exactly.
-        # The sorted feature names from gather time determine this order.
-        features = np.array([[
-            (adx    - 25.0) / 25.0,                                    # adx_centered
-            atr / price,                                                 # atr_pct
-            float(np.cos(2 * np.pi * dt.weekday() / 7)),                # dow_cos
-            float(np.sin(2 * np.pi * dt.weekday() / 7)),                # dow_sin
-            (ema21 - ema50) / ema50,                                     # ema21_50_ratio
-            (ema9  - ema21) / ema21,                                     # ema9_21_ratio
-            (price - ema9)  / ema9,                                      # ema9_dist
-            float(np.cos(2 * np.pi * dt.hour / 24)),                     # hour_cos
-            float(np.sin(2 * np.pi * dt.hour / 24)),                     # hour_sin
-            (price - keltner.lowerband) / keltner_w,                     # keltner_position
-            keltner_w / atr,                                             # keltner_width_atr
-            log_rel_vol,                                                 # log_rel_volume
-            log_return_1,                                                # log_return_1
-            log_return_5,                                                # log_return_5
-            (rsi    - 50.0) / 50.0,                                      # rsi_centered
-            1.0 if self._deploy_long else -1.0,                          # signal_side
-            (srsi_k - 50.0) / 50.0,                                      # srsi_k_centered
-            (price - self.supertrend.trend[-1]) / atr,                   # supertrend_dist
-        ]])
-        X_scaled = self._ml_scaler.transform(features)
-        return float(self._ml_model.predict_proba(X_scaled)[0, 1])
+        self._signal_side = 1.0 if self._deploy_long else -1.0
+        return self.ml_predict_proba().get(1, 0.0)
 ```
 
 ::: tip Relationship to multiclass triple-barrier
