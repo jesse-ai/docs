@@ -54,7 +54,7 @@ self.record_label("forward_return", 0.0043)              # float
 
 ## ml_mode convention
 
-Every strategy instance has a built-in `self.ml_mode` attribute (initialised to `"gather"` by `Strategy.__init__`). You do **not** need to declare it at the class level — it is always available.
+Every strategy instance has a built-in `self.ml_mode` attribute. 
 
 Guard every `record_*` call with `if self.ml_mode == "gather":` so the recording overhead is zero in deploy mode.
 
