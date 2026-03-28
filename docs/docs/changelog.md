@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:## 1.13.3 (22 February 2026)
 
+# 1.13.8 (28 March 2026)
+
+- **[NEW FEATURE]** Added initial support for meachine learning.
+
 
 ## 1.13.7 (25 February 2026)
 
