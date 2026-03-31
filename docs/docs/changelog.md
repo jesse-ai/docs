@@ -5,6 +5,7 @@ Here you can see the changes made with each release of the main framework and th
 # 1.13.8 (28 March 2026)
 
 - **[NEW FEATURE]** Added initial support for meachine learning.
+- **[FIX]** Fixed the backtest log download button failing with "Invalid password" error, caused by a function name collision in the backend where the route handler shadowed the imported `download_backtest_log` function, resulting in a recursive call with an invalid token.
 
 
 ## 1.13.7 (25 February 2026)
