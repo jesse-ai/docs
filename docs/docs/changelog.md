@@ -1,6 +1,10 @@
 # Jesse Changelog
 
-Here you can see the changes made with each release of the main framework and the live trading plugin:## 1.13.3 (22 February 2026)
+Here you can see the changes made with each release of the main framework and the live trading plugin:
+
+# 1.13.10 (6 April 2026)
+
+- **[FIX]** Fixed a `KeyError: 'order'` crash in the Hyperliquid driver that occurred when the exchange returned a response without an `'order'` key (e.g. `{"status": "unknownOid"}`) for an unknown order ID. The `_format_order` method was guarding the `order` extraction but not the `status` extraction on the next line. This crash happened inside `_on_message`, and because the handler was making a blocking REST call at the time the WebSocket connection dropped, it also prevented the reconnection logic from firing in a timely manner.
 
 # 1.13.9 (31 March 2026)
 
