@@ -50,5 +50,9 @@ features:
     details: Jesse Offers specialized support for both futures and spot markets.
   - title: "🔐 Support for Decentralized Exchanges (DEX)"
     details: Jesse's support for DEX ensures you can maintain full custody of your assets while trading.
+  - title: "🎲 Monte Carlo Analysis"
+    details: Stress-test your strategies with trade-order shuffling and candles-based simulations to distinguish skill from luck and guard against overfitting.
+  - title: "🧠 Machine Learning"
+    details: Built-in end-to-end ML pipeline — gather labelled training data from backtests, train scikit-learn models (binary, multiclass, or regression), and deploy predictions directly inside your strategies.
 ---
 
