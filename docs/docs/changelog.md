@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+# 1.13.10 (7 April 2026)
+
+- **[FIX]** Fixed an `UnboundLocalError: local variable 'fee' referenced before assignment` crash in the Hyperliquid.
+
 # 1.13.9 (6 April 2026)
 
 - **[FIX]** Fixed the backtest log download button failing with "Invalid password" error, caused by a function name collision in the backend where the route handler shadowed the imported `download_backtest_log` function, resulting in a recursive call with an invalid token.
