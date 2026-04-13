@@ -2,16 +2,21 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-# 1.13.10 (7 April 2026)
+## 1.13.11 (9 April 2026)
+
+- **[FIX]** Fixed the `Exception: Error from server: Invalid nonce: duplicate nonce 1775606412374` error in the Hyperliquid.
+- **[FIX]** Fixed the `jesse_live.exchanges.Hyperliquid.HyperliquidPerpetualMain.HyperliquidPerpetualMain.prepare_order_stream KeyError: '373731981146'` error in the Hyperliquid.
+
+## 1.13.10 (7 April 2026)
 
 - **[FIX]** Fixed an `UnboundLocalError: local variable 'fee' referenced before assignment` crash in the Hyperliquid.
 
-# 1.13.9 (6 April 2026)
+## 1.13.9 (6 April 2026)
 
 - **[FIX]** Fixed the backtest log download button failing with "Invalid password" error, caused by a function name collision in the backend where the route handler shadowed the imported `download_backtest_log` function, resulting in a recursive call with an invalid token.
 - **[FIX]** Fixed an unhandled case of `Connection to remote host was lost.` on Hyperliquid. 
 - 
-# 1.13.8 (28 March 2026)
+## 1.13.8 (28 March 2026)
 
 - **[NEW FEATURE]** Added initial support for meachine learning.
 
