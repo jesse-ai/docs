@@ -192,6 +192,16 @@ export default defineConfig({
                     {text: 'Backtest', link: '/docs/research/backtest'},
                     {text: 'Monte Carlo', link: '/docs/research/monte_carlo'},
                     {
+                        text: 'Rule Significance Testing',
+                        collapsed: false,
+                        items: [
+                            {text: 'Introduction',              link: '/docs/research/rule-significance-testing/'},
+                            {text: 'Usage Example',             link: '/docs/research/rule-significance-testing/usage'},
+                            {text: 'How It Works (Bootstrap)',  link: '/docs/research/rule-significance-testing/bootstrap'},
+                            {text: 'Interpreting Results',      link: '/docs/research/rule-significance-testing/interpreting-results'},
+                        ]
+                    },
+                    {
                         text: 'Machine Learning',
                         collapsed: false,
                         items: [
