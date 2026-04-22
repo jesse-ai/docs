@@ -10,13 +10,13 @@ The p-value is the single most important number in the result. It answers one qu
 
 Technically: it is the fraction of simulated means — drawn under H₀, the null hypothesis that the rule has no predictive power — that were **greater than or equal to** the observed mean.
 
-| p-value | Interpretation | Rating |
-|---------|----------------|--------|
-| p ≤ 0.001 | Highly significant — exceptionally unlikely to be due to chance | ★★★ |
-| p ≤ 0.01 | Very significant — very unlikely to be due to chance | ★★ |
-| p ≤ 0.05 | Statistically significant — unlikely to be due to chance | ★ |
-| p ≤ 0.10 | Possibly significant — weak evidence; treat with caution | ~ |
-| p > 0.10 | Not significant — fail to reject H₀ | — |
+| p-value | Interpretation |
+|---------|----------------|
+| p ≤ 0.001 | Highly significant — exceptionally unlikely to be due to chance |
+| p ≤ 0.01 | Very significant — very unlikely to be due to chance |
+| p ≤ 0.05 | Statistically significant — unlikely to be due to chance |
+| p ≤ 0.10 | Possibly significant — weak evidence; treat with caution |
+| p > 0.10 | Not significant — fail to reject H₀ |
 
 The **lower** the p-value, the less likely your rule's historical performance is the result of pure chance. A p-value of `0.02` means only 2% of random simulations matched or beat your rule's observed mean — that is strong evidence the rule captures real signal.
 
@@ -78,7 +78,7 @@ If `n_observations` is very low, consider running the test over a longer date ra
 
 ## About the Bootstrap method
 
-`rule_significance_test()` uses a bootstrap resampling approach that builds a null distribution by resampling the rule's own returns with replacement N times, with zero-centering applied first to enforce H0. See the [How it works](/docs/research/rule-significance-testing/bootstrap) page if you are curious about the statistical mechanics behind this.
+`rule_significance_test()` uses a bootstrap resampling approach that builds a null distribution by resampling the rule's own returns with replacement N times, with zero-centering applied first to enforce H0. See the [How it works](/docs/rule-significance-testing/bootstrap) page if you are curious about the statistical mechanics behind this.
 
 ## What to do with the results
 
@@ -123,11 +123,11 @@ def print_results(result: dict) -> None:
     """Pretty-print the significance test result."""
     p = result["p_value"]
     if p <= 0.001:
-        significance = "HIGHLY SIGNIFICANT (p ≤ 0.001) ★★★"
+        significance = "HIGHLY SIGNIFICANT (p ≤ 0.001)"
     elif p <= 0.01:
-        significance = "VERY SIGNIFICANT (p ≤ 0.01) ★★"
+        significance = "VERY SIGNIFICANT (p ≤ 0.01)"
     elif p <= 0.05:
-        significance = "STATISTICALLY SIGNIFICANT (p ≤ 0.05) ★"
+        significance = "STATISTICALLY SIGNIFICANT (p ≤ 0.05)"
     elif p <= 0.10:
         significance = "POSSIBLY SIGNIFICANT (p ≤ 0.10) ~"
     else:
@@ -154,7 +154,7 @@ def print_results(result: dict) -> None:
   Simulations       : 1000
   Observed mean     : 0.00024041
   Annualised return : 6.0584 %
-  p-value           : 0.0180   →  STATISTICALLY SIGNIFICANT (p ≤ 0.05) ★
+  p-value           : 0.0180   →  STATISTICALLY SIGNIFICANT (p ≤ 0.05)
 ============================================================
 ```
 

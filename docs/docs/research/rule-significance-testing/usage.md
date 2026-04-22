@@ -129,12 +129,16 @@ result = rule_significance_test(
 # =============================================================================
 
 p = result["p_value"]
-if p < 0.01:
-    label = "HIGHLY SIGNIFICANT (p < 0.01) ★★"
-elif p < 0.05:
-    label = "SIGNIFICANT (p < 0.05) ★"
+if p <= 0.001:
+    label = "HIGHLY SIGNIFICANT (p ≤ 0.001) ★★★"
+elif p <= 0.01:
+    label = "VERY SIGNIFICANT (p ≤ 0.01) ★★"
+elif p <= 0.05:
+    label = "STATISTICALLY SIGNIFICANT (p ≤ 0.05) ★"
+elif p <= 0.10:
+    label = "POSSIBLY SIGNIFICANT (p ≤ 0.10) ~"
 else:
-    label = "not significant (p ≥ 0.05)"
+    label = "not significant (p > 0.10)"
 
 print(f"\n{'='*60}")
 print(f"  Rule Significance Test — Bootstrap")
@@ -159,7 +163,7 @@ plot_significance_test(result)
   Simulations       : 1000
   Observed mean     : 0.00014333
   Annualised return : 3.6120 %
-  p-value           : 0.0470   →  SIGNIFICANT (p < 0.05) ★
+  p-value           : 0.0470   →  STATISTICALLY SIGNIFICANT (p ≤ 0.05) ★
 ============================================================
 ```
 
@@ -290,12 +294,16 @@ result = rule_significance_test(
 # =============================================================================
 
 p = result["p_value"]
-if p < 0.01:
-    label = "HIGHLY SIGNIFICANT (p < 0.01) ★★"
-elif p < 0.05:
-    label = "SIGNIFICANT (p < 0.05) ★"
+if p <= 0.001:
+    label = "HIGHLY SIGNIFICANT (p ≤ 0.001) ★★★"
+elif p <= 0.01:
+    label = "VERY SIGNIFICANT (p ≤ 0.01) ★★"
+elif p <= 0.05:
+    label = "STATISTICALLY SIGNIFICANT (p ≤ 0.05) ★"
+elif p <= 0.10:
+    label = "POSSIBLY SIGNIFICANT (p ≤ 0.10) ~"
 else:
-    label = "not significant (p ≥ 0.05)"
+    label = "not significant (p > 0.10)"
 
 print(f"\n{'='*60}")
 print(f"  Rule Significance Test — Bootstrap")
@@ -320,7 +328,7 @@ plot_significance_test(result)
   Simulations       : 1000
   Observed mean     : 0.00020504
   Annualised return : 5.1670 %
-  p-value           : 0.1120   →  not significant (p ≥ 0.05)
+  p-value           : 0.1120   →  not significant (p > 0.10)
 ============================================================
 ```
 
@@ -348,8 +356,8 @@ Despite a positive observed mean (BTC trended up during this period, so even ran
 - **observed_mean** (float): Mean bar-level log return of the rule after detrending.
 - **annualized_return** (float): `observed_mean × 252` — a rough annualised estimate.
 - **simulated_means** (np.ndarray): Shape `(n_simulations,)`. The full bootstrap null distribution.
-- **p_value** (float): Fraction of simulated means ≥ `observed_mean`. Below `0.05` indicates significant edge.
+- **p_value** (float): Fraction of simulated means ≥ `observed_mean`. At or below `0.10` is possibly significant; at or below `0.05` is statistically significant; at or below `0.001` is highly significant.
 - **n_simulations** (int): Number of simulations completed.
 - **n_observations** (int): Number of bars used after warmup and NaN removal.
 
-See [Interpreting Results](/docs/research/rule-significance-testing/interpreting-results) for a full guide on reading these numbers.
+See [Interpreting Results](/docs/rule-significance-testing/interpreting-results) for a full guide on reading these numbers.

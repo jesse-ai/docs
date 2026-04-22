@@ -58,14 +58,8 @@ export default defineConfig({
                 text: 'JesseGPT',
                 link: 'https://jesse.trade/gpt',
             },
-            {
-                text: 'Blog',
-                link: 'https://jesse.trade/blog',
-            },
-            {
-                text: 'Help Center',
-                link: 'https://jesse.trade/help',
-            },
+
+
             {
                 text: 'Discord',
                 link: 'https://jesse.trade/discord',
@@ -182,6 +176,15 @@ export default defineConfig({
                 ]
             },
             {
+                text: 'Rule Significance Testing',
+                collapsed: true,
+                items: [
+                    {text: 'Introduction', link: '/docs/rule-significance-testing/'},
+                    {text: 'How It Works (Bootstrap)', link: '/docs/rule-significance-testing/bootstrap'},
+                    {text: 'Interpreting Results', link: '/docs/rule-significance-testing/interpreting-results'},
+                ]
+            },
+            {
                 text: 'Research Module',
                 collapsed: true,
                 items: [
@@ -197,8 +200,6 @@ export default defineConfig({
                         items: [
                             {text: 'Introduction',              link: '/docs/research/rule-significance-testing/'},
                             {text: 'Usage Example',             link: '/docs/research/rule-significance-testing/usage'},
-                            {text: 'How It Works (Bootstrap)',  link: '/docs/research/rule-significance-testing/bootstrap'},
-                            {text: 'Interpreting Results',      link: '/docs/research/rule-significance-testing/interpreting-results'},
                         ]
                     },
                     {
@@ -221,7 +222,7 @@ export default defineConfig({
             {text: '🔗 Resources', link: 'https://github.com/jesse-ai/awesome-jesse/'},
             {text: '📺 Video Tutorials', link: 'https://jesse.trade/youtube'},
             {text: '🎯 Strategies', link: 'https://jesse.trade/strategies/'},
-            {text: '📚 FAQs', link: 'https://jesse.trade/help'},
+
             {text: '📜 Changelog', link: '/docs/changelog'},
             {text: '📈 Roadmap', link: 'https://jesse.trade/roadmap'}
         ],
@@ -230,7 +231,6 @@ export default defineConfig({
             {icon: 'github', link: 'https://github.com/jesse-ai/jesse'},
             {icon: 'discord', link: 'https://jesse.trade/discord'},
             {icon: 'youtube', link: 'https://jesse.trade/youtube'},
-            {icon: 'x', link: 'https://twitter.com/jesse_ai_com'},
         ]
     }
 })
