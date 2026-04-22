@@ -37,7 +37,7 @@ The p-value is **not** the probability that your rule works. It is the probabili
 - **Robust and simple.** The resampling procedure is transparent, easy to audit, and produces results that are straightforward to interpret.
 
 ::: tip
-Use at least **1000 simulations** for a stable p-value. The default of 200 is intentionally conservative for quick exploratory runs. Increase `n_simulations` and set a fixed `random_seed` before drawing final conclusions.
+Use at least **1000 simulations** for a stable p-value — the default. Increase `n_simulations` further for publication-quality results. Increase `n_simulations` and set a fixed `random_seed` before drawing final conclusions.
 :::
 
 ---

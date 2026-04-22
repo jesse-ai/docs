@@ -50,6 +50,9 @@ features:
     details: Jesse Offers specialized support for both futures and spot markets.
   - title: "🔐 Support for Decentralized Exchanges (DEX)"
     details: Jesse's support for DEX ensures you can maintain full custody of your assets while trading.
+  - title: "🔬 Rule Significance Testing"
+    details: Statistically validate your entry logic before backtesting. Uses bootstrap resampling to determine whether a rule's historical returns could have appeared by chance — giving you a principled, fast pre-backtest filter.
+    link: /docs/rule-significance-testing/
   - title: "🎲 Monte Carlo Analysis"
     details: Stress-test your strategies with trade-order shuffling and candles-based simulations to distinguish skill from luck and guard against overfitting.
   - title: "🧠 Machine Learning"

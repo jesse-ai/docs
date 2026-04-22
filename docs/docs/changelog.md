@@ -2,6 +2,14 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.0.0
+
+- **[NEW]** Added `rule_significance_test()` to the research API — a bootstrap-based statistical significance test (signal-only simulator) that evaluates whether a trading rule's mean return is statistically distinguishable from noise. Available via `from jesse.research import rule_significance_test`.
+- **[NEW]** Added `plot_significance_test()` to the research API — generates a histogram of the bootstrap sampling distribution with the observed mean annotated, saved as a PNG. Available via `from jesse.research import plot_significance_test`.
+- **[NEW]** Added Rule Significance Testing to the UI Dashboard.
+- **[NEW]** Added `matplotlib` as a required dependency.
+- **[IMPROVED]** Added a search box for exchanges in the live settings.
+
 ## 1.13.11 (9 April 2026)
 
 - **[FIX]** Fixed the `Exception: Error from server: Invalid nonce: duplicate nonce 1775606412374` error in the Hyperliquid.
