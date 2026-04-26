@@ -127,6 +127,14 @@ DYDX_PERPETUAL_STARK_PRIVATE_KEY=
 
 It is generally a good idea to stop the application before modifying your `.env` file and start it again after you've made the changes.
 
+## AI assistants (MCP)
+
+Jesse can expose an **MCP** connection so AI coding assistants (such as Cursor) can work with your project through Jesse in a controlled way. You need a **`PASSWORD`** in `.env` (already required for Jesse) so the assistant channel can authenticate like the dashboard does.
+
+Optional **`MCP_PORT`** (default **9002**) and **`MCP_LOG_IN_TERMINAL`** (verbose MCP logs in the Jesse terminal) are documented with defaults and a copy-pastable **`.env`** example on **[MCP server setup](/docs/jesse-mcp/setup#environment-variables-for-mcp)** so you do not need to hunt through this page for MCP-only values.
+
+For a plain-language overview of what MCP is and how it helps your Jesse workflow, see the Jesse MCP **[Introduction](/docs/jesse-mcp/)** page.
+
 ## Application Settings
 
 At the top-right corner of the dashboard, you'll see a gear icon. Click on it and you'll see a list of settings like this:

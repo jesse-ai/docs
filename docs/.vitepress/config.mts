@@ -207,6 +207,17 @@ export default defineConfig({
                     }
                 ]
             },
+            {
+                text: 'Jesse MCP',
+                collapsed: true,
+                items: [
+                    {text: 'Introduction', link: '/docs/jesse-mcp/'},
+                    {text: 'MCP server setup', link: '/docs/jesse-mcp/setup'},
+                    {text: 'Connect in Cursor', link: '/docs/jesse-mcp/connect-cursor'},
+                    {text: 'Connect in VS Code', link: '/docs/jesse-mcp/connect-vscode'},
+                    {text: 'Example workflow', link: '/docs/jesse-mcp/example-workflow'},
+                ]
+            },
             {text: '✨ JesseGPT', link: 'https://jesse.trade/gpt'},
             {text: '🔗 Resources', link: 'https://github.com/jesse-ai/awesome-jesse/'},
             {text: '📺 Video Tutorials', link: 'https://jesse.trade/youtube'},

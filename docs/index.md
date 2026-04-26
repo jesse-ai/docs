@@ -54,5 +54,7 @@ features:
     details: Stress-test your strategies with trade-order shuffling and candles-based simulations to distinguish skill from luck and guard against overfitting.
   - title: "🧠 Machine Learning"
     details: Built-in end-to-end ML pipeline — gather labelled training data from backtests, train scikit-learn models (binary, multiclass, or regression), and deploy predictions directly inside your strategies.
+  - title: "🔌 Jesse MCP"
+    details: Pair Jesse with an AI-friendly editor (Cursor, VS Code, or any tool that supports MCP) and your assistant can help with strategies, backtests, candle data, and settings using the same live context you see in Jesse—everything stays on your machine, and you choose when to turn the connection on.
 ---
 
