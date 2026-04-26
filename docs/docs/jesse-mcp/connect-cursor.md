@@ -16,6 +16,12 @@ If something fails, turn on **`MCP_LOG_IN_TERMINAL`** in `.env` while you debug�
 
 ---
 
+## Agent rules (optional but recommended)
+
+So Cursor does not need the same instructions pasted every time, add your project’s **`mcp-rules.md`** as a **project rule** (or global rule) as described in **[MCP agent rules (system prompt)](/docs/jesse-mcp/mcp-rules)**.
+
+---
+
 ## Official Cursor documentation
 
 Cursor’s own pages are the best place for up-to-date UI steps, screenshots, and troubleshooting (including MCP log panels):

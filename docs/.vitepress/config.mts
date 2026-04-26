@@ -213,6 +213,7 @@ export default defineConfig({
                 items: [
                     {text: 'Introduction', link: '/docs/jesse-mcp/'},
                     {text: 'MCP server setup', link: '/docs/jesse-mcp/setup'},
+                    {text: 'MCP agent rules (system prompt)', link: '/docs/jesse-mcp/mcp-rules'},
                     {text: 'Connect in Cursor', link: '/docs/jesse-mcp/connect-cursor'},
                     {text: 'Connect in VS Code', link: '/docs/jesse-mcp/connect-vscode'},
                     {text: 'Example workflow', link: '/docs/jesse-mcp/example-workflow'},

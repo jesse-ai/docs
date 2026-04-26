@@ -2,7 +2,7 @@
 
 Today’s coding assistants can do more than suggest text in the editor. When they are **connected to Jesse**, they can help you work with strategies, backtests, candle data, and settings in a structured way—without you jumping between the dashboard, files, and notes as often.
 
-This section explains what that connection is, how it helps, and why you might use it. **Turning it on**—environment variables, logs, connecting your assistant, and safety—is covered under **[MCP server setup](/docs/jesse-mcp/setup)**, with dedicated guides for **[Connect in Cursor](/docs/jesse-mcp/connect-cursor)** and **[Connect in VS Code](/docs/jesse-mcp/connect-vscode)**. For a **friendly, plain-language** idea of what to ask an assistant and two short examples, see **[Example workflow](/docs/jesse-mcp/example-workflow)**.
+This section explains what that connection is, how it helps, and why you might use it. **Turning it on**—environment variables, logs, connecting your assistant, and safety—is covered under **[MCP server setup](/docs/jesse-mcp/setup)**, with dedicated guides for **[Connect in Cursor](/docs/jesse-mcp/connect-cursor)** and **[Connect in VS Code](/docs/jesse-mcp/connect-vscode)**. The **[MCP agent rules (system prompt)](/docs/jesse-mcp/mcp-rules)** page describes the **`mcp-rules.md`** file in your project and how to load it into your editor so assistants follow Jesse’s MCP behavior on every request. For a **friendly, plain-language** idea of what to ask an assistant and two short examples, see **[Example workflow](/docs/jesse-mcp/example-workflow)**.
 
 ---
 

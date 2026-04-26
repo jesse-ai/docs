@@ -1,3 +1,7 @@
+---
+pageClass: jesse-mcp-example-workflow
+---
+
 # Example workflow
 
 You do **not** need to be a developer to get value from Jesse MCP. Think of it as **chatting with a helper that is allowed to press the same buttons you would in Jesse**—through a safe channel—instead of you clicking everything yourself.
@@ -14,9 +18,15 @@ You stay in the driver’s seat: if your editor asks you to approve a step, that
 
 ## Example — “Get my candles ready”
 
-You might say something like:
+Example message:
 
-> *“Import Binance Perpetual Futures candles for ETH-USDT on the 1h chart from 2023-01-01 through today, and tell me when it is done.”*
+```text
+@mcp-rules.md Import Binance Perpetual Futures candles for ETH-USDT on the 1h chart from 2023-01-01 through today, and tell me when it is done.
+```
+
+::: warning
+Give the assistant Jesse’s MCP **system rules** for this chat. Either attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the **same message** (as in the example), or **register** that file in your editor so it applies automatically—see **[MCP agent rules (system prompt)](/docs/jesse-mcp/mcp-rules)**. If you skip both, replies may not follow Jesse’s tool-only and workflow rules.
+:::
 
 The assistant works **with** Jesse’s import flow (the same idea as the Import Candles screen). When it finishes, your project has the history it needs for backtests on that symbol and timeframe. You can still watch progress in the **Jesse dashboard** and logs like you always do.
 
@@ -26,9 +36,15 @@ More detail on candles: **[Import Candles](/docs/import-candles)**.
 
 ## Example — “Try a strategy idea and show me what happened”
 
-You might say something like:
+Example message:
 
-> *“I trade DOGE on Binance Perpetual Futures. Sketch a simple long-only trend idea, test it over the last couple of years, try a few small improvements, and leave me a short write-up of what you tried.”*
+```text
+@mcp-rules.md I trade DOGE on Binance Perpetual Futures. Sketch a simple long-only trend idea, test it over the last couple of years, try a few small improvements, and leave me a short write-up of what you tried.
+```
+
+::: warning
+Give the assistant Jesse’s MCP **system rules** for this chat. Either attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the **same message** (as in the example), or **register** that file in your editor so it applies automatically—see **[MCP agent rules (system prompt)](/docs/jesse-mcp/mcp-rules)**. If you skip both, replies may not follow Jesse’s tool-only and workflow rules.
+:::
 
 You might end up with **strategy code** in your `strategies/` folder and a **short markdown write-up** next to it (for example under a `reports/` folder) so you can reread the story later—not only the chat tab.
 
@@ -83,4 +99,4 @@ The write-up might simply answer: what was the goal, what changed each try, whic
 
 ## Before you connect
 
-Hook up MCP first (**[MCP server setup](/docs/jesse-mcp/setup)**), then your editor (**[Connect in Cursor](/docs/jesse-mcp/connect-cursor)** or **[Connect in VS Code](/docs/jesse-mcp/connect-vscode)**). After that, describe what you want in everyday language and go step by step.
+Hook up MCP first (**[MCP server setup](/docs/jesse-mcp/setup)**), then your editor (**[Connect in Cursor](/docs/jesse-mcp/connect-cursor)** or **[Connect in VS Code](/docs/jesse-mcp/connect-vscode)**). Each example above is followed by a **warning** about loading **`mcp-rules.md`**; read those boxes before you copy a prompt.

@@ -1,6 +1,6 @@
 # MCP server setup
 
-For what MCP is and how it fits your workflow, read the **[Introduction](/docs/jesse-mcp/)** first. This page covers prerequisites, environment variables, logs, how to hook up your AI tool at a high level (with links to **[Connect in Cursor](/docs/jesse-mcp/connect-cursor)** and **[Connect in VS Code](/docs/jesse-mcp/connect-vscode)**), and safety.
+For what MCP is and how it fits your workflow, read the **[Introduction](/docs/jesse-mcp/)** first. This page covers prerequisites, environment variables, logs, how to hook up your AI tool at a high level (with links to **[Connect in Cursor](/docs/jesse-mcp/connect-cursor)** and **[Connect in VS Code](/docs/jesse-mcp/connect-vscode)**), and safety. After MCP is running, configure your assistant with **[MCP agent rules (system prompt)](/docs/jesse-mcp/mcp-rules)** so it follows your project’s **`mcp-rules.md`** automatically.
 
 ---
 
