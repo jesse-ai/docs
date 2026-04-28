@@ -8,7 +8,7 @@ Executing an optimization session is similar to how you execute a [backtest](../
 
 There are a few notes to be aware of when executing an optimization session:
 
-- Routes are limited to only "one trading route". You can define multiple extra routes, however. 
+- Routes are limited to only "one trading route". You can define multiple data routes, however. 
 - To prevent overfitting, the duration of the period should not be too short. For example, don't optimize a strategy for a 3 days period and then expect it to crush it in all market conditions!
 - The optimize mode works best with strategies that already show some promise. Its purpose is to fine-tune parameters, not turn a losing strategy into a winning one.
 
@@ -74,4 +74,4 @@ Once you find parameter combinations that perform well on both training and test
 - Copy the DNA string by clicking the "Copy" button next to the desired trial
 - View detailed parameter values by clicking the "Info" button
 
-See [Using Optimization Results](./dna-usage.md) for details on how to implement either approach in your strategy. 
+See [Using Optimization Results](./dna-usage.md) for details on how to implement either approach in your strategy.
