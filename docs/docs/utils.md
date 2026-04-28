@@ -306,7 +306,7 @@ size_to_qty(position_size, price, precision=3, fee_rate=0)
 
 ## streaks
 
-Returns the streaks of the series. A positive number stands for a positive streak and a negativ number for a negative streak. By default it uses the first discrete difference.
+Returns the streaks of the series. A positive number stands for a positive streak and a negative number for a negative streak. By default it uses the first discrete difference.
 
 ```py
 streaks(series: np.array, use_diff=True) -> np.array
