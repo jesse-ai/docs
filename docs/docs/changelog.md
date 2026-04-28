@@ -2,7 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.0.0
+## 2.0.0 (28 April 2026)
 
 - **[BREAKING CHANGE]** The `generate_charts` parameter of `backtest()` has changed behavior. Previously it returned chart data (candles, orders, etc.) as a dict in the result. It now runs the full image-rendering pipeline (equity curve, drawdown, underwater, monthly heatmap, monthly distribution, trade PnL), saves the PNG files to disk, and returns `charts_session_id` and `charts_folder` in the result dict instead. If you were reading `result['charts']`, that key no longer exists.
 - **[NEW]** Added `optimize()` to the research API — runs hyperparameter optimization from a Python script or Jupyter notebook without the dashboard. Uses Optuna and Ray in the same way as the dashboard's optimization mode, but with no session, database, or WebSocket dependencies. Supports the same four objective functions: Sharpe, Calmar, Sortino, and Omega. Available via `from jesse.research import optimize`. A companion `print_optimize_summary()` function is also available for pretty-printing the ranked results table.
