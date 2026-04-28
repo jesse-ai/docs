@@ -98,9 +98,20 @@ export default defineConfig({
                     {text: 'Configuration', link: '/docs/configuration'},
                     {text: 'Routes', link: '/docs/routes'},
                     {text: 'Import Candles', link: '/docs/import-candles'},
-                    {text: 'Backtest', link: '/docs/backtest'},
                     {text: 'Utility Functions', link: '/docs/utils'},
                     {text: 'Debugging', link: '/docs/debugging'},
+                ]
+            },
+            {
+                text: 'Backtest',
+                collapsed: true,
+                items: [
+                    {text: 'Introduction', link: '/docs/backtest/'},
+                    {text: 'Tabs', link: '/docs/backtest/tabs'},
+                    {text: 'Results', link: '/docs/backtest/results'},
+                    {text: 'Charts', link: '/docs/backtest/charts'},
+                    {text: 'Exports', link: '/docs/backtest/exports'},
+                    {text: '✨ Benchmark', link: '/docs/backtest/benchmark'},
                 ]
             },
             {
@@ -194,6 +205,7 @@ export default defineConfig({
                     {text: 'Indicators', link: '/docs/research/indicators'},
                     {text: 'Backtest', link: '/docs/research/backtest'},
                     {text: 'Monte Carlo', link: '/docs/research/monte_carlo'},
+                    {text: 'Optimization', link: '/docs/research/optimize'},
                     {
                         text: 'Rule Significance Testing',
                         collapsed: false,

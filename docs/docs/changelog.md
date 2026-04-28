@@ -4,11 +4,20 @@ Here you can see the changes made with each release of the main framework and th
 
 ## 2.0.0
 
+- **[BREAKING CHANGE]** The `generate_charts` parameter of `backtest()` has changed behavior. Previously it returned chart data (candles, orders, etc.) as a dict in the result. It now runs the full image-rendering pipeline (equity curve, drawdown, underwater, monthly heatmap, monthly distribution, trade PnL), saves the PNG files to disk, and returns `charts_session_id` and `charts_folder` in the result dict instead. If you were reading `result['charts']`, that key no longer exists.
+- **[NEW]** Added `optimize()` to the research API — runs hyperparameter optimization from a Python script or Jupyter notebook without the dashboard. Uses Optuna and Ray in the same way as the dashboard's optimization mode, but with no session, database, or WebSocket dependencies. Supports the same four objective functions: Sharpe, Calmar, Sortino, and Omega. Available via `from jesse.research import optimize`. A companion `print_optimize_summary()` function is also available for pretty-printing the ranked results table.
+- **[NEW]** `backtest()` now accepts three additional parameters: `benchmark` (bool), `candles_pipeline_class`, and `candles_pipeline_kwargs` — giving researchers more control over simulation behavior.
 - **[NEW]** Added `rule_significance_test()` to the research API — a bootstrap-based statistical significance test (signal-only simulator) that evaluates whether a trading rule's mean return is statistically distinguishable from noise. Available via `from jesse.research import rule_significance_test`.
 - **[NEW]** Added `plot_significance_test()` to the research API — generates a histogram of the bootstrap sampling distribution with the observed mean annotated, saved as a PNG. Available via `from jesse.research import plot_significance_test`.
 - **[NEW]** Added Rule Significance Testing to the UI Dashboard.
-- **[NEW]** Added `matplotlib` as a required dependency.
-- **[IMPROVED]** Added a search box for exchanges in the live settings.
+- **[NEW]** Added a copy button to the **Performance** table header in the backtest results sidebar. Clicking it copies all metrics to the clipboard in a clean, two-column aligned plain-text formats so results can be easily shared.
+- **[IMPROVEMENT]** Removed the "Objective Progress" chart from the optimization page in the dashboard. It wasn't adding real value.
+- **[NEW]** Added **Max Underwater Period** to the backtest performance metrics — shows the longest consecutive period the strategy spent below its previous equity peak.
+- **[NEW]** Added separate **Win Rate (Long)** and **Win Rate (Short)** metrics to the backtest performance metrics, in addition to the existing total win rate, giving a clearer breakdown of directional trade performance.
+- **[IMPROVEMENT]** Added a search box for exchanges in the live and backtest pages of the settings.
+- **[IMPROVEMENT]** You no longer need to have the live plugin installed in order to be recognized as a premium user. Simply adding the keys in your .env file of the project is enough.
+- **[IMPROVEMENT]** Improved some initial guides and messages for new users in the dashboard to ease the onboarding process.
+ 
 
 ## 1.13.11 (9 April 2026)
 

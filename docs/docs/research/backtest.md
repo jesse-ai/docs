@@ -14,36 +14,42 @@ Let's examine two example use cases:
 backtest(
     config: dict,
     routes: list,
-    extra_routes: list,
+    data_routes: list,
     candles: dict,
     warmup_candles: dict = None,
-    generate_charts: bool = False,
     generate_tradingview: bool = False,
     generate_hyperparameters: bool = False,
     generate_equity_curve: bool = False,
+    benchmark: bool = False,
     generate_csv: bool = False,
     generate_json: bool = False,
     generate_logs: bool = False,
     hyperparameters: dict = None,
-    fast_mode: bool = False
+    fast_mode: bool = False,
+    candles_pipeline_class = None,
+    candles_pipeline_kwargs: dict = None,
+    generate_charts: bool = False,
 )
 ```
 
 **Parameters:**
--  config: dict
--  routes: list
--  extra_routes: list
--  candles: dict
--  warmup_candles: dict = None
--  generate_charts: bool = False
--  generate_tradingview: bool = False
--  generate_hyperparameters: bool = False
--  generate_equity_curve: bool = False
--  generate_csv: bool = False
--  generate_json: bool = False
--  generate_logs: bool = False
--  hyperparameters: dict (optional)
--  fast_mode: bool = False
+- `config`: dict
+- `routes`: list
+- `data_routes`: list
+- `candles`: dict
+- `warmup_candles`: dict = None
+- `generate_tradingview`: bool = False
+- `generate_hyperparameters`: bool = False
+- `generate_equity_curve`: bool = False
+- `benchmark`: bool = False
+- `generate_csv`: bool = False
+- `generate_json`: bool = False
+- `generate_logs`: bool = False
+- `hyperparameters`: dict = None
+- `fast_mode`: bool = False
+- `candles_pipeline_class`: class = None
+- `candles_pipeline_kwargs`: dict = None
+- `generate_charts`: bool = False
 
 **Return Type:** dict
 
@@ -97,7 +103,7 @@ config = {
 routes = [
     {'exchange': exchange_name, 'strategy': ResearchStrategy, 'symbol': symbol, 'timeframe': timeframe}
 ]
-extra_routes = []
+data_routes = []
 candles = {
     jh.key(exchange_name, symbol): {
         'exchange': exchange_name,
@@ -110,14 +116,15 @@ candles = {
 result = backtest(
     config,
     routes,
-    extra_routes,
+    data_routes,
     candles,
-    generate_charts=True
+    generate_equity_curve=True,
+    generate_logs=True,
 )
 # access the metrics dict:
 result['metrics']
-# access the charts string (path of the generated file):
-result['charts']
+# access the equity curve list:
+result['equity_curve']
 # access the logs list:
 result['logs']
 ```
@@ -167,7 +174,6 @@ def execute_strategy(
         [],
         candles=trading_candles,
         warmup_candles=warmup_candles,
-        generate_charts=True,
         generate_equity_curve=True,
         generate_csv=True,
         generate_json=True,
@@ -180,7 +186,28 @@ def execute_strategy(
 ```
 
 ::: tip
-The `fast_mode` parameter is a new feature that speeds up the backtest process by orders of magnitude. It is disabled by default but will become the default behavior in the future. But for now, you can enable it by setting it to `True` to get the same behavior as the GUI dashboard.
+The `fast_mode` parameter speeds up the backtest process by orders of magnitude. It is disabled by default but will become the default behavior in the future. Enable it by setting `fast_mode=True` to get the same performance as the GUI dashboard.
 
-Just notice that for now it does not support backtests when you are trading multiple routes. It is a work in progress.
+Note that it does not yet support backtests when trading multiple routes simultaneously. That is a work in progress.
 :::
+
+## Generating chart images
+
+Setting `generate_charts=True` runs the full chart-rendering pipeline (equity curve, drawdown, underwater, monthly heatmap, monthly distribution, trade PnL) and saves the images to disk. The result dict will include two extra keys pointing to where the images were saved:
+
+```python
+result = backtest(
+    config,
+    routes,
+    data_routes,
+    candles=trading_candles,
+    warmup_candles=warmup_candles,
+    generate_charts=True,
+)
+
+# The unique session ID used to name the chart files
+print(result['charts_session_id'])
+
+# The folder on disk where the chart images were saved
+print(result['charts_folder'])
+```

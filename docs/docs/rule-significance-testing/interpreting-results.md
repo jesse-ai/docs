@@ -54,13 +54,30 @@ Treat this figure as a **directional signal, not a precise P&L forecast**. It is
 
 Calling `plot_significance_test(result)` saves a PNG histogram to your `charts/` folder. Here is what each visual element means:
 
-- **Blue histogram bars** — the distribution of simulated means under H₀. This shows what the rule's performance would look like if the entry signal had absolutely no predictive power and results were purely due to chance.
+- **Blue histogram bars** — the distribution of simulated means under H₀. This shows what the rule's performance would look like if the entry signal had absolutely no predictive power and results were purely due to chance. The bell-shaped curve centred near zero represents the full range of outcomes a random rule could have produced by luck alone.
 - **Red / tomato-shaded bars** — the portion of the simulated distribution that equals or exceeds the observed mean. This shaded area **is the p-value visualised**: a larger red region means a higher (less significant) p-value; a tiny red sliver at the far right means a very low, significant p-value.
-- **Dashed vertical line** — the observed mean from your actual strategy signals.
+- **Dashed vertical line** — the observed mean from your actual strategy signals. This marks where your rule's real performance lands on the null distribution.
 
 The further to the **right** the dashed line sits relative to the bulk of the blue histogram, the more significant the result. You want the dashed line deep in the right tail, with little to no red area to its right.
 
-An info box in the top-left corner of the chart also summarises the p-value, its significance label, the annualized return estimate, and the number of observations and simulations used.
+An info box in the top-left corner of the chart summarises the key numbers at a glance: the p-value and its significance label (★★ for very significant, etc.), the annualised return estimate, and the number of observations and simulations used.
+
+### Example chart — a very significant result
+
+![Significance Test Distribution Chart](/imgs/Significance-Test-Distribution-Chart.png)
+
+This chart is a strong example of what a **genuine signal looks like visually**:
+
+- The **blue histogram** forms a near-perfect bell curve tightly clustered around zero — exactly what you expect from random chance. Most simulated runs produced a mean bar-level log return somewhere between −4×10⁻⁵ and +3×10⁻⁵.
+- The **dashed red line** is pinned far into the right tail at an observed mean of `0.000031`. It sits well outside the bulk of the simulated distribution — the rule's actual performance is exceptional relative to what chance alone would produce.
+- The **tiny red sliver** to the right of the dashed line represents the fraction of simulations that equalled or beat the observed mean. Here that fraction is just `0.0045` (0.45%) — only 9 out of 2,000 bootstrap draws matched the real rule's performance, giving a p-value of 0.0045, rated ★★ *very significant* (p ≤ 0.01).
+- The **info box** in the top-left confirms: `p-value = 0.0045`, `Annualised return = 1.1495 %`, `Observations = 35,039 bars`, `Simulations = 2000`.
+
+The low annualised return estimate (~1.1%) may look modest, but remember this is a bar-level signal-only metric stripped of leverage and compounding — it indicates the entry signal itself is reliable and worth building a full strategy around.
+
+### What a non-significant chart looks like
+
+By contrast, when a rule has **no edge**, the dashed line falls near the centre of the blue histogram. The red shaded region covers a large proportion of the distribution — often 50–80% or more — meaning most random simulations performed just as well or better. There is no visual separation between the rule's observed mean and what pure chance would produce.
 
 ## n_observations
 
