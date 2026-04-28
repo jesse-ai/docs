@@ -1,6 +1,6 @@
 # Executing the optimize mode
 
-Executing an optimization session is similar to how you execute a [backtest](../backtest.md):
+Executing an optimization session is similar to how you execute a [backtest](../backtest/):
 
 ![optimize-mode](https://api1.jesse.trade/storage/images/docs/optimize-mode.jpg)
  
