@@ -11,7 +11,7 @@ Candles-based Monte Carlo tests how robust your strategy is by running backtests
 
 ## Running a candles-based Monte Carlo session
 
-Running a candles-based Monte Carlo session is similar to how you execute a [backtest](../backtest.md):
+Running a candles-based Monte Carlo session is similar to how you execute a [backtest](../backtest/):
 
 <!-- TODO: add screenshot of the candles-based Monte Carlo page in the dashboard -->
 

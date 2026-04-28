@@ -12,7 +12,7 @@ Trade-order shuffling tests whether the **timing** of your trades affects the ov
 
 ## Running a trade-order shuffling session
 
-Running a trade-order shuffling Monte Carlo session is similar to how you execute a [backtest](../backtest.md):
+Running a trade-order shuffling Monte Carlo session is similar to how you execute a [backtest](../backtest/):
 
 <!-- TODO: add screenshot of the trade-order shuffling Monte Carlo page in the dashboard -->
 
