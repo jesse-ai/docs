@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.0.1 (30 April 2026)
+
+- **[FIX]** Fixed a bug where the benchmark overlay was silently omitted from backtest chart images when the backtest period ended close to the current date. 
+
 ## 2.0.0 (28 April 2026)
 
 - **[BREAKING CHANGE]** The `generate_charts` parameter of `backtest()` has changed behavior. Previously it returned chart data (candles, orders, etc.) as a dict in the result. It now runs the full image-rendering pipeline (equity curve, drawdown, underwater, monthly heatmap, monthly distribution, trade PnL), saves the PNG files to disk, and returns `charts_session_id` and `charts_folder` in the result dict instead. If you were reading `result['charts']`, that key no longer exists.
