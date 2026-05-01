@@ -150,6 +150,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                     {text: 'Livetrade', link: '/docs/livetrade'},
+                    {text: 'VPS Setup', link: '/docs/vps-setup'},
                     {text: 'Security', link: '/docs/security'},
                     {text: 'Notifications', link: '/docs/notifications'},
                 ]
