@@ -8,8 +8,9 @@ Here you can see the changes made with each release of the main framework and th
 - **[NEW]** Added a "Purge" feature to the "Manage Candles" page. Users can now select one or more exchanges and delete all of their stored candles in one operation.
 - **[NEW]** Added three new backtest metrics: "Avg Trades / Day", "Avg Trades / Week", and "Avg Trades / Month". These are available in both the research module's returned metrics dict and the dashboard's Performance panel.
 - **[FIX]** Fixed a bug where the benchmark overlay was silently omitted from backtest chart images. The root cause was a `+24h` offset on the fetch finish date that always overshot the last candle stored in the database, raising `CandleNotFoundInDatabase` which was silently swallowed.
-- **[FIX]** Fixed the Monthly Returns Heatmap chart where negative months appeared yellow/green instead of red. The colour scale (`abs_max`) was computed from all 13 grid columns including the compounded yearly Total, which could be very large (e.g. 143%) and compress individual monthly values toward the yellow midpoint. The scale is now computed from the 12 monthly columns only.
+- **[FIX]** Fixed the Monthly Returns Heatmap chart where negative months appeared yellow/green instead of red. 
 - **[FIX]** Fixed a display bug in the dashboard where the "Missing Required Warmup Candles" error message showed double quotes around the symbol name (e.g. `""MELANIA-USDT""`). The symbol is now stripped of any surrounding quotes before being displayed or used in the import request.
+- **[NEW]** Added a "Fork" button to the strategy editor. You can now duplicate any strategy under a new name — the class name inside the code is automatically updated to match.
 
 ## 2.0.0 (28 April 2026)
 
