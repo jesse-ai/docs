@@ -2,15 +2,18 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.0.1 (30 April 2026)
+## 2.0.1 (2 May 2026)
 
+- **[NEW]** Added export and import support for notification drivers (Telegram, Discord, Slack) on the Notification API Keys page, matching the existing functionality on the Exchange API Keys page.
 - **[NEW]** Added an exchange type filter to the "Manage Candles" page in the dashboard. Users can now filter the candles table to show all exchanges, only those that support backtesting, or only those that support live trading (but not backtesting).
 - **[NEW]** Added a "Purge" feature to the "Manage Candles" page. Users can now select one or more exchanges and delete all of their stored candles in one operation.
+- **[NEW]** Added a "Fork" button to the strategy editor. You can now duplicate any strategy under a new name — the class name inside the code is automatically updated to match.
 - **[NEW]** Added three new backtest metrics: "Avg Trades / Day", "Avg Trades / Week", and "Avg Trades / Month". These are available in both the research module's returned metrics dict and the dashboard's Performance panel.
-- **[FIX]** Fixed a bug where the benchmark overlay was silently omitted from backtest chart images. The root cause was a `+24h` offset on the fetch finish date that always overshot the last candle stored in the database, raising `CandleNotFoundInDatabase` which was silently swallowed.
+- **[FIX]** Fixed a bug where the benchmark overlay was silently omitted from backtest chart images.
 - **[FIX]** Fixed the Monthly Returns Heatmap chart where negative months appeared yellow/green instead of red. 
 - **[FIX]** Fixed a display bug in the dashboard where the "Missing Required Warmup Candles" error message showed double quotes around the symbol name (e.g. `""MELANIA-USDT""`). The symbol is now stripped of any surrounding quotes before being displayed or used in the import request.
-- **[NEW]** Added a "Fork" button to the strategy editor. You can now duplicate any strategy under a new name — the class name inside the code is automatically updated to match.
+- **[FIX]** Fixed a bug where the sidebar's collapsed state was not remembered after a page refresh. It is now persisted in localStorage.
+- **[FIX]** Fixed live trading on Binance USDⓈ-M Futures (Perpetual) broken by Binance's API change. Also, fixed an issue on paper trading on the same exchange.
 
 ## 2.0.0 (28 April 2026)
 
