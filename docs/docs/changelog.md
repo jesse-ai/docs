@@ -2,6 +2,14 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.1.0 (8 May 2026)
+
+- **[BREAKING CHANGE]** The `trials` parameter of the `optimize()` research function now works the same way as the dashboard's optimization mode — it sets the number of trials **per hyperparameter** instead of the total number of trials.
+- **[IMPROVEMENT]** Added a minimize/expand toggle button to the Hyperparameters and Session Notes sections in the backtest results sidebar.
+- **[FIX]** Fixed an issue in live trading where candles on Hyperliquid could have incorrect or unaligned timestamps, causing chart display errors and duplicate data in the database.
+- **[FIX]** Fixed a bug in live trading where the PNL of a closed trade was reported as much larger than the actual balance change. This happened when an order was filled in multiple partial fills, causing the quantity to be over-counted.
+- **[FIX]** Fixed a WebSocket connectivity issue on Binance Testnet.
+
 ## 2.0.1 (2 May 2026)
 
 - **[NEW]** Added export and import support for notification drivers (Telegram, Discord, Slack) on the Notification API Keys page, matching the existing functionality on the Exchange API Keys page.

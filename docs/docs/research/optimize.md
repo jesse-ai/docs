@@ -27,7 +27,7 @@ result = optimize(
     optimal_total: int = 200,
     fast_mode: bool = True,
     cpu_cores: Optional[int] = None,
-    n_trials: Optional[int] = None,
+    trials: int = 200,
     objective_function: str = 'sharpe',
     best_candidates_count: int = 20,
     progress_bar: bool = True,
@@ -46,7 +46,7 @@ result = optimize(
 - **`optimal_total`** (int, default `200`): Target number of trades used in fitness normalisation. Trials with fewer than 5 trades score near zero; trials whose trade count approaches `optimal_total` receive full credit for the trade-count component. Set this to roughly the number of trades your strategy is expected to produce over the training period.
 - **`fast_mode`** (bool, default `True`): Enables the fast backtest engine. Keep this `True` for optimization — it is the same engine used by the dashboard and is orders of magnitude faster than the standard engine.
 - **`cpu_cores`** (int, optional): Number of parallel Ray workers to use. Defaults to 80% of available CPU cores on the machine.
-- **`n_trials`** (int, optional): Total number of Optuna trials to run. Defaults to `number_of_hyperparameters × 200`. For a strategy with 3 hyperparameters that is 600 trials; consider passing a smaller value (e.g. `100`) for a quick exploratory run.
+- **`trials`** (int, default `200`): Number of trials **per hyperparameter**. The actual total number of Optuna trials that will run is `trials × number_of_hyperparameters`. This matches the behaviour of the dashboard's optimization mode. For a strategy with 3 hyperparameters and the default of `200`, that is 600 trials total; lower this (e.g. `trials=40`) for a quick exploratory run.
 - **`objective_function`** (str, default `'sharpe'`): The metric each trial is optimised to maximise. Accepted values: `'sharpe'`, `'calmar'`, `'sortino'`, `'omega'`.
 - **`best_candidates_count`** (int, default `20`): How many top-scoring trials to keep and return in `result['best_trials']`.
 - **`progress_bar`** (bool, default `True`): Show a `tqdm` progress bar in the terminal while trials are running.
@@ -311,7 +311,7 @@ Running more trials increases the chance of finding a parameter set that happene
 
 ## Tips
 
-- **Start with fewer trials.** `n_trials` defaults to `num_hyperparameters × 200`. For 3 hyperparameters that is 600 trials, which can take a long time. Pass `n_trials=100` for a quick first pass to check that everything is wired up correctly, then run the full count overnight.
+- **Start with fewer trials.** `trials` defaults to `200` per hyperparameter. For a strategy with 3 hyperparameters that is 600 total trials, which can take a long time. Pass `trials=40` for a quick first pass to check that everything is wired up correctly, then run the full count overnight.
 
 - **Set `optimal_total` to match your strategy.** If your strategy typically produces 50 trades over a 3-year training period, pass `optimal_total=50`. Using the default of `200` when your strategy rarely trades will unfairly penalise otherwise good trials.
 
