@@ -2,6 +2,16 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.1.1 (9 May 2026)
+
+- **[NEW]** Added `self.base_asset` and `self.quote_asset` properties to the strategy class, returning the base and quote parts of the current trading symbol (e.g. `BTC` and `USDT` for `BTC-USDT`).
+- **[FIX]** Fixed a bug where running a backtest session with multiple strategies that each have a DNA value caused the wrong hyperparameters to be injected into all strategies after the first one.
+- **[FIX]** Fixed incorrect sorting in the backtest, optimization, and Monte Carlo history pages. Sessions were being sorted alphabetically by the formatted date string (e.g. "Nov" before "May") instead of by the actual timestamp.
+- **[FIX]** Fixed the "new version available" banner being displayed inside the sidebar instead of at the top of the page.
+- **[FIX]** Fixed a crash on startup in live trading on Apex when the exchange rejected the historical orders request due to an invalid time range.
+- **[FIX]** Fixed a bug in the import candles page where switching the exchange did not refresh the list of supported symbols.
+- **[FIX]** Fixed an issue where importing candles from Bitfinex Spot failed for certain symbols.
+
 ## 2.1.0 (8 May 2026)
 
 - **[BREAKING CHANGE]** The `trials` parameter of the `optimize()` research function now works the same way as the dashboard's optimization mode — it sets the number of trials **per hyperparameter** instead of the total number of trials.
