@@ -824,3 +824,15 @@ The running routes of the current session. This is helpful for strategies that n
 The running data routes of the current session. This is helpful for strategies that need to communicate with other routes such as pairs trading strategies.
 
 **Return Type**: List[Route]
+
+## base_asset
+
+Returns the base asset of the symbol your strategy is trading. For example, if the symbol is `BTC-USDT`, it returns `BTC`.
+
+**Return Type**: str
+
+## quote_asset
+
+Returns the quote asset of the symbol your strategy is trading. For example, if the symbol is `BTC-USDT`, it returns `USDT`.
+
+**Return Type**: str
