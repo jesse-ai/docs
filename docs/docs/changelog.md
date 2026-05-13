@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.1.2 (10 May 2026)
+
+- **[IMPROVEMENT]** Significantly reduced IPC overhead in optimization mode by placing shared candle data and config into Ray's shared object store once (instead of serializing it on every trial). This can result in a noticeable speedup for large datasets or sessions with many trials. Thanks to [@seoeaa](https://github.com/seoeaa) for the contribution.
+
 ## 2.1.1 (9 May 2026)
 
 - **[NEW]** Added `self.base_asset` and `self.quote_asset` properties to the strategy class, returning the base and quote parts of the current trading symbol (e.g. `BTC` and `USDT` for `BTC-USDT`).
