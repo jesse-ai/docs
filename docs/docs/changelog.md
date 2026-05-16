@@ -6,6 +6,7 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[NEW]** Added a download button for logs in live/paper trading sessions, matching the existing download button available in backtest sessions.
 - **[FIX]** Fixed a dashboard error that could happen when clicking the copy button on live-session exceptions or logs in browsers where the Clipboard API is unavailable.
+- **[FIX]** Fixed a Gate USDT Perpetual live-trading startup crash that could happen when reconciling active stop orders after a restart.
 
 ## 2.1.2 (10 May 2026)
 
