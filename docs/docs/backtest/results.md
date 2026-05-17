@@ -2,6 +2,10 @@
 
 After a backtest completes, Jesse displays a comprehensive metrics table summarising every dimension of your strategy's performance. This page explains what each metric means and how to interpret it.
 
+::: tip Video Tutorial
+Prefer video? Watch the [Backtest Results walkthrough](https://youtu.be/sICc5if47Uc) for a guided tour of every metric.
+:::
+
 ## Example Output
 
 | Metric                   | Value             |
