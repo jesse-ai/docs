@@ -232,7 +232,7 @@ export default defineConfig({
                 ]
             },
             {
-                text: 'Jesse MCP',
+                text: 'MCP',
                 collapsed: true,
                 items: [
                     {text: 'Introduction', link: '/docs/jesse-mcp/'},

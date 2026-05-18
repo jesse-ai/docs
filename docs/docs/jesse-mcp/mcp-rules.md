@@ -12,8 +12,6 @@ Treat that file as **system-level instructions** so the model does not improvise
 |----------|---------|
 | **`mcp-rules.md`** | Canonical rules text shipped with your Jesse project. Keep it in version control with the rest of the project. |
 
----
-
 ## Apply once: use it as system / project rules
 
 You want the client to **inject this text automatically** (not paste it into every message).

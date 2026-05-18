@@ -14,8 +14,6 @@ Instead of the assistant only “guessing” how Jesse works, it can **ask Jesse
 
 If you would like a deeper technical overview, see the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction).
 
----
-
 ## How it works (simple picture)
 
 1. You **start Jesse** the way you usually do for your project.
@@ -25,20 +23,11 @@ If you would like a deeper technical overview, see the [Model Context Protocol i
 
 Everything runs **locally** in your setup: your strategies, your data, and your dashboard password stay under your control.
 
----
-
 ## How Jesse MCP can boost your workflow
-
-People use Jesse MCP in different ways. Here are patterns that tend to help:
 
 - **Strategy work** — Describe what you want changed; the assistant can work through Jesse’s supported flows instead of you manually wiring every step.
 - **Backtests** — Ask for a run or a check on a session; you spend less time clicking through the same sequences.
 - **Data prep** — Bring historical data up to date and check coverage with guidance when you are in a hurry.
-- **Configuration** — Adjust routes or settings with the assistant reading the same picture Jesse uses, which reduces “why does my backtest not match what I thought?” moments.
 - **Learning while doing** — Built-in Jesse guides can be surfaced as context so explanations match the version you run.
 
 None of this replaces your judgment about markets, risk, or whether a strategy is fit to trade. It **reduces friction** around the Jesse workflow itself.
-
----
-
-**Next:** **[MCP server setup](/docs/jesse-mcp/setup)** — prerequisites, `.env` variables, MCP logs, overview of connecting your assistant, privacy, and troubleshooting. For Cursor or VS Code only, jump to **[Connect in Cursor](/docs/jesse-mcp/connect-cursor)** or **[Connect in VS Code](/docs/jesse-mcp/connect-vscode)**. After you are connected, **[Example workflow](/docs/jesse-mcp/example-workflow)** has simple examples you can copy the style of.

@@ -28,8 +28,6 @@ Microsoft maintains the canonical guide for MCP in VS Code:
 
 - **[Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)**
 
----
-
 ::: tip Same machine, same network story
 If VS Code runs on **Windows** and Jesse runs inside **WSL** (or the other way around), **localhost** can refer to different machines. If you see connection errors, check Microsoft’s docs and VS Code **remote** / **WSL** guidance, or run Jesse and VS Code in the same environment so they share one loopback network.
 :::

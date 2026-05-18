@@ -10,11 +10,13 @@ You do **not** need to be a developer to get value from Jesse MCP. Think of it a
 
 ## What your assistant can help with
 
-In plain language, a connected assistant can usually help you **pull in price history**, **run and read backtests**, **tweak or draft a strategy**, and **adjust Jesse settings** (like routes), always **through Jesse** rather than by hand-editing random files on your computer. Jesse also ships **little built-in guides** the assistant can read so its answers match how *your* version of Jesse works.
+In plain language, a connected assistant can usually help you **run and read backtests**, **run optimization sessions**, **fine-tune strategy parameters**, **run Monte Carlo analysis**, **spot overfitting risks**, **tweak or draft a strategy**, and **adjust Jesse settings** (like routes), always **through Jesse** rather than by hand-editing random files on your computer. The goal is to handle research work that would otherwise take hours of manual testing and comparison.
 
 You stay in the driver’s seat: if your editor asks you to approve a step, that is normal. If something is not possible through Jesse, the assistant should say so instead of guessing.
 
----
+::: warning
+Attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the same message, or register it in your editor so it applies automatically.
+:::
 
 ## Example — “Get my candles ready”
 
@@ -31,8 +33,6 @@ Give the assistant Jesse’s MCP **system rules** for this chat. Either attach y
 The assistant works **with** Jesse’s import flow (the same idea as the Import Candles screen). When it finishes, your project has the history it needs for backtests on that symbol and timeframe. You can still watch progress in the **Jesse dashboard** and logs like you always do.
 
 More detail on candles: **[Import Candles](/docs/import-candles)**.
-
----
 
 ## Example — “Try a strategy idea and show me what happened”
 

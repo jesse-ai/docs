@@ -12,8 +12,6 @@ For what MCP is and how it fits your workflow, read the **[Introduction](/docs/j
 
 When MCP starts successfully, your terminal usually prints a clear line that includes the **address** you should give to your AI tool.
 
----
-
 ## Environment variables for MCP
 
 Add these to your project **`.env`** file (alongside your other Jesse settings). **Restart Jesse** after you change them so the MCP process picks up new values.
@@ -36,8 +34,6 @@ PASSWORD=your-secure-password
 ```
 
 With default settings, the URL you give your assistant is **`http://localhost:9002/mcp`**. If you set **`MCP_PORT`**, use that port in the URL instead.
-
----
 
 ## Showing MCP logs in the terminal
 
@@ -64,15 +60,11 @@ Exact menus change as products update, but the Jesse side is always: start Jesse
 If your assistant runs on **Windows** and Jesse runs inside **WSL** (or the other way around), “localhost” can mean different things on each side. If connection errors appear, use the WSL tips on the Cursor or VS Code page above, or run Jesse and the assistant in the same environment so they share one loopback network.
 :::
 
----
-
 ## Privacy and safety
 
 - MCP connects **your assistant** to **your Jesse instance**. It is not a public Jesse cloud.
 - Treat MCP like any powerful integration: use **strong passwords**, keep your project **private**, and only enable assistants and plugins you **trust**.
 - Review what your AI tool is about to do when it asks for approval—especially for actions that change strategies or data.
-
----
 
 ## Troubleshooting
 
