@@ -20,7 +20,7 @@ You want the client to **inject this text automatically** (not paste it into eve
 
 1. **Project rules (recommended)**  
    - Create **`.cursor/rules/`** at the repository root if needed.  
-   - Add a rule file, for example **`jesse-mcp.mdc`**.  
+   - Add a rule file, for example **`mcp.mdc`**.  
    - At the top of the file, use YAML front matter so the rule applies without `@`-mentioning it each time:
 
 ```mdc

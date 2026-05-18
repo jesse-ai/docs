@@ -1,5 +1,5 @@
 ---
-pageClass: jesse-mcp-example-workflow
+pageClass: mcp-example-workflow
 ---
 
 # Example workflow
@@ -27,7 +27,7 @@ Example message:
 ```
 
 ::: warning
-Give the assistant Jesse’s MCP **system rules** for this chat. Either attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the **same message** (as in the example), or **register** that file in your editor so it applies automatically—see **[MCP agent rules (system prompt)](/docs/jesse-mcp/mcp-rules)**. If you skip both, replies may not follow Jesse’s tool-only and workflow rules.
+Give the assistant Jesse’s MCP **system rules** for this chat. Either attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the **same message** (as in the example), or **register** that file in your editor so it applies automatically—see **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)**. If you skip both, replies may not follow Jesse’s tool-only and workflow rules.
 :::
 
 The assistant works **with** Jesse’s import flow (the same idea as the Import Candles screen). When it finishes, your project has the history it needs for backtests on that symbol and timeframe. You can still watch progress in the **Jesse dashboard** and logs like you always do.
@@ -43,7 +43,7 @@ Example message:
 ```
 
 ::: warning
-Give the assistant Jesse’s MCP **system rules** for this chat. Either attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the **same message** (as in the example), or **register** that file in your editor so it applies automatically—see **[MCP agent rules (system prompt)](/docs/jesse-mcp/mcp-rules)**. If you skip both, replies may not follow Jesse’s tool-only and workflow rules.
+Give the assistant Jesse’s MCP **system rules** for this chat. Either attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the **same message** (as in the example), or **register** that file in your editor so it applies automatically—see **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)**. If you skip both, replies may not follow Jesse’s tool-only and workflow rules.
 :::
 
 You might end up with **strategy code** in your `strategies/` folder and a **short markdown write-up** next to it (for example under a `reports/` folder) so you can reread the story later—not only the chat tab.
@@ -99,4 +99,4 @@ The write-up might simply answer: what was the goal, what changed each try, whic
 
 ## Before you connect
 
-Hook up MCP first (**[MCP server setup](/docs/jesse-mcp/setup)**), then your editor (**[Connect in Cursor](/docs/jesse-mcp/connect-cursor)** or **[Connect in VS Code](/docs/jesse-mcp/connect-vscode)**). Each example above is followed by a **warning** about loading **`mcp-rules.md`**; read those boxes before you copy a prompt.
+Hook up MCP first (**[MCP server setup](/docs/mcp/setup)**), then your editor (**[Connect in Cursor](/docs/mcp/connect-cursor)** or **[Connect in VS Code](/docs/mcp/connect-vscode)**). Each example above is followed by a **warning** about loading **`mcp-rules.md`**; read those boxes before you copy a prompt.

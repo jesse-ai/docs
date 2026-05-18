@@ -235,12 +235,12 @@ export default defineConfig({
                 text: 'MCP',
                 collapsed: true,
                 items: [
-                    {text: 'Introduction', link: '/docs/jesse-mcp/'},
-                    {text: 'MCP server setup', link: '/docs/jesse-mcp/setup'},
-                    {text: 'MCP agent rules (system prompt)', link: '/docs/jesse-mcp/mcp-rules'},
-                    {text: 'Connect in Cursor', link: '/docs/jesse-mcp/connect-cursor'},
-                    {text: 'Connect in VS Code', link: '/docs/jesse-mcp/connect-vscode'},
-                    {text: 'Example workflow', link: '/docs/jesse-mcp/example-workflow'},
+                    {text: 'Introduction', link: '/docs/mcp/'},
+                    {text: 'MCP server setup', link: '/docs/mcp/setup'},
+                    {text: 'MCP agent rules (system prompt)', link: '/docs/mcp/mcp-rules'},
+                    {text: 'Connect in Cursor', link: '/docs/mcp/connect-cursor'},
+                    {text: 'Connect in VS Code', link: '/docs/mcp/connect-vscode'},
+                    {text: 'Example workflow', link: '/docs/mcp/example-workflow'},
                 ]
             },
             {text: '✨ JesseGPT', link: 'https://jesse.trade/gpt'},
