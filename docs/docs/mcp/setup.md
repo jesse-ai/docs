@@ -5,7 +5,6 @@ For what MCP is and how it fits your workflow, read the **[Introduction](/docs/m
 ## Before you start
 
 - **Jesse must be running** in your project so the dashboard and API are alive. MCP is an add-on to that, not a separate cloud service.
-- Your project **`.env` file needs a `PASSWORD`** (the same admin password Jesse already uses). Without it, the MCP side will not start.
 - By default the MCP service uses a dedicated **port** (commonly **9002** unless you change it). If something else on your machine already uses that port, set a different one in `.env`—see **[Environment variables for MCP](#environment-variables-for-mcp)** below for the variable name, default, and a copy-pastable example.
 
 When MCP starts successfully, your terminal usually prints a clear line that includes the **address** you should give to your AI tool.
@@ -16,16 +15,12 @@ Add these to your project **`.env`** file (alongside your other Jesse settings).
 
 | Variable | Required for MCP? | Default | What it does |
 | --- | --- | --- | --- |
-| **`PASSWORD`** | Yes | — | Same admin password Jesse uses for the dashboard and API. The MCP channel authenticates with this value; without it, MCP will not start. |
 | **`MCP_PORT`** | No | **`9002`** | TCP port for the local MCP HTTP server. Set a different port if something else on your machine already uses **9002**. |
 | **`MCP_LOG_IN_TERMINAL`** | No | off (`false`) | Set to **`true`** so detailed MCP log lines appear in the same terminal where you started Jesse (helpful while connecting or debugging an assistant). Use **`false`** or leave unset for a quieter terminal. |
 
 Example **`.env`** fragment (use your real dashboard password; uncomment optional lines only when you need them):
 
 ```sh
-# Required for Jesse and MCP
-PASSWORD=your-secure-password
-
 # Optional — omit both to use defaults (port 9002, quiet MCP logs)
 # MCP_PORT=9002
 # MCP_LOG_IN_TERMINAL=true
@@ -59,7 +54,7 @@ If your assistant runs on **Windows** and Jesse runs inside **WSL** (or the othe
 ## Privacy and safety
 
 - MCP connects **your assistant** to **your Jesse instance**. It is not a public Jesse cloud.
-- Treat MCP like any powerful integration: use **strong passwords**, keep your project **private**, and only enable assistants and plugins you **trust**.
+- Treat MCP like any powerful integration: keep your project **private**, and only enable assistants and plugins you **trust**.
 - Review what your AI tool is about to do when it asks for approval—especially for actions that change strategies or data.
 
 ## Troubleshooting

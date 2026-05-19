@@ -19,7 +19,7 @@ If you would like a deeper technical overview, see the [Model Context Protocol i
 3. Your **AI tool** is pointed at that address so it knows where to talk to Jesse.
 4. When you chat with the assistant, it can use **actions** exposed by Jesse (run a backtest, read a strategy, work with candle data, and similar tasks) and can pull in **short guides** Jesse ships for context—so answers line up with how Jesse actually behaves.
 
-Everything runs **locally** in your setup: your strategies, your data, and your dashboard password stay under your control.
+Everything runs **locally** in your setup: your strategies and your data under your control.
 
 ## How Jesse MCP can boost your workflow
 
