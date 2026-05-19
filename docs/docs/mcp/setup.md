@@ -38,6 +38,39 @@ In your **`.env`** file, set **`MCP_LOG_IN_TERMINAL`** to **`true`** as describe
 
 Exact menus change as products update, but the Jesse side is always: start Jesse, confirm the terminal shows an MCP URL ending in **`/mcp`**, then register that URL in your editor or assistant under its MCP / tools settings.
 
+When Jesse starts successfully, your terminal will look like this:
+
+```
+     ██╗███████╗███████╗███████╗███████╗
+     ██║██╔════╝██╔════╝██╔════╝██╔════╝
+     ██║█████╗  ███████╗███████╗█████╗
+██   ██║██╔══╝  ╚════██║╚════██║██╔══╝
+╚█████╔╝███████╗███████║███████║███████╗
+ ╚════╝ ╚══════╝╚══════╝╚══════╝╚══════╝
+
+
+  Jesse v1.13.8  ·  Live Plugin v2.1.2
+
+Checking for new database migrations...
+
+Starting Python Language Server...
+LSP WS started at ws://localhost:9002/lsp
+
+┌───────────────────────────────────────────────────────┐
+│  ⬡ Dashboard is available at http://localhost:9001  │
+└───────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────┐
+│  ✓ MCP Server is running at http://localhost:9002/mcp  │
+└─────────────────────────────────────────────────────────┘
+
+INFO:     Started server process [89370]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+```
+
+The MCP URL to use is the one printed in the second box — `http://localhost:9002/mcp` by default.
+
 1. Open your tool’s **settings** (or MCP server list) and find where **MCP servers** are configured.
 2. **Add a server** using the address Jesse printed (same machine as Jesse unless you deliberately use another host).
 3. Save, then **restart** the tool if it does not pick up the new server right away.
