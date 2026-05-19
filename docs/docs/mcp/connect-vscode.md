@@ -4,8 +4,6 @@ Make sure Jesse is running and your **`.env`** is set up so the MCP server start
 
 These steps assume you use **VS Code** with **GitHub Copilot** features that support MCP (product names and menus change over time).
 
----
-
 ## Register Jesse in VS Code
 
 1. Open VS Code **Settings** or the Copilot / MCP configuration area where **MCP servers** are listed (wording varies by version).
@@ -14,13 +12,9 @@ These steps assume you use **VS Code** with **GitHub Copilot** features that sup
 
 If something fails, turn on **`MCP_LOG_IN_TERMINAL`** in `.env` while you debug—see [Environment variables for MCP](/docs/mcp/setup#environment-variables-for-mcp).
 
----
-
 ## Agent rules (optional but recommended)
 
 To give Copilot the same system-level behavior without pasting each time, follow **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)** (for example **`.github/copilot-instructions.md`** with the contents of your project’s **`mcp-rules.md`**).
-
----
 
 ## Official Microsoft documentation
 

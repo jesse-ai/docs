@@ -4,8 +4,6 @@ Jesse ships a **single canonical prompt** for AI assistants that use the Jesse M
 
 Treat that file as **system-level instructions** so the model does not improvise file edits or shell actions outside MCP, and so behavior stays aligned with Jesse’s tools and resources.
 
----
-
 ## Where the file lives
 
 | What to look for | Purpose |

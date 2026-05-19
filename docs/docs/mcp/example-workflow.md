@@ -6,8 +6,6 @@ pageClass: mcp-example-workflow
 
 You do **not** need to be a developer to get value from Jesse MCP. Think of it as **chatting with a helper that is allowed to press the same buttons you would in Jesse**—through a safe channel—instead of you clicking everything yourself.
 
----
-
 ## What your assistant can help with
 
 In plain language, a connected assistant can usually help you **run and read backtests**, **run optimization sessions**, **fine-tune strategy parameters**, **run Monte Carlo analysis**, **spot overfitting risks**, **tweak or draft a strategy**, and **adjust Jesse settings** (like routes), always **through Jesse** rather than by hand-editing random files on your computer. The goal is to handle research work that would otherwise take hours of manual testing and comparison.
@@ -94,8 +92,6 @@ class DOGEUSDTSharpeHunter2026(Strategy):
 ```
 
 The write-up might simply answer: what was the goal, what changed each try, which version looked best, and what you could try next—even when the “perfect” result never shows up. **That is still useful.**
-
----
 
 ## Before you connect
 

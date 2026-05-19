@@ -2,8 +2,6 @@
 
 For what MCP is and how it fits your workflow, read the **[Introduction](/docs/mcp/)** first. This page covers prerequisites, environment variables, logs, how to hook up your AI tool at a high level (with links to **[Connect in Cursor](/docs/mcp/connect-cursor)** and **[Connect in VS Code](/docs/mcp/connect-vscode)**), and safety. After MCP is running, configure your assistant with **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)** so it follows your project’s **`mcp-rules.md`** automatically.
 
----
-
 ## Before you start
 
 - **Jesse must be running** in your project so the dashboard and API are alive. MCP is an add-on to that, not a separate cloud service.
@@ -40,8 +38,6 @@ With default settings, the URL you give your assistant is **`http://localhost:90
 By default, detailed MCP logs may be kept quiet so your Jesse terminal stays easy to read. If you are **setting up or troubleshooting** a connection to Cursor or another client, you can turn on MCP log output in the same terminal where Jesse runs.
 
 In your **`.env`** file, set **`MCP_LOG_IN_TERMINAL`** to **`true`** as described in [Environment variables for MCP](#environment-variables-for-mcp). Restart Jesse after you change it. Turn it off again when you no longer need the extra noise.
-
----
 
 ## Connecting an assistant
 

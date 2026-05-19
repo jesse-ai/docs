@@ -4,8 +4,6 @@ Today’s coding assistants can do more than suggest text in the editor. When th
 
 This section explains what that connection is, how it helps, and why you might use it. **Turning it on**—environment variables, logs, connecting your assistant, and safety—is covered under **[MCP server setup](/docs/mcp/setup)**, with dedicated guides for **[Connect in Cursor](/docs/mcp/connect-cursor)** and **[Connect in VS Code](/docs/mcp/connect-vscode)**. The **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)** page describes the **`mcp-rules.md`** file in your project and how to load it into your editor so assistants follow Jesse’s MCP behavior on every request. For a **friendly, plain-language** idea of what to ask an assistant and two short examples, see **[Example workflow](/docs/mcp/example-workflow)**.
 
----
-
 ## What is MCP?
 
 **MCP** stands for *Model Context Protocol*. Think of it as a **shared language** between your AI assistant (for example in Cursor, VS Code, or other tools that support MCP) and **applications you trust**, such as Jesse.
