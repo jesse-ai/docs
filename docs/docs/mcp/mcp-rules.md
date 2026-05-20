@@ -1,25 +1,24 @@
-# MCP agent rules (system prompt)
+# MCP agent rules
 
 Jesse ships a **single canonical prompt** for AI assistants that use the Jesse MCP server: the **`mcp-rules.md`** file inside your project. It defines role, tool-only actions, which `jesse://` resources to prefer, code standards, mandatory optimization reports, candle import reconnect rules, and backtest defaults.
 
-Treat that file as **system-level instructions** so the model does not improvise file edits or shell actions outside MCP, and so behavior stays aligned with Jesse’s tools and resources.
+Use that file as your agent instructions so the model does not improvise file edits or shell actions outside MCP, and so behavior stays aligned with Jesse’s tools and resources.
 
-## Where the file lives
+## Recommended setup
 
-| What to look for | Purpose |
-|----------|---------|
-| **`mcp-rules.md`** | Canonical rules text shipped with your Jesse project. Keep it in version control with the rest of the project. |
+After MCP is installed, rename **`mcp-rules.md`** to **`AGENTS.md`** at the root of your Jesse project.
 
-## Apply once: use it as system / project rules
+**`AGENTS.md`** is the standard project-instructions file that coding agents can pick up automatically. Keep it in version control with the rest of your project.
 
-You want the client to **inject this text automatically** (not paste it into every message).
+If your assistant does not read **`AGENTS.md`**, copy the same contents into that tool’s own project-instructions file.
 
 ### Cursor
 
-1. **Project rules (recommended)**  
-   - Create **`.cursor/rules/`** at the repository root if needed.  
-   - Add a rule file, for example **`mcp.mdc`**.  
-   - At the top of the file, use YAML front matter so the rule applies without `@`-mentioning it each time:
+Cursor can read project instructions from **`AGENTS.md`**. If your Cursor version or workspace setup does not pick it up, use a Cursor project rule:
+
+1. Create **`.cursor/rules/`** at the repository root if needed.
+2. Add a rule file, for example **`mcp.mdc`**.
+3. At the top of the file, use YAML front matter so the rule applies automatically:
 
 ```mdc
 ---
@@ -28,24 +27,18 @@ alwaysApply: true
 ---
 ```
 
-   - **Below the `---`**, paste the **entire** contents of your project’s **`mcp-rules.md`**.
+4. Below the `---`, paste the entire contents of **`AGENTS.md`**.
 
-2. **Per-thread context (optional)**  
-   You can use Cursor’s **@** menu to attach **`mcp-rules.md`** from your project when you do not use `alwaysApply`, but you must do that each time—project rules avoid that.
-
-3. **User-wide rules**  
-   Cursor also supports **global** rules under **Settings → Rules**. Use that only if you want the same behavior in every workspace on this machine; prefer **project** rules so teammates get the same file from git.
+Cursor also supports **global** rules under **Settings → Rules**. Use that only if you want the same behavior in every workspace on this machine; prefer project-level instructions so teammates get the same file from git.
 
 Cursor’s UI and field names change between releases; see **[Cursor — Rules](https://cursor.com/docs/context/rules)** for the latest steps.
 
 ### VS Code (GitHub Copilot + MCP)
 
-1. Add **`.github/copilot-instructions.md`** at the repo root (workspace-scoped instructions for Copilot).  
-2. Paste the full contents of your project’s **`mcp-rules.md`** into that file (or add a **“Jesse MCP”** section and paste under it).  
-3. Reload the window or start a new chat so Copilot picks up changes.
+If your Copilot setup does not read **`AGENTS.md`**, add **`.github/copilot-instructions.md`** at the repo root and paste the same contents there. Reload the window or start a new chat so Copilot picks up changes.
 
 See Microsoft’s guide: **[Customize Copilot in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization)** (look for *instructions* / *custom instructions* for your version).
 
 ### Other MCP clients
 
-Use whatever your client calls **system prompt**, **project instructions**, or **saved persona**: paste the same text from your project’s **`mcp-rules.md`**. Keeping a copy in the repo (or generating your client config from it) avoids drift.
+Use **`AGENTS.md`** when your client supports it. Otherwise, use whatever your client calls **system prompt**, **project instructions**, or **saved persona**, and paste the same text there.

@@ -14,11 +14,8 @@ If something fails, turn on **`MCP_LOG_IN_TERMINAL`** in `.env` while you debugâ
 
 ## Agent rules (optional but recommended)
 
-To give Copilot the same system-level behavior without pasting each time, follow **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)** (for example **`.github/copilot-instructions.md`** with the contents of your projectâ€™s **`mcp-rules.md`**).
+To give Copilot the same behavior without pasting instructions each time, follow **[MCP agent rules](/docs/mcp/mcp-rules)**. Use **`AGENTS.md`** when supported, or copy the same contents into **`.github/copilot-instructions.md`**.
 
-## Official Microsoft documentation
-
-Microsoft maintains the canonical guide for MCP in VS Code:
 
 - **[Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)**
 

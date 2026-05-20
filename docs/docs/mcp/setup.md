@@ -1,6 +1,6 @@
 # MCP server setup
 
-For what MCP is and how it fits your workflow, read the **[Introduction](/docs/mcp/)** first. This page covers prerequisites, environment variables, logs, how to hook up your AI tool at a high level (with links to **[Connect in Cursor](/docs/mcp/connect-cursor)** and **[Connect in VS Code](/docs/mcp/connect-vscode)**), and safety. After MCP is running, configure your assistant with **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)** so it follows your project’s **`mcp-rules.md`** automatically.
+For what MCP is and how it fits your workflow, read the **[Introduction](/docs/mcp/)** first. This page covers prerequisites, environment variables, logs, how to hook up your AI tool at a high level (with links to **[Connect in Codex](/docs/mcp/connect-codex)**, **[Connect in Cursor](/docs/mcp/connect-cursor)**, **[Connect in VS Code](/docs/mcp/connect-vscode)**, and **[Connect in Zed](/docs/mcp/connect-zed)**), and safety. After MCP is running, configure your assistant with **[MCP agent rules](/docs/mcp/mcp-rules)** so it follows Jesse’s MCP workflow automatically.
 
 ## Before you start
 
@@ -16,23 +16,21 @@ Add these to your project **`.env`** file (alongside your other Jesse settings).
 | Variable | Required for MCP? | Default | What it does |
 | --- | --- | --- | --- |
 | **`MCP_PORT`** | No | **`9002`** | TCP port for the local MCP HTTP server. Set a different port if something else on your machine already uses **9002**. |
-| **`MCP_LOG_IN_TERMINAL`** | No | off (`false`) | Set to **`true`** so detailed MCP log lines appear in the same terminal where you started Jesse (helpful while connecting or debugging an assistant). Use **`false`** or leave unset for a quieter terminal. |
+| **`MCP_LOG_IN_TERMINAL`** | No | on (`true`) | Detailed MCP log lines appear in the same terminal where you started Jesse. Set to **`false`** if you want a quieter terminal. |
 
 Example **`.env`** fragment (use your real dashboard password; uncomment optional lines only when you need them):
 
 ```sh
-# Optional — omit both to use defaults (port 9002, quiet MCP logs)
+# Optional — omit both to use defaults (port 9002, MCP logs enabled)
 # MCP_PORT=9002
 # MCP_LOG_IN_TERMINAL=true
 ```
 
 With default settings, the URL you give your assistant is **`http://localhost:9002/mcp`**. If you set **`MCP_PORT`**, use that port in the URL instead.
 
-## Showing MCP logs in the terminal
+## Hiding MCP logs in the terminal
 
-By default, detailed MCP logs may be kept quiet so your Jesse terminal stays easy to read. If you are **setting up or troubleshooting** a connection to Cursor or another client, you can turn on MCP log output in the same terminal where Jesse runs.
-
-In your **`.env`** file, set **`MCP_LOG_IN_TERMINAL`** to **`true`** as described in [Environment variables for MCP](#environment-variables-for-mcp). Restart Jesse after you change it. Turn it off again when you no longer need the extra noise.
+By default, detailed MCP logs are shown in your Jesse terminal. If you prefer a quieter terminal once your connection is stable, set **`MCP_LOG_IN_TERMINAL`** to **`false`** in your **`.env`** file and restart Jesse.
 
 ## Connecting an assistant
 
@@ -77,18 +75,14 @@ The MCP URL to use is the one printed in the second box — `http://localhost:90
 
 **Step-by-step for common tools:**
 
+- **[Connect in Codex](/docs/mcp/connect-codex)** — Codex custom MCP settings, Streamable HTTP, testing the connection.
 - **[Connect in Cursor](/docs/mcp/connect-cursor)** — Cursor settings, official docs, WSL note.
 - **[Connect in VS Code](/docs/mcp/connect-vscode)** — GitHub Copilot MCP, Microsoft’s VS Code guide, WSL note.
+- **[Connect in Zed](/docs/mcp/connect-zed)** — Zed custom MCP server, Remote setup, local fallback.
 
 ::: tip Same machine, same network story
 If your assistant runs on **Windows** and Jesse runs inside **WSL** (or the other way around), “localhost” can mean different things on each side. If connection errors appear, use the WSL tips on the Cursor or VS Code page above, or run Jesse and the assistant in the same environment so they share one loopback network.
 :::
-
-## Privacy and safety
-
-- MCP connects **your assistant** to **your Jesse instance**. It is not a public Jesse cloud.
-- Treat MCP like any powerful integration: keep your project **private**, and only enable assistants and plugins you **trust**.
-- Review what your AI tool is about to do when it asks for approval—especially for actions that change strategies or data.
 
 ## Troubleshooting
 

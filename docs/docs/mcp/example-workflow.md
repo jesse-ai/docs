@@ -13,7 +13,7 @@ In plain language, a connected assistant can usually help you **run and read bac
 You stay in the driver’s seat: if your editor asks you to approve a step, that is normal. If something is not possible through Jesse, the assistant should say so instead of guessing.
 
 ::: warning
-Attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the same message, or register it in your editor so it applies automatically.
+Before using these examples, rename **`mcp-rules.md`** to **`AGENTS.md`** at your project root so your assistant can load Jesse’s MCP rules automatically.
 :::
 
 ## Example — “Get my candles ready”
@@ -21,12 +21,8 @@ Attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the same 
 Example message:
 
 ```text
-@mcp-rules.md Import Binance Perpetual Futures candles for ETH-USDT on the 1h chart from 2023-01-01 through today, and tell me when it is done.
+Import Binance Perpetual Futures candles for ETH-USDT on the 1h chart from 2023-01-01 through today, and tell me when it is done.
 ```
-
-::: warning
-Give the assistant Jesse’s MCP **system rules** for this chat. Either attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the **same message** (as in the example), or **register** that file in your editor so it applies automatically—see **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)**. If you skip both, replies may not follow Jesse’s tool-only and workflow rules.
-:::
 
 The assistant works **with** Jesse’s import flow (the same idea as the Import Candles screen). When it finishes, your project has the history it needs for backtests on that symbol and timeframe. You can still watch progress in the **Jesse dashboard** and logs like you always do.
 
@@ -37,12 +33,8 @@ More detail on candles: **[Import Candles](/docs/import-candles)**.
 Example message:
 
 ```text
-@mcp-rules.md I trade DOGE on Binance Perpetual Futures. Sketch a simple long-only trend idea, test it over the last couple of years, try a few small improvements, and leave me a short write-up of what you tried.
+I trade DOGE on Binance Perpetual Futures. Sketch a simple long-only trend idea, test it over the last couple of years, try a few small improvements, and leave me a short write-up of what you tried.
 ```
-
-::: warning
-Give the assistant Jesse’s MCP **system rules** for this chat. Either attach your project’s **`mcp-rules.md`** with **`@mcp-rules.md`** in the **same message** (as in the example), or **register** that file in your editor so it applies automatically—see **[MCP agent rules (system prompt)](/docs/mcp/mcp-rules)**. If you skip both, replies may not follow Jesse’s tool-only and workflow rules.
-:::
 
 You might end up with **strategy code** in your `strategies/` folder and a **short markdown write-up** next to it (for example under a `reports/` folder) so you can reread the story later—not only the chat tab.
 
@@ -95,4 +87,4 @@ The write-up might simply answer: what was the goal, what changed each try, whic
 
 ## Before you connect
 
-Hook up MCP first (**[MCP server setup](/docs/mcp/setup)**), then your editor (**[Connect in Cursor](/docs/mcp/connect-cursor)** or **[Connect in VS Code](/docs/mcp/connect-vscode)**). Each example above is followed by a **warning** about loading **`mcp-rules.md`**; read those boxes before you copy a prompt.
+Hook up MCP first (**[MCP server setup](/docs/mcp/setup)**), then your assistant (**[Connect in Codex](/docs/mcp/connect-codex)**, **[Connect in Cursor](/docs/mcp/connect-cursor)**, **[Connect in VS Code](/docs/mcp/connect-vscode)**, or **[Connect in Zed](/docs/mcp/connect-zed)**). Before you copy a prompt, make sure your assistant can read **`AGENTS.md`**.

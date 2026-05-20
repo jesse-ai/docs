@@ -237,9 +237,11 @@ export default defineConfig({
                 items: [
                     {text: 'Introduction', link: '/docs/mcp/'},
                     {text: 'MCP server setup', link: '/docs/mcp/setup'},
-                    {text: 'MCP agent rules (system prompt)', link: '/docs/mcp/mcp-rules'},
+                    {text: 'MCP agent rules', link: '/docs/mcp/mcp-rules'},
+                    {text: 'Connect in Codex', link: '/docs/mcp/connect-codex'},
                     {text: 'Connect in Cursor', link: '/docs/mcp/connect-cursor'},
                     {text: 'Connect in VS Code', link: '/docs/mcp/connect-vscode'},
+                    {text: 'Connect in Zed', link: '/docs/mcp/connect-zed'},
                     {text: 'Example workflow', link: '/docs/mcp/example-workflow'},
                 ]
             },
