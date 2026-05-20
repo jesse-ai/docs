@@ -1,0 +1,17 @@
+/* Long one-line “chat prompt” examples in ```text — wrap instead of horizontal scroll */
+.jesse-mcp-example-workflow .vp-doc div[class*='language-text'] {
+  overflow-x: hidden;
+}
+
+.jesse-mcp-example-workflow .vp-doc div[class*='language-text'] pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
+}
+
+.jesse-mcp-example-workflow .vp-doc div[class*='language-text'] code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}

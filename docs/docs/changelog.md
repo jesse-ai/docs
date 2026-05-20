@@ -2,17 +2,17 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.1.3 (18 May 2026)
+## 2.1.3 (20 May 2026)
 
+- **[NEW]** Added MCP (Model Context Protocol) server support, allowing AI coding assistants such as Claude, Cursor, and Codex to interact with Jesse directly — running backtests, importing candles, reading and writing strategies, and managing configuration through a standardized tool interface.
+- **[NEW]** Added a download button for logs in live/paper trading sessions, matching the existing download button available in backtest sessions.
+- **[FIX]** Fixed a dashboard error that could happen when clicking the copy button on live-session exceptions or logs in browsers where the Clipboard API is unavailable.
+- **[FIX]** Fixed a Gate USDT Perpetual live-trading startup crash that could happen when reconciling active stop orders after a restart.
 - **[IMPROVEMENT]** Dashboard notifications appearing on the bottom-left instead of the bottom-right.
 
 ## 2.1.2 (16 May 2026)
 
-- **[NEW]** Added a download button for logs in live/paper trading sessions, matching the existing download button available in backtest sessions.
-- **[FIX]** Fixed a dashboard error that could happen when clicking the copy button on live-session exceptions or logs in browsers where the Clipboard API is unavailable.
-- **[FIX]** Fixed a Gate USDT Perpetual live-trading startup crash that could happen when reconciling active stop orders after a restart.
 - **[IMPROVEMENT]** Significantly reduced IPC overhead in optimization mode by placing shared candle data and config into Ray's shared object store once (instead of serializing it on every trial). This can result in a noticeable speedup for large datasets or sessions with many trials. Thanks to [@seoeaa](https://github.com/seoeaa) for the contribution.
-
 
 ## 2.1.1 (9 May 2026)
 
