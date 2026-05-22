@@ -5,6 +5,7 @@ Here you can see the changes made with each release of the main framework and th
 ## 2.1.3 (20 May 2026)
 
 - **[NEW]** Added MCP (Model Context Protocol) server support, allowing AI coding assistants such as Claude, Cursor, and Codex to interact with Jesse directly — running backtests, importing candles, reading and writing strategies, and managing configuration through a standardized tool interface.
+- **[IMPROVEMENT]** Added Claude Code connection instructions to the MCP docs, including setup for the CLI and Desktop Code tab and how to verify the connection with `/mcp`.
 - **[NEW]** Added a download button for logs in live/paper trading sessions, matching the existing download button available in backtest sessions.
 - **[FIX]** Fixed a dashboard error that could happen when clicking the copy button on live-session exceptions or logs in browsers where the Clipboard API is unavailable.
 - **[FIX]** Fixed a Gate USDT Perpetual live-trading startup crash that could happen when reconciling active stop orders after a restart.

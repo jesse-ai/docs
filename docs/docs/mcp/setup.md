@@ -1,6 +1,6 @@
 # MCP server setup
 
-For what MCP is and how it fits your workflow, read the **[Introduction](/docs/mcp/)** first. This page covers prerequisites, environment variables, logs, how to hook up your AI tool at a high level (with links to **[Connect in Codex](/docs/mcp/connect-codex)**, **[Connect in Cursor](/docs/mcp/connect-cursor)**, **[Connect in VS Code](/docs/mcp/connect-vscode)**, and **[Connect in Zed](/docs/mcp/connect-zed)**), and safety. After MCP is running, configure your assistant with **[MCP agent rules](/docs/mcp/mcp-rules)** so it follows Jesse’s MCP workflow automatically.
+For what MCP is and how it fits your workflow, read the **[Introduction](/docs/mcp/)** first. This page covers prerequisites, environment variables, logs, how to hook up your AI tool at a high level (with links to **[Connect in Codex](/docs/mcp/connect-codex)**, **[Connect in Claude Code](/docs/mcp/connect-claude-code)**, **[Connect in Cursor](/docs/mcp/connect-cursor)**, **[Connect in VS Code](/docs/mcp/connect-vscode)**, and **[Connect in Zed](/docs/mcp/connect-zed)**), and safety. After MCP is running, configure your assistant with **[MCP agent rules](/docs/mcp/mcp-rules)** so it follows Jesse’s MCP workflow automatically.
 
 ## Before you start
 
@@ -76,6 +76,7 @@ The MCP URL to use is the one printed in the second box — `http://localhost:90
 **Step-by-step for common tools:**
 
 - **[Connect in Codex](/docs/mcp/connect-codex)** — Codex custom MCP settings, Streamable HTTP, testing the connection.
+- **[Connect in Claude Code](/docs/mcp/connect-claude-code)** — Claude Code CLI command for adding Jesse as an HTTP MCP server.
 - **[Connect in Cursor](/docs/mcp/connect-cursor)** — Cursor settings, official docs, WSL note.
 - **[Connect in VS Code](/docs/mcp/connect-vscode)** — GitHub Copilot MCP, Microsoft’s VS Code guide, WSL note.
 - **[Connect in Zed](/docs/mcp/connect-zed)** — Zed custom MCP server, Remote setup, local fallback.
