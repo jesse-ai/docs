@@ -156,11 +156,6 @@ candles_hl2 = (candles[:, 3] + candles[:, 4]) / 2
 That works because `candles[:, 3]` and `candles[:, 4]` have the same shape/length.  
 That's the reason why it's important to always keep the length consistent. [Use this to match lengths](https://docs.jesse.trade/docs/indicators/custom-indicators.html#make-arrays-the-same-length "Use this to match lengths") and read this to understand why it's important to use NaN for missing values: [The thing with NaN and zero](#the-thing-with-nan-and-zero "The thing with NaN and zero").
 
-### Numba
-
-Jesse uses [Numba](https://numba.pydata.org/ "Numba") to speed up indicator calculations. Numba works well on loops and a lot of numpy functions. Check the Numba docs.  
-[Here](https://github.com/jesse-ai/jesse/blob/21b4438a817f4c2ffcab6b95a8518832e49abb89/jesse/indicators/high_pass.py "Here") you will find a usage example from Jesse's indicators.
-
 ### External libraries for technical indicators and things to be aware of
 
 Jesse provides built-in implementations of most common technical indicators. You can import and use them directly from `jesse.indicators`. For example:
@@ -189,8 +184,6 @@ For this example, we calculate the difference between the closing price to the c
     for i in range(10, len(close)):
         my_indicator_from_loop[i] = close[i] - close[i-10]
 ```
-
-Consider using [Numba](#numba "Numba") to speed it up.
 
 ### Usefull Numpy stuff
 

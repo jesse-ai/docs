@@ -6,7 +6,9 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[IMPROVEMENT]** Added **Claude Code** connection instructions to the MCP docs, including setup for the CLI and Desktop Code tab and how to verify the connection with `/mcp`.
 - **[IMPROVEMENT]** MCP-created backtest sessions now save searchable session notes, including an `MCP Backtest:` title prefix, a short markdown summary, and optional strategy-change rationale.
+- **[IMPROVEMENT]** Improved how the MCP agent monitors candle imports. 
 - **[FIX]** MCP now binds to all network interfaces like the Jesse dashboard, allowing Docker and local-network clients to reach the MCP server when the port is published.
+- **[FIX]** Fixed an issue on Apex Omni in live trading when the account had a huge number of order history. 
 
 ## 2.1.3 (20 May 2026)
 
