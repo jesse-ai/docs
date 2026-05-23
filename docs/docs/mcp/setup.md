@@ -28,6 +28,10 @@ Example **`.env`** fragment (use your real dashboard password; uncomment optiona
 
 With default settings, the URL you give your assistant is **`http://localhost:9002/mcp`**. If you set **`MCP_PORT`**, use that port in the URL instead.
 
+The MCP server binds to **`0.0.0.0`**, matching Jesse's dashboard server. This works with Docker port publishing and local-network access when your machine and firewall allow it.
+
+For Docker access from outside the container, make sure the Docker compose file publishes **`9002:9002`** or your chosen MCP port. For access from another machine on your LAN, use the Docker host machine's LAN IP address in your assistant instead of **`localhost`**.
+
 ## Hiding MCP logs in the terminal
 
 By default, detailed MCP logs are shown in your Jesse terminal. If you prefer a quieter terminal once your connection is stable, set **`MCP_LOG_IN_TERMINAL`** to **`false`** in your **`.env`** file and restart Jesse.

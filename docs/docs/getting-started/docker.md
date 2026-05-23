@@ -39,6 +39,8 @@ The first time you do this, you have to wait until the images are downloaded. Th
 
 That's it! Now open [localhost:9000](http://localhost:9000) in your browser to see the dashboard.
 
+The project template also publishes the MCP server on port `9002`. If you connect from another computer on your local network, use the Docker host machine's LAN IP address instead of `localhost`.
+
 ## Stopping container
 
 To stop the containers, if you started them with the `-d` flag, you can just run the following command:

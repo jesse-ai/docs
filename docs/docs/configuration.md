@@ -12,6 +12,9 @@ These config values are also called environment variables. They are stored in a 
 ```sh
 PASSWORD=test
 APP_PORT=9000
+LSP_PORT=9001
+MCP_PORT=9002
+MCP_LOG_IN_TERMINAL=true
 
 # If not using docker, you probably want to set this to "localhost"
 POSTGRES_HOST=postgres
@@ -37,7 +40,7 @@ It is generally a good idea to stop the application before modifying your `.env`
 
 Jesse can expose an **MCP** connection so AI coding assistants (such as Cursor) can work with your project through Jesse in a controlled way. You need a **`PASSWORD`** in `.env` (already required for Jesse) so the assistant channel can authenticate like the dashboard does.
 
-Optional **`MCP_PORT`** (default **9002**) and **`MCP_LOG_IN_TERMINAL`** (verbose MCP logs in the Jesse terminal) are documented with defaults and a copy-pastable **`.env`** example on **[MCP server setup](/docs/mcp/setup#environment-variables-for-mcp)** so you do not need to hunt through this page for MCP-only values.
+Optional **`MCP_PORT`** (default **9002**) and **`MCP_LOG_IN_TERMINAL`** (verbose MCP logs in the Jesse terminal) are documented with defaults and a copy-pastable **`.env`** example on **[MCP server setup](/docs/mcp/setup#environment-variables-for-mcp)** so you do not need to hunt through this page for MCP-only values. The MCP server binds to **`0.0.0.0`**, matching Jesse's dashboard server.
 
 For a plain-language overview of what MCP is and how it helps your Jesse workflow, see the MCP **[Introduction](/docs/mcp/)** page.
 

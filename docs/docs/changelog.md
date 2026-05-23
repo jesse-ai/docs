@@ -5,7 +5,8 @@ Here you can see the changes made with each release of the main framework and th
 ## 2.1.4 (23 May 2026)
 
 - **[IMPROVEMENT]** Added **Claude Code** connection instructions to the MCP docs, including setup for the CLI and Desktop Code tab and how to verify the connection with `/mcp`.
-- **[IMPROVEMENT]** MCP-created backtest sessions now save searchable session notes, including an `MCP Backtest:` title prefix, a short markdown summary, optional strategy-change rationale, and strategy code snapshots when available.
+- **[IMPROVEMENT]** MCP-created backtest sessions now save searchable session notes, including an `MCP Backtest:` title prefix, a short markdown summary, and optional strategy-change rationale.
+- **[FIX]** MCP now binds to all network interfaces like the Jesse dashboard, allowing Docker and local-network clients to reach the MCP server when the port is published.
 
 ## 2.1.3 (20 May 2026)
 
