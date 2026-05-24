@@ -2,14 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.1.6 (23 May 2026)
+## 2.2.0 (24 May 2026)
 
 - **[IMPROVEMENT]** Ported the remaining 63 numba-accelerated indicators to native Rust (via `jesse_rust`) and removed `numba` as a runtime dependency for indicators. The combined wall-clock cost of computing all 60 benchmarked indicators on a 200-candle slice dropped from **423.5 µs → 124.4 µs (3.40× faster)**, with the biggest wins on `fosc` (72.7 → 1.6 µs, **46.6×**), `damiani_volatmeter` (98.7 → 3.1 µs, **32.4×**), `linearreg` (19.0 → 1.8 µs, **10.6×**), `pfe` (21.8 → 2.4 µs, **8.9×**), `safezonestop` (12.7 → 1.7 µs, **7.4×**), `heikin_ashi_candles` (8.6 → 1.7 µs, **5.2×**), `dx` (11.8 → 2.4 µs, **4.9×**), `hma` (8.3 → 1.8 µs, **4.7×**), `correlation_cycle` (15.6 → 3.3 µs, **4.8×**), `maaq` (11.4 → 3.0 µs, **3.8×**), `vpwma` (6.0 → 1.7 µs, **3.5×**), `frama` (9.6 → 3.0 µs, **3.2×**), and `mass` (4.2 → 1.5 µs, **2.7×**).
-- **[IMPROVEMENT]** Ported `FuturesExchange.find_order_index` from numba to Rust so the function stays fast after the `numba` dependency was removed.
-
-## 2.1.5 (23 May 2026)
-
 - **[IMPROVEMENT]** Added Python 3.13 support for Ray-powered features, allowing optimization mode and Monte Carlo mode to run on Python 3.13.
+- **[IMPROVEMENT]** MCP agent rules (`AGENTS.md`) are now auto-synced on every `jesse run` from the canonical version bundled with the installed Jesse package — existing users no longer need to manually copy or rename `mcp-rules.md` to stay current. The managed content lives between `<!-- JESSE-RULES-START vX -->` ... `<!-- JESSE-RULES-END -->` markers so your own notes outside the block are preserved across upgrades; legacy `mcp-rules.md` files are migrated to the new format automatically. Opt out with `jesse run --skip-agent-rules`. See **[MCP agent rules](/docs/mcp/mcp-rules)** for details.
 
 ## 2.1.4 (23 May 2026)
 

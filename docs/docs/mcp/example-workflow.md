@@ -12,8 +12,8 @@ In plain language, a connected assistant can usually help you **run and read bac
 
 You stay in the driver’s seat: if your editor asks you to approve a step, that is normal. If something is not possible through Jesse, the assistant should say so instead of guessing.
 
-::: warning
-Before using these examples, rename **`mcp-rules.md`** to **`AGENTS.md`** at your project root so your assistant can load Jesse’s MCP rules automatically.
+::: tip
+Jesse writes and maintains **`AGENTS.md`** at your project root automatically on every `jesse run`, so your assistant can load the MCP rules without any setup. See **[MCP agent rules](/docs/mcp/mcp-rules)** if you want to customize it.
 :::
 
 ## Example — “Get my candles ready”

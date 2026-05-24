@@ -24,7 +24,7 @@ If something fails, turn on **`MCP_LOG_IN_TERMINAL`** in `.env` while you debugâ
 
 ## Agent rules (optional but recommended)
 
-So Claude Code does not need the same instructions pasted every time, rename **`mcp-rules.md`** to **`AGENTS.md`** at the project root, as described in **[MCP agent rules](/docs/mcp/mcp-rules)**.
+Jesse automatically writes and maintains **`AGENTS.md`** at the project root every time you run `jesse run`, so Claude Code can read the rules without you pasting anything. See **[MCP agent rules](/docs/mcp/mcp-rules)** for details on what's in the file, how the auto-sync works, and how to add your own notes without losing them on upgrade.
 
 ## Test the connection
 
