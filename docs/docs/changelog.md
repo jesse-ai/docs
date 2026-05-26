@@ -2,11 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.2.0 (24 May 2026)
+## 2.2.0 (26 May 2026)
 
-- **[NEW]** Connected AI assistants can now run Rule Significance Tests through MCP, so they can statistically validate an entry signal before spending time building out a full strategy. Jesse's MCP agent rules require this check whenever a strategy's entry logic is new or changed.
-- **[NEW]** Connected AI assistants can now stage and run Monte Carlo simulations through MCP — candles resampling (the main overfit-detection mode) and the opt-in trades resampling, plus fetching equity curves and logs. Agent rules default to candles-only with 200 scenarios and document the canonical overfit verdict.
-- **[NEW]** Every backtest, Monte Carlo, and rule-significance MCP response now carries a `dashboard_url` field, and the agent rules require the link in every session-related reply. One click opens the session page in the dashboard so you can inspect charts, trades, and equity curves directly.
+- **[NEW]** Rule Significance Tests can now be run through MCP to statistically validate an entry signal before spending time building out a full strategy. Jesse's MCP agent rules require this check whenever a strategy's entry logic is new or changed.
+- **[NEW]** Monte Carlo simulations can now be staged and run through MCP — candles resampling (the main overfit-detection mode) and the opt-in trades resampling, plus fetching equity curves and logs. Agent rules default to candles-only with 200 scenarios and document the canonical overfit verdict.
+- **[NEW]** Added support for unified margin accounts on Hyperliquid.
+- **[NEW]** Added support for trading stocks, commodities, forex, and other asset classes on Hyperliquid via XYZ assets.
+- **[NEW]** MCP responses now include the dashboard URL of the session, so you can click straight through to inspect charts, trades, and equity curves.
 - **[IMPROVEMENT]** Tightened MCP agent rules: the agent must run backtests / Monte Carlos / significance tests first and only import candles on a missing-data error (no more pre-flight `get_existing_candles` checks that wasted time and tokens); polling has an explicit adaptive-backoff schedule and must continue until a terminal status (no more giving up early on long Monte Carlo runs); and the agent is forbidden from calling `update_config` to work around tool errors or inject runner-expected fields.
 - **[IMPROVEMENT]** Ported the remaining 63 numba-accelerated indicators to native Rust (via `jesse_rust`) and removed `numba` as a runtime dependency for indicators. The combined wall-clock cost of computing all 60 benchmarked indicators on a 200-candle slice dropped from **423.5 µs → 124.4 µs (3.40× faster)**, with the biggest wins on `fosc` (72.7 → 1.6 µs, **46.6×**), `damiani_volatmeter` (98.7 → 3.1 µs, **32.4×**), `linearreg` (19.0 → 1.8 µs, **10.6×**), `pfe` (21.8 → 2.4 µs, **8.9×**), `safezonestop` (12.7 → 1.7 µs, **7.4×**), `heikin_ashi_candles` (8.6 → 1.7 µs, **5.2×**), `dx` (11.8 → 2.4 µs, **4.9×**), `hma` (8.3 → 1.8 µs, **4.7×**), `correlation_cycle` (15.6 → 3.3 µs, **4.8×**), `maaq` (11.4 → 3.0 µs, **3.8×**), `vpwma` (6.0 → 1.7 µs, **3.5×**), `frama` (9.6 → 3.0 µs, **3.2×**), and `mass` (4.2 → 1.5 µs, **2.7×**).
 - **[IMPROVEMENT]** Added Python 3.13 support for Ray-powered features, allowing optimization mode and Monte Carlo mode to run on Python 3.13 (except on Windows)
