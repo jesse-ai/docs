@@ -25,7 +25,6 @@ Everything runs **locally** in your setup: your strategies and your data under y
 
 - **Strategy work** — Describe what you want changed; the assistant can work through Jesse’s supported flows instead of you manually wiring every step.
 - **Backtests** — Ask for a run or a check on a session; you spend less time clicking through the same sequences.
+- **Rule significance tests** — Ask the assistant to validate a new entry signal before you commit to building a full strategy around it. Jesse runs the rule against thousands of random-entry simulations and reports whether the signal has a real edge or is indistinguishable from luck.
+- **Monte Carlo simulations** — Once a backtest looks promising, ask the assistant to run a Monte Carlo and report whether the result is robust or just one lucky path. Jesse resamples the price series and re-runs the strategy hundreds of times, then surfaces the overfit verdict in plain terms.
 - **Data prep** — Bring historical data up to date and check coverage with guidance when you are in a hurry.
-- **Learning while doing** — Built-in Jesse guides can be surfaced as context so explanations match the version you run.
-
-None of this replaces your judgment about markets, risk, or whether a strategy is fit to trade. It **reduces friction** around the Jesse workflow itself.
