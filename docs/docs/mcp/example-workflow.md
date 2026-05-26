@@ -85,6 +85,28 @@ class DOGEUSDTSharpeHunter2026(Strategy):
 
 The write-up might simply answer: what was the goal, what changed each try, which version looked best, and what you could try next—even when the “perfect” result never shows up. **That is still useful.**
 
+## Example — “Is this entry signal any good?”
+
+Example message:
+
+```text
+Before we build the full strategy, just test the entry rule for me:
+"Buy BTC-USDT 4h on Binance Perpetual Futures when RSI(14) crosses below 30."
+Run a Rule Significance Test from 2022 to 2024 with 2,000 simulations and tell
+me whether the p-value is low enough to be worth pursuing.
+```
+
+The assistant wraps that rule in a **minimal strategy** (entry only, no exit
+tuning), stages a **Rule Significance Test** through Jesse, fires it, polls
+until it’s done, and reports back the `p_value`, `observed_mean`, and
+`annualized_return`. Anything **below 0.05** is statistically meaningful; above
+that you can decide together whether to refine the idea or move on—**before**
+sinking time into a full backtest pass.
+
+By default, when you describe a brand-new strategy idea, the assistant will
+run this validation step first and only proceed to a full strategy build-out
+if the entry rule shows a real edge.
+
 ## Before you connect
 
 Hook up MCP first (**[MCP server setup](/docs/mcp/setup)**), then your assistant (**[Connect in Codex](/docs/mcp/connect-codex)**, **[Connect in Cursor](/docs/mcp/connect-cursor)**, **[Connect in VS Code](/docs/mcp/connect-vscode)**, or **[Connect in Zed](/docs/mcp/connect-zed)**). Before you copy a prompt, make sure your assistant can read **`AGENTS.md`**.
