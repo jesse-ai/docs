@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.2.1 (30 May 2026)
+
+- **[FIX]** Fixed a backtest accounting bug where a `reduce_only` exit that filled less than its stated quantity (e.g. an oversized stop-loss after a partial take-profit) was recorded at its stated quantity, biasing the trade's exit price and fee. This made reported net profit and per-trade metrics drift from the real wallet balance.
+
 ## 2.2.0 (26 May 2026)
 
 - **[NEW]** Rule Significance Tests can now be run through MCP to statistically validate an entry signal before spending time building out a full strategy. Jesse's MCP agent rules require this check whenever a strategy's entry logic is new or changed.
