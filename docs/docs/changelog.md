@@ -8,6 +8,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[FIX]** Fixed a backtest accounting bug where a `reduce_only` exit that filled less than its stated quantity (e.g. an oversized stop-loss after a partial take-profit) was recorded at its stated quantity, biasing the trade's exit price and fee. This made reported net profit and per-trade metrics drift from the real wallet balance.
 - **[FIX]** Fixed an issue with paper trading on the Hyperliquid exchange.
 - **[FIX]** Fixed a live-trading crash (`IndexError: list index out of range`) that could occur when persistency was enabled and the account already had open positions on the exchange, causing a closing order to look up a closed trade that didn't exist yet.
+- **[FIX]** Fixed the dashboard's "View charts" button failing with `Out of range float values are not JSON compliant` for some strategies. This happened when a strategy's `after()` added a `NaN` value to a chart (e.g. from an indicator that isn't warmed up yet, or a division by zero); backtest session chart-data responses now strip `NaN` values, not just infinities, before serializing to JSON.
 
 ## 2.2.0 (26 May 2026)
 
