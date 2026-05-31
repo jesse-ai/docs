@@ -2,12 +2,15 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.2.2 (31 May 2026)
+## 2.2.3 (1 June 2026)
 
-- **[FIX]** Fixed `jesse install-live` on ARM Linux hosts (including Docker containers on Apple Silicon), where the architecture was misdetected as x86_64 — so the installer downloaded the x86_64 plugin wheel, which pip then rejected as unsupported on the `aarch64` platform. ARM Linux is now detected correctly and the matching `aarch64` live-plugin build is installed.
 - **[FIX]** Removed a stray gap of empty space above the results table on the optimization page, left over from a removed progress chart.
 - **[FIX]** Fixed the "Download log" button on the optimization page, which pointed at an obsolete shared log file (a legacy single `optimize-mode.txt` that older versions appended every run to, with no rotation — capable of growing to several gigabytes) and now downloads the correct per-session log instead.
 - **[FIX]** Deleting or purging optimization sessions from the history page now also removes each session's log file, so old optimization logs no longer accumulate on disk.
+
+## 2.2.2 (31 May 2026)
+
+- **[FIX]** Fixed `jesse install-live` on ARM Linux hosts (including Docker containers on Apple Silicon), where the architecture was misdetected as x86_64 — so the installer downloaded the x86_64 plugin wheel, which pip then rejected as unsupported on the `aarch64` platform. ARM Linux is now detected correctly and the matching `aarch64` live-plugin build is installed.
 
 ## 2.2.1 (30 May 2026)
 
