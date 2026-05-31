@@ -4,6 +4,7 @@ Here you can see the changes made with each release of the main framework and th
 
 ## 2.2.3 (1 June 2026)
 
+- **[IMPROVEMENT]** Greatly expanded the strategy-writing docs the MCP serves to AI agents — a richer `jesse://strategy` reference plus a new `jesse://strategy_examples` library of ten complete strategies — so generated strategies are more correct and idiomatic.
 - **[FIX]** Removed a stray gap of empty space above the results table on the optimization page, left over from a removed progress chart.
 - **[FIX]** Fixed the "Download log" button on the optimization page, which pointed at an obsolete shared log file (a legacy single `optimize-mode.txt` that older versions appended every run to, with no rotation — capable of growing to several gigabytes) and now downloads the correct per-session log instead.
 - **[FIX]** Deleting or purging optimization sessions from the history page now also removes each session's log file, so old optimization logs no longer accumulate on disk.
