@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.2.2 (31 May 2026)
+
+- **[FIX]** Fixed `jesse install-live` on ARM Linux hosts (including Docker containers on Apple Silicon), where the architecture was misdetected as x86_64 — so the installer downloaded the x86_64 plugin wheel, which pip then rejected as unsupported on the `aarch64` platform. ARM Linux is now detected correctly and the matching `aarch64` live-plugin build is installed.
+
 ## 2.2.1 (30 May 2026)
 
 - **[IMPROVEMENT]** The official Docker image (`salehmir/jesse`) is now multi-architecture, with a native `linux/arm64` build published alongside `linux/amd64`. Apple Silicon (M1/M2/…) and ARM Linux users now pull a native image instead of running the x86 image under emulation — which also resolves the Ray-related optimization/Monte Carlo crashes that occurred under emulation on Apple Silicon.
