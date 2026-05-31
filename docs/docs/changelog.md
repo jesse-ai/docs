@@ -5,6 +5,7 @@ Here you can see the changes made with each release of the main framework and th
 ## 2.2.2 (31 May 2026)
 
 - **[FIX]** Fixed `jesse install-live` on ARM Linux hosts (including Docker containers on Apple Silicon), where the architecture was misdetected as x86_64 — so the installer downloaded the x86_64 plugin wheel, which pip then rejected as unsupported on the `aarch64` platform. ARM Linux is now detected correctly and the matching `aarch64` live-plugin build is installed.
+- **[FIX]** Removed a stray gap of empty space above the results table on the optimization page, left over from a removed progress chart.
 
 ## 2.2.1 (30 May 2026)
 
