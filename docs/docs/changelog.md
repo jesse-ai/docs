@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.3.1 (3 June 2026)
+
+- **[NEW]** Added support for [Lighter](https://lighter.xyz/) as a live trading exchange. Lighter offers a variety of stocks and commodities, all with zero trading fees.
+- **[FIX]** Fixed `ClosedTrade.pnl` / `pnl_percentage` using the submitted limit-cap price instead of the actual fill price for stop/TP orders, which could produce impossible values like −115 %.
+- **[FIX]** Fixed a live-trading crash (`AttributeError: 'str' object has no attribute 'fee'`) that occurred when a session started with an already-open position. 
+- **[FIX]** Fixed the live notifier loop thread dying on a transient network blip, which silently stopped all Telegram/Discord/Slack notifications (and let the message queue grow unbounded) until the process was restarted. 
+
 ## 2.2.3 (1 June 2026)
 
 - **[IMPROVEMENT]** Greatly expanded the strategy-writing docs the MCP serves to AI agents — a richer `jesse://strategy` reference plus a new `jesse://strategy_examples` library of ten complete strategies — so generated strategies are more correct and idiomatic.
