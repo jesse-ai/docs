@@ -35,7 +35,6 @@ You can change the type of exchange for backtests in the settings page per each 
 At the moment these are the supported exchanges for live trading:
 
 -   [Lighter](https://lighter.xyz/)
--   [Lighter Testnet](https://lighter.xyz/)
 -   [Apex Pro](https://jesse.trade/apex)
 -   [Apex Omni](https://jesse.trade/apex)
 -   [Hyperliquid](https://jesse.trade/hyperliquid)
