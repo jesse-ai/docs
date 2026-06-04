@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.3.4 (4 June 2026)
+
+- **[NEW]** Added optimization mode over MCP — you can now run optimizations through AI assistants like Claude and Cursor, just like backtests, significance tests, and Monte Carlo.
+- **[FIX]** Fixed backtests, significance tests, and optimizations sometimes getting stuck with no result when run through MCP.
+- **[IMPROVEMENT]** When there isn't enough candle data, MCP now tells you exactly which candles to import instead of stalling.
+- **[IMPROVEMENT]** Candle imports run through MCP now show live progress as they download.
+
 ## 2.3.1 (3 June 2026)
 
 - **[NEW]** Added support for [Lighter](https://app.lighter.xyz/?referral=7248903K) as a live trading exchange. Lighter offers a variety of stocks and commodities, all with zero trading fees.
