@@ -2,7 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.3.4 (4 June 2026)
+## 2.3.4 (6 June 2026)
 
 - **[NEW]** Added optimization mode over MCP — you can now run optimizations through AI assistants like Claude and Cursor, just like backtests, significance tests, and Monte Carlo.
 - **[FIX]** Fixed backtests, significance tests, and optimizations sometimes getting stuck with no result when run through MCP.
