@@ -10,6 +10,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[IMPROVEMENT]** Candle imports run through MCP now show live progress as they download.
 - **[NEW]** Free accounts now include a generous daily allowance of research runs (backtests, optimizations, Monte Carlo, and significance tests) started through AI assistants (MCP); premium accounts are unlimited.
 - **[FIX]** Fixed Monte Carlo simulations that could fail or return incorrect results in some cases — Fast Mode now produces exactly the same results as the standard mode.
+- **[IMPROVEMENT]** Backtests and Monte Carlo runs started through AI assistants (MCP) now default to Fast Mode, so they finish noticeably faster.
 
 ## 2.3.1 (3 June 2026)
 
