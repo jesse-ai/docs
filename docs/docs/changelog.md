@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.4.0 (15 June 2026)
+
+- **[IMPROVEMENT]** Backtests now run significantly faster — roughly 2–3x quicker on typical runs, with no change to results.
+- **[FIX]** Fixed a Binance Perpetual Futures live-trading crash that could occur at startup when a session began with an already-open position.
+- **[FIX]** Fixed Binance Perpetual Futures briefly treating a liquidation as a normal open order.
+
 ## 2.3.4 (6 June 2026)
 
 - **[NEW]** Added optimization mode over MCP — you can now run optimizations through AI assistants like Claude and Cursor, just like backtests, significance tests, and Monte Carlo.
