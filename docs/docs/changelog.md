@@ -6,6 +6,7 @@ Here you can see the changes made with each release of the main framework and th
 
 - **[IMPROVEMENT]** Backtests are now dramatically faster — roughly 2–3x quicker across the board (our full benchmark suite dropped from ~79s to ~27s), with identical results. Strategy iteration that used to take a coffee break now finishes before you blink.
 - **[FIX]** Fixed a Binance Perpetual Futures crash when starting a live session with an already-open position — the bot would fail to start with an `Expected dict, got float` error. It now starts up cleanly.
+- **[FIX]** Fixed an error that appeared on the dashboard when a backtest was run through an AI assistant (MCP).
 
 ## 2.3.4 (6 June 2026)
 
