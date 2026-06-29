@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+
+## 2.4.1 (29 June 2026)
+
+- **[NEW]** Added a "close all tabs" button on the backtest page to close all open tabs at once. It appears when you have more than 10 tabs open, and asks for confirmation first.
+- **[IMPROVEMENT]** Backtests started through an AI assistant (MCP) no longer pop open a new tab on the dashboard. They're still saved and available from the History page.
+
 ## 2.4.0 (15 June 2026)
 
 - **[IMPROVEMENT]** Backtests are now dramatically faster — roughly 2–3x quicker across the board (our full benchmark suite dropped from ~79s to ~27s), with identical results. Strategy iteration that used to take a coffee break now finishes before you blink.
