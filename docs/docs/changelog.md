@@ -3,6 +3,11 @@
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
 
+## 2.4.2 (30 June 2026)
+
+- **[FIX]** Fixed a rare error that could cause an order on Hyperliquid to fail to submit during periods of heavy exchange load or an unstable connection.
+- **[IMPROVEMENT]** Brief connection drops while live trading are now logged more cleanly — a short "reconnecting" note instead of a long error trace — since Jesse reconnects through them automatically.
+
 ## 2.4.1 (29 June 2026)
 
 - **[NEW]** Added a "close all tabs" button on the backtest page to close all open tabs at once. It appears when you have more than 10 tabs open, and asks for confirmation first.
