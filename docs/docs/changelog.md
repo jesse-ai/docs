@@ -3,6 +3,15 @@
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
 
+## 2.5.0 (5 July 2026)
+
+- **[NEW]** Added support for **Kraken Pro** (Spot & Futures) — for both backtesting and live trading.
+- **[FIX]** Hyperliquid: fixed a rare order-submit failure that could occur during heavy exchange load or an unstable connection.
+- **[FIX]** Hyperliquid: fixed a crash that could happen while cancelling all orders when shutting down a live session.
+- **[IMPROVEMENT]** Hyperliquid: exchange rate limits are now handled gracefully during background order checks, instead of surfacing as errors.
+- **[IMPROVEMENT]** More reliable WebSocket reconnection on unstable connections, with cleaner reconnect logging.
+- **[FIX]** Fixed a live order-tracking crash that could occur when an exchange reported an order with a numeric id.
+
 ## 2.4.1 (29 June 2026)
 
 - **[NEW]** Added a "close all tabs" button on the backtest page to close all open tabs at once. It appears when you have more than 10 tabs open, and asks for confirmation first.
