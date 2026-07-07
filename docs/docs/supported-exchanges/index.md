@@ -21,6 +21,8 @@ So far, the below exchanges are supported for **importing candles and running ba
 -   `Bybit USDC Perpetual`
 -   `Bybit Spot`
 -   `Gate.io Perpetual Futures`
+-   `Kraken Pro Spot`
+-   `Kraken Pro Futures`
 
 ::: tip
 Notice that the words `Spot` and `Futures` in the exchange names above merely indicate the source of the candles and NOT the type of backtests you can run with them.
@@ -35,8 +37,8 @@ You can change the type of exchange for backtests in the settings page per each 
 At the moment these are the supported exchanges for live trading:
 
 -   [Lighter](https://app.lighter.xyz/?referral=7248903K)
--   [Apex Pro](https://jesse.trade/apex)
 -   [Apex Omni](https://jesse.trade/apex)
+-   [Kraken Pro Futures](https://jesse.trade/kraken)
 -   [Hyperliquid](https://jesse.trade/hyperliquid)
 -   [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit USDC Perpetual Futures](https://jesse.trade/bybit)
