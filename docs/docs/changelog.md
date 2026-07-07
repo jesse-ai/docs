@@ -3,9 +3,9 @@
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
 
-## 2.5.0 (5 July 2026)
+## 2.5.0 (7 July 2026)
 
-- **[NEW]** Added support for **Kraken Pro** (Spot & Futures) — for both backtesting and live trading.
+- **[NEW]** Added support for **Kraken Pro** — import candles and backtest with Kraken data, and live-trade on **Kraken Pro Futures**. Spot live trading is coming soon.
 - **[FIX]** Hyperliquid: fixed a rare order-submit failure that could occur during heavy exchange load or an unstable connection.
 - **[FIX]** Hyperliquid: fixed a crash that could happen while cancelling all orders when shutting down a live session.
 - **[IMPROVEMENT]** Hyperliquid: exchange rate limits are now handled gracefully during background order checks, instead of surfacing as errors.
