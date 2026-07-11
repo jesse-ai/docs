@@ -2,6 +2,20 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 2.5.1 (11 July 2026)
+
+- **[IMPROVEMENT]** The dashboard sidebar now remembers your last opened strategy and your last active backtest, optimization, Monte Carlo, Rule Test, and live session, so returning to a section takes you back where you left off.
+- **[NEW]** Indicator panes on the interactive backtest chart are now collapsible behind their header — and so is the candle chart itself when indicator panes exist. Collapsing a pane hands its space to the remaining charts, and everything stays in sync when expanded again.
+- **[IMPROVEMENT]** The candle chart now always keeps a healthy share of the chart area, no matter how many indicator panes your strategy adds — indicator panes shrink gracefully instead of squeezing the candles out.
+- **[IMPROVEMENT]** Hovering a trade in the chart sidebar now highlights **all** of its orders on the chart, and hovering a single order row highlights just that order. The highlight stays for as long as you hover instead of fading after two seconds.
+- **[IMPROVEMENT]** Jumping to a trade from the chart sidebar now keeps your current zoom level instead of resetting it.
+- **[FIX]** Fixed several interactive backtest chart issues: the crosshair could sync against the wrong indicator pane, zooming to a trade crashed on single-order sessions, price-scale precision was computed incorrectly for some symbols, and charts didn't resize with the window.
+- **[NEW]** The backtest chart now shows a legend with candle OHLC and indicator values that follows your cursor.
+- **[NEW]** Indicator pane headers display their latest values in color — even while collapsed.
+- **[NEW]** Hovering a trade in the chart sidebar draws its entry-to-exit line on the chart — green for wins, red for losses.
+- **[NEW]** Added "reset view" and "save as image" buttons to the backtest chart.
+- **[IMPROVEMENT]** Double-click an indicator pane header to focus on just that pane, or collapse/expand all panes at once. The chart remembers your pane layout per strategy.
+- **[IMPROVEMENT]** Trades in the chart sidebar now show their direction, open time, and duration, and the list can be sorted by PNL.
 
 ## 2.5.0 (7 July 2026)
 
