@@ -154,7 +154,12 @@ fast = self.hp['fast_period']
 
 ## Using the DNA
 
-Every trial in `best_trials` includes a `dna` field — a compact base64 string that encodes the full parameter set. You can paste it directly into the **DNA** field of the Jesse dashboard's backtest or live form to instantly load those parameters without typing them manually.
+Every trial in `best_trials` includes a `dna` field — a compact base64 string that encodes the full parameter set. To use it, return it from your strategy's `dna()` method so the parameters are loaded automatically:
+
+```python
+def dna(self):
+    return 'PASTE_DNA_STRING_HERE'
+```
 
 You can also work with both `params` and `dna` programmatically:
 
