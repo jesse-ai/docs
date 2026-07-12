@@ -14,9 +14,10 @@ Here you can see the changes made with each release of the main framework and th
 - **[NEW]** Indicator pane headers display their latest values in color — even while collapsed.
 - **[NEW]** Hovering a trade in the chart sidebar draws its entry-to-exit line on the chart — green for wins, red for losses.
 - **[NEW]** Added "reset view" and "save as image" buttons to the backtest chart.
-- **[IMPROVEMENT]** Double-click an indicator pane header to focus on just that pane, or collapse/expand all panes at once. The chart remembers your pane layout per strategy.
 - **[IMPROVEMENT]** Trades in the chart sidebar now show their direction, open time, and duration, and the list can be sorted by PNL.
 - **[FIX]** Backtests run through an AI assistant (MCP) now correctly show their executed routes on the dashboard.
+- **[IMPROVEMENT]** Writing strategies in a code editor is now much smoother: strategy properties such as `self.hp`, `self.position`, and `self.routes` ship accurate type hints, so editors no longer flag false errors in strategy files.
+- **[IMPROVEMENT]** All indicators now tell your editor whether they return a single value or a full series based on their `sequential` argument, improving autocomplete and type checking.
 
 ## 2.5.0 (7 July 2026)
 
