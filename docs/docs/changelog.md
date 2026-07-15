@@ -18,6 +18,12 @@ Here you can see the changes made with each release of the main framework and th
 - **[FIX]** Backtests run through an AI assistant (MCP) now correctly show their executed routes on the dashboard.
 - **[IMPROVEMENT]** Writing strategies in a code editor is now much smoother: strategy properties such as `self.hp`, `self.position`, and `self.routes` ship accurate type hints, so editors no longer flag false errors in strategy files.
 - **[IMPROVEMENT]** All indicators now tell your editor whether they return a single value or a full series based on their `sequential` argument, improving autocomplete and type checking.
+- **[NEW]** Live and paper trading charts now show strategy-added indicator lines, additional panes, and horizontal levels in real time, and restore them after a page reload.
+- **[NEW]** Live and paper trading charts now include fullscreen mode plus the same collapsible panes, synchronized cursor, reset-view, and image-export tools as backtest charts.
+- **[IMPROVEMENT]** Click an indicator's name in the chart legend to hide or show it; the choice is remembered for each strategy.
+- **[IMPROVEMENT]** Live charts are less cluttered: indicator values remain in the legend without duplicate guide lines or labels on the price scale.
+- **[IMPROVEMENT]** Long-running live sessions now keep only the latest 10,000 points for each indicator line, preventing chart history from growing without limit.
+- **[FIX]** Fixed live indicator history becoming stale after long sessions, and ensured temporary chart-history save failures no longer stop dashboard updates.
 
 ## 2.5.0 (7 July 2026)
 
