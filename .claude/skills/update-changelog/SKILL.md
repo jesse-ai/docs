@@ -8,8 +8,9 @@ description: >-
 
 # Updating the Jesse changelog
 
-The changelog lives at **`docs/docs/docs/changelog.md`** in this repo (`jesse-ai/docs`),
-cloned at `/home/saleh/dev-jesse/docs`. It is rendered on the public docs website.
+The changelog lives at **`docs/docs/docs/changelog.md`** in this repo (`jesse-ai/docs`).
+Resolve the repository root with `git rev-parse --show-toplevel`; never assume a
+device-specific workspace path. It is rendered on the public docs website.
 
 ## Golden rule: never push to `master`
 
@@ -35,11 +36,17 @@ If your branch's top version isn't in `origin/master` yet, keep appending to it.
 
 ## Version number for a new version
 
-Use the next version after the Jesse package's current version
-(`jesse/version.py` → `__version__` in the `jesse` repo at
-`/home/saleh/dev-jesse/jesse`). If the changelog has fallen behind the package
-version, surface that to Saleh rather than silently guessing — the release number
-is ultimately his call, and he can adjust it in review.
+Use the next version after the Jesse package's current version. Resolve the workspace
+from this repository rather than assuming a home-directory layout:
+
+```bash
+DOCS_ROOT="$(git rev-parse --show-toplevel)"
+WORKSPACE_ROOT="$(dirname "$DOCS_ROOT")"
+```
+
+Then read `"$WORKSPACE_ROOT/jesse/jesse/version.py"` (`__version__`). If the changelog
+has fallen behind the package version, surface that to Saleh rather than silently
+guessing — the release number is ultimately his call, and he can adjust it in review.
 
 ## Entry format
 
