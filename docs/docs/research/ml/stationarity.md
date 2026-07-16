@@ -54,7 +54,7 @@ The table below shows the most common raw financial quantities and how to transf
 Raw close price is the most obviously non-stationary series in finance. It trends, it has a growing variance, and it is anchored to an absolute scale that has no meaning across time.
 
 **Wrong:**
-```/dev/null/example.py#L1-5
+```python
 self.record_features({
     # Non-stationary: the model learns that "price = 30000" predicts X,
     # which is meaningless when price is 80000 two years later.
@@ -63,7 +63,7 @@ self.record_features({
 ```
 
 **Correct:**
-```/dev/null/example.py#L1-9
+```python
 import numpy as np
 
 self.record_features({
@@ -79,7 +79,7 @@ self.record_features({
 Raw ATR grows proportionally with price. A 500-point ATR in 2019 (when BTC is at $4,000) represents 12.5% volatility. The same 500-point ATR in 2024 (when BTC is at $60,000) represents less than 1% volatility. The model cannot distinguish these two regimes if it sees raw ATR.
 
 **Wrong:**
-```/dev/null/example.py#L1-7
+```python
 import jesse.indicators as ta
 
 self.record_features({
@@ -90,7 +90,7 @@ self.record_features({
 ```
 
 **Correct:**
-```/dev/null/example.py#L1-9
+```python
 import jesse.indicators as ta
 
 self.record_features({
@@ -105,7 +105,7 @@ self.record_features({
 RSI is already bounded to `[0, 100]`, so it does not drift indefinitely. But it is not centred around zero, which means most ML models have to waste capacity just learning about this offset. Centring it maps the neutral zone (50) to 0, overbought territory to positive values, and oversold territory to negative values — matching the sign convention most models work well with.
 
 **Acceptable but not ideal:**
-```/dev/null/example.py#L1-6
+```python
 import jesse.indicators as ta
 
 self.record_features({
@@ -116,7 +116,7 @@ self.record_features({
 ```
 
 **Better:**
-```/dev/null/example.py#L1-8
+```python
 import jesse.indicators as ta
 
 self.record_features({
@@ -131,7 +131,7 @@ self.record_features({
 Instead of using the raw price as a feature, express it as its relative deviation from a reference level such as a moving average. This captures the same "mean reversion" information but in a form that is scale-invariant.
 
 **Wrong:**
-```/dev/null/example.py#L1-5
+```python
 import jesse.indicators as ta
 
 self.record_features({
@@ -141,7 +141,7 @@ self.record_features({
 ```
 
 **Correct:**
-```/dev/null/example.py#L1-9
+```python
 import jesse.indicators as ta
 
 self.record_features({
@@ -156,7 +156,7 @@ self.record_features({
 Bollinger Bands give you upper and lower channel boundaries. The raw band values are non-stationary because they track price. But the *position* of price within the bands is stationary — it always lives in roughly `[0, 1]`.
 
 **Wrong:**
-```/dev/null/example.py#L1-7
+```python
 import jesse.indicators as ta
 
 bb = ta.bollinger_bands(self.candles)
@@ -167,7 +167,7 @@ self.record_features({
 ```
 
 **Correct:**
-```/dev/null/example.py#L1-11
+```python
 import jesse.indicators as ta
 
 bb = ta.bollinger_bands(self.candles)
