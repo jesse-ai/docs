@@ -3,7 +3,9 @@ name: update-changelog
 description: >-
   Add entries to the Jesse changelog (docs/docs/docs/changelog.md). Use whenever
   Saleh asks to "add logs / changelog entries for the changes we made". Encodes
-  the append-vs-new-version rule and the never-deploy-by-accident branch rule.
+  the append-vs-new-version rule and an explicit-authorization boundary: edit
+  only by default, with no branch, stage, commit, push, merge, or deploy action
+  unless Saleh specifically requests it.
 ---
 
 # Updating the Jesse changelog
@@ -12,11 +14,21 @@ The changelog lives at **`docs/docs/docs/changelog.md`** in this repo (`jesse-ai
 Resolve the repository root with `git rev-parse --show-toplevel`; never assume a
 device-specific workspace path. It is rendered on the public docs website.
 
-## Golden rule: never push to `master`
+## Authorization boundary
 
-Pushing to `master` **deploys to the website**. Always make changelog edits on a
-**new branch** and push that branch. Do **not** merge to `master` or push to
-`master` unless Saleh explicitly says to deploy.
+A request to add, edit, or update changelog entries authorizes **only the file
+edit**. Do not create or switch branches, stage files, commit, push, merge, or
+deploy unless Saleh explicitly requests that action. Do not infer permission
+from wording such as "add", "update", "finish", "ship", or "done".
+
+Pushing to `master` **deploys to the website**. Never push to `master` or merge
+into it unless Saleh explicitly asks to deploy. If a push is requested while the
+current branch is `master`, stop and ask whether to create or switch to a
+non-deploy branch; do not create or switch branches without that authorization.
+
+If Saleh asks for a commit but not a push, commit locally only. If he asks for a
+push but not a merge or deployment, push only the explicitly approved
+non-`master` branch.
 
 ## Append to the current version, or start a new one?
 
@@ -70,8 +82,21 @@ the way existing entries do.
 
 ## Workflow
 
-1. `git checkout -b changelog/<short-desc>` (never edit on `master`).
+### Default: edit only
+
+1. Resolve the repository root and inspect the current branch, worktree, and
+   relevant release section without changing git state.
 2. Edit `docs/docs/docs/changelog.md` — append to the top version, or insert a new
    version block right under the `# Jesse Changelog` intro.
-3. Commit and **push the branch only** (`git push -u origin <branch>`).
-4. Tell Saleh the branch is up; do not deploy (merge to master) without his OK.
+3. Run `git diff --check` and review the changelog diff.
+4. Tell Saleh what changed and explicitly state that it remains uncommitted and
+   unpushed.
+
+### Git follow-through: only when explicitly requested
+
+- Create or switch branches only when Saleh explicitly requests it.
+- Stage only the requested changelog or skill files; preserve unrelated work.
+- Commit only when Saleh explicitly requests a commit.
+- Push only when Saleh explicitly requests a push, and never push `master`
+  unless he explicitly asks to deploy.
+- Merge or deploy only when Saleh explicitly requests that specific action.
