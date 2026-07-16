@@ -22,7 +22,8 @@ Here you can see the changes made with each release of the main framework and th
 - **[NEW]** Live and paper trading charts now include fullscreen mode plus the same collapsible panes, synchronized cursor, reset-view, and image-export tools as backtest charts.
 - **[IMPROVEMENT]** Click an indicator's name in the chart legend to hide or show it; the choice is remembered for each strategy.
 - **[IMPROVEMENT]** Live charts are less cluttered: indicator values remain in the legend without duplicate guide lines or labels on the price scale.
-- **[IMPROVEMENT]** Long-running live sessions now keep only the latest 10,000 points for each indicator line, preventing chart history from growing without limit.
+- **[NEW]** Strategies can define `update_chart()` to refresh indicator values throughout the forming live candle; same-candle updates replace the current point instead of creating duplicates.
+- **[IMPROVEMENT]** Long-running live sessions now keep only the latest 1,000 points for each indicator line, preventing chart history from growing without limit.
 - **[FIX]** Fixed live indicator history becoming stale after long sessions, and ensured temporary chart-history save failures no longer stop dashboard updates.
 
 ## 2.5.0 (7 July 2026)
