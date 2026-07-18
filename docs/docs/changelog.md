@@ -5,6 +5,7 @@ Here you can see the changes made with each release of the main framework and th
 ## 2.5.1 (11 July 2026)
 
 - **[IMPROVEMENT]** The dashboard sidebar now remembers your last opened strategy and your last active backtest, optimization, Monte Carlo, Rule Test, and live session, so returning to a section takes you back where you left off.
+- **[FIX]** Rule Test now safely recovers from invalid remembered session links instead of repeatedly showing an error.
 - **[NEW]** Indicator panes on the interactive backtest chart are now collapsible behind their header — and so is the candle chart itself when indicator panes exist. Collapsing a pane hands its space to the remaining charts, and everything stays in sync when expanded again.
 - **[IMPROVEMENT]** The candle chart now always keeps a healthy share of the chart area, no matter how many indicator panes your strategy adds — indicator panes shrink gracefully instead of squeezing the candles out.
 - **[IMPROVEMENT]** Hovering a trade in the chart sidebar now highlights **all** of its orders on the chart, and hovering a single order row highlights just that order. The highlight stays for as long as you hover instead of fading after two seconds.
