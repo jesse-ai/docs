@@ -1,6 +1,14 @@
 # Charts
 
-Jesse supports a variety of charts, helping you visualize your trading strategies, both the results of backtests and in real-time.
+Jesse provides charts for inspecting strategy behavior during backtests and while paper or live trading.
+
+## Interactive Charts
+
+The [Interactive Charts](./Interactive-charts.md) view combines candlesticks, executed-order markers, strategy-added indicator lines, horizontal levels, and separate indicator panes. Backtest charts display the completed simulation, while live charts stream the current candle and strategy values as the session runs.
+
+## Backtest Result Charts
+
+The [Backtest Result Charts](../backtest/charts.md) summarize performance through cumulative returns, drawdowns, monthly returns, and trade P&L distributions.
 
 ## Equity Curve
 

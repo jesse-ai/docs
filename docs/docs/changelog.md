@@ -25,7 +25,9 @@ Here you can see the changes made with each release of the main framework and th
 - **[IMPROVEMENT]** Live charts are less cluttered: indicator values remain in the legend without duplicate guide lines or labels on the price scale.
 - **[NEW]** Strategies can define `update_chart()` to refresh indicator values throughout the forming live candle; same-candle updates replace the current point instead of creating duplicates.
 - **[IMPROVEMENT]** Long-running live sessions now keep only the latest 1,000 points for each indicator line, preventing chart history from growing without limit.
-- **[FIX]** Fixed live indicator history becoming stale after long sessions, and ensured temporary chart-history save failures no longer stop dashboard updates.
+- **[NEW]** Live and paper sessions now include a Trade Chart for browsing saved candles, executed orders, closed trades, and strategy indicator values — while the session is running or after it has ended.
+- **[IMPROVEMENT]** Finalized live indicator values are now stored with the session, preserving complete chart history for older trades while the real-time chart keeps its bounded 1,000-point working set.
+- **[FIX]** The live candle chart now remains available after a session is terminated and restores its saved candles and indicator values after a page reload.
 
 ## 2.5.0 (7 July 2026)
 
