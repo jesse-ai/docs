@@ -20,6 +20,6 @@ Once the backtest completes, you will see a comprehensive [results panel](./resu
 - **[Tabs](./tabs.md)** — How to manage multiple simultaneous backtest sessions using tabs
 - **[Results](./results.md)** — A full reference for every metric in the results table and how to interpret it
 - **[Charts](./charts.md)** — Interpreting the full set of performance charts: cumulative returns, drawdown periods, underwater plot, monthly heatmap, and trade P&L distribution
-- **[Interactive Charts](../charts/Interactive-charts.md)** — Visually inspecting every trade entry and exit on a candlestick chart
+- **[Interactive Charts](../charts/interactive-charts.md)** — Visually inspecting every trade entry and exit on a candlestick chart
 - **[Exports](./exports.md)** — Exporting results to CSV, JSON, TradingView Pine Script, and legacy charts
 - **[Benchmark](./benchmark.md)** — Running multiple backtest configurations simultaneously and comparing them ✨

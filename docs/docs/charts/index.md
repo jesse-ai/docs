@@ -4,7 +4,7 @@ Jesse provides charts for inspecting strategy behavior during backtests and whil
 
 ## Interactive Charts
 
-The [Interactive Charts](./Interactive-charts.md) view combines candlesticks, executed-order markers, strategy-added indicator lines, horizontal levels, and separate indicator panes. Backtest charts display the completed simulation, while live charts stream the current candle and strategy values as the session runs.
+The [Interactive Charts](./interactive-charts.md) view combines candlesticks, executed-order markers, strategy-added indicator lines, horizontal levels, and separate indicator panes. Backtest charts display the completed simulation, while live charts stream the current candle and strategy values as the session runs.
 
 ## Backtest Result Charts
 
@@ -14,8 +14,8 @@ The [Backtest Result Charts](../backtest/charts.md) summarize performance throug
 
 After the backtest simulation is finished, you will get to see the **equity curve** of your daily balances. Here is how it looks:
 
-![equity-curve-example](https://api1.jesse.trade/storage/images/uploads/oVj9KnCJ3Itra3mHBZE18W3Gnw9d2z6qA2uxgxZi.jpg)
+![Equity curve showing a strategy's daily balance](https://cdn.jesse.trade/images/1efff5cc-b6ee-4098-99a6-a85ddb7f7abb.png)
 
 You can also enable the **benchmark** feature to compare your equity curve to a **buy-and-hold** strategy for the assets you are trading.
 
-![benchmark-example](https://api1.jesse.trade/storage/images/uploads/7fY4FAhbIaRJGvr4uAx3qFZQmpyHxTIdxsMbAKKc.jpg)
+![Equity curve comparing the strategy with its BTC-USDT benchmark](https://cdn.jesse.trade/images/35e3ac14-b675-4eaa-befe-a4d84d35eda2.png)

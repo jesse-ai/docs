@@ -65,7 +65,7 @@ What to look for:
 - **Drawdown after a strong run** — a severe drawdown that occurs immediately after a period of rapid gains can indicate the strategy was over-leveraged into a momentum burst that then reversed.
 
 ::: tip
-Cross-reference this chart with the [Interactive Charts](../charts/Interactive-charts.md) view. Click into any red region to see exactly which trades caused the decline and whether the losses were many small trades or a single large one.
+Cross-reference this chart with the [Interactive Charts](../charts/interactive-charts.md) view. Click into any red region to see exactly which trades caused the decline and whether the losses were many small trades or a single large one.
 :::
 
 ## Underwater Plot
@@ -105,7 +105,7 @@ In the example above (2023 only), the breakdown is:
 What to look for:
 
 - **Streaks of green** — consecutive profitable months indicate the strategy works across varying market conditions within that stretch.
-- **Isolated red months** — a single bad month among many good ones is much less concerning than a cluster of red. Investigate the red months in the [Interactive Charts](../charts/Interactive-charts.md) to understand what happened.
+- **Isolated red months** — a single bad month among many good ones is much less concerning than a cluster of red. Investigate the red months in the [Interactive Charts](../charts/interactive-charts.md) to understand what happened.
 - **Seasonality patterns** — across multiple years, if the same calendar months repeatedly show red (e.g. August is always a losing month), the strategy may have a seasonal blind spot worth addressing.
 - **Total column** — a strong total with a few losing months is fine. A weak total despite mostly green months suggests the losing months were disproportionately severe — check the heatmap alongside the drawdown charts.
 
