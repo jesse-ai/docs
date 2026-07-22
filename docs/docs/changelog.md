@@ -2,7 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.5.1 (11 July 2026)
+## 2.6.0 (11 July 2026)
 
 - **[IMPROVEMENT]** The dashboard sidebar now remembers your last opened strategy and your last active backtest, optimization, Monte Carlo, Rule Test, and live session, so returning to a section takes you back where you left off.
 - **[FIX]** Rule Test now safely recovers from invalid remembered session links instead of repeatedly showing an error.
@@ -28,6 +28,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[NEW]** Live and paper sessions now include a Trade Chart for browsing saved candles, executed orders, closed trades, and strategy indicator values — while the session is running or after it has ended.
 - **[IMPROVEMENT]** Finalized live indicator values are now stored with the session, preserving complete chart history for older trades while the real-time chart keeps its bounded 1,000-point working set.
 - **[IMPROVEMENT]** The live candle chart now remains available after a session is terminated and restores its saved candles and indicator values after a page reload.
+- **[FIX]** Paper trading limit and stop orders now execute correctly after a temporary market-data connection gap.
 
 ## 2.5.0 (7 July 2026)
 
