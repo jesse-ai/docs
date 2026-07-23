@@ -32,6 +32,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[IMPROVEMENT]** New live and paper sessions now use compact options and a setup summary with a larger start button, matching the redesigned backtest form.
 - **[FIX]** Notification drivers can now be switched off again after one has been selected for a live or paper session.
 - **[IMPROVEMENT]** Settings now use the dashboard's compact card design, with whole-row toggles and clearer selection, number, and exchange controls.
+- **[IMPROVEMENT]** The dashboard now finishes loading as soon as local Jesse is ready, while slower online account and update checks continue in the background.
 
 ## 2.5.0 (7 July 2026)
 
