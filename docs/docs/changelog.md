@@ -4,6 +4,8 @@ Here you can see the changes made with each release of the main framework and th
 
 ## 2.6.0 (11 July 2026)
 
+- **[FIX]** Failed Rule Test, optimization, and Monte Carlo sessions now remain stopped after a refresh instead of appearing to still be running, keep their error details visible, and provide the correct recovery actions.
+- **[FIX]** Optimization and Monte Carlo sessions are now recorded before their worker starts, and early setup errors are saved reliably instead of leaving behind a permanently running session.
 - **[IMPROVEMENT]** The dashboard sidebar now remembers your last opened strategy and your last active backtest, optimization, Monte Carlo, Rule Test, and live session, so returning to a section takes you back where you left off.
 - **[FIX]** Rule Test now safely recovers from invalid remembered session links instead of repeatedly showing an error.
 - **[NEW]** Indicator panes on the interactive backtest chart are now collapsible behind their header — and so is the candle chart itself when indicator panes exist. Collapsing a pane hands its space to the remaining charts, and everything stays in sync when expanded again.
