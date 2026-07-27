@@ -31,6 +31,8 @@ Here you can see the changes made with each release of the main framework and th
 - **[IMPROVEMENT]** Finalized live indicator values are now stored with the session, preserving complete chart history for older trades while the real-time chart keeps its bounded 1,000-point working set.
 - **[IMPROVEMENT]** The live candle chart now remains available after a session is terminated and restores its saved candles and indicator values after a page reload.
 - **[FIX]** Paper trading limit and stop orders now execute correctly after a temporary market-data connection gap.
+- **[NEW]** Trading and data routes can now be saved together as reusable setups and quickly applied to compatible new sessions.
+- **[IMPROVEMENT]** Adding routes is smarter: trading routes reuse the previous strategy and exclude already-selected symbols, while data routes start from the last trading symbol with a compatible timeframe.
 - **[IMPROVEMENT]** New live and paper sessions now use compact options and a setup summary with a larger start button, matching the redesigned backtest form.
 - **[FIX]** Notification drivers can now be switched off again after one has been selected for a live or paper session.
 - **[IMPROVEMENT]** Settings now use the dashboard's compact card design, with whole-row toggles and clearer selection, number, and exchange controls.
