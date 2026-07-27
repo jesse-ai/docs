@@ -37,6 +37,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[FIX]** Notification drivers can now be switched off again after one has been selected for a live or paper session.
 - **[IMPROVEMENT]** Settings now use the dashboard's compact card design, with whole-row toggles and clearer selection, number, and exchange controls.
 - **[IMPROVEMENT]** The dashboard now finishes loading as soon as local Jesse is ready, while slower online account and update checks continue in the background.
+- **[IMPROVEMENT]** The backtest Benchmark page now has a responsive comparison table with sticky backtest names, clearer controls, and batch actions that are available only when they can be used.
 
 ## 2.5.0 (7 July 2026)
 
