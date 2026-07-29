@@ -38,6 +38,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[IMPROVEMENT]** Settings now use the dashboard's compact card design, with whole-row toggles and clearer selection, number, and exchange controls.
 - **[IMPROVEMENT]** The dashboard now finishes loading as soon as local Jesse is ready, while slower online account and update checks continue in the background.
 - **[IMPROVEMENT]** The backtest Benchmark page now has a responsive comparison table with sticky backtest names, clearer controls, and batch actions that are available only when they can be used.
+- **[IMPROVEMENT]** Live and paper order tables are now easier to scan, with compact prices and quantities and no redundant order ID column.
 
 ## 2.5.0 (7 July 2026)
 
