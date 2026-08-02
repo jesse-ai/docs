@@ -21,7 +21,8 @@ So far, the below exchanges are supported for **importing candles and running ba
 -   `Bybit USDC Perpetual`
 -   `Bybit Spot`
 -   `Gate.io Perpetual Futures`
--   `Kraken Pro Spot`
+-   `KuCoin USDT Perpetual`
+-   `KuCoin Spot`
 -   `Kraken Pro Futures`
 
 ::: tip
@@ -39,6 +40,9 @@ At the moment these are the supported exchanges for live trading:
 -   [Lighter](https://app.lighter.xyz/?referral=7248903K)
 -   [Apex Omni](https://jesse.trade/apex)
 -   [Kraken Pro Futures](https://jesse.trade/kraken)
+-   [Kraken Pro Spot](https://jesse.trade/kraken)
+-   [KuCoin USDT Perpetual Futures](https://jesse.trade/kucoin)
+-   [KuCoin Spot](https://jesse.trade/kucoin)
 -   [Hyperliquid](https://jesse.trade/hyperliquid)
 -   [Bybit USDT Perpetual Futures](https://jesse.trade/bybit)
 -   [Bybit USDC Perpetual Futures](https://jesse.trade/bybit)
