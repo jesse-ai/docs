@@ -62,15 +62,26 @@ guessing — the release number is ultimately his call, and he can adjust it in 
 
 ## Entry format
 
+Within every release, group entries in this exact order:
+
+1. `**[NEW]**`
+2. `**[IMPROVEMENT]**`
+3. `**[FIX]**`
+
+Never interleave categories. Separate each non-empty category group with one blank
+line, and keep related entries together within their category.
+
 ```
 ## 2.3.4 (4 June 2026)
 
 - **[NEW]** A user-facing description of a new capability.
-- **[FIX]** What was broken and what it means for the user.
+
 - **[IMPROVEMENT]** A refinement to existing behavior.
+
+- **[FIX]** What was broken and what it means for the user.
 ```
 
-Tags: `**[NEW]**`, `**[FIX]**`, `**[IMPROVEMENT]**`. Date format: `D Month YYYY`.
+Tags: `**[NEW]**`, `**[IMPROVEMENT]**`, `**[FIX]**`. Date format: `D Month YYYY`.
 
 **Keep every entry simple and non-technical — this is for everyday users, not
 developers.** One short sentence each. Say what changed in plain language, no

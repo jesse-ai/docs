@@ -2,43 +2,59 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 2.6.0 (11 July 2026)
+## 3.0.0 (1 August 2026)
 
-- **[FIX]** Failed Rule Test, optimization, and Monte Carlo sessions now remain stopped after a refresh instead of appearing to still be running, keep their error details visible, and provide the correct recovery actions.
-- **[FIX]** Optimization and Monte Carlo sessions are now recorded before their worker starts, and early setup errors are saved reliably instead of leaving behind a permanently running session.
-- **[IMPROVEMENT]** The dashboard sidebar now remembers your last opened strategy and your last active backtest, optimization, Monte Carlo, Rule Test, and live session, so returning to a section takes you back where you left off.
-- **[FIX]** Rule Test now safely recovers from invalid remembered session links instead of repeatedly showing an error.
+- **[NEW]** Added support for **Kraken Pro Spot** live trading.
+- **[NEW]** Added support for **KuCoin Futures** live trading.
+- **[NEW]** Added support for **KuCoin Spot** live trading.
 - **[NEW]** Indicator panes on the interactive backtest chart are now collapsible behind their header — and so is the candle chart itself when indicator panes exist. Collapsing a pane hands its space to the remaining charts, and everything stays in sync when expanded again.
-- **[IMPROVEMENT]** The candle chart now always keeps a healthy share of the chart area, no matter how many indicator panes your strategy adds — indicator panes shrink gracefully instead of squeezing the candles out.
-- **[IMPROVEMENT]** Hovering a trade in the chart sidebar now highlights **all** of its orders on the chart, and hovering a single order row highlights just that order. The highlight stays for as long as you hover instead of fading after two seconds.
-- **[IMPROVEMENT]** Jumping to a trade from the chart sidebar now keeps your current zoom level instead of resetting it.
-- **[FIX]** Fixed several interactive backtest chart issues: the crosshair could sync against the wrong indicator pane, zooming to a trade crashed on single-order sessions, price-scale precision was computed incorrectly for some symbols, and charts didn't resize with the window.
 - **[NEW]** The backtest chart now shows a legend with candle OHLC and indicator values that follows your cursor.
 - **[NEW]** Indicator pane headers display their latest values in color — even while collapsed.
 - **[NEW]** Hovering a trade in the chart sidebar draws its entry-to-exit line on the chart — green for wins, red for losses.
 - **[NEW]** Added "reset view" and "save as image" buttons to the backtest chart.
-- **[IMPROVEMENT]** Trades in the chart sidebar now show their direction, open time, and duration, and the list can be sorted by PNL.
-- **[FIX]** Backtests run through an AI assistant (MCP) now correctly show their executed routes on the dashboard.
-- **[IMPROVEMENT]** Writing strategies in a code editor is now much smoother: strategy properties such as `self.hp`, `self.position`, and `self.routes` ship accurate type hints, so editors no longer flag false errors in strategy files.
-- **[IMPROVEMENT]** All indicators now tell your editor whether they return a single value or a full series based on their `sequential` argument, improving autocomplete and type checking.
 - **[NEW]** Live and paper trading charts now show strategy-added indicator lines, additional panes, and horizontal levels in real time, and restore them after a page reload.
 - **[NEW]** Live and paper trading charts now include fullscreen mode plus the same collapsible panes, synchronized cursor, reset-view, and image-export tools as backtest charts.
+- **[NEW]** Strategies can define `update_chart()` to refresh indicator values throughout the forming live candle; same-candle updates replace the current point instead of creating duplicates.
+- **[NEW]** Live and paper sessions now include a Trade Chart for browsing saved candles, executed orders, closed trades, and strategy indicator values — while the session is running or after it has ended.
+- **[NEW]** New-session forms offer quick period presets — last 3 or 6 months, year to date, and last 1, 2, or 3 years — alongside custom dates. Presets always end at yesterday so every day has complete candles, and a live day counter shows the selected range's length.
+- **[NEW]** Each new-session form now has a Summary panel that updates as you configure — exchange, period, routes, and enabled options — with the Start button right beneath it.
+- **[NEW]** Trading and data routes can now be saved together as reusable setups and quickly applied to compatible new sessions.
+- **[NEW]** Section titles include a small "?" that explains the section on hover and, where helpful, links straight to the documentation.
+
+- **[IMPROVEMENT]** The dashboard sidebar now remembers your last opened strategy and your last active backtest, optimization, Monte Carlo, Rule Test, and live session, so returning to a section takes you back where you left off.
+- **[IMPROVEMENT]** The candle chart now always keeps a healthy share of the chart area, no matter how many indicator panes your strategy adds — indicator panes shrink gracefully instead of squeezing the candles out.
+- **[IMPROVEMENT]** Hovering a trade in the chart sidebar now highlights **all** of its orders on the chart, and hovering a single order row highlights just that order. The highlight stays for as long as you hover instead of fading after two seconds.
+- **[IMPROVEMENT]** Jumping to a trade from the chart sidebar now keeps your current zoom level instead of resetting it.
+- **[IMPROVEMENT]** Trades in the chart sidebar now show their direction, open time, and duration, and the list can be sorted by PNL.
+- **[IMPROVEMENT]** Writing strategies in a code editor is now much smoother: strategy properties such as `self.hp`, `self.position`, and `self.routes` ship accurate type hints, so editors no longer flag false errors in strategy files.
+- **[IMPROVEMENT]** All indicators now tell your editor whether they return a single value or a full series based on their `sequential` argument, improving autocomplete and type checking.
 - **[IMPROVEMENT]** Click an indicator's name in the chart legend to hide or show it; the choice is remembered for each strategy.
 - **[IMPROVEMENT]** Live charts are less cluttered: indicator values remain in the legend without duplicate guide lines or labels on the price scale.
-- **[NEW]** Strategies can define `update_chart()` to refresh indicator values throughout the forming live candle; same-candle updates replace the current point instead of creating duplicates.
 - **[IMPROVEMENT]** Long-running live sessions now keep only the latest 1,000 points for each indicator line, preventing chart history from growing without limit.
-- **[NEW]** Live and paper sessions now include a Trade Chart for browsing saved candles, executed orders, closed trades, and strategy indicator values — while the session is running or after it has ended.
 - **[IMPROVEMENT]** Finalized live indicator values are now stored with the session, preserving complete chart history for older trades while the real-time chart keeps its bounded 1,000-point working set.
 - **[IMPROVEMENT]** The live candle chart now remains available after a session is terminated and restores its saved candles and indicator values after a page reload.
-- **[FIX]** Paper trading limit and stop orders now execute correctly after a temporary market-data connection gap.
-- **[NEW]** Trading and data routes can now be saved together as reusable setups and quickly applied to compatible new sessions.
+- **[IMPROVEMENT]** Familiar strategy chart colors such as red, blue, and green now use polished shades that remain clear in both light and dark mode.
+- **[IMPROVEMENT]** The Trade Chart sidebar now has cleaner headings and better-aligned trade controls.
+- **[IMPROVEMENT]** The live and paper trading dashboard has a refreshed look — the candle chart, equity curve, session info, and activity now sit in clean rounded cards on a dark canvas, matching the Trade Chart design.
+- **[IMPROVEMENT]** A live session's status and elapsed time are now shown at a glance, with quick access to logs, errors, trades, orders, the trade chart, and reporting an issue all gathered in one place. Errors stand out when there are any.
+- **[IMPROVEMENT]** The routes editor is cleaner: separate "Trading routes" and "Data routes" cards with one-click add buttons, and the data-routes card only appears once you add one.
 - **[IMPROVEMENT]** Adding routes is smarter: trading routes reuse the previous strategy and exclude already-selected symbols, while data routes start from the last trading symbol with a compatible timeframe.
+- **[IMPROVEMENT]** Backtest options are now compact two-column toggles, and finished optimization, Monte Carlo, and Rule Test sessions highlight "New session" as the main action.
+- **[IMPROVEMENT]** Removed the "Export TradingView" option from backtests — the built-in interactive charts now display executed trades and orders directly, replacing the far more limited TradingView export.
 - **[IMPROVEMENT]** New live and paper sessions now use compact options and a setup summary with a larger start button, matching the redesigned backtest form.
-- **[FIX]** Notification drivers can now be switched off again after one has been selected for a live or paper session.
 - **[IMPROVEMENT]** Settings now use the dashboard's compact card design, with whole-row toggles and clearer selection, number, and exchange controls.
 - **[IMPROVEMENT]** The dashboard now finishes loading as soon as local Jesse is ready, while slower online account and update checks continue in the background.
 - **[IMPROVEMENT]** The backtest Benchmark page now has a responsive comparison table with sticky backtest names, clearer controls, and batch actions that are available only when they can be used.
 - **[IMPROVEMENT]** Live and paper order tables are now easier to scan, with compact prices and quantities and no redundant order ID column.
+
+- **[FIX]** Failed Rule Test, optimization, and Monte Carlo sessions now remain stopped after a refresh instead of appearing to still be running, keep their error details visible, and provide the correct recovery actions.
+- **[FIX]** Optimization and Monte Carlo sessions are now recorded before their worker starts, and early setup errors are saved reliably instead of leaving behind a permanently running session.
+- **[FIX]** Rule Test now safely recovers from invalid remembered session links instead of repeatedly showing an error.
+- **[FIX]** Fixed several interactive backtest chart issues: the crosshair could sync against the wrong indicator pane, zooming to a trade crashed on single-order sessions, price-scale precision was computed incorrectly for some symbols, and charts didn't resize with the window.
+- **[FIX]** Backtests run through an AI assistant (MCP) now correctly show their executed routes on the dashboard.
+- **[FIX]** Live charts no longer stack older order markers on the first visible candle when their matching candles are outside the loaded chart history.
+- **[FIX]** Paper trading limit and stop orders now execute correctly after a temporary market-data connection gap.
+- **[FIX]** Notification drivers can now be switched off again after one has been selected for a live or paper session.
 
 ## 2.5.0 (7 July 2026)
 
