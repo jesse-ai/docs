@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Jesse"
   text: "The Advanced Algo-Trading Framework in Python"
-  tagline: "Self-Hosted and Privacy-First: Simplicity, Accuracy, and Flexibility in Algorithmic Trading"
+  tagline: "Research, validate, and deploy strategies with Python, a visual dashboard, or your AI assistant — all self-hosted"
   image:
     src: /imgs/w-01.png
     alt: Jesse
@@ -14,10 +14,34 @@ hero:
       text: Get Started →
       link: /docs/getting-started/
     - theme: alt
+      text: Connect an AI Assistant →
+      link: /docs/mcp/
+    - theme: alt
       text: Join the Community →
       link: https://jesse.trade/discord
 
 features:
+  - title: "🔌 Jesse MCP"
+    details: Connect Claude, Codex, Cursor, VS Code, Zed, or any MCP-compatible assistant directly to your local Jesse project. Let it work with strategies and candles, run backtests, optimize parameters, perform significance tests and Monte Carlo analysis, and link you to the saved dashboard results.
+    link: /docs/mcp/
+  - title: "🧠 Machine Learning"
+    details: Use Jesse's end-to-end ML pipeline to gather labelled training data from backtests, train and evaluate scikit-learn models for classification or regression, and deploy predictions directly inside your strategies.
+    link: /docs/research/ml/
+  - title: "🔬 Rule Significance Testing"
+    details: Statistically validate your entry logic before building a complete strategy. Bootstrap resampling helps determine whether a rule's historical edge is genuine or could have appeared by chance.
+    link: /docs/rule-significance-testing/
+  - title: "🎲 Monte Carlo Analysis"
+    details: Stress-test strategies with trade-order shuffling and candles-based simulations to distinguish skill from luck, understand the range of possible outcomes, and guard against overfitting.
+    link: /docs/monte-carlo/
+  - title: "🧪 Research API and Jupyter"
+    details: Run candle workflows, backtests, optimization, significance tests, Monte Carlo analysis, indicators, and machine learning from Python scripts or Jupyter notebooks for reproducible and automated research.
+    link: /docs/research/
+  - title: "📊 Interactive Trading Charts"
+    details: Inspect candlesticks, strategy indicators, horizontal levels, orders, and completed trades in synchronized charts across backtest, paper, and live sessions — including saved chart history after a session ends.
+    link: /docs/charts/interactive-charts
+  - title: "🦀 Rust-Powered Indicators"
+    details: Native Rust implementations make indicator-heavy strategies and large research runs substantially faster. Jesse's benchmarked indicator suite became 3.4× faster after the Rust migration.
+    link: /docs/indicators/
   - title: "📝 Simple Syntax"
     details: Define both simple and advanced trading strategies with the simplest syntax in the fastest time.
   - title: "📊 Comprehensive Indicator Library"
@@ -35,29 +59,20 @@ features:
   - title: "🔍 Debug Mode"
     details: Observe your strategy in action with a detailed debug mode.
   - title: "🔧 Optimize Mode"
-    details: Fine-tune your strategies using AI, without needing a technical background.
+    details: Search strategy parameters efficiently with Optuna and parallel processing powered by Ray, including separate training and testing periods to measure generalization.
+    link: /docs/optimize/
   - title: "📈 Leveraged and Short-Selling"
     details: First-class support for leveraged trading and short-selling.
   - title: "🔀 Partial Fills"
     details: Supports entering and exiting positions in multiple orders, allowing for greater flexibility.
   - title: "🔔 Advanced Alerts"
     details: Create real-time alerts within your strategies for effective monitoring.
-  - title: "📉 Auto-Generated Charts"
-    details: View your portfolio's performance with automatically generated charts.
   - title: "🧹 Data Cleaning"
     details: Automatic handling of importing candles and cleaning data.
   - title: "📈 First-Class Support for Trading Futures and Spot"
     details: Jesse Offers specialized support for both futures and spot markets.
   - title: "🔐 Support for Decentralized Exchanges (DEX)"
     details: Jesse's support for DEX ensures you can maintain full custody of your assets while trading.
-  - title: "🔬 Rule Significance Testing"
-    details: Statistically validate your entry logic before backtesting. Uses bootstrap resampling to determine whether a rule's historical returns could have appeared by chance — giving you a principled, fast pre-backtest filter.
-    link: /docs/rule-significance-testing/
-  - title: "🎲 Monte Carlo Analysis"
-    details: Stress-test your strategies with trade-order shuffling and candles-based simulations to distinguish skill from luck and guard against overfitting.
-  - title: "🧠 Machine Learning"
-    details: Built-in end-to-end ML pipeline — gather labelled training data from backtests, train scikit-learn models (binary, multiclass, or regression), and deploy predictions directly inside your strategies.
-  - title: "🔌 Jesse MCP"
-    details: Pair Jesse with an AI-friendly editor (Cursor, VS Code, or any tool that supports MCP) and your assistant can help with strategies, backtests, candle data, and settings using the same live context you see in Jesse—everything stays on your machine, and you choose when to turn the connection on.
+  - title: "🤖 Reinforcement Learning — Coming Soon"
+    details: First-class workflows for training, evaluating, and deploying reinforcement-learning agents are coming to Jesse's simulation and research stack.
 ---
-

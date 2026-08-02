@@ -212,7 +212,7 @@ Here you can see the changes made with each release of the main framework and th
 - 
 ## 1.13.8 (28 March 2026)
 
-- **[NEW FEATURE]** Added initial support for meachine learning.
+- **[NEW FEATURE]** Added an end-to-end machine-learning pipeline to the Research API: gather labelled data from backtests, train and evaluate scikit-learn models for binary classification, multiclass classification, or regression, and deploy predictions inside Jesse strategies.
 
 
 ## 1.13.7 (25 February 2026)

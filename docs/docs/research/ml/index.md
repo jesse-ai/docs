@@ -1,14 +1,8 @@
 # Machine Learning
 
-::: warning Experimental API
-The machine-learning API described in this section is **experimental** and may change at any point without prior notice. Do not rely on it for production systems until it is marked stable.
-
-To collaborate, share feedback, or follow updates, join the community on [Discord](https://jesse.trade/discord).
-:::
-
 The `jesse.research` module provides a complete machine-learning pipeline for Jesse strategies — from collecting labelled training data during a backtest, to training and evaluating a model, to deploying it live inside your strategy to filter or score signals.
 
-The system is built around four public functions:
+The system is built around three public research functions:
 
 | Function | Purpose |
 |---|---|
