@@ -15,7 +15,7 @@ Jesse runs a signal-only backtest using your strategy. At every completed bar, `
 
 **Phase 2 — Bootstrap simulation:**
 
-1. **Compute rule returns.** For each bar, multiply the signal by the detrended log-return: `signal × (log_return − market_mean)`. Neutral bars (signal `= 0`) contribute `0` and are excluded naturally.
+1. **Compute rule returns.** Multiply each signal emitted at bar `t` by the following bar's detrended log return: `signal_t × (log_return_t+1 − market_mean)`. Neutral signals (`0`) contribute `0` and remain in the observation count.
 2. **Zero-centre the array.** Subtract the observed mean from every rule return: `centered = rule_returns − observed_mean`. This enforces the null hypothesis that the rule has no edge (expected return = 0).
 3. **Resample with replacement.** Draw `n_simulations` bootstrap resamples from the zero-centred array, each the same length as the original. Compute the mean of each resample to build the null sampling distribution.
 4. **Compute the p-value.** Count the fraction of simulated means that are greater than or equal to the observed mean: `p_value = mean(sim_means >= observed_mean)`.

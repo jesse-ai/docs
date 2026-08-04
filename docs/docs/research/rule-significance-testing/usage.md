@@ -162,7 +162,7 @@ plot_significance_test(result)
   Observations      : 3095 bars
   Simulations       : 1000
   Observed mean     : 0.00014333
-  Annualised return : 3.6120 %
+  Annualised return : 31.3893 %
   p-value           : 0.0470   →  STATISTICALLY SIGNIFICANT (p ≤ 0.05) ★
 ============================================================
 ```
@@ -327,7 +327,7 @@ plot_significance_test(result)
   Observations      : 3095 bars
   Simulations       : 1000
   Observed mean     : 0.00020504
-  Annualised return : 5.1670 %
+  Annualised return : 44.9038 %
   p-value           : 0.1120   →  not significant (p > 0.10)
 ============================================================
 ```
@@ -354,7 +354,7 @@ Despite a positive observed mean (BTC trended up during this period, so even ran
 `rule_significance_test()` returns a `dict` with the following keys:
 
 - **observed_mean** (float): Mean bar-level log return of the rule after detrending.
-- **annualized_return** (float): `observed_mean × 252` — a rough annualised estimate.
+- **annualized_return** (float): `observed_mean × bars per 365-day crypto year` — a rough timeframe-aware annualised estimate.
 - **simulated_means** (np.ndarray): Shape `(n_simulations,)`. The full bootstrap null distribution.
 - **p_value** (float): Fraction of simulated means ≥ `observed_mean`. At or below `0.10` is possibly significant; at or below `0.05` is statistically significant; at or below `0.001` is highly significant.
 - **n_simulations** (int): Number of simulations completed.

@@ -46,7 +46,7 @@ Along with each signal, Jesse records the closing price of that bar. The result 
 
 ### Phase 2 — Statistical simulation
 
-With the signal and price series in hand, Jesse computes the **observed mean return** of the rule: the average bar-level log return earned when the rule was active. This is the benchmark the simulations must beat.
+With the signal and price series in hand, Jesse computes the **observed mean return** of the rule: the average next-bar log return earned after the rule emitted a signal. This is the benchmark the simulations must beat. A signal produced at bar `t` is paired with the return of bar `t+1`, so the rule is evaluated only on price movement that was not yet known when the signal fired.
 
 To enforce H0, Jesse **detrends the returns** by subtracting the market's own mean return from every bar. This removes the general upward or downward drift of the market, ensuring that a simulated strategy cannot score highly simply by being long in a trending market.
 

@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.0.2 (4 August 2026)
+
+- **[FIX]** Rule Significance Testing now evaluates each entry signal against the following bar's return, preventing same-bar look-ahead bias from making rules appear predictive.
+- **[FIX]** Rule Significance Testing now annualizes returns using the selected timeframe and a 365-day crypto year instead of applying the same multiplier to every timeframe.
+
 ## 3.0.0 (1 August 2026)
 
 - **[NEW]** Added support for **Kraken Pro Spot** live trading.

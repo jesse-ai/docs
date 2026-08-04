@@ -26,14 +26,14 @@ A statistically significant p-value does **not** guarantee future profits. It on
 
 ## The observed mean
 
-The **observed mean** is the average bar-level log return produced by your rule. At each bar the strategy's `should_long()` / `should_short()` methods are called to record a signal (`+1`, `-1`, or `0`). That signal is then multiplied by the bar's **detrended** log return (the raw log return minus the overall mean log return for the period, which removes market drift). The observed mean is the average of all those products.
+The **observed mean** is the average next-bar log return produced by your rule. At each bar the strategy's `should_long()` / `should_short()` methods are called to record a signal (`+1`, `-1`, or `0`). The signal emitted at bar `t` is multiplied by bar `t+1`'s **detrended** log return (the raw log return minus the overall mean log return for the period, which removes market drift). The observed mean is the average of all those products.
 
 - A **positive observed mean** means the rule was net profitable on a per-bar basis after removing market drift — it was in the right direction more often than not, weighted by how large the moves were.
 - A **negative observed mean** means the rule was systematically on the wrong side of price moves.
 - A value **near zero** indicates little to no directional edge.
 
 ::: tip
-Neutral bars — where the strategy returned `0` from both `should_long()` and `should_short()` — contribute zero to the observed mean. They are included in `n_observations` but have no effect on the result, so sparse signals are handled naturally.
+Neutral bars — where the strategy returned `0` from both `should_long()` and `should_short()` — contribute zero and remain in `n_observations`. Because they remain in the denominator, frequent neutral signals reduce the magnitude of the observed mean.
 :::
 
 ## The annualized return
@@ -41,10 +41,10 @@ Neutral bars — where the strategy returned `0` from both `should_long()` and `
 The **annualized return** in the result dict is a rough scaling of the bar-level observed mean:
 
 ```
-annualized_return = observed_mean × 252
+annualized_return = observed_mean × (365 × 24 × 60 ÷ timeframe_minutes)
 ```
 
-This multiplies the per-bar mean by 252 trading days to give a directional feel for the magnitude of the signal over a full year.
+Jesse converts the selected route timeframe to minutes and scales the per-bar mean by the number of those bars in a 365-day crypto year. For example, a `4h` route uses `6 × 365 = 2,190` bars per year, while a `1D` route uses `365`.
 
 ::: tip
 Treat this figure as a **directional signal, not a precise P&L forecast**. It is computed from raw bar-level log returns and ignores fees, leverage, compounding, and position sizing. A number that looks like `+35% annualized` here may produce very different live results once those factors are applied — in either direction.
@@ -107,7 +107,7 @@ The significance test and Monte Carlo analysis are complementary tools, not comp
 
 | Tool | What it validates |
 |------|------------------|
-| Rule Significance Test | Bar-level entry signal edge (signal × detrended return) |
+| Rule Significance Test | Entry signal edge (signal × next-bar detrended return) |
 | Monte Carlo — Trade Shuffling | Trade timing robustness across shuffled trade sequences |
 | Monte Carlo — Candles-Based | Structural robustness across modified market conditions |
 
@@ -144,7 +144,7 @@ def print_results(result: dict) -> None:
     print(f"{'='*60}\n")
 ```
 
-**Example output — significant result:**
+**Example output — significant result (`4h` route):**
 
 ```
 ============================================================
@@ -153,14 +153,14 @@ def print_results(result: dict) -> None:
   Observations      : 2190 bars
   Simulations       : 1000
   Observed mean     : 0.00024041
-  Annualised return : 6.0584 %
+  Annualised return : 52.6498 %
   p-value           : 0.0180   →  STATISTICALLY SIGNIFICANT (p ≤ 0.05) ★
 ============================================================
 ```
 
 Here a p-value of `0.018` means only 1.8% of all bootstrap simulations matched or beat the observed mean under H₀. The dashed line on the chart would sit well into the right tail of the blue histogram, with a very small tomato-shaded region to its right.
 
-**Example output — not significant result:**
+**Example output — not significant result (`4h` route):**
 
 ```
 ============================================================
@@ -169,7 +169,7 @@ Here a p-value of `0.018` means only 1.8% of all bootstrap simulations matched o
   Observations      : 2190 bars
   Simulations       : 1000
   Observed mean     : -0.00019395
-  Annualised return : -4.8875 %
+  Annualised return : -42.4750 %
   p-value           : 0.7990   →  not significant (p > 0.10)
 ============================================================
 ```
