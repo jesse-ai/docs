@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.0.4 (5 August 2026)
+
+- **[IMPROVEMENT]** Tightened MCP agent rules: created a reporting exception that lets the agent write and verify Markdown report files under `strategies/<StrategyName>/reports/` via normal filesystem operations without waiting for a (non-existent) Jesse MCP report tool; and clarified that MCP errors/gotchas only block trading-related operations, not the report-writing exception.
+
 ## 3.0.3 (5 August 2026)
 
 - **[FIX]** Configuration changes made through an AI assistant (MCP) now save correctly instead of appearing successful without taking effect.
