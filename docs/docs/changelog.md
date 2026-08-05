@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.0.3 (5 August 2026)
+
+- **[FIX]** Configuration changes made through an AI assistant (MCP) now save correctly instead of appearing successful without taking effect.
+
 ## 3.0.2 (5 August 2026)
 
 - **[FIX]** Rule Significance Testing now evaluates each entry signal against the following bar's return, preventing same-bar look-ahead bias from making rules appear predictive.
