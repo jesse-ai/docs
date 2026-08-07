@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.0.5 (7 August 2026)
+
+- **[FIX]** Lighter: when an order is rejected, the reason now shows up in your regular log instead of disappearing.
+- **[FIX]** Hyperliquid: fixed a crash on startup that could happen if your account had an order type Jesse doesn't support (for example, a Take Profit Market order placed directly on the exchange rather than through Jesse).
+
 ## 3.0.4 (5 August 2026)
 
 - **[IMPROVEMENT]** Tightened MCP agent rules: created a reporting exception that lets the agent write and verify Markdown report files under `strategies/<StrategyName>/reports/` via normal filesystem operations without waiting for a (non-existent) Jesse MCP report tool; and clarified that MCP errors/gotchas only block trading-related operations, not the report-writing exception.
