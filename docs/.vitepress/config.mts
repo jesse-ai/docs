@@ -87,8 +87,7 @@ export default defineConfig({
                     {text: 'Installation', link: '/docs/getting-started/'},
                     {text: 'Update', link: '/docs/getting-started/update'},
                     {text: 'Docker', link: '/docs/getting-started/docker'},
-                    {text: 'Environment Setup', link: '/docs/getting-started/environment-setup'},
-                    {text: 'Migration', link: '/docs/getting-started/migration'}
+                    {text: 'Environment Setup', link: '/docs/getting-started/environment-setup'}
                 ]
             },
             {

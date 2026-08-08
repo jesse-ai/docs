@@ -1,6 +1,6 @@
 # Exports
 
-After a backtest completes, Jesse can export your results in several formats so you can analyze trades in external tools, share results with others, or visualize entries and exits in TradingView.
+After a backtest completes, Jesse can export your results in several formats so you can analyze trades in external tools or share results with others.
 
 All export options are available in the **Options** section of the backtest form before you run the backtest. Enable the ones you need, then start the backtest as usual. Once it finishes, the download buttons for each enabled export will appear in the results panel.
 
@@ -29,28 +29,3 @@ Once the backtest finishes, click the **Download JSON** button in the results pa
 ### Community Tool: Jesse Trades Info
 
 A community member has built a tool called **Jesse Trades Info** that parses Jesse's JSON export and displays trades in an interactive interface with tables and charts. You can find screenshots, a demo video, and installation instructions on its [GitHub repository](https://github.com/nicolay-zlobin/jesse-trades-info).
-
-## TradingView Pine Script
-
-This export is for users who do their charting in [TradingView](https://www.tradingview.com). Jesse generates a Pine Script file that, when pasted into TradingView's Pine Editor, will plot your strategy's entry and exit points directly on a TradingView chart.
-
-**How to enable:** Check the **Export TradingView** option in the backtest form before starting.
-
-Once the backtest finishes, click the **Download Pine Script** button. Then:
-
-1. Open the downloaded `.txt` file and copy its entire contents.
-2. Go to [TradingView](https://www.tradingview.com) and open the **Pine Editor** (bottom panel).
-3. Paste the content into the editor.
-4. Click **Add to chart**.
-
-::: warning
-Make sure the TradingView chart is set to the **same symbol and timeframe** as the backtest. Entries and exits will appear misaligned otherwise.
-:::
-
-::: warning
-TradingView limits the number of plotted points, so only approximately the last **~30 trades** will be visible. This is a limitation on TradingView's side, not Jesse's.
-:::
-
-::: warning
-The performance metrics shown in TradingView's backtesting panel will differ from Jesse's results. TradingView is not a dedicated backtesting platform — its simulation engine makes different assumptions about order execution. Jesse's numbers are the accurate ones.
-:::
