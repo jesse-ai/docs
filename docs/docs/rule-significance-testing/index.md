@@ -4,6 +4,10 @@ Rule Significance Testing is a rigorous statistical method for answering one of 
 
 Before spending hours tuning a strategy and validating it through full backtests, this feature gives you a fast, principled way to check whether the entry logic itself carries genuine predictive power — or whether it is just noise dressed up as a signal.
 
+::: tip 🎥 Video Tutorial
+Prefer video? Watch [The Scientific Way to Test Technical Analysis](https://youtu.be/ZNByavpi2ng) for a practical introduction to Rule Significance Testing, including p-values, the dashboard workflow, and testing rules with Jesse MCP.
+:::
+
 ## What is Rule Significance Testing?
 
 Every trading strategy is built around one or more rules that generate entry signals: conditions that say "go long now" or "go short now." The central question Rule Significance Testing asks is whether those rules actually *know something* about the market — or whether the returns they capture could just as easily have been produced by random timing.
