@@ -8,7 +8,6 @@ Here you can see the changes made with each release of the main framework and th
 - **[FIX]** Lighter: when an order is rejected, the reason now shows up in your regular log instead of disappearing.
 - **[FIX]** Hyperliquid: fixed a crash on startup that could happen if your account had an order type Jesse doesn't support (for example, a Take Profit Market order placed directly on the exchange rather than through Jesse).
 - **[FIX]** Rule Significance Testing reruns now stay on the new run instead of flickering between its running progress and the previous session's results.
-- **[FIX]** AI assistants (MCP) can now connect to Jesse on Windows when using the default network settings.
 
 ## 3.0.4 (5 August 2026)
 
