@@ -3,6 +3,15 @@
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
 
+## 3.0.6 (16 August 2026)
+
+- **[IMPROVEMENT]** Live and paper trading sessions now back off properly when a connection repeatedly opens and drops, avoiding rapid reconnect loops during exchange outages.
+
+- **[FIX]** WebSocket send failures now appear as clear log messages instead of raw error traces.
+- **[FIX]** AI assistants (MCP) can now connect to Jesse on Windows when using the default network settings.
+- **[FIX]** Kraken Pro Futures and KuCoin Futures candle imports now use the correct batch sizes, preventing large stretches of artificial candles from being stored.
+- **[FIX]** Candle import progress no longer exceeds 100% when the final batch is smaller than the regular batch size.
+
 ## 3.0.5 (8 August 2026)
 
 - **[FIX]** Lighter: when an order is rejected, the reason now shows up in your regular log instead of disappearing.
