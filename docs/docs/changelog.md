@@ -11,6 +11,8 @@ Here you can see the changes made with each release of the main framework and th
 - **[FIX]** AI assistants (MCP) can now connect to Jesse on Windows when using the default network settings.
 - **[FIX]** Kraken Pro Futures and KuCoin Futures candle imports now use the correct batch sizes, preventing large stretches of artificial candles from being stored.
 - **[FIX]** Candle import progress no longer exceeds 100% when the final batch is smaller than the regular batch size.
+- **[FIX]** Live and paper session activity tables now remain usable with large numbers of positions, trades, or orders, and show the complete trade list instead of only the first few entries.
+- **[FIX]** Progress indicators now render consistently in Safari and Chrome.
 
 ## 3.0.5 (8 August 2026)
 
