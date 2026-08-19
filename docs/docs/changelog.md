@@ -6,6 +6,7 @@ Here you can see the changes made with each release of the main framework and th
 ## 3.0.6 (16 August 2026)
 
 - **[IMPROVEMENT]** Live and paper trading sessions now back off properly when a connection repeatedly opens and drops, avoiding rapid reconnect loops during exchange outages.
+- **[IMPROVEMENT]** Dashboard notifications now appear in the bottom-left corner.
 
 - **[FIX]** WebSocket send failures now appear as clear log messages instead of raw error traces.
 - **[FIX]** AI assistants (MCP) can now connect to Jesse on Windows when using the default network settings.
