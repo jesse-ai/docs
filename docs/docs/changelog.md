@@ -2,18 +2,20 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.0.7 (19 August 2026)
 
-## 3.0.6 (16 August 2026)
-
+- **[FIX]** Progress indicators now render consistently in Safari and Chrome.
+- **[FIX]** Fixed a rare live and paper trading crash that could occur when a strategy read candle data while it was being updated (for example, `IndexError: index 4801 is out of bounds for axis 0 with size 4801`).
 - **[IMPROVEMENT]** Live and paper trading sessions now back off properly when a connection repeatedly opens and drops, avoiding rapid reconnect loops during exchange outages.
 - **[IMPROVEMENT]** Dashboard notifications now appear in the bottom-left corner.
 
+## 3.0.6 (16 August 2026)
+
+- **[FIX]** Live and paper session activity tables now remain usable with large numbers of positions, trades, or orders, and show the complete trade list instead of only the first few entries.
 - **[FIX]** WebSocket send failures now appear as clear log messages instead of raw error traces.
 - **[FIX]** AI assistants (MCP) can now connect to Jesse on Windows when using the default network settings.
 - **[FIX]** Kraken Pro Futures and KuCoin Futures candle imports now use the correct batch sizes, preventing large stretches of artificial candles from being stored.
 - **[FIX]** Candle import progress no longer exceeds 100% when the final batch is smaller than the regular batch size.
-- **[FIX]** Live and paper session activity tables now remain usable with large numbers of positions, trades, or orders, and show the complete trade list instead of only the first few entries.
-- **[FIX]** Progress indicators now render consistently in Safari and Chrome.
 
 ## 3.0.5 (8 August 2026)
 
