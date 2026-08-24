@@ -517,7 +517,7 @@ def go_long(self):
     self.buy = qty, self.high + 2
 
     # stop-loss at 2 dollars below current candle's low
-    self.buy = qty, self.low - 2
+    self.stop_loss = qty, self.low - 2
 ```
 
 ## volume
