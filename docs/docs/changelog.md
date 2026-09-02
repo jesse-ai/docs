@@ -2,6 +2,18 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.1.0 (2 September 2026)
+
+- **[NEW]** Added historical market data from Massive for stocks, ETFs, currencies, indices, and futures, with API key management and symbol search in the dashboard.
+- **[NEW]** Added Custom Data candle management, including CSV preview, import, export, and deletion from the dashboard.
+- **[NEW]** AI assistants (MCP) can now inspect, safely clean, and import local one-minute candle CSV files without modifying the source file.
+- **[NEW]** Backtesting, optimization, Monte Carlo, and Rule Significance Testing now support traditional, non-24/7 markets and their session gaps, opening Jesse to many more markets.
+
+- **[IMPROVEMENT]** The Manage Candles page now loads much faster for large candle libraries.
+- **[IMPROVEMENT]** Backtest simulations now accurately handle gaps in historical data.
+- **[IMPROVEMENT]** Mode configurations have moved from Settings into their individual tabs, making it easy to use separate configurations for Backtest, Optimization, Monte Carlo, Rule Significance Testing, and Live sessions.
+
+
 ## 3.0.7 (19 August 2026)
 
 - **[FIX]** Progress indicators now render consistently in Safari and Chrome.
