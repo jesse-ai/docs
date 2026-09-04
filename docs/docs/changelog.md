@@ -2,6 +2,19 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.1.1 (4 September 2026)
+
+- **[NEW]** Symbol search for Massive sources now shows what each symbol is (company or product name, security type, listing venue, and contract expiry for futures) and matches names as well as tickers, so you can type "Microsoft" or "crude oil" instead of guessing the symbol.
+- **[NEW]** AI assistants (MCP) can now search importable symbols on any candle source and manage exchange API keys and the Massive data provider key.
+
+- **[IMPROVEMENT]** Rule Significance Testing now resamples returns in contiguous blocks, preserving the time-series structure of the data for more reliable p-values.
+- **[IMPROVEMENT]** Symbol selectors now say when nothing matches your search instead of "Start typing...".
+- **[IMPROVEMENT]** AI assistants (MCP) no longer run Rule Significance Testing on their own; it only runs when you ask for it.
+
+- **[FIX]** Each form on the Import Candles page now uses its own exchange's symbol list. Previously a duplicated form kept the original exchange's symbols after switching exchange, which could submit a stock symbol to Massive Futures.
+- **[FIX]** Fixed Lighter order submissions failing for some users.
+- **[FIX]** Lighter live sessions now recover reliably after extended connection outages without starting duplicate connection attempts.
+
 ## 3.1.0 (2 September 2026)
 
 - **[NEW]** Added historical market data from Massive for stocks, ETFs, currencies, indices, and futures, with API key management and symbol search in the dashboard.
