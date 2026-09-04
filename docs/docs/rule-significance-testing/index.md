@@ -86,6 +86,26 @@ A p-value of 0.03, for example, means that only 3% of bootstrap simulations matc
 A low p-value supports next-bar predictive power, but it is neither necessary nor sufficient for a profitable full strategy. The test says nothing about multi-bar moves, transaction costs, position sizing, drawdown, or out-of-sample performance. Always follow up with a full backtest and Monte Carlo analysis.
 :::
 
+## Why a profitable strategy can fail this test
+
+**A strategy can fail this test at every horizon and still be genuinely profitable in a backtest.** Both results can be correct at once.
+
+The test asks whether the entry direction predicts the return over a fixed window. Real strategies also earn from what that window cannot see: asymmetric targets and stops, which level price reaches first during a trade, exits that fire on a condition rather than after a set number of bars, and risk-based position sizing.
+
+For example, a trend-following strategy using ATR-based stops and targets, run on SOL 15-minute candles over roughly two and a half years:
+
+| Measurement | Result |
+|---|---|
+| Rule Significance Test, next bar | p = 0.39 |
+| Extended horizons, 1 to 96 bars ahead | no horizon significant |
+| Full backtest, same period | 263 trades, +82.6% net profit, Sharpe 1.07 |
+
+Its entries carry no measurable directional edge. The strategy is profitable because of its exit structure — a take-profit at 3.2 ATR against a stop at 2.5 ATR — which this test never simulates.
+
+::: warning
+The converse matters just as much: passing does not make a strategy profitable. A significant next-bar edge can still be too small to survive fees and slippage. Judge a complete strategy with a backtest and [Monte Carlo analysis](/docs/monte-carlo/).
+:::
+
 ## How it differs from backtest-based Monte Carlo
 
 Jesse's [Monte Carlo analysis](/docs/monte-carlo/) modifies candles or shuffles the order of completed trades to stress-test a strategy that has *already been backtested*. It answers: "How robust is my full strategy's equity curve to different market paths?"

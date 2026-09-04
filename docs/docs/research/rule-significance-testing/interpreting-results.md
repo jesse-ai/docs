@@ -95,7 +95,13 @@ Treat the result as evidence about **next-bar entry timing**, then evaluate the 
 
 ### Not significant result (p > 0.10)
 
-Fail to reject H₀. The test did not establish a next-bar entry edge. A p-value between 0.05 and 0.10 is weak evidence; above 0.10 there is no meaningful evidence for this narrow claim. This does not invalidate multi-bar holding behavior, stops, targets, sizing, or the full strategy:
+Fail to reject H₀. The test did not establish a next-bar entry edge. A p-value between 0.05 and 0.10 is weak evidence; above 0.10 there is no meaningful evidence for this narrow claim. This does not invalidate multi-bar holding behavior, stops, targets, sizing, or the full strategy.
+
+::: warning
+If the strategy already has exits, a failing p-value is not a reason to discard it. Entries with no edge at any horizon can still be profitable once asymmetric targets and stops are applied — see [Why a profitable strategy can fail this test](/docs/rule-significance-testing/#why-a-profitable-strategy-can-fail-this-test).
+:::
+
+If you are screening a raw entry idea and it fails, these questions are the useful next step:
 
 - Is the signal indicator actually predictive, or might the result be a coincidence specific to this data window?
 - Have you tested over a long enough period and across different market regimes?
@@ -180,6 +186,7 @@ Here 79.9% of bootstrap simulations performed equally well or better. There is n
 
 Keep the following in mind when interpreting any result from `rule_significance_test()`:
 
+- **Fixed horizon by construction** — the test measures direction over the single bar that follows each signal. Edges that come from asymmetric targets and stops, variable holding periods, or position sizing are invisible to it, which is why a profitable strategy can fail this test.
 - **Entry signal only** — the test runs a signal-only simulation. It records when your strategy's `should_long()` / `should_short()` methods fire, but no orders are ever submitted. Exits, stop-losses, take-profits, position sizing, and fees are completely absent from the calculation.
 - **A weak signal is not a dead end** — a borderline or even insignificant signal can still be made profitable with smart position sizing, tight risk management, and well-timed exits. Conversely, a highly significant signal can be eroded to nothing by poor exit logic or high fees.
 - **Minimum observations matter** — the test is most reliable with at least several hundred bars. Fewer than 30 observations produces a numerically unstable p-value; a few dozen data points are simply not enough to reliably distinguish signal from noise.
