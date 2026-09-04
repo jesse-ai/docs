@@ -4,7 +4,7 @@
 If you just want to use `rule_significance_test()`, you can skip this page entirely and go straight to the [Usage Example](/docs/research/rule-significance-testing/usage). Come back here if you are curious about the statistical machinery behind it.
 :::
 
-The bootstrap test answers a simple question: **could your trading rule's observed returns have appeared by chance?** It builds a null distribution by resampling the rule's own returns thousands of times and measures how often a random resample beats the real result.
+The bootstrap test answers a precise question: **is the rule's average next-bar detrended return greater than zero?** It builds a null distribution by resampling the rule's return series thousands of times and measures how often a zero-edge resample beats the real result.
 
 ## How it works
 
@@ -17,7 +17,7 @@ Jesse runs a signal-only backtest using your strategy. At every completed bar, `
 
 1. **Compute rule returns.** Multiply each signal emitted at bar `t` by the following bar's detrended log return: `signal_t × (log_return_t+1 − market_mean)`. Neutral signals (`0`) contribute `0` and remain in the observation count.
 2. **Zero-centre the array.** Subtract the observed mean from every rule return: `centered = rule_returns − observed_mean`. This enforces the null hypothesis that the rule has no edge (expected return = 0).
-3. **Resample with replacement.** Draw `n_simulations` bootstrap resamples from the zero-centred array, each the same length as the original. Compute the mean of each resample to build the null sampling distribution.
+3. **Resample contiguous blocks.** Draw `n_simulations` stationary-bootstrap resamples from the zero-centred array. Each resample joins random-length contiguous blocks and has the same length as the original. The default mean block length is 10 bars.
 4. **Compute the p-value.** Count the fraction of simulated means that are greater than or equal to the observed mean: `p_value = mean(sim_means >= observed_mean)`.
 
 ## Why zero-centering matters
@@ -32,12 +32,18 @@ The p-value is **not** the probability that your rule works. It is the probabili
 
 ## Why Bootstrap?
 
-- **No parametric assumptions.** Bootstrap resamples the empirical return distribution directly, making no assumption about normality or any other distributional shape. Financial returns are heavy-tailed — this matters.
-- **Well-established.** The bootstrap significance test has a solid track record in the quantitative finance literature for testing whether a trading rule beats a random benchmark after accounting for data-snooping bias.
+- **No normality assumption.** Bootstrap resamples the empirical return distribution directly. Financial returns are heavy-tailed — this matters.
+- **Time-series aware.** The stationary bootstrap preserves short-run serial dependence that would be destroyed by sampling individual bars independently.
 - **Robust and simple.** The resampling procedure is transparent, easy to audit, and produces results that are straightforward to interpret.
 
+::: warning
+This is a nominal single-rule significance test. It does not correct for trying many strategies, indicators, parameter values, symbols, or date ranges and then reporting the best result. Use held-out data for that selection problem.
+:::
+
+The block-resampling method follows Politis and Romano's [stationary bootstrap](https://doi.org/10.1080/01621459.1994.10476870). White's Reality Check is broader: it evaluates the best result across a full candidate-rule universe, as illustrated by [Sullivan, Timmermann, and White](https://eprints.lse.ac.uk/119144/1/dp303.pdf).
+
 ::: tip
-Use at least **2000 simulations** for a stable p-value. The default of 200 is intentionally conservative for quick exploratory runs. Increase `n_simulations` and set a fixed `random_seed` before drawing final conclusions.
+Use at least **2000 simulations** for a stable p-value. Increase `n_simulations` and set a fixed `random_seed` before drawing final conclusions.
 :::
 
 ---

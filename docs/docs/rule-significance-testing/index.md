@@ -1,6 +1,6 @@
 # Rule Significance Testing
 
-Rule Significance Testing is a rigorous statistical method for answering one of the most important questions in quantitative trading: **"Could my strategy's historical performance have happened by random chance?"**
+Rule Significance Testing answers a deliberately narrow question: **"Did my entry rule predict the direction of the next bar better than chance?"**
 
 Before spending hours tuning a strategy and validating it through full backtests, this feature gives you a fast, principled way to check whether the entry logic itself carries genuine predictive power — or whether it is just noise dressed up as a signal.
 
@@ -10,7 +10,7 @@ Prefer video? Watch [The Scientific Way to Test Technical Analysis](https://yout
 
 ## What is Rule Significance Testing?
 
-Every trading strategy is built around one or more rules that generate entry signals: conditions that say "go long now" or "go short now." The central question Rule Significance Testing asks is whether those rules actually *know something* about the market — or whether the returns they capture could just as easily have been produced by random timing.
+Every trading strategy is built around one or more rules that generate entry signals: conditions that say "go long now" or "go short now." Rule Significance Testing checks whether those rules predict the next bar's direction after market drift is removed.
 
 This is not a question you can answer by looking at backtest profits alone. A strategy with a positive backtest return might simply have been active during a bull market, or got lucky with a handful of large moves. Rule Significance Testing cuts through that ambiguity using formal hypothesis testing and statistical simulation.
 
@@ -22,16 +22,16 @@ Rule Significance Testing focuses entirely on the entry signal. It never places 
 
 All hypothesis testing starts with a **null hypothesis** — a default assumption we try to disprove. For Rule Significance Testing, the null hypothesis is:
 
-> **H0: The trading rule has no predictive power. Its historical returns are the result of random coincidence, not skill or edge.**
+> **H0: The entry rule's expected next-bar detrended return is not positive.**
 
-In plain terms, H0 says that if you had the same market returns but scrambled the relationship between the signals and the prices, you would get results just as good — or better — than what the rule actually produced.
+In plain terms, H0 says the entry signals do not predict the next bar well enough to distinguish their average detrended return from zero.
 
-If the data gives us strong enough evidence to **reject H0**, we conclude that the rule has a **statistically significant edge**: its timing of entries is genuinely correlated with favourable market moves, not a fluke.
+If the data gives us strong enough evidence to **reject H0**, we conclude that the rule has statistically significant **next-bar** predictive power.
 
-If we **fail to reject H0**, the rule's returns are indistinguishable from what a random strategy could have achieved. That is a clear signal to rethink the entry logic before investing more time in the strategy.
+If we **fail to reject H0**, the test found no reliable **next-bar** predictive edge. That is not a verdict on the full strategy: a strategy may still profit from moves that unfold over multiple bars, asymmetric stops and targets, position sizing, or other execution logic.
 
 ::: warning
-Failing to reject H0 does not prove that your rule is worthless — it simply means there is insufficient evidence to claim an edge. The rule might improve with a longer data window, a different timeframe, or refined entry conditions.
+Failing to reject H0 does not prove that your rule is worthless — it simply means there is insufficient evidence to claim a next-bar edge. The rule might improve with a longer data window, a different timeframe, or refined entry conditions.
 :::
 
 ## How it works
@@ -54,17 +54,17 @@ With the signal and price series in hand, Jesse computes the **observed mean ret
 
 To enforce H0, Jesse **detrends the returns** by subtracting the market's own mean return from every bar. This removes the general upward or downward drift of the market, ensuring that a simulated strategy cannot score highly simply by being long in a trending market.
 
-Jesse then runs **N simulations in parallel** (using Ray for multi-core efficiency), each one generating a simulated mean return under the assumption that the rule has no edge. See [How it works](/docs/rule-significance-testing/bootstrap) for full details on the simulation.
+Jesse then runs **N simulations**, each one generating a simulated mean return under the assumption that the rule has no edge. See [How it works](/docs/rule-significance-testing/bootstrap) for full details on the simulation.
 
 ## Simulation method — Bootstrap
 
-The Bootstrap method resamples the rule's actual bar-level returns **with replacement** N times. Each resample produces a simulated sampling of the same length as the original, built from randomly drawn returns. Because H0 is enforced by zero-centering the returns before resampling, no single simulation can "cheat" by inheriting the market's trend.
+The stationary Bootstrap method resamples the rule's actual bar-level returns in **random-length contiguous blocks** N times. Each resample has the same length as the original. Because H0 is enforced by zero-centering the returns before resampling, no simulation can inherit the rule's observed mean edge. Sampling blocks rather than isolated bars preserves local time-series dependence.
 
 This approach uses bootstrap resampling to build a null distribution of what a rule with no edge could have achieved, then measures how often a random resample beats the real result.
 
 - Preserves the distribution of individual return magnitudes
-- Allows the same bar's return to appear multiple times in a single simulation
-- Robust to non-normality — draws from the empirical return distribution with no parametric assumptions
+- Allows the same block of returns to appear multiple times in a simulation
+- Preserves short-run dependence while remaining robust to non-normality
 
 
 
@@ -74,16 +74,16 @@ After all N simulations complete, Jesse computes a **p-value**: the fraction of 
 
 | p-value | Interpretation |
 |---|---|
-| ≤ 0.001 | Highly significant — exceptionally strong evidence of genuine edge |
-| ≤ 0.01 | Very significant — very strong evidence of genuine edge |
+| ≤ 0.001 | Highly significant — exceptionally strong next-bar evidence |
+| ≤ 0.01 | Very significant — very strong next-bar evidence |
 | ≤ 0.05 | Statistically significant — sufficient evidence to reject H₀ |
 | ≤ 0.10 | Possibly significant — weak evidence; further testing recommended |
-| > 0.10 | Not significant — results are consistent with random chance |
+| > 0.10 | Not significant — no reliable next-bar evidence |
 
 A p-value of 0.03, for example, means that only 3% of bootstrap simulations matched or beat the rule's actual performance. That is unlikely to have happened by chance.
 
 ::: warning
-A low p-value is necessary but not sufficient for a profitable strategy. Statistical significance confirms the signal has *some* predictive power, but it says nothing about transaction costs, position sizing, drawdown, or out-of-sample performance. Always follow up with a full backtest and Monte Carlo analysis.
+A low p-value supports next-bar predictive power, but it is neither necessary nor sufficient for a profitable full strategy. The test says nothing about multi-bar moves, transaction costs, position sizing, drawdown, or out-of-sample performance. Always follow up with a full backtest and Monte Carlo analysis.
 :::
 
 ## How it differs from backtest-based Monte Carlo
@@ -96,7 +96,7 @@ Rule Significance Testing is different in a fundamental way:
 - It operates entirely at the level of raw entry signals and bar-level returns
 - It answers a prior question: "Does this rule's timing contain any real information at all?"
 
-Think of it as a **pre-backtest filter**. If the rule fails significance testing, there is little point running a full backtest. If it passes, you have statistical backing to proceed with confidence.
+Think of it as a **specialized entry-timing diagnostic**, not a gatekeeper for the full strategy. Passing supports the claim that the entry rule predicts the next bar. Failing says only that this particular next-bar claim was not established; use a full backtest and Monte Carlo analysis to evaluate the complete strategy.
 
 ### A critical difference: synthetic data vs. detrended real data
 
@@ -104,9 +104,9 @@ Both methods are grounded in real market data, but they use that data in fundame
 
 **Monte Carlo analysis** generates its simulation paths from **synthetic data** that is *directly constructed from real market returns*. It resamples or shuffles real trade outcomes and candle sequences to produce plausible alternative market histories. The synthetic paths inherit the statistical character of the real market — its volatility, its return distribution, its tail behaviour — without being identical to it.
 
-**Rule Significance Testing**, on the other hand, never invents or synthesises any data. It works entirely with the **actual historical prices** — but critically, it **detrends** them before running simulations. Every bar's return has the market's mean return subtracted from it, removing the general upward or downward drift of the asset. This detrending is the cornerstone of the method: it ensures that a simulated random strategy cannot score well simply by being long during a rising market. The null distribution is built from the same real bars the rule traded on, stripped of any free-lunch directional bias.
+**Rule Significance Testing**, on the other hand, never invents or synthesises any market data. It works with the **actual historical prices**, detrends the returns, and resamples the resulting rule-return series in contiguous blocks. Detrending removes the asset's general upward or downward drift, while block resampling builds a zero-edge null distribution without discarding local time-series dependence.
 
-In short: Monte Carlo asks *"what if the market had taken a different path?"* using synthetic histories. Rule Significance Testing asks *"what if your rule had fired at random times?"* using the same real price history, detrended so that no simulation can benefit from trend alone.
+In short: Monte Carlo asks *"what if the market had taken a different path?"* using synthetic histories. Rule Significance Testing asks *"is the mean next-bar return after these entry signals distinguishable from zero?"* using the real, detrended signal-return series.
 
 | | Rule Significance Testing | Monte Carlo Analysis |
 |---|---|---|

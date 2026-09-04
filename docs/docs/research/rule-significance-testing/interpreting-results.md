@@ -4,9 +4,9 @@ After running `rule_significance_test()`, Jesse returns a result dictionary with
 
 ## The p-value
 
-The p-value is the single most important number in the result. It answers one question:
+The p-value answers one question:
 
-> **"If this rule had absolutely no edge, what fraction of random simulations would have produced a mean return as good as or better than the one I observed?"**
+> **"If this entry rule had no next-bar edge, what fraction of bootstrap simulations would have produced a mean return as good as or better than the one I observed?"**
 
 Technically: it is the fraction of simulated means — drawn under H₀, the null hypothesis that the rule has no predictive power — that were **greater than or equal to** the observed mean.
 
@@ -28,7 +28,7 @@ A statistically significant p-value does **not** guarantee future profits. It on
 
 The **observed mean** is the average next-bar log return produced by your rule. At each bar the strategy's `should_long()` / `should_short()` methods are called to record a signal (`+1`, `-1`, or `0`). The signal emitted at bar `t` is multiplied by bar `t+1`'s **detrended** log return (the raw log return minus the overall mean log return for the period, which removes market drift). The observed mean is the average of all those products.
 
-- A **positive observed mean** means the rule was net profitable on a per-bar basis after removing market drift — it was in the right direction more often than not, weighted by how large the moves were.
+- A **positive observed mean** means the entry signals had a positive average next-bar detrended return. It does not mean the full strategy was profitable.
 - A **negative observed mean** means the rule was systematically on the wrong side of price moves.
 - A value **near zero** indicates little to no directional edge.
 
@@ -78,7 +78,7 @@ If `n_observations` is very low, consider running the test over a longer date ra
 
 ## About the Bootstrap method
 
-`rule_significance_test()` uses a bootstrap resampling approach that builds a null distribution by resampling the rule's own returns with replacement N times, with zero-centering applied first to enforce H0. See the [How it works](/docs/research/rule-significance-testing/bootstrap) page if you are curious about the statistical mechanics behind this.
+`rule_significance_test()` uses a stationary bootstrap that builds a null distribution by resampling random-length contiguous blocks from the rule's zero-centred return series. See the [How it works](/docs/research/rule-significance-testing/bootstrap) page for the statistical mechanics.
 
 ## What to do with the results
 
@@ -91,11 +91,11 @@ Your rule's entry logic shows genuine historical signal. The natural next step i
 - **Drawdown analysis** (max drawdown, Calmar ratio)
 - **Monte Carlo analysis** — both candles-based and trade-order shuffling — for robustness testing
 
-Think of the significance test as the **entry ticket** to a full backtest. It efficiently filters out rules that are provably noise before you invest hours of work in deeper analysis.
+Treat the result as evidence about **next-bar entry timing**, then evaluate the full strategy separately. A pass is useful evidence, but it is not an entry ticket or a substitute for a backtest.
 
 ### Not significant result (p > 0.10)
 
-Fail to reject H₀. The rule's historical performance is consistent with chance. A p-value between 0.05 and 0.10 is "possibly significant" — weak evidence that warrants further investigation before running a full backtest. Above 0.10, there is no meaningful evidence of edge. Before spending more time, revisit the entry logic:
+Fail to reject H₀. The test did not establish a next-bar entry edge. A p-value between 0.05 and 0.10 is weak evidence; above 0.10 there is no meaningful evidence for this narrow claim. This does not invalidate multi-bar holding behavior, stops, targets, sizing, or the full strategy:
 
 - Is the signal indicator actually predictive, or might the result be a coincidence specific to this data window?
 - Have you tested over a long enough period and across different market regimes?

@@ -344,10 +344,11 @@ Despite a positive observed mean (BTC trended up during this period, so even ran
 - **candles** (dict): Candles for the trading period, keyed by `jh.key(exchange, symbol)`.
 - **warmup_candles** (dict, optional): Warm-up candles in the same key format. Pass the array returned by `get_candles(..., is_for_jesse=True)`.
 - **hyperparameters** (dict, optional): Hyperparameter overrides forwarded to the strategy's `hyperparameters()` method.
-- **n_simulations** (int, default=`200`): Number of bootstrap resamples. At least `1000` is recommended for a reliable p-value.
+- **n_simulations** (int, default=`2000`): Number of bootstrap resamples. At least `2000` is recommended for a stable p-value.
 - **random_seed** (int, optional): Base random seed for reproducibility.
+- **bootstrap_mean_block_length** (int, default=`10`): Mean number of bars in each random-length stationary-bootstrap block.
 - **progress_bar** (bool, default=`False`): Show a `tqdm` progress bar during the simulation phase.
-- **cpu_cores** (int, optional): Number of parallel Ray workers. Defaults to 80 % of available cores.
+- **cpu_cores** (int, optional): Number of progress-reporting batches. Defaults to 80 % of available logical cores.
 
 ## Return value
 
@@ -359,5 +360,6 @@ Despite a positive observed mean (BTC trended up during this period, so even ran
 - **p_value** (float): Fraction of simulated means ≥ `observed_mean`. At or below `0.10` is possibly significant; at or below `0.05` is statistically significant; at or below `0.001` is highly significant.
 - **n_simulations** (int): Number of simulations completed.
 - **n_observations** (int): Number of bars used after warmup and NaN removal.
+- **bootstrap_mean_block_length** (int): Mean stationary-bootstrap block length used for the test.
 
 See [Interpreting Results](/docs/rule-significance-testing/interpreting-results) for a full guide on reading these numbers.
