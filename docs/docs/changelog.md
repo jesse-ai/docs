@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.1.2 (9 September 2026)
+
+- **[FIX]** Fixed the `Argument 's' has incorrect type` error that could prevent Kraken Futures live sessions from starting with persistency enabled.
+
 ## 3.1.1 (4 September 2026)
 
 - **[NEW]** Symbol search for Massive sources now shows what each symbol is (company or product name, security type, listing venue, and contract expiry for futures) and matches names as well as tickers, so you can type "Microsoft" or "crude oil" instead of guessing the symbol.
