@@ -4,6 +4,9 @@ Here you can see the changes made with each release of the main framework and th
 
 ## 3.1.2 (9 September 2026)
 
+- **[NEW]** Added a Copy action to the Manage Candles page that duplicates a stored series under another exchange or symbol, allowing the same data to be selected in backtests as a different market. You can also use this feature to assign a different symbol. This can be helpful if you want to have long and short positions for the same symbol simultaneously or import data from a live trading exchange that typically isn't supported for backtesting, such as Apex or Hyperliquid.
+
+- **[FIX]** Importing candles with an earlier start date for a symbol that already has data no longer pages through years of empty pre-listing history. Recently listed symbols such as AAPL-USDT on Binance Perpetual Futures took 10+ minutes to import nothing; they now finish in seconds.
 - **[FIX]** Fixed the `Argument 's' has incorrect type` error that could prevent Kraken Futures live sessions from starting with persistency enabled.
 
 ## 3.1.1 (4 September 2026)
