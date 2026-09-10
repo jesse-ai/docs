@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.1.3 (10 September 2026)
+
+- **[FIX]** Fixed Lighter `ignoring unsupported order type` errors for `stop-loss-limit` and `take-profit-limit` orders so their status can be tracked correctly.
+- **[FIX]** Fixed repeated Lighter `exchange killed` messages for unchanged canceled orders.
+- **[FIX]** Restored exchange-log attachments when submitting live-session error reports with logs enabled.
+
 ## 3.1.2 (9 September 2026)
 
 - **[NEW]** Added a Copy action to the Manage Candles page that duplicates a stored series under another exchange or symbol, allowing the same data to be selected in backtests as a different market. You can also use this feature to assign a different symbol. This can be helpful if you want to have long and short positions for the same symbol simultaneously or import data from a live trading exchange that typically isn't supported for backtesting, such as Apex or Hyperliquid.
