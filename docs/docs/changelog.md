@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.1.4 (12 September 2026)
+
+- **[FIX]** Fixed Hyperliquid history reconciliation mixing orders from different symbols.
+- **[FIX]** Replaced the `'NoneType' object has no attribute 'id'` startup error for missing trade records with a clear diagnostic, and prevented failed history reconciliation from leaving partial database updates.
+
 ## 3.1.3 (10 September 2026)
 
 - **[FIX]** Fixed Lighter `ignoring unsupported order type` errors for `stop-loss-limit` and `take-profit-limit` orders so their status can be tracked correctly.
