@@ -2,7 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 3.1.6 (17 September 2026)
+## 3.2.0 (17 September 2026)
+
+- **[NEW]** Strategies can now follow a market's trading hours: define the trading days and hours once, only enter trades while that market is open, and keep off-hours candles out of your indicators. Made for trading stock-linked instruments on 24/7 crypto exchanges. See **[Trading Hours](/docs/strategies/trading-hours)** for details.
+- **[NEW]** Added a **[Traditional Markets](/docs/traditional-markets/)** section to the documentation, covering how to import stock, forex, index, and futures data and what to expect when backtesting on it.
 
 - **[FIX]** Monte Carlo simulations now use the configured fees and starting balance, keeping their baseline results consistent with backtests.
 - **[FIX]** Fixed large Monte Carlo runs failing to save their completed results.

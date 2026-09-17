@@ -424,6 +424,20 @@ self.is_livetrading or self.is_papertrading
 
 **Return Type**: bool
 
+## is_trading_hours
+
+Returns whether the current decision time (`self.time`) falls inside the schedule returned by [trading_hours()](#trading-hours). Always `True` when `trading_hours()` returns `None`. Jesse never checks it for you; use it as the entry gate in `should_long()`/`should_short()` and for the unfilled-entry policy in `should_cancel_entry()`. See [Trading Hours](/docs/strategies/trading-hours).
+
+**Return Type**: bool
+
+**Example**:
+```py
+def should_long(self):z
+    if not self.is_trading_hours:
+        return False
+    return self.price > self.donchian.upperband
+```
+
 ## is_spot_trading
 
 Returns whether the exchange your strategy is trading on is a spot exchange.
@@ -727,6 +741,22 @@ You would need `shared_vars` for writing strategies that require more than one r
 The current execution timestamp (UTC) of the strategy.
 
 **Return Type**: int
+
+## trading_hours
+
+A method you define to declare the market schedule this strategy respects, for instruments that follow a market calendar but trade on a 24/7 exchange. Return a schedule dict or `None` for no schedule (the default). It is a method so the answer can depend on `self`: the mode, the exchange, the symbol or a hyperparameter. See [Trading Hours](/docs/strategies/trading-hours) for the dict format and examples.
+
+**Return Type**: dict | None
+
+**Example**:
+```py
+def trading_hours(self):
+    if self.is_backtesting:
+        return None
+    return {'timezone': 'America/New_York', 'hours': {'Mon-Fri': '09:30-16:00'}}
+```
+
+**See Also**: [is_trading_hours](#is-trading-hours), [filter_candles_by_hours](/docs/utils#filter-candles-by-hours)
 
 ## trades
 

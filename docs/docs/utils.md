@@ -97,6 +97,44 @@ estimate_risk(entry_price, stop_price)
 
 **Return Type**: float
 
+## filter\_candles\_by\_hours
+
+Returns only the candles whose open time falls inside a [trading-hours schedule](/docs/strategies/trading-hours), so indicators ignore the nights, weekends and holidays of a 24/7 feed (or the extended-hours rows of imported stock data). It is a pure function: the candle store is never touched, and passing `None` as the schedule returns the input unchanged.
+
+```py
+filter_candles_by_hours(candles, hours)
+```
+
+**Properties**:
+
+-   candles: np.ndarray - any Jesse candle array (`self.candles`, `get_candles()`, research candles)
+-   hours: dict | None - a schedule dict, or `None`
+
+**Return Type**: np.ndarray
+
+**Example**:
+```py
+@property
+@cached
+def session_candles(self):
+    return utils.filter_candles_by_hours(self.candles, self.trading_hours())
+```
+
+## is\_in\_trading\_hours
+
+Returns whether a UTC-millisecond timestamp falls inside a [trading-hours schedule](/docs/strategies/trading-hours). Always `True` when the schedule is `None`. Inside a strategy, `self.is_trading_hours` is this function applied to `self.time`.
+
+```py
+is_in_trading_hours(timestamp, hours)
+```
+
+**Properties**:
+
+-   timestamp: int - UTC milliseconds
+-   hours: dict | None - a schedule dict, or `None`
+
+**Return Type**: bool
+
 ## kelly\_criterion
 
 Returns the [Kelly Criterion](https://www.investopedia.com/articles/trading/04/091504.asp).

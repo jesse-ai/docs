@@ -122,6 +122,7 @@ export default defineConfig({
                     {text: 'Entering and Exiting', link: '/docs/strategies/entering-and-exiting'},
                     {text: 'Events', link: '/docs/strategies/events'},
                     {text: 'Filters', link: '/docs/strategies/filters'},
+                    {text: 'Trading Hours', link: '/docs/strategies/trading-hours'},
                     {text: 'API', link: '/docs/strategies/api'},
                     {text: 'Futures vs Spot', link: '/docs/strategies/futures-vs-spot'},
                     {text: 'Example Strategies', link: '/docs/strategies/example-strategies.md'}
@@ -163,7 +164,15 @@ export default defineConfig({
                     {text: 'Exchange Setup Guide', link: '/docs/supported-exchanges/exchange-setup-guide'}
                 ]
             },
-
+            {
+                text: 'Traditional Markets',
+                collapsed: true,
+                items: [
+                    {text: 'Overview', link: '/docs/traditional-markets/'},
+                    {text: 'Importing Data', link: '/docs/traditional-markets/importing-data'},
+                    {text: 'Backtesting on Gapped Data', link: '/docs/traditional-markets/backtesting'},
+                ]
+            },
             {
                 text: 'Strategy Optimization',
                 collapsed: true,
