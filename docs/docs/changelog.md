@@ -11,6 +11,12 @@ Here you can see the changes made with each release of the main framework and th
 - **[FIX]** Fixed large Monte Carlo runs failing to save their completed results.
 - **[FIX]** Monte Carlo errors are no longer hidden by a second failure while saving error details.
 
+## 3.1.5 (14 September 2026)
+
+- **[IMPROVEMENT]** Lighter WebSocket `HTTP 403 Forbidden` errors now show a concise message instead of raw HTML and headers, with guidance for persistent connection blocks.
+
+- **[FIX]** Hyperliquid sessions no longer stop on a `missing history trade` error when the affected symbol has no open position, open orders, or pending local restoration work. A warning is logged instead.
+
 ## 3.1.4 (12 September 2026)
 
 - **[FIX]** Fixed Hyperliquid history reconciliation mixing orders from different symbols.
