@@ -45,7 +45,7 @@ Use `Custom Data` for candles from any other vendor or your own files. Open **Im
 
 A UTF-8 CSV with a header row and these six columns, in any order:
 
-```csv
+```txt
 timestamp,open,close,high,low,volume
 1704808800000,181.25,181.40,181.55,181.10,12043
 1704808860000,181.40,181.31,181.44,181.20,9871
