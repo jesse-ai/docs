@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.1.6 (17 September 2026)
+
+- **[FIX]** Monte Carlo simulations now use the configured fees and starting balance, keeping their baseline results consistent with backtests.
+- **[FIX]** Fixed large Monte Carlo runs failing to save their completed results.
+- **[FIX]** Monte Carlo errors are no longer hidden by a second failure while saving error details.
+
 ## 3.1.4 (12 September 2026)
 
 - **[FIX]** Fixed Hyperliquid history reconciliation mixing orders from different symbols.
