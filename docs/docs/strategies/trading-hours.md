@@ -144,7 +144,7 @@ Note that the 09:30 decision sees yesterday's session as its most recent history
 
 This solves a mismatch between where you backtest and where you trade. Historical candles for a traditional market come from a data provider, and that data has **gaps**: nothing for nights, weekends and holidays, because the market was closed and no bars exist. When you then trade the same asset as a tokenized instrument on a crypto exchange, the feed is **continuous**: a candle every minute, 24/7, including all the hours the real market was shut.
 
-The same indicator therefore sees two different histories. A 20-period moving average on 1h candles spans about three trading days in the backtest, but less than one day live, and a weekend of flat, thin candles sits inside the live window that never existed in the backtest. Signals that were tested against one shape of data would be produced from another.
+The same indicator therefore sees two different histories. Take a 20-period moving average on 1h candles at Monday's open: in the backtest those 20 candles reach back into Friday's trading, while live they reach back to Sunday afternoon and consist entirely of weekend drift that never existed in the backtest. The US regular session is 32.5 of the week's 168 hours, so roughly 80% of the candles on the live feed come from hours when the real market was closed. Signals that were tested against one shape of data would be produced from another.
 
 `utils.filter_candles_by_hours()` closes that gap from the live side: it drops the candles that fall outside the market's hours, so the history your indicators see live has the same shape as the history they saw in the backtest.
 
