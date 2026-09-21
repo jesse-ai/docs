@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.2.1 (21 September 2026)
+
+- **[IMPROVEMENT]** AI assistants (MCP) now know about trading hours, so they can write strategies that only enter during a market's session and keep off-hours candles out of indicators. See **[Trading Hours](/docs/strategies/trading-hours)**.
+- **[IMPROVEMENT]** AI assistants (MCP) now understand how backtests behave on traditional-market data with gaps, such as nights, weekends, and holidays.
+
 ## 3.2.0 (17 September 2026)
 
 - **[NEW]** Strategies can now follow a market's trading hours: define the trading days and hours once, only enter trades while that market is open, and keep off-hours candles out of your indicators. Made for trading stock-linked instruments on 24/7 crypto exchanges. See **[Trading Hours](/docs/strategies/trading-hours)** for details.
