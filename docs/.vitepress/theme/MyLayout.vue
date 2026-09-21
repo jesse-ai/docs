@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <!-- <template #aside-ads-before> -->
-      <!-- <ApexPro/> -->
-    <!-- </template> -->
+    <template #aside-outline-after>
+      <ExchangeAds />
+    </template>
 
     <!-- <template #layout-bottom> -->
      <!-- <BlackFriday/> -->
@@ -14,7 +14,7 @@
 
 <script setup>
 import DefaultTheme from 'vitepress/theme'
-import ApexPro from "./banners/ApexPro.vue";
+import ExchangeAds from "./banners/ExchangeAds.vue";
 import BlackFriday from "./banners/BlackFriday.vue";
 import PremiumDiscount from "./banners/PremiumDiscount.vue";
 import Christmas from "./banners/Christmas.vue";
