@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.2.2 (23 September 2026)
+
+- **[NEW]** You can now press **S** to skip the optional language-server download during startup, or use `jesse run --skip-lsp` to start without editor code intelligence.
+
+- **[IMPROVEMENT]** AI assistants (MCP) now recognize requests to adapt traditional-market strategies for 24/7 crypto exchanges and handle their trading hours and indicator history. See **[Trading Hours](/docs/strategies/trading-hours)**.
+- **[IMPROVEMENT]** Trading-hours candle filtering is now accelerated by **Rust**, with our benchmarks showing about **3.5×** faster filtering on rolling strategy windows and up to **13×** on large candle histories.
+
 ## 3.2.1 (21 September 2026)
 
 - **[IMPROVEMENT]** AI assistants (MCP) now know about trading hours, so they can write strategies that only enter during a market's session and keep off-hours candles out of indicators. See **[Trading Hours](/docs/strategies/trading-hours)**.
