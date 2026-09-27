@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.2.3 (27 September 2026)
+
+- **[FIX]** Fixed live and paper sessions failing to start because candle imports stopped at the previous day.
+- **[FIX]** Fixed warm-up candle aggregation on markets with gaps while preserving the exchange's observed history.
+- **[FIX]** Fixed startup getting stuck on stale exchange candles or missing newer candles during a slow warm-up.
+- **[FIX]** Bybit candle imports now retry temporary exchange errors and report rate limits correctly.
+
 ## 3.2.2 (23 September 2026)
 
 - **[NEW]** You can now press **S** to skip the optional language-server download during startup, or use `jesse run --skip-lsp` to start without editor code intelligence.
