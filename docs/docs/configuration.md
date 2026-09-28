@@ -12,8 +12,11 @@ These config values are also called environment variables. They are stored in a 
 ```sh
 PASSWORD=test
 APP_PORT=9000
+
+# Optional: the address you open the dashboard with from other computers
+# DASHBOARD_URL=http://192.168.1.20:9000
+
 LSP_PORT=9001
-MCP_PORT=9002
 MCP_LOG_IN_TERMINAL=true
 
 # If not using docker, you probably want to set this to "localhost"
@@ -36,13 +39,15 @@ LICENSE_API_TOKEN=
 
 It is generally a good idea to stop the application before modifying your `.env` file and start it again after you've made the changes.
 
+### Dashboard address
+
+**`APP_PORT`** is the dashboard's port. The dashboard listens on **`APP_HOST`**, which is optional and defaults to `0.0.0.0` (all network interfaces).
+
+**`DASHBOARD_URL`** is optional. Set it to your dashboard's external address, such as `http://192.168.1.20:9000` or `https://jesse.example.com`, without a path. Jesse uses it for the address printed at startup and links returned by MCP; it does not change where the server listens. By default, Jesse uses `http://localhost:<APP_PORT>`, or your specific `APP_HOST` if set. See **[VPS Setup](/docs/vps-setup#step-4-open-the-dashboard)** for a server example.
+
 ## AI assistants (MCP)
 
-Jesse can expose an **MCP** connection so AI coding assistants (such as Cursor) can work with your project through Jesse in a controlled way. You need a **`PASSWORD`** in `.env` (already required for Jesse) so the assistant channel can authenticate like the dashboard does.
-
-Optional **`MCP_PORT`** (default **9002**) and **`MCP_LOG_IN_TERMINAL`** (verbose MCP logs in the Jesse terminal) are documented with defaults and a copy-pastable **`.env`** example on **[MCP server setup](/docs/mcp/setup#environment-variables-for-mcp)** so you do not need to hunt through this page for MCP-only values. The MCP server binds to **`0.0.0.0`**, matching Jesse's dashboard server.
-
-For a plain-language overview of what MCP is and how it helps your Jesse workflow, see the MCP **[Introduction](/docs/mcp/)** page.
+To use Jesse with an AI assistant, see the **[MCP introduction](/docs/mcp/)** and **[setup guide](/docs/mcp/setup)**, including authentication and the `MCP_LOG_IN_TERMINAL` setting.
 
 ## Application Settings
 
