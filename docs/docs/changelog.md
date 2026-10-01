@@ -2,6 +2,11 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.2.4 (1 October 2026)
+
+- **[FIX]** Fixed live sessions failing to start with `qty is too small` when a route uses a symbol that trades in large size steps (such as PUMP-USDT or PENGU-USDT on ApeX Omni), even with no open positions.
+- **[IMPROVEMENT]** When an exchange rate-limits or temporarily bans your IP address (HTTP 429 or `418 I'm a teapot`), Jesse now says so clearly and shows how long the exchange asked you to wait, instead of failing with errors such as `KeyError: 'symbols'`.
+
 ## 3.2.3 (27 September 2026)
 
 - **[FIX]** Fixed live and paper sessions failing to start because candle imports stopped at the previous day.
