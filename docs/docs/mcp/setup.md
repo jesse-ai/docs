@@ -47,6 +47,29 @@ Restart Jesse after changing it. Use your own reachable address, without a path 
 
 </details>
 
+## Project files and research scripts
+
+Assistants can work with files in two folders of your Jesse project, on the machine running Jesse:
+
+- **`strategies/`**: your strategy folders and everything inside them, such as helper modules or a trained model your strategy loads.
+- **`research_scripts/`**: Python scripts that use Jesse's [research module](/docs/research/), and candle exports in `research_scripts/candle_exports/`.
+
+They can list, read, write, rename or move, copy, and delete files and folders there, including whole strategy folders. Nothing outside these two folders is reachable this way, existing files are only replaced when the assistant asks to overwrite them, and Jesse never follows symlinks for these tools. Large text files, such as candle exports, are read in pages; binary files such as models are never sent to the assistant.
+
+Assistants can also run a script from `research_scripts/` in the background, follow its output, and cancel it. At most two run at once, and each stops after its time limit (one hour by default, at most twelve).
+
+::: warning Research scripts run with full access
+A script is ordinary Python running as the same user as Jesse. It is **not sandboxed**: it can read your `.env` file and saved API keys, access any file that user can, and use the network. The folder limits above apply to the file tools, not to what a script does.
+:::
+
+## Session results and analysis
+
+Assistants can read the stored results of your backtests, optimizations, Monte Carlo simulations, and rule significance tests, and, with the live trading plugin, of your live and paper sessions, in small pages. In live and paper results, the saved values of the exchange and notification keys the session uses are replaced with `[redacted]` wherever they appear exactly; other secrets your strategy logs are not recognized.
+
+For a period rather than one session, such as "my trades of the last 7 days", assistants read the closed trades and orders Jesse recorded across all live and paper sessions within a date range (UTC). This is Jesse's own record of its sessions, not your exchange account's history: trades made outside Jesse are not included, and open positions are not counted as trades. Only live (real-money) sessions are included unless you ask for paper results too.
+
+To compare sessions or draw charts, an assistant runs a short Python analysis on the Jesse machine in a temporary folder under `storage/mcp/analysis/`, and the charts are shown in the chat. Analyses that finished more than 24 hours earlier are deleted when a new one starts. Analysis code has the same full access as research scripts; it is **not sandboxed**.
+
 ## Troubleshooting
 
 - **Can't connect?** Check that Jesse is running and you can open its dashboard from the computer running your assistant.
