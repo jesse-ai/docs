@@ -10,6 +10,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[NEW]** AI assistants (MCP) can now search, filter, and compare strategies from the jesse.trade catalog, and import the one you pick.
 - **[NEW]** AI assistants (MCP) can now read the results of your backtests, optimizations, Monte Carlo simulations, significance tests, and live and paper sessions, compare and chart them on the Jesse machine, and write and run research scripts in your project's `research_scripts` folder, including copying trained models into your strategy.
 - **[NEW]** AI assistants (MCP) can now manage files and folders in your project's `strategies` and `research_scripts` folders, including creating, renaming, copying, and deleting whole strategy folders.
+- **[NEW]** Live and paper sessions now automatically save the exchange's one-minute candles for trading and data-route symbols, regardless of the trading timeframe or local candle-generation setting, so the recorded data can be used in backtests.
 
 - **[IMPROVEMENT]** Added the optional `DASHBOARD_URL` setting so dashboard links from AI assistants open at the address you actually use.
 - **[IMPROVEMENT]** AI assistants (MCP) can now add, list, and delete your exchange and data provider API keys without ever reading saved keys back.
@@ -24,6 +25,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[FIX]** New routes now choose only available timeframes, and data routes avoid timeframes already used for the same symbol.
 - **[FIX]** New data routes inherit the last selected trading symbol even when an unfinished trading row follows it.
 - **[FIX]** Live and paper trading forms no longer clear selected symbols when the exchange's symbol list is empty or fails to load.
+- **[FIX]** Stopping a paper session with open positions now closes them cleanly and records their exit prices, fees, and P&L without crashing.
 
 ## 3.2.3 (27 September 2026)
 
