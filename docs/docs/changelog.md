@@ -49,6 +49,11 @@ Updating an existing installation? Follow the [update guide](/docs/upgrades/from
 - **[FIX]** Optimization and Monte Carlo startup now handle limited container memory more reliably and explain when more memory is needed.
 - **[FIX]** Exchange WebSocket outage messages no longer fill logs and notifications with HTML error pages.
 
+## 3.2.4 (1 October 2026)
+
+- **[FIX]** Fixed live sessions failing to start with `qty is too small` when a route uses a symbol that trades in large size steps (such as PUMP-USDT or PENGU-USDT on ApeX Omni), even with no open positions.
+- **[IMPROVEMENT]** When an exchange rate-limits or temporarily bans your IP address (HTTP 429 or `418 I'm a teapot`), Jesse now says so clearly and shows how long the exchange asked you to wait, instead of failing with errors such as `KeyError: 'symbols'`.
+
 ## 3.2.3 (27 September 2026)
 
 - **[FIX]** Fixed live and paper sessions failing to start because candle imports stopped at the previous day.
