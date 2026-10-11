@@ -48,6 +48,7 @@ Updating an existing installation? Follow the [update guide](/docs/upgrades/from
 - **[FIX]** Fixed Apex candle imports rejecting valid symbols and false ping errors on reconnect.
 - **[FIX]** Optimization and Monte Carlo startup now handle limited container memory more reliably and explain when more memory is needed.
 - **[FIX]** Exchange WebSocket outage messages no longer fill logs and notifications with HTML error pages.
+- **[FIX]** Deleting a strategy from the editor now removes it from the strategy list reliably.
 
 ## 3.2.4 (1 October 2026)
 
