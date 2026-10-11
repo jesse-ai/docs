@@ -41,3 +41,9 @@ Once your droplet is ready, the next step is to secure it with a firewall. Head 
 ## Step 3: Install Jesse
 
 With your server created and firewall configured, you're ready to install Jesse. For production servers, we highly recommend following the [Docker setup](/docs/getting-started/docker) — it is much easier to both set up and update later.
+
+## Step 4: Open the dashboard
+
+Once Jesse is running, open the dashboard from your own computer at your droplet's public IP and the dashboard port, for example `http://203.0.113.10:9000` (use your own IP).
+
+To connect an AI assistant to your VPS, follow **[MCP remote setup](/docs/mcp/setup#connecting-from-another-machine)**.

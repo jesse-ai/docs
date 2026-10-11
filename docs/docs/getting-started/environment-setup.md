@@ -1,6 +1,6 @@
 # Environment Setup
 
-On this page, we'll go through how to prepare your environment before installing Jesse. We'll cover three major operating systems:
+On this page, we'll go through how to prepare your environment before installing Jesse. We'll cover the instructions for all major operating systems:
 
 - [Remote server](/docs/getting-started/environment-setup.html#remote-server)
 - [Ubuntu](/docs/getting-started/environment-setup.html#ubuntu)
@@ -11,19 +11,18 @@ On this page, we'll go through how to prepare your environment before installing
 Remember that you don't need to do any of these steps if you want to use [Docker](./docker.md) instead.
 :::
 
-::: tip
-A good practice for providing an environment for running Python applications is setting up Python virtual environments. Especially when you have different projects with their own dependencies, you can create an isolated environment regardless of what dependencies every other project has. [Here](./#virtual-environment-optional-but-recommended) you can find more information on creating virtual environments.
-:::
-
 ## Remote server
 
 In case you intend to use a remote server, we have step-by-step Youtube screencasts for you:
 - [How to set up a remote **dev environment** for algo-trading with Python in **VSCode**](https://www.youtube.com/watch?v=hAcG8Oey4VE) 🎥
 - [How to **deploy** your Jesse project into the production server for **live trading**](https://www.youtube.com/watch?v=cUNX5FAVVYo) 🎥
+
+These videos cover earlier releases. They still work except you **don't need to install Redis** anymore.
+
 ## Ubuntu
 
 ::: tip 🎥 Video Tutorial
-In case you prefer watching a video, here's a [screencast explaining Ubuntu setup](https://www.youtube.com/watch?v=00RY6eL5CXw).
+In case you prefer watching a video, here's a [screencast explaining Ubuntu setup](https://www.youtube.com/watch?v=00RY6eL5CXw). It covers an earlier release; follow the current steps below for the required services.
 :::
 
 ### Fresh install (recommended for a newly made server)
@@ -78,16 +77,9 @@ sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE jesse_db TO jesse_use
 sudo -u postgres psql -c "ALTER DATABASE jesse_db OWNER TO jesse_user;"
 ```
 
-#### Install Redis
-
-To install Redis, run the following command:
-
-```sh
-sudo apt-get install redis-server
-```
-
-::: danger
-By default, the values of `POSTGRES_HOST` and `REDIS_HOST` are set to `postgres` and `redis`, which are the default values of the official Docker containers. You have to change them both to `localhost`.
+::: tip
+For a native PostgreSQL installation, set `POSTGRES_HOST=localhost` in your
+Jesse project's `.env` file. The `postgres` hostname is for Docker setups.
 :::
 
 Your environment should now be ready to [install and run](./index.md) Jesse.
@@ -95,7 +87,7 @@ Your environment should now be ready to [install and run](./index.md) Jesse.
 ## macOS
 
 ::: tip 🎥 Video Tutorial
-In case you prefer watching a video, here's a [screencast explaining macOS setup](https://youtu.be/R0uTj92wRTU).
+In case you prefer watching a video, here's a [screencast explaining macOS setup](https://youtu.be/R0uTj92wRTU). It covers an earlier release; follow the current steps below for the required services.
 :::
 
 Installation on macOS is straightforward using Homebrew and Miniconda. Follow these steps to set up your environment:
@@ -143,12 +135,16 @@ Activate the environment whenever you work with Jesse:
 conda activate jesse
 ```
 
-### 4. Install Required Packages
+### 4. Install PostgreSQL
 
-Install essential dependencies via Homebrew:
+Install and start PostgreSQL via Homebrew:
 ```sh
-brew install redis postgresql@17
+brew install postgresql@17
+brew services start postgresql@17
 ```
+
+Follow Homebrew's installation output to add PostgreSQL's `bin` directory to your
+`PATH` if `psql` is not available in your terminal.
 
 ### 5. Set Up PostgreSQL
 
@@ -168,12 +164,13 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 \q
 ```
 
-Your macOS environment is now ready to [install and run Jesse](./index.md).
+Set `POSTGRES_HOST=localhost` in your Jesse project's `.env` file. Your macOS
+environment is now ready to [install and run Jesse](./index.md).
 
 ## Windows
 
 ::: tip 🎥 Video Tutorial
-In case you prefer watching a video, here's a [screencast explaining Windows setup](https://youtu.be/R5aIUmOOBr8).
+In case you prefer watching a video, here's a [screencast explaining Windows setup](https://youtu.be/R5aIUmOOBr8). It covers an earlier release; follow the current steps below for the required services.
 :::
 
 ### Miniconda
@@ -181,11 +178,15 @@ Miniconda provides isolated Python environments, preventing conflicts with other
 
 Download and install Miniconda using these commands in PowerShell:
 
-```sh
-curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o .\miniconda.exe
-start /wait "" .\miniconda.exe /S
-del .\miniconda.exe
+```powershell
+Invoke-WebRequest https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -OutFile .\miniconda.exe
+Start-Process -FilePath .\miniconda.exe -ArgumentList '/S' -Wait
+Remove-Item .\miniconda.exe
 ```
+
+Open **Anaconda Prompt (Miniconda3)** from the Start menu after installation.
+Use it for the Conda and Jesse commands below. To use PowerShell instead, run
+`conda init powershell` from Anaconda Prompt and open a new PowerShell window.
 
 Create a dedicated environment for Jesse using Python 3.12:
 
@@ -198,47 +199,7 @@ Activate the environment whenever you work with Jesse:
 conda activate jesse
 ```
 
-Remember that you need to run the `conda activate jesse` command in every new PowerShell window you open before running any Jesse or Python commands.
-
-### Redis
-
-The bad news are there is no version of Redis for windows. The good news: We can install Redis with the help of a virtual machine (VM) or windows subsystem.
-Here we will be using a linux on the windows subystem:
-
-Before installing any Linux distros for WSL, you must ensure that the "Windows Subsystem for Linux" optional feature is enabled:
-
-Open PowerShell as Administrator (windows search for "PowerShell" > right click > "run as administrator") and type:
-
-```sh
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-```
-
-Restart your computer when prompted.
-
-Now download and install [Ubuntu 20.04](https://www.microsoft.com/en-us/store/p/ubuntu-2004-lts/9n6svws3rx71) from the [Microsoft Store](http://microsoft.com/store).
-
-Launch ubuntu you will be promted to select a username and password for ubuntu.
-
-After that install Redis (you will be asked for the password you just set):
-
-```sh
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get install redis-server
-    redis-cli -v
-```
-
-You should end up with something like that: `redis-cli X.X.X`
-
-This will start the server. You can close the windows after that:
-
-```sh
-redis-server
-```
-
- But you need to start Redis server after each system reboot by running the redis-server command in the ubuntu terminal.
-
- Another alternative is [Memurai](https://www.memurai.com) - which has to be restarted every 10 days in the free version though.
+Run `conda activate jesse` in every new terminal before running Jesse or Python commands.
 
 ### PostgreSQL
 
@@ -270,12 +231,5 @@ ALTER DATABASE jesse_db OWNER TO jesse_user;
 \q
 ```
 
-### Cython
-
-Run:
-
-```sh
-pip install cython
-```
-
-That's it! You should now be able to [install and run](./index.md) Jesse.
+Set `POSTGRES_HOST=localhost` in your Jesse project's `.env` file. That's it!
+You should now be able to [install and run](./index.md) Jesse.

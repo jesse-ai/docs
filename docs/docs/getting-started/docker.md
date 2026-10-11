@@ -8,9 +8,6 @@ If you are a visual learner, try watching [this YouTube video](https://youtu.be/
 The video also covers enabling code intellisense in VSCode which is a great tool for faster development.
 :::
 
-::: tip Kubernetes
-If you're interested in running Jesse with Kubernetes and Helm instead of Docker, check out the community maintained repository at [jesse-chart](https://github.com/TrianaLab/jesse-chart).
-:::
 
 ## Install Docker
 
@@ -38,8 +35,6 @@ docker compose up -d
 The first time you do this, you have to wait until the images are downloaded. This can take a few minutes. Next times, will be much faster however, still it might take more than 10 seconds to start all the services. 
 
 That's it! Now open [localhost:9000](http://localhost:9000) in your browser to see the dashboard.
-
-The project template also publishes the MCP server on port `9002`. If you connect from another computer on your local network, use the Docker host machine's LAN IP address instead of `localhost`.
 
 ## Stopping container
 

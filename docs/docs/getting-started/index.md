@@ -9,7 +9,6 @@ Here is the required stack:
 -   Python >= `3.10` and <= `3.13`
 -   pip >= `23`
 -   PostgreSQL >= `10`
--   Redis >= `5`
 
 You have two options for your environment. To use the [docker](./docker.md), which is the fastest way to get started, or to install the required stack natively. Choose the option that suits you best:
 
@@ -55,19 +54,10 @@ If you went with the [docker](./docker.md) option, then Jesse is installed for y
 pip install jesse
 ```
 
-## Upgrade with PIP
-
-We are constantly pushing new patches. To upgrade to the latest version run:
-```
-pip install -U jesse
-```
-
-::: warning
-Sometimes pip doesn't upgrade to the latest version on the first time running the above command. To make sure you're running the latest release, check out the latest version number on [PyPi](https://pypi.org/project/jesse/), and then make sure you see that version in `pip show jesse` output.
-:::
-
 ## Start Jesse
-If you are using Jesse via Docker, you don't need to run anything as it is explained in the [Docker documentation](./docker.md). For native setups however, to get the party started, (**inside your Jesse project**) first make sure that the values for both `POSTGRES_HOST` and `REDIS_HOST` are set to `localhost`. And then run the application by:
+If you are using Jesse via Docker, follow the [Docker documentation](./docker.md).
+For a native setup, set `POSTGRES_HOST=localhost` in your project's `.env` file
+when PostgreSQL runs on the same machine. From inside your Jesse project, run:
 
 ```sh
 jesse run

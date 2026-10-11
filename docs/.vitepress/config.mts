@@ -91,6 +91,13 @@ export default defineConfig({
                 ]
             },
             {
+                text: 'Upgrade Guides',
+                collapsed: true,
+                items: [
+                    {text: 'Updating from 3.2.x or earlier', link: '/docs/upgrades/from-3-2-to-3-3'},
+                ]
+            },
+            {
                 text: 'Essentials',
                 collapsed: true,
                 items: [
@@ -244,7 +251,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                     {text: 'Introduction', link: '/docs/mcp/'},
-                    {text: 'MCP server setup', link: '/docs/mcp/setup'},
+                    {text: 'Connect your AI assistant', link: '/docs/mcp/setup'},
                     {text: 'MCP agent rules', link: '/docs/mcp/mcp-rules'},
                     {text: 'Connect in Codex', link: '/docs/mcp/connect-codex'},
                     {text: 'Connect in Claude Code', link: '/docs/mcp/connect-claude-code'},

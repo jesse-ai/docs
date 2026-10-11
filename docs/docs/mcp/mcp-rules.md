@@ -1,14 +1,14 @@
 # MCP agent rules
 
-Jesse ships a **single canonical prompt** for AI assistants that use the Jesse MCP server: the **`mcp-rules.md`** file inside your project. It defines role, tool-only actions, which `jesse://` resources to prefer, code standards, mandatory optimization reports, candle import reconnect rules, and backtest defaults.
+Jesse ships a **single canonical prompt** for AI assistants that use the Jesse MCP server. It is bundled with the installed Jesse package and defines role, tool-only actions, which `jesse://` resources to prefer, code standards, mandatory optimization reports, candle import reconnect rules, and backtest defaults.
 
-Starting with the recent versions of Jesse, **you don't need to copy, rename, or maintain this file by hand**. Every time you run `jesse run`, Jesse writes (or refreshes) **`AGENTS.md`** at the root of your project so your assistant always sees the rules that match your installed Jesse version.
+Starting with the recent versions of Jesse, **you don't need to copy, rename, or maintain this file by hand**. Every time you run `jesse run`, Jesse writes (or refreshes) **`AGENTS.md`** at the root of your project so your assistant always sees the rules that match your installed Jesse version. That file is written on the computer running Jesse; if your assistant runs on another computer, see **[Assistant on another computer](#assistant-on-another-computer)**.
 
 ## How it works
 
 When you run `jesse run`, Jesse looks in your project directory for an agent rules file in this order:
 
-1. **`AGENTS.md`** — the cross-tool standard (Cursor, Claude Code, Codex, Zed, and others read this automatically).
+1. **`AGENTS.md`** — the cross-tool standard (Cursor, Claude Code, Codex, Zed, and others can read it automatically).
 2. **`CLAUDE.md`**
 3. **`mcp-rules.md`** — the legacy name used by older Jesse projects.
 
@@ -16,6 +16,17 @@ When you run `jesse run`, Jesse looks in your project directory for an agent rul
 - **If one of them exists**, Jesse keeps it in sync with the bundled rules — see below for the exact behavior.
 
 You then point your AI tool at this file (most modern tools pick up `AGENTS.md` automatically; see the per-tool notes further down).
+
+## Assistant on another computer
+
+If Jesse runs on a remote machine (for example, a VPS), open your assistant in a **local Jesse project** and connect it to the VPS's MCP address. Load the local project's agent rules using the [per-tool instructions](#per-tool-notes) below; those rules guide the assistant even when it uses the remote connection.
+
+You can connect both instances at once. Give them distinct names in your assistant's MCP configuration, for example:
+
+- **`jesse-research`** — your local Jesse instance for research and backtesting.
+- **`jesse-production`** — your Jesse instance on the VPS.
+
+Tell the assistant which instance to use for each task. MCP operations and saved files belong to the selected instance; the two projects are not automatically synchronized.
 
 ## Managed section markers
 
@@ -62,6 +73,10 @@ Jesse won't read, create, or modify the file for that session.
 ## Per-tool notes
 
 Most modern AI tools read **`AGENTS.md`** at the project root automatically. The notes below cover the edge cases.
+
+### Claude Code
+
+Claude Code reads **`AGENTS.md`** only when the project has no **`CLAUDE.md`**. If yours has one, add a line containing `@AGENTS.md` to that **`CLAUDE.md`** so Claude Code imports the Jesse rules too.
 
 ### Cursor
 
