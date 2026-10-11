@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.3.2 (11 October 2026)
+
+- **[FIX]** Fixed copy buttons that showed "copied" without copying anything when the dashboard is opened over plain HTTP, such as on a remote server.
+- **[IMPROVEMENT]** The AI Assistants panel can now show the full setup command, including your token, so you can copy it by hand.
+
+Jesse Live remains at version 3.3.0.
+
 ## 3.3.1 (11 October 2026)
 
 - **[FIX]** Fixed custom candle CSV previews and imports failing on Python 3.10.
