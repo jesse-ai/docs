@@ -7,7 +7,9 @@ The first one contains your project's sensitive credentials such as passwords, e
 Let's take a look at both:
 
 ## Environment Variables
-These config values are also called environment variables. They are stored in a file called `.env` inside your project. Here are the default values that ship with every project:
+These config values are also called environment variables. They are stored in a
+file called `.env` inside your project. Here is an example configuration; change
+the database credentials and dashboard password for your installation:
 
 ```sh
 PASSWORD=test
@@ -27,17 +29,24 @@ POSTGRES_PORT=5432
 POSTGRES_USERNAME=jesse_user
 POSTGRES_PASSWORD=password
 
-# If not using docker, you probably want to set this to "localhost"
-# REDIS_HOST=localhost
-REDIS_HOST=redis
-REDIS_PORT=6379
-REDIS_PASSWORD=
-
 # Enter the API token which you created at https://jesse.trade/user/api-tokens:
 LICENSE_API_TOKEN=
 ```
 
 It is generally a good idea to stop the application before modifying your `.env` file and start it again after you've made the changes.
+
+### TimescaleDB
+
+`TIMESCALEDB_ENABLED=TRUE` lets Jesse automatically configure an empty candle
+table at startup when TimescaleDB is available. The project template already
+includes this setting. If it is missing or set to `FALSE`, Jesse skips this
+initial setup and leaves the existing storage unchanged.
+
+Existing candles need a one-time
+[migration](./getting-started/timescaledb.md#existing-projects) using
+`jesse enable-timescale`; that command does not require the environment variable.
+Once the table is converted, TimescaleDB manages storage and compression without
+the setting. Removing it or setting it to `FALSE` does not undo the conversion.
 
 ### Dashboard address
 

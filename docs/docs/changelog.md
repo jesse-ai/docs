@@ -2,30 +2,52 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## Unreleased
+## 3.3.0 (11 October 2026)
 
-- **[BREAKING CHANGE]** MCP connections have been simplified to use your dashboard address plus `/mcp` and require an authentication token. Existing connections to `localhost:9002` must be replaced using the setup in the dashboard's **⋮ → AI Assistants** panel. The `MCP_PORT` setting is no longer used. See **[MCP Setup](/docs/mcp/setup)**.
+Updating an existing installation? Follow the [update guide](/docs/upgrades/from-3-2-to-3-3) for Docker and native installations.
+
+- **[BREAKING CHANGE]** MCP connections now use your dashboard address plus `/mcp` and require an authentication token. Replace existing `localhost:9002` connections using the dashboard's **⋮ → AI Assistants** panel. See **[MCP Setup](/docs/mcp/setup)**.
+- **[BREAKING CHANGE]** Redis is no longer required.
 - **[NEW]** Added an **AI Assistants** panel, opened from the **⋮** menu or the welcome page, with ready-to-copy setup for Claude Code, Codex, Cursor, VS Code, and Zed.
-- **[NEW]** AI assistants (MCP) can now save their Markdown reports straight into your strategy's `reports` folder, even when they run on another computer or Jesse runs in Docker.
-- **[NEW]** AI assistants (MCP) can now search, filter, and compare strategies from the jesse.trade catalog, and import the one you pick.
-- **[NEW]** AI assistants (MCP) can now read the results of your backtests, optimizations, Monte Carlo simulations, significance tests, and live and paper sessions, compare and chart them on the Jesse machine, and write and run research scripts in your project's `research_scripts` folder, including copying trained models into your strategy.
-- **[NEW]** AI assistants (MCP) can now manage files and folders in your project's `strategies` and `research_scripts` folders, including creating, renaming, copying, and deleting whole strategy folders.
-- **[NEW]** Live and paper sessions now automatically save the exchange's one-minute candles for trading and data-route symbols, regardless of the trading timeframe or local candle-generation setting, so the recorded data can be used in backtests.
+- **[NEW]** AI assistants (MCP) can now save Markdown reports into your strategy's `reports` folder, even from another computer or Docker.
+- **[NEW]** AI assistants (MCP) can now search, compare, and import strategies from the jesse.trade catalog.
+- **[NEW]** AI assistants (MCP) can now read, compare, and chart the results of your backtests, optimizations, Monte Carlo simulations, significance tests, and live and paper sessions, and write and run research scripts.
+- **[NEW]** AI assistants (MCP) can now manage files and folders in your `strategies` and `research_scripts` folders.
+- **[NEW]** AI assistants (MCP) can now create, edit, start, and stop live and paper sessions.
+- **[NEW]** AI assistants (MCP) can now export stored candles as CSV files for analysis.
+- **[NEW]** Added an eye toggle beside **Session info** to hide balances in live and paper sessions.
+- **[NEW]** Live and paper sessions now save the exchange's one-minute candles automatically, so they can be used in backtests.
+- **[NEW]** Added optional [TimescaleDB support](/docs/getting-started/timescaledb) to compress older candle history. New Docker projects set it up automatically; existing projects stay on PostgreSQL unless you [migrate](/docs/upgrades/from-3-2-to-3-3#optional-timescaledb-migration).
 
-- **[IMPROVEMENT]** Added the optional `DASHBOARD_URL` setting so dashboard links from AI assistants open at the address you actually use.
-- **[IMPROVEMENT]** AI assistants (MCP) can now add, list, and delete your exchange and data provider API keys without ever reading saved keys back.
-- **[IMPROVEMENT]** Slow AI assistant (MCP) requests, such as copying candles or starting runs, no longer hold up the assistant's other requests.
-- **[IMPROVEMENT]** AI assistants (MCP) handle cancelled requests more safely: work that already started finishes cleanly, and assistants check what finished before retrying.
-- **[IMPROVEMENT]** Added an **All strategies** button to the strategy editor's toolbar to return to the strategy index.
+- **[IMPROVEMENT]** Added the optional `DASHBOARD_URL` setting so links from AI assistants open at your dashboard address.
+- **[IMPROVEMENT]** AI assistants (MCP) can now manage your exchange and data provider API keys without being able to read saved keys.
+- **[IMPROVEMENT]** Slow AI assistant (MCP) requests no longer hold up other requests.
+- **[IMPROVEMENT]** AI assistants (MCP) now handle cancelled requests more safely.
+- **[IMPROVEMENT]** Added an **All strategies** button to the strategy editor's toolbar.
 - **[IMPROVEMENT]** Improved the loading banner on the Manage Candles page.
+- **[IMPROVEMENT]** Progress bars now show what Jesse is doing during backtests, optimizations, imports, and live and paper startup.
+- **[IMPROVEMENT]** Clicking a symbol in live or paper Positions now switches the chart and remembers your selection after a refresh.
+- **[IMPROVEMENT]** Account-balance notifications now show only wallet balance.
+- **[IMPROVEMENT]** Trade charts now show each trade's P&L amount instead of percentage return.
+- **[IMPROVEMENT]** Loading a saved session and connecting to the dashboard no longer display routine success notifications; reconnect notifications remain.
 
-- **[FIX]** Imported strategies now appear in live trading and other session forms without refreshing the page.
-- **[FIX]** Trade chart headers no longer squeeze the title when multiple routes are available.
-- **[FIX]** Rerunning a backtest now clears its previous chart images so they cannot be mistaken for the new run's results.
-- **[FIX]** New routes now choose only available timeframes, and data routes avoid timeframes already used for the same symbol.
-- **[FIX]** New data routes inherit the last selected trading symbol even when an unfinished trading row follows it.
-- **[FIX]** Live and paper trading forms no longer clear selected symbols when the exchange's symbol list is empty or fails to load.
-- **[FIX]** Stopping a paper session with open positions now closes them cleanly and records their exit prices, fees, and P&L without crashing.
+- **[FIX]** Imported strategies now appear in session forms without refreshing the page.
+- **[FIX]** Trade chart titles are no longer squeezed when there are multiple routes.
+- **[FIX]** Rerunning a backtest now clears its previous chart images.
+- **[FIX]** New routes and data routes now choose valid timeframes and symbols by default.
+- **[FIX]** Live and paper forms no longer clear selected symbols when the exchange's symbol list fails to load.
+- **[FIX]** Backtest progress now follows the work completed and stays at 100% while results are prepared, and long status messages no longer move the Cancel button.
+- **[FIX]** Fixed live and paper startup missing today's warm-up candles when historical imports ended at midnight.
+- **[FIX]** Live and paper startup progress no longer stays at zero or moves backward.
+- **[FIX]** Stopping a paper session with open positions now closes them cleanly without crashing.
+- **[FIX]** Restarting a live session now restores open trades and their fees correctly.
+- **[FIX]** Invalid stop-loss or take-profit updates now keep existing protective orders in place.
+- **[FIX]** Position-close callbacks now receive the correct trade when trading multiple symbols.
+- **[FIX]** Hyperliquid sessions now handle delayed fills and closing orders without crashing.
+- **[FIX]** Closing a live position no longer leaves a small remainder from quantity rounding.
+- **[FIX]** Fixed Apex candle imports rejecting valid symbols and false ping errors on reconnect.
+- **[FIX]** Optimization and Monte Carlo startup now handle limited container memory more reliably and explain when more memory is needed.
+- **[FIX]** Exchange WebSocket outage messages no longer fill logs and notifications with HTML error pages.
 
 ## 3.2.3 (27 September 2026)
 

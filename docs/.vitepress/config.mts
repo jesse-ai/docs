@@ -91,6 +91,13 @@ export default defineConfig({
                 ]
             },
             {
+                text: 'Upgrade Guides',
+                collapsed: true,
+                items: [
+                    {text: 'Updating from 3.2.x or earlier', link: '/docs/upgrades/from-3-2-to-3-3'},
+                ]
+            },
+            {
                 text: 'Essentials',
                 collapsed: true,
                 items: [

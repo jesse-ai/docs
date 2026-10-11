@@ -2,6 +2,15 @@
 
 We are constantly releasing new features, fixing bugs, and improving things. Fortunately, upgrading to the latest version is easy. 
 
+## Release-specific upgrade guides
+
+Some releases need configuration changes in addition to updating the package or
+image. Read the guide for your target version before using the general update
+commands below:
+
+- [Updating from Jesse 3.2.x or earlier](/docs/upgrades/from-3-2-to-3-3) — Redis
+  removal, optional TimescaleDB migration and existing AI assistant connections.
+
 ## Native setup
 
 In case you are using Jesse on a native setup, upgrading is done via PIP:
