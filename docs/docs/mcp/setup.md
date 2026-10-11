@@ -49,6 +49,8 @@ Restart Jesse after changing it. Use your own reachable address, without a path 
 
 ## Project files and research scripts
 
+Project file tools, research scripts, and temporary analysis jobs require Jesse to run on Linux or macOS. On Windows, run Jesse through Docker or WSL to use these features. Native Windows supports the MCP connection and session controls, but these file and job features are unavailable.
+
 Assistants can work with files in two folders of your Jesse project, on the machine running Jesse:
 
 - **`strategies/`**: your strategy folders and everything inside them, such as helper modules or a trained model your strategy loads.

@@ -5,6 +5,7 @@ Here you can see the changes made with each release of the main framework and th
 ## 3.3.1 (11 October 2026)
 
 - **[FIX]** Fixed custom candle CSV previews and imports failing on Python 3.10.
+- **[FIX]** Analysis requests on native Windows now explain that these jobs require Docker, WSL, Linux, or macOS.
 
 Jesse Live remains at version 3.3.0.
 
