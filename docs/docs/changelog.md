@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.3.1 (11 October 2026)
+
+- **[FIX]** Fixed custom candle CSV previews and imports failing on Python 3.10.
+
+Jesse Live remains at version 3.3.0.
+
 ## 3.3.0 (11 October 2026)
 
 Updating an existing installation? Follow the [update guide](/docs/upgrades/from-3-2-to-3-3) for Docker and native installations.
