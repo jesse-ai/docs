@@ -11,7 +11,10 @@
         "docs:preview": "vitepress preview docs"
     },
     "devDependencies": {
+        "@tailwindcss/vite": "^4.3.3",
         "@types/node": "^25.6.0",
+        "shiki": "^4.5.0",
+        "tailwindcss": "^4.3.3",
         "vitepress": "^1.0.0-rc.24"
     }
 }
