@@ -2,6 +2,14 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.3.3 (12 October 2026)
+
+- **[NEW]** AI assistants (MCP) can now run analysis and research scripts, manage project files, and save reports on native Windows without Docker or WSL.
+
+- **[FIX]** Fixed Monte Carlo simulations and optimization hanging during startup on native Windows.
+- **[FIX]** Stopping research and analysis jobs on Windows now also stops any background programs they started.
+- **[FIX]** Fixed Windows research output and report saves with Unicode text and long file paths.
+
 ## 3.3.2 (11 October 2026)
 
 - **[FIX]** Fixed copy buttons that showed "copied" without copying anything when the dashboard is opened over plain HTTP, such as on a remote server.
