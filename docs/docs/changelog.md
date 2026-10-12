@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.3.4 (12 October 2026)
+
+- **[IMPROVEMENT]** AI assistants (MCP) now get a dashboard link with every session they list or read, including live and paper sessions, so they can give you the link instead of only a session ID.
+
 ## 3.3.3 (12 October 2026)
 
 - **[NEW]** AI assistants (MCP) can now run analysis and research scripts, manage project files, and save reports on native Windows without Docker or WSL.
