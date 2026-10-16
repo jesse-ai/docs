@@ -12,7 +12,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[IMPROVEMENT]** Brief exchange disconnections no longer send notifications, since quick reconnects are normal and were alarming to new users. You are now notified only if reconnecting fails three times in a row, and again once the connection recovers.
 - **[IMPROVEMENT]** Live sessions now double-check open orders right after reconnecting to the exchange, when updates are most likely to be missed.
 - **[IMPROVEMENT]** Kraken Pro Futures candles now update in real time instead of every few seconds just like every other exchange that we supported so far.
-- **[IMPROVEMENT]** Kraken Pro Spot candles now update in real time on timeframes up to 12h, including ones Kraken doesn't stream itself.
+- **[IMPROVEMENT]** Kraken Pro Spot candles now update in real time on every timeframe up to 4 hours. Before, only one timeframe per symbol did, because Kraken streams one timeframe per symbol.
 
 - **[FIX]** Fixed large candle imports failing, and older candles taking more disk space, with [TimescaleDB](/docs/getting-started/timescaledb) compression enabled.
 - **[FIX]** Fixed a filled order sometimes being handled twice, from the exchange's live stream and from the backup check, which delayed it by several seconds.
