@@ -156,7 +156,8 @@ export default defineConfig({
                 text: 'Live Trading',
                 collapsed: true,
                 items: [
-                    {text: 'Livetrade', link: '/docs/livetrade'},
+                    {text: 'Installation', link: '/docs/livetrade'},
+                    {text: 'Configuration', link: '/docs/live-configuration'},
                     {text: 'VPS Setup', link: '/docs/vps-setup'},
                     {text: 'Security', link: '/docs/security'},
                     {text: 'Notifications', link: '/docs/notifications'},

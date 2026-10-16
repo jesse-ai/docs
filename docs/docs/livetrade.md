@@ -1,8 +1,8 @@
 ---
-title: 'Live Trading'
+title: 'Live Trading Installation'
 ---
 
-# Live Trade
+# Live Trading Installation
 
 Live and paper trading functionality is supported by Jesse via an official plugin.
 

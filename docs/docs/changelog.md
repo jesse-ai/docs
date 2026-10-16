@@ -2,6 +2,17 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.3.5 (14 October 2026)
+
+- **[NEW]** Added **Backup checks** to each live tab's advanced settings, to choose how often Jesse double-checks orders and candles with the exchange, or turn these checks off. Useful if you're hitting your exchange's API rate limits. See [Live Configuration](/docs/live-configuration#backup-checks).
+
+- **[IMPROVEMENT]** Live sessions now use far fewer of the exchange's API requests, since orders are double-checked only for symbols that have open orders.
+- **[IMPROVEMENT]** Live and paper session notifications now link to the session in the dashboard instead of showing its ID.
+- **[IMPROVEMENT]** Position reports in notifications now show each route's strategy name.
+- **[IMPROVEMENT]** Brief exchange disconnections no longer send notifications, since quick reconnects are normal and were alarming to new users. You are now notified only if reconnecting fails three times in a row, and again once the connection recovers.
+
+- **[FIX]** Fixed large candle imports failing, and older candles taking more disk space, with [TimescaleDB](/docs/getting-started/timescaledb) compression enabled.
+
 ## 3.3.4 (12 October 2026)
 
 - **[IMPROVEMENT]** AI assistants (MCP) now get a dashboard link with every session they list or read, including live and paper sessions, so they can give you the link instead of only a session ID.
