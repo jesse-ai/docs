@@ -122,7 +122,9 @@ def session_candles(self):
 
 ## is\_in\_trading\_hours
 
-Returns whether a UTC-millisecond timestamp falls inside a [trading-hours schedule](/docs/strategies/trading-hours). Always `True` when the schedule is `None`. Inside a strategy, `self.is_trading_hours` is this function applied to `self.time`.
+Returns whether a UTC-millisecond timestamp falls inside a [trading-hours schedule](/docs/strategies/trading-hours). Always `True` when the schedule is `None`.
+
+To judge a candle, pass its **open** time, as `filter_candles_by_hours()` does. Inside a strategy, `self.is_trading_hours` is this function applied to [self.closed_candle_open_time](/docs/strategies/api#closed-candle-open-time), the open time of the candle that just closed. Pass that property for custom windows too, not `self.time`: `self.time` is the close of that candle, so it is one candle late at every edge of the window.
 
 ```py
 is_in_trading_hours(timestamp, hours)
@@ -134,6 +136,16 @@ is_in_trading_hours(timestamp, hours)
 -   hours: dict | None - a schedule dict, or `None`
 
 **Return Type**: bool
+
+**Example**:
+```py
+AFTER_HOURS = {'timezone': 'America/New_York', 'hours': {'Mon-Fri': '16:00-20:00'}}
+
+def should_long(self):
+    if not utils.is_in_trading_hours(self.closed_candle_open_time, AFTER_HOURS):
+        return False
+    return self.price > self.donchian.upperband
+```
 
 ## kelly\_criterion
 

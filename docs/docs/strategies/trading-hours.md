@@ -12,7 +12,7 @@ Jesse gives you three small building blocks for this and deliberately changes no
 | Piece | What it is |
 |---|---|
 | `trading_hours()` | A method on your strategy returning the schedule (a dict, or `None`) |
-| `self.is_trading_hours` | `True` when the current decision time is inside that schedule |
+| `self.is_trading_hours` | `True` when the candle that just closed is inside that schedule |
 | `utils.filter_candles_by_hours(candles, hours)` | A pure function returning only the candles inside the schedule |
 
 ## Defining the schedule
@@ -118,7 +118,7 @@ The method runs once per execution and the dict is validated once and cached by 
 
 ## Gating entries with `is_trading_hours`
 
-`self.is_trading_hours` is `True` when `self.time` (the moment the strategy is executing) is inside your schedule. Jesse never calls it for you; you place it wherever you want a gate. The most common spot is the first line of `should_long()` and `should_short()`:
+`self.is_trading_hours` is `True` when the candle that just closed is a session candle, judged by its **open** time: the same rule `utils.filter_candles_by_hours()` uses, so the gate and your indicators always agree on which candles belong to the session. Jesse never calls it for you; you place it wherever you want a gate. The most common spot is the first line of `should_long()` and `should_short()`:
 
 ```py
 def should_long(self):
@@ -131,14 +131,29 @@ On a 15m route with US hours this is how the boundary ticks resolve:
 
 | Execution tick (New York) | Candle that just closed | `is_trading_hours` |
 |---|---|---|
-| Monday 09:15 | 09:00 | `False`, pre-market |
-| Monday 09:30 | 09:15 | `True`, first decision of the day |
-| Monday 15:45 | 15:30 | `True`, last decision of the day |
-| Monday 16:00 | 15:45 | `False`, the window is half-open |
+| Monday 09:30 | 09:15 | `False`, a pre-market candle just closed |
+| Monday 09:45 | 09:30 | `True`, first decision of the day |
+| Monday 16:00 | 15:45 | `True`, last decision of the day |
+| Monday 16:15 | 16:00 | `False`, the window is half-open |
 | Saturday 11:00 | 10:45 | `False`, day not listed |
-| Thanksgiving 09:30 with `'2026-11-26'` in `closed` | 09:15 | `False`, holiday |
+| Thanksgiving 09:45 with `'2026-11-26'` in `closed` | 09:30 | `False`, holiday |
 
-Note that the 09:30 decision sees yesterday's session as its most recent history, which is exactly the point: pre-market candles never influence the signal.
+The decision time, `self.time`, is the **close** of the candle that just finished, so it is one candle later than the candle being judged. That is why the first decision of the day is at 09:45, on the first session candle, and why a pre-market candle can never trigger an entry, even on a 24/7 exchange where the 09:15 candle exists.
+
+### Custom sub-windows
+
+To allow entries in only part of the session, check that window against `self.closed_candle_open_time`, the open time of the candle that just closed. Don't pass `self.time`: it is one candle late at every edge, so an `'16:00-20:00'` window would accept the 15:45 regular-session candle.
+
+```py
+AFTER_HOURS = {'timezone': 'America/New_York', 'hours': {'Mon-Fri': '16:00-20:00'}}
+
+def should_long(self):
+    if not self.is_trading_hours:
+        return False
+    if not utils.is_in_trading_hours(self.closed_candle_open_time, AFTER_HOURS):
+        return False
+    return self.price > self.donchian.upperband
+```
 
 ## Filtering candles for indicators
 
@@ -173,13 +188,13 @@ With US hours:
 - **Imported stock candles in a backtest**: pre-market and after-hours rows fall out, so the backtest indicator sees the same kind of history the live one will.
 - **`1D` candles**: daily candles open at UTC midnight, which is outside an intraday window, so an intraday schedule drops them all. Use `'00:00-24:00'` windows on daily routes if you only want to remove weekends and holidays.
 
-The function works anywhere, including `jesse.research` notebooks and `ml_features()`. A companion `utils.is_in_trading_hours(timestamp, hours)` answers the same question for a single timestamp.
+The function works anywhere, including `jesse.research` notebooks and `ml_features()`. A companion `utils.is_in_trading_hours(timestamp, hours)` answers the same question for a single timestamp; to judge a candle, pass its open time.
 
 ## Unfilled entry orders at the close
 
 If a limit entry is still resting when the session ends, you decide what happens. Both policies are one line in the existing `should_cancel_entry()` hook.
 
-Cancel it on the first execution after the close, so nothing fills on thin overnight liquidity from a decision that is hours old:
+Cancel it once the first candle after the close has closed (at 16:15 on a 15m route with a 16:00 close), so nothing fills on thin overnight liquidity from a decision that is hours old:
 
 ```py
 def should_cancel_entry(self):

@@ -2,6 +2,17 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.4.0 (16 October 2026)
+
+If your strategies use [trading hours](/docs/strategies/trading-hours), re-run their backtests before you update their live sessions, since entries at the start and end of a session can move by one candle.
+
+- **[NEW]** Added `self.closed_candle_open_time`, for limiting entries to part of your trading hours. See [Trading Hours](/docs/strategies/trading-hours#custom-sub-windows).
+
+- **[BREAKING CHANGE]** Trading hours now look at the candle that just closed instead of the clock time. This matters when you trade stocks on crypto exchanges: those trade around the clock, so they have candles from before the market opens that your stock backtest data doesn't, and now your live strategy makes the same decisions your backtest did.
+
+- **[IMPROVEMENT]** AI assistants (MCP) now test strategy variations by changing the strategy's code, not just by running optimization trials.
+- **[IMPROVEMENT]** Improved Bybit's WebSocket connection.
+
 ## 3.3.5 (16 October 2026)
 
 - **[NEW]** Added **Backup checks** to each live tab's advanced settings, to choose how often Jesse double-checks orders and candles with the exchange, or turn these checks off. Useful if you're hitting your exchange's API rate limits. See [Live Configuration](/docs/live-configuration#backup-checks).

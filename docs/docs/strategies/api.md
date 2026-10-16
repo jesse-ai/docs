@@ -134,6 +134,24 @@ Returns a list of daily balances of your portfolio. It is as if you were storing
 
 Alias for [price](#price)
 
+## closed_candle_open_time
+
+The open timestamp (UTC milliseconds) of the candle that just closed on this route: the candle your strategy is deciding on. At decision time it is [time](#time) minus one candle. It never returns a candle that is still forming, so in live trading `update_chart()` and order callbacks between closes get the last completed candle.
+
+Pass it, not `self.time`, to [utils.is_in_trading_hours](/docs/utils#is-in-trading-hours) when you check a custom window. See [Trading Hours](/docs/strategies/trading-hours#custom-sub-windows).
+
+**Return Type**: int
+
+**Example**:
+```py
+AFTER_HOURS = {'timezone': 'America/New_York', 'hours': {'Mon-Fri': '16:00-20:00'}}
+
+def should_long(self):
+    if not utils.is_in_trading_hours(self.closed_candle_open_time, AFTER_HOURS):
+        return False
+    return self.price > self.donchian.upperband
+```
+
 ## current_candle
 
 Returns the current candle in the form of a numpy array.
@@ -426,13 +444,13 @@ self.is_livetrading or self.is_papertrading
 
 ## is_trading_hours
 
-Returns whether the current decision time (`self.time`) falls inside the schedule returned by [trading_hours()](#trading-hours). Always `True` when `trading_hours()` returns `None`. Jesse never checks it for you; use it as the entry gate in `should_long()`/`should_short()` and for the unfilled-entry policy in `should_cancel_entry()`. See [Trading Hours](/docs/strategies/trading-hours).
+Returns whether the candle that just closed falls inside the schedule returned by [trading_hours()](#trading-hours), judged by its open time ([closed_candle_open_time](#closed-candle-open-time)), the same rule [filter_candles_by_hours](/docs/utils#filter-candles-by-hours) uses. Always `True` when `trading_hours()` returns `None`. Jesse never checks it for you; use it as the entry gate in `should_long()`/`should_short()` and for the unfilled-entry policy in `should_cancel_entry()`. See [Trading Hours](/docs/strategies/trading-hours).
 
 **Return Type**: bool
 
 **Example**:
 ```py
-def should_long(self):z
+def should_long(self):
     if not self.is_trading_hours:
         return False
     return self.price > self.donchian.upperband
@@ -739,6 +757,8 @@ You would need `shared_vars` for writing strategies that require more than one r
 ## time
 
 The current execution timestamp (UTC) of the strategy.
+
+When `should_long()` and `should_short()` run, this is the close of the candle that just finished. For that candle's open time, use [closed_candle_open_time](#closed-candle-open-time).
 
 **Return Type**: int
 
