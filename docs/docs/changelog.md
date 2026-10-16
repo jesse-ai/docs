@@ -2,7 +2,7 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 3.3.5 (14 October 2026)
+## 3.3.5 (16 October 2026)
 
 - **[NEW]** Added **Backup checks** to each live tab's advanced settings, to choose how often Jesse double-checks orders and candles with the exchange, or turn these checks off. Useful if you're hitting your exchange's API rate limits. See [Live Configuration](/docs/live-configuration#backup-checks).
 
@@ -10,8 +10,18 @@ Here you can see the changes made with each release of the main framework and th
 - **[IMPROVEMENT]** Live and paper session notifications now link to the session in the dashboard instead of showing its ID.
 - **[IMPROVEMENT]** Position reports in notifications now show each route's strategy name.
 - **[IMPROVEMENT]** Brief exchange disconnections no longer send notifications, since quick reconnects are normal and were alarming to new users. You are now notified only if reconnecting fails three times in a row, and again once the connection recovers.
+- **[IMPROVEMENT]** Live sessions now double-check open orders right after reconnecting to the exchange, when updates are most likely to be missed.
+- **[IMPROVEMENT]** Kraken Pro Futures candles now update in real time instead of every few seconds just like every other exchange that we supported so far.
+- **[IMPROVEMENT]** Kraken Pro Spot candles now update in real time on timeframes up to 12h, including ones Kraken doesn't stream itself.
 
 - **[FIX]** Fixed large candle imports failing, and older candles taking more disk space, with [TimescaleDB](/docs/getting-started/timescaledb) compression enabled.
+- **[FIX]** Fixed a filled order sometimes being handled twice, from the exchange's live stream and from the backup check, which delayed it by several seconds.
+- **[FIX]** Fixed live candles built from trades updating only the first timeframe when a symbol had routes on several timeframes.
+- **[FIX]** Fixed late trades sometimes being counted in the next live candle.
+- **[FIX]** Fixed live sessions crashing at startup when the exchange returned the same candle twice.
+- **[FIX]** Fixed live sessions sometimes starting while a position closed at startup still showed as open.
+- **[FIX]** Fixed Binance Perpetual Futures sessions crashing at startup when a limit order was already resting on the exchange.
+- **[FIX]** Fixed Kraken Pro Spot sessions stopping at startup when the exchange limited Jesse's requests, which was reported as an unknown symbol.
 
 ## 3.3.4 (12 October 2026)
 
