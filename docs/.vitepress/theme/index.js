@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import MyLayout from './MyLayout.vue'
 import './jesse-mcp-example-workflow.css'
+import './tailwind.css'
 
 export default {
     extends: DefaultTheme,

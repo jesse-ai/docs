@@ -1,6 +1,11 @@
 import {defineConfig} from 'vitepress'
+import tailwindcss from '@tailwindcss/vite'
+import {loadEnv} from 'vite'
+import {fileURLToPath} from 'node:url'
 
 const isDev = process.argv.includes('dev')
+const env = loadEnv(isDev ? 'development' : 'production', fileURLToPath(new URL('../..', import.meta.url)), '')
+const askAiScript = isDev ? 'http://localhost:3000/widgets/ask-ai.js?v=5' : 'https://jesse.trade/widgets/ask-ai.js'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -11,23 +16,34 @@ export default defineConfig({
     sitemap: {
         hostname: 'https://docs.jesse.trade'
     },
+    vue: {
+        template: {
+            compilerOptions: {
+                isCustomElement: (tag: string) => tag === 'ask-ai-button' || tag === 'ask-ai-panel',
+            },
+        },
+    },
+    vite: {
+        envDir: fileURLToPath(new URL('../..', import.meta.url)),
+        plugins: [tailwindcss()],
+        resolve: {
+            alias: {
+                '@ui': fileURLToPath(new URL('./ui', import.meta.url)),
+            },
+        },
+    },
     head: [
         ['link', {rel: 'icon', href: '/imgs/favicon.ico'}],
         // ['script', {
         //     'data-domain': 'docs.jesse.trade',
         //     src: 'https://data.jesse.trade/js/plausible.js',
         // }],
-        ...(!isDev ? [
-            ['script', {
-                async: 'true',
-                src: 'https://widget.gurubase.io/widget.latest.min.js',
-                'data-widget-id': 'op-hMFR89Cgf_cDppi0ZmF9BkBGgLwSH1S3V_JIv4I8',
-                'data-text': 'Ask AI',
-                'data-margins': '{"bottom": "1rem", "right": "1rem"}',
-                'data-light-mode': 'true',
-                id: 'guru-widget-id'
-            }] as any,
-        ] : []),
+        ['script', {
+            src: askAiScript,
+            defer: 'true',
+            'data-api': env.VITE_API2_URL || '',
+            'data-source': 'doc-site',
+        }],
     ],
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
