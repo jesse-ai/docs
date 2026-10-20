@@ -29,3 +29,9 @@ If you are running Jupyter inside a Docker container, or on a remote server, add
 ```
 jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
+
+If you are running Jupyter inside a Docker container, or on a remote server, on a specific port (e.g. the one you modified inside docker YML file) add the following `--port 7888` to the above command so that you can use the exposed port (7888 in the example) to access it:
+
+```
+jupyter notebook --ip 0.0.0.0 --no-browser --allow-root --port 7888
+```
