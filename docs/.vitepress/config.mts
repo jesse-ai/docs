@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url'
 
 const isDev = process.argv.includes('dev')
 const env = loadEnv(isDev ? 'development' : 'production', fileURLToPath(new URL('../..', import.meta.url)), '')
-const askAiScript = isDev ? 'http://localhost:3000/widgets/ask-ai.js?v=5' : 'https://jesse.trade/widgets/ask-ai.js'
+const askAiScript = isDev ? 'http://localhost:3000/widgets/ask-ai.js?v=9' : 'https://jesse.trade/widgets/ask-ai.js'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -41,7 +41,7 @@ export default defineConfig({
         ['script', {
             src: askAiScript,
             defer: 'true',
-            'data-api': env.VITE_API2_URL || '',
+            'data-api': env.VITE_API2_URL || (isDev ? 'http://localhost:8080' : 'https://api2.jesse.trade'),
             'data-source': 'doc-site',
         }],
     ],
