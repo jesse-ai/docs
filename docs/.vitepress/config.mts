@@ -71,12 +71,6 @@ export default defineConfig({
                 link: 'https://jesse.trade',
             },
             {
-                text: 'JesseGPT',
-                link: 'https://jesse.trade/gpt',
-            },
-
-
-            {
                 text: 'Discord',
                 link: 'https://jesse.trade/discord',
             },
@@ -276,9 +270,9 @@ export default defineConfig({
                     {text: 'Connect in VS Code', link: '/docs/mcp/connect-vscode'},
                     {text: 'Connect in Zed', link: '/docs/mcp/connect-zed'},
                     {text: 'Example workflow', link: '/docs/mcp/example-workflow'},
+                    {text: 'Research runners', link: '/docs/mcp/research-runners'},
                 ]
             },
-            {text: '✨ JesseGPT', link: 'https://jesse.trade/gpt'},
             {text: '🔗 Resources', link: 'https://github.com/jesse-ai/awesome-jesse/'},
             {text: '📺 Video Tutorials', link: 'https://jesse.trade/youtube'},
             {text: '🎯 Strategies', link: 'https://jesse.trade/strategies/'},

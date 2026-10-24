@@ -2,6 +2,34 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.5.0 (Unreleased)
+
+- **[NEW]** Added research runners (experimental): use spare computers as extra compute, and your AI assistant spreads backtests, optimizations, Monte Carlo runs and significance tests across them, with every result in your main dashboard. See [Research runners](/docs/mcp/research-runners).
+
+- **[IMPROVEMENT]** The "session started" notification now shows the session's routes and account balance.
+- **[IMPROVEMENT]** Live session notifications now show the name of the exchange API key, so you can tell sessions on different subaccounts of the same exchange apart.
+- **[IMPROVEMENT]** If you have more than one API key for an exchange, order, position and trade notifications now also show which one the session uses.
+- **[IMPROVEMENT]** Kraken Pro Spot market orders are now seen as filled right away, instead of several seconds later.
+- **[IMPROVEMENT]** AI assistants (MCP) can now set the fee, leverage, leverage mode, starting balance and warm-up candles when they create a backtest, optimization, Monte Carlo or rule significance test, and change only those settings on an existing draft. Before, they had to rewrite the whole draft to change a fee.
+- **[IMPROVEMENT]** AI assistants (MCP) now see where each run setting came from, and are warned when a fee or leverage is only Jesse's default, or when an optimization, Monte Carlo or significance test would run with a different fee or leverage than your backtests on the same exchange.
+- **[IMPROVEMENT]** AI assistants (MCP) can now wait for many runs at once and hear right away when one finishes, fails or gets stuck, instead of checking each run over and over.
+- **[IMPROVEMENT]** The live and paper session chart now shows your open position's side, size and real-time P&L on its entry line.
+- **[IMPROVEMENT]** Order lines on the live and paper session chart now show each order's size.
+- **[IMPROVEMENT]** You can now switch routes while the live and paper session chart is in fullscreen.
+- **[IMPROVEMENT]** The session info of live and paper sessions now shows the unrealized P&L of your open positions.
+- **[IMPROVEMENT]** Position reports in notifications now mark each open position as winning 🟢 or losing 🔴, list them from best to worst under their total unrealized P&L, and show the routes without a position separately.
+
+- **[FIX]** Fixed optimization with "Smart Sharpe" or "Smart Sortino" giving every trial the same minimum score instead of ranking results. Thanks to [@zorionarrillaga](https://github.com/zorionarrillaga) for the fix.
+- **[FIX]** Fixed scripts and notebooks failing to start when they import Jesse's store first. Thanks to [@Blun-der](https://github.com/Blun-der) for reporting it.
+- **[FIX]** Fixed the Docker container failing to start on every restart once the live trading plugin was installed.
+- **[FIX]** Binance sessions in debug mode no longer write a private access key to the exchange log.
+- **[FIX]** Partially filled orders no longer disappear from the live and paper session chart.
+- **[FIX]** Fixed the "Partially Filled" filter in the orders history showing no orders.
+- **[FIX]** Switching routes on the live and paper session chart no longer resets your zoom.
+- **[FIX]** A backtest, optimization, Monte Carlo run or significance test whose process crashed or was killed no longer stays "running" forever; it now shows as stopped with the reason.
+- **[FIX]** Fixed an optimization or Monte Carlo run started by an AI assistant sometimes staying a draft when it could not start.
+- **[FIX]** Fixed one Jesse marking another one's running optimization, Monte Carlo run or significance test as stopped when both use the same database.
+
 ## 3.4.0 (16 October 2026)
 
 If your strategies use [trading hours](/docs/strategies/trading-hours), re-run their backtests before you update their live sessions, since entries at the start and end of a session can move by one candle.
