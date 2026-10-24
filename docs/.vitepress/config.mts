@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url'
 
 const isDev = process.argv.includes('dev')
 const env = loadEnv(isDev ? 'development' : 'production', fileURLToPath(new URL('../..', import.meta.url)), '')
-const askAiScript = isDev ? 'http://localhost:3000/widgets/ask-ai.js?v=9' : 'https://jesse.trade/widgets/ask-ai.js'
+const askAiScript = isDev ? 'http://localhost:3000/widgets/ask-ai.js?v=10' : 'https://jesse.trade/widgets/ask-ai.js?v=20261024-faq-links'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
