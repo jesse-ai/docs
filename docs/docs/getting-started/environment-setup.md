@@ -27,11 +27,36 @@ In case you prefer watching a video, here's a [screencast explaining Ubuntu setu
 
 ### Fresh install (recommended for a newly made server)
 
-We provide a [bash script](https://github.com/jesse-ai/stack-installer) that installs all the required stack and pip packages on machines running a fresh install of Ubuntu 22.04 LTS.
+We provide [bash scripts](https://github.com/jesse-ai/stack-installer) that install everything Jesse needs on a fresh Ubuntu server:
+- Miniconda with a `jesse` environment (Python 3.12)
+- PostgreSQL with TimescaleDB
+- Jesse itself
+- a ready-to-use project in `~/my-bot`
+
+Use the script that matches your Ubuntu release. The server needs at least 2 GB of RAM.
+
+Ubuntu 26.04 LTS:
 
 ```sh
-source <(curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-22.04.sh)
+curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-26.04.sh -o install-jesse.sh
+sudo bash install-jesse.sh
 ```
+
+Ubuntu 24.04 LTS:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-24.04.sh -o install-jesse.sh
+sudo bash install-jesse.sh
+```
+
+Ubuntu 22.04 LTS:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jesse-ai/stack-installer/master/ubuntu-22.04.sh -o install-jesse.sh
+sudo bash install-jesse.sh
+```
+
+When it finishes, log out and back in, then start Jesse with `cd ~/my-bot && jesse run`. Change `PASSWORD` in `~/my-bot/.env` before exposing the dashboard to the internet. See the [stack-installer README](https://github.com/jesse-ai/stack-installer#readme) for options.
 
 ### Existing installation (recommended for desktop users)
 
