@@ -2,9 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 3.5.0 (Unreleased)
+## 3.5.0 (25 October 2026)
 
 - **[NEW]** Added research runners (experimental): use spare computers as extra compute, and your AI assistant spreads backtests, optimizations, Monte Carlo runs and significance tests across them, with every result in your main dashboard. See [Research runners](/docs/mcp/research-runners).
+- **[NEW]** AI assistants (MCP) can now restart a stopped, crashed or finished live or paper session with exactly the same settings, including its leverage, instead of building a new session from your defaults. They are also warned when a new session repeats one that already ran, or would trade the same routes twice on one account.
 
 - **[IMPROVEMENT]** The "session started" notification now shows the session's routes and account balance.
 - **[IMPROVEMENT]** Live session notifications now show the name of the exchange API key, so you can tell sessions on different subaccounts of the same exchange apart.
@@ -29,6 +30,7 @@ Here you can see the changes made with each release of the main framework and th
 - **[FIX]** A backtest, optimization, Monte Carlo run or significance test whose process crashed or was killed no longer stays "running" forever; it now shows as stopped with the reason.
 - **[FIX]** Fixed an optimization or Monte Carlo run started by an AI assistant sometimes staying a draft when it could not start.
 - **[FIX]** Fixed one Jesse marking another one's running optimization, Monte Carlo run or significance test as stopped when both use the same database.
+- **[FIX]** A live or paper session no longer forgets its leverage, fee and other settings once it starts running, so a copy of it ("New session") starts with the same settings.
 
 ## 3.4.0 (16 October 2026)
 
