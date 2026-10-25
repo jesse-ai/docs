@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.5.1 (25 October 2026)
+
+- **[FIX]** Fixed research runners stopping a job with "InvalidStrategy" when the runner machine's own Jesse project has a strategies folder of its own.
+
 ## 3.5.0 (25 October 2026)
 
 - **[NEW]** Added research runners (experimental): use spare computers as extra compute, and your AI assistant spreads backtests, optimizations, Monte Carlo runs and significance tests across them, with every result in your main dashboard. See [Research runners](/docs/mcp/research-runners).
