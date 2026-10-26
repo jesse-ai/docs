@@ -2,6 +2,13 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.5.3 (26 October 2026)
+
+- **[FIX]** Fixed Gate futures sessions stopping with "invalid argument: orderID" when a strategy moved or cancelled a stop-loss.
+- **[FIX]** Fixed Gate rejecting stop orders on very low-priced coins such as PEPE or SHIB with "invalid argument: trigger.price".
+- **[FIX]** The "session started" notification and the first point of the equity chart now show the real wallet balance instead of 0.
+- **[FIX]** Fixed an occasional "Permission denied" crash on Windows when several backtests use the candle cache at the same time.
+
 ## 3.5.1 (25 October 2026)
 
 - **[FIX]** Fixed research runners stopping a job with "InvalidStrategy" when the runner machine's own Jesse project has a strategies folder of its own.
