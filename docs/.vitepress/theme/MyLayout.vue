@@ -4,9 +4,9 @@
       <ask-ai-button />
     </template>
 
-    <template #aside-outline-after>
-      <ExchangeAds />
-    </template>
+    <!-- <template #aside-outline-after> -->
+      <!-- <ExchangeAds /> -->
+    <!-- </template> -->
 
     <!-- <template #layout-bottom> -->
      <!-- <BlackFriday/> -->

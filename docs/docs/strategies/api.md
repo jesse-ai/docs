@@ -101,7 +101,7 @@ Same as [average_entry_price](#average-entry-price) but for take-profit. The wor
 
 ## balance
 
-Returns the current wallet in your exchange wallet. In the futures market, it behaves exactly as "wallet balance in USDT" does on [Binance Futures](http://jesse.trade/binance).
+Returns the current wallet in your exchange wallet. In the futures market, it behaves exactly as "wallet balance in USDT" does on [Binance Futures](https://www.binance.com).
 
 **Return Type**: float
 

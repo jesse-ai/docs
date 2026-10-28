@@ -45,7 +45,7 @@ A running session gets order updates and candles in real time over the exchange'
 - **Order Check (seconds):** how often open orders are checked against the exchange. Default: 10 seconds. Only symbols with open orders are checked. Jesse also checks them once right after the WebSocket reconnects, since that is when an update is most likely to be missed. `0` turns it off, including the check after a reconnect, which is not recommended: if the WebSocket misses an update, Jesse won't notice. Paper sessions don't run this check, since their orders never reach an exchange.
 - **Candle Refresh (seconds):** how often recent candles are refreshed. Leave it empty for the automatic interval of 5 seconds plus 1 second per symbol. `0` turns it off, which is not recommended either: if the WebSocket misses a candle, Jesse won't correct it.
 
-**When to change them:** only if the exchange starts rejecting Jesse's requests for exceeding its API rate limit. That rarely happens, and mostly to sessions with a large number of trading routes. Longer intervals then use fewer requests. Exchange accounts with a low limit reach it sooner: for example, a [Lighter](https://jesse.trade/lighter) Standard account allows 60 requests per minute.
+**When to change them:** only if the exchange starts rejecting Jesse's requests for exceeding its API rate limit. That rarely happens, and mostly to sessions with a large number of trading routes. Longer intervals then use fewer requests. Exchange accounts with a low limit reach it sooner: for example, a [Lighter](https://lighter.xyz) Standard account allows 60 requests per minute.
 
 ## Notifications
 

@@ -351,7 +351,7 @@ Updating an existing installation? Follow the [update guide](/docs/upgrades/from
 
 ## 2.3.1 (3 June 2026)
 
-- **[NEW]** Added support for [Lighter](https://app.lighter.xyz/?referral=7248903K) as a live trading exchange. Lighter offers a variety of stocks and commodities, all with zero trading fees.
+- **[NEW]** Added support for [Lighter](https://lighter.xyz) as a live trading exchange. Lighter offers a variety of stocks and commodities, all with zero trading fees.
 - **[FIX]** Fixed `ClosedTrade.pnl` / `pnl_percentage` using the submitted limit-cap price instead of the actual fill price for stop/TP orders, which could produce impossible values like −115 %.
 - **[FIX]** Fixed a live-trading crash (`AttributeError: 'str' object has no attribute 'fee'`) that occurred when a session started with an already-open position. 
 - **[FIX]** Fixed the live notifier loop thread dying on a transient network blip, which silently stopped all Telegram/Discord/Slack notifications (and let the message queue grow unbounded) until the process was restarted. 
@@ -801,7 +801,7 @@ Updating an existing installation? Follow the [update guide](/docs/upgrades/from
 
 ## 1.4.0 (23 December 2024)
 
--  **[NEW FEATURE]** Added support for **[Apex Omni](https://jesse.trade/apex)** which is a DEX for trading perpetual futures. 
+-  **[NEW FEATURE]** Added support for **[Apex Omni](https://omni.apex.exchange)** which is a DEX for trading perpetual futures. 
 -  **[NEW FEATURE]** Introduced support for **2h, 6h, and 12h timeframes** on Apex Pro, providing more flexibility in your trading strategies.
 -  **[NEW FEATURE]** Completely refactored the candle importing experience, allowing for **automatic queuing** of multiple imports and better management of previously imported candles.
 -  **[NEW FEATURE]** Implemented a new page for managing the existing candles, allowing for operations such as deleting them or updating them with one click.
@@ -959,7 +959,7 @@ Updating an existing installation? Follow the [update guide](/docs/upgrades/from
 
 ## 0.42.0 (7 May 2023)
 
-- [NEW FEATURE] Added support for our first DEX: [DYDX](https://jesse.trade/dydx).
+- [NEW FEATURE] Added support for our first DEX: [DYDX](https://dydx.exchange).
 - [NEW FEATURE] Added new properties to the Strategy API: [is_backtesting](https://docs.jesse.trade/docs/strategies/api.html#is-backtesting), [is_livetrading](https://docs.jesse.trade/docs/strategies/api.html#is-backtesting), [is_papertrading](https://docs.jesse.trade/docs/strategies/api.html#is-papertrading), [is_live](https://docs.jesse.trade/docs/strategies/api.html#is-live)
 - [IMPROVEMENT] Jesse will now retry a failed STOP order with a MARKET order with the same size if the reason for it is its trigger price being in such a way that would have caused instant execution. This is an experimental feature and currently works only on `Bybit`. 
 - [IMPROVEMENT] Improves how order type is detected by Jesse to prevent unwanted order order types. 
@@ -972,7 +972,7 @@ Updating an existing installation? Follow the [update guide](/docs/upgrades/from
 
 - [BREAKING] On `FTX Perpetual Futures` exchange, symbols ending in `PERP` format are not supported anymore. Previously Jesse replaced the ending `PERP` with `USD` in the database but that was causing confusions. 
 - [NEW FEATURE] Added support for `Bitget USDT Futures` driver. 
-- [NEW FEATURE] Added a "free" plan allowing to trade live on [Bitget.com](https://jesse.trade/bitget).
+- [NEW FEATURE] Added a "free" plan allowing to trade live on [Bitget.com](https://www.bitget.com).
 - [IMPROVEMENT] Added proper handling for the rare `listenKeyExpired` event that happened on `BinancePerpetualFutures` driver leading to the WebSocket connection for user account data not working anymore without throwing any errors. 
 - [IMPROVEMENT] Improves the ping-pong mechanism of the WebSocket connection on **Bybit** drivers leading to less disconnections (and reconnections).
 - [IMPROVEMENT] Improved handling of orders when deciding on the order types in a way to work better on sudden price changes. 
