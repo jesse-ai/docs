@@ -10,13 +10,9 @@ Running Jesse for live trading on your local computer is possible, but it's not 
 
 A VPS (Virtual Private Server) runs 24/7 in a data center with a stable internet connection and reliable uptime. This is the recommended way to run Jesse for live trading.
 
-::: tip
-[DigitalOcean](https://jesse.trade/digitalocean) is a great and affordable choice for hosting Jesse. If you sign up through our affiliate link at [jesse.trade/digitalocean](https://jesse.trade/digitalocean), you'll receive free credits to get started — and you'll also be supporting the Jesse project, which we truly appreciate!
-:::
-
 ## Step 1: Create a Droplet
 
-If you haven't signed up yet, use our affiliate link at [jesse.trade/digitalocean](https://jesse.trade/digitalocean) to get free credits. Then head to DigitalOcean and [create a new droplet](https://cloud.digitalocean.com/droplets/new).
+Head to DigitalOcean and [create a new droplet](https://cloud.digitalocean.com/droplets/new).
 
 **Choose a datacenter region** closest to the exchange you'll be trading on to minimize latency. Avoid US regions — many crypto exchanges restrict or block US-based connections. Since most major crypto exchanges are located in East Asia, **Singapore** is generally the best choice.
 

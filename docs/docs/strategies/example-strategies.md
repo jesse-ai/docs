@@ -3,7 +3,7 @@
 
 To get you started we prepared a few examples of how to approach certain scenarios often used in trading.
 
-For working strategies check out our strategies listing page on our [website](https://jesse.trade/strategies) where we host a collection of **free** and **premium** strategies.
+For more examples, check out the [strategies page](https://jesse.trade/strategies) on our website, where Jesse users share open-source strategies.
 
 ## Crossovers
 Let's try to catch the moment the price moves above the bollinger middleband.
