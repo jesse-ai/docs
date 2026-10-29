@@ -14,5 +14,6 @@ npm-debug.log
 composer.lock
 .phpstorm.meta.php
 .vscode
+package-lock.json
 .eslintrc.js
-.vitepress/dist
+/docs/.vitepress/dist/
