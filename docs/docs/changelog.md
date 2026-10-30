@@ -2,6 +2,12 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.5.4 (30 October 2026)
+
+- **[IMPROVEMENT]** Jesse now uses NumPy 2 and the latest SciPy, which also fixes installs on recent macOS versions where SciPy failed to load.
+
+- **[FIX]** Fixed `@cached` strategy values read between candles in live and paper trading, for example by the dashboard's watch list, carrying over into the next candle's decisions.
+
 ## 3.5.3 (26 October 2026)
 
 - **[FIX]** Fixed Gate futures sessions stopping with "invalid argument: orderID" when a strategy moved or cancelled a stop-loss.
