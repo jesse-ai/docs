@@ -16,6 +16,12 @@ We have made sure to make the installation process as easy as possible. In fact,
 Before going live make sure the execution time of your strategy doesn't exceed your timeframe. For example, if you want to trade the 5min timeframe the execution of all your code for one new candle should be finished in under 5min.
 ::: -->
 
+## Session Settings
+
+To see what a running or finished session runs with, such as its leverage, warm-up candles and routes, click the settings icon in the **Session info** section. Paper sessions also show their starting balance and fee, while on a real account those come from the exchange.
+
+When a session has ended, **New session** starts a new one with the same settings.
+
 ## Paper Trading
 
 Paper trading is possible with Jesse and is a good way to test-drive a strategy without risking real money.

@@ -6,6 +6,10 @@ After a backtest completes, Jesse displays a comprehensive metrics table summari
 Prefer video? Watch the [Backtest Results walkthrough](https://youtu.be/sICc5if47Uc) for a guided tour of every metric.
 :::
 
+## Session Settings
+
+To see what a backtest runs with, such as its period, starting balance, fee, leverage, options and routes, click the settings icon in the **Performance** section. While the backtest is running, click **Session settings** on the progress screen.
+
 ## Example Output
 
 | Metric                   | Value             |
@@ -34,6 +38,7 @@ Prefer video? Watch the [Backtest Results walkthrough](https://youtu.be/sICc5if4
 | Omega Ratio              | 2.12              |
 | Winning Streak           | 8                 |
 | Losing Streak            | 4                 |
+| Positive | Negative Months | 9 | 3          |
 | Largest Winning Trade    | 1620.29           |
 | Largest Losing Trade     | -986.93           |
 | Total Winning Trades     | 46                |
@@ -323,6 +328,18 @@ These figures matter for psychological resilience in live trading. Even a highly
 
 ---
 
+### Positive | Negative Months
+
+```
+Positive | Negative Months: 9 | 3
+```
+
+How many calendar months (UTC) ended with a higher balance (**9**) and how many ended with a lower one (**3**). It uses the same monthly returns as the [Monthly Returns Heatmap](./charts.md#monthly-returns-heatmap), so it counts the first and last months of the backtest even if they are only partly covered.
+
+A month with no change in balance, such as one with no open positions, counts as neither. A position held across the end of a month counts towards the month in which its unrealized profit or loss changed, even if it closes later.
+
+---
+
 ### Largest Winning Trade / Largest Losing Trade
 
 ```
@@ -344,3 +361,31 @@ Total Losing Trades:  32
 ```
 
 The raw counts of profitable and unprofitable closed trades. Together with the win-rate percentage, these confirm the sample size behind the statistics. **46 wins out of 78 total closed trades = 58.97% win-rate.**
+
+## Buy & Hold Benchmark
+
+When the **Benchmark** option is enabled, the Performance table gets a **Buy & Hold** column showing how simply holding the market would have done over the same period, so you can tell whether your strategy actually adds value:
+
+```
+                             Buy & Hold           Portfolio
+Total Net Profit:            74085.47 (740.85%)   108926.32 (1089.26%)
+Start => Finish Balance:     10000 => 84085.47    10000 => 118926.32
+Max Drawdown:                -35.07%              -53.25%
+Max Underwater Period:       223 days             252 days
+Annual Return:               190.4%               244.86%
+Sharpe Ratio:                1.95                 1.99
+Calmar Ratio:                5.43                 4.6
+Sortino Ratio:               3.17                 3.35
+Omega Ratio:                 1.32                 1.4
+Positive | Negative Months:  15 | 9               12 | 12
+```
+
+These metrics are calculated exactly like your strategy's, so you can compare them directly. They come first in the table, followed by the metrics that only apply to your portfolio, such as win-rate. The buttons that copy the table include both columns.
+
+Buy & Hold starts with the same balance as your strategy and buys at the close of the first day, then holds until the end of the backtest. It uses no leverage and pays no fees.
+
+### Multiple routes
+
+With more than one route, Buy & Hold splits the starting balance equally between the symbols and never rebalances. The **Buy & Hold** column is for that combined holding, and a table below it shows the return and max drawdown of each symbol on its own. The combined holding also has its own **Buy & Hold** line in the [benchmark charts](./charts.md#cumulative-returns-vs-benchmark).
+
+If the candles of a symbol can't be found, it is left out of the benchmark and the rest of your results aren't affected. A backtest shorter than two days has no benchmark, as there is nothing to compare yet.

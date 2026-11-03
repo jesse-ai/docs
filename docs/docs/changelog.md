@@ -2,6 +2,39 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.6.0 (3 November 2026)
+
+- **[NEW]** Added a "Positive | Negative Months" metric that shows how many months made or lost money.
+- **[NEW]** Added an Entry Timing chart to backtests that shows which hours and weekdays your strategy enters trades. See [Charts](/docs/backtest/charts#entry-timing).
+- **[NEW]** Added an Export PDF option to backtests that gives you a PDF report with the charts and metrics. AI assistants can create one when you ask. See [Exports](/docs/backtest/exports#pdf-report).
+- **[NEW]** With the Benchmark option on, backtests now show the metrics of Buy & Hold next to your portfolio's, in the results panel and the PDF report. With several routes, you get the combined holding and each symbol. See [Results](/docs/backtest/results#buy-hold-benchmark).
+
+- **[IMPROVEMENT]** Added Session settings to backtests and live sessions, so you can check the leverage, fee, balance and other settings of a session at any time, even while it runs.
+- **[IMPROVEMENT]** Backtest charts are easier to read: the log-scaled chart has more labels, the drawdown labels no longer overlap, and the legend of a backtest with many routes no longer covers the chart. The equity curve is now labelled Portfolio, as a backtest can run several strategies.
+- **[IMPROVEMENT]** The live overview page now shows the total unrealized P&L of your running sessions, and lists each session's open positions with their side, size, value, entry and current price, liquidation price, how long they have been open, and unrealized P&L.
+- **[IMPROVEMENT]** The live overview page no longer slows down your browser with many running sessions. Its figures now refresh once a second.
+- **[IMPROVEMENT]** The backtest page now stays smooth with many tabs open, even while backtests are running, and switching tabs and reloading the page are much faster.
+- **[IMPROVEMENT]** The optimization page no longer slows down your browser when trials finish quickly. Its progress and best candidates now refresh once a second.
+
+- **[FIX]** Fixed the Serenity Index never giving a real value. Optimizing on it couldn't rank the trials that made a profit, so it's worth re-running any optimization that used it.
+- **[FIX]** Max Drawdown and Calmar Ratio now count a drop that starts from the very first balance of a backtest. Backtests that lost money right from the start showed a smaller drawdown than they really had.
+- **[FIX]** The benchmark no longer misses the last day of a market that closes before midnight, such as stocks and futures.
+- **[FIX]** New session now keeps the leverage, fee and balance of the live or paper session it copies. After a page refresh, they used to fall back to the defaults.
+- **[FIX]** Fixed live and paper strategies that ran a moment late acting on an unfinished candle, or skipping the candle that had just closed.
+- **[FIX]** On exchanges where Jesse builds candles from trades, such as Lighter, Kraken and Coinbase, trades in the first second of a minute no longer end up in the candle before it.
+- **[FIX]** An order filled in several parts no longer repeats a strategy's position events or gets recorded twice, and no longer holds up a live session on Lighter for over a minute.
+- **[FIX]** Live and paper charts now use the warm-up and candle settings of their own session.
+- **[FIX]** On spot, net profit now matches the change in your balance. Fees paid in the traded coin, and buy orders filled away from their price after a gap, were counted wrongly.
+- **[FIX]** Spot backtests now always catch a strategy trying to sell more than it holds, which could go unnoticed after the first exit. `self.liquidate()` on spot now cancels the exit order it doesn't replace, so it no longer fails.
+- **[FIX]** Fixed a live or paper session going back to "running" right after you pressed Stop, which brought the Stop button back. A session that has ended can also no longer appear as running again.
+- **[FIX]** With many tabs open, the open backtest or live tab no longer shrinks until a stray click on it closes the tab or stops the session.
+- **[FIX]** The candle chart of a live or paper session you open right after it starts, for example from the link an AI assistant (MCP) gives you, now appears by itself once the session has loaded its candles. Until then it says it's waiting for them, instead of saying there is no candle history until you refresh the page.
+- **[FIX]** Candidates you tick on a running optimization now stay ticked when the next trial finishes. They used to look unticked while still being selected, so clicking one again removed it.
+- **[FIX]** Fixed a live or paper session sometimes disappearing from the live overview's totals until its next equity update.
+- **[FIX]** Charts from backtests and significance tests started by AI assistants (MCP) now match your dashboard's dark or light mode.
+- **[FIX]** Monthly return charts no longer leave out the last day of each month.
+- **[FIX]** A live or paper session started by an AI assistant (MCP) now opens in its own dashboard tab instead of a blank one, and keeps it after a page reload. Restarting a stopped session reuses its tab, so ended tabs no longer pile up. To delete a session through an AI assistant, close its tab first.
+
 ## 3.5.4 (30 October 2026)
 
 - **[IMPROVEMENT]** Jesse now uses NumPy 2 and the latest SciPy, which also fixes installs on recent macOS versions where SciPy failed to load.

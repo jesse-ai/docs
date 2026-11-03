@@ -8,13 +8,15 @@ After a backtest completes, Jesse generates a set of charts that give you a visu
 
 This chart plots your strategy's **portfolio balance** over the entire backtest period alongside a **buy-and-hold benchmark** of the traded symbol. Both lines start from the same initial balance so the comparison is apples-to-apples.
 
-- **Blue solid line** — your strategy's equity, updated after every closed trade.
+- **Blue solid line** — your portfolio's equity, updated after every closed trade.
 - **Orange dashed line** — what a passive investor who simply bought and held the same asset would have achieved over the same period.
+
+With more than one route, each symbol gets its own dashed line, and a solid **Buy & Hold** line shows the starting balance split equally between them. See [Buy & Hold Benchmark](./results.md#buy-hold-benchmark) for its metrics.
 
 What to look for:
 
-- **Strategy line consistently above the benchmark** — your strategy is adding genuine value over simply holding the asset.
-- **Strategy line below the benchmark for long stretches** — the strategy may be underperforming a simple hold. Combined with the drawdown charts, this is a signal to revisit your exit logic or position sizing.
+- **Portfolio line consistently above the benchmark** — your strategy is adding genuine value over simply holding the asset.
+- **Portfolio line below the benchmark for long stretches** — the strategy may be underperforming a simple hold. Combined with the drawdown charts, this is a signal to revisit your exit logic or position sizing.
 - **Flatness in the strategy line** — periods where the curve is horizontal mean the strategy was out of the market or had no profitable trades. These are opportunity-cost periods worth investigating.
 - **Diverging lines near the end** — a widening gap between the strategy and benchmark near the end of the period (in either direction) often reflects a late-period regime shift; verify the strategy behaves sensibly across the full period, not just at the end.
 
@@ -154,3 +156,14 @@ What to look for:
 ::: tip
 The trade P&L distribution and the monthly returns distribution tell different stories. Monthly returns reflect how profits and losses are spread across time; trade P&L reflects how they are spread across individual trade decisions. A strategy with strong monthly returns but a wide, left-skewed trade P&L distribution may be relying on a small number of outsized winning trades — which works until it doesn't. Aim for both distributions to be right-skewed and reasonably concentrated.
 :::
+
+## Entry Timing
+
+This heatmap shows **when your strategy opens its trades**, with one row for each day of the week and one column for each hour of the day. The darker the cell in light mode, or the brighter in dark mode, the more trades were opened in that hour across the whole backtest. All hours are in UTC, and the colour bar on the right shows how many entries each shade represents.
+
+What to look for:
+
+- **Clusters** — a few hot cells mean the strategy depends on a specific session or event, such as a market open. Check that the same hours still work in a different period before relying on them.
+- **Spread-out entries** — an even grid means the strategy reacts to price rather than the clock.
+- **Empty rows or columns** — these are expected on markets with fixed trading hours. On a 24/7 market, they may point to a time filter in your strategy, or to a pattern you didn't intend.
+- **Thin cells** — with few trades, one or two entries can make a cell look important. Read this chart alongside the total trade count.
