@@ -42,13 +42,13 @@ The dashboard's "Import Required Candles" suggestion estimates the start date fr
 
 The daily balance is sampled once per calendar day, but a sample is only taken when a candle exists at that moment, so weekends and holidays produce no points and the equity curve shows real gaps rather than flat lines. Every sample carries its real timestamp, and the metrics use those timestamps, so the annual return and Calmar ratio measure elapsed time correctly.
 
-**Annualization.** Sharpe, Sortino, Omega and the annual return need to know how many observations make a year. The Massive sources and `Custom Data` default to **252** (trading days); crypto sources default to **365**. You can switch the value in the session's exchange settings under **Annualization**. Max drawdown and Calmar do not depend on it. All sources in one run must use the same value.
+**Annualization.** Sharpe, Sortino, Omega and the annual return need to know how many observations make a year. The FMP and Massive sources and `Custom Data` default to **252** (trading days); crypto sources default to **365**. You can switch the value in the session's exchange settings under **Annualization**. Max drawdown and Calmar do not depend on it. All sources in one run must use the same value.
 
 ## Session settings you have to choose
 
 A data provider is not a venue, so the session's exchange settings decide how the market is simulated:
 
-| Setting | What it does | Default for Massive | Default for Custom Data |
+| Setting | What it does | Default for FMP and Massive | Default for Custom Data |
 |---|---|---|---|
 | Simulation Model | `spot` (no leverage, no shorting) or `perpetual_futures` (leverage, both directions, liquidation) | spot | perpetual futures |
 | Trading Fee | fee rate applied to every fill | 0 | 0.04% |
@@ -67,7 +67,7 @@ Routes do not need to share timestamps. A US stock and a forex pair can run toge
 
 ## Futures
 
-`Massive Futures` candles are single contracts priced in their quoted units, simulated with the spot model. There is no contract multiplier, no margin schedule and no rollover: a backtest on `ESZ5-USD` treats one unit as one dollar of the index level. That is useful for signal research and not for P&L in dollars. Continuous contracts are on the roadmap.
+`Massive Futures` candles are single contracts and `FMP Commodities` candles are continuous front-month series. Both are priced in their quoted units and simulated with the spot model. There is no contract multiplier, no margin schedule and no rollover handling: a backtest on `ESZ5-USD` treats one unit as one dollar of the index level, and on `ZC-USX` one unit is one US cent of the corn price. That is useful for signal research and not for P&L in dollars. Jesse does not yet build continuous contracts from `Massive Futures` expiries.
 
 ## Research module
 

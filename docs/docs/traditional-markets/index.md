@@ -8,11 +8,11 @@ Jesse started as a crypto framework, and everything in these docs assumes crypto
 
 ## What is different
 
-**Candles come from a data provider, not from the exchange you trade on.** Crypto exchanges hand out their own history, so importing candles and trading happen on the same venue. Stock exchanges do not, so Jesse gets historical candles from a data provider and shows that provider in the import and backtest pages as if it were an exchange. Today that is [Massive](https://massive.com), split into `Massive Stocks`, `Massive Currencies`, `Massive Indices` and `Massive Futures`, plus `Custom Data` for CSV files from any other source. See [Importing Data](./importing-data.md).
+**Candles come from a data provider, not from the exchange you trade on.** Crypto exchanges hand out their own history, so importing candles and trading happen on the same venue. Stock exchanges do not, so Jesse gets historical candles from a data provider and shows that provider in the import and backtest pages as if it were an exchange. Today there are two providers: [Financial Modeling Prep](https://jesse.trade/fmp) (FMP), our recommended provider, split into `FMP Stocks`, `FMP Currencies`, `FMP Indices` and `FMP Commodities`, and [Massive](https://massive.com), split into `Massive Stocks`, `Massive Currencies`, `Massive Indices` and `Massive Futures`. On top of those, `Custom Data` takes CSV files from any other source. See [Importing Data](./importing-data.md).
 
 **The data has gaps.** A crypto exchange produces a candle every minute of the year. A stock exchange produces nothing at night, at the weekend or on holidays, and Jesse keeps it that way: only the bars the provider actually observed are stored, and the backtest engine never invents candles to fill a closure. Bigger timeframes are built from the observed minutes, aligned to the clock. Where the provider has pre-market and after-hours bars, those are included too. This changes a few things you may be used to, all covered in [Backtesting on Gapped Data](./backtesting.md).
 
-**You choose how the backtest simulates the market.** Because a provider is not a venue, it carries no fee, leverage or market type of its own. Each backtest session picks a **Simulation Model** (spot, or perpetual futures with leverage) and a **Trading Fee** in the session's exchange settings. The Massive sources default to spot; `Custom Data` defaults to perpetual futures.
+**You choose how the backtest simulates the market.** Because a provider is not a venue, it carries no fee, leverage or market type of its own. Each backtest session picks a **Simulation Model** (spot, or perpetual futures with leverage) and a **Trading Fee** in the session's exchange settings. The Massive and FMP sources default to spot; `Custom Data` defaults to perpetual futures.
 
 **Metrics annualize on 252 observations, not 365.** Sharpe, Sortino, Omega and the annual return are computed with the number of trading days in a year. The default follows the data source and can be switched per session under **Annualization**.
 
@@ -22,20 +22,22 @@ Jesse started as a crypto framework, and everything in these docs assumes crypto
 
 | | Status |
 |---|---|
+| Importing candles from FMP (stocks worldwide, currencies, indices, commodities) | Supported |
 | Importing candles from Massive (stocks, currencies, indices, futures) | Supported |
 | Importing candles from a CSV file (`Custom Data`) | Supported |
 | Backtesting, optimization and the research module on gapped data | Supported, detected automatically |
 | Spot or perpetual-futures simulation per session | Supported |
-| Split-adjusted stock prices | Default for `Massive Stocks` |
+| Split-adjusted stock prices | Default for `FMP Stocks` and `Massive Stocks` |
 | Dividend adjustment | Not supported |
-| Continuous futures contracts, rollover, contract multipliers | Not supported; each expiry is its own symbol, priced in synthetic units |
+| Continuous futures prices | Front-month series from `FMP Commodities`; on `Massive Futures` each expiry is its own symbol |
+| Rollover, contract multipliers | Not supported; futures are priced in synthetic units |
 | Several exchanges or data sources in one backtest | Not supported; one source per run |
 | Live trading on tokenized stocks and other traditional-market instruments | Supported through crypto exchanges that offer them |
 | Live trading through traditional brokers | In development, starting with Alpaca |
 
 ## Where to go next
 
-- [Importing Data](./importing-data.md): setting up Massive and the CSV format for `Custom Data`.
+- [Importing Data](./importing-data.md): setting up FMP or Massive and the CSV format for `Custom Data`.
 - [Backtesting on Gapped Data](./backtesting.md): what the engine does with closures, opening gaps, warm-up and metrics.
 - [Trading Hours](/docs/strategies/trading-hours): strategy helpers for trading a stock-linked instrument on a 24/7 exchange.
 - [Supported Exchanges](/docs/supported-exchanges/): the full list of crypto exchanges for backtesting and live trading.

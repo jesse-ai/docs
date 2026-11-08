@@ -39,12 +39,15 @@ Some crypto exchanges now offer instruments tied to traditional markets, includi
 
 A data provider appears as a candle source on the import-candles and backtest pages. It supplies historical data for research; live trading takes place through a supported crypto exchange or broker integration.
 
-At the moment there is first-class support for one provider, plus a generic CSV route for everything else. The [Traditional Markets](/docs/traditional-markets/) section covers setup, the CSV format and how backtests behave on this kind of data.
+At the moment there is first-class support for two providers, plus a generic CSV route for everything else. The [Traditional Markets](/docs/traditional-markets/) section covers setup, the CSV format and how backtests behave on this kind of data.
 
--   **[Massive](https://massive.com)**, available as four sources: `Massive Stocks`, `Massive Currencies`, `Massive Indices` and `Massive Futures`. Enter your Massive API key once on the dashboard's **Data Providers** page and import candles as usual. Massive is a historical data source, so fees, the spot-versus-futures simulation model and leverage remain backtest settings you choose per session.
+-   **[Financial Modeling Prep](https://jesse.trade/fmp)** (FMP), our recommended data provider, available as four sources: `FMP Stocks` (stocks and ETFs on most major exchanges worldwide), `FMP Currencies` (forex and crypto), `FMP Indices` and `FMP Commodities`. Enter your FMP API key once on the dashboard's **Data Providers** page and import candles as usual. You need FMP's Ultimate plan, the one with one-minute data. Sign up through [jesse.trade/fmp](https://jesse.trade/fmp) to get 15% off. See [Importing Data](/docs/traditional-markets/importing-data#which-plan-you-need) for prices and why we recommend FMP.
+-   **[Massive](https://massive.com)**, available as four sources: `Massive Stocks`, `Massive Currencies`, `Massive Indices` and `Massive Futures`. It works like FMP: enter your Massive API key once on the **Data Providers** page and import candles as usual.
 -   **`Custom Data`**: upload a CSV file of your own candles from any market or vendor. The file needs `timestamp`, `open`, `close`, `high`, `low` and `volume` columns, and you pick the symbol name (for example `AAPL-USD`) at import time.
 
-Both keep every bar the provider returns and never fabricate candles for the hours a market is closed. That means pre-market and after-hours bars are included where the provider has them, and overnight and weekend gaps stay as real gaps in the backtest. If your strategy should only decide entries during a market's regular session, see [Trading Hours](/docs/strategies/trading-hours).
+All of them keep every bar the provider returns and never fabricate candles for the hours a market is closed. That means pre-market and after-hours bars are included where the provider has them, and overnight and weekend gaps stay as real gaps in the backtest. If your strategy should only decide entries during a market's regular session, see [Trading Hours](/docs/strategies/trading-hours).
+
+Data providers are historical data sources, so fees, the spot-versus-futures simulation model and leverage remain backtest settings you choose per session.
 
 ## Live trading
 
