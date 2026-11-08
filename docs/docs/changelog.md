@@ -2,6 +2,22 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.7.0 (Unreleased)
+
+- **[NEW]** Added historical market data from [Financial Modeling Prep](https://jesse.trade/fmp) (FMP), a second data provider next to Massive. One API key gives you four sources: `FMP Stocks` for stocks and ETFs on most major exchanges worldwide, from the US and London to Tokyo, Hong Kong and Saudi Tadawul, plus `FMP Currencies` for forex and crypto, `FMP Indices` and `FMP Commodities`. See [Importing Data](/docs/traditional-markets/importing-data#financial-modeling-prep-fmp).
+- **[NEW]** AI assistants (MCP) can now save, test and remove your FMP key, search FMP symbols by ticker or name, and import FMP candles.
+
+- **[IMPROVEMENT]** Live sessions with persistency on now start from your exchange's current positions and open orders, which makes starting a session faster and more reliable. If a position was closed on the exchange while Jesse wasn't running, its trade is marked closed at the current price, and the exchange has the exact exit.
+
+- **[FIX]** A new live session with persistency on no longer shows trades and PnL from earlier sessions. A trade it continues from an earlier session counts in the session that opened it. Thanks to [@axlnur](https://github.com/axlnur) for reporting it.
+- **[FIX]** "Import Required Candles" now imports enough history for the warm-up of stocks and other markets that close at night, on weekends and on holidays. It used to keep suggesting the same import, so the backtest never started.
+- **[FIX]** A finished backtest no longer crashes while drawing its return and trade P&L histograms, which could lose all of its results. If a chart still fails, the backtest's results are saved anyway. Thanks to [@ungaDunga77](https://github.com/ungaDunga77) for reporting it and [@gautamggg53](https://github.com/gautamggg53) for the fix.
+- **[FIX]** Checking which candles you have imported is now much faster on large databases. AI assistants (MCP) used to time out on it. Thanks to [@l-j-g](https://github.com/l-j-g) for reporting it and [@axlnur](https://github.com/axlnur) for the fix.
+- **[FIX]** When AI assistants (MCP) ask for candles in a date range that has none, they now get a clear message instead of an empty result. Thanks to [@JasonSheedy](https://github.com/JasonSheedy) for reporting it.
+- **[FIX]** AI assistants (MCP) that send an empty value for an optional setting now get the default behavior instead of an error. Thanks to [@vishalhabib99](https://github.com/vishalhabib99) for reporting it.
+- **[FIX]** Candles Monte Carlo with the moving block bootstrap no longer collapses prices to nearly zero, and scenarios that fail are now reported instead of being left out silently. Thanks to [@JasonSheedy](https://github.com/JasonSheedy) for reporting it and [@iamfwczb](https://github.com/iamfwczb) for the fix.
+- **[FIX]** A research script that has finished no longer shows as still running for a moment afterward. Thanks to [@zorionarrillaga](https://github.com/zorionarrillaga) for the fix.
+
 ## 3.6.0 (3 November 2026)
 
 - **[NEW]** Added a "Positive | Negative Months" metric that shows how many months made or lost money.
