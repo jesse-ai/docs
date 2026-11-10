@@ -2,13 +2,19 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 3.7.0 (Unreleased)
+## 3.6.1 (10 November 2026)
+
+If your strategies pass a `fee_rate` to `utils.risk_to_qty()`, re-run their backtests: their positions are now smaller.
 
 - **[NEW]** Added historical market data from [Financial Modeling Prep](https://jesse.trade/fmp) (FMP), a second data provider next to Massive. One API key gives you four sources: `FMP Stocks` for stocks and ETFs on most major exchanges worldwide, from the US and London to Tokyo, Hong Kong and Saudi Tadawul, plus `FMP Currencies` for forex and crypto, `FMP Indices` and `FMP Commodities`. See [Importing Data](/docs/traditional-markets/importing-data#financial-modeling-prep-fmp).
 - **[NEW]** AI assistants (MCP) can now save, test and remove your FMP key, search FMP symbols by ticker or name, and import FMP candles.
 
+- **[BREAKING CHANGE]** `utils.risk_to_qty()` with a `fee_rate` now sizes positions so that hitting the stop-loss loses exactly the risk you chose, both fees included. It used to subtract the fee twice as a flat share of the size, so a stop-out lost more than intended, about 19% more with a 1% stop and a 0.1% fee. Positions sized with a fee are now smaller, the tighter the stop the more. Without a `fee_rate`, nothing changes. Thanks to [@flyerswk](https://github.com/flyerswk) for reporting it.
+
 - **[IMPROVEMENT]** Live sessions with persistency on now start from your exchange's current positions and open orders, which makes starting a session faster and more reliable. If a position was closed on the exchange while Jesse wasn't running, its trade is marked closed at the current price, and the exchange has the exact exit.
 
+- **[FIX]** Live and paper sessions with an open position now save their equity curve again with numpy 2. The failed save also blocked every later database write in that session until something reset the connection. Thanks to [@ungaDunga77](https://github.com/ungaDunga77) for reporting it.
+- **[FIX]** On Windows, starting a paper or live session no longer keeps opening a command window in the background.
 - **[FIX]** A new live session with persistency on no longer shows trades and PnL from earlier sessions. A trade it continues from an earlier session counts in the session that opened it. Thanks to [@axlnur](https://github.com/axlnur) for reporting it.
 - **[FIX]** "Import Required Candles" now imports enough history for the warm-up of stocks and other markets that close at night, on weekends and on holidays. It used to keep suggesting the same import, so the backtest never started.
 - **[FIX]** A finished backtest no longer crashes while drawing its return and trade P&L histograms, which could lose all of its results. If a chart still fails, the backtest's results are saved anyway. Thanks to [@ungaDunga77](https://github.com/ungaDunga77) for reporting it and [@gautamggg53](https://github.com/gautamggg53) for the fix.
