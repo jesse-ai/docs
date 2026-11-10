@@ -255,7 +255,7 @@ There might be situations where this helper returns a qty exceeding the availabl
 :::
 
 ```py
-risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price, precision=3, fee_rate=0)
+risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price, precision=8, fee_rate=0)
 ```
 
 **Properties**:
@@ -264,7 +264,7 @@ risk_to_qty(capital, risk_per_capital, entry_price, stop_loss_price, precision=3
 -   risk_per_capital: float
 -   entry_price: float
 -   stop_loss_price: float
--   precision: int - default: 3
+-   precision: int - default: 8
 -   fee_rate: float - default: 0
 
 **Return Type**: float
@@ -288,13 +288,13 @@ def go_long(self):
     self.take_profit = qty, profit
 ```
 
-In real trading, you usually need to include the exchange fee in qty calculation to make sure you don't spend more than the existing capital (in which case Jesse would raise an error):
+In real trading, include the exchange fee. With `fee_rate`, the qty is sized so that hitting the stop-loss loses exactly the percentage you chose to risk, including the fee for entering and the fee for exiting at the stop. When the position would be larger than your capital, it's capped at the capital, leaving room for the opening fee. Pass the fee by name, since the fifth argument is `precision`:
 ```py
 # so instead of
 qty = utils.risk_to_qty(capital, risk_perc, entry, stop)
 
 # it's better to do
-qty = utils.risk_to_qty(capital, risk_perc, entry, stop, self.fee_rate)
+qty = utils.risk_to_qty(capital, risk_perc, entry, stop, fee_rate=self.fee_rate)
 ```
 
 **See Also**: [fee_rate](/docs/strategies/api.html#fee-rate)

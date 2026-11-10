@@ -115,14 +115,14 @@ class MyStrategy(Strategy):
         entry = self.price
         stop  = entry - ta.atr(self.candles) * 2
         from jesse import utils
-        qty = utils.risk_to_qty(self.available_margin, 2, entry, stop, self.fee_rate)
+        qty = utils.risk_to_qty(self.available_margin, 2, entry, stop, fee_rate=self.fee_rate)
         self.buy = qty, entry
 
     def go_short(self):
         entry = self.price
         stop  = entry + ta.atr(self.candles) * 2
         from jesse import utils
-        qty = utils.risk_to_qty(self.available_margin, 2, entry, stop, self.fee_rate)
+        qty = utils.risk_to_qty(self.available_margin, 2, entry, stop, fee_rate=self.fee_rate)
         self.sell = qty, entry
 
     def on_close_position(self, order, closed_trade) -> None:
