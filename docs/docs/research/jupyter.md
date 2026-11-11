@@ -29,3 +29,9 @@ If you are running Jupyter inside a Docker container, or on a remote server, add
 ```
 jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
+
+To use a different port, such as one you exposed in your Docker Compose file, add `--port` with that port number:
+
+```
+jupyter notebook --ip 0.0.0.0 --no-browser --allow-root --port 7888
+```
