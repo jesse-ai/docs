@@ -179,7 +179,8 @@ export default defineConfig({
                 items: [
                     {text: 'Backtesting and Live Trading', link: '/docs/supported-exchanges/'},
                     {text: 'Exchange Limitations', link: '/docs/supported-exchanges/exchange-limitations'},
-                    {text: 'Exchange Setup Guide', link: '/docs/supported-exchanges/exchange-setup-guide'}
+                    {text: 'Exchange Setup Guide', link: '/docs/supported-exchanges/exchange-setup-guide'},
+                    {text: 'Alpaca (US stocks)', link: '/docs/supported-exchanges/alpaca'}
                 ]
             },
             {

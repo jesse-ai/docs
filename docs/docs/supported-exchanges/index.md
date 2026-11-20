@@ -6,7 +6,7 @@ title: 'Supported Exchanges'
 
 Not every exchange provides historical candles that can be used for doing backtesting and research. But they all offer candles for live trading.
 
-Hence, supported exchanges for backtesting and live trading are different. For traditional markets (stocks, forex, indices, futures), you can import historical candles from **third-party data providers** or upload your own CSV files using **Custom Data**. These sources provide data for backtesting only. Live trading requires an account with a supported crypto exchange or broker. Traditional broker integrations are currently being built, starting with **Alpaca**.
+Hence, supported exchanges for backtesting and live trading are different. For traditional markets (stocks, forex, indices, futures), you can import historical candles from **third-party data providers** or upload your own CSV files using **Custom Data**. These sources provide data for backtesting only. Live trading requires an account with a supported crypto exchange or broker. The first supported broker is [Alpaca](./alpaca.md), for US stocks and ETFs, which is in public beta.
 
 ## Backtesting
 
@@ -69,10 +69,10 @@ At the moment these are the supported exchanges for live trading:
 -   [Coinbase Spot (Coinbase Advanced)](https://www.coinbase.com/advanced-trade/spot/BTC-USD) 
 -   [Gate.io Perpetual Futures](https://www.gate.com)
 -   [Gate.io Spot](https://www.gate.com)
--   Alpaca (coming soon)
+-   [Alpaca](./alpaca.md) (US stocks and ETFs, public beta)
 
 ### Traditional markets
 
-Live trading on traditional markets goes through a broker rather than a crypto exchange. An **[Alpaca](https://alpaca.markets)** driver for US stocks is currently under development and will be the first traditional broker Jesse supports. Until it ships, the data providers above are backtest-only, and the closest live option is trading stock-linked instruments on one of the supported crypto exchanges with the [Trading Hours](/docs/strategies/trading-hours) helpers.
+Live trading on traditional markets goes through a broker rather than a crypto exchange. **[Alpaca](./alpaca.md)** is the first broker Jesse supports, for US stocks and ETFs. It is in public beta, so start on its paper account. The data providers above remain backtest-only. For markets Alpaca does not cover, the closest live option is trading stock-linked instruments on one of the supported crypto exchanges with the [Trading Hours](/docs/strategies/trading-hours) helpers.
 
 New exchange drivers are developed based on demand. If we don't already support the one you need, you can sponsor its development to expedite the process. Please reach out to me if you require an unsupported exchange.
