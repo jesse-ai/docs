@@ -470,6 +470,13 @@ Returns whether the exchange your strategy is trading on is a futures exchange.
 **Return Type**: bool
 
 
+## is_margin_trading
+
+Returns whether the exchange your strategy is trading on is a broker margin account, such as `Alpaca Stocks Margin`. On a margin account you can go long and short, and the exchange's **Leverage Cap** setting limits how much leverage the position-sizing helpers use.
+
+**Return Type**: bool
+
+
 ## leverage
 
 The `leverage` property returns the leverage number that you have set in your config file for the exchange you're running inside the strategy. For spot markets, it always returns `1`.

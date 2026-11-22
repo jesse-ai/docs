@@ -16,7 +16,7 @@ Jesse started as a crypto framework, and everything in these docs assumes crypto
 
 **Metrics annualize on 252 observations, not 365.** Sharpe, Sortino, Omega and the annual return are computed with the number of trading days in a year. The default follows the data source and can be switched per session under **Annualization**.
 
-**Live trading is available through supported crypto exchanges that offer tokenized stocks and other instruments tied to traditional markets.** You can use the [Trading Hours](/docs/strategies/trading-hours) helpers to keep entries inside the underlying market's session and off-hours candles out of your indicators. The data providers above supply historical candles for backtesting only. Traditional broker integrations are under development, starting with [Alpaca](https://alpaca.markets) for US stocks.
+**Live trading goes through a broker, or through a crypto exchange that lists traditional-market instruments.** US stocks and ETFs can be traded live through [Alpaca](/docs/supported-exchanges/alpaca), the first broker Jesse supports, which is in public beta. For other markets, the live option is a supported crypto exchange that offers tokenized stocks and other instruments tied to traditional markets. In both cases you can use the [Trading Hours](/docs/strategies/trading-hours) helpers to keep entries inside the market's regular session and off-hours candles out of your indicators. The data providers above supply historical candles for backtesting only.
 
 ## What is supported today
 
@@ -33,7 +33,7 @@ Jesse started as a crypto framework, and everything in these docs assumes crypto
 | Rollover, contract multipliers | Not supported; futures are priced in synthetic units |
 | Several exchanges or data sources in one backtest | Not supported; one source per run |
 | Live trading on tokenized stocks and other traditional-market instruments | Supported through crypto exchanges that offer them |
-| Live trading through traditional brokers | In development, starting with Alpaca |
+| Live trading through traditional brokers | Public beta for US stocks and ETFs through [Alpaca](/docs/supported-exchanges/alpaca) |
 
 ## Where to go next
 

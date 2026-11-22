@@ -15,6 +15,8 @@ Decides what happens to your orders and positions on the exchange when a live se
 - **Disabled:** when the session starts, Jesse cancels the open orders and closes the open positions for your trading routes' symbols, so the strategy begins from a clean slate. When the session stops, it does the same again.
 - **Enabled:** when the session starts, Jesse loads the existing positions and orders from the exchange and continues with them. When the session stops, it leaves them open.
 
+On spot exchanges and on [Alpaca](/docs/supported-exchanges/alpaca), only one of a position's exits can rest on the exchange at a time, so Jesse holds the other one itself. With persistency enabled, a restart also brings back the take-profit or stop-loss that Jesse was holding.
+
 Persistency is not perfect, so be careful when relying on it. It restores what the exchange knows: positions and orders. It does not restore your strategy's own state. Any variables you set inside your strategy start from their initial values again when the session restarts. Write your strategy so it can pick up an existing position correctly, for example by checking `self.position` instead of a variable you set when entering.
 
 Persistency applies to live sessions only. Paper sessions always start fresh.
@@ -24,7 +26,10 @@ Persistency applies to live sessions only. Paper sessions always start fresh.
 - **Enabled:** Jesse receives one-minute candles from the exchange and builds every larger timeframe itself. Your routes can use any timeframe Jesse supports.
 - **Disabled:** Jesse requests each timeframe directly from the exchange, so your routes can only use the timeframes that exchange provides.
 
-This option is available only on exchanges that support backtesting, since those are the ones that provide the historical candles it relies on. It is not available on exchanges such as Hyperliquid, Apex Omni, and Lighter.
+Some exchanges only work one way, and for those the setting is ignored:
+
+- It is always **off** on Hyperliquid, Apex Omni and Lighter. They don't provide the one-minute history it relies on.
+- It is always **on** on [Alpaca](/docs/supported-exchanges/alpaca), which only streams one-minute candles.
 
 ## Logs
 

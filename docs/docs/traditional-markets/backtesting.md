@@ -11,9 +11,12 @@ Only one-minute candles are imported. Bigger timeframes are assembled at run tim
 - A `1h` candle always covers a wall-clock hour. On US stock data the `09:00` candle contains only the minutes from `09:30` to `09:59`, because nothing was observed before the open.
 - A bucket with no observed minute at all does not exist. There is no `03:00` candle on a weekday and no candles on a Saturday.
 - `1D` candles are UTC days, not exchange sessions. A US trading day therefore lands in one UTC-day candle, but the candle's open time is midnight UTC.
-- A bucket that completes while the market is closed, such as the last `15m` candle of a Friday, is finalized when trading resumes and appears in `self.candles` together with the first new candle. Your strategy runs once on that event, not once per bucket that closed during the gap.
+- A bucket that completes while the market is closed, such as the last `15m` candle of a Friday or any `1D` candle of a stock, is finalized when trading resumes and appears in `self.candles` together with the first new candle. Your strategy runs once on that event, not once per bucket that closed during the gap. `self.candles[-2]` is the finished candle and `self.candles[-1]` is the new one, one minute old.
+- The same goes for a bucket whose last minute had no trade: it is finalized, and your strategy runs, when the next candle arrives.
 
 Your strategy is only executed when its own timeframe produces a new candle, so during a closure nothing runs. That is usually what you want; if you also need to keep pre-market and after-hours bars out of your indicators, see [Trading Hours](/docs/strategies/trading-hours).
+
+Live sessions on a stock broker follow the same rules, so a strategy decides at the same moments live as it does in a backtest on the same candles. See [Alpaca](/docs/supported-exchanges/alpaca#market-hours).
 
 ## Resting orders and opening gaps
 
