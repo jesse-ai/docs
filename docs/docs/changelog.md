@@ -7,6 +7,7 @@ Here you can see the changes made with each release of the main framework and th
 If you backtest stocks or other markets that close, re-run your backtests on timeframes above `1m`: your strategy now also runs on candles that end while the market is closed.
 
 - **[NEW]** Added live trading of US stocks and ETFs through [Alpaca](https://alpaca.markets), in public beta. It comes as four exchanges: `Alpaca Stocks Cash` and `Alpaca Stocks Margin` for a real account, and `Alpaca Stocks Cash Paper` and `Alpaca Stocks Margin Paper` for Alpaca's paper account, which are free to use. See [Alpaca](/docs/supported-exchanges/alpaca).
+- **[NEW]** You can install the Jesse dashboard as a Chrome app, which opens in its own window. On a server, it needs a domain served over HTTPS, for example through an Nginx proxy. See [VPS Setup](/docs/vps-setup#install-the-dashboard-as-an-app).
 - **[NEW]** Added a margin account type for brokers, with long and short positions and a leverage cap. Your strategy can check for it with `self.is_margin_trading`.
 
 - **[IMPROVEMENT]** "Generate Candles Locally" is now always on for Alpaca and always off for Hyperliquid, Apex Omni and Lighter, whatever the setting says. Sessions on those exchanges used to stop at startup when it was set the other way.

@@ -124,6 +124,20 @@ If the dashboard does not load, check that the containers are running, the dashb
 
 To connect an AI assistant to your VPS, follow **[MCP remote setup](/docs/mcp/setup#connecting-from-another-machine)**.
 
+## Install the dashboard as an app
+
+You can install the Jesse dashboard as a Chrome app. It then opens in its own window, with its own icon in your dock or taskbar, and shortcuts to Backtest, Live, Strategies and Import Candles.
+
+![The Jesse dashboard installed as a Chrome app, showing a live session](/imgs/live/jesse-chrome-app-optimized.jpeg)
+
+Chrome only offers this for a dashboard served over HTTPS, so a dashboard you open at your server's IP address can't be installed. You need:
+
+- **A domain** that points to your server, such as `jesse.example.com`.
+- **A reverse proxy such as Nginx** in front of Jesse's dashboard port. It has to pass WebSocket connections through, because the dashboard's live updates use them.
+- **An HTTPS certificate** for that domain. [Let's Encrypt](https://letsencrypt.org) gives you one for free.
+
+Once the dashboard opens at `https://jesse.example.com`, click the install icon at the right of Chrome's address bar, or open Chrome's menu and choose to install Jesse. If Jesse runs on your own computer, the same works at `http://localhost:9000` without any of the above.
+
 ## DigitalOcean setup
 
 If you prefer DigitalOcean, you can use the following walkthrough to create a Droplet (DigitalOcean's name for a virtual server), configure its firewall, and install Jesse.
