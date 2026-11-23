@@ -2,6 +2,8 @@
 
 On this page, we'll go through the process of setting up an exchange for live trading.
 
+For [Alpaca](/docs/supported-exchanges/alpaca), the broker for US stocks and ETFs, see the getting started steps on its own page.
+
 ## Apex Pro (our recommended DEX)
 
 Please watch the following video to learn how to set up Apex Pro for live trading on Jesse:

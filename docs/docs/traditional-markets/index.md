@@ -12,7 +12,7 @@ Jesse started as a crypto framework, and everything in these docs assumes crypto
 
 **The data has gaps.** A crypto exchange produces a candle every minute of the year. A stock exchange produces nothing at night, at the weekend or on holidays, and Jesse keeps it that way: only the bars the provider actually observed are stored, and the backtest engine never invents candles to fill a closure. Bigger timeframes are built from the observed minutes, aligned to the clock. Where the provider has pre-market and after-hours bars, those are included too. This changes a few things you may be used to, all covered in [Backtesting on Gapped Data](./backtesting.md).
 
-**You choose how the backtest simulates the market.** Because a provider is not a venue, it carries no fee, leverage or market type of its own. Each backtest session picks a **Simulation Model** (spot, or perpetual futures with leverage) and a **Trading Fee** in the session's exchange settings. The Massive and FMP sources default to spot; `Custom Data` defaults to perpetual futures.
+**You choose how the backtest simulates the market.** Because a provider is not a venue, it carries no fee, leverage or market type of its own. Each backtest session picks a **Simulation Model** (spot, perpetual futures, or a broker margin account) and a **Trading Fee** in the session's exchange settings. The Massive and FMP sources default to spot; `Custom Data` defaults to perpetual futures.
 
 **Metrics annualize on 252 observations, not 365.** Sharpe, Sortino, Omega and the annual return are computed with the number of trading days in a year. The default follows the data source and can be switched per session under **Annualization**.
 
@@ -26,7 +26,7 @@ Jesse started as a crypto framework, and everything in these docs assumes crypto
 | Importing candles from Massive (stocks, currencies, indices, futures) | Supported |
 | Importing candles from a CSV file (`Custom Data`) | Supported |
 | Backtesting, optimization and the research module on gapped data | Supported, detected automatically |
-| Spot or perpetual-futures simulation per session | Supported |
+| Spot, perpetual-futures or margin-account simulation per session | Supported |
 | Split-adjusted stock prices | Default for `FMP Stocks` and `Massive Stocks` |
 | Dividend adjustment | Not supported |
 | Continuous futures prices | Front-month series from `FMP Commodities`; on `Massive Futures` each expiry is its own symbol |
@@ -40,4 +40,5 @@ Jesse started as a crypto framework, and everything in these docs assumes crypto
 - [Importing Data](./importing-data.md): setting up FMP or Massive and the CSV format for `Custom Data`.
 - [Backtesting on Gapped Data](./backtesting.md): what the engine does with closures, opening gaps, warm-up and metrics.
 - [Trading Hours](/docs/strategies/trading-hours): strategy helpers for trading a stock-linked instrument on a 24/7 exchange.
-- [Supported Exchanges](/docs/supported-exchanges/): the full list of crypto exchanges for backtesting and live trading.
+- [Supported Exchanges](/docs/supported-exchanges/): the full list of exchanges and brokers for backtesting and live trading.
+- [Alpaca](/docs/supported-exchanges/alpaca): trading US stocks and ETFs live through a broker, in public beta.

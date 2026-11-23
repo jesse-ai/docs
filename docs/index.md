@@ -71,6 +71,9 @@ features:
     details: Automatic handling of importing candles and cleaning data.
   - title: "📈 First-Class Support for Trading Futures and Spot"
     details: Jesse Offers specialized support for both futures and spot markets.
+  - title: "🏛️ Stocks and Traditional Markets"
+    details: Backtest stocks, forex, indices and commodities on historical data from FMP or Massive, and trade US stocks and ETFs live through Alpaca, now in public beta.
+    link: /docs/traditional-markets/
   - title: "🔐 Support for Decentralized Exchanges (DEX)"
     details: Jesse's support for DEX ensures you can maintain full custody of your assets while trading.
   - title: "🤖 Reinforcement Learning — Coming Soon"

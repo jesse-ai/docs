@@ -53,12 +53,12 @@ A data provider is not a venue, so the session's exchange settings decide how th
 
 | Setting | What it does | Default for FMP and Massive | Default for Custom Data |
 |---|---|---|---|
-| Simulation Model | `spot` (no leverage, no shorting) or `perpetual_futures` (leverage, both directions, liquidation) | spot | perpetual futures |
+| Simulation Model | `spot` (no leverage, no shorting), `perpetual_futures` (leverage, both directions, liquidation) or `margin` (a broker margin account: both directions, a leverage cap, no liquidation price) | spot | perpetual futures |
 | Trading Fee | fee rate applied to every fill | 0 | 0.04% |
 | Annualization | observations per year for annualized metrics | 252 | 252 |
-| Leverage and margin mode | only with `perpetual_futures` | 1x cross | 1x cross |
+| Leverage and margin mode | with `perpetual_futures`; `margin` has a leverage cap and is always cross | 1x cross | 1x cross |
 
-Shorting a stock in a backtest therefore means choosing `perpetual_futures` and accepting perpetual-style margin accounting; there is no stock-borrow model.
+To short a stock in a backtest, choose `margin`, which works like the margin account of a stock broker such as [Alpaca](/docs/supported-exchanges/alpaca). Borrow fees and margin interest are not simulated.
 
 ## Several routes in one run
 
