@@ -25,6 +25,8 @@ If you backtest stocks or other markets that close, re-run your backtests on tim
 - **[FIX]** Web pages you visit can no longer call your Jesse's API from your browser.
 - **[FIX]** The code editor's server now accepts only connections from Jesse itself, so it can no longer be reached from other computers to read files.
 - **[FIX]** Updated Jesse's dependencies to their latest versions, which includes security fixes in several of them.
+- **[FIX]** Stopping a live session with persistency on before its warm-up candles have loaded no longer crashes when a position is already open.
+- **[FIX]** After you change your password, an open dashboard now shows the login page instead of failing to connect.
 - **[FIX]** Prices in logs and notifications are no longer shown one cent too low for some values, such as 713.91 for a fill at 713.92.
 
 ## 3.6.1 (10 November 2026)
