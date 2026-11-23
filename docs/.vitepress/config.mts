@@ -169,6 +169,7 @@ export default defineConfig({
                     {text: 'Installation', link: '/docs/livetrade'},
                     {text: 'Configuration', link: '/docs/live-configuration'},
                     {text: 'VPS Setup', link: '/docs/vps-setup'},
+                    {text: 'Domain and HTTPS', link: '/docs/domain-and-https'},
                     {text: 'Security', link: '/docs/security'},
                     {text: 'Notifications', link: '/docs/notifications'},
                 ]
