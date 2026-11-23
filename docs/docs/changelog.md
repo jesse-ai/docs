@@ -11,11 +11,17 @@ If you backtest stocks or other markets that close, re-run your backtests on tim
 - **[NEW]** Added a margin account type for brokers, with long and short positions and a leverage cap. Your strategy can check for it with `self.is_margin_trading`.
 
 - **[IMPROVEMENT]** "Generate Candles Locally" is now always on for Alpaca and always off for Hyperliquid, Apex Omni and Lighter, whatever the setting says. Sessions on those exchanges used to stop at startup when it was set the other way.
+- **[IMPROVEMENT]** The code editor now goes through the dashboard's own address, so it also works when you open the dashboard from another computer, and a server needs only one port open, 9000, instead of two.
+- **[IMPROVEMENT]** Logins now expire after 30 days without use, and the links the dashboard opens (downloads, chart images, live updates) carry a token that expires within an hour, so a link that ends up in a log can't be reused. Changing your password signs out every browser. Your AI assistant's MCP token is unchanged.
 - **[IMPROVEMENT]** After restarting a live session with persistency on, the take-profit or stop-loss that Jesse was holding for a position on a spot exchange is now restored too.
 
 - **[FIX]** Backtests on stocks and other markets that close now run your strategy on candles that end while the market is closed, such as daily candles and the last `4h` candle of a day. The strategy acts on them when trading resumes. It used to skip them, so a strategy on the `1D` timeframe could go a whole backtest without running.
 - **[FIX]** After restarting a live session with persistency on, changing your stop-loss or take-profit now replaces the restored order instead of adding a second one.
 - **[FIX]** Live sessions on spot exchanges no longer leave take-profit and stop-loss orders listed as queued after their trade has closed.
+- **[FIX]** Ten wrong passwords now lock that address out of the login for 15 minutes, so a password can't be guessed at full speed.
+- **[FIX]** Web pages you visit can no longer call your Jesse's API from your browser.
+- **[FIX]** The code editor's server now accepts only connections from Jesse itself, so it can no longer be reached from other computers to read files.
+- **[FIX]** Updated Jesse's dependencies to their latest versions, which includes security fixes in several of them.
 - **[FIX]** Prices in logs and notifications are no longer shown one cent too low for some values, such as 713.91 for a fill at 713.92.
 
 ## 3.6.1 (10 November 2026)

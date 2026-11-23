@@ -133,6 +133,8 @@ There is no separate MCP port to configure or publish. Assistants connect throug
 
 ### Behind a reverse proxy
 
+[Domain and HTTPS](/docs/domain-and-https) has a complete Nginx setup that does all of the following.
+
 - Use HTTPS for public-internet connections and serve Jesse at the root of its address, such as `https://jesse.example.com`.
 - Forward requests to Jesse's dashboard port, including WebSocket upgrades for `/ws`.
 - Disable response buffering for `/mcp` and allow long-lived responses. With nginx, use `proxy_buffering off;` and an appropriate `proxy_read_timeout`.

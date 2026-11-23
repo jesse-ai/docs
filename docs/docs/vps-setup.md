@@ -60,11 +60,10 @@ Add these **inbound rules** to `jesse-firewall`:
 |---|---|---|---|---|
 | SSH | SSH | TCP | 22 | My IP |
 | Jesse dashboard | Custom TCP | TCP | 9000 | My IP |
-| Jesse code editor (LSP) | Custom TCP | TCP | 9001 | My IP |
 
 **My IP means your computer's public IP address**, not the EC2 instance's IP. AWS represents a single IPv4 address with `/32`, such as `198.51.100.25/32`. Replace the example with your own address. If you connect through a VPN, use its public exit IP.
 
-These are Jesse's default ports. If you change `APP_PORT` or `LSP_PORT` in your project's `.env`, or change Docker's host port mappings, use the corresponding server ports in the firewall.
+Port 9000 is Jesse's default, and it carries the dashboard, the code editor and the MCP endpoint. If you change `APP_PORT` in your project's `.env`, or change Docker's host port mapping, use that port in the firewall instead.
 
 Remove inbound rules allowing **Anywhere-IPv4** (`0.0.0.0/0`) or **Anywhere-IPv6** (`::/0`). Do not expose PostgreSQL (port `5432`) to the internet. No other inbound rules are needed for this setup.
 
@@ -112,17 +111,19 @@ Once connected, follow the **[Docker setup](/docs/getting-started/docker)** on t
 
 From a computer whose public IP is allowed by the firewall, open `http://YOUR_SERVER_PUBLIC_IP:9000` in your browser. Use your configured dashboard port if you changed it.
 
-For an encrypted connection without setting up HTTPS, you can instead forward both ports through SSH:
+For an encrypted connection without setting up HTTPS, you can instead forward the dashboard port through SSH:
 
 ```sh
-ssh -i jesse-live.pem -N -L 9000:localhost:9000 -L 9001:localhost:9001 ubuntu@YOUR_SERVER_PUBLIC_IP
+ssh -i jesse-live.pem -N -L 9000:localhost:9000 ubuntu@YOUR_SERVER_PUBLIC_IP
 ```
 
-Keep that terminal open and visit `http://localhost:9000`. With this approach, you can remove the inbound rules for `9000` and `9001`, leaving only SSH allowed from your IP. Closing the tunnel disconnects your browser; Jesse keeps running on the server.
+Keep that terminal open and visit `http://localhost:9000`. With this approach, you can remove the inbound rule for `9000`, leaving only SSH allowed from your IP. Closing the tunnel disconnects your browser; Jesse keeps running on the server.
 
-If the dashboard does not load, check that the containers are running, the dashboard port matches your configuration, and the attached security group allows your current public IP. If the dashboard works but the editor does not, check the LSP port as well.
+If the dashboard does not load, check that the containers are running, the dashboard port matches your configuration, and the attached security group allows your current public IP. If the dashboard works but the editor does not, check the Jesse terminal for errors from the code editor server.
 
 To connect an AI assistant to your VPS, follow **[MCP remote setup](/docs/mcp/setup#connecting-from-another-machine)**.
+
+To open the dashboard at your own domain over HTTPS instead of the server's IP address, see **[Domain and HTTPS](/docs/domain-and-https)**.
 
 ## Install the dashboard as an app
 
@@ -130,11 +131,7 @@ You can install the Jesse dashboard as a Chrome app. It then opens in its own wi
 
 ![The Jesse dashboard installed as a Chrome app, showing a live session](/imgs/live/jesse-chrome-app-optimized.jpeg)
 
-Chrome only offers this for a dashboard served over HTTPS, so a dashboard you open at your server's IP address can't be installed. You need:
-
-- **A domain** that points to your server, such as `jesse.example.com`.
-- **A reverse proxy such as Nginx** in front of Jesse's dashboard port. It has to pass WebSocket connections through, because the dashboard's live updates use them.
-- **An HTTPS certificate** for that domain. [Let's Encrypt](https://letsencrypt.org) gives you one for free.
+Chrome only offers this for a dashboard served over HTTPS, so a dashboard you open at your server's IP address can't be installed. You need a domain that points to your server, Nginx in front of Jesse, and an HTTPS certificate. **[Domain and HTTPS](/docs/domain-and-https)** walks you through all of it.
 
 Once the dashboard opens at `https://jesse.example.com`, click the install icon at the right of Chrome's address bar, or open Chrome's menu and choose to install Jesse. If Jesse runs on your own computer, the same works at `http://localhost:9000` without any of the above.
 
@@ -166,7 +163,7 @@ Once you've configured everything, click **Create Droplet**.
 
 Once your Droplet is ready, follow the **[DigitalOcean firewall walkthrough](/docs/security#digitalocean-firewall)** to create a cloud firewall and apply it to your Droplet.
 
-Allow inbound TCP ports **22** (SSH), **9000** (the default Jesse dashboard), and **9001** (the default code editor), restricted to **your computer's public IP address**. Use your configured ports if you changed them, and keep outbound traffic allowed so Jesse can reach the exchanges.
+Allow inbound TCP ports **22** (SSH) and **9000** (the default Jesse dashboard), restricted to **your computer's public IP address**. Use your configured ports if you changed them, and keep outbound traffic allowed so Jesse can reach the exchanges.
 
 ### Step 3: Install Jesse
 

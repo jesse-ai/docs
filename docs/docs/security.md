@@ -30,12 +30,9 @@ ufw default allow outgoing
 ufw default deny incoming
 # allow ssh port (22)
 ufw allow ssh
-# Jesse uses two ports: 9001 for the dashboard and 9000 for the LSP server (code editor).
+# Jesse uses one port, 9000, for the dashboard, the code editor and the MCP endpoint.
 # It's best to allow specific IP addresses only.
 # Assuming your IP addresses are 1.1.1.1, 1.1.1.2, and 1.1.1.3, run:
-ufw allow from 1.1.1.1 to any port 9001 proto tcp
-ufw allow from 1.1.1.2 to any port 9001 proto tcp
-ufw allow from 1.1.1.3 to any port 9001 proto tcp
 ufw allow from 1.1.1.1 to any port 9000 proto tcp
 ufw allow from 1.1.1.2 to any port 9000 proto tcp
 ufw allow from 1.1.1.3 to any port 9000 proto tcp
@@ -59,7 +56,7 @@ First, find your local machine's IP address by using a website such as [this one
 
 Now remove the default values saying "Any IPv4" and "Any IPv6" by clicking on them and hitting the backspace button of your keyboard. Then, paste in your local machine's IP address.
 
-We need three rules like this. Set the Protocol to TCP for all of them. One should be port 22 (SSH, so you can still SSH into your server), one should be port 9001 (the Jesse dashboard), and one should be port 9000 (the LSP server that powers the code editor).
+We need two rules like this. Set the Protocol to TCP for both. One should be port 22 (SSH, so you can still SSH into your server), and one should be port 9000 (the Jesse dashboard).
 
 In the end, click on the "CREATE FIREWALL" button.
 
@@ -71,21 +68,20 @@ If you changed your IP address in the future, you can always update the firewall
 
 After your droplet is created, go to the **Networking** section in the DigitalOcean sidebar, scroll down, and click on **Manage Cloud Firewalls**. Then click the **Create Firewall** button.
 
-You need to open three things: SSH access and the two ports Jesse uses.
+You need to open two ports: SSH access and the port Jesse uses.
 
 | Purpose | Port(s) | Recommended Source |
 |---|---|---|
 | SSH | 22 | Your IP address only |
-| Jesse dashboard | 9001 | Your IP address only |
-| Jesse LSP server (code editor) | 9000 | Your IP address only |
+| Jesse dashboard | 9000 | Your IP address only |
 
 ::: warning Security recommendation
-Restricting all three ports to your own IP address is the strongest security posture. If you can't do that for all ports, **at minimum restrict SSH (port 22) to your IP**.
+Restricting both ports to your own IP address is the strongest security posture. If you can't do that for all ports, **at minimum restrict SSH (port 22) to your IP**.
 :::
 
-To add a rule for ports 9000 and 9001, click **Add another** under the inbound rules section. Set the **Type** to **Custom**, the **Protocol** to **TCP**, and enter the port range as `9000-9001`. In the **Sources** field, remove the default "All IPv4 / All IPv6" entries and type in your own IP address instead.
+To add a rule for port 9000, click **Add another** under the inbound rules section. Set the **Type** to **Custom**, the **Protocol** to **TCP**, and enter the port `9000`. In the **Sources** field, remove the default "All IPv4 / All IPv6" entries and type in your own IP address instead.
 
-![DigitalOcean Firewall - Adding inbound rule for ports 9000-9001](/imgs/live/DigitalOcean%20Firewall%20-%20adding%20inbound-optimized.jpeg)
+![DigitalOcean Firewall - Adding an inbound rule](/imgs/live/DigitalOcean%20Firewall%20-%20adding%20inbound-optimized.jpeg)
 
 Do the same for port **22** (SSH), also restricted to your IP.
 
