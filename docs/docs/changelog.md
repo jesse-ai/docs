@@ -2,20 +2,23 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
-## 3.7.0 (unreleased)
+## 3.7.0 (23 November 2026)
 
 If you backtest stocks or other markets that close, re-run your backtests on timeframes above `1m`: your strategy now also runs on candles that end while the market is closed.
 
 - **[NEW]** Added live trading of US stocks and ETFs through [Alpaca](https://alpaca.markets), in public beta. It comes as four exchanges: `Alpaca Stocks Cash` and `Alpaca Stocks Margin` for a real account, and `Alpaca Stocks Cash Paper` and `Alpaca Stocks Margin Paper` for Alpaca's paper account, which are free to use. See [Alpaca](/docs/supported-exchanges/alpaca).
 - **[NEW]** You can install the Jesse dashboard as a Chrome app, which opens in its own window. On a server, it needs a domain served over HTTPS, for example through an Nginx proxy. See [VPS Setup](/docs/vps-setup#install-the-dashboard-as-an-app).
+- **[NEW]** You can trade a Hyperliquid sub-account by adding its address to your Hyperliquid API key.
 - **[NEW]** Added a margin account type for brokers, with long and short positions and a leverage cap. Your strategy can check for it with `self.is_margin_trading`.
 
 - **[IMPROVEMENT]** "Generate Candles Locally" is now always on for Alpaca and always off for Hyperliquid, Apex Omni and Lighter, whatever the setting says. Sessions on those exchanges used to stop at startup when it was set the other way.
 - **[IMPROVEMENT]** The code editor now goes through the dashboard's own address, so it also works when you open the dashboard from another computer, and a server needs only one port open, 9000, instead of two.
 - **[IMPROVEMENT]** Logins now expire after 30 days without use, and the links the dashboard opens (downloads, chart images, live updates) carry a token that expires within an hour, so a link that ends up in a log can't be reused. Changing your password signs out every browser. Your AI assistant's MCP token is unchanged.
+- **[IMPROVEMENT]** Live sessions now find a filled market order faster when the exchange's live updates are late.
 - **[IMPROVEMENT]** After restarting a live session with persistency on, the take-profit or stop-loss that Jesse was holding for a position on a spot exchange is now restored too.
 
 - **[FIX]** Backtests on stocks and other markets that close now run your strategy on candles that end while the market is closed, such as daily candles and the last `4h` candle of a day. The strategy acts on them when trading resumes. It used to skip them, so a strategy on the `1D` timeframe could go a whole backtest without running.
+- **[FIX]** Live sessions on Hyperliquid no longer stop with "The exchange did not respond as expected for order execution" when Hyperliquid confirms a filled market order late.
 - **[FIX]** After restarting a live session with persistency on, changing your stop-loss or take-profit now replaces the restored order instead of adding a second one.
 - **[FIX]** Live sessions on spot exchanges no longer leave take-profit and stop-loss orders listed as queued after their trade has closed.
 - **[FIX]** Ten wrong passwords now lock that address out of the login for 15 minutes, so a password can't be guessed at full speed.
