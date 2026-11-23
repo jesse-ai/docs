@@ -12,8 +12,8 @@ If you backtest stocks or other markets that close, re-run your backtests on tim
 - **[NEW]** Added a margin account type for brokers, with long and short positions and a leverage cap. Your strategy can check for it with `self.is_margin_trading`.
 
 - **[IMPROVEMENT]** "Generate Candles Locally" is now always on for Alpaca and always off for Hyperliquid, Apex Omni and Lighter, whatever the setting says. Sessions on those exchanges used to stop at startup when it was set the other way.
-- **[IMPROVEMENT]** The code editor now goes through the dashboard's own address, so it also works when you open the dashboard from another computer, and a server needs only one port open, 9000, instead of two.
-- **[IMPROVEMENT]** Logins now expire after 30 days without use, and the links the dashboard opens (downloads, chart images, live updates) carry a token that expires within an hour, so a link that ends up in a log can't be reused. Changing your password signs out every browser. Your AI assistant's MCP token is unchanged.
+- **[IMPROVEMENT]** The code editor now works when you open the dashboard from another computer, and a server needs only one port open, 9000, instead of two.
+- **[IMPROVEMENT]** Security patches for the dashboard, and updated dependencies. You now stay logged in for 30 days after your last visit, and changing your password signs out every browser. Your AI assistant's connection is unchanged.
 - **[IMPROVEMENT]** Live sessions now find a filled market order faster when the exchange's live updates are late.
 - **[IMPROVEMENT]** After restarting a live session with persistency on, the take-profit or stop-loss that Jesse was holding for a position on a spot exchange is now restored too.
 
@@ -21,10 +21,6 @@ If you backtest stocks or other markets that close, re-run your backtests on tim
 - **[FIX]** Live sessions on Hyperliquid no longer stop with "The exchange did not respond as expected for order execution" when Hyperliquid confirms a filled market order late.
 - **[FIX]** After restarting a live session with persistency on, changing your stop-loss or take-profit now replaces the restored order instead of adding a second one.
 - **[FIX]** Live sessions on spot exchanges no longer leave take-profit and stop-loss orders listed as queued after their trade has closed.
-- **[FIX]** Ten wrong passwords on your Jesse dashboard's login now lock that address out for 15 minutes, so your password can't be guessed at full speed.
-- **[FIX]** Other websites open in your browser can no longer send requests to your Jesse dashboard. Before, a malicious page could try to log in to a Jesse running on your computer or network.
-- **[FIX]** The server behind the dashboard's code editor now accepts only connections from your Jesse itself, so it can no longer be reached from other computers to read files.
-- **[FIX]** Updated Jesse's dependencies to their latest versions, which includes security fixes in several of them.
 - **[FIX]** Stopping a live session with persistency on before its warm-up candles have loaded no longer crashes when a position is already open.
 - **[FIX]** After you change your password, an open dashboard now shows the login page instead of failing to connect.
 - **[FIX]** Prices in logs and notifications are no longer shown one cent too low for some values, such as 713.91 for a fill at 713.92.
