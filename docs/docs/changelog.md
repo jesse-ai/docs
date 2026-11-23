@@ -21,9 +21,9 @@ If you backtest stocks or other markets that close, re-run your backtests on tim
 - **[FIX]** Live sessions on Hyperliquid no longer stop with "The exchange did not respond as expected for order execution" when Hyperliquid confirms a filled market order late.
 - **[FIX]** After restarting a live session with persistency on, changing your stop-loss or take-profit now replaces the restored order instead of adding a second one.
 - **[FIX]** Live sessions on spot exchanges no longer leave take-profit and stop-loss orders listed as queued after their trade has closed.
-- **[FIX]** Ten wrong passwords now lock that address out of the login for 15 minutes, so a password can't be guessed at full speed.
-- **[FIX]** Web pages you visit can no longer call your Jesse's API from your browser.
-- **[FIX]** The code editor's server now accepts only connections from Jesse itself, so it can no longer be reached from other computers to read files.
+- **[FIX]** Ten wrong passwords on your Jesse dashboard's login now lock that address out for 15 minutes, so your password can't be guessed at full speed.
+- **[FIX]** Other websites open in your browser can no longer send requests to your Jesse dashboard. Before, a malicious page could try to log in to a Jesse running on your computer or network.
+- **[FIX]** The server behind the dashboard's code editor now accepts only connections from your Jesse itself, so it can no longer be reached from other computers to read files.
 - **[FIX]** Updated Jesse's dependencies to their latest versions, which includes security fixes in several of them.
 - **[FIX]** Stopping a live session with persistency on before its warm-up candles have loaded no longer crashes when a position is already open.
 - **[FIX]** After you change your password, an open dashboard now shows the login page instead of failing to connect.
