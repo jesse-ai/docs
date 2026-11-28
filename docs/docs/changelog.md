@@ -2,6 +2,10 @@
 
 Here you can see the changes made with each release of the main framework and the live trading plugin:
 
+## 3.7.1 (28 November 2026)
+
+- **[FIX]** Backtests on the 3.7.0 Docker image, or any install with Matplotlib 3.11, show their performance charts again instead of "Could not generate the performance charts (AttributeError: module 'matplotlib.cm' has no attribute 'get_cmap')". Thanks to LeoGold for reporting it.
+
 ## 3.7.0 (23 November 2026)
 
 If you backtest stocks or other markets that close, re-run your backtests on timeframes above `1m`: your strategy now also runs on candles that end while the market is closed.
